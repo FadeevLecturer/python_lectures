@@ -13,6 +13,9 @@ execute:
     - 'machine_learning/*'
     - 'pandas/*'
     - 'computer_vision/*'
+    - 'numpy/*'
+    - 'scpiy/*'
+    - 'visualization' 
 
 # HTML-specific settings
 html:
@@ -23,10 +26,10 @@ notebook_interface            : "notebook"
 
 only_build_toc_files: true
 
-# Launch button settings
-#repository:
-#  url                         : https://github.com/executablebooks/quantecon-mini-example
-#  path_to_book                : "mini_book"
+Launch button settings
+repository:
+ url                         : https://github.com/FadeevLecturer/python_lectures
+#  path_to_book                : "python_lectures"
 
 # binder:
 #  binderhub_url               : "https://mybinder.org"
