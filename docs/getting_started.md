@@ -11,10 +11,10 @@ kernelspec:
 
 (getting_started)=
 
-# Установка python
+# Установка `python`
 
 
-## python vs Anaconda
+## `python` vs Anaconda
 
 Установить `python` можно сам по себе или в составе дистрибутива. При этом в научной среде не редко предпочитают устанавливать [Anaconda](https://www.anaconda.com/what-is-anaconda/), которая помимо самого `python` включает в себя
 - пакетный менеджер [conda](https://docs.conda.io/en/latest/);
@@ -60,7 +60,7 @@ kernelspec:
 
 После установки запустите приложение `Anaconda Navigator` (обновите его, если выскочит предложение) и вы должны увидеть следующее окно.
 
-```{figure} ../_static/lecture_specific/getting_started/navigator.png
+```{figure} /_static/lecture_specific/getting_started/navigator.png
 ```
 
 ### Обновление
@@ -71,7 +71,7 @@ kernelspec:
 conda update anaconda
 ```
 
-```{figure} ../_static/lecture_specific/getting_started/conda_update.gif
+```{figure} /_static/lecture_specific/getting_started/conda_update.gif
 ```
 
 Больше информации о `conda` можно получить набрав `conda help`.
@@ -84,7 +84,7 @@ conda update anaconda
 python -V
 ```
 
-```{figure} ../_static/lecture_specific/getting_started/conda_test.gif
+```{figure} /_static/lecture_specific/getting_started/conda_test.gif
 ```
 
 В данном примере версия установленного `python` --- 3.9.7.
@@ -109,7 +109,7 @@ python -V
 python -m pip install update pip
 ```
 
-```{figure} ../_static/lecture_specific/getting_started/pip_update.gif
+```{figure} /_static/lecture_specific/getting_started/pip_update.gif
 ```
 
 ### Тестирование работоспособности `python`
@@ -120,8 +120,7 @@ python -m pip install update pip
 python -V
 ```
 
-```{figure} ../_static/lecture_specific/getting_started/python_test.gif
+```{figure} /_static/lecture_specific/getting_started/python_test.gif
 ```
 (python_hello_world)=
 
-## Hello world
