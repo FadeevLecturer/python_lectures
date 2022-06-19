@@ -3,12 +3,12 @@
 
 <svg
    width="144.21452mm"
-   height="55.282864mm"
-   viewBox="0 0 144.21452 55.282862"
+   height="39.572353mm"
+   viewBox="0 0 144.21452 39.572352"
    version="1.1"
    id="svg5"
-   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
-   sodipodi:docname="a42.svg"
+   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   sodipodi:docname="a_int.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -28,22 +28,22 @@
      fit-margin-right="0"
      fit-margin-bottom="0"
      inkscape:snap-midpoints="true"
-     inkscape:zoom="0.98520767"
-     inkscape:cx="493.80452"
-     inkscape:cy="41.615591"
-     inkscape:window-width="1920"
-     inkscape:window-height="986"
-     inkscape:window-x="-11"
-     inkscape:window-y="-11"
+     inkscape:zoom="1.8101934"
+     inkscape:cx="386.42281"
+     inkscape:cy="103.85631"
+     inkscape:window-width="1680"
+     inkscape:window-height="987"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1"
-     inkscape:snap-object-midpoints="true"
+     inkscape:snap-object-midpoints="false"
      inkscape:snap-intersection-paths="false"
      inkscape:snap-others="true"
      inkscape:snap-bbox="true"
      inkscape:snap-bbox-midpoints="true"
      inkscape:snap-smooth-nodes="false"
-     inkscape:object-nodes="true"
+     inkscape:object-nodes="false"
      inkscape:snap-center="true" />
   <defs
      id="defs2">
@@ -73,12 +73,6 @@
        width="198.80943"
        height="96.892685"
        id="rect9657-1" />
-    <rect
-       x="84.691383"
-       y="55.264717"
-       width="198.80943"
-       height="96.892685"
-       id="rect9657-1-3" />
   </defs>
   <g
      inkscape:label="Слой 1"
@@ -86,8 +80,8 @@
      id="layer1"
      transform="translate(-35.849119,-80.896416)">
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.40843;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="M 107.86189,80.896416 V 136.17928"
+       style="fill:none;stroke:#000000;stroke-width:0.345556;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 107.86189,80.896416 V 120.46877"
        id="path1447"
        sodipodi:nodetypes="cc" />
     <text
@@ -119,7 +113,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.3333px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;white-space:pre;shape-inside:url(#rect9657);fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="84.691406"
          y="88.403441"
-         id="tspan36200">a</tspan></text>
+         id="tspan893">a</tspan></text>
     <g
        id="g28338"
        transform="translate(7.906,8.7990138)">
@@ -130,7 +124,7 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.3333px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;white-space:pre;shape-inside:url(#rect9657-1);fill:#000000;fill-opacity:1;stroke:none"><tspan
            x="84.691406"
            y="88.403441"
-           id="tspan36202">int: 0</tspan></text>
+           id="tspan895">int: 0</tspan></text>
       <rect
          style="fill:none;fill-opacity:0.822526;fill-rule:evenodd;stroke:none;stroke-width:0.934034;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect17120"
@@ -145,29 +139,6 @@
          height="11.773657"
          x="120.65473"
          y="92.834717" />
-      <g
-         id="g33453"
-         transform="translate(0.48107148,-8.9566725)">
-        <rect
-           style="fill:none;fill-opacity:0.822526;fill-rule:evenodd;stroke:#000000;stroke-width:0.765;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           id="rect17224-8"
-           width="30.383631"
-           height="11.773657"
-           x="120.17366"
-           y="120.59315" />
-        <text
-           xml:space="preserve"
-           transform="matrix(0.26458333,0,0,0.26458333,100.25824,106.45162)"
-           id="text9655-2-4"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.3333px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;white-space:pre;shape-inside:url(#rect9657-1-3);fill:#000000;fill-opacity:1;stroke:none"><tspan
-             x="84.691406"
-             y="88.403441"
-             id="tspan36204">int: 42</tspan></text>
-      </g>
-      <path
-         style="fill:none;stroke:none;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         d="M 99.955888,72.097402 H 172.14924"
-         id="path33521" />
     </g>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -175,9 +146,8 @@
        id="path28689"
        inkscape:label="path28689" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.287717px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
-       d="m 75.881021,107.17965 46.957879,17.06334 3.75118,1.36309 1.91966,0.69757"
-       id="path31444"
-       sodipodi:nodetypes="cccc" />
+       style="fill:none;stroke:#000000;stroke-width:0.253534px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="M 76.536676,107.52056 H 127.80114"
+       id="path31444" />
   </g>
 </svg>
