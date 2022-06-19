@@ -27,10 +27,15 @@ notebook_interface            : "notebook"
 only_build_toc_files: true
 
 # Launch button settings
-# repository:
-#  url                         : https://github.com/FadeevLecturer/python_lectures
-#  path_to_book                : "python_lectures"
-
+repository:
+  url: https://github.com/FadeevLecturer/python_lectures
+  branch: main 
+html:
+  use_repository_button: true
+  use_issues_button: true
+  use_edit_page_button: true
+launch_buttons:
+  colab_url: "https://colab.research.google.com"
 # binder:
 #  binderhub_url               : "https://mybinder.org"
 #  text                        : "Launch binder"
