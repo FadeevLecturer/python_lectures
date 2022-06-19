@@ -1,0 +1,1329 @@
+
+<!DOCTYPE html>
+
+<html>
+  
+<head>
+    <link rel="icon" type="image/png" href="..\..\favicon.png"/>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Виджеты и макеты &#8212; Практикум по компьютерным технологиям</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Кнопки" href="buttons.html" />
+    <link rel="prev" title="Слоты и сигналы" href="slot_signal.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/python-logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Практикум по компьютерным технологиям</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/index.html">
+   Практикум по компьютерным технологиям на языке программирования python3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №1
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/about_py.html">
+   О питоне
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/getting_started.html">
+   Установка python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/python_as_calculator.html">
+   Python в качестве калькулятора
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/jupyter_notebooks.html">
+   Что такое Jupyter Notebooks?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/first_notebook.html">
+   Основы работы с Jupyter Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/numbers_and_lists.html">
+   Основные типы объектов в python. Числа и списки
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/if_for_range.html">
+   Операторы потока управления
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/interpretability.html">
+   Компилируемость vs Интерпретируемость
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/dynamic_typing.html">
+   Динамическая типизация
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/mutability.html">
+   Изменяемые и неизменяемый типы объектов
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/garbage_collector.html">
+   Создание и удаление объектов. Сборщик мусора
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/sequencies.html">
+   Последовательности: списки, кортежи и строки
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №3
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/libs_pypi_conda.html">
+   Сторонние библиотеки и пакетные менеджеры
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/numpy.html">
+   Знакомство с NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/vectorization.html">
+   Векторизация
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/slices.html">
+   Срезы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/vector_product.html">
+   Умножение векторов
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/logic.html">
+   Логические операции, булевые маски
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/vectorization_example.html">
+   Векторизация на примере вычисления статистик
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/homework.html">
+   Домашнее задание №2
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №4
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/dictionaries.html">
+   Словари.
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     dict
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/functions.html">
+   Функции
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/files.html">
+   Работа с файлами
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/json.html">
+   Формат json
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №5
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/matplotlib.html">
+   matplotlib и другие графические библиотеки
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/matplotlib_animation.html">
+   Анимация  в matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/scipy.html">
+   SciPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/linalg.html">
+   Линейная алгебра
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/interpolation_approx.html">
+   Интерполяция функций, аппроксимация функций
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/integration.html">
+   Определенные интегралы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/ODE.html">
+   Решение ОДУ
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/optimization.html">
+   Оптимизация
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/nonlinear_equations.html">
+   Решение нелинейных уравнений
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/cannonball.html">
+   Пример
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/homework.html">
+   Домашнее задание №3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №6
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/python_scripts.html">
+   Создание скриптов. Работа с IDE
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/scripts_vs_modules.html">
+   Скрипты и модули
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/argparse.html">
+   Аргументы командной строки
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №7
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/pandas.html">
+   pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/series.html">
+   pd.Series
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/dataframe.html">
+   pd.DataFrame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/datetime.html">
+   Дата и время
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/covid19.html">
+   Обзор базовых возможностей pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/homework.html">
+   Домашнее задание №4
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №8
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/list_comprehensions.html">
+   Основы списковых включений
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/iterators.html">
+   Итераторы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/decorators.html">
+   Декораторы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/generators.html">
+   Генераторы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/exercises1.html">
+   Практические задания
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №9
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/custom_classes.html">
+   Пользовательские классы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/inheritance.html">
+   Наследование
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/polymorphism.html">
+   Полиморфизм в python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/operators_overloading.html">
+   Перегрузка специальных методов и операторов
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/exercises2.html">
+   Практические задания
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №10
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/exceptions.html">
+   Исключения
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/custom_exceptions.html">
+   Пользовательские исключения
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/LBYL_vs_EAFP.html">
+   Стратегии контроля ошибок
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/exercises3.html">
+   Практические задания
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №11
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="gui.html">
+   Графический пользовательский интерфейс
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="basics.html">
+   PySide. Основы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="event.html">
+   События
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="slot_signal.html">
+   Слоты и сигналы
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Виджеты и макеты
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="buttons.html">
+   Кнопки
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="output.html">
+   Вывод данных
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="input.html">
+   Ввод данных
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dialogs.html">
+   Диалоговые окна
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exercises4.html">
+   Практические задания
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекции №12 и далее
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/about_12_and_so_on.html">
+   О последних лекциях
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../computer_vision/basics.html">
+   Работа с изображениями
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../computer_vision/filters.html">
+   Свёрточные операции
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../computer_vision/detection.html">
+   Задача обнаружения
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine_learning/regression.html">
+   Регрессия
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine_learning/classification.html">
+   Классификация
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine_learning/neural_networks.html">
+   Нейронный сети
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/notebooks/qt/widgets.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/FadeevLecturer/python_lectures"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/FadeevLecturer/python_lectures/issues/new?title=Issue%20on%20page%20%2Fnotebooks/qt/widgets.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/FadeevLecturer/python_lectures/edit/main/notebooks/qt/widgets.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Виджеты
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   Макеты
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Без макета
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Центральный виджет
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#qvboxlayout-qhboxlayout">
+     Вертикальные и горизонтальные макеты.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       QVBoxLayout
+      </span>
+     </code>
+     и
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       QHBoxLayout
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#qgridlayout">
+     Макет-таблица.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       QGridLayout
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#qformlayout">
+     Макет-анкета.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       QFormLayout
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#qtabwidget">
+     Вкладки. Виджет
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       QTabWidget
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Виджеты и макеты</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Виджеты
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   Макеты
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Без макета
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Центральный виджет
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#qvboxlayout-qhboxlayout">
+     Вертикальные и горизонтальные макеты.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       QVBoxLayout
+      </span>
+     </code>
+     и
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       QHBoxLayout
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#qgridlayout">
+     Макет-таблица.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       QGridLayout
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#qformlayout">
+     Макет-анкета.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       QFormLayout
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#qtabwidget">
+     Вкладки. Виджет
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       QTabWidget
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1>Виджеты и макеты<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>Виджеты<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QWidget.html#more">Виджеты</a> — атомы графического интерфейса. Виджет принимает события мыши, клавиатуры и другие события от системы, виджет рисует себя на экране.</p>
+<p>Виджеты не встроенные в родительский виджет называют окнами (<code class="docutils literal notranslate"><span class="pre">window</span></code>). Обычно у окон есть рамка и заголовочная планка, хотя и это тоже можно кастомизировать. Почти все встречаемые окна — это или <code class="docutils literal notranslate"><span class="pre">QMainWindow</span></code> или диалоговое окно (обычно производный класс от класса <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QDialog.html#qdialog">QDialog</a>), про которые речь пойдет позже.</p>
+<p>Конструктор любого виджета принимает параметр <code class="docutils literal notranslate"><span class="pre">parent</span></code>, который и отвечает за то, будет ли этот виджет встроенным в родительский виджет (в качестве <code class="docutils literal notranslate"><span class="pre">parent</span></code> передан какой-то другой виджет) или независимым окном (значение по умолчанию <code class="docutils literal notranslate"><span class="pre">parent=None</span></code>). Родительский виджет можно назначить в любой момент методом <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QWidget.html#PySide6.QtWidgets.PySide6.QtWidgets.QWidget.setParent">setParent</a>. Если виджет добавляется в макет (<code class="docutils literal notranslate"><span class="pre">layout</span></code>) другого виджета, то метод <code class="docutils literal notranslate"><span class="pre">setParent</span></code> вызывается автоматически и виджет становится встроенным.</p>
+<p>Большинство виджетов в <code class="docutils literal notranslate"><span class="pre">Qt</span></code> предназначено для использования в качестве встроенных дочерних виджетов (<code class="docutils literal notranslate"><span class="pre">child</span> <span class="pre">widget</span></code>).</p>
+<div class="figure align-default">
+<img alt="../../_images/parent_child_widgets.png" src="../../_images/parent_child_widgets.png" />
+</div>
+<p>Все виджеты наследуются от <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QWidget.html#more">QWidget</a> и наследуют от него ряд методов. Например,</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QWidget.html#PySide6.QtWidgets.PySide6.QtWidgets.QWidget.hide">hide</a> (скрыть) и <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QWidget.html#PySide6.QtWidgets.PySide6.QtWidgets.QWidget.show">show</a> (показать);</p></li>
+<li><p><a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QWidget.html#PySide6.QtWidgets.PySide6.QtWidgets.QWidget.setEnabled">setEnabled</a> (установить активным) и <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QWidget.html#PySide6.QtWidgets.PySide6.QtWidgets.QWidget.setDisabled">setDisabled</a> (установить неактивным);</p></li>
+</ul>
+<p>Следующий пример демонстрирует эффект применения этих методов.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+
+<span class="kn">from</span> <span class="nn">PySide6.QtGui</span> <span class="kn">import</span> <span class="n">Qt</span>
+<span class="kn">from</span> <span class="nn">PySide6.QtWidgets</span> <span class="kn">import</span> <span class="o">*</span>
+
+
+<span class="k">class</span> <span class="nc">MainWindow</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="n">widget</span> <span class="o">=</span> <span class="n">QWidget</span><span class="p">()</span>
+        <span class="n">main_layout</span> <span class="o">=</span> <span class="n">QVBoxLayout</span><span class="p">()</span>
+        <span class="n">widget</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="n">main_layout</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span>
+
+        <span class="c1"># top row</span>
+        <span class="n">button</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s2">&quot;Button&quot;</span><span class="p">)</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="s2">&quot;Label&quot;</span><span class="p">)</span>
+        <span class="n">label</span><span class="o">.</span><span class="n">setAlignment</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">AlignCenter</span><span class="p">)</span>
+        <span class="n">edit</span> <span class="o">=</span> <span class="n">QLineEdit</span><span class="p">()</span>
+
+        <span class="c1"># bottom row</span>
+        <span class="n">enable_button</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s2">&quot;Enable&quot;</span><span class="p">)</span>
+        <span class="n">disable_button</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s2">&quot;Disable&quot;</span><span class="p">)</span>
+        <span class="n">show_button</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s2">&quot;Show&quot;</span><span class="p">)</span>
+        <span class="n">hide_button</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s2">&quot;Hide&quot;</span><span class="p">)</span>
+
+        <span class="c1"># layout</span>
+
+        <span class="n">top_layout</span> <span class="o">=</span> <span class="n">QHBoxLayout</span><span class="p">()</span>
+        <span class="n">top_layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">button</span><span class="p">)</span>
+        <span class="n">top_layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+        <span class="n">top_layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">edit</span><span class="p">)</span>
+        <span class="n">main_layout</span><span class="o">.</span><span class="n">addLayout</span><span class="p">(</span><span class="n">top_layout</span><span class="p">)</span>
+
+        <span class="n">bottom_layout</span> <span class="o">=</span> <span class="n">QHBoxLayout</span><span class="p">()</span>
+        <span class="n">bottom_layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">enable_button</span><span class="p">)</span>
+        <span class="n">bottom_layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">disable_button</span><span class="p">)</span>
+        <span class="n">bottom_layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">show_button</span><span class="p">)</span>
+        <span class="n">bottom_layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">hide_button</span><span class="p">)</span>
+        <span class="n">main_layout</span><span class="o">.</span><span class="n">addLayout</span><span class="p">(</span><span class="n">bottom_layout</span><span class="p">)</span>
+
+        <span class="c1"># connections</span>
+        <span class="k">for</span> <span class="n">widget</span> <span class="ow">in</span> <span class="p">[</span><span class="n">button</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">edit</span><span class="p">]:</span>
+            <span class="n">enable_button</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="n">setEnabled</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>
+            <span class="n">disable_button</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="n">setDisabled</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>
+            <span class="n">show_button</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="n">show</span><span class="p">)</span>
+            <span class="n">hide_button</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="n">hide</span><span class="p">)</span>
+
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+<span class="n">main_window</span> <span class="o">=</span> <span class="n">MainWindow</span><span class="p">()</span>
+<span class="n">main_window</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">app</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Сверху размещаются пара виджетов, видимость и активность которых управляется кнопками в нижнем ряду.</p>
+<div class="figure align-default">
+<img alt="../../_images/disable_hide_1.png" src="../../_images/disable_hide_1.png" />
+</div>
+<p>Связывание сигналов происходит в этом цикле:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">widget</span> <span class="ow">in</span> <span class="p">[</span><span class="n">button</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">edit</span><span class="p">]:</span>
+    <span class="n">enable_button</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="n">setEnabled</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>
+    <span class="n">disable_button</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="n">setDisabled</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>
+    <span class="n">show_button</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="n">show</span><span class="p">)</span>
+    <span class="n">hide_button</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="n">hide</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Так, как методы <code class="docutils literal notranslate"><span class="pre">setEnabled</span></code> и <code class="docutils literal notranslate"><span class="pre">setDisabled</span></code> принимают в качестве параметра <code class="docutils literal notranslate"><span class="pre">True</span></code> или <code class="docutils literal notranslate"><span class="pre">False</span></code>, то в качестве слота передаётся не сам метод, а объект <a class="reference external" href="https://docs.python.org/3/library/functools.html#functools.partial">partial</a> из модуля <a class="reference external" href="https://docs.python.org/3/library/functools.html">functools</a>, связывающий первый и единственный параметр метода со значением <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<p>Нажатие на кнопку <code class="docutils literal notranslate"><span class="pre">Disable</span></code> деактивирует все виджеты в верхней строке.</p>
+<div class="figure align-default">
+<img alt="../../_images/disable_hide_2.png" src="../../_images/disable_hide_2.png" />
+</div>
+<p>Нажатие на кнопку <code class="docutils literal notranslate"><span class="pre">Hide</span></code> скроет все виджеты в верхней строке.</p>
+<div class="figure align-default">
+<img alt="../../_images/disable_hide_3.png" src="../../_images/disable_hide_3.png" />
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Элементы нижней строки виджетов подтягиваются наверх при скрытии элементов верхней строки, так как эти строки виджетов помещены в вертикальный <code class="docutils literal notranslate"><span class="pre">layout</span></code>, который динамически старается выделить виджетам как можно больше пространства.</p>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>Макеты<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Чтобы располагать виджеты внутри главного окна или внутри другого виджета, обычно используют макеты (<code class="docutils literal notranslate"><span class="pre">layout</span></code>). Чтобы изучить особенности ряда встроенных макетов определим виджет <code class="docutils literal notranslate"><span class="pre">ColorWidget</span></code>, который принимает цвет в качестве параметра при создании и заливает свой фон полностью указанным цветом. Добиться такого эффекта можно, например, следующим кодом.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PySide6.QtGui</span> <span class="kn">import</span> <span class="n">QColor</span><span class="p">,</span> <span class="n">QPalette</span>
+<span class="kn">from</span> <span class="nn">PySide6.QtWidgets</span> <span class="kn">import</span> <span class="n">QWidget</span>
+
+<span class="n">rainbow_colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Red&quot;</span><span class="p">,</span> <span class="s2">&quot;Orange&quot;</span><span class="p">,</span> <span class="s2">&quot;Yellow&quot;</span><span class="p">,</span> <span class="s2">&quot;Green&quot;</span><span class="p">,</span> <span class="s2">&quot;Blue&quot;</span><span class="p">,</span> <span class="s2">&quot;Magenta&quot;</span><span class="p">,</span> <span class="s2">&quot;Violet&quot;</span><span class="p">]</span>
+
+
+<span class="k">class</span> <span class="nc">ColorWidget</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setAutoFillBackground</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">palette</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">palette</span><span class="p">()</span>
+        <span class="n">palette</span><span class="o">.</span><span class="n">setColor</span><span class="p">(</span><span class="n">QPalette</span><span class="o">.</span><span class="n">Window</span><span class="p">,</span> <span class="n">QColor</span><span class="p">(</span><span class="n">color</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setPalette</span><span class="p">(</span><span class="n">palette</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Единственная функция этого виджета — занимать пространство, чтобы иллюстрировать, как работает тот или иной макет. Во всех следующих примерах предполагается, что файл с этим исходным кодом располагается в той же папке с именем <code class="docutils literal notranslate"><span class="pre">colorwidget.py</span></code>.</p>
+<div class="section" id="id4">
+<h3>Без макета<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Прежде чем изучать предлагаемые <code class="docutils literal notranslate"><span class="pre">Qt</span></code> макеты, покажем в чем их польза. Вообще говоря, без макетов можно обойтись. Тогда необходимо придерживаться следующих правил:</p>
+<ul class="simple">
+<li><p>при создании (или после создания методом <a class="reference external" href="%5BsetParent%5D(https://doc.qt.io/qtforpython/PySide6/QtWidgets/QWidget.html#PySide6.QtWidgets.PySide6.QtWidgets.QWidget.setParent)">setParent</a>) виджета указывать в качестве родителя (<code class="docutils literal notranslate"><span class="pre">parent</span></code>) виджет, внутри которого необходимо отображать создаваемый виджет;</p></li>
+<li><p>вызывать метод <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QWidget.html#PySide6.QtWidgets.PySide6.QtWidgets.QWidget.setGeometry">setGeometry</a> и передать ему в качестве аргумента:</p>
+<ul>
+<li><p>координаты <span class="math notranslate nohighlight">\(x\)</span> и <span class="math notranslate nohighlight">\(y\)</span> левого верхнего угла в системе координат родительского виджета (весь экран для виджет без родителя) в пикселях;</p></li>
+<li><p>высоту <span class="math notranslate nohighlight">\(h\)</span> и ширину <span class="math notranslate nohighlight">\(w\)</span> виджета в пикселях.</p></li>
+</ul>
+</li>
+</ul>
+<p>В качестве примера создадим тройку виджетов в таком стиле.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">from</span> <span class="nn">PySide6.QtWidgets</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="kn">from</span> <span class="nn">colorwidget</span> <span class="kn">import</span> <span class="n">ColorWidget</span>
+
+
+<span class="k">class</span> <span class="nc">MainWindow</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+
+        <span class="n">red</span> <span class="o">=</span> <span class="n">ColorWidget</span><span class="p">(</span><span class="s2">&quot;Red&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">red</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+        <span class="n">green</span> <span class="o">=</span> <span class="n">ColorWidget</span><span class="p">(</span><span class="s2">&quot;Green&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">green</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+        <span class="n">blue</span> <span class="o">=</span> <span class="n">ColorWidget</span><span class="p">(</span><span class="s2">&quot;Blue&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">blue</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+<span class="n">main_window</span> <span class="o">=</span> <span class="n">MainWindow</span><span class="p">()</span>
+<span class="n">main_window</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">app</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../../_images/no_layout.png" src="../../_images/no_layout.png" />
+</div>
+<p>Есть несколько недостатков такого подхода, среди которых:</p>
+<ul class="simple">
+<li><p>при указании координат можно ошибиться с координатами;</p></li>
+<li><p>положения и размеры таких виджетов фиксированы в абсолютных единицах измерения — в пикселях, а значит на экране с другим разрешением такое приложение может выглядеть хуже;</p></li>
+<li><p>изменение размеров родительского виджета по умолчанию никак не повлияет на размеры и положения его дочерних виджетов.</p></li>
+</ul>
+<p>Все эти недостатки можно нивелировать, используя макеты.</p>
+</div>
+<div class="section" id="id5">
+<h3>Центральный виджет<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>У главного окна <code class="docutils literal notranslate"><span class="pre">QMainWindow</span></code> имеется свой уникальный макет, который позволяет легко добавлять к нему <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QMainWindow.html#creating-menus">меню</a>, <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QMainWindow.html#creating-toolbars">панель инструментов</a>, <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QMainWindow.html#creating-dock-widgets">закрепляемые виджеты</a> и другое. В связи с этим у <code class="docutils literal notranslate"><span class="pre">QMainWindow</span></code> нельзя поменять макет на произвольный другой и, чтобы добавлять в него виджеты, необходимо использовать центральный виджет. Если виджет всего один, то можно прямо его и установить в качестве центрального. Код ниже демонстрирует это.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">from</span> <span class="nn">PySide6.QtWidgets</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="kn">from</span> <span class="nn">colorwidget</span> <span class="kn">import</span> <span class="n">ColorWidget</span>
+
+
+<span class="k">class</span> <span class="nc">MainWindow</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+        <span class="n">widget</span> <span class="o">=</span> <span class="n">ColorWidget</span><span class="p">(</span><span class="s2">&quot;Blue&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span>
+
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+<span class="n">main_window</span> <span class="o">=</span> <span class="n">MainWindow</span><span class="p">()</span>
+<span class="n">main_window</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">app</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../../_images/central_widget.png" src="../../_images/central_widget.png" />
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Заметьте, что этот виджет занимает всё доступное ему пространство даже при изменении размеров окна, т.к. метод <code class="docutils literal notranslate"><span class="pre">setCentralWidget</span></code> помещает его в макет главного окна.</p>
+</div>
+<p>Если виджетов в окне должно быть несколько, то чаще всего в качестве центрального виджета устанавливается пустой виджет <code class="docutils literal notranslate"><span class="pre">QWidget</span></code>, а уже внутри него размещаются необходимые виджеты в макете. При этом <code class="docutils literal notranslate"><span class="pre">Qt</span></code> предоставляет разные макеты на такие случаи.</p>
+</div>
+<div class="section" id="qvboxlayout-qhboxlayout">
+<h3>Вертикальные и горизонтальные макеты. <code class="docutils literal notranslate"><span class="pre">QVBoxLayout</span></code> и <code class="docutils literal notranslate"><span class="pre">QHBoxLayout</span></code><a class="headerlink" href="#qvboxlayout-qhboxlayout" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QVBoxLayout.html">QVBoxLayout</a> располагает виджеты вертикальной <code class="docutils literal notranslate"><span class="pre">стопкой</span></code>, а <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QHBoxLayout.html">QHBoxLayout</a> — горизонтальной. Их работа уже коротко демонстрировалась.</p>
+<p>Все макеты создаются пустым и затем в них добавляются виджеты методом <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QBoxLayout.html#PySide6.QtWidgets.PySide6.QtWidgets.QBoxLayout.addWidget">addWidget</a>.</p>
+<p>Код ниже демонстрирует поведение макетов <code class="docutils literal notranslate"><span class="pre">QHBoxLayout</span></code> и <code class="docutils literal notranslate"><span class="pre">QVBoxLayout</span></code>, добавляя в них виджеты <code class="docutils literal notranslate"><span class="pre">ColorWidget</span></code> 7 цветов радуги.</p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="fab96693-1d94-42a2-910f-7ab5f9b92034" name="e737bf42-6ee1-4443-8d28-021d5bfb15bd" type="radio">
+</input><label class="tabbed-label" for="fab96693-1d94-42a2-910f-7ab5f9b92034">
+QHBoxLayout</label><div class="tabbed-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">from</span> <span class="nn">PySide6.QtWidgets</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="kn">from</span> <span class="nn">colorwidget</span> <span class="kn">import</span> <span class="n">ColorWidget</span><span class="p">,</span> <span class="n">rainbow_colors</span>
+
+
+<span class="k">class</span> <span class="nc">MainWindow</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="n">widget</span> <span class="o">=</span> <span class="n">QWidget</span><span class="p">()</span>
+        <span class="n">layout</span> <span class="o">=</span> <span class="n">QHBoxLayout</span><span class="p">()</span>
+        <span class="n">widget</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="n">layout</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">rainbow_colors</span><span class="p">:</span>
+            <span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">ColorWidget</span><span class="p">(</span><span class="n">color</span><span class="p">))</span>
+
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+<span class="n">main_window</span> <span class="o">=</span> <span class="n">MainWindow</span><span class="p">()</span>
+<span class="n">main_window</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">app</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../../_images/horizontal_rainbow.png" src="../../_images/horizontal_rainbow.png" />
+</div>
+</div>
+<input id="684a1348-eca3-45f2-aa15-10aeadaf9fc2" name="e737bf42-6ee1-4443-8d28-021d5bfb15bd" type="radio">
+</input><label class="tabbed-label" for="684a1348-eca3-45f2-aa15-10aeadaf9fc2">
+QVBoxLayout</label><div class="tabbed-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">from</span> <span class="nn">PySide6.QtWidgets</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="kn">from</span> <span class="nn">colorwidget</span> <span class="kn">import</span> <span class="n">ColorWidget</span><span class="p">,</span> <span class="n">rainbow_colors</span>
+
+
+<span class="k">class</span> <span class="nc">MainWindow</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="n">widget</span> <span class="o">=</span> <span class="n">QWidget</span><span class="p">()</span>
+        <span class="n">layout</span> <span class="o">=</span> <span class="n">QVBoxLayout</span><span class="p">()</span>
+        <span class="n">widget</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="n">layout</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">rainbow_colors</span><span class="p">:</span>
+            <span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">ColorWidget</span><span class="p">(</span><span class="n">color</span><span class="p">))</span>
+
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+<span class="n">main_window</span> <span class="o">=</span> <span class="n">MainWindow</span><span class="p">()</span>
+<span class="n">main_window</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">app</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../../_images/vertical_rainbow.png" src="../../_images/vertical_rainbow.png" />
+</div>
+</div>
+</div>
+<p>Макет старается максимально распределить виджеты по всему доступному ему пространству. При распределении пространства он учитывает два фактора:</p>
+<ul class="simple">
+<li><p>параметр <code class="docutils literal notranslate"><span class="pre">stretch</span></code>, который отвечает за то, какая доля свободного пространства какому элементу макета отведется;</p></li>
+<li><p>политику размеров самого виджета и ограничения на размер самого виджета, которые можно выставить такими методами <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QWidget.html#PySide6.QtWidgets.PySide6.QtWidgets.QWidget.setMinimumHeight">setMinimumHeight</a>, <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QWidget.html#PySide6.QtWidgets.PySide6.QtWidgets.QWidget.setMaximumHeight">setMaximumHeight</a>, <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QWidget.html#PySide6.QtWidgets.PySide6.QtWidgets.QWidget.setMinimumWidth">setMinimumWidth</a> и <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QWidget.html#PySide6.QtWidgets.PySide6.QtWidgets.QWidget.setMaximumWidth">setMaximumWidth</a>.</p></li>
+</ul>
+<p>Код ниже демонстрирует, как эти параметры управляют распределением пространства.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">from</span> <span class="nn">PySide6.QtWidgets</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="kn">from</span> <span class="nn">colorwidget</span> <span class="kn">import</span> <span class="n">ColorWidget</span>
+
+
+<span class="k">class</span> <span class="nc">MainWindow</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="n">widget</span> <span class="o">=</span> <span class="n">QWidget</span><span class="p">()</span>
+        <span class="n">layout</span> <span class="o">=</span> <span class="n">QHBoxLayout</span><span class="p">()</span>
+        <span class="n">widget</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="n">layout</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span>
+
+        <span class="n">red</span> <span class="o">=</span> <span class="n">ColorWidget</span><span class="p">(</span><span class="s2">&quot;Red&quot;</span><span class="p">)</span>
+        <span class="n">red</span><span class="o">.</span><span class="n">setMinimumWidth</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+        <span class="n">red</span><span class="o">.</span><span class="n">setMaximumWidth</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+        <span class="n">violet</span> <span class="o">=</span> <span class="n">ColorWidget</span><span class="p">(</span><span class="s2">&quot;Violet&quot;</span><span class="p">)</span>
+        <span class="n">violet</span><span class="o">.</span><span class="n">setMinimumWidth</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+        <span class="n">violet</span><span class="o">.</span><span class="n">setMaximumWidth</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+
+        <span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">red</span><span class="p">,</span> <span class="n">stretch</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">layout</span><span class="o">.</span><span class="n">addStretch</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">violet</span><span class="p">,</span> <span class="n">stretch</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+<span class="n">main_window</span> <span class="o">=</span> <span class="n">MainWindow</span><span class="p">()</span>
+<span class="n">main_window</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">app</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Если в один элемент вертикального макета необходимо встроить строку виджетов, то методом <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QBoxLayout.html#PySide6.QtWidgets.PySide6.QtWidgets.QBoxLayout.addLayout">addLayout</a> в него можно добавить горизонтальный макет (или макет любого другого типа) вместо виджета. Таким образом макеты могут быть встроенными друг в друга.</p>
+</div>
+<div class="section" id="qgridlayout">
+<h3>Макет-таблица. <code class="docutils literal notranslate"><span class="pre">QGridLayout</span></code><a class="headerlink" href="#qgridlayout" title="Permalink to this headline">¶</a></h3>
+<p>Макет <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QGridLayout.html">QGridLayout</a> позволяет располагать виджеты как-бы в ячейках таблицы. При этом один виджет может занимать несколько соседних ячеек и можно не заполнять все ячейки таблицы.</p>
+<p>Макет <code class="docutils literal notranslate"><span class="pre">QGridLayout</span></code> создаётся пустым. Виджеты добавляются методом <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QGridLayout.html#PySide6.QtWidgets.PySide6.QtWidgets.QGridLayout.addWidget">addWidget</a>, принимающим первым параметром сам виджет, а остальными параметрами — ячейки таблицы, которые он должен занимать:</p>
+<ul class="simple">
+<li><p>если виджет <code class="docutils literal notranslate"><span class="pre">widget</span></code> должен занимать одну ячейку макета <code class="docutils literal notranslate"><span class="pre">grid_layout</span></code> на пересечении строки с номером <code class="docutils literal notranslate"><span class="pre">row</span></code> и столбца с номером <code class="docutils literal notranslate"><span class="pre">column</span></code>, то сигнатура вызова выглядит примерно следующим образом:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">grid_layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">widget</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>если этот же виджет должен начинаться в ячейке на пересечении строки с номером <code class="docutils literal notranslate"><span class="pre">row</span></code> и столбца с номером <code class="docutils literal notranslate"><span class="pre">column</span></code> и должен занимать <code class="docutils literal notranslate"><span class="pre">row_span</span></code> ячеек по горизонтали и <code class="docutils literal notranslate"><span class="pre">column_span</span></code> ячеек по вертикали, то сигнатура вызова выглядит примерно следующим образом:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">grid_layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">widget</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="p">,</span> <span class="n">row_span</span><span class="p">,</span> <span class="n">column_span</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Нумерация строк идёт сверху вниз, столбцов слева справа и начинается с 1 в обоих случаях.</p>
+</div>
+<p>Следующий код демонстрирует некоторые возможности этого макета.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">from</span> <span class="nn">PySide6.QtWidgets</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="kn">from</span> <span class="nn">colorwidget</span> <span class="kn">import</span> <span class="n">ColorWidget</span>
+
+
+<span class="k">class</span> <span class="nc">MainWindow</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="n">widget</span> <span class="o">=</span> <span class="n">QWidget</span><span class="p">()</span>
+        <span class="n">layout</span> <span class="o">=</span> <span class="n">QGridLayout</span><span class="p">()</span>
+        <span class="n">widget</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="n">layout</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span>
+
+        <span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">ColorWidget</span><span class="p">(</span><span class="s2">&quot;Red&quot;</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">ColorWidget</span><span class="p">(</span><span class="s2">&quot;Green&quot;</span><span class="p">),</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+        <span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">ColorWidget</span><span class="p">(</span><span class="s2">&quot;Blue&quot;</span><span class="p">),</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+<span class="n">main_window</span> <span class="o">=</span> <span class="n">MainWindow</span><span class="p">()</span>
+<span class="n">main_window</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">app</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../../_images/grid_layout.png" src="../../_images/grid_layout.png" />
+</div>
+</div>
+<div class="section" id="qformlayout">
+<h3>Макет-анкета. <code class="docutils literal notranslate"><span class="pre">QFormLayout</span></code><a class="headerlink" href="#qformlayout" title="Permalink to this headline">¶</a></h3>
+<p>Часто при создании интерфейса приложения необходимо расположить несколько виджетов с подписями друг под другом. Такая необходимость часто возникает, если интерфейс представляет собой форму, анкету и так далее.</p>
+<p>Добиться этого можно было бы и с помощью <code class="docutils literal notranslate"><span class="pre">QGridLayout</span></code> с двумя столбцами: один для виджетов, другой для их подписей. Но гораздо удобнее воспользоваться специальным макетом <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QFormLayout.html">QFormLayout</a>. Добавление виджетов с названиями в него осуществляется методом <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QFormLayout.html#PySide6.QtWidgets.PySide6.QtWidgets.QFormLayout.addRow">addRow</a>, которому первым параметром передаётся строка текста, а вторым виджет.</p>
+<div class="figure align-default">
+<img alt="../../_images/form_layout.png" src="../../_images/form_layout.png" />
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">from</span> <span class="nn">PySide6.QtWidgets</span> <span class="kn">import</span> <span class="o">*</span>
+
+
+<span class="k">class</span> <span class="nc">MainWindow</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="n">widget</span> <span class="o">=</span> <span class="n">QWidget</span><span class="p">()</span>
+        <span class="n">layout</span> <span class="o">=</span> <span class="n">QFormLayout</span><span class="p">()</span>
+        <span class="n">widget</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="n">layout</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span>
+
+        <span class="n">layout</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span><span class="s2">&quot;Фамилия&quot;</span><span class="p">,</span> <span class="n">QLineEdit</span><span class="p">())</span>
+        <span class="n">layout</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span><span class="s2">&quot;Имя&quot;</span><span class="p">,</span> <span class="n">QLineEdit</span><span class="p">())</span>
+        <span class="n">layout</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span><span class="s2">&quot;Отчество&quot;</span><span class="p">,</span> <span class="n">QLineEdit</span><span class="p">())</span>
+        <span class="n">layout</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span><span class="s2">&quot;Год рождения&quot;</span><span class="p">,</span> <span class="n">QSpinBox</span><span class="p">())</span>
+        <span class="n">layout</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span><span class="s2">&quot;Гражданство РФ&quot;</span><span class="p">,</span> <span class="n">QCheckBox</span><span class="p">())</span>
+
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+<span class="n">main_window</span> <span class="o">=</span> <span class="n">MainWindow</span><span class="p">()</span>
+<span class="n">main_window</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">app</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="qtabwidget">
+<h3>Вкладки. Виджет <code class="docutils literal notranslate"><span class="pre">QTabWidget</span></code><a class="headerlink" href="#qtabwidget" title="Permalink to this headline">¶</a></h3>
+<p>Хотя <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QTabWidget.html">QTabWidget</a> и не является макетом, но так как принцип его действия очень похож, то он упоминается здесь. Этот виджет позволяет делать виджеты с вкладками, примером которых можно считать вкладки браузеров. Создаётся <code class="docutils literal notranslate"><span class="pre">QTabWidget</span></code> пустым, а добавление вкладок осуществляется методом <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QTabWidget.html#PySide6.QtWidgets.PySide6.QtWidgets.QTabWidget.addTab">addTab</a>, который первым параметром принимает виджет. В простом варианте, вторым параметром передаётся строка с названием вкладки. В более сложном варианте это строка передаётся третьим параметром, а вторым передаётся иконка этой вкладки.</p>
+<p>Перечислим ещё пару полезных особенностей:</p>
+<ul class="simple">
+<li><p>метод <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QTabWidget.html#PySide6.QtWidgets.PySide6.QtWidgets.QTabWidget.setMovable">setMovable</a> позволяет перемещать вкладки между собой;</p></li>
+<li><p>метод <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QTabWidget.html#PySide6.QtWidgets.PySide6.QtWidgets.QTabWidget.setTabsClosable">setTabsClosable</a> добавляет кнопки закрытия вкладок, нажатие на которые излучает сигнал <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QTabWidget.html#PySide6.QtWidgets.PySide6.QtWidgets.QTabWidget.tabCloseRequested">tabCloseRequested</a>;</p></li>
+<li><p>соединить этот сигнал можно напрямую со слотом <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QTabWidget.html#PySide6.QtWidgets.PySide6.QtWidgets.QTabWidget.removeTab">removeTab</a>.</p></li>
+</ul>
+<div class="figure align-default">
+<img alt="../../_images/tab_widget.png" src="../../_images/tab_widget.png" />
+</div>
+<p>Код ниже демонстрирует все перечисленные возможности <code class="docutils literal notranslate"><span class="pre">QTabWidget</span></code> на примере 7 закрываемых, перемещаемых вкладок всех цветов радуги.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">from</span> <span class="nn">PySide6.QtWidgets</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="kn">from</span> <span class="nn">colorwidget</span> <span class="kn">import</span> <span class="n">ColorWidget</span><span class="p">,</span> <span class="n">rainbow_colors</span>
+
+
+<span class="k">class</span> <span class="nc">MainWindow</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tabs</span> <span class="o">=</span> <span class="n">QTabWidget</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tabs</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">tabs</span><span class="o">.</span><span class="n">setMovable</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tabs</span><span class="o">.</span><span class="n">setTabsClosable</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tabs</span><span class="o">.</span><span class="n">tabCloseRequested</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tabs</span><span class="o">.</span><span class="n">removeTab</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">rainbow_colors</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tabs</span><span class="o">.</span><span class="n">addTab</span><span class="p">(</span><span class="n">ColorWidget</span><span class="p">(</span><span class="n">color</span><span class="p">),</span> <span class="n">color</span><span class="p">)</span>
+
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+<span class="n">main_window</span> <span class="o">=</span> <span class="n">MainWindow</span><span class="p">()</span>
+<span class="n">main_window</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">app</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks\qt"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="slot_signal.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Слоты и сигналы</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="buttons.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Кнопки</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Fadeev Egor<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

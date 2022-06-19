@@ -1,0 +1,1477 @@
+
+<!DOCTYPE html>
+
+<html>
+  
+<head>
+    <link rel="icon" type="image/png" href="..\..\favicon.png"/>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Работа с изображениями &#8212; Практикум по компьютерным технологиям</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Свёрточные операции" href="filters.html" />
+    <link rel="prev" title="О последних лекциях" href="../python/about_12_and_so_on.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/python-logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Практикум по компьютерным технологиям</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/index.html">
+   Практикум по компьютерным технологиям на языке программирования python3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №1
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/about_py.html">
+   О питоне
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/getting_started.html">
+   Установка python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/python_as_calculator.html">
+   Python в качестве калькулятора
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/jupyter_notebooks.html">
+   Что такое Jupyter Notebooks?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/first_notebook.html">
+   Основы работы с Jupyter Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/numbers_and_lists.html">
+   Основные типы объектов в python. Числа и списки
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/if_for_range.html">
+   Операторы потока управления
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/interpretability.html">
+   Компилируемость vs Интерпретируемость
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/dynamic_typing.html">
+   Динамическая типизация
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/mutability.html">
+   Изменяемые и неизменяемый типы объектов
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/garbage_collector.html">
+   Создание и удаление объектов. Сборщик мусора
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/sequencies.html">
+   Последовательности: списки, кортежи и строки
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №3
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/libs_pypi_conda.html">
+   Сторонние библиотеки и пакетные менеджеры
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/numpy.html">
+   Знакомство с NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/vectorization.html">
+   Векторизация
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/slices.html">
+   Срезы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/vector_product.html">
+   Умножение векторов
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/logic.html">
+   Логические операции, булевые маски
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/vectorization_example.html">
+   Векторизация на примере вычисления статистик
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/homework.html">
+   Домашнее задание №2
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №4
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/dictionaries.html">
+   Словари.
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     dict
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/functions.html">
+   Функции
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/files.html">
+   Работа с файлами
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/json.html">
+   Формат json
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №5
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/matplotlib.html">
+   matplotlib и другие графические библиотеки
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/matplotlib_animation.html">
+   Анимация  в matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/scipy.html">
+   SciPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/linalg.html">
+   Линейная алгебра
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/interpolation_approx.html">
+   Интерполяция функций, аппроксимация функций
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/integration.html">
+   Определенные интегралы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/ODE.html">
+   Решение ОДУ
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/optimization.html">
+   Оптимизация
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/nonlinear_equations.html">
+   Решение нелинейных уравнений
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/cannonball.html">
+   Пример
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/homework.html">
+   Домашнее задание №3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №6
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/python_scripts.html">
+   Создание скриптов. Работа с IDE
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/scripts_vs_modules.html">
+   Скрипты и модули
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/argparse.html">
+   Аргументы командной строки
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №7
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/pandas.html">
+   pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/series.html">
+   pd.Series
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/dataframe.html">
+   pd.DataFrame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/datetime.html">
+   Дата и время
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/covid19.html">
+   Обзор базовых возможностей pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/homework.html">
+   Домашнее задание №4
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №8
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/list_comprehensions.html">
+   Основы списковых включений
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/iterators.html">
+   Итераторы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/decorators.html">
+   Декораторы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/generators.html">
+   Генераторы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/exercises1.html">
+   Практические задания
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №9
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/custom_classes.html">
+   Пользовательские классы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/inheritance.html">
+   Наследование
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/polymorphism.html">
+   Полиморфизм в python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/operators_overloading.html">
+   Перегрузка специальных методов и операторов
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/exercises2.html">
+   Практические задания
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №10
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/exceptions.html">
+   Исключения
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/custom_exceptions.html">
+   Пользовательские исключения
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/LBYL_vs_EAFP.html">
+   Стратегии контроля ошибок
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/exercises3.html">
+   Практические задания
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №11
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/gui.html">
+   Графический пользовательский интерфейс
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/basics.html">
+   PySide. Основы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/event.html">
+   События
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/slot_signal.html">
+   Слоты и сигналы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/widgets.html">
+   Виджеты и макеты
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/buttons.html">
+   Кнопки
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/output.html">
+   Вывод данных
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/input.html">
+   Ввод данных
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/dialogs.html">
+   Диалоговые окна
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/exercises4.html">
+   Практические задания
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекции №12 и далее
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/about_12_and_so_on.html">
+   О последних лекциях
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Работа с изображениями
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="filters.html">
+   Свёрточные операции
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="detection.html">
+   Задача обнаружения
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine_learning/regression.html">
+   Регрессия
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine_learning/classification.html">
+   Классификация
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine_learning/neural_networks.html">
+   Нейронный сети
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/notebooks/computer_vision/basics.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/FadeevLecturer/python_lectures"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/FadeevLecturer/python_lectures/issues/new?title=Issue%20on%20page%20%2Fnotebooks/computer_vision/basics.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/FadeevLecturer/python_lectures/edit/main/notebooks/computer_vision/basics.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/FadeevLecturer/python_lectures/main?urlpath=tree/notebooks/computer_vision/basics.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/FadeevLecturer/python_lectures/blob/main/notebooks/computer_vision/basics.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Изображения в оттенках серого
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Чтение с диска
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Яркости пикселей
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Манипуляции на формой массива
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Поворот на произвольный угол
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   Цветные изображения
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Работа с изображениями</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Изображения в оттенках серого
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Чтение с диска
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Яркости пикселей
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Манипуляции на формой массива
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Поворот на произвольный угол
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   Цветные изображения
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1>Работа с изображениями<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p id="cv-basics">Есть, пожалуй, 2 основных библиотеки для работы с изображениями в <code class="docutils literal notranslate"><span class="pre">python</span></code>.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pillow.readthedocs.io/en/stable/index.html">Pillow</a> позволяет загружать, выводить на экран, редактировать и сохранять изображения;</p></li>
+<li><p><a class="reference external" href="https://docs.opencv.org/4.x/index.html">openCV</a> — полноценный фреймворк для обработки изображений.</p></li>
+</ul>
+<p>Стоит упомянуть, что</p>
+<ul class="simple">
+<li><p>загрузить, вывести и сохранить изображение можно также средствами библиотеки <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>;</p></li>
+<li><p>часть функционала по обработке изображений можно найти в библиотеке <code class="docutils literal notranslate"><span class="pre">scipy</span></code> в общем, и в модуле <a class="reference external" href="https://scipy.github.io/devdocs/reference/ndimage.html">scipy.ndimage</a></p></li>
+<li><p>существует библиотека-аналог для <code class="docutils literal notranslate"><span class="pre">openCV</span></code> — <a class="reference external" href="https://scikit-image.org/">scikit-image</a>.</p></li>
+</ul>
+<p>В ячейке ниже импортируются необходимые библиотеки (<code class="docutils literal notranslate"><span class="pre">cv2</span></code> соответствует <code class="docutils literal notranslate"><span class="pre">openCV</span></code>), а также определяется функция для красивого вывода изображения в заданных осях, которая будет использоваться всюду далее.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">PIL</span>
+<span class="kn">import</span> <span class="nn">cv2</span>
+
+
+<span class="n">image_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;_static&quot;</span><span class="p">,</span> <span class="s2">&quot;lecture_specific&quot;</span><span class="p">,</span> <span class="s2">&quot;cv&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">show_image</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Вывести изображение в указанных осях.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>Изображения в оттенках серого<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h3>Чтение с диска<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Загрузить изображение, например, с диска можно</p>
+<ul class="simple">
+<li><p>методом <a class="reference external" href="https://docs.opencv.org/4.x/d4/da8/group__imgcodecs.html#ga288b8b3da0892bd651fce07b3bbd3a56">cv2.imread</a> — возвращает массив <code class="docutils literal notranslate"><span class="pre">numpy</span></code>;</p></li>
+<li><p>методом <a class="reference external" href="https://matplotlib.org/3.5.1/api/_as_gen/matplotlib.pyplot.imread.html">plt.imread</a> — возвращает массив <code class="docutils literal notranslate"><span class="pre">numpy</span></code>;</p></li>
+<li><p>методом <a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.open">PIL.Image.open</a> — возвращает экземпляр класса <a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image">PIL.Image.Image</a>, который можно преобразовать к массиву <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, передав его в качестве аргумента методу <code class="docutils literal notranslate"><span class="pre">numpy.array</span></code>.</p></li>
+</ul>
+<p>Начнем с черно-белых изображений, а если быть точнее — изображений в оттенках серого.</p>
+<p>Ниже приводится пример того, как можно загрузить изображения, используя вышеперечисленные методы.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image_folder</span><span class="p">,</span> <span class="s2">&quot;gray.jpg&quot;</span><span class="p">)</span>
+
+
+<span class="n">images</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;openCV&quot;</span><span class="p">:</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">IMREAD_GRAYSCALE</span><span class="p">),</span>
+    <span class="s2">&quot;matplotlib&quot;</span><span class="p">:</span> <span class="n">plt</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">path</span><span class="p">),</span>
+    <span class="s2">&quot;Pillow&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+<span class="p">}</span>
+
+
+<span class="k">for</span> <span class="n">library</span><span class="p">,</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">images</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">library</span><span class="si">:</span><span class="s2">10</span><span class="si">}</span><span class="s2">: shape=</span><span class="si">{</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">, dtype=</span><span class="si">{</span><span class="n">image</span><span class="o">.</span><span class="n">dtype</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>openCV    : shape=(512, 512), dtype=uint8
+matplotlib: shape=(512, 512), dtype=uint8
+Pillow    : shape=(512, 512), dtype=uint8
+</pre></div>
+</div>
+</div>
+</div>
+<p>Видим, что все массивы одинаковой формы (512, 512) с 8-битным беззнаковым целочисленным типом данных.</p>
+<ul class="simple">
+<li><p>форма массива (512, 512) соответствует <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%A0%D0%B0%D0%B7%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B5_(%D0%BA%D0%BE%D0%BC%D0%BF%D1%8C%D1%8E%D1%82%D0%B5%D1%80%D0%BD%D0%B0%D1%8F_%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D0%BA%D0%B0)">разрешению изображения</a>;</p></li>
+<li><p>количество бит, которое используется для представления цвета при кодировании изображения, называют <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%93%D0%BB%D1%83%D0%B1%D0%B8%D0%BD%D0%B0_%D1%86%D0%B2%D0%B5%D1%82%D0%B0">глубинной цвета</a>. Данное изображение имеет глубину цвета 8 бит, т.е. цвет каждого пикселя кодируется числом в диапазоне от 0 до 255, где 0 соответствует черному цвету, 255 соответствует белому цвету, а все промежуточные цвета — оттенкам серого.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Для хранения изображений обычно используются целочисленные яркости с разной глубинной цвета, но при обработке изображений яркости пикселей чаще представляют действительными числами в диапазоне от 0 до 1 из-за более адекватной арифметики.</p>
+</div>
+<p>Проверим, содержат ли массивы, считанные всеми библиотекам, одинаковые значения.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">combinations</span>
+
+
+<span class="k">def</span> <span class="nf">L1_distance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+
+<span class="k">for</span> <span class="p">(</span><span class="n">lib1</span><span class="p">,</span> <span class="n">image1</span><span class="p">),</span> <span class="p">(</span><span class="n">lib2</span><span class="p">,</span> <span class="n">image2</span><span class="p">)</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">(</span><span class="n">images</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="n">diff</span> <span class="o">=</span> <span class="n">L1_distance</span><span class="p">(</span><span class="n">image1</span><span class="p">,</span> <span class="n">image2</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">lib1</span><span class="si">:</span><span class="s2">10</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">lib2</span><span class="si">:</span><span class="s2">10</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">diff</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">image</span> <span class="o">=</span> <span class="n">images</span><span class="p">[</span><span class="s2">&quot;openCV&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>openCV     and matplotlib: 0
+openCV     and Pillow    : 0
+matplotlib and Pillow    : 0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Видим, что все три библиотеки считали абсолютно одинаковые массивы.</p>
+<p>Выясним, в каком диапазоне элементы массива принимают значения.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Элементы массива принимают значения в диапазоне от </span><span class="si">{</span><span class="n">image</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="si">}</span><span class="s2"> до </span><span class="si">{</span><span class="n">image</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Тип данных uint8.
+Элементы массива принимают значения в диапазоне от 19 до 246.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Т.е. самый темный пиксель этого изображения имеет яркость 19, а самый яркий 246. Абсолютно черных и белых пикселей в этом изображении нет.</p>
+<p>Выведем это изображение средствами <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;matplotlib&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/basics_9_0.png" src="../../_images/basics_9_0.png" />
+</div>
+</div>
+<p>Библиотека <code class="docutils literal notranslate"><span class="pre">openCV</span></code> тоже умеет выводить изображения, но для этого создаёт отдельное окно. Изображения библиотеки <code class="docutils literal notranslate"><span class="pre">PIL</span></code> можно выводить в <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span></code> непосредственно.</p>
+<p>Т.к. мы уже поняли, что <code class="docutils literal notranslate"><span class="pre">cv2_image</span></code>, <code class="docutils literal notranslate"><span class="pre">pil_image</span></code> и <code class="docutils literal notranslate"><span class="pre">plt_image</span></code> в точности совпадают, то заведем две новые переменные, которые пригодятся в будущем.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">image</span></code> — изображение, считанное библиотекой <code class="docutils literal notranslate"><span class="pre">Pillow</span></code> (экземпляр класса <code class="docutils literal notranslate"><span class="pre">PIL.Image.Image</span></code>);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">array</span></code> — его представление в виде массива <code class="docutils literal notranslate"><span class="pre">numpy</span></code>;</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+
+<span class="n">image</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/basics_11_0.png" src="../../_images/basics_11_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>Яркости пикселей<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Т.к. изображение представляется в виде массива, то над ним можно производить математические операции.</p>
+<p>Прибавим к изображению константу, что выйдет.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="mi">40</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">array</span><span class="o">/</span><span class="mf">255.</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;image - </span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">array</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;image&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">array</span><span class="o">+</span><span class="n">c</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;image + </span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/basics_13_0.png" src="../../_images/basics_13_0.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>Т.к. массив хранит яркости пикселей, то прибавляя положительную константу, мы увеличиваем яркости всех пикселей на неё и получаем более яркое (светлое изображение).</p></li>
+<li><p>Т.к. для яркости каждого пикселя используется всего 8 бит, то возможно переполнение, т.е. очень яркие пиксели могут сдвинуться в темную область.</p></li>
+</ul>
+<p>В качестве демонстрации создадим матрицу следующего вида и выведем её в качестве изображения.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix}
+0 &amp; 0 &amp; 0 &amp; \cdots &amp; 0\\
+1 &amp; 1 &amp; 1 &amp; \cdots &amp; 1\\
+2 &amp; 2 &amp; 2 &amp; \cdots &amp; 2\\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
+255 &amp; 255 &amp; 255 &amp; \cdots &amp; 255
+\end{pmatrix}.
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">math_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> 
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">math_array</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/basics_15_0.png" src="../../_images/basics_15_0.png" />
+</div>
+</div>
+<p>Инвертировать изображение можно вычесть его из 255.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">math_array</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;image&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">255</span> <span class="o">-</span> <span class="n">math_array</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;255 - image&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/basics_17_0.png" src="../../_images/basics_17_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>Манипуляции на формой массива<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Чтобы обрезать изображения, можно использовать срезы.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">H</span><span class="p">,</span> <span class="n">W</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">H</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">W</span> <span class="o">//</span> <span class="mi">2</span>
+
+<span class="n">top_left</span> <span class="o">=</span> <span class="n">array</span><span class="p">[:</span><span class="n">h</span><span class="p">,</span> <span class="p">:</span><span class="n">w</span><span class="p">]</span>
+<span class="n">top_right</span> <span class="o">=</span> <span class="n">array</span><span class="p">[:</span><span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">:]</span>
+<span class="n">bottom_left</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="n">h</span><span class="p">:,</span> <span class="p">:</span><span class="n">w</span><span class="p">]</span>
+<span class="n">bottom_right</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="n">h</span><span class="p">:,</span> <span class="n">w</span><span class="p">:]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">top_left</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">top_right</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">bottom_left</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">bottom_right</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/basics_19_0.png" src="../../_images/basics_19_0.png" />
+</div>
+</div>
+<p>Аналогично, можно отразить изображение по вертикали, горизонтали и т.д.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hor_flip</span> <span class="o">=</span> <span class="n">array</span><span class="p">[:,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">vert_flip</span> <span class="o">=</span> <span class="n">array</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>
+<span class="n">both</span> <span class="o">=</span> <span class="n">array</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">array</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">hor_flip</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">vert_flip</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">both</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/basics_21_0.png" src="../../_images/basics_21_0.png" />
+</div>
+</div>
+<p>Чтобы повернуть изображение на угол кратный <span class="math notranslate nohighlight">\(90^\circ\)</span>, можно использовать метод <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.rot90.html">np.rot90</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">array</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">rot90</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">rot90</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">rot90</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/basics_23_0.png" src="../../_images/basics_23_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>Поворот на произвольный угол<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>Чтобы повернуть изображение на произвольный угол, необходимо интерполировать значения в узлах новой решетки.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Pillow</span></code> позволяет вращать изображения методом <a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.rotate">rotate</a> класса <code class="docutils literal notranslate"><span class="pre">PIL.Image.Image</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="mi">45</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fillcolor</span><span class="o">=</span><span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">NEAREST</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/basics_25_0.png" src="../../_images/basics_25_0.png" />
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">openCV</span></code> имеет чуть более общий интерфейс и позволяет применять аффинное преобразование к изображению, частным случаям которого является поворот изображения вокруг выбранной точки.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rotation_center</span> <span class="o">=</span> <span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+<span class="n">rotation_angle</span> <span class="o">=</span> <span class="mi">45</span>
+<span class="n">scale</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">rotation_matrix</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">getRotationMatrix2D</span><span class="p">(</span><span class="n">rotation_center</span><span class="p">,</span> <span class="n">rotation_angle</span><span class="p">,</span> <span class="n">scale</span><span class="p">)</span>
+
+<span class="n">rotated_image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">warpAffine</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">rotation_matrix</span><span class="p">,</span> <span class="n">dsize</span><span class="o">=</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">W</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">array</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">rotated_image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/basics_27_0.png" src="../../_images/basics_27_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>Цветные изображения<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>Всё, что мы перечислили для изображений в оттенках серого, работает аналогично и для цветных изображений, но по каналам.</p>
+<p>Все перечисленные методы чтения изображений отработают и для цветных изображений.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image_folder</span><span class="p">,</span> <span class="s2">&quot;lena.jpg&quot;</span><span class="p">)</span>
+
+<span class="n">images</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;openCV&quot;</span><span class="p">:</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">path</span><span class="p">),</span>
+    <span class="s2">&quot;matplotlib&quot;</span><span class="p">:</span> <span class="n">plt</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">path</span><span class="p">),</span>
+    <span class="s2">&quot;Pillow&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+<span class="p">}</span>
+
+
+<span class="k">for</span> <span class="n">library</span><span class="p">,</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">images</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">library</span><span class="si">:</span><span class="s2">10</span><span class="si">}</span><span class="s2">: shape=</span><span class="si">{</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">, dtype=</span><span class="si">{</span><span class="n">image</span><span class="o">.</span><span class="n">dtype</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>openCV    : shape=(512, 512, 3), dtype=uint8
+matplotlib: shape=(512, 512, 3), dtype=uint8
+Pillow    : shape=(512, 512, 3), dtype=uint8
+</pre></div>
+</div>
+</div>
+</div>
+<p>Получаем массив формы <span class="math notranslate nohighlight">\(512\times512\times3\)</span>, где 3 соответствует трём каналам: красный, зеленый и голубой. Но даже здесь есть один подвох. Выведем три получившихся массива.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">lib</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">images</span><span class="p">):</span>
+    <span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">images</span><span class="p">[</span><span class="n">lib</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="n">lib</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/basics_31_0.png" src="../../_images/basics_31_0.png" />
+</div>
+</div>
+<p>Изображение, считанной библиотекой выглядит странно. Дело в том, что</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> и <code class="docutils literal notranslate"><span class="pre">Pillow</span></code> хранят изображения в формате <code class="docutils literal notranslate"><span class="pre">RGB</span></code>, т.е. первый канал изображения соответствует красному, второй зеленому, а третий синему.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">openCV</span></code> хранит изображения в формате <code class="docutils literal notranslate"><span class="pre">GBR</span></code>, т.е. красный и зеленый поменяны местами.</p></li>
+</ul>
+<p>Для вывода изображения мы использовали метод библиотеки <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, который ожидает изображения в формате <code class="docutils literal notranslate"><span class="pre">RGB</span></code>, а в случае с изображением, считанным библиотекой <code class="docutils literal notranslate"><span class="pre">openCV</span></code>, получает <code class="docutils literal notranslate"><span class="pre">BGR</span></code> изображение.</p>
+<p>Чтобы нагляднее это проиллюстрировать, проделаем то же самое на изображении из базовых цветов.</p>
+<div class="figure align-default">
+<img alt="../../_images/colors.png" src="../../_images/colors.png" />
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image_folder</span><span class="p">,</span> <span class="s2">&quot;colors.png&quot;</span><span class="p">)</span>
+
+<span class="n">cv2_image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="n">plt_image</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">plt_image</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;matplotlib&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">cv2_image</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;openCV&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/basics_33_0.png" src="../../_images/basics_33_0.png" />
+</div>
+</div>
+<p>Видим, что левое изображение выглядит также, как и должно, а на правом</p>
+<ul class="simple">
+<li><p>красное поменялось местами с синим;</p></li>
+<li><p>желтое (смесь красного и зеленого) поменялось местами с голубым (смесь синего и зеленого).</p></li>
+</ul>
+<p>Ниже определяются функции, которые выводят само изображения и все его каналы по очереди.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">show_channel</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">channel</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">color</span><span class="p">:</span>
+        <span class="n">to_show</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+        <span class="n">to_show</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">channel</span><span class="p">]</span> <span class="o">=</span> <span class="n">image</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">channel</span><span class="p">]</span>
+        <span class="n">show_image</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">to_show</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;channel:</span><span class="si">{</span><span class="n">channel</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">to_show</span> <span class="o">=</span> <span class="n">image</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">channel</span><span class="p">]</span>
+        <span class="n">show_image</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">to_show</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;channel:</span><span class="si">{</span><span class="n">channel</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        
+    
+<span class="k">def</span> <span class="nf">show_channels</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+    
+    <span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">image</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;all channels&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span> 
+        <span class="n">show_channel</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">image</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Выведем каналы изображений. Т.к. один канал — это двухмерная матрица, то его можно считать изображением в оттенках серого: чем больше значение в этом канале, тем ярче белее пиксель.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_channels</span><span class="p">(</span><span class="n">cv2_image</span><span class="p">,</span> <span class="s2">&quot;openCV&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">show_channels</span><span class="p">(</span><span class="n">plt_image</span><span class="p">,</span> <span class="s2">&quot;matplotlib&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/basics_37_0.png" src="../../_images/basics_37_0.png" />
+<img alt="../../_images/basics_37_1.png" src="../../_images/basics_37_1.png" />
+</div>
+</div>
+<p>Здесь отчетливо видно, что в <code class="docutils literal notranslate"><span class="pre">openCV</span></code> первый и третий канал перепутаны местами.</p>
+<p>Библиотека <code class="docutils literal notranslate"><span class="pre">openCV</span></code> позволяет преобразовать изображение из одной цветовой схемы в другую методом <a class="reference external" href="https://docs.opencv.org/3.4/d8/d01/group__imgproc__color__conversions.html#ga397ae87e1288a81d2363b61574eb8cab">cv2.cvtColor</a>. В частности, этим методом можно из <code class="docutils literal notranslate"><span class="pre">GBR</span></code> перейти в <code class="docutils literal notranslate"><span class="pre">RGB</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cv2_image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">cv2_image</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2RGB</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">plt_image</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;matplotlib&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">cv2_image</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;openCV&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/basics_39_0.png" src="../../_images/basics_39_0.png" />
+</div>
+</div>
+<p>Чтобы получше прочувствовать, то как комбинируются цвета из палитры <code class="docutils literal notranslate"><span class="pre">RGB</span></code>, выведем те же каналы, но в цвете.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_channels</span><span class="p">(</span><span class="n">plt_image</span><span class="p">,</span> <span class="s2">&quot;matplotlib&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/basics_41_0.png" src="../../_images/basics_41_0.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>белый — максимальная яркость всех каналов;</p></li>
+<li><p>черный — нулевая яркость всех каналов;</p></li>
+<li><p>серый — средняя яркость всех каналов;</p></li>
+<li><p>красный, зеленый и синий — максимальная яркость в одном из каналов, и нулевая в остальных;</p></li>
+<li><p>голубой, фиолетовый и желтый — аддитивные комбинации двух из базовых цветов.</p></li>
+</ul>
+<p>Как получить из цветного изображение черно-белое? Чтобы это сделать, необходимо от трехканального изображения, перейти к двухканальному.</p>
+<p>Самый наивный способ: просто сложить все каналы. Сложим все каналы, но перед этим поделим массив на число с плавающей точкой 255, чтобы уйти от ограничений целочисленной арифметики. Все современные библиотеки работы с изображениями позволяют задавать яркость как целыми числом, так и действительным числом от 0 до 1.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image_folder</span><span class="p">,</span> <span class="s2">&quot;drop.jpg&quot;</span><span class="p">)</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="o">/</span> <span class="mf">255.</span> 
+<span class="n">grayscale</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">image</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;color&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">grayscale</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;(R + G + B)/3&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/basics_44_0.png" src="../../_images/basics_44_0.png" />
+</div>
+</div>
+<p>На самом деле известно, что разные цвета не дают одинаковый вклад в общую яркость, поэтому лучше, например, складывать каналы с коэффициентами</p>
+<ul class="simple">
+<li><p>0.222 для красного канала;</p></li>
+<li><p>0.666 для зеленого калана;</p></li>
+<li><p>0.111 для синего канала.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weights</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.222</span><span class="p">,</span> <span class="mf">0.666</span><span class="p">,</span> <span class="mf">0.111</span><span class="p">)</span>
+<span class="n">grayscale</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">weights</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">image</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">image</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;color&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">grayscale</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">weights</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">*R + </span><span class="si">{</span><span class="n">weights</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">*G + </span><span class="si">{</span><span class="n">weights</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">*B&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/basics_46_0.png" src="../../_images/basics_46_0.png" />
+</div>
+</div>
+<p>Есть ещё более сложные формулы, которые дают ещё лучший результат.</p>
+<p>Преобразовать цветное изображение в черно-белом можно все тем же методом <code class="docutils literal notranslate"><span class="pre">cv2.cvtColor</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="n">grayscale</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_RGB2GRAY</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">image</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;color&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">grayscale</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;cv2.COLOR_RGB2GRAY&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/basics_48_0.png" src="../../_images/basics_48_0.png" />
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">RGB</span></code> — не единственный способ, представлять цветные изображения. В ряде задач удобнее использовать другие палитры.</p>
+<p>Рассмотрим палитру <a class="reference external" href="https://en.wikipedia.org/wiki/HSL_and_HSV">Hue-Saturation-Value</a>. В ней <code class="docutils literal notranslate"><span class="pre">Hue</span></code> отвечает за сам цвет, <code class="docutils literal notranslate"><span class="pre">Saturation</span></code> — за насыщенность этого цвета, а <code class="docutils literal notranslate"><span class="pre">Value</span></code> за яркость.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image_folder</span><span class="p">,</span> <span class="s2">&quot;rose.jpg&quot;</span><span class="p">)</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+<span class="n">hsv_image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_RGB2HSV</span><span class="p">)</span>
+<span class="n">show_channels</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="s2">&quot;Hue-Saturation-Value&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">show_channels</span><span class="p">(</span><span class="n">hsv_image</span><span class="p">,</span> <span class="s2">&quot;Hue-Saturation-Value&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/basics_50_0.png" src="../../_images/basics_50_0.png" />
+<img alt="../../_images/basics_50_1.png" src="../../_images/basics_50_1.png" />
+</div>
+</div>
+<p>В  пространстве гораздо удобнее производить операции над цветом изображения, т.к. именно за цвет отвечает канал <code class="docutils literal notranslate"><span class="pre">hue</span></code>.</p>
+<div class="figure align-default">
+<img alt="../../_images/hsv_cylinder.png" src="../../_images/hsv_cylinder.png" />
+</div>
+<p>Например, оттенки красного цвета имеют <code class="docutils literal notranslate"><span class="pre">hue</span></code> в диапазоне приблизительно от 155 до 179. Найдем <a class="reference external" href="https://en.wikipedia.org/wiki/Mask_(computing)">маску</a>, соответствующую пикселям красного цвета.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lower_red</span> <span class="o">=</span> <span class="mi">155</span>
+<span class="n">upper_red</span> <span class="o">=</span> <span class="mi">179</span>
+<span class="n">hue</span> <span class="o">=</span> <span class="n">hsv_image</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="n">hue_mask</span> <span class="o">=</span>  <span class="p">(</span><span class="n">lower_red</span> <span class="o">&lt;=</span> <span class="n">hue</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">hue</span> <span class="o">&lt;=</span> <span class="n">upper_red</span><span class="p">)</span> 
+<span class="n">hue_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">hue_mask</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">masked_image</span> <span class="o">=</span> <span class="n">hue_mask</span> <span class="o">*</span> <span class="n">image</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">hue_mask</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">masked_image</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/basics_52_0.png" src="../../_images/basics_52_0.png" />
+</div>
+</div>
+<p>Даже такой простой способ позволил неплохо выделить весь красный цвета на изображении, но зацепил и белый, т.к. белый цвет можно представить в качестве красного с очень низкой насыщенностью. Отфильтруем белый цвет ещё одной маской по каналу насыщенности.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">upper_white</span> <span class="o">=</span> <span class="mi">19</span>
+<span class="n">saturation</span> <span class="o">=</span> <span class="n">hsv_image</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="n">saturation_mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">saturation</span> <span class="o">&gt;=</span> <span class="n">upper_white</span><span class="p">)</span>
+<span class="n">saturation_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">saturation_mask</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">hue_mask</span> <span class="o">&amp;</span> <span class="n">saturation_mask</span><span class="p">)</span>
+<span class="n">masked_image</span> <span class="o">=</span> <span class="n">mask</span> <span class="o">*</span> <span class="n">image</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">mask</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">masked_image</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/basics_54_0.png" src="../../_images/basics_54_0.png" />
+</div>
+</div>
+<p>Такая маска очень хорошо вырезает розу без лишних элементов. Далее она может быть использована для того, чтобы, например, вырезать розу с этого изображения и вставить её в другое.</p>
+<p>Сделаем на основе этой маски изображение цветное внутри маски и черно-белое снаружи.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gray</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_RGB2GRAY</span><span class="p">)</span>
+<span class="n">gray</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">gray</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_GRAY2RGB</span><span class="p">)</span>
+
+<span class="n">red_gray_image</span> <span class="o">=</span> <span class="n">mask</span> <span class="o">*</span> <span class="n">image</span> <span class="o">+</span> <span class="o">~</span><span class="n">mask</span> <span class="o">*</span> <span class="n">gray</span> 
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">red_gray_image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/basics_56_0.png" src="../../_images/basics_56_0.png" />
+</div>
+</div>
+<p>Код в ячейке ниже позволяет продемонстрировать влияние параметра <code class="docutils literal notranslate"><span class="pre">hue</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+
+<span class="n">image</span> <span class="o">=</span> <span class="n">red_gray_image</span> 
+<span class="n">hsv_image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_RGB2HSV</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">plot_histograms</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">image</span><span class="p">):</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">colors</span><span class="p">):</span>
+        <span class="n">hist</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">calcHist</span><span class="p">([</span><span class="n">image</span><span class="p">],</span> <span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="kc">None</span><span class="p">,</span> <span class="p">[</span><span class="mi">256</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">256</span><span class="p">])</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hist</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    
+
+<span class="k">def</span> <span class="nf">interact_hsv</span><span class="p">(</span><span class="n">hue</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+    <span class="n">delta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="n">hue</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">hsv_image</span> <span class="o">+</span> <span class="n">delta</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_HSV2RGB</span><span class="p">)</span>
+    <span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">image</span><span class="p">)</span>
+    
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">])</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5000</span><span class="p">])</span>
+    <span class="n">plot_histograms</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">image</span><span class="p">)</span>
+
+<span class="n">_</span> <span class="o">=</span> <span class="n">interact</span><span class="p">(</span><span class="n">interact_hsv</span><span class="p">,</span>
+         <span class="n">hue</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "7138cb80be084613ba7fae559140a389", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks\computer_vision"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../python/about_12_and_so_on.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">О последних лекциях</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="filters.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Свёрточные операции</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Fadeev Egor<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

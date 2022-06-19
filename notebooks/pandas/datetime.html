@@ -1,0 +1,1277 @@
+
+<!DOCTYPE html>
+
+<html>
+  
+<head>
+    <link rel="icon" type="image/png" href="..\..\favicon.png"/>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Дата и время &#8212; Практикум по компьютерным технологиям</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Обзор базовых возможностей pandas" href="covid19.html" />
+    <link rel="prev" title="pd.DataFrame" href="dataframe.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/python-logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Практикум по компьютерным технологиям</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/index.html">
+   Практикум по компьютерным технологиям на языке программирования python3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №1
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/about_py.html">
+   О питоне
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/getting_started.html">
+   Установка python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/python_as_calculator.html">
+   Python в качестве калькулятора
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/jupyter_notebooks.html">
+   Что такое Jupyter Notebooks?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/first_notebook.html">
+   Основы работы с Jupyter Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/numbers_and_lists.html">
+   Основные типы объектов в python. Числа и списки
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/if_for_range.html">
+   Операторы потока управления
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/interpretability.html">
+   Компилируемость vs Интерпретируемость
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/dynamic_typing.html">
+   Динамическая типизация
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/mutability.html">
+   Изменяемые и неизменяемый типы объектов
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/garbage_collector.html">
+   Создание и удаление объектов. Сборщик мусора
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/sequencies.html">
+   Последовательности: списки, кортежи и строки
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №3
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/libs_pypi_conda.html">
+   Сторонние библиотеки и пакетные менеджеры
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/numpy.html">
+   Знакомство с NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/vectorization.html">
+   Векторизация
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/slices.html">
+   Срезы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/vector_product.html">
+   Умножение векторов
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/logic.html">
+   Логические операции, булевые маски
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/vectorization_example.html">
+   Векторизация на примере вычисления статистик
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/homework.html">
+   Домашнее задание №2
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №4
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/dictionaries.html">
+   Словари.
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     dict
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/functions.html">
+   Функции
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/files.html">
+   Работа с файлами
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/json.html">
+   Формат json
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №5
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/matplotlib.html">
+   matplotlib и другие графические библиотеки
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/matplotlib_animation.html">
+   Анимация  в matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/scipy.html">
+   SciPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/linalg.html">
+   Линейная алгебра
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/interpolation_approx.html">
+   Интерполяция функций, аппроксимация функций
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/integration.html">
+   Определенные интегралы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/ODE.html">
+   Решение ОДУ
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/optimization.html">
+   Оптимизация
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/nonlinear_equations.html">
+   Решение нелинейных уравнений
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/cannonball.html">
+   Пример
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/homework.html">
+   Домашнее задание №3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №6
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/python_scripts.html">
+   Создание скриптов. Работа с IDE
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/scripts_vs_modules.html">
+   Скрипты и модули
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/argparse.html">
+   Аргументы командной строки
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №7
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas.html">
+   pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="series.html">
+   pd.Series
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dataframe.html">
+   pd.DataFrame
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Дата и время
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="covid19.html">
+   Обзор базовых возможностей pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework.html">
+   Домашнее задание №4
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №8
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/list_comprehensions.html">
+   Основы списковых включений
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/iterators.html">
+   Итераторы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/decorators.html">
+   Декораторы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/generators.html">
+   Генераторы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/exercises1.html">
+   Практические задания
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №9
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/custom_classes.html">
+   Пользовательские классы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/inheritance.html">
+   Наследование
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/polymorphism.html">
+   Полиморфизм в python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/operators_overloading.html">
+   Перегрузка специальных методов и операторов
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/exercises2.html">
+   Практические задания
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №10
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/exceptions.html">
+   Исключения
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/custom_exceptions.html">
+   Пользовательские исключения
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/LBYL_vs_EAFP.html">
+   Стратегии контроля ошибок
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/exercises3.html">
+   Практические задания
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №11
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/gui.html">
+   Графический пользовательский интерфейс
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/basics.html">
+   PySide. Основы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/event.html">
+   События
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/slot_signal.html">
+   Слоты и сигналы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/widgets.html">
+   Виджеты и макеты
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/buttons.html">
+   Кнопки
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/output.html">
+   Вывод данных
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/input.html">
+   Ввод данных
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/dialogs.html">
+   Диалоговые окна
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/exercises4.html">
+   Практические задания
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекции №12 и далее
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/about_12_and_so_on.html">
+   О последних лекциях
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../computer_vision/basics.html">
+   Работа с изображениями
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../computer_vision/filters.html">
+   Свёрточные операции
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../computer_vision/detection.html">
+   Задача обнаружения
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine_learning/regression.html">
+   Регрессия
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine_learning/classification.html">
+   Классификация
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine_learning/neural_networks.html">
+   Нейронный сети
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/notebooks/pandas/datetime.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/FadeevLecturer/python_lectures"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/FadeevLecturer/python_lectures/issues/new?title=Issue%20on%20page%20%2Fnotebooks/pandas/datetime.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/FadeevLecturer/python_lectures/edit/main/notebooks/pandas/datetime.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/FadeevLecturer/python_lectures/main?urlpath=tree/notebooks/pandas/datetime.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/FadeevLecturer/python_lectures/blob/main/notebooks/pandas/datetime.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#time">
+   Модуль стандартной библиотеки time
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#datetime">
+   Модуль стандартной библиотеки datetime
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#datetime-date">
+     datetime.date
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#datetime-time">
+     datetime.time
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#datetime-datetime">
+     datetime.datetime
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#timedelta">
+     timedelta
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pandas-datetime">
+   pandas.DateTime
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Дата и время</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#time">
+   Модуль стандартной библиотеки time
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#datetime">
+   Модуль стандартной библиотеки datetime
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#datetime-date">
+     datetime.date
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#datetime-time">
+     datetime.time
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#datetime-datetime">
+     datetime.datetime
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#timedelta">
+     timedelta
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pandas-datetime">
+   pandas.DateTime
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1>Дата и время<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Для представления времени в компьютере обычно используется так называемое <a class="reference external" href="https://ru.wikipedia.org/wiki/Unix-%D0%B2%D1%80%D0%B5%D0%BC%D1%8F">Unix-время</a> (иногда <code class="docutils literal notranslate"><span class="pre">Epoch</span> <span class="pre">time</span></code>, <code class="docutils literal notranslate"><span class="pre">Posix</span> <span class="pre">time</span></code>, <code class="docutils literal notranslate"><span class="pre">seconds</span> <span class="pre">since</span> <span class="pre">the</span> <span class="pre">Epoch</span></code>, или <code class="docutils literal notranslate"><span class="pre">UNIX</span> <span class="pre">Epoch</span> <span class="pre">time</span></code>), которое</p>
+<blockquote>
+<div><p>Определяется как количество секунд, прошедших с полуночи (00:00:00 UTC) 1 января 1970 года (четверг); этот момент называют «эпохой Unix» (англ. Unix Epoch). Unix-время представлено целым числом, которое увеличивается с каждой прошедшей секундой без необходимости вычислений для определения года, месяца, дня, часа или минуты для удобства восприятия человеком.</p>
+</div></blockquote>
+<div class="section" id="time">
+<h2>Модуль стандартной библиотеки time<a class="headerlink" href="#time" title="Permalink to this headline">¶</a></h2>
+<p>Функция <a class="reference external" href="https://docs.python.org/3/library/time.html#time.time">time.time</a> модуля <a class="reference external" href="https://docs.python.org/3/library/time.html#module-time">time</a> возвращает именно Unix-время, только не в виде целого числа, а в виде <code class="docutils literal notranslate"><span class="pre">float</span></code>, т.е. доли секунды тоже учитываются. Если доли секунды играют роль, то лучше прибегать к <a class="reference external" href="https://docs.python.org/3/library/time.html#time.time_ns">time.time_ns</a>, которое возвращает количество наносекунд с <code class="docutils literal notranslate"><span class="pre">Unix</span> <span class="pre">epoch</span></code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Для измерения промежутков времени (например, замер времени исполнения блока кода) лучше использовать функцию <a class="reference external" href="https://docs.python.org/3/library/time.html#time.perf_counter">time.perf_counter</a> или <a class="reference external" href="https://docs.python.org/3/library/time.html#time.perf_counter_ns">time.perf_counter_ns</a>, т.к. она точнее измеряет время. Но важно знать, что возвращаемое время отсчитывается от произвольной точки отсчета, т.е. только разница между двумя значениями имеет смысл.</p>
+</div>
+<p>Функция <a class="reference external" href="https://docs.python.org/3/library/time.html#time.ctime">time.ctime</a> преобразует Unix-время в строку в формате <code class="docutils literal notranslate"><span class="pre">'Sun</span> <span class="pre">Jun</span> <span class="pre">20</span> <span class="pre">23:21:05</span> <span class="pre">1993'</span></code>, т.е. какая дата и какое время было при пройденном количестве секунд с <code class="docutils literal notranslate"><span class="pre">Unix-epoch</span></code>. Чтобы получить строку в другом формате, можно воспользоваться функцией <a class="reference external" href="https://docs.python.org/3/library/time.html#time.strftime">time.strftime</a>, которая в качестве первого аргумента принимает форматирующую строку. Как составить форматирующую строку можно прочитать <a class="reference external" href="https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior">здесь</a> и <a class="reference external" href="https://docs.python.org/3/library/time.html#time.strftime">здесь</a>. Ниже приводится не полная таблица с допустимыми директивами в форматирующей строке.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Директива</p></th>
+<th class="head"><p>Значение</p></th>
+<th class="head"><p>Пример</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%a</span></code></p></td>
+<td><p>Аббревиатура дня недели</p></td>
+<td><p>Sun, Mon, …, Sat (en_US)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%A</span></code></p></td>
+<td><p>Полное имя дня недели</p></td>
+<td><p>Sunday, Monday, …, Saturday (en_US)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%w</span></code></p></td>
+<td><p>Номер дня в неделе, где 0 - воскресенье, 6 — суббота.</p></td>
+<td><p>0, 1, …, 6</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%d</span></code></p></td>
+<td><p>Номер дня в месяце (двузначное десятичное число)</p></td>
+<td><p>01, 02, …, 31</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%b</span></code></p></td>
+<td><p>Аббревиатура месяца</p></td>
+<td><p>Jan, Feb, …, Dec (en_US);</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%B</span></code></p></td>
+<td><p>Полное название месяца.</p></td>
+<td><p>January, February, …, December (en_US);</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%m</span></code></p></td>
+<td><p>Номер месяца (двузначное десятичное число)</p></td>
+<td><p>01, 02, …, 12</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%y</span></code></p></td>
+<td><p>Год без учета века</p></td>
+<td><p>00, 01, …, 99</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%Y</span></code></p></td>
+<td><p>Год с учетом века</p></td>
+<td><p>0001, 0002, …, 2013, 2014, …, 9998, 9999</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%H</span></code></p></td>
+<td><p>Номер часа в 24-часовом формате</p></td>
+<td><p>00, 01, …, 23</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%I</span></code></p></td>
+<td><p>Номер часа в 12-часовом формате</p></td>
+<td><p>01, 02, …, 12</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%p</span></code></p></td>
+<td><p>До полудня или после</p></td>
+<td><p>AM, PM (en_US);</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%M</span></code></p></td>
+<td><p>Номер минуты в часе</p></td>
+<td><p>00, 01, …, 59</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%S</span></code></p></td>
+<td><p>Номер секунды в минуте</p></td>
+<td><p>00, 01, …, 59</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%f</span></code></p></td>
+<td><p>Номер микросекунды в секунде.</p></td>
+<td><p>000000, 000001, …, 999999</p></td>
+</tr>
+</tbody>
+</table>
+<p>Директивы <code class="docutils literal notranslate"><span class="pre">%a</span></code>, <code class="docutils literal notranslate"><span class="pre">%A</span></code>, <code class="docutils literal notranslate"><span class="pre">%b</span></code>, <code class="docutils literal notranslate"><span class="pre">%B</span></code>, <code class="docutils literal notranslate"><span class="pre">%p</span></code> вставляют строковые представления в соответствии с переменными среды. Хотя в стандартной библиотеке есть модуль <a class="reference external" href="https://docs.python.org/3/library/locale.html#module-locale">locale</a>, который позволяет локализовать вывод таких значений методом <a class="reference external" href="https://docs.python.org/3/library/locale.html#locale.setlocale">locale.setlocale</a> (<code class="docutils literal notranslate"><span class="pre">locale.setlocale(locale.LC_ALL,</span> <span class="pre">&quot;ru_RU&quot;)</span></code> для русского), рекомендуется использовать для таких целей библиотеку <a class="reference external" href="http://babel.pocoo.org/en/latest/index.html">babel</a> (подробнее <a class="reference external" href="http://babel.pocoo.org/en/latest/dates.html">здесь</a>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+
+<span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span> <span class="c1"># in seconds</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t0</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">(</span><span class="n">t0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">t0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">.%m.%Y %H:%M:%S&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">t0</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">.%m.%Y %H:%M:%S&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1638382039.2391078
+Wed Dec  1 21:07:19 2021
+Wed Dec  1 21:07:20 2021
+time.struct_time(tm_year=2021, tm_mon=12, tm_mday=1, tm_hour=21, tm_min=7, tm_sec=19, tm_wday=2, tm_yday=335, tm_isdst=0)
+time.struct_time(tm_year=2021, tm_mon=12, tm_mday=1, tm_hour=21, tm_min=7, tm_sec=20, tm_wday=2, tm_yday=335, tm_isdst=0)
+01.12.2021 21:07:19
+01.12.2021 21:07:20
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="datetime">
+<h2>Модуль стандартной библиотеки datetime<a class="headerlink" href="#datetime" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#module-datetime">datetime</a> — модуль стандартной библиотеки для работы с датами и временем, который предназначен для работы с временем в разном формате (парсинг и форматирование), а так же предусматривает арифметические операции над моментами во времени.</p>
+<p>Основные типы объектов в модуле <code class="docutils literal notranslate"><span class="pre">datetime</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">datetime.date</span></code> — дата с аттрибутами <code class="docutils literal notranslate"><span class="pre">year</span></code>, <code class="docutils literal notranslate"><span class="pre">month</span></code> и <code class="docutils literal notranslate"><span class="pre">day</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">datetime.time</span></code> — время с аттрибутами <code class="docutils literal notranslate"><span class="pre">hour</span></code>, <code class="docutils literal notranslate"><span class="pre">minute</span></code>, <code class="docutils literal notranslate"><span class="pre">second</span></code>, <code class="docutils literal notranslate"><span class="pre">microsecond</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code> — комбинация datetime.date и datetime.time (и те и те аттрибуты);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">datetime.timedelta</span></code> — промежуток времени между двумя <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code> (или просто <code class="docutils literal notranslate"><span class="pre">time</span></code> и <code class="docutils literal notranslate"><span class="pre">date</span></code>);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">datetime.tzinfo</span></code> и <code class="docutils literal notranslate"><span class="pre">datetime.timezone</span></code> — информация о часовом поясе.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Объекты <code class="docutils literal notranslate"><span class="pre">datetime</span></code> и <code class="docutils literal notranslate"><span class="pre">time</span></code> опционально могут содержать информацию о часовом поясе. Тогда их называют <code class="docutils literal notranslate"><span class="pre">aware</span></code>. Объекты без информации о часовом поясе называют <code class="docutils literal notranslate"><span class="pre">naive</span></code>. Здесь будут рассматриваться только <code class="docutils literal notranslate"><span class="pre">naive</span></code> объекты.</p>
+</div>
+<p>Кроме того, что объекты классов <code class="docutils literal notranslate"><span class="pre">date</span></code>, <code class="docutils literal notranslate"><span class="pre">time</span></code>, <code class="docutils literal notranslate"><span class="pre">datetime</span></code> можно сразу печатать функцией <code class="docutils literal notranslate"><span class="pre">print</span></code> (по умолчанию <code class="docutils literal notranslate"><span class="pre">YYYY-MM-DD</span></code>), они ещё имеют метод <code class="docutils literal notranslate"><span class="pre">strftime</span></code>, который работает аналогично функции из модуля <code class="docutils literal notranslate"><span class="pre">time</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Минимальный возможный год для объектов этого модуля — 1 год нашей эры, а максимальный — 9999 год нашей эры (все согласно григорианскому календарю). Для работы с датами до нашей эры или, например, для дат в астрономическом масштабе, этот модуль не подходит.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="datetime-date">
+<h3>datetime.date<a class="headerlink" href="#datetime-date" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">datetime.date</span></code> — объект с атрибутами</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">year</span></code> <span class="math notranslate nohighlight">\(\in \{1, 2, ..., 9999\}\)</span> — год (2021, например);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">month</span></code> <span class="math notranslate nohighlight">\(\in \{1, 2, ..., 12\}\)</span> — месяц;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">day</span></code> <span class="math notranslate nohighlight">\(\in \{1, 2, ..., N\}\)</span> — номер дня в месяце (<span class="math notranslate nohighlight">\(N\)</span> — количество дней в месяце);</p></li>
+</ul>
+<p>Создать объект <code class="docutils literal notranslate"><span class="pre">datetime.date</span></code> можно несколькими способами.</p>
+<p>Например, явно вызвав конструктор.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">the_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">1963</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">the_date_formatted</span> <span class="o">=</span> <span class="n">the_date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%m/</span><span class="si">%d</span><span class="s2">/%Y&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Первый полёт в космос: </span><span class="si">{</span><span class="n">the_date_formatted</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Первый полёт в космос: 04/12/1963
+</pre></div>
+</div>
+</div>
+</div>
+<p>Из <code class="docutils literal notranslate"><span class="pre">Unix-времени</span></code> методом <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.date.fromtimestamp">datetime.date.fromtimestamp</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">unix_epoch</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unix-epoch соответствует дате </span><span class="si">{</span><span class="n">unix_epoch</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Unix-epoch соответствует дате 1970-01-01.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Или методом <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.date.today">datetime.date.today</a>, если нужна дата на сегодня (согласно часам компьютера).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Этот метод аналогичен <code class="docutils literal notranslate"><span class="pre">datetime.date.fromtimestamp(time.time())</span></code>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">today</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;День: </span><span class="si">{</span><span class="n">today</span><span class="o">.</span><span class="n">day</span><span class="si">}</span><span class="s2">, месяц: </span><span class="si">{</span><span class="n">today</span><span class="o">.</span><span class="n">month</span><span class="si">}</span><span class="s2">, год </span><span class="si">{</span><span class="n">today</span><span class="o">.</span><span class="n">year</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">today</span><span class="o">.</span><span class="n">weekday</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}</span><span class="s2"> день недели: </span><span class="si">{</span><span class="n">today</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%A&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2021-12-01
+День: 1, месяц: 12, год 2021
+3 день недели: Wednesday
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="datetime-time">
+<h3>datetime.time<a class="headerlink" href="#datetime-time" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.time">datetime.time</a> — объект для хранения времени внутри суток, т.е. он имеет поля</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">hour</span></code> <span class="math notranslate nohighlight">\(\in \{0, 1, ..., 23\}\)</span> — час,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">minute</span></code> <span class="math notranslate nohighlight">\(\in \{0, 1, ..., 59\}\)</span> — минута,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">second</span></code> <span class="math notranslate nohighlight">\(\in \{0, 1, ..., 59\}\)</span> — секунда,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">microsecond</span></code> <span class="math notranslate nohighlight">\(\in \{0, 1, ..., 999999\}\)</span> — микросекунда,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fold</span></code> <span class="math notranslate nohighlight">\(\in [0, 1]\)</span> — параметр, который используется для разрешения противоречий, если есть данные о часовом поясе (переводы часов назад и так далее).</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">the_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">time</span><span class="p">(</span><span class="n">hour</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">minute</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span> 
+<span class="n">the_time_formatted</span> <span class="o">=</span> <span class="n">the_time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%H:%M&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Старт корабля Восток 1 состоялся в </span><span class="si">{</span><span class="n">the_time_formatted</span><span class="si">}</span><span class="s2"> по Московскому времени.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Старт корабля Восток 1 состоялся в 09:07 по Московскому времени.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Редко возникают ситуации, когда нужно только время внутри суток без даты, поэтому <code class="docutils literal notranslate"><span class="pre">datetime.time</span></code> используется значительное реже, чем <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code>.</p>
+</div>
+<div class="section" id="datetime-datetime">
+<h3>datetime.datetime<a class="headerlink" href="#datetime-datetime" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime">datetime.datetime</a> — по сути дела комбинация предыдущих двух типов <code class="docutils literal notranslate"><span class="pre">datetime.date</span></code> и <code class="docutils literal notranslate"><span class="pre">datetime.time</span></code>, т.е. имеет аттрибуты и того и того:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">year</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">month</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">day</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hour</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">minute</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">second</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">microsecond</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fold</span></code>;</p></li>
+</ul>
+<p>Конструктор <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code> в качестве входных параметров принимает параметры обоих классов <code class="docutils literal notranslate"><span class="pre">datetime.date</span></code> и <code class="docutils literal notranslate"><span class="pre">datetime.time</span></code>. Также, можно предварительно создать объекты <code class="docutils literal notranslate"><span class="pre">datetime.date</span></code> и <code class="docutils literal notranslate"><span class="pre">datetime.time</span></code> и объединить их в <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code> методом <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime.combine">combine</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">olympics</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">1980</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">19</span><span class="p">,</span> <span class="n">hour</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">olympics</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;Церемония открытия московской олимпиады началась </span><span class="si">%d</span><span class="s2">.%m.%Y в %H:%M.&quot;</span><span class="p">))</span>
+
+<span class="n">the_date_the_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="n">the_date</span><span class="p">,</span> <span class="n">the_time</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">the_date_the_time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;Старт корабля Восток 1 состоялся </span><span class="si">%d</span><span class="s2">/%m/%y в %H:%M по Московскому времени.&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Церемония открытия московской олимпиады началась 19.07.1980 в 16:00.
+Старт корабля Восток 1 состоялся 12/04/63 в 09:07 по Московскому времени.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Также есть и метод <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime.fromtimestamp">fromtimestamp</a>, который в данном случае учитывает часовой пояс системы, т.е. по количеству секунд, прошедших с полуночи по Гринвичу 1 января 1970 года, он возвращает дату и время, которые были в это время в этом часовом поясе. Метод <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime.utcfromtimestamp">utcfromtimestamp</a> делает то же самое, но не учитывая часовой пояс.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">unix_epoch_moscow</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">unix_epoch_moscow</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;Мировое Unix-время отсчитывается с %H:%M по московскому времени&quot;</span><span class="p">))</span>
+
+<span class="n">unix_epoch_UTC</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcfromtimestamp</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">unix_epoch_UTC</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;Мировое Unix-время отсчитывается с %H:%M UTC&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Мировое Unix-время отсчитывается с 03:00 по московскому времени
+Мировое Unix-время отсчитывается с 00:00 UTC
+</pre></div>
+</div>
+</div>
+</div>
+<p>Но чаще всего <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code> образуются методом <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime.strptime">datetime.datetime.strptime</a> из текстового представления. Формате текстового представления для времени разный для разных стран/учреждений/организаций и т.д. Например, где-то 26 января записывается в виде “26.01”, а где-то в “01/26”. Чтобы модуль <code class="docutils literal notranslate"><span class="pre">datetime</span></code> смог разобраться, где в строке расположены значения, соответствующие номеру месяца, а где номеру дня, году, времени и т.п., необходимо передать в метод <code class="docutils literal notranslate"><span class="pre">strptime</span></code> форматирующую строку в качестве второго аргумента.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t1</span> <span class="o">=</span> <span class="s2">&quot;14 March 1879&quot;</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="s2">&quot;2019-05-18T15:17:08.132263&quot;</span>
+<span class="n">t3</span> <span class="o">=</span> <span class="s2">&quot;11/12/63&quot;</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2"> %B %Y&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">T%H:%M:%S.</span><span class="si">%f</span><span class="s2">&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">t3</span><span class="p">,</span> <span class="s2">&quot;%m/</span><span class="si">%d</span><span class="s2">/%y&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1879-03-14 00:00:00
+2019-05-18 15:17:08.132263
+2063-11-12 00:00:00
+</pre></div>
+</div>
+</div>
+</div>
+<p>Разберем примеры выше:</p>
+<ol class="simple">
+<li><p>В строковом представлении <code class="docutils literal notranslate"><span class="pre">t1</span></code> идут сначала две цифры, обозначающие день, т.е. используем директива <code class="docutils literal notranslate"><span class="pre">%d</span></code>. Затем идёт полное название месяца (директива <code class="docutils literal notranslate"><span class="pre">%B</span></code>, а затем идёт год с указанием всех 4 цифр (директива <code class="docutils literal notranslate"><span class="pre">%Y</span></code>)). Т.к. все эти элементы разделены пробелом, то форматирующая строка равна <code class="docutils literal notranslate"><span class="pre">&quot;%d</span> <span class="pre">%B</span> <span class="pre">%Y&quot;</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">t1</span></code> соответствует <a class="reference external" href="https://ru.wikipedia.org/wiki/ISO_8601">iso-формату</a>. Полный год (<code class="docutils literal notranslate"><span class="pre">%Y</span></code>), месяц (<code class="docutils literal notranslate"><span class="pre">%m</span></code>), день <code class="docutils literal notranslate"><span class="pre">%d</span></code>, символ <code class="docutils literal notranslate"><span class="pre">&quot;T&quot;</span></code>, час (<code class="docutils literal notranslate"><span class="pre">%H</span></code>), минута (<code class="docutils literal notranslate"><span class="pre">%M</span></code>), секунда (<code class="docutils literal notranslate"><span class="pre">%S</span></code>), микро секунда (<code class="docutils literal notranslate"><span class="pre">%f</span></code>). Месяц отделяется от дня и год символом дефиса <code class="docutils literal notranslate"><span class="pre">&quot;-&quot;</span></code>, минута отделяется от часа и секунды символом двоеточия (<code class="docutils literal notranslate"><span class="pre">&quot;-&quot;</span></code>), и микросекунда отделяется точкой перед ней. Комбинируя это всё, получаем форматирующую строку <code class="docutils literal notranslate"><span class="pre">&quot;%Y-%m-%dT%H:%M:%S.%f&quot;</span></code></p></li>
+<li><p>Дата разделенная символами <code class="docutils literal notranslate"><span class="pre">/</span></code>, в годе не указан век. Подразумевается, что дата представлена в формате, используемом в <code class="docutils literal notranslate"><span class="pre">USA</span></code>, т.е. сначала идёт месяц, а затем день (день убийства Кеннеди). Хочется использоваться форматирующую строку <code class="docutils literal notranslate"><span class="pre">&quot;11/12/63&quot;</span></code>, но она возвращает 2063 год. Т.к. такая строка не содержит достаточно информации, чтобы определить правильный век, то её необходимо обрабатывать отдельно.</p></li>
+</ol>
+</div>
+<div class="section" id="timedelta">
+<h3>timedelta<a class="headerlink" href="#timedelta" title="Permalink to this headline">¶</a></h3>
+<p>Объекты <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.timedelta">datetime.timedelta</a> позволяют производить арифметику с объектами <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code>, <code class="docutils literal notranslate"><span class="pre">datetime.date</span></code> и <code class="docutils literal notranslate"><span class="pre">datetime.time</span></code>. Пусть <code class="docutils literal notranslate"><span class="pre">t</span></code> — объект <code class="docutils literal notranslate"><span class="pre">datetime</span></code> или его аналог, а <code class="docutils literal notranslate"><span class="pre">dt</span></code> — объект <code class="docutils literal notranslate"><span class="pre">deltatime</span></code>, тогда определенны следующие операции:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dt</span></code> = <code class="docutils literal notranslate"><span class="pre">t2</span></code> - <code class="docutils literal notranslate"><span class="pre">t1</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">t2</span></code> = <code class="docutils literal notranslate"><span class="pre">t1</span></code> <span class="math notranslate nohighlight">\(\pm\)</span> <code class="docutils literal notranslate"><span class="pre">dt</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">t1</span></code> &lt; <code class="docutils literal notranslate"><span class="pre">t2</span></code>;</p></li>
+<li><p>др.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">today</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.timedelta(days=8005)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Между сегодня и началом века прошло 8005 дней.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_day</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">yesterday</span> <span class="o">=</span> <span class="n">today</span> <span class="o">-</span> <span class="n">a_day</span>
+<span class="n">tomorrow</span> <span class="o">=</span> <span class="n">today</span> <span class="o">+</span> <span class="n">a_day</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Вчера: </span><span class="si">{</span><span class="n">yesterday</span><span class="si">}</span><span class="s2">,</span><span class="se">\n</span><span class="s2">Сегодня: </span><span class="si">{</span><span class="n">today</span><span class="si">}</span><span class="s2">,</span><span class="se">\n</span><span class="s2">Завтра: </span><span class="si">{</span><span class="n">tomorrow</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">yesterday</span> <span class="o">&lt;</span> <span class="n">today</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Вчера: 2021-11-30,
+Сегодня: 2021-12-01,
+Завтра: 2021-12-02
+True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">t0</span><span class="p">)</span>
+<span class="n">dt</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.timedelta(seconds=1, microseconds=509398)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="pandas-datetime">
+<h2>pandas.DateTime<a class="headerlink" href="#pandas-datetime" title="Permalink to this headline">¶</a></h2>
+<p>Для работы со временем <code class="docutils literal notranslate"><span class="pre">pandas</span></code> опирается на типы данных <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.datetime.html#datetime-units">np.datetime64 и np.timedelta64</a> из библиотеки <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>. Например, сделать <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code> типа <code class="docutils literal notranslate"><span class="pre">datetime64[ns]</span></code> можно методом <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.to_datetime.html">pd.to_datetime</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;2022-1-1&quot;</span><span class="p">,</span> <span class="s2">&quot;2022-1-2&quot;</span><span class="p">]</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="n">t</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DatetimeIndex([&#39;2022-01-01&#39;, &#39;2022-01-02&#39;], dtype=&#39;datetime64[ns]&#39;, freq=None)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Если аргумент метода <code class="docutils literal notranslate"><span class="pre">pd_todatetime</span></code> — список, то создаётся объект <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DatetimeIndex.html">pd.DateTimeIndex</a>, а если <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code>, то создаётся другая <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code> типа <code class="docutils literal notranslate"><span class="pre">datetime64[ns]</span></code>.</p>
+<p>По умолчанию <code class="docutils literal notranslate"><span class="pre">pandas</span></code> парсит в формате <code class="docutils literal notranslate"><span class="pre">&quot;%Y-%m-%d&quot;</span></code>, но если данные представлены в другом формате, то можно его указать параметром format.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s2">&quot;12:00 1.1.22&quot;</span><span class="p">,</span> <span class="s2">&quot;11:00 2.1.22&quot;</span><span class="p">])</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;%H:%M </span><span class="si">%d</span><span class="s2">.%m.%y&quot;</span><span class="p">)</span>
+<span class="n">t</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0   2022-01-01 12:00:00
+1   2022-01-02 11:00:00
+dtype: datetime64[ns]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Иногда необходимо задавать точки времени с определенной периодичностью. Для это удобно использовать функцию <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.date_range.html">pd.date_range</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datetimerange</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">freq</span><span class="o">=</span><span class="s2">&quot;H&quot;</span><span class="p">)</span>
+<span class="n">datetimerange</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DatetimeIndex([&#39;2022-01-01 12:00:00&#39;, &#39;2022-01-01 13:00:00&#39;,
+               &#39;2022-01-01 14:00:00&#39;, &#39;2022-01-01 15:00:00&#39;,
+               &#39;2022-01-01 16:00:00&#39;, &#39;2022-01-01 17:00:00&#39;,
+               &#39;2022-01-01 18:00:00&#39;, &#39;2022-01-01 19:00:00&#39;,
+               &#39;2022-01-01 20:00:00&#39;, &#39;2022-01-01 21:00:00&#39;,
+               &#39;2022-01-01 22:00:00&#39;, &#39;2022-01-01 23:00:00&#39;,
+               &#39;2022-01-02 00:00:00&#39;, &#39;2022-01-02 01:00:00&#39;,
+               &#39;2022-01-02 02:00:00&#39;, &#39;2022-01-02 03:00:00&#39;,
+               &#39;2022-01-02 04:00:00&#39;, &#39;2022-01-02 05:00:00&#39;,
+               &#39;2022-01-02 06:00:00&#39;, &#39;2022-01-02 07:00:00&#39;,
+               &#39;2022-01-02 08:00:00&#39;, &#39;2022-01-02 09:00:00&#39;,
+               &#39;2022-01-02 10:00:00&#39;, &#39;2022-01-02 11:00:00&#39;],
+              dtype=&#39;datetime64[ns]&#39;, freq=&#39;H&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks\pandas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="dataframe.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">pd.DataFrame</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="covid19.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Обзор базовых возможностей pandas</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Fadeev Egor<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

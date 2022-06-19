@@ -1,0 +1,1792 @@
+
+<!DOCTYPE html>
+
+<html>
+  
+<head>
+    <link rel="icon" type="image/png" href="..\..\favicon.png"/>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Перегрузка специальных методов и операторов &#8212; Практикум по компьютерным технологиям</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Практические задания" href="exercises2.html" />
+    <link rel="prev" title="Полиморфизм в python" href="polymorphism.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/python-logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Практикум по компьютерным технологиям</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/index.html">
+   Практикум по компьютерным технологиям на языке программирования python3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №1
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/about_py.html">
+   О питоне
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/getting_started.html">
+   Установка python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/python_as_calculator.html">
+   Python в качестве калькулятора
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/jupyter_notebooks.html">
+   Что такое Jupyter Notebooks?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="first_notebook.html">
+   Основы работы с Jupyter Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numbers_and_lists.html">
+   Основные типы объектов в python. Числа и списки
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="if_for_range.html">
+   Операторы потока управления
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/interpretability.html">
+   Компилируемость vs Интерпретируемость
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dynamic_typing.html">
+   Динамическая типизация
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mutability.html">
+   Изменяемые и неизменяемый типы объектов
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="garbage_collector.html">
+   Создание и удаление объектов. Сборщик мусора
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sequencies.html">
+   Последовательности: списки, кортежи и строки
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №3
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/libs_pypi_conda.html">
+   Сторонние библиотеки и пакетные менеджеры
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/numpy.html">
+   Знакомство с NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/vectorization.html">
+   Векторизация
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/slices.html">
+   Срезы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/vector_product.html">
+   Умножение векторов
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/logic.html">
+   Логические операции, булевые маски
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/vectorization_example.html">
+   Векторизация на примере вычисления статистик
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/homework.html">
+   Домашнее задание №2
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №4
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="dictionaries.html">
+   Словари.
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     dict
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="functions.html">
+   Функции
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="files.html">
+   Работа с файлами
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="json.html">
+   Формат json
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №5
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/matplotlib.html">
+   matplotlib и другие графические библиотеки
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/matplotlib_animation.html">
+   Анимация  в matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/scipy.html">
+   SciPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/linalg.html">
+   Линейная алгебра
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/interpolation_approx.html">
+   Интерполяция функций, аппроксимация функций
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/integration.html">
+   Определенные интегралы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/ODE.html">
+   Решение ОДУ
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/optimization.html">
+   Оптимизация
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/nonlinear_equations.html">
+   Решение нелинейных уравнений
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/cannonball.html">
+   Пример
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/homework.html">
+   Домашнее задание №3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №6
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_scripts.html">
+   Создание скриптов. Работа с IDE
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scripts_vs_modules.html">
+   Скрипты и модули
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="argparse.html">
+   Аргументы командной строки
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №7
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/pandas.html">
+   pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/series.html">
+   pd.Series
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/dataframe.html">
+   pd.DataFrame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/datetime.html">
+   Дата и время
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/covid19.html">
+   Обзор базовых возможностей pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/homework.html">
+   Домашнее задание №4
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №8
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="list_comprehensions.html">
+   Основы списковых включений
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="iterators.html">
+   Итераторы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="decorators.html">
+   Декораторы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="generators.html">
+   Генераторы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exercises1.html">
+   Практические задания
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №9
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="custom_classes.html">
+   Пользовательские классы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="inheritance.html">
+   Наследование
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="polymorphism.html">
+   Полиморфизм в python
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Перегрузка специальных методов и операторов
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exercises2.html">
+   Практические задания
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №10
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="exceptions.html">
+   Исключения
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="custom_exceptions.html">
+   Пользовательские исключения
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="LBYL_vs_EAFP.html">
+   Стратегии контроля ошибок
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exercises3.html">
+   Практические задания
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №11
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/gui.html">
+   Графический пользовательский интерфейс
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/basics.html">
+   PySide. Основы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/event.html">
+   События
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/slot_signal.html">
+   Слоты и сигналы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/widgets.html">
+   Виджеты и макеты
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/buttons.html">
+   Кнопки
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/output.html">
+   Вывод данных
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/input.html">
+   Ввод данных
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/dialogs.html">
+   Диалоговые окна
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/exercises4.html">
+   Практические задания
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекции №12 и далее
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="about_12_and_so_on.html">
+   О последних лекциях
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../computer_vision/basics.html">
+   Работа с изображениями
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../computer_vision/filters.html">
+   Свёрточные операции
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../computer_vision/detection.html">
+   Задача обнаружения
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine_learning/regression.html">
+   Регрессия
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine_learning/classification.html">
+   Классификация
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine_learning/neural_networks.html">
+   Нейронный сети
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/notebooks/python/operators_overloading.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/FadeevLecturer/python_lectures"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/FadeevLecturer/python_lectures/issues/new?title=Issue%20on%20page%20%2Fnotebooks/python/operators_overloading.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/FadeevLecturer/python_lectures/edit/main/notebooks/python/operators_overloading.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/FadeevLecturer/python_lectures/main?urlpath=tree/notebooks/python/operators_overloading.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/FadeevLecturer/python_lectures/blob/main/notebooks/python/operators_overloading.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#str-repr">
+   Приведение к строке.
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     __str__
+    </span>
+   </code>
+   и
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     __repr__
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#call">
+   Вызов объекта.
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     __call__
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#iter">
+   Итератор по объекту.
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     __iter__
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Перегрузка операторов
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Доступные операторы
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       Арифметические операторы
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id5">
+         Операнд справа
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id6">
+         Версия оператора на месте
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id7">
+         Пример
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id8">
+       Операторы сравнения
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id9">
+       Побитовые операторы
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#container-operators">
+       Операторы контейнеров
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id11">
+       Операторы последовательностей
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Перегрузка специальных методов и операторов</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#str-repr">
+   Приведение к строке.
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     __str__
+    </span>
+   </code>
+   и
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     __repr__
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#call">
+   Вызов объекта.
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     __call__
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#iter">
+   Итератор по объекту.
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     __iter__
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Перегрузка операторов
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Доступные операторы
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       Арифметические операторы
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id5">
+         Операнд справа
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id6">
+         Версия оператора на месте
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id7">
+         Пример
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id8">
+       Операторы сравнения
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id9">
+       Побитовые операторы
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#container-operators">
+       Операторы контейнеров
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id11">
+       Операторы последовательностей
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1>Перегрузка специальных методов и операторов<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Перегрузка специальных методов позволяет достичь многих аспектов полиморфизма.</p>
+<div class="section" id="str-repr">
+<h2>Приведение к строке. <code class="docutils literal notranslate"><span class="pre">__str__</span></code> и <code class="docutils literal notranslate"><span class="pre">__repr__</span></code><a class="headerlink" href="#str-repr" title="Permalink to this headline">¶</a></h2>
+<p>Если попробовать распечатать экземпляр пользовательского класса, то вы получите нечто не очень содержательное.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numbers</span> <span class="kn">import</span> <span class="n">Number</span>
+
+<span class="k">class</span> <span class="nc">Quaternion</span><span class="p">(</span><span class="n">Number</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="n">a</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">b</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">c</span> <span class="o">=</span> <span class="n">c</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">d</span> <span class="o">=</span> <span class="n">d</span>
+
+<span class="n">q</span> <span class="o">=</span> <span class="n">Quaternion</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Quaternion object at 0x00000232A48CF130&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>При попытке распечатать экземпляр класса <code class="docutils literal notranslate"><span class="pre">Quaternion</span></code> мы получили сообщение, из которого никак нельзя узнать значение атрибутов объекта.</p>
+<p>Этот класс в примере реализует тип <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%9A%D0%B2%D0%B0%D1%82%D0%B5%D1%80%D0%BD%D0%B8%D0%BE%D0%BD">кватернионов</a>. Кватернион <span class="math notranslate nohighlight">\(q\)</span> можно задать четырьмя действительными числами <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, <span class="math notranslate nohighlight">\(c\)</span> и <span class="math notranslate nohighlight">\(d\)</span>. Тогда он определяется как сумма</p>
+<div class="math notranslate nohighlight">
+\[
+    q = a + b i + c j + d k.
+\]</div>
+<p>Сделаем так, чтобы функцией <code class="docutils literal notranslate"><span class="pre">print</span></code> на экран выводилось представление кватерниона в такой форме. Для это необходимо объявить специальный метод <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__str__">__str__</a>, который отвечает за приведение объекта к строке (встроенная функция <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a> сначала пытается вызвать этот метод).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Quaternion</span><span class="p">(</span><span class="n">Number</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="n">a</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">b</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">c</span> <span class="o">=</span> <span class="n">c</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">d</span> <span class="o">=</span> <span class="n">d</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="si">}</span><span class="s2"> + </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="si">}</span><span class="s2">i + </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">c</span><span class="si">}</span><span class="s2">j + </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">d</span><span class="si">}</span><span class="s2">k&quot;</span>
+
+<span class="n">q</span> <span class="o">=</span> <span class="n">Quaternion</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 + 2i + 3j + 4k
+</pre></div>
+</div>
+</div>
+</div>
+<p>Есть также похожий метод <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__repr__">__repr__</a> (и соответствующая встроенная функция <a class="reference external" href="https://docs.python.org/3/library/functions.html#repr">repr</a>), который тоже должен возвращать строку. Разница между <code class="docutils literal notranslate"><span class="pre">__str__</span></code> и <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> примерное следующая.</p>
+<ul class="simple">
+<li><p>Метод <code class="docutils literal notranslate"><span class="pre">__str__</span></code> должен возвращать читабельную для человека строку. Такой метод вызывается функцией <code class="docutils literal notranslate"><span class="pre">print</span></code>.</p></li>
+<li><p>Метод <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> должен возвращать строку, из которой можно было бы восстановить объект. Такой метод может быть полезен для отладки.</p></li>
+</ul>
+<p>Для примера реализуем метод <code class="docutils literal notranslate"><span class="pre">__repr__</span></code>, вычисление результата которого воссоздаст исходный объект.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Quaternion</span><span class="p">(</span><span class="n">Number</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="n">a</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">b</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">c</span> <span class="o">=</span> <span class="n">c</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">d</span> <span class="o">=</span> <span class="n">d</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="si">}</span><span class="s2"> + </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="si">}</span><span class="s2">i + </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">c</span><span class="si">}</span><span class="s2">j + </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">d</span><span class="si">}</span><span class="s2">k&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Quaternion(a=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="si">}</span><span class="s2">, b=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="si">}</span><span class="s2">, c=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">c</span><span class="si">}</span><span class="s2">, d=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">d</span><span class="si">}</span><span class="s2">)&quot;</span>
+
+<span class="n">q</span> <span class="o">=</span> <span class="n">Quaternion</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">representation</span> <span class="o">=</span> <span class="nb">repr</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">representation</span><span class="p">)</span>
+
+<span class="n">q_copy</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="n">representation</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">q_copy</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Quaternion(a=1, b=2, c=3, d=4)
+1 + 2i + 3j + 4k
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="call">
+<span id="call-obj"></span><h2>Вызов объекта. <code class="docutils literal notranslate"><span class="pre">__call__</span></code><a class="headerlink" href="#call" title="Permalink to this headline">¶</a></h2>
+<p>Определив специальный метод <code class="docutils literal notranslate"><span class="pre">__call__</span></code>, можно имитировать функции.</p>
+<p>В качестве примера реализуем класс, который позволит вычислять композицию функций одной переменной. Напомним, что композицией двух функций <span class="math notranslate nohighlight">\(f:\mathbb{R} \to \mathbb{R}\)</span> и <span class="math notranslate nohighlight">\(g:\mathbb{r} \to \mathbb{R}\)</span> называется функция <span class="math notranslate nohighlight">\(h = f \circ g:\mathbb{R} \to \mathbb{R}\)</span>, значение которой <span class="math notranslate nohighlight">\(h(x) = f(g(x))\)</span> для <span class="math notranslate nohighlight">\(\forall x \in \mathbb{R}\)</span>.</p>
+<p>Реализация такого класса может выглядеть как-нибудь вот так.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Callable</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">class</span> <span class="nc">Composition</span><span class="p">(</span><span class="n">Callable</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">g</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">f</span> <span class="o">=</span> <span class="n">f</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">g</span> <span class="o">=</span> <span class="n">g</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="nb">abs</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">Composition</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">g</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="p">(</span><span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Конструктор класса <code class="docutils literal notranslate"><span class="pre">Composition</span></code> принимает на вход две функции (или вызываемых объекта), запоминает их в атрибуты <code class="docutils literal notranslate"><span class="pre">f</span></code> и <code class="docutils literal notranslate"><span class="pre">g</span></code>. При вызове объекта (пара круглых скобок после имени объекта), вызывается метод <code class="docutils literal notranslate"><span class="pre">__call__</span></code>, который в данном случае возвращает результат вычисления <code class="docutils literal notranslate"><span class="pre">f(g(x))</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;font&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+<span class="n">Y1</span> <span class="o">=</span> <span class="p">[</span><span class="n">h</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span><span class="p">]</span>
+<span class="n">Y2</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span><span class="p">(</span><span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span><span class="p">]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y1</span><span class="p">,</span> <span class="s2">&quot;r.&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;h(x)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;f(g(x))&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Matplotlib is building the font cache; this may take a moment.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x232a8b826a0&gt;
+</pre></div>
+</div>
+<img alt="../../_images/operators_overloading_10_2.png" src="../../_images/operators_overloading_10_2.png" />
+</div>
+</div>
+</div>
+<div class="section" id="iter">
+<h2>Итератор по объекту. <code class="docutils literal notranslate"><span class="pre">__iter__</span></code><a class="headerlink" href="#iter" title="Permalink to this headline">¶</a></h2>
+<p>Если ваш элемент класс является контейнером, то может потребоваться возможность пробежаться по его элементам. Для этого необходимо, чтобы встроенная функция <a class="reference external" href="https://docs.python.org/3/library/functions.html#iter">iter</a> возвращала итератор по этому объекту. Чтобы это работало у пользовательского класса, необходимо или реализовать оператор извлечения элемента по индексу (см. <a class="reference internal" href="#container-operators"><span class="std std-ref">Операторы контейнеров</span></a>) или реализовать метод <code class="docutils literal notranslate"><span class="pre">__iter__</span></code>, чтобы он возвращал итератор по нему.</p>
+<p><a class="reference external" href="https://docs.python.org/3/glossary.html#term-iterator">Итератор</a> в свою очередь должен поддерживать метод <code class="docutils literal notranslate"><span class="pre">__next__</span></code> и метод <code class="docutils literal notranslate"><span class="pre">__iter__</span></code>. Последний необходим для того, чтобы итератор сам по себе можно было использовать в цикле <code class="docutils literal notranslate"><span class="pre">for</span></code> (выражение <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">x</span> <span class="pre">in</span> <span class="pre">iterable</span></code> первым шагом вызывает <code class="docutils literal notranslate"><span class="pre">iter(iterable)</span></code>) и в схожих контекстах.</p>
+<p>В ряде случаев проще всего реализовать метод <code class="docutils literal notranslate"><span class="pre">__iter__</span></code> в виде генератора, т.к. они автоматически поддерживают и метод <code class="docutils literal notranslate"><span class="pre">__next__</span></code> и метод <code class="docutils literal notranslate"><span class="pre">__iter__</span></code>. В качестве примера рассмотрим класс векторов трехмерного пространства и предположим, что мы хотим уметь итерироваться по его координатам.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">abc</span>
+
+<span class="k">class</span> <span class="nc">Vector3D</span><span class="p">(</span><span class="n">abc</span><span class="o">.</span><span class="n">Iterable</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">z</span>
+    
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span>
+        <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span>
+        <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">z</span>
+
+<span class="n">v</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">coordinate</span> <span class="ow">in</span> <span class="n">v</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">coordinate</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>42 3 13 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Как видим, метод <code class="docutils literal notranslate"><span class="pre">__iter__</span></code> является функцией-генератором. Объект генератора результата вызова <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> по очереди возвращает координаты <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code> и <code class="docutils literal notranslate"><span class="pre">z</span></code>.</p>
+<p>Теперь, в качестве альтернативы реализуем класс итератора <code class="docutils literal notranslate"><span class="pre">Iterator</span></code> по объектам <code class="docutils literal notranslate"><span class="pre">Vector3D</span></code> в явном виде. Теперь метод <code class="docutils literal notranslate"><span class="pre">Vector3D.__iter__</span></code> возвращает экземпляр класса <code class="docutils literal notranslate"><span class="pre">Iterator</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">abc</span> 
+
+<span class="k">class</span> <span class="nc">Vector3D</span><span class="p">(</span><span class="n">abc</span><span class="o">.</span><span class="n">Iterable</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">z</span>
+    
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Vector3D</span><span class="o">.</span><span class="n">Iterator</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="k">class</span> <span class="nc">Iterator</span><span class="p">(</span><span class="n">abc</span><span class="o">.</span><span class="n">Iterator</span><span class="p">):</span>
+        <span class="n">attributes</span> <span class="o">=</span> <span class="s2">&quot;xyz&quot;</span>
+        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vector</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Создан итератор.&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">vector</span> <span class="o">=</span> <span class="n">vector</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">current</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span>
+        
+        <span class="k">def</span> <span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">current_attribute</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">current</span><span class="p">]</span>
+            <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">StopIteration</span>
+            
+            <span class="bp">self</span><span class="o">.</span><span class="n">current</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vector</span><span class="p">,</span> <span class="n">current_attribute</span><span class="p">)</span>
+
+<span class="n">v</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
+ 
+<span class="k">for</span> <span class="n">coordinate</span> <span class="ow">in</span> <span class="n">v</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">coordinate</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>        
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Создан итератор.
+42 3 13 
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>В целях инкапсуляции класс итератора объявлен прямо в теле исходного класса;</p></li>
+<li><p>Метод <code class="docutils literal notranslate"><span class="pre">__init__</span></code> этого класса принимает на вход экземпляр класса, запоминает значения атрибутов класса и устанавливает значение счетчик равным нулю. Этот счетчик затем используется, чтобы запомнить атрибут, на котором мы остановились в методе <code class="docutils literal notranslate"><span class="pre">next</span></code>;</p></li>
+<li><p>Метод <code class="docutils literal notranslate"><span class="pre">__next__</span></code> возвращает значение следующего атрибута, имя которого получается индексацией из строки <code class="docutils literal notranslate"><span class="pre">attributes</span></code>. Когда символы этой строки заканчиваются, то происходит обращение к символу строки за её пределами, что приводит к возбуждению исключения <code class="docutils literal notranslate"><span class="pre">IndexError</span></code>. Это исключение перехватывается и вместо него возбуждается <code class="docutils literal notranslate"><span class="pre">StopIteration</span></code>, что сигнализирует вызывающему коду, что итератор исчерпался;</p></li>
+<li><p>Метод <code class="docutils literal notranslate"><span class="pre">__iter__</span></code> итератора возвращает ссылку на себя, что позволяет использовать его самого в цикле <code class="docutils literal notranslate"><span class="pre">for</span></code>, как в примере ниже.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">it</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">coordinate</span> <span class="ow">in</span> <span class="n">it</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">coordinate</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Создан итератор.
+&lt;__main__.Vector3D.Iterator object at 0x00000232AAD94F70&gt;
+42 3 13 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>Перегрузка операторов<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h3>Доступные операторы<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Как и во многих других языках программирования, в <code class="docutils literal notranslate"><span class="pre">python</span></code> можно перегружать действие операторов на пользовательские объекты. Все операторы в <code class="docutils literal notranslate"><span class="pre">python</span></code> могут быть представлены в форме специальных методов. Например, метод <code class="docutils literal notranslate"><span class="pre">__add__</span></code> из этого модуля соответствует оператору <code class="docutils literal notranslate"><span class="pre">+</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">7</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="fm">__add__</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>49
+</pre></div>
+</div>
+</div>
+</div>
+<p>Для всех остальных арифметических операторов, есть свои функции и, забегая вперед, специальные методы с такими же именами, но окруженные двойными нижними подчеркиваниями.</p>
+<div class="section" id="id4">
+<h4>Арифметические операторы<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Арифметическое действие</p></th>
+<th class="head"><p>Операторная форма</p></th>
+<th class="head"><p>Метод</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Сложение</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a.__add__(b)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Вычитание</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">-</span> <span class="pre">b</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a.__sub__(b)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Умножение</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">*</span> <span class="pre">b</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a.__mul__(b)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Обычное деление</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">/</span> <span class="pre">b</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a.__truediv__(a,</span> <span class="pre">b)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Целочисленное деление</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">//</span> <span class="pre">b</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a.__floordiv__(b)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Остаток от деления</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">%</span> <span class="pre">b</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a.__mod__(b)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Возведение в степень</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">**</span> <span class="pre">b</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a.__pow__(b)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Матричное умножение</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&#64;</span> <span class="pre">b</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a.__matmul__(b)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Положительный</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">+a</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a.__pos__()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Арифметическое отрицание</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">-a</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a.__neg__()</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Для каждого бинарного оператора существует аналог с префиксом <code class="docutils literal notranslate"><span class="pre">r</span></code> (например, <code class="docutils literal notranslate"><span class="pre">__radd__</span></code>) и аналог с префиксом <code class="docutils literal notranslate"><span class="pre">i</span></code> (например, <code class="docutils literal notranslate"><span class="pre">__iadd__</span></code>).</p>
+</div>
+<div class="section" id="id5">
+<h5>Операнд справа<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h5>
+<p>Если встречается выражение <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code>, то сначала <code class="docutils literal notranslate"><span class="pre">python</span></code> пробует вызвать <code class="docutils literal notranslate"><span class="pre">a.__add__(b)</span></code>. Если такой метод у объекта <code class="docutils literal notranslate"><span class="pre">a</span></code> не определен или этот метод возвращает <a class="reference external" href="https://docs.python.org/3/library/constants.html#NotImplemented">NotImplemented</a>, то <code class="docutils literal notranslate"><span class="pre">python</span></code> пробует вызвать <code class="docutils literal notranslate"><span class="pre">b.__radd__(a)</span></code>. Если и он не определен или возвращает <code class="docutils literal notranslate"><span class="pre">NotImplemented</span></code>, то <code class="docutils literal notranslate"><span class="pre">python</span></code> возбуждает ошибку <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>.</p>
+</div>
+<div class="section" id="id6">
+<h5>Версия оператора на месте<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h5>
+<p>Если встречается выражение <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+=</span> <span class="pre">b</span></code>, то сначала <code class="docutils literal notranslate"><span class="pre">python</span></code> попытается вызвать <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">a.__iadd__(b)</span></code>. Если такой метод у объекта <code class="docutils literal notranslate"><span class="pre">a</span></code> не определен, то <code class="docutils literal notranslate"><span class="pre">python</span></code> пробует свести выражение <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+=</span> <span class="pre">b</span></code> к выражению <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code>, т.е. <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">a.__add__(b)</span></code>. Далее процедура следует алгоритму, описанному в предыдущем абзаце.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Методы на месте должны возвращать ссылку на какой-то объект. Для неизменяемых типов это обычно ссылка на новый объект, для изменяемых — ссылка на исходный объект (<code class="docutils literal notranslate"><span class="pre">self</span></code>, если вы следуете соглашениям).</p>
+</div>
+</div>
+<div class="section" id="id7">
+<h5>Пример<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h5>
+<p>В качестве самого простого примера реализуем свой тип “изменяемых” целых чисел, который будет поддерживать все формы оператора умножения.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numbers</span> <span class="kn">import</span> <span class="n">Number</span>
+
+<span class="k">class</span> <span class="nc">MyMutableInt</span><span class="p">(</span><span class="n">Number</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Допускаются только целые числа&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;MyMutableInt(value=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">)&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Умножение </span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2"> на </span><span class="si">{</span><span class="n">other</span><span class="si">}</span><span class="s2">. Объект слева.&quot;</span><span class="p">)</span>
+        <span class="k">if</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="nb">int</span><span class="p">)):</span>
+            <span class="k">return</span> <span class="n">MyMutableInt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">*</span> <span class="n">other</span><span class="p">)</span>
+        <span class="k">if</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">MyMutableInt</span><span class="p">)):</span>
+            <span class="k">return</span> <span class="n">MyMutableInt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>  
+        <span class="k">return</span> <span class="bp">NotImplemented</span>
+        
+    <span class="k">def</span> <span class="fm">__rmul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Умножение </span><span class="si">{</span><span class="n">other</span><span class="si">}</span><span class="s2"> на </span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">. Объект справа.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span> <span class="o">*</span> <span class="n">other</span>
+
+    <span class="k">def</span> <span class="fm">__imul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Умножение </span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2"> на </span><span class="si">{</span><span class="n">other</span><span class="si">}</span><span class="s2"> на месте&quot;</span><span class="p">)</span>
+        <span class="k">if</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="nb">int</span><span class="p">)):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">*=</span> <span class="n">other</span>
+            <span class="k">return</span> <span class="bp">self</span>
+        <span class="k">if</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">MyMutableInt</span><span class="p">)):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">*=</span> <span class="n">other</span><span class="o">.</span><span class="n">value</span>
+            <span class="k">return</span> <span class="bp">self</span>  
+        <span class="k">return</span> <span class="bp">NotImplemented</span>    
+
+
+
+<span class="nb">print</span><span class="p">(</span><span class="n">MyMutableInt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">MyMutableInt</span><span class="p">(</span><span class="mi">7</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">MyMutableInt</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span> <span class="o">*</span> <span class="mi">13</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">42</span> <span class="o">*</span> <span class="n">MyMutableInt</span><span class="p">(</span><span class="mi">13</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Умножение 3 на 7. Объект слева.
+21
+Умножение 42 на 13. Объект слева.
+546
+Умножение 42 на 13. Объект справа.
+Умножение 13 на 42. Объект слева.
+546
+</pre></div>
+</div>
+</div>
+</div>
+<p>Умножать экземпляры этого класса на встроенные целые числа можно в любом порядке за счет реализации метода <code class="docutils literal notranslate"><span class="pre">__rmul__</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Важно обратить внимание, что не все арифметические операции коммутативны, а значит в некоторых из них нельзя в методе с префиксом <code class="docutils literal notranslate"><span class="pre">r</span></code> просто поменять операнды местами.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">MyMutableInt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Значение </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2"> по адресу </span><span class="si">{</span><span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">*=</span> <span class="mi">7</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Значение </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2"> по адресу </span><span class="si">{</span><span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Значение 3 по адресу 2416637987760
+Умножение 3 на 7 на месте
+Значение 21 по адресу 2416637987760
+</pre></div>
+</div>
+</div>
+</div>
+<p>Умножать на месте можно за счет реализации метода <code class="docutils literal notranslate"><span class="pre">__imul__</span></code>.</p>
+<p>Все остальные операторы перегружаются аналогично.</p>
+</div>
+</div>
+<div class="section" id="id8">
+<h4>Операторы сравнения<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Сравнение на</p></th>
+<th class="head"><p>Операторная форма</p></th>
+<th class="head"><p>Метод</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Равенство</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">==</span> <span class="pre">b</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a.__eq__(b)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Неравенство</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">!=</span> <span class="pre">b</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a.__ne__(b)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Меньше</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;</span> <span class="pre">b</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a.__lt__(b)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Меньше или равно</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;=</span> <span class="pre">b</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a.__le__(b)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Больше или равно</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&gt;=</span> <span class="pre">b</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a.__ge__(b)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Больше</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&gt;</span> <span class="pre">b</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a.__gt__(b)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>Все эти методы должны возвращать, <code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">False</span></code> (или приводимое к ним значение), если сравнение произошло успешно, и <code class="docutils literal notranslate"><span class="pre">NotImplemented</span></code>, если сравнение с объектом такого типа не предусмотренно. В отличие от арифметических операций, не существует отраженных версий операторов сравнения с префиксом <code class="docutils literal notranslate"><span class="pre">r</span></code>. Вместо этого <code class="docutils literal notranslate"><span class="pre">a.__gt__(b)</span></code> (<code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&gt;</span> <span class="pre">b</span></code>) является отражением <code class="docutils literal notranslate"><span class="pre">b.__lt__(a)</span></code> (<code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">&lt;</span> <span class="pre">a</span></code>) и т.п. Возвращенное значение <code class="docutils literal notranslate"><span class="pre">NotImplemented</span></code> приведет к вызову отраженного оператора.</p>
+<p>Метод <code class="docutils literal notranslate"><span class="pre">__eq__</span></code> по умолчанию эквивалентен <code class="docutils literal notranslate"><span class="pre">is</span></code>, т.е. сравнение двух экземпляров всегда даёт <code class="docutils literal notranslate"><span class="pre">False</span></code>, если только это не один и тот же объект.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Если множество всех экземпляров класса является <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%9B%D0%B8%D0%BD%D0%B5%D0%B9%D0%BD%D0%BE_%D1%83%D0%BF%D0%BE%D1%80%D1%8F%D0%B4%D0%BE%D1%87%D0%B5%D0%BD%D0%BD%D0%BE%D0%B5_%D0%BC%D0%BD%D0%BE%D0%B6%D0%B5%D1%81%D1%82%D0%B2%D0%BE">линейно упорядоченным</a>, то можно воспользоваться декоратором <a class="reference external" href="https://docs.python.org/3/library/functools.html#functools.total_ordering">total_ordering</a> из модуля <a class="reference external" href="https://docs.python.org/3/library/functools.html">functools</a>: необходимо определить лишь метод для <code class="docutils literal notranslate"><span class="pre">==</span></code> и один из операторов <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> и <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, а остальные сгенерируются декоратором.</p>
+</div>
+<p>Множество целых чисел является линейно упорядоченным. Дополним пример с <code class="docutils literal notranslate"><span class="pre">MyMutableInt</span></code> операторами сравнения <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> и <code class="docutils literal notranslate"><span class="pre">==</span></code>, а остальные позволим сгенерировать декоратору <code class="docutils literal notranslate"><span class="pre">total_ordering</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numbers</span> <span class="kn">import</span> <span class="n">Number</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">total_ordering</span>
+
+<span class="nd">@total_ordering</span>
+<span class="k">class</span> <span class="nc">MyMutableInt</span><span class="p">(</span><span class="n">Number</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Допускаются только целые числа&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;MyMutableInt(value=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">)&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">&lt;</span> <span class="n">other</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">MyMutableInt</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">&lt;</span> <span class="n">other</span><span class="o">.</span><span class="n">value</span>
+        <span class="k">return</span> <span class="bp">NotImplemented</span>
+
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="n">other</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">MyMutableInt</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">value</span>
+        <span class="k">return</span> <span class="bp">NotImplemented</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">MyMutableInt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">MyMutableInt</span><span class="p">(</span><span class="mi">7</span><span class="p">),</span> <span class="n">MyMutableInt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">7</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">MyMutableInt</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">13</span><span class="p">,</span> <span class="n">MyMutableInt</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">13</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">42</span> <span class="o">==</span> <span class="n">MyMutableInt</span><span class="p">(</span><span class="mi">13</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True True
+True True
+False
+</pre></div>
+</div>
+</div>
+</div>
+<p>Все операторы сравнения работают. В качестве бонуса мы теперь можем сортировать списки чисел типа <code class="docutils literal notranslate"><span class="pre">MyMutableInt</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
+
+<span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="n">MyMutableInt</span><span class="p">(</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">L</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[MyMutableInt(value=2), MyMutableInt(value=2), MyMutableInt(value=1), MyMutableInt(value=-5), MyMutableInt(value=-2)]
+[MyMutableInt(value=-5), MyMutableInt(value=-2), MyMutableInt(value=1), MyMutableInt(value=2), MyMutableInt(value=2)]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id9">
+<h4>Побитовые операторы<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Операция</p></th>
+<th class="head"><p>Операторная форма</p></th>
+<th class="head"><p>Метод</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Побитовое “и”</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&amp;</span> <span class="pre">b</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a.__and__(b)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Побитовое “или”</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">|</span> <span class="pre">b</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a.__or__(b)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Побитовое “исключающее или”</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">^</span> <span class="pre">b</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a.__xor__(b)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Побитовое “не”</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">~</span> <span class="pre">a</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a.__invert__()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Битовый сдвиг влево</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;&lt;</span> <span class="pre">b</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a.__lshift__(b)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Битовый сдвиг вправо</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&gt;&gt;</span> <span class="pre">b</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a.__rshift__(b)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Для всех бинарных побитовых операторов справедливы все те же замечания, что и для арифметических операторов, т.е. есть аналогичные методы с префиксами <code class="docutils literal notranslate"><span class="pre">r</span></code> и <code class="docutils literal notranslate"><span class="pre">i</span></code> для выполнения операций, когда объект стоит справа от оператора, и для выполнения операций на месте.</p>
+</div>
+</div>
+<div class="section" id="container-operators">
+<span id="id10"></span><h4>Операторы контейнеров<a class="headerlink" href="#container-operators" title="Permalink to this headline">¶</a></h4>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Операция</p></th>
+<th class="head"><p>Операторная форма</p></th>
+<th class="head"><p>Метод</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Проверка принадлежности</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">obj</span> <span class="pre">in</span> <span class="pre">collection</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">collection.__contains__(obj)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Обращение по индексу</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">obj[k]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">obj.__getitem__(k)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Присваивание по индексу</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">obj[k]</span> <span class="pre">=</span> <span class="pre">v</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">obj.__setitem__(k,</span> <span class="pre">v)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Удаление по индексу</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">del</span> <span class="pre">obj[k]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">obj.__delitem__(k)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>Метод <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code> мы неявно вызывали уже много раз. У списков и кортежей этот метод позволяет получить элемент по индексу, у строк получить символ. У словарей он позволяет получить значение по ключу. Также этот метод реализован у массивов <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> и у таблиц <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p>
+<p>В качестве примера рассмотрим ещё одну возможную реализацию диапазона действительных чисел. Пусть конструктор принимает параметры <code class="docutils literal notranslate"><span class="pre">start</span></code>, <code class="docutils literal notranslate"><span class="pre">stop</span></code> и <code class="docutils literal notranslate"><span class="pre">step</span></code>, а метод <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code> возвращает <code class="docutils literal notranslate"><span class="pre">k</span></code>-й элемент последовательности, который вычисляется по формуле</p>
+<div class="math notranslate nohighlight">
+\[
+    \text{frange}[k] =  \text{start} + \text{step} * k,
+\]</div>
+<p>где <span class="math notranslate nohighlight">\(k\)</span> в диапазоне от <span class="math notranslate nohighlight">\(0\)</span> до длинны последовательности <span class="math notranslate nohighlight">\(\text{length}\)</span>, которая вычисляется по формуле</p>
+<div class="math notranslate nohighlight">
+\[
+     \text{length} = \left\lfloor\dfrac{\text{stop} - \text{start}}{\text{start}}\right\rfloor + 1.
+\]</div>
+<p>Вынесем вычисление <span class="math notranslate nohighlight">\(k\)</span>-го элемента последовательности в отдельный не публичный метод и предусмотрим индексацию отрицательными индексами.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Sequence</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">floor</span>
+
+<span class="k">class</span> <span class="nc">FloatRange</span><span class="p">(</span><span class="n">Sequence</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="n">start</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stop</span> <span class="o">=</span> <span class="n">stop</span>
+        <span class="k">if</span> <span class="n">step</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Параметр step не может быть равен нулю&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">step</span> <span class="o">=</span> <span class="n">step</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">=</span> <span class="n">floor</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">stop</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">step</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+    
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;range(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">stop</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">step</span><span class="si">}</span><span class="s2">)&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;FloatRange(start=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="si">}</span><span class="s2">, stop=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">stop</span><span class="si">}</span><span class="s2">, step=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">step</span><span class="si">}</span><span class="s2">)&quot;</span>   
+
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">length</span>
+
+    <span class="k">def</span> <span class="nf">_kth_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">+</span> <span class="n">k</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">step</span>
+        
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="ow">or</span> <span class="n">k</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">length</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;Индекс за пределами диапазона&quot;</span><span class="p">)</span>
+            <span class="n">k</span> <span class="o">=</span>  <span class="n">k</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="k">if</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">k</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_kth_value</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Индексация возможна только целым числом&quot;</span><span class="p">)</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">FloatRange</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="n">r</span><span class="o">.</span><span class="n">length</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">length</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0 0.5 1.0 1.5 2.0 2.5 3.0 0.0 0.5 1.0 1.5 2.0 2.5 3.0 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Класс <a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence">collections.abc.Sequence</a> — абстрактный базовый класс с абстрактными методами <code class="docutils literal notranslate"><span class="pre">__len__</span></code> и <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code>, т.е. то, что мы наследовали от него, принуждает нас реализовать не только метод <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code>, но и метод <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__len__">__len__</a>. Зато теперь для объектов этого класса автоматически генерируется ряд методов, такие как <code class="docutils literal notranslate"><span class="pre">__contains__</span></code> и <code class="docutils literal notranslate"><span class="pre">__iter__</span></code>. Такие сгенерированные методы называют <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%81%D1%8C_(%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5)">примесями</a> (<a class="reference external" href="https://en.wikipedia.org/wiki/Mixin">mixin</a>).</p>
+<p>Это значит, что мы можем итерировать по объектам <code class="docutils literal notranslate"><span class="pre">FloatRange</span></code>, не реализуя специальный метод <code class="docutils literal notranslate"><span class="pre">__iter__</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">FloatRange</span><span class="p">(</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.0 2.5 2.0 1.5 1.0 0.5 0.0 
+</pre></div>
+</div>
+</div>
+</div>
+<p>А так же проверять элемент на принадлежность диапазону.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">FloatRange</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="mf">1.5</span> <span class="ow">in</span> <span class="n">r</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mf">2.71</span> <span class="ow">in</span> <span class="n">r</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+False
+</pre></div>
+</div>
+</div>
+</div>
+<p>Но если попробовать получить срезу, то получиться ошибка, т.к. мы это не предусмотрели в методе <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+<span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">msg</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Индексация возможна только целым числом
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id11">
+<h4>Операторы последовательностей<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h4>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Операция</p></th>
+<th class="head"><p>Операторная форма</p></th>
+<th class="head"><p>Метод</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Обращение по срезу</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">seq[i:j]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">seq.__getitem__(slice(i,</span> <span class="pre">j))</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Присваивание по срезу</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">seq[i:j]</span> <span class="pre">=</span> <span class="pre">values</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">seq.__setitem__(slice(i,</span> <span class="pre">j),</span> <span class="pre">values)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Удаление по срезу</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">del</span> <span class="pre">seq[i:j]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">seq.__detitem__(slice(i,</span> <span class="pre">j)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>Чтобы можно было получать срез, необходимо предусмотреть ситуацию, когда в функцию <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code> передано не целое число, а объект <a class="reference external" href="https://docs.python.org/3/library/functions.html#slice">slice</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Выражение <code class="docutils literal notranslate"><span class="pre">a[start:stop:step]</span></code> эквивалентно <code class="docutils literal notranslate"><span class="pre">a[slice(start,</span> <span class="pre">stop,</span> <span class="pre">step)]</span></code>.</p>
+</div>
+<p>Расширим предыдущий пример функциональностью среза.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Sequence</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">floor</span>
+
+<span class="k">class</span> <span class="nc">FloatRange</span><span class="p">(</span><span class="n">Sequence</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="n">start</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stop</span> <span class="o">=</span> <span class="n">stop</span>
+        <span class="k">if</span> <span class="n">step</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Параметр step не может быть равен нулю.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">step</span> <span class="o">=</span> <span class="n">step</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">=</span> <span class="n">floor</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">stop</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">step</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+    
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;range(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">stop</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">step</span><span class="si">}</span><span class="s2">)&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;FloatRange(start=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="si">}</span><span class="s2">, stop=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">stop</span><span class="si">}</span><span class="s2">, step=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">step</span><span class="si">}</span><span class="s2">)&quot;</span>  
+
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">length</span>
+
+    <span class="k">def</span> <span class="nf">_kth_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">+</span> <span class="n">k</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">step</span>
+        
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="ow">or</span> <span class="n">k</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">length</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;Индекс за пределами диапазона&quot;</span><span class="p">)</span>
+            <span class="n">k</span> <span class="o">=</span>  <span class="n">k</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="k">if</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">k</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_kth_value</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+            
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="nb">slice</span><span class="p">):</span>
+            <span class="n">slice_start</span> <span class="o">=</span> <span class="n">k</span><span class="o">.</span><span class="n">start</span> <span class="k">if</span> <span class="n">k</span><span class="o">.</span><span class="n">start</span> <span class="k">else</span> <span class="mi">0</span>
+            <span class="n">slice_stop</span> <span class="o">=</span> <span class="n">k</span><span class="o">.</span><span class="n">stop</span>
+            <span class="n">slice_step</span> <span class="o">=</span> <span class="n">k</span><span class="o">.</span><span class="n">step</span> <span class="k">if</span> <span class="n">k</span><span class="o">.</span><span class="n">step</span> <span class="k">else</span> <span class="mi">1</span>
+            
+            <span class="n">new_start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_kth_value</span><span class="p">(</span><span class="n">slice_start</span><span class="p">)</span>
+            <span class="n">new_stop</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_kth_value</span><span class="p">(</span><span class="n">slice_stop</span><span class="p">)</span>
+            <span class="n">new_step</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">step</span> <span class="o">*</span> <span class="n">slice_step</span>
+            
+            <span class="k">return</span> <span class="n">FloatRange</span><span class="p">(</span><span class="n">new_start</span><span class="p">,</span> <span class="n">new_stop</span><span class="p">,</span> <span class="n">new_step</span><span class="p">)</span>
+            
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Индексация возможна только целым числом или срезом&quot;</span><span class="p">)</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">FloatRange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">r</span><span class="si">}</span><span class="s2">[1:5:2]-&gt;</span><span class="si">{</span><span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">r</span><span class="si">}</span><span class="s2">[5:1:-1]-&gt;</span><span class="si">{</span><span class="n">r</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>range(0, 3, 0.5)[1:5:2]-&gt;range(0.5, 2.5, 1.0)
+range(0, 3, 0.5)[5:1:-1]-&gt;range(2.5, 0.5, -0.5)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Метод <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code> дополнился новым блоком кода.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="nb">slice</span><span class="p">):</span>
+    <span class="n">slice_start</span> <span class="o">=</span> <span class="n">k</span><span class="o">.</span><span class="n">start</span> <span class="k">if</span> <span class="n">k</span><span class="o">.</span><span class="n">start</span> <span class="k">else</span> <span class="mi">0</span>
+    <span class="n">slice_stop</span> <span class="o">=</span> <span class="n">k</span><span class="o">.</span><span class="n">stop</span>
+    <span class="n">slice_step</span> <span class="o">=</span> <span class="n">k</span><span class="o">.</span><span class="n">step</span> <span class="k">if</span> <span class="n">k</span><span class="o">.</span><span class="n">step</span> <span class="k">else</span> <span class="mi">1</span>
+    
+    <span class="n">new_start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_kth_value</span><span class="p">(</span><span class="n">slice_start</span><span class="p">)</span>
+    <span class="n">new_stop</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_kth_value</span><span class="p">(</span><span class="n">slice_stop</span><span class="p">)</span>
+    <span class="n">new_step</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">step</span> <span class="o">*</span> <span class="n">slice_step</span>
+    
+    <span class="k">return</span> <span class="n">FloatRange</span><span class="p">(</span><span class="n">new_start</span><span class="p">,</span> <span class="n">new_stop</span><span class="p">,</span> <span class="n">new_step</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Параметры <code class="docutils literal notranslate"><span class="pre">start</span></code> и <code class="docutils literal notranslate"><span class="pre">step</span></code> среза по умолчанию приравниваются к <code class="docutils literal notranslate"><span class="pre">None</span></code>. Первые три строки извлекают эти параметры и обрабатывают возможный <code class="docutils literal notranslate"><span class="pre">None</span></code>. Следующие три строки вычисляют границы и шаг нового диапазона, который и возвращается в качестве результата.</p>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks\python"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="polymorphism.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Полиморфизм в python</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="exercises2.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Практические задания</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Fadeev Egor<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

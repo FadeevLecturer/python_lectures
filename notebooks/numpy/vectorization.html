@@ -1,0 +1,1263 @@
+
+<!DOCTYPE html>
+
+<html>
+  
+<head>
+    <link rel="icon" type="image/png" href="..\..\favicon.png"/>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Векторизация &#8212; Практикум по компьютерным технологиям</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Срезы" href="slices.html" />
+    <link rel="prev" title="Знакомство с NumPy" href="numpy.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/python-logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Практикум по компьютерным технологиям</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/index.html">
+   Практикум по компьютерным технологиям на языке программирования python3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №1
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/about_py.html">
+   О питоне
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/getting_started.html">
+   Установка python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/python_as_calculator.html">
+   Python в качестве калькулятора
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/jupyter_notebooks.html">
+   Что такое Jupyter Notebooks?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/first_notebook.html">
+   Основы работы с Jupyter Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/numbers_and_lists.html">
+   Основные типы объектов в python. Числа и списки
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/if_for_range.html">
+   Операторы потока управления
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/interpretability.html">
+   Компилируемость vs Интерпретируемость
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/dynamic_typing.html">
+   Динамическая типизация
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/mutability.html">
+   Изменяемые и неизменяемый типы объектов
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/garbage_collector.html">
+   Создание и удаление объектов. Сборщик мусора
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/sequencies.html">
+   Последовательности: списки, кортежи и строки
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №3
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/libs_pypi_conda.html">
+   Сторонние библиотеки и пакетные менеджеры
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy.html">
+   Знакомство с NumPy
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Векторизация
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="slices.html">
+   Срезы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="vector_product.html">
+   Умножение векторов
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="logic.html">
+   Логические операции, булевые маски
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="vectorization_example.html">
+   Векторизация на примере вычисления статистик
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework.html">
+   Домашнее задание №2
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №4
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/dictionaries.html">
+   Словари.
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     dict
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/functions.html">
+   Функции
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/files.html">
+   Работа с файлами
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/json.html">
+   Формат json
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №5
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/matplotlib.html">
+   matplotlib и другие графические библиотеки
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/matplotlib_animation.html">
+   Анимация  в matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/scipy.html">
+   SciPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/linalg.html">
+   Линейная алгебра
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/interpolation_approx.html">
+   Интерполяция функций, аппроксимация функций
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/integration.html">
+   Определенные интегралы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/ODE.html">
+   Решение ОДУ
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/optimization.html">
+   Оптимизация
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/nonlinear_equations.html">
+   Решение нелинейных уравнений
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/cannonball.html">
+   Пример
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/homework.html">
+   Домашнее задание №3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №6
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/python_scripts.html">
+   Создание скриптов. Работа с IDE
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/scripts_vs_modules.html">
+   Скрипты и модули
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/argparse.html">
+   Аргументы командной строки
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №7
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/pandas.html">
+   pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/series.html">
+   pd.Series
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/dataframe.html">
+   pd.DataFrame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/datetime.html">
+   Дата и время
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/covid19.html">
+   Обзор базовых возможностей pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/homework.html">
+   Домашнее задание №4
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №8
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/list_comprehensions.html">
+   Основы списковых включений
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/iterators.html">
+   Итераторы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/decorators.html">
+   Декораторы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/generators.html">
+   Генераторы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/exercises1.html">
+   Практические задания
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №9
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/custom_classes.html">
+   Пользовательские классы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/inheritance.html">
+   Наследование
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/polymorphism.html">
+   Полиморфизм в python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/operators_overloading.html">
+   Перегрузка специальных методов и операторов
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/exercises2.html">
+   Практические задания
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №10
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/exceptions.html">
+   Исключения
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/custom_exceptions.html">
+   Пользовательские исключения
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/LBYL_vs_EAFP.html">
+   Стратегии контроля ошибок
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/exercises3.html">
+   Практические задания
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №11
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/gui.html">
+   Графический пользовательский интерфейс
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/basics.html">
+   PySide. Основы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/event.html">
+   События
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/slot_signal.html">
+   Слоты и сигналы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/widgets.html">
+   Виджеты и макеты
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/buttons.html">
+   Кнопки
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/output.html">
+   Вывод данных
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/input.html">
+   Ввод данных
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/dialogs.html">
+   Диалоговые окна
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/exercises4.html">
+   Практические задания
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекции №12 и далее
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/about_12_and_so_on.html">
+   О последних лекциях
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../computer_vision/basics.html">
+   Работа с изображениями
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../computer_vision/filters.html">
+   Свёрточные операции
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../computer_vision/detection.html">
+   Задача обнаружения
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine_learning/regression.html">
+   Регрессия
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine_learning/classification.html">
+   Классификация
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine_learning/neural_networks.html">
+   Нейронный сети
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/notebooks/numpy/vectorization.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/FadeevLecturer/python_lectures"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/FadeevLecturer/python_lectures/issues/new?title=Issue%20on%20page%20%2Fnotebooks/numpy/vectorization.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/FadeevLecturer/python_lectures/edit/main/notebooks/numpy/vectorization.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/FadeevLecturer/python_lectures/main?urlpath=tree/notebooks/numpy/vectorization.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/FadeevLecturer/python_lectures/blob/main/notebooks/numpy/vectorization.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Про векторизацию
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   Простые математические функции
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   Суммы, произведения, максимум, минимум и т.п.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   Арифметика.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#broadcasting">
+   Broadcasting
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Векторизация</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Про векторизацию
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   Простые математические функции
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   Суммы, произведения, максимум, минимум и т.п.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   Арифметика.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#broadcasting">
+   Broadcasting
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1>Векторизация<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>Про векторизацию<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">NumPy</span></code> оптимизирован для работы с многомерными массивами, но циклы <code class="docutils literal notranslate"><span class="pre">python</span></code> нет. В связи с этим распространен подход, называемый <strong>векторизацией</strong>, при котором устраняются циклы, а вместо них вызываются встроенные в <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> методы. Таким образом эти циклы осуществляются внутри <code class="docutils literal notranslate"><span class="pre">C</span></code> кода.</p>
+<p>Продемонстрируем это на примере.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">**</span> <span class="mi">7</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">s1</span> <span class="o">+=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Wall time: 4.77 s
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
+<span class="n">s2</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15.1 ms ± 1.24 ms per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">%%time</span></code> — команда jupyter notebook измеряющая затраченное на исполнение кода в ячейке время.</p>
+<p><code class="docutils literal notranslate"><span class="pre">%%timeit</span></code> усредняет это время по нескольким запускам.</p>
+</div>
+<p>У векторизации есть три основных плюса:</p>
+<ol class="simple">
+<li><p>Скорость: векторизованный код исполняется гораздо быстрее, чем его аналог в циклах;</p></li>
+<li><p>Выразительность: векторизованный код больше похож на математическое выражение, что упрощает его чтение;</p></li>
+<li><p>Количество кода: векторизованный код без циклов как правило короче, а значит в нем сложнее ошибиться.</p></li>
+</ol>
+</div>
+<div class="section" id="id3">
+<h2>Простые математические функции<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>В <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> есть большое количество математических функций, полный список которых можно посмотреть <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.math.html">здесь</a>. Применять их можно сразу к всему массиву. Тогда выбранная функция будет применена к всем элементам массива. Все циклы выполнятся в <code class="docutils literal notranslate"><span class="pre">C</span></code> коде.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Wall time: 31.6 s
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>130 ms ± 4.41 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>Суммы, произведения, максимум, минимум и т.п.<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>Так же в <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> реализован ряд агрегирующих методов, таких как сумма элементов массива (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.sum.html#numpy.sum">ndarray.sum</a>), их произведение (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.prod.html#numpy.prod">ndarray.prod</a>) и т.п. Часть из них перечислена <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.math.html#sums-products-differences">здесь</a>. Методы <code class="docutils literal notranslate"><span class="pre">ndarray.min</span></code> и <code class="docutils literal notranslate"><span class="pre">ndarray.max</span></code> ссылаются на функции <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.amin.html#numpy.amin">np.amin</a> и <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.amax.html#numpy.amax">np.amax</a> соответственно.</p>
+<p>Каждая из них позволяет не только вычислять значение по всему массиву, но и вдоль обозначенной оси. Рассмотрим на примере функций <code class="docutils literal notranslate"><span class="pre">min</span></code> и <code class="docutils literal notranslate"><span class="pre">sum</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[89 85 56]
+ [ 8 90 22]
+ [73 44 42]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">())</span> <span class="c1"># минимум всего массива</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span> <span class="c1"># минимум по столбцам</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 8 44 22]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span> <span class="c1"># минимум по строкам</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[56  8 42]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>509
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[170 219 120]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[230 120 159]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>Арифметика.<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>Аналогично, всегда предпочтительнее использовать операторы <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>, <code class="docutils literal notranslate"><span class="pre">//</span></code>, <code class="docutils literal notranslate"><span class="pre">%</span></code>, <code class="docutils literal notranslate"><span class="pre">**</span></code>, <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>, <code class="docutils literal notranslate"><span class="pre">|</span></code>, <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> сразу к массивам, а не к их элементам внутри циклов.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Wall time: 6.82 s
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
+<span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46.6 ms ± 412 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="broadcasting">
+<h2>Broadcasting<a class="headerlink" href="#broadcasting" title="Permalink to this headline">¶</a></h2>
+<p>В ряде случаев допускается применять арифметические операторы к массивам разной формы. Строго говоря, <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> может оперировать с двумя массивами, если их формы совместимы (<code class="docutils literal notranslate"><span class="pre">broadcastable</span></code>). Подробнее почитать о <code class="docutils literal notranslate"><span class="pre">broadcasting</span></code> в документации можно <a class="reference external" href="https://numpy.org/doc/stable/user/theory.broadcasting.html#array-broadcasting-in-numpy">здесь</a> и <a class="reference external" href="https://numpy.org/devdocs/user/basics.broadcasting.html">здесь</a>.</p>
+<p><strong>Пример 1. Скаляр и массив.</strong></p>
+<p>Начнем с самого простого примера. Если в арифметическом выражении участвует массив любой формы и скаляр, то можно представить, что скаляр расширяется до массива такой же формы, у которого все элементы равны значению скаляра.</p>
+<p><img alt="image" src="../../_images/broadcasting_1.svg" /></p>
+<p>На картинке выше массив <code class="docutils literal notranslate"><span class="pre">a</span></code> из трех элементов умножается на скаляр <code class="docutils literal notranslate"><span class="pre">b</span></code> (который можно представить в виде массива из одного элемента).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2"> * </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1 2 3] * [2] = [2 4 6]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>В реальности никакого промежуточного массива из двоек в примере выше не создается. Это лишь удобный способ представить себе, что происходит.</p>
+</div>
+<p><strong>Общий случай.</strong> В более общем случае, два массива совместимы, если размеры вдоль всех их осей совместимы. Размеры вдоль двух осей совместимы,    только если</p>
+<ul class="simple">
+<li><p>они равны;</p></li>
+<li><p>один из них равен единицы;
+При этом проверка этих размеров происходит слева направо.</p></li>
+</ul>
+<p>Рассмотрим примеры совместимых и не совместимых форм.</p>
+<p>Совместимые формы.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p><code class="docutils literal notranslate"><span class="pre">A.shape</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">B.shape</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">result.shape</span></code></p></th>
+<th class="text-align:right head"><p>Комментарий</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>(3,)</p></td>
+<td><p>(1, )</p></td>
+<td><p>(3, )</p></td>
+<td class="text-align:right"><p>Размер <code class="docutils literal notranslate"><span class="pre">B</span></code> вдоль единственной оси равен 1, формы <code class="docutils literal notranslate"><span class="pre">A</span></code> и <code class="docutils literal notranslate"><span class="pre">B</span></code> совместимы</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>(1, 3)</p></td>
+<td><p>(3, 1)</p></td>
+<td><p>(3, 3)</p></td>
+<td class="text-align:right"><p>Размеры вдоль последней оси совместимы, т.к. размер <code class="docutils literal notranslate"><span class="pre">B</span></code> вдоль нее равен 1. Размеры вдоль первой оси совместимы, т.к. размер <code class="docutils literal notranslate"><span class="pre">A</span></code> вдоль неё равен 1</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>(8, 1, 6, 1)</p></td>
+<td><p>(7, 1, 5)</p></td>
+<td><p>(8, 7, 5, 6)</p></td>
+<td class="text-align:right"><p>Массив <code class="docutils literal notranslate"><span class="pre">B</span></code> можно представить в виде массива с формой (1, 7, 1, 5). Размеры вдоль всех осей совместимы, т.к. вдоль каждой оси у одного из массивов длинна равняется 1</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>(15, 4, 3)</p></td>
+<td><p>(15, 1, 3)</p></td>
+<td><p>(15, 4, 3)</p></td>
+<td class="text-align:right"><p>Размеры вдоль всех осей совместимы</p></td>
+</tr>
+</tbody>
+</table>
+<p>Несовместимые формы.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p><code class="docutils literal notranslate"><span class="pre">A.shape</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">B.shape</span></code></p></th>
+<th class="text-align:right head"><p>Комментарий</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>(3, )</p></td>
+<td><p>(4, )</p></td>
+<td class="text-align:right"><p>Размеры вдоль единственных осей не равны между собой, ни один из них не равен 1</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>(2, 1)</p></td>
+<td><p>(2, 4, 3)</p></td>
+<td class="text-align:right"><p>Сначала сравниваются 1 и 3: всё ок. Затем сравниваются 2 и 4: несовместимы. Можно представить форму (2, 1) в виде (1, 2, 1)</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Пример 2. Матрица и вектор-строка</strong>.</p>
+<p>Если складываются (умножаются и т.п.) двумерный и одномерный массивы, то операция возможна, если количество столбцов в матрице соответствует количеству элементов в одномерном массиве.</p>
+<p><img alt="image" src="../../_images/broadcasting_2.svg" /></p>
+<p>В примере выше складываются массивы с формами <code class="docutils literal notranslate"><span class="pre">(4,</span> <span class="pre">3)</span></code> и <code class="docutils literal notranslate"><span class="pre">(3,</span> <span class="pre">)</span></code>, что эквивалентно записи <code class="docutils literal notranslate"><span class="pre">(4,</span> <span class="pre">3)</span></code> и <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">3)</span></code>. Формы совместимы и результат выходит такой, будто одномерный массив расширяется до двумерного массива с формой <code class="docutils literal notranslate"><span class="pre">(4,</span> <span class="pre">3)</span></code> “по столбцам”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">]])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2"> + </span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2"> = </span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2"> &quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0  0  0]
+ [10 10 10]
+ [20 20 20]
+ [30 30 30]] 
+ + 
+ [0 1 2] 
+ = 
+ [[ 0  1  2]
+ [10 11 12]
+ [20 21 22]
+ [30 31 32]] 
+</pre></div>
+</div>
+</div>
+</div>
+<p><img alt="image" src="../../_images/broadcasting_3.gif" /></p>
+<p>А в этом примере формы не совместимы.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">]])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">18</span><span class="o">-</span><span class="n">ed51d1fba385</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">]])</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="ne">ValueError</span>: operands could not be broadcast together with shapes (4,3) (4,) 
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Пример 3. Матрица и вектор столбец.</strong></p>
+<p>Аналогично можно сложить матрицу с вектором столбцом, но для этого этот массив нужно транспонировать, т.е. привести вектор формы <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">)</span></code> (одномерный массив из <code class="docutils literal notranslate"><span class="pre">n</span></code> элементов) к форме <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">1)</span></code> (матрица из <code class="docutils literal notranslate"><span class="pre">n</span></code> строк длинны 1).</p>
+<p>К сожалению, <code class="docutils literal notranslate"><span class="pre">ndarray.T</span></code> (<code class="docutils literal notranslate"><span class="pre">np.transpose</span></code>) не приведёт к желаемому результату, если массив одномерный.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1 2 3 4] [1 2 3 4]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Сделать это можно изменив форму или “вставив ось”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1]
+ [2]
+ [3]
+ [4]]
+
+[[1]
+ [2]
+ [3]
+ [4]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Теперь можно сложить матрицу со столбцом.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1  1  1]
+ [12 12 12]
+ [23 23 23]
+ [34 34 34]]
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Пример 3. Вектор столбец и вектор строка</strong></p>
+<p>Если складывать вектор столбец и вектор строку, то каждая из них как бы расширится до матрицы по строкам и по столбцам.</p>
+<p><img alt="image" src="../../_images/broadcasting_4.svg" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">])[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2"> + </span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">  = </span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0]
+ [10]
+ [20]
+ [30]] 
+ + 
+ [1 2 3] 
+  = 
+ [[ 1  2  3]
+ [11 12 13]
+ [21 22 23]
+ [31 32 33]]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks\numpy"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="numpy.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Знакомство с NumPy</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="slices.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Срезы</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Fadeev Egor<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

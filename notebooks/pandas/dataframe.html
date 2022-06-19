@@ -1,0 +1,5262 @@
+
+<!DOCTYPE html>
+
+<html>
+  
+<head>
+    <link rel="icon" type="image/png" href="..\..\favicon.png"/>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pd.DataFrame &#8212; Практикум по компьютерным технологиям</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Дата и время" href="datetime.html" />
+    <link rel="prev" title="pd.Series" href="series.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/python-logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Практикум по компьютерным технологиям</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/index.html">
+   Практикум по компьютерным технологиям на языке программирования python3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №1
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/about_py.html">
+   О питоне
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/getting_started.html">
+   Установка python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/python_as_calculator.html">
+   Python в качестве калькулятора
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/jupyter_notebooks.html">
+   Что такое Jupyter Notebooks?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/first_notebook.html">
+   Основы работы с Jupyter Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/numbers_and_lists.html">
+   Основные типы объектов в python. Числа и списки
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/if_for_range.html">
+   Операторы потока управления
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/interpretability.html">
+   Компилируемость vs Интерпретируемость
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/dynamic_typing.html">
+   Динамическая типизация
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/mutability.html">
+   Изменяемые и неизменяемый типы объектов
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/garbage_collector.html">
+   Создание и удаление объектов. Сборщик мусора
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/sequencies.html">
+   Последовательности: списки, кортежи и строки
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №3
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/libs_pypi_conda.html">
+   Сторонние библиотеки и пакетные менеджеры
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/numpy.html">
+   Знакомство с NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/vectorization.html">
+   Векторизация
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/slices.html">
+   Срезы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/vector_product.html">
+   Умножение векторов
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/logic.html">
+   Логические операции, булевые маски
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/vectorization_example.html">
+   Векторизация на примере вычисления статистик
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/homework.html">
+   Домашнее задание №2
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №4
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/dictionaries.html">
+   Словари.
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     dict
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/functions.html">
+   Функции
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/files.html">
+   Работа с файлами
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/json.html">
+   Формат json
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №5
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/matplotlib.html">
+   matplotlib и другие графические библиотеки
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/matplotlib_animation.html">
+   Анимация  в matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/scipy.html">
+   SciPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/linalg.html">
+   Линейная алгебра
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/interpolation_approx.html">
+   Интерполяция функций, аппроксимация функций
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/integration.html">
+   Определенные интегралы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/ODE.html">
+   Решение ОДУ
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/optimization.html">
+   Оптимизация
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/nonlinear_equations.html">
+   Решение нелинейных уравнений
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/cannonball.html">
+   Пример
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/homework.html">
+   Домашнее задание №3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №6
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/python_scripts.html">
+   Создание скриптов. Работа с IDE
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/scripts_vs_modules.html">
+   Скрипты и модули
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/argparse.html">
+   Аргументы командной строки
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №7
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas.html">
+   pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="series.html">
+   pd.Series
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   pd.DataFrame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="datetime.html">
+   Дата и время
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="covid19.html">
+   Обзор базовых возможностей pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework.html">
+   Домашнее задание №4
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №8
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/list_comprehensions.html">
+   Основы списковых включений
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/iterators.html">
+   Итераторы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/decorators.html">
+   Декораторы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/generators.html">
+   Генераторы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/exercises1.html">
+   Практические задания
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №9
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/custom_classes.html">
+   Пользовательские классы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/inheritance.html">
+   Наследование
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/polymorphism.html">
+   Полиморфизм в python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/operators_overloading.html">
+   Перегрузка специальных методов и операторов
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/exercises2.html">
+   Практические задания
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №10
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/exceptions.html">
+   Исключения
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/custom_exceptions.html">
+   Пользовательские исключения
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/LBYL_vs_EAFP.html">
+   Стратегии контроля ошибок
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/exercises3.html">
+   Практические задания
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №11
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/gui.html">
+   Графический пользовательский интерфейс
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/basics.html">
+   PySide. Основы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/event.html">
+   События
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/slot_signal.html">
+   Слоты и сигналы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/widgets.html">
+   Виджеты и макеты
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/buttons.html">
+   Кнопки
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/output.html">
+   Вывод данных
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/input.html">
+   Ввод данных
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/dialogs.html">
+   Диалоговые окна
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/exercises4.html">
+   Практические задания
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекции №12 и далее
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/about_12_and_so_on.html">
+   О последних лекциях
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../computer_vision/basics.html">
+   Работа с изображениями
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../computer_vision/filters.html">
+   Свёрточные операции
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../computer_vision/detection.html">
+   Задача обнаружения
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine_learning/regression.html">
+   Регрессия
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine_learning/classification.html">
+   Классификация
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine_learning/neural_networks.html">
+   Нейронный сети
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/notebooks/pandas/dataframe.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/FadeevLecturer/python_lectures"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/FadeevLecturer/python_lectures/issues/new?title=Issue%20on%20page%20%2Fnotebooks/pandas/dataframe.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/FadeevLecturer/python_lectures/edit/main/notebooks/pandas/dataframe.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/FadeevLecturer/python_lectures/main?urlpath=tree/notebooks/pandas/dataframe.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/FadeevLecturer/python_lectures/blob/main/notebooks/pandas/dataframe.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Создание таблицы
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Хранение и чтение таблиц
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dataframe">
+   Индексация DataFrame
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   Добавление столбцов
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   Пропущенные значения
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#apply-map-applymap">
+   apply, map, applymap
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   Группировка по значениям столбца
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>pd.DataFrame</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Создание таблицы
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Хранение и чтение таблиц
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dataframe">
+   Индексация DataFrame
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   Добавление столбцов
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   Пропущенные значения
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#apply-map-applymap">
+   apply, map, applymap
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   Группировка по значениям столбца
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="pd-dataframe">
+<h1>pd.DataFrame<a class="headerlink" href="#pd-dataframe" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> — по сути дела таблица, на которую можно смотреть как на объединение столбцов <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code> с выравниванием по общему индексу.</p>
+<p>Можно изменять содержимое ячеек таблицы, добавление новых строк — дорогостоящая операция (пересоздание таблицы), но добавление столбцов осуществляется на месте.</p>
+<div class="section" id="id1">
+<h2>Создание таблицы<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Есть множество способов создать датафрейм из уже существующих объектов python.</p>
+<p>Один самых удобных — используя словари.</p>
+<p>Если ключи в словаре соответствуют именам столбцов, а значения — списки, <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> массивы, <code class="docutils literal notranslate"><span class="pre">pandas</span></code> серии данных этих столбцов, то используется конструктор <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code>. При этом если в значениях присутствуют объекты <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code>, то индекс созданного датафрейма будет объединением индексов серий, а данные всех столбцов выравниваются по меткам этого индекса.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">col1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">])</span>
+<span class="n">col2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">])</span>
+<span class="n">col3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">])</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;col1&#39;</span><span class="p">:</span> <span class="n">col1</span><span class="p">,</span> 
+    <span class="s1">&#39;col2&#39;</span><span class="p">:</span> <span class="n">col2</span><span class="p">,</span>
+    <span class="s1">&#39;col3&#39;</span><span class="p">:</span> <span class="n">col3</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>col1</th>
+      <th>col2</th>
+      <th>col3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>7</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Если значения в словаре списки или массивы, то они должны быть одной длинны.  В созданной таблице данные в столбцах идут в том же порядке, что и в исходных списках/массивах (без выравнивания), что и в списках. Индекс созданной таблицы по умолчанию — <code class="docutils literal notranslate"><span class="pre">RangeIndex</span></code>, но можно явно указать его при создании опциональным параметром <code class="docutils literal notranslate"><span class="pre">index</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">col1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">col2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;col1&quot;</span><span class="p">:</span> <span class="n">col1</span><span class="p">,</span>
+    <span class="s2">&quot;col2&quot;</span><span class="p">:</span> <span class="n">col2</span>
+<span class="p">}</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">])</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>col1</th>
+      <th>col2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>1</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>2</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.from_dict.html#pandas.DataFrame.from_dict">pd.DataFrame.form_dict</a> — более специализированный метод для создания датафрейма из словаря. В предыдущих двух примерах он сработал бы аналогично, но его имя длиннее. Его преимущество заключается, например, в том, что он позволяет создать датафрейм из словаря, в котором ключи — метки строк (индекс), а значения — строки будущей таблицы.</p>
+<p>Для этого необходимо указать в качестве параметра <code class="docutils literal notranslate"><span class="pre">orient</span></code> строку <code class="docutils literal notranslate"><span class="pre">index</span></code>. Далее все аналогично. Если строки представлены в виде <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code>, то метки попадут в названия столбцов с выравниванием данных. Если это простые массивы, то имена столбцов — <code class="docutils literal notranslate"><span class="pre">RangeIndex</span></code>, но можно явно указать имена столбцов по параметру <code class="docutils literal notranslate"><span class="pre">columns</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">row1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">])</span>
+<span class="n">row2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">])</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;row1&quot;</span><span class="p">:</span> <span class="n">row1</span><span class="p">,</span>
+    <span class="s2">&quot;row2&quot;</span><span class="p">:</span> <span class="n">row2</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>a</th>
+      <th>b</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>row1</th>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>row2</th>
+      <td>4</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Если данные представлены в виде какой-то двухмерной структуры, в которой отсутствуют метки и строк и столбцов, то можно воспользоваться методом <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code>, при этом индекс и имена столбцов можно указать соответствующими параметрами <code class="docutils literal notranslate"><span class="pre">index</span></code> и <code class="docutils literal notranslate"><span class="pre">columns</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="p">]</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;row1&quot;</span><span class="p">,</span> <span class="s2">&quot;row2&quot;</span><span class="p">,</span> <span class="s2">&quot;row3&quot;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;col1&quot;</span><span class="p">,</span> <span class="s2">&quot;col2&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>col1</th>
+      <th>col2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>row1</th>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>row2</th>
+      <td>3</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>row3</th>
+      <td>5</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>Хранение и чтение таблиц<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Для хранения таблиц чаще всего используются</p>
+<p>Гораздо чаще датафрейм получается, как результат чтение таблицы из файла. Чаще всего такие таблицы хранятся в формате <a class="reference external" href="https://ru.wikipedia.org/wiki/CSV">csv</a> или в форматах таблиц <code class="docutils literal notranslate"><span class="pre">excel</span></code>.</p>
+<blockquote>
+<div><p>Строка таблицы соответствует строке текста, которая содержит одно или несколько полей, разделенных запятыми.</p>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">brand</span><span class="p">,</span><span class="n">mpg</span><span class="p">,</span><span class="n">cyl</span><span class="p">,</span><span class="n">disp</span><span class="p">,</span><span class="n">hp</span><span class="p">,</span><span class="n">drat</span><span class="p">,</span><span class="n">wt</span><span class="p">,</span><span class="n">qsec</span><span class="p">,</span><span class="n">vs</span><span class="p">,</span><span class="n">am</span><span class="p">,</span><span class="n">gear</span><span class="p">,</span><span class="n">carb</span>
+<span class="n">Mazda</span> <span class="n">RX4</span><span class="p">,</span><span class="mf">21.0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mf">160.0</span><span class="p">,</span><span class="mi">110</span><span class="p">,</span><span class="mf">3.9</span><span class="p">,</span><span class="mf">2.62</span><span class="p">,</span><span class="mf">16.46</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span>
+<span class="n">Mazda</span> <span class="n">RX4</span> <span class="n">Wag</span><span class="p">,</span><span class="mf">21.0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mf">160.0</span><span class="p">,</span><span class="mi">110</span><span class="p">,</span><span class="mf">3.9</span><span class="p">,</span><span class="mf">2.875</span><span class="p">,</span><span class="mf">17.02</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span>
+<span class="n">Datsun</span> <span class="mi">710</span><span class="p">,</span><span class="mf">22.8</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mf">108.0</span><span class="p">,</span><span class="mi">93</span><span class="p">,</span><span class="mf">3.85</span><span class="p">,</span><span class="mf">2.32</span><span class="p">,</span><span class="mf">18.61</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span>
+<span class="n">Hornet</span> <span class="mi">4</span> <span class="n">Drive</span><span class="p">,</span><span class="mf">21.4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mf">258.0</span><span class="p">,</span><span class="mi">110</span><span class="p">,</span><span class="mf">3.08</span><span class="p">,</span><span class="mf">3.215</span><span class="p">,</span><span class="mf">19.44</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span>
+<span class="n">Hornet</span> <span class="n">Sportabout</span><span class="p">,</span><span class="mf">18.7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">360.0</span><span class="p">,</span><span class="mi">175</span><span class="p">,</span><span class="mf">3.15</span><span class="p">,</span><span class="mf">3.44</span><span class="p">,</span><span class="mf">17.02</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span>
+<span class="n">Valiant</span><span class="p">,</span><span class="mf">18.1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mf">225.0</span><span class="p">,</span><span class="mi">105</span><span class="p">,</span><span class="mf">2.76</span><span class="p">,</span><span class="mf">3.46</span><span class="p">,</span><span class="mf">20.22</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span>
+<span class="n">Duster</span> <span class="mi">360</span><span class="p">,</span><span class="mf">14.3</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">360.0</span><span class="p">,</span><span class="mi">245</span><span class="p">,</span><span class="mf">3.21</span><span class="p">,</span><span class="mf">3.57</span><span class="p">,</span><span class="mf">15.84</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span>
+<span class="n">Merc</span> <span class="mi">240</span><span class="n">D</span><span class="p">,</span><span class="mf">24.4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mf">146.7</span><span class="p">,</span><span class="mi">62</span><span class="p">,</span><span class="mf">3.69</span><span class="p">,</span><span class="mf">3.19</span><span class="p">,</span><span class="mf">20.0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span>
+<span class="n">Merc</span> <span class="mi">230</span><span class="p">,</span><span class="mf">22.8</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mf">140.8</span><span class="p">,</span><span class="mi">95</span><span class="p">,</span><span class="mf">3.92</span><span class="p">,</span><span class="mf">3.15</span><span class="p">,</span><span class="mf">22.9</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span>
+<span class="n">Merc</span> <span class="mi">280</span><span class="p">,</span><span class="mf">19.2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mf">167.6</span><span class="p">,</span><span class="mi">123</span><span class="p">,</span><span class="mf">3.92</span><span class="p">,</span><span class="mf">3.44</span><span class="p">,</span><span class="mf">18.3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span>
+<span class="n">Merc</span> <span class="mi">280</span><span class="n">C</span><span class="p">,</span><span class="mf">17.8</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mf">167.6</span><span class="p">,</span><span class="mi">123</span><span class="p">,</span><span class="mf">3.92</span><span class="p">,</span><span class="mf">3.44</span><span class="p">,</span><span class="mf">18.9</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span>
+<span class="n">Merc</span> <span class="mi">450</span><span class="n">SE</span><span class="p">,</span><span class="mf">16.4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">275.8</span><span class="p">,</span><span class="mi">180</span><span class="p">,</span><span class="mf">3.07</span><span class="p">,</span><span class="mf">4.07</span><span class="p">,</span><span class="mf">17.4</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span>
+<span class="n">Merc</span> <span class="mi">450</span><span class="n">SL</span><span class="p">,</span><span class="mf">17.3</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">275.8</span><span class="p">,</span><span class="mi">180</span><span class="p">,</span><span class="mf">3.07</span><span class="p">,</span><span class="mf">3.73</span><span class="p">,</span><span class="mf">17.6</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span>
+<span class="n">Merc</span> <span class="mi">450</span><span class="n">SLC</span><span class="p">,</span><span class="mf">15.2</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">275.8</span><span class="p">,</span><span class="mi">180</span><span class="p">,</span><span class="mf">3.07</span><span class="p">,</span><span class="mf">3.78</span><span class="p">,</span><span class="mf">18.0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span>
+<span class="n">Cadillac</span> <span class="n">Fleetwood</span><span class="p">,</span><span class="mf">10.4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">472.0</span><span class="p">,</span><span class="mi">205</span><span class="p">,</span><span class="mf">2.93</span><span class="p">,</span><span class="mf">5.25</span><span class="p">,</span><span class="mf">17.98</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span>
+<span class="n">Lincoln</span> <span class="n">Continental</span><span class="p">,</span><span class="mf">10.4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">460.0</span><span class="p">,</span><span class="mi">215</span><span class="p">,</span><span class="mf">3.0</span><span class="p">,</span><span class="mf">5.424</span><span class="p">,</span><span class="mf">17.82</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span>
+<span class="n">Chrysler</span> <span class="n">Imperial</span><span class="p">,</span><span class="mf">14.7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">440.0</span><span class="p">,</span><span class="mi">230</span><span class="p">,</span><span class="mf">3.23</span><span class="p">,</span><span class="mf">5.345</span><span class="p">,</span><span class="mf">17.42</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span>
+<span class="n">Fiat</span> <span class="mi">128</span><span class="p">,</span><span class="mf">32.4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mf">78.7</span><span class="p">,</span><span class="mi">66</span><span class="p">,</span><span class="mf">4.08</span><span class="p">,</span><span class="mf">2.2</span><span class="p">,</span><span class="mf">19.47</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span>
+<span class="n">Honda</span> <span class="n">Civic</span><span class="p">,</span><span class="mf">30.4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mf">75.7</span><span class="p">,</span><span class="mi">52</span><span class="p">,</span><span class="mf">4.93</span><span class="p">,</span><span class="mf">1.615</span><span class="p">,</span><span class="mf">18.52</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span>
+<span class="n">Toyota</span> <span class="n">Corolla</span><span class="p">,</span><span class="mf">33.9</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mf">71.1</span><span class="p">,</span><span class="mi">65</span><span class="p">,</span><span class="mf">4.22</span><span class="p">,</span><span class="mf">1.835</span><span class="p">,</span><span class="mf">19.9</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span>
+<span class="n">Toyota</span> <span class="n">Corona</span><span class="p">,</span><span class="mf">21.5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mf">120.1</span><span class="p">,</span><span class="mi">97</span><span class="p">,</span><span class="mf">3.7</span><span class="p">,</span><span class="mf">2.465</span><span class="p">,</span><span class="mf">20.01</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span>
+<span class="n">Dodge</span> <span class="n">Challenger</span><span class="p">,</span><span class="mf">15.5</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">318.0</span><span class="p">,</span><span class="mi">150</span><span class="p">,</span><span class="mf">2.76</span><span class="p">,</span><span class="mf">3.52</span><span class="p">,</span><span class="mf">16.87</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span>
+<span class="n">AMC</span> <span class="n">Javelin</span><span class="p">,</span><span class="mf">15.2</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">304.0</span><span class="p">,</span><span class="mi">150</span><span class="p">,</span><span class="mf">3.15</span><span class="p">,</span><span class="mf">3.435</span><span class="p">,</span><span class="mf">17.3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span>
+<span class="n">Camaro</span> <span class="n">Z28</span><span class="p">,</span><span class="mf">13.3</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">350.0</span><span class="p">,</span><span class="mi">245</span><span class="p">,</span><span class="mf">3.73</span><span class="p">,</span><span class="mf">3.84</span><span class="p">,</span><span class="mf">15.41</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span>
+<span class="n">Pontiac</span> <span class="n">Firebird</span><span class="p">,</span><span class="mf">19.2</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">400.0</span><span class="p">,</span><span class="mi">175</span><span class="p">,</span><span class="mf">3.08</span><span class="p">,</span><span class="mf">3.845</span><span class="p">,</span><span class="mf">17.05</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span>
+<span class="n">Fiat</span> <span class="n">X1</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span><span class="mf">27.3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mf">79.0</span><span class="p">,</span><span class="mi">66</span><span class="p">,</span><span class="mf">4.08</span><span class="p">,</span><span class="mf">1.935</span><span class="p">,</span><span class="mf">18.9</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span>
+<span class="n">Porsche</span> <span class="mi">914</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mf">26.0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mf">120.3</span><span class="p">,</span><span class="mi">91</span><span class="p">,</span><span class="mf">4.43</span><span class="p">,</span><span class="mf">2.14</span><span class="p">,</span><span class="mf">16.7</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span>
+<span class="n">Lotus</span> <span class="n">Europa</span><span class="p">,</span><span class="mf">30.4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mf">95.1</span><span class="p">,</span><span class="mi">113</span><span class="p">,</span><span class="mf">3.77</span><span class="p">,</span><span class="mf">1.513</span><span class="p">,</span><span class="mf">16.9</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span>
+<span class="n">Ford</span> <span class="n">Pantera</span> <span class="n">L</span><span class="p">,</span><span class="mf">15.8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">351.0</span><span class="p">,</span><span class="mi">264</span><span class="p">,</span><span class="mf">4.22</span><span class="p">,</span><span class="mf">3.17</span><span class="p">,</span><span class="mf">14.5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span>
+<span class="n">Ferrari</span> <span class="n">Dino</span><span class="p">,</span><span class="mf">19.7</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mf">145.0</span><span class="p">,</span><span class="mi">175</span><span class="p">,</span><span class="mf">3.62</span><span class="p">,</span><span class="mf">2.77</span><span class="p">,</span><span class="mf">15.5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span>
+<span class="n">Maserati</span> <span class="n">Bora</span><span class="p">,</span><span class="mf">15.0</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">301.0</span><span class="p">,</span><span class="mi">335</span><span class="p">,</span><span class="mf">3.54</span><span class="p">,</span><span class="mf">3.57</span><span class="p">,</span><span class="mf">14.6</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">8</span>
+<span class="n">Volvo</span> <span class="mi">142</span><span class="n">E</span><span class="p">,,,,,,,,,,,</span>
+
+</pre></div>
+</div>
+<p>Пример простейшего <code class="docutils literal notranslate"><span class="pre">csv</span></code> файла приведен выше. В этом примере первая строка выступает в качестве заголовка, т.е. в ней перечислены названия столбцов, разделенные запятыми. Далее в каждой строке приведены значения этих столбцов, разделенные запятыми. В последней строке пропущены значения всех столбцов, кроме первого (brand).</p>
+<p>Предположим, что текстовый файл с таким содержимым хранится в папке <code class="docutils literal notranslate"><span class="pre">data</span></code> под именем <code class="docutils literal notranslate"><span class="pre">mtcars.csv</span></code>. Для чтения такой таблицы используется метод <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html">read_csv</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="s2">&quot;mtcars.csv&quot;</span><span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 32 entries, 0 to 31
+Data columns (total 12 columns):
+ #   Column  Non-Null Count  Dtype  
+---  ------  --------------  -----  
+ 0   brand   32 non-null     object 
+ 1   mpg     31 non-null     float64
+ 2   cyl     31 non-null     float64
+ 3   disp    31 non-null     float64
+ 4   hp      31 non-null     float64
+ 5   drat    31 non-null     float64
+ 6   wt      31 non-null     float64
+ 7   qsec    31 non-null     float64
+ 8   vs      31 non-null     float64
+ 9   am      31 non-null     float64
+ 10  gear    31 non-null     float64
+ 11  carb    31 non-null     float64
+dtypes: float64(11), object(1)
+memory usage: 3.1+ KB
+None
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>brand</th>
+      <th>mpg</th>
+      <th>cyl</th>
+      <th>disp</th>
+      <th>hp</th>
+      <th>drat</th>
+      <th>wt</th>
+      <th>qsec</th>
+      <th>vs</th>
+      <th>am</th>
+      <th>gear</th>
+      <th>carb</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Mazda RX4</td>
+      <td>21.0</td>
+      <td>6.0</td>
+      <td>160.0</td>
+      <td>110.0</td>
+      <td>3.90</td>
+      <td>2.620</td>
+      <td>16.46</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Mazda RX4 Wag</td>
+      <td>21.0</td>
+      <td>6.0</td>
+      <td>160.0</td>
+      <td>110.0</td>
+      <td>3.90</td>
+      <td>2.875</td>
+      <td>17.02</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Datsun 710</td>
+      <td>22.8</td>
+      <td>4.0</td>
+      <td>108.0</td>
+      <td>93.0</td>
+      <td>3.85</td>
+      <td>2.320</td>
+      <td>18.61</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Hornet 4 Drive</td>
+      <td>21.4</td>
+      <td>6.0</td>
+      <td>258.0</td>
+      <td>110.0</td>
+      <td>3.08</td>
+      <td>3.215</td>
+      <td>19.44</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Hornet Sportabout</td>
+      <td>18.7</td>
+      <td>8.0</td>
+      <td>360.0</td>
+      <td>175.0</td>
+      <td>3.15</td>
+      <td>3.440</td>
+      <td>17.02</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>В самом простом варианте использования функции <code class="docutils literal notranslate"><span class="pre">read_csv</span></code></p>
+<ul class="simple">
+<li><p>имена столбцов распознаются из первой строки файла (параметром <code class="docutils literal notranslate"><span class="pre">header</span></code> можно повлиять на это);</p></li>
+<li><p>в качестве индекса генерируется <code class="docutils literal notranslate"><span class="pre">RangeIndex</span></code> (параметром <code class="docutils literal notranslate"><span class="pre">index_col</span></code> можно выбрать столбец индекса);</p></li>
+<li><p>в качестве разделителя ожидается символ запятой (<code class="docutils literal notranslate"><span class="pre">,</span></code>) (параметром <code class="docutils literal notranslate"><span class="pre">sep</span></code> можно на это повлиять);</p></li>
+<li><p>пропущенные значения заполняются <code class="docutils literal notranslate"><span class="pre">np.nan</span></code>;</p></li>
+<li><p>столбцы с датами не распознаются.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Метод <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.head.html">DataFrame.head</a> возвращает первые <code class="docutils literal notranslate"><span class="pre">n</span></code> строк таблицы. По умолчанию <code class="docutils literal notranslate"><span class="pre">n</span></code> равно 5, но можно указать явно. Похожий по смыслу метод <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.tail.html">DataFrame.tail</a> возвращает последние <code class="docutils literal notranslate"><span class="pre">n</span></code> строк.</p>
+<p>Метод <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.info.html">DataFrame.info</a> печатает информацию о таблице. В частности, из вывода этой функции можно понять количество строк и столбцов, тип индекса таблицы, имя каждого столбца, тип данных и количество непропущенных значений в них.</p>
+</div>
+<p>Считаем эту таблицу ещё раз, указав в этот раз в качестве индекса столбец <code class="docutils literal notranslate"><span class="pre">brand</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s2">&quot;brand&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mpg</th>
+      <th>cyl</th>
+      <th>disp</th>
+      <th>hp</th>
+      <th>drat</th>
+      <th>wt</th>
+      <th>qsec</th>
+      <th>vs</th>
+      <th>am</th>
+      <th>gear</th>
+      <th>carb</th>
+    </tr>
+    <tr>
+      <th>brand</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Mazda RX4</th>
+      <td>21.0</td>
+      <td>6.0</td>
+      <td>160.0</td>
+      <td>110.0</td>
+      <td>3.90</td>
+      <td>2.620</td>
+      <td>16.46</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>Mazda RX4 Wag</th>
+      <td>21.0</td>
+      <td>6.0</td>
+      <td>160.0</td>
+      <td>110.0</td>
+      <td>3.90</td>
+      <td>2.875</td>
+      <td>17.02</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>Datsun 710</th>
+      <td>22.8</td>
+      <td>4.0</td>
+      <td>108.0</td>
+      <td>93.0</td>
+      <td>3.85</td>
+      <td>2.320</td>
+      <td>18.61</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Hornet 4 Drive</th>
+      <td>21.4</td>
+      <td>6.0</td>
+      <td>258.0</td>
+      <td>110.0</td>
+      <td>3.08</td>
+      <td>3.215</td>
+      <td>19.44</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Hornet Sportabout</th>
+      <td>18.7</td>
+      <td>8.0</td>
+      <td>360.0</td>
+      <td>175.0</td>
+      <td>3.15</td>
+      <td>3.440</td>
+      <td>17.02</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Valiant</th>
+      <td>18.1</td>
+      <td>6.0</td>
+      <td>225.0</td>
+      <td>105.0</td>
+      <td>2.76</td>
+      <td>3.460</td>
+      <td>20.22</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Duster 360</th>
+      <td>14.3</td>
+      <td>8.0</td>
+      <td>360.0</td>
+      <td>245.0</td>
+      <td>3.21</td>
+      <td>3.570</td>
+      <td>15.84</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>Merc 240D</th>
+      <td>24.4</td>
+      <td>4.0</td>
+      <td>146.7</td>
+      <td>62.0</td>
+      <td>3.69</td>
+      <td>3.190</td>
+      <td>20.00</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Merc 230</th>
+      <td>22.8</td>
+      <td>4.0</td>
+      <td>140.8</td>
+      <td>95.0</td>
+      <td>3.92</td>
+      <td>3.150</td>
+      <td>22.90</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Merc 280</th>
+      <td>19.2</td>
+      <td>6.0</td>
+      <td>167.6</td>
+      <td>123.0</td>
+      <td>3.92</td>
+      <td>3.440</td>
+      <td>18.30</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>Merc 280C</th>
+      <td>17.8</td>
+      <td>6.0</td>
+      <td>167.6</td>
+      <td>123.0</td>
+      <td>3.92</td>
+      <td>3.440</td>
+      <td>18.90</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>Merc 450SE</th>
+      <td>16.4</td>
+      <td>8.0</td>
+      <td>275.8</td>
+      <td>180.0</td>
+      <td>3.07</td>
+      <td>4.070</td>
+      <td>17.40</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>Merc 450SL</th>
+      <td>17.3</td>
+      <td>8.0</td>
+      <td>275.8</td>
+      <td>180.0</td>
+      <td>3.07</td>
+      <td>3.730</td>
+      <td>17.60</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>Merc 450SLC</th>
+      <td>15.2</td>
+      <td>8.0</td>
+      <td>275.8</td>
+      <td>180.0</td>
+      <td>3.07</td>
+      <td>3.780</td>
+      <td>18.00</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>Cadillac Fleetwood</th>
+      <td>10.4</td>
+      <td>8.0</td>
+      <td>472.0</td>
+      <td>205.0</td>
+      <td>2.93</td>
+      <td>5.250</td>
+      <td>17.98</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>Lincoln Continental</th>
+      <td>10.4</td>
+      <td>8.0</td>
+      <td>460.0</td>
+      <td>215.0</td>
+      <td>3.00</td>
+      <td>5.424</td>
+      <td>17.82</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>Chrysler Imperial</th>
+      <td>14.7</td>
+      <td>8.0</td>
+      <td>440.0</td>
+      <td>230.0</td>
+      <td>3.23</td>
+      <td>5.345</td>
+      <td>17.42</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>Fiat 128</th>
+      <td>32.4</td>
+      <td>4.0</td>
+      <td>78.7</td>
+      <td>66.0</td>
+      <td>4.08</td>
+      <td>2.200</td>
+      <td>19.47</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Honda Civic</th>
+      <td>30.4</td>
+      <td>4.0</td>
+      <td>75.7</td>
+      <td>52.0</td>
+      <td>4.93</td>
+      <td>1.615</td>
+      <td>18.52</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Toyota Corolla</th>
+      <td>33.9</td>
+      <td>4.0</td>
+      <td>71.1</td>
+      <td>65.0</td>
+      <td>4.22</td>
+      <td>1.835</td>
+      <td>19.90</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Toyota Corona</th>
+      <td>21.5</td>
+      <td>4.0</td>
+      <td>120.1</td>
+      <td>97.0</td>
+      <td>3.70</td>
+      <td>2.465</td>
+      <td>20.01</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Dodge Challenger</th>
+      <td>15.5</td>
+      <td>8.0</td>
+      <td>318.0</td>
+      <td>150.0</td>
+      <td>2.76</td>
+      <td>3.520</td>
+      <td>16.87</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>AMC Javelin</th>
+      <td>15.2</td>
+      <td>8.0</td>
+      <td>304.0</td>
+      <td>150.0</td>
+      <td>3.15</td>
+      <td>3.435</td>
+      <td>17.30</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Camaro Z28</th>
+      <td>13.3</td>
+      <td>8.0</td>
+      <td>350.0</td>
+      <td>245.0</td>
+      <td>3.73</td>
+      <td>3.840</td>
+      <td>15.41</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>Pontiac Firebird</th>
+      <td>19.2</td>
+      <td>8.0</td>
+      <td>400.0</td>
+      <td>175.0</td>
+      <td>3.08</td>
+      <td>3.845</td>
+      <td>17.05</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Fiat X1-9</th>
+      <td>27.3</td>
+      <td>4.0</td>
+      <td>79.0</td>
+      <td>66.0</td>
+      <td>4.08</td>
+      <td>1.935</td>
+      <td>18.90</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Porsche 914-2</th>
+      <td>26.0</td>
+      <td>4.0</td>
+      <td>120.3</td>
+      <td>91.0</td>
+      <td>4.43</td>
+      <td>2.140</td>
+      <td>16.70</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Lotus Europa</th>
+      <td>30.4</td>
+      <td>4.0</td>
+      <td>95.1</td>
+      <td>113.0</td>
+      <td>3.77</td>
+      <td>1.513</td>
+      <td>16.90</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Ford Pantera L</th>
+      <td>15.8</td>
+      <td>8.0</td>
+      <td>351.0</td>
+      <td>264.0</td>
+      <td>4.22</td>
+      <td>3.170</td>
+      <td>14.50</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>Ferrari Dino</th>
+      <td>19.7</td>
+      <td>6.0</td>
+      <td>145.0</td>
+      <td>175.0</td>
+      <td>3.62</td>
+      <td>2.770</td>
+      <td>15.50</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>Maserati Bora</th>
+      <td>15.0</td>
+      <td>8.0</td>
+      <td>301.0</td>
+      <td>335.0</td>
+      <td>3.54</td>
+      <td>3.570</td>
+      <td>14.60</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>Volvo 142E</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Аналогично можно считывать данные из таблиц <code class="docutils literal notranslate"><span class="pre">excel</span></code> методом <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.read_excel.html">read_excel</a>.</p>
+<p>Методами <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_csv.html#pandas.DataFrame.to_csv">to_csv</a> и <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_excel.html#pandas.DataFrame.to_excel">to_excel</a> можно сохранить <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> в таблицу удобном формате (для сохранения в <code class="docutils literal notranslate"><span class="pre">excel</span></code> необходимо поставить библиотеку <a class="reference external" href="https://openpyxl.readthedocs.io/en/stable/">openpyxl</a> или её аналоги).</p>
+</div>
+<div class="section" id="dataframe">
+<h2>Индексация DataFrame<a class="headerlink" href="#dataframe" title="Permalink to this headline">¶</a></h2>
+<p>Доступ к строкам <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> осуществляется в точности, как осуществляется доступ к элементам <code class="docutils literal notranslate"><span class="pre">Series</span></code>, т.е. используются методы <code class="docutils literal notranslate"><span class="pre">loc</span></code> и <code class="docutils literal notranslate"><span class="pre">iloc</span></code>, которые сразу возвращают строку в виде объекта <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code>, у которого в качестве индекса выступают имена столбцов.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;Volvo 142E&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mpg    NaN
+cyl    NaN
+disp   NaN
+hp     NaN
+drat   NaN
+wt     NaN
+qsec   NaN
+vs     NaN
+am     NaN
+gear   NaN
+carb   NaN
+Name: Volvo 142E, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Оператор <code class="docutils literal notranslate"><span class="pre">[]</span></code> датафрейма предназначен для выбора столбцов. Передавать в него можно имя нужного столбца или список таких имен. Результат в первом случае — столбец в виде <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code>, а во втором случае — таблица <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> из указанных столбцов.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;mpg&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>brand
+Mazda RX4            21.0
+Mazda RX4 Wag        21.0
+Datsun 710           22.8
+Hornet 4 Drive       21.4
+Hornet Sportabout    18.7
+Name: mpg, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;cyl&quot;</span><span class="p">,</span> <span class="s2">&quot;wt&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cyl</th>
+      <th>wt</th>
+    </tr>
+    <tr>
+      <th>brand</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Lotus Europa</th>
+      <td>4.0</td>
+      <td>1.513</td>
+    </tr>
+    <tr>
+      <th>Ford Pantera L</th>
+      <td>8.0</td>
+      <td>3.170</td>
+    </tr>
+    <tr>
+      <th>Ferrari Dino</th>
+      <td>6.0</td>
+      <td>2.770</td>
+    </tr>
+    <tr>
+      <th>Maserati Bora</th>
+      <td>8.0</td>
+      <td>3.570</td>
+    </tr>
+    <tr>
+      <th>Volvo 142E</th>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Если в названии столбца нет пробелов, то можно обращаться к столбцу, как к атрибуту объекта.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">carb</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>brand
+Mazda RX4        4.0
+Mazda RX4 Wag    4.0
+Datsun 710       1.0
+Name: carb, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Методы <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.at.html">DataFrame.at</a> и <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.iat.html#pandas.DataFrame.iat">DataFrame.iat</a> позволяют получить одно значение на пересечении строки и столбца.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>21.0
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>Добавление столбцов<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Добавление и изменение столбцов в таблицу похоже на добавление элементов в словарь. При этом, если добавляется столбец с индексом (<code class="docutils literal notranslate"><span class="pre">pd.Series</span></code>), то данные автоматически выравниваются.</p>
+<p>Пусть поступили данные о стоимости автомобилей определенной марки.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">price</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span>
+    <span class="s2">&quot;Mazda RX4&quot;</span><span class="p">:</span> <span class="mi">100_000</span><span class="p">,</span> 
+    <span class="s2">&quot;Lotus Europa&quot;</span><span class="p">:</span> <span class="mi">120_000</span>
+    <span class="p">})</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;price&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">price</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mpg</th>
+      <th>cyl</th>
+      <th>disp</th>
+      <th>hp</th>
+      <th>drat</th>
+      <th>wt</th>
+      <th>qsec</th>
+      <th>vs</th>
+      <th>am</th>
+      <th>gear</th>
+      <th>carb</th>
+      <th>price</th>
+    </tr>
+    <tr>
+      <th>brand</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Mazda RX4</th>
+      <td>21.0</td>
+      <td>6.0</td>
+      <td>160.0</td>
+      <td>110.0</td>
+      <td>3.90</td>
+      <td>2.620</td>
+      <td>16.46</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>100000.0</td>
+    </tr>
+    <tr>
+      <th>Mazda RX4 Wag</th>
+      <td>21.0</td>
+      <td>6.0</td>
+      <td>160.0</td>
+      <td>110.0</td>
+      <td>3.90</td>
+      <td>2.875</td>
+      <td>17.02</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Datsun 710</th>
+      <td>22.8</td>
+      <td>4.0</td>
+      <td>108.0</td>
+      <td>93.0</td>
+      <td>3.85</td>
+      <td>2.320</td>
+      <td>18.61</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Hornet 4 Drive</th>
+      <td>21.4</td>
+      <td>6.0</td>
+      <td>258.0</td>
+      <td>110.0</td>
+      <td>3.08</td>
+      <td>3.215</td>
+      <td>19.44</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Hornet Sportabout</th>
+      <td>18.7</td>
+      <td>8.0</td>
+      <td>360.0</td>
+      <td>175.0</td>
+      <td>3.15</td>
+      <td>3.440</td>
+      <td>17.02</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Valiant</th>
+      <td>18.1</td>
+      <td>6.0</td>
+      <td>225.0</td>
+      <td>105.0</td>
+      <td>2.76</td>
+      <td>3.460</td>
+      <td>20.22</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Duster 360</th>
+      <td>14.3</td>
+      <td>8.0</td>
+      <td>360.0</td>
+      <td>245.0</td>
+      <td>3.21</td>
+      <td>3.570</td>
+      <td>15.84</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Merc 240D</th>
+      <td>24.4</td>
+      <td>4.0</td>
+      <td>146.7</td>
+      <td>62.0</td>
+      <td>3.69</td>
+      <td>3.190</td>
+      <td>20.00</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Merc 230</th>
+      <td>22.8</td>
+      <td>4.0</td>
+      <td>140.8</td>
+      <td>95.0</td>
+      <td>3.92</td>
+      <td>3.150</td>
+      <td>22.90</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Merc 280</th>
+      <td>19.2</td>
+      <td>6.0</td>
+      <td>167.6</td>
+      <td>123.0</td>
+      <td>3.92</td>
+      <td>3.440</td>
+      <td>18.30</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Merc 280C</th>
+      <td>17.8</td>
+      <td>6.0</td>
+      <td>167.6</td>
+      <td>123.0</td>
+      <td>3.92</td>
+      <td>3.440</td>
+      <td>18.90</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Merc 450SE</th>
+      <td>16.4</td>
+      <td>8.0</td>
+      <td>275.8</td>
+      <td>180.0</td>
+      <td>3.07</td>
+      <td>4.070</td>
+      <td>17.40</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Merc 450SL</th>
+      <td>17.3</td>
+      <td>8.0</td>
+      <td>275.8</td>
+      <td>180.0</td>
+      <td>3.07</td>
+      <td>3.730</td>
+      <td>17.60</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Merc 450SLC</th>
+      <td>15.2</td>
+      <td>8.0</td>
+      <td>275.8</td>
+      <td>180.0</td>
+      <td>3.07</td>
+      <td>3.780</td>
+      <td>18.00</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Cadillac Fleetwood</th>
+      <td>10.4</td>
+      <td>8.0</td>
+      <td>472.0</td>
+      <td>205.0</td>
+      <td>2.93</td>
+      <td>5.250</td>
+      <td>17.98</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Lincoln Continental</th>
+      <td>10.4</td>
+      <td>8.0</td>
+      <td>460.0</td>
+      <td>215.0</td>
+      <td>3.00</td>
+      <td>5.424</td>
+      <td>17.82</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Chrysler Imperial</th>
+      <td>14.7</td>
+      <td>8.0</td>
+      <td>440.0</td>
+      <td>230.0</td>
+      <td>3.23</td>
+      <td>5.345</td>
+      <td>17.42</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Fiat 128</th>
+      <td>32.4</td>
+      <td>4.0</td>
+      <td>78.7</td>
+      <td>66.0</td>
+      <td>4.08</td>
+      <td>2.200</td>
+      <td>19.47</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Honda Civic</th>
+      <td>30.4</td>
+      <td>4.0</td>
+      <td>75.7</td>
+      <td>52.0</td>
+      <td>4.93</td>
+      <td>1.615</td>
+      <td>18.52</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Toyota Corolla</th>
+      <td>33.9</td>
+      <td>4.0</td>
+      <td>71.1</td>
+      <td>65.0</td>
+      <td>4.22</td>
+      <td>1.835</td>
+      <td>19.90</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Toyota Corona</th>
+      <td>21.5</td>
+      <td>4.0</td>
+      <td>120.1</td>
+      <td>97.0</td>
+      <td>3.70</td>
+      <td>2.465</td>
+      <td>20.01</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Dodge Challenger</th>
+      <td>15.5</td>
+      <td>8.0</td>
+      <td>318.0</td>
+      <td>150.0</td>
+      <td>2.76</td>
+      <td>3.520</td>
+      <td>16.87</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>AMC Javelin</th>
+      <td>15.2</td>
+      <td>8.0</td>
+      <td>304.0</td>
+      <td>150.0</td>
+      <td>3.15</td>
+      <td>3.435</td>
+      <td>17.30</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Camaro Z28</th>
+      <td>13.3</td>
+      <td>8.0</td>
+      <td>350.0</td>
+      <td>245.0</td>
+      <td>3.73</td>
+      <td>3.840</td>
+      <td>15.41</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Pontiac Firebird</th>
+      <td>19.2</td>
+      <td>8.0</td>
+      <td>400.0</td>
+      <td>175.0</td>
+      <td>3.08</td>
+      <td>3.845</td>
+      <td>17.05</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Fiat X1-9</th>
+      <td>27.3</td>
+      <td>4.0</td>
+      <td>79.0</td>
+      <td>66.0</td>
+      <td>4.08</td>
+      <td>1.935</td>
+      <td>18.90</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Porsche 914-2</th>
+      <td>26.0</td>
+      <td>4.0</td>
+      <td>120.3</td>
+      <td>91.0</td>
+      <td>4.43</td>
+      <td>2.140</td>
+      <td>16.70</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Lotus Europa</th>
+      <td>30.4</td>
+      <td>4.0</td>
+      <td>95.1</td>
+      <td>113.0</td>
+      <td>3.77</td>
+      <td>1.513</td>
+      <td>16.90</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>120000.0</td>
+    </tr>
+    <tr>
+      <th>Ford Pantera L</th>
+      <td>15.8</td>
+      <td>8.0</td>
+      <td>351.0</td>
+      <td>264.0</td>
+      <td>4.22</td>
+      <td>3.170</td>
+      <td>14.50</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Ferrari Dino</th>
+      <td>19.7</td>
+      <td>6.0</td>
+      <td>145.0</td>
+      <td>175.0</td>
+      <td>3.62</td>
+      <td>2.770</td>
+      <td>15.50</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>6.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Maserati Bora</th>
+      <td>15.0</td>
+      <td>8.0</td>
+      <td>301.0</td>
+      <td>335.0</td>
+      <td>3.54</td>
+      <td>3.570</td>
+      <td>14.60</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>8.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Volvo 142E</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>Пропущенные значения<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>Большинство методов <code class="docutils literal notranslate"><span class="pre">pandas</span></code> разработаны таким образом, чтобы обрабатывать пропущенные значения.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mpg          20.048387
+cyl           6.258065
+disp        234.261290
+hp          147.903226
+drat          3.580000
+wt            3.231355
+qsec         17.824516
+vs            0.419355
+am            0.387097
+gear          3.677419
+carb          2.838710
+price    110000.000000
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Тем не менее иногда необходимо избавиться от строк или столбцов с пропущенными данными. Для этого удобно использовать метод <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.dropna.html">DataFrame.dropna</a>, который возвращает новую таблицу, состоящую из строк исходной таблицы, не содержащих <code class="docutils literal notranslate"><span class="pre">np.nan</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mpg</th>
+      <th>cyl</th>
+      <th>disp</th>
+      <th>hp</th>
+      <th>drat</th>
+      <th>wt</th>
+      <th>qsec</th>
+      <th>vs</th>
+      <th>am</th>
+      <th>gear</th>
+      <th>carb</th>
+      <th>price</th>
+    </tr>
+    <tr>
+      <th>brand</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Mazda RX4</th>
+      <td>21.0</td>
+      <td>6.0</td>
+      <td>160.0</td>
+      <td>110.0</td>
+      <td>3.90</td>
+      <td>2.620</td>
+      <td>16.46</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>100000.0</td>
+    </tr>
+    <tr>
+      <th>Lotus Europa</th>
+      <td>30.4</td>
+      <td>4.0</td>
+      <td>95.1</td>
+      <td>113.0</td>
+      <td>3.77</td>
+      <td>1.513</td>
+      <td>16.90</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>120000.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Параметром <code class="docutils literal notranslate"><span class="pre">axis</span></code> можно выбрать, отбрасывать ли строки или столбцы. Параметр <code class="docutils literal notranslate"><span class="pre">how</span></code> может быть равен или <code class="docutils literal notranslate"><span class="pre">all</span></code> или <code class="docutils literal notranslate"><span class="pre">any</span></code> (по умолчанию <code class="docutils literal notranslate"><span class="pre">any</span></code>) и в зависимости от этого отбрасываются те строки таблицы (столбцы), в которых пропущены все или хотя бы одно значения.</p>
+<p>Вместо того чтобы отбросить пропущенные значения, методом <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.fillna.html">df.fillna</a> можно их заполнить. В самом простом варианте он заполняет <code class="docutils literal notranslate"><span class="pre">na</span></code> во всех столбцах одним и тем же значением (по умолчанию не на месте).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mpg</th>
+      <th>cyl</th>
+      <th>disp</th>
+      <th>hp</th>
+      <th>drat</th>
+      <th>wt</th>
+      <th>qsec</th>
+      <th>vs</th>
+      <th>am</th>
+      <th>gear</th>
+      <th>carb</th>
+      <th>price</th>
+    </tr>
+    <tr>
+      <th>brand</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Mazda RX4</th>
+      <td>21.0</td>
+      <td>6.0</td>
+      <td>160.0</td>
+      <td>110.0</td>
+      <td>3.90</td>
+      <td>2.620</td>
+      <td>16.46</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>100000.0</td>
+    </tr>
+    <tr>
+      <th>Mazda RX4 Wag</th>
+      <td>21.0</td>
+      <td>6.0</td>
+      <td>160.0</td>
+      <td>110.0</td>
+      <td>3.90</td>
+      <td>2.875</td>
+      <td>17.02</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Datsun 710</th>
+      <td>22.8</td>
+      <td>4.0</td>
+      <td>108.0</td>
+      <td>93.0</td>
+      <td>3.85</td>
+      <td>2.320</td>
+      <td>18.61</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Hornet 4 Drive</th>
+      <td>21.4</td>
+      <td>6.0</td>
+      <td>258.0</td>
+      <td>110.0</td>
+      <td>3.08</td>
+      <td>3.215</td>
+      <td>19.44</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Hornet Sportabout</th>
+      <td>18.7</td>
+      <td>8.0</td>
+      <td>360.0</td>
+      <td>175.0</td>
+      <td>3.15</td>
+      <td>3.440</td>
+      <td>17.02</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Valiant</th>
+      <td>18.1</td>
+      <td>6.0</td>
+      <td>225.0</td>
+      <td>105.0</td>
+      <td>2.76</td>
+      <td>3.460</td>
+      <td>20.22</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Duster 360</th>
+      <td>14.3</td>
+      <td>8.0</td>
+      <td>360.0</td>
+      <td>245.0</td>
+      <td>3.21</td>
+      <td>3.570</td>
+      <td>15.84</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Merc 240D</th>
+      <td>24.4</td>
+      <td>4.0</td>
+      <td>146.7</td>
+      <td>62.0</td>
+      <td>3.69</td>
+      <td>3.190</td>
+      <td>20.00</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Merc 230</th>
+      <td>22.8</td>
+      <td>4.0</td>
+      <td>140.8</td>
+      <td>95.0</td>
+      <td>3.92</td>
+      <td>3.150</td>
+      <td>22.90</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Merc 280</th>
+      <td>19.2</td>
+      <td>6.0</td>
+      <td>167.6</td>
+      <td>123.0</td>
+      <td>3.92</td>
+      <td>3.440</td>
+      <td>18.30</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Merc 280C</th>
+      <td>17.8</td>
+      <td>6.0</td>
+      <td>167.6</td>
+      <td>123.0</td>
+      <td>3.92</td>
+      <td>3.440</td>
+      <td>18.90</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Merc 450SE</th>
+      <td>16.4</td>
+      <td>8.0</td>
+      <td>275.8</td>
+      <td>180.0</td>
+      <td>3.07</td>
+      <td>4.070</td>
+      <td>17.40</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Merc 450SL</th>
+      <td>17.3</td>
+      <td>8.0</td>
+      <td>275.8</td>
+      <td>180.0</td>
+      <td>3.07</td>
+      <td>3.730</td>
+      <td>17.60</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Merc 450SLC</th>
+      <td>15.2</td>
+      <td>8.0</td>
+      <td>275.8</td>
+      <td>180.0</td>
+      <td>3.07</td>
+      <td>3.780</td>
+      <td>18.00</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Cadillac Fleetwood</th>
+      <td>10.4</td>
+      <td>8.0</td>
+      <td>472.0</td>
+      <td>205.0</td>
+      <td>2.93</td>
+      <td>5.250</td>
+      <td>17.98</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Lincoln Continental</th>
+      <td>10.4</td>
+      <td>8.0</td>
+      <td>460.0</td>
+      <td>215.0</td>
+      <td>3.00</td>
+      <td>5.424</td>
+      <td>17.82</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Chrysler Imperial</th>
+      <td>14.7</td>
+      <td>8.0</td>
+      <td>440.0</td>
+      <td>230.0</td>
+      <td>3.23</td>
+      <td>5.345</td>
+      <td>17.42</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Fiat 128</th>
+      <td>32.4</td>
+      <td>4.0</td>
+      <td>78.7</td>
+      <td>66.0</td>
+      <td>4.08</td>
+      <td>2.200</td>
+      <td>19.47</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Honda Civic</th>
+      <td>30.4</td>
+      <td>4.0</td>
+      <td>75.7</td>
+      <td>52.0</td>
+      <td>4.93</td>
+      <td>1.615</td>
+      <td>18.52</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Toyota Corolla</th>
+      <td>33.9</td>
+      <td>4.0</td>
+      <td>71.1</td>
+      <td>65.0</td>
+      <td>4.22</td>
+      <td>1.835</td>
+      <td>19.90</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Toyota Corona</th>
+      <td>21.5</td>
+      <td>4.0</td>
+      <td>120.1</td>
+      <td>97.0</td>
+      <td>3.70</td>
+      <td>2.465</td>
+      <td>20.01</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Dodge Challenger</th>
+      <td>15.5</td>
+      <td>8.0</td>
+      <td>318.0</td>
+      <td>150.0</td>
+      <td>2.76</td>
+      <td>3.520</td>
+      <td>16.87</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>AMC Javelin</th>
+      <td>15.2</td>
+      <td>8.0</td>
+      <td>304.0</td>
+      <td>150.0</td>
+      <td>3.15</td>
+      <td>3.435</td>
+      <td>17.30</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Camaro Z28</th>
+      <td>13.3</td>
+      <td>8.0</td>
+      <td>350.0</td>
+      <td>245.0</td>
+      <td>3.73</td>
+      <td>3.840</td>
+      <td>15.41</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Pontiac Firebird</th>
+      <td>19.2</td>
+      <td>8.0</td>
+      <td>400.0</td>
+      <td>175.0</td>
+      <td>3.08</td>
+      <td>3.845</td>
+      <td>17.05</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Fiat X1-9</th>
+      <td>27.3</td>
+      <td>4.0</td>
+      <td>79.0</td>
+      <td>66.0</td>
+      <td>4.08</td>
+      <td>1.935</td>
+      <td>18.90</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Porsche 914-2</th>
+      <td>26.0</td>
+      <td>4.0</td>
+      <td>120.3</td>
+      <td>91.0</td>
+      <td>4.43</td>
+      <td>2.140</td>
+      <td>16.70</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Lotus Europa</th>
+      <td>30.4</td>
+      <td>4.0</td>
+      <td>95.1</td>
+      <td>113.0</td>
+      <td>3.77</td>
+      <td>1.513</td>
+      <td>16.90</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>120000.0</td>
+    </tr>
+    <tr>
+      <th>Ford Pantera L</th>
+      <td>15.8</td>
+      <td>8.0</td>
+      <td>351.0</td>
+      <td>264.0</td>
+      <td>4.22</td>
+      <td>3.170</td>
+      <td>14.50</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Ferrari Dino</th>
+      <td>19.7</td>
+      <td>6.0</td>
+      <td>145.0</td>
+      <td>175.0</td>
+      <td>3.62</td>
+      <td>2.770</td>
+      <td>15.50</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>6.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Maserati Bora</th>
+      <td>15.0</td>
+      <td>8.0</td>
+      <td>301.0</td>
+      <td>335.0</td>
+      <td>3.54</td>
+      <td>3.570</td>
+      <td>14.60</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>8.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Volvo 142E</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>0.000</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Можно настроить более гибкое заполнение. Например, передавая словарь, можно выбрать свой заполнитель для каждого столбца. А параметром <code class="docutils literal notranslate"><span class="pre">method</span></code> можно заполнять пропущенные значения ближайшим непропущенным в строчках выше или ниже.</p>
+<p>Методом <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.interpolate.html">DataFrame.interpolate</a> можно заполнить пропущенные значения интерполируя по непропущенным.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mpg</th>
+      <th>cyl</th>
+      <th>disp</th>
+      <th>hp</th>
+      <th>drat</th>
+      <th>wt</th>
+      <th>qsec</th>
+      <th>vs</th>
+      <th>am</th>
+      <th>gear</th>
+      <th>carb</th>
+      <th>price</th>
+    </tr>
+    <tr>
+      <th>brand</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Mazda RX4</th>
+      <td>21.0</td>
+      <td>6.0</td>
+      <td>160.0</td>
+      <td>110.0</td>
+      <td>3.90</td>
+      <td>2.620</td>
+      <td>16.46</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>100000.000000</td>
+    </tr>
+    <tr>
+      <th>Mazda RX4 Wag</th>
+      <td>21.0</td>
+      <td>6.0</td>
+      <td>160.0</td>
+      <td>110.0</td>
+      <td>3.90</td>
+      <td>2.875</td>
+      <td>17.02</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>100740.740741</td>
+    </tr>
+    <tr>
+      <th>Datsun 710</th>
+      <td>22.8</td>
+      <td>4.0</td>
+      <td>108.0</td>
+      <td>93.0</td>
+      <td>3.85</td>
+      <td>2.320</td>
+      <td>18.61</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>101481.481481</td>
+    </tr>
+    <tr>
+      <th>Hornet 4 Drive</th>
+      <td>21.4</td>
+      <td>6.0</td>
+      <td>258.0</td>
+      <td>110.0</td>
+      <td>3.08</td>
+      <td>3.215</td>
+      <td>19.44</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>102222.222222</td>
+    </tr>
+    <tr>
+      <th>Hornet Sportabout</th>
+      <td>18.7</td>
+      <td>8.0</td>
+      <td>360.0</td>
+      <td>175.0</td>
+      <td>3.15</td>
+      <td>3.440</td>
+      <td>17.02</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>102962.962963</td>
+    </tr>
+    <tr>
+      <th>Valiant</th>
+      <td>18.1</td>
+      <td>6.0</td>
+      <td>225.0</td>
+      <td>105.0</td>
+      <td>2.76</td>
+      <td>3.460</td>
+      <td>20.22</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>103703.703704</td>
+    </tr>
+    <tr>
+      <th>Duster 360</th>
+      <td>14.3</td>
+      <td>8.0</td>
+      <td>360.0</td>
+      <td>245.0</td>
+      <td>3.21</td>
+      <td>3.570</td>
+      <td>15.84</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>104444.444444</td>
+    </tr>
+    <tr>
+      <th>Merc 240D</th>
+      <td>24.4</td>
+      <td>4.0</td>
+      <td>146.7</td>
+      <td>62.0</td>
+      <td>3.69</td>
+      <td>3.190</td>
+      <td>20.00</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>105185.185185</td>
+    </tr>
+    <tr>
+      <th>Merc 230</th>
+      <td>22.8</td>
+      <td>4.0</td>
+      <td>140.8</td>
+      <td>95.0</td>
+      <td>3.92</td>
+      <td>3.150</td>
+      <td>22.90</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>105925.925926</td>
+    </tr>
+    <tr>
+      <th>Merc 280</th>
+      <td>19.2</td>
+      <td>6.0</td>
+      <td>167.6</td>
+      <td>123.0</td>
+      <td>3.92</td>
+      <td>3.440</td>
+      <td>18.30</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>106666.666667</td>
+    </tr>
+    <tr>
+      <th>Merc 280C</th>
+      <td>17.8</td>
+      <td>6.0</td>
+      <td>167.6</td>
+      <td>123.0</td>
+      <td>3.92</td>
+      <td>3.440</td>
+      <td>18.90</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>107407.407407</td>
+    </tr>
+    <tr>
+      <th>Merc 450SE</th>
+      <td>16.4</td>
+      <td>8.0</td>
+      <td>275.8</td>
+      <td>180.0</td>
+      <td>3.07</td>
+      <td>4.070</td>
+      <td>17.40</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>108148.148148</td>
+    </tr>
+    <tr>
+      <th>Merc 450SL</th>
+      <td>17.3</td>
+      <td>8.0</td>
+      <td>275.8</td>
+      <td>180.0</td>
+      <td>3.07</td>
+      <td>3.730</td>
+      <td>17.60</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>108888.888889</td>
+    </tr>
+    <tr>
+      <th>Merc 450SLC</th>
+      <td>15.2</td>
+      <td>8.0</td>
+      <td>275.8</td>
+      <td>180.0</td>
+      <td>3.07</td>
+      <td>3.780</td>
+      <td>18.00</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>109629.629630</td>
+    </tr>
+    <tr>
+      <th>Cadillac Fleetwood</th>
+      <td>10.4</td>
+      <td>8.0</td>
+      <td>472.0</td>
+      <td>205.0</td>
+      <td>2.93</td>
+      <td>5.250</td>
+      <td>17.98</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>110370.370370</td>
+    </tr>
+    <tr>
+      <th>Lincoln Continental</th>
+      <td>10.4</td>
+      <td>8.0</td>
+      <td>460.0</td>
+      <td>215.0</td>
+      <td>3.00</td>
+      <td>5.424</td>
+      <td>17.82</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>111111.111111</td>
+    </tr>
+    <tr>
+      <th>Chrysler Imperial</th>
+      <td>14.7</td>
+      <td>8.0</td>
+      <td>440.0</td>
+      <td>230.0</td>
+      <td>3.23</td>
+      <td>5.345</td>
+      <td>17.42</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>111851.851852</td>
+    </tr>
+    <tr>
+      <th>Fiat 128</th>
+      <td>32.4</td>
+      <td>4.0</td>
+      <td>78.7</td>
+      <td>66.0</td>
+      <td>4.08</td>
+      <td>2.200</td>
+      <td>19.47</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>112592.592593</td>
+    </tr>
+    <tr>
+      <th>Honda Civic</th>
+      <td>30.4</td>
+      <td>4.0</td>
+      <td>75.7</td>
+      <td>52.0</td>
+      <td>4.93</td>
+      <td>1.615</td>
+      <td>18.52</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>113333.333333</td>
+    </tr>
+    <tr>
+      <th>Toyota Corolla</th>
+      <td>33.9</td>
+      <td>4.0</td>
+      <td>71.1</td>
+      <td>65.0</td>
+      <td>4.22</td>
+      <td>1.835</td>
+      <td>19.90</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>114074.074074</td>
+    </tr>
+    <tr>
+      <th>Toyota Corona</th>
+      <td>21.5</td>
+      <td>4.0</td>
+      <td>120.1</td>
+      <td>97.0</td>
+      <td>3.70</td>
+      <td>2.465</td>
+      <td>20.01</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>114814.814815</td>
+    </tr>
+    <tr>
+      <th>Dodge Challenger</th>
+      <td>15.5</td>
+      <td>8.0</td>
+      <td>318.0</td>
+      <td>150.0</td>
+      <td>2.76</td>
+      <td>3.520</td>
+      <td>16.87</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>115555.555556</td>
+    </tr>
+    <tr>
+      <th>AMC Javelin</th>
+      <td>15.2</td>
+      <td>8.0</td>
+      <td>304.0</td>
+      <td>150.0</td>
+      <td>3.15</td>
+      <td>3.435</td>
+      <td>17.30</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>116296.296296</td>
+    </tr>
+    <tr>
+      <th>Camaro Z28</th>
+      <td>13.3</td>
+      <td>8.0</td>
+      <td>350.0</td>
+      <td>245.0</td>
+      <td>3.73</td>
+      <td>3.840</td>
+      <td>15.41</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>117037.037037</td>
+    </tr>
+    <tr>
+      <th>Pontiac Firebird</th>
+      <td>19.2</td>
+      <td>8.0</td>
+      <td>400.0</td>
+      <td>175.0</td>
+      <td>3.08</td>
+      <td>3.845</td>
+      <td>17.05</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>117777.777778</td>
+    </tr>
+    <tr>
+      <th>Fiat X1-9</th>
+      <td>27.3</td>
+      <td>4.0</td>
+      <td>79.0</td>
+      <td>66.0</td>
+      <td>4.08</td>
+      <td>1.935</td>
+      <td>18.90</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>118518.518519</td>
+    </tr>
+    <tr>
+      <th>Porsche 914-2</th>
+      <td>26.0</td>
+      <td>4.0</td>
+      <td>120.3</td>
+      <td>91.0</td>
+      <td>4.43</td>
+      <td>2.140</td>
+      <td>16.70</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>119259.259259</td>
+    </tr>
+    <tr>
+      <th>Lotus Europa</th>
+      <td>30.4</td>
+      <td>4.0</td>
+      <td>95.1</td>
+      <td>113.0</td>
+      <td>3.77</td>
+      <td>1.513</td>
+      <td>16.90</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>120000.000000</td>
+    </tr>
+    <tr>
+      <th>Ford Pantera L</th>
+      <td>15.8</td>
+      <td>8.0</td>
+      <td>351.0</td>
+      <td>264.0</td>
+      <td>4.22</td>
+      <td>3.170</td>
+      <td>14.50</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>120000.000000</td>
+    </tr>
+    <tr>
+      <th>Ferrari Dino</th>
+      <td>19.7</td>
+      <td>6.0</td>
+      <td>145.0</td>
+      <td>175.0</td>
+      <td>3.62</td>
+      <td>2.770</td>
+      <td>15.50</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>6.0</td>
+      <td>120000.000000</td>
+    </tr>
+    <tr>
+      <th>Maserati Bora</th>
+      <td>15.0</td>
+      <td>8.0</td>
+      <td>301.0</td>
+      <td>335.0</td>
+      <td>3.54</td>
+      <td>3.570</td>
+      <td>14.60</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>8.0</td>
+      <td>120000.000000</td>
+    </tr>
+    <tr>
+      <th>Volvo 142E</th>
+      <td>15.0</td>
+      <td>8.0</td>
+      <td>301.0</td>
+      <td>335.0</td>
+      <td>3.54</td>
+      <td>3.570</td>
+      <td>14.60</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>8.0</td>
+      <td>120000.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="apply-map-applymap">
+<h2>apply, map, applymap<a class="headerlink" href="#apply-map-applymap" title="Permalink to this headline">¶</a></h2>
+<p>Применить некоторую функцию к всем строкам/столбцам таблицы можно методом <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.apply.html">DataFrame.apply</a>. Передавать этому методу необходимо такую функцию, рассчитывая, что ей на вход будет подаваться объект <code class="docutils literal notranslate"><span class="pre">pd.series</span></code>, который в зависимости от значения параметра <code class="docutils literal notranslate"><span class="pre">axis</span></code> будет или строкой или столбцом таблицы.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> 
+
+<span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s2">&quot;rows&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mpg      23.50
+cyl       4.00
+disp    400.90
+hp      283.00
+drat      2.17
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Метод <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.map.html">Series.map</a> позволяет применить функцию к каждому значению столбца. Чтобы продемонстрировать принцип работы этого метода, извлечем из столбца <code class="docutils literal notranslate"><span class="pre">brand</span></code> марку и модель автомобиля в разные столбцы.</p>
+<p>Для этого определим функции, которые в качестве аргумента принимают строку из столбца <code class="docutils literal notranslate"><span class="pre">brand</span></code> и возвращают марку или модель автомобиля из неё. В данной таблице, марка автомобиля всегда встречается до первого пробела, а модель автомобиля — все после первого пробела.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_brand</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">get_model</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">b</span><span class="p">,</span> <span class="o">*</span><span class="n">m</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span> <span class="c1"># все после первого пробела попадает в переменную m</span>
+    <span class="k">return</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Mazda RX4 Wag&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2"> -&gt; </span><span class="si">{</span><span class="n">get_brand</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">get_model</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mazda RX4 Wag -&gt; Mazda and RX4 Wag
+</pre></div>
+</div>
+</div>
+</div>
+<p>Определив эти функции применим их к столбцу <code class="docutils literal notranslate"><span class="pre">brand</span></code>. Т.к. <code class="docutils literal notranslate"><span class="pre">brand</span></code> — индекс, то создадим из него <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code>, применим определенные функции методом <code class="docutils literal notranslate"><span class="pre">map</span></code> и запишем результаты в таблицу в качестве новых столбцов.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fullname</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;car&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;brand&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fullname</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">get_brand</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fullname</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">get_model</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mpg</th>
+      <th>cyl</th>
+      <th>disp</th>
+      <th>hp</th>
+      <th>drat</th>
+      <th>wt</th>
+      <th>qsec</th>
+      <th>vs</th>
+      <th>am</th>
+      <th>gear</th>
+      <th>carb</th>
+      <th>price</th>
+      <th>brand</th>
+      <th>model</th>
+    </tr>
+    <tr>
+      <th>car</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Mazda RX4</th>
+      <td>21.0</td>
+      <td>6.0</td>
+      <td>160.0</td>
+      <td>110.0</td>
+      <td>3.90</td>
+      <td>2.620</td>
+      <td>16.46</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>100000.0</td>
+      <td>Mazda</td>
+      <td>RX4</td>
+    </tr>
+    <tr>
+      <th>Mazda RX4 Wag</th>
+      <td>21.0</td>
+      <td>6.0</td>
+      <td>160.0</td>
+      <td>110.0</td>
+      <td>3.90</td>
+      <td>2.875</td>
+      <td>17.02</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>Mazda</td>
+      <td>RX4 Wag</td>
+    </tr>
+    <tr>
+      <th>Datsun 710</th>
+      <td>22.8</td>
+      <td>4.0</td>
+      <td>108.0</td>
+      <td>93.0</td>
+      <td>3.85</td>
+      <td>2.320</td>
+      <td>18.61</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>Datsun</td>
+      <td>710</td>
+    </tr>
+    <tr>
+      <th>Hornet 4 Drive</th>
+      <td>21.4</td>
+      <td>6.0</td>
+      <td>258.0</td>
+      <td>110.0</td>
+      <td>3.08</td>
+      <td>3.215</td>
+      <td>19.44</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>Hornet</td>
+      <td>4 Drive</td>
+    </tr>
+    <tr>
+      <th>Hornet Sportabout</th>
+      <td>18.7</td>
+      <td>8.0</td>
+      <td>360.0</td>
+      <td>175.0</td>
+      <td>3.15</td>
+      <td>3.440</td>
+      <td>17.02</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>Hornet</td>
+      <td>Sportabout</td>
+    </tr>
+    <tr>
+      <th>Valiant</th>
+      <td>18.1</td>
+      <td>6.0</td>
+      <td>225.0</td>
+      <td>105.0</td>
+      <td>2.76</td>
+      <td>3.460</td>
+      <td>20.22</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>Valiant</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Duster 360</th>
+      <td>14.3</td>
+      <td>8.0</td>
+      <td>360.0</td>
+      <td>245.0</td>
+      <td>3.21</td>
+      <td>3.570</td>
+      <td>15.84</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>Duster</td>
+      <td>360</td>
+    </tr>
+    <tr>
+      <th>Merc 240D</th>
+      <td>24.4</td>
+      <td>4.0</td>
+      <td>146.7</td>
+      <td>62.0</td>
+      <td>3.69</td>
+      <td>3.190</td>
+      <td>20.00</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>Merc</td>
+      <td>240D</td>
+    </tr>
+    <tr>
+      <th>Merc 230</th>
+      <td>22.8</td>
+      <td>4.0</td>
+      <td>140.8</td>
+      <td>95.0</td>
+      <td>3.92</td>
+      <td>3.150</td>
+      <td>22.90</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>Merc</td>
+      <td>230</td>
+    </tr>
+    <tr>
+      <th>Merc 280</th>
+      <td>19.2</td>
+      <td>6.0</td>
+      <td>167.6</td>
+      <td>123.0</td>
+      <td>3.92</td>
+      <td>3.440</td>
+      <td>18.30</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>Merc</td>
+      <td>280</td>
+    </tr>
+    <tr>
+      <th>Merc 280C</th>
+      <td>17.8</td>
+      <td>6.0</td>
+      <td>167.6</td>
+      <td>123.0</td>
+      <td>3.92</td>
+      <td>3.440</td>
+      <td>18.90</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>Merc</td>
+      <td>280C</td>
+    </tr>
+    <tr>
+      <th>Merc 450SE</th>
+      <td>16.4</td>
+      <td>8.0</td>
+      <td>275.8</td>
+      <td>180.0</td>
+      <td>3.07</td>
+      <td>4.070</td>
+      <td>17.40</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>Merc</td>
+      <td>450SE</td>
+    </tr>
+    <tr>
+      <th>Merc 450SL</th>
+      <td>17.3</td>
+      <td>8.0</td>
+      <td>275.8</td>
+      <td>180.0</td>
+      <td>3.07</td>
+      <td>3.730</td>
+      <td>17.60</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>Merc</td>
+      <td>450SL</td>
+    </tr>
+    <tr>
+      <th>Merc 450SLC</th>
+      <td>15.2</td>
+      <td>8.0</td>
+      <td>275.8</td>
+      <td>180.0</td>
+      <td>3.07</td>
+      <td>3.780</td>
+      <td>18.00</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>Merc</td>
+      <td>450SLC</td>
+    </tr>
+    <tr>
+      <th>Cadillac Fleetwood</th>
+      <td>10.4</td>
+      <td>8.0</td>
+      <td>472.0</td>
+      <td>205.0</td>
+      <td>2.93</td>
+      <td>5.250</td>
+      <td>17.98</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>Cadillac</td>
+      <td>Fleetwood</td>
+    </tr>
+    <tr>
+      <th>Lincoln Continental</th>
+      <td>10.4</td>
+      <td>8.0</td>
+      <td>460.0</td>
+      <td>215.0</td>
+      <td>3.00</td>
+      <td>5.424</td>
+      <td>17.82</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>Lincoln</td>
+      <td>Continental</td>
+    </tr>
+    <tr>
+      <th>Chrysler Imperial</th>
+      <td>14.7</td>
+      <td>8.0</td>
+      <td>440.0</td>
+      <td>230.0</td>
+      <td>3.23</td>
+      <td>5.345</td>
+      <td>17.42</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>Chrysler</td>
+      <td>Imperial</td>
+    </tr>
+    <tr>
+      <th>Fiat 128</th>
+      <td>32.4</td>
+      <td>4.0</td>
+      <td>78.7</td>
+      <td>66.0</td>
+      <td>4.08</td>
+      <td>2.200</td>
+      <td>19.47</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>Fiat</td>
+      <td>128</td>
+    </tr>
+    <tr>
+      <th>Honda Civic</th>
+      <td>30.4</td>
+      <td>4.0</td>
+      <td>75.7</td>
+      <td>52.0</td>
+      <td>4.93</td>
+      <td>1.615</td>
+      <td>18.52</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>Honda</td>
+      <td>Civic</td>
+    </tr>
+    <tr>
+      <th>Toyota Corolla</th>
+      <td>33.9</td>
+      <td>4.0</td>
+      <td>71.1</td>
+      <td>65.0</td>
+      <td>4.22</td>
+      <td>1.835</td>
+      <td>19.90</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>Toyota</td>
+      <td>Corolla</td>
+    </tr>
+    <tr>
+      <th>Toyota Corona</th>
+      <td>21.5</td>
+      <td>4.0</td>
+      <td>120.1</td>
+      <td>97.0</td>
+      <td>3.70</td>
+      <td>2.465</td>
+      <td>20.01</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>Toyota</td>
+      <td>Corona</td>
+    </tr>
+    <tr>
+      <th>Dodge Challenger</th>
+      <td>15.5</td>
+      <td>8.0</td>
+      <td>318.0</td>
+      <td>150.0</td>
+      <td>2.76</td>
+      <td>3.520</td>
+      <td>16.87</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>Dodge</td>
+      <td>Challenger</td>
+    </tr>
+    <tr>
+      <th>AMC Javelin</th>
+      <td>15.2</td>
+      <td>8.0</td>
+      <td>304.0</td>
+      <td>150.0</td>
+      <td>3.15</td>
+      <td>3.435</td>
+      <td>17.30</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>AMC</td>
+      <td>Javelin</td>
+    </tr>
+    <tr>
+      <th>Camaro Z28</th>
+      <td>13.3</td>
+      <td>8.0</td>
+      <td>350.0</td>
+      <td>245.0</td>
+      <td>3.73</td>
+      <td>3.840</td>
+      <td>15.41</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>Camaro</td>
+      <td>Z28</td>
+    </tr>
+    <tr>
+      <th>Pontiac Firebird</th>
+      <td>19.2</td>
+      <td>8.0</td>
+      <td>400.0</td>
+      <td>175.0</td>
+      <td>3.08</td>
+      <td>3.845</td>
+      <td>17.05</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>Pontiac</td>
+      <td>Firebird</td>
+    </tr>
+    <tr>
+      <th>Fiat X1-9</th>
+      <td>27.3</td>
+      <td>4.0</td>
+      <td>79.0</td>
+      <td>66.0</td>
+      <td>4.08</td>
+      <td>1.935</td>
+      <td>18.90</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>Fiat</td>
+      <td>X1-9</td>
+    </tr>
+    <tr>
+      <th>Porsche 914-2</th>
+      <td>26.0</td>
+      <td>4.0</td>
+      <td>120.3</td>
+      <td>91.0</td>
+      <td>4.43</td>
+      <td>2.140</td>
+      <td>16.70</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>Porsche</td>
+      <td>914-2</td>
+    </tr>
+    <tr>
+      <th>Lotus Europa</th>
+      <td>30.4</td>
+      <td>4.0</td>
+      <td>95.1</td>
+      <td>113.0</td>
+      <td>3.77</td>
+      <td>1.513</td>
+      <td>16.90</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>120000.0</td>
+      <td>Lotus</td>
+      <td>Europa</td>
+    </tr>
+    <tr>
+      <th>Ford Pantera L</th>
+      <td>15.8</td>
+      <td>8.0</td>
+      <td>351.0</td>
+      <td>264.0</td>
+      <td>4.22</td>
+      <td>3.170</td>
+      <td>14.50</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>Ford</td>
+      <td>Pantera L</td>
+    </tr>
+    <tr>
+      <th>Ferrari Dino</th>
+      <td>19.7</td>
+      <td>6.0</td>
+      <td>145.0</td>
+      <td>175.0</td>
+      <td>3.62</td>
+      <td>2.770</td>
+      <td>15.50</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>6.0</td>
+      <td>NaN</td>
+      <td>Ferrari</td>
+      <td>Dino</td>
+    </tr>
+    <tr>
+      <th>Maserati Bora</th>
+      <td>15.0</td>
+      <td>8.0</td>
+      <td>301.0</td>
+      <td>335.0</td>
+      <td>3.54</td>
+      <td>3.570</td>
+      <td>14.60</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>8.0</td>
+      <td>NaN</td>
+      <td>Maserati</td>
+      <td>Bora</td>
+    </tr>
+    <tr>
+      <th>Volvo 142E</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Volvo</td>
+      <td>142E</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Вместо функции, методу <code class="docutils literal notranslate"><span class="pre">map</span></code> можно передать словарь.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n2str</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mf">4.0</span><span class="p">:</span> <span class="s2">&quot;four&quot;</span><span class="p">,</span>
+    <span class="mf">6.0</span><span class="p">:</span> <span class="s2">&quot;six&quot;</span><span class="p">,</span>
+    <span class="mf">8.0</span><span class="p">:</span> <span class="s2">&quot;eight&quot;</span>
+    <span class="p">}</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;cyl&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;cyl&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">n2str</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mpg</th>
+      <th>cyl</th>
+      <th>disp</th>
+      <th>hp</th>
+      <th>drat</th>
+      <th>wt</th>
+      <th>qsec</th>
+      <th>vs</th>
+      <th>am</th>
+      <th>gear</th>
+      <th>carb</th>
+      <th>price</th>
+      <th>brand</th>
+      <th>model</th>
+    </tr>
+    <tr>
+      <th>car</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Mazda RX4</th>
+      <td>21.0</td>
+      <td>six</td>
+      <td>160.0</td>
+      <td>110.0</td>
+      <td>3.90</td>
+      <td>2.620</td>
+      <td>16.46</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>100000.0</td>
+      <td>Mazda</td>
+      <td>RX4</td>
+    </tr>
+    <tr>
+      <th>Mazda RX4 Wag</th>
+      <td>21.0</td>
+      <td>six</td>
+      <td>160.0</td>
+      <td>110.0</td>
+      <td>3.90</td>
+      <td>2.875</td>
+      <td>17.02</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>Mazda</td>
+      <td>RX4 Wag</td>
+    </tr>
+    <tr>
+      <th>Datsun 710</th>
+      <td>22.8</td>
+      <td>four</td>
+      <td>108.0</td>
+      <td>93.0</td>
+      <td>3.85</td>
+      <td>2.320</td>
+      <td>18.61</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>Datsun</td>
+      <td>710</td>
+    </tr>
+    <tr>
+      <th>Hornet 4 Drive</th>
+      <td>21.4</td>
+      <td>six</td>
+      <td>258.0</td>
+      <td>110.0</td>
+      <td>3.08</td>
+      <td>3.215</td>
+      <td>19.44</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>Hornet</td>
+      <td>4 Drive</td>
+    </tr>
+    <tr>
+      <th>Hornet Sportabout</th>
+      <td>18.7</td>
+      <td>eight</td>
+      <td>360.0</td>
+      <td>175.0</td>
+      <td>3.15</td>
+      <td>3.440</td>
+      <td>17.02</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>Hornet</td>
+      <td>Sportabout</td>
+    </tr>
+    <tr>
+      <th>Valiant</th>
+      <td>18.1</td>
+      <td>six</td>
+      <td>225.0</td>
+      <td>105.0</td>
+      <td>2.76</td>
+      <td>3.460</td>
+      <td>20.22</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>Valiant</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Duster 360</th>
+      <td>14.3</td>
+      <td>eight</td>
+      <td>360.0</td>
+      <td>245.0</td>
+      <td>3.21</td>
+      <td>3.570</td>
+      <td>15.84</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>Duster</td>
+      <td>360</td>
+    </tr>
+    <tr>
+      <th>Merc 240D</th>
+      <td>24.4</td>
+      <td>four</td>
+      <td>146.7</td>
+      <td>62.0</td>
+      <td>3.69</td>
+      <td>3.190</td>
+      <td>20.00</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>Merc</td>
+      <td>240D</td>
+    </tr>
+    <tr>
+      <th>Merc 230</th>
+      <td>22.8</td>
+      <td>four</td>
+      <td>140.8</td>
+      <td>95.0</td>
+      <td>3.92</td>
+      <td>3.150</td>
+      <td>22.90</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>Merc</td>
+      <td>230</td>
+    </tr>
+    <tr>
+      <th>Merc 280</th>
+      <td>19.2</td>
+      <td>six</td>
+      <td>167.6</td>
+      <td>123.0</td>
+      <td>3.92</td>
+      <td>3.440</td>
+      <td>18.30</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>Merc</td>
+      <td>280</td>
+    </tr>
+    <tr>
+      <th>Merc 280C</th>
+      <td>17.8</td>
+      <td>six</td>
+      <td>167.6</td>
+      <td>123.0</td>
+      <td>3.92</td>
+      <td>3.440</td>
+      <td>18.90</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>Merc</td>
+      <td>280C</td>
+    </tr>
+    <tr>
+      <th>Merc 450SE</th>
+      <td>16.4</td>
+      <td>eight</td>
+      <td>275.8</td>
+      <td>180.0</td>
+      <td>3.07</td>
+      <td>4.070</td>
+      <td>17.40</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>Merc</td>
+      <td>450SE</td>
+    </tr>
+    <tr>
+      <th>Merc 450SL</th>
+      <td>17.3</td>
+      <td>eight</td>
+      <td>275.8</td>
+      <td>180.0</td>
+      <td>3.07</td>
+      <td>3.730</td>
+      <td>17.60</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>Merc</td>
+      <td>450SL</td>
+    </tr>
+    <tr>
+      <th>Merc 450SLC</th>
+      <td>15.2</td>
+      <td>eight</td>
+      <td>275.8</td>
+      <td>180.0</td>
+      <td>3.07</td>
+      <td>3.780</td>
+      <td>18.00</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>Merc</td>
+      <td>450SLC</td>
+    </tr>
+    <tr>
+      <th>Cadillac Fleetwood</th>
+      <td>10.4</td>
+      <td>eight</td>
+      <td>472.0</td>
+      <td>205.0</td>
+      <td>2.93</td>
+      <td>5.250</td>
+      <td>17.98</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>Cadillac</td>
+      <td>Fleetwood</td>
+    </tr>
+    <tr>
+      <th>Lincoln Continental</th>
+      <td>10.4</td>
+      <td>eight</td>
+      <td>460.0</td>
+      <td>215.0</td>
+      <td>3.00</td>
+      <td>5.424</td>
+      <td>17.82</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>Lincoln</td>
+      <td>Continental</td>
+    </tr>
+    <tr>
+      <th>Chrysler Imperial</th>
+      <td>14.7</td>
+      <td>eight</td>
+      <td>440.0</td>
+      <td>230.0</td>
+      <td>3.23</td>
+      <td>5.345</td>
+      <td>17.42</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>Chrysler</td>
+      <td>Imperial</td>
+    </tr>
+    <tr>
+      <th>Fiat 128</th>
+      <td>32.4</td>
+      <td>four</td>
+      <td>78.7</td>
+      <td>66.0</td>
+      <td>4.08</td>
+      <td>2.200</td>
+      <td>19.47</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>Fiat</td>
+      <td>128</td>
+    </tr>
+    <tr>
+      <th>Honda Civic</th>
+      <td>30.4</td>
+      <td>four</td>
+      <td>75.7</td>
+      <td>52.0</td>
+      <td>4.93</td>
+      <td>1.615</td>
+      <td>18.52</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>Honda</td>
+      <td>Civic</td>
+    </tr>
+    <tr>
+      <th>Toyota Corolla</th>
+      <td>33.9</td>
+      <td>four</td>
+      <td>71.1</td>
+      <td>65.0</td>
+      <td>4.22</td>
+      <td>1.835</td>
+      <td>19.90</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>Toyota</td>
+      <td>Corolla</td>
+    </tr>
+    <tr>
+      <th>Toyota Corona</th>
+      <td>21.5</td>
+      <td>four</td>
+      <td>120.1</td>
+      <td>97.0</td>
+      <td>3.70</td>
+      <td>2.465</td>
+      <td>20.01</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>Toyota</td>
+      <td>Corona</td>
+    </tr>
+    <tr>
+      <th>Dodge Challenger</th>
+      <td>15.5</td>
+      <td>eight</td>
+      <td>318.0</td>
+      <td>150.0</td>
+      <td>2.76</td>
+      <td>3.520</td>
+      <td>16.87</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>Dodge</td>
+      <td>Challenger</td>
+    </tr>
+    <tr>
+      <th>AMC Javelin</th>
+      <td>15.2</td>
+      <td>eight</td>
+      <td>304.0</td>
+      <td>150.0</td>
+      <td>3.15</td>
+      <td>3.435</td>
+      <td>17.30</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>AMC</td>
+      <td>Javelin</td>
+    </tr>
+    <tr>
+      <th>Camaro Z28</th>
+      <td>13.3</td>
+      <td>eight</td>
+      <td>350.0</td>
+      <td>245.0</td>
+      <td>3.73</td>
+      <td>3.840</td>
+      <td>15.41</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>Camaro</td>
+      <td>Z28</td>
+    </tr>
+    <tr>
+      <th>Pontiac Firebird</th>
+      <td>19.2</td>
+      <td>eight</td>
+      <td>400.0</td>
+      <td>175.0</td>
+      <td>3.08</td>
+      <td>3.845</td>
+      <td>17.05</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>Pontiac</td>
+      <td>Firebird</td>
+    </tr>
+    <tr>
+      <th>Fiat X1-9</th>
+      <td>27.3</td>
+      <td>four</td>
+      <td>79.0</td>
+      <td>66.0</td>
+      <td>4.08</td>
+      <td>1.935</td>
+      <td>18.90</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>Fiat</td>
+      <td>X1-9</td>
+    </tr>
+    <tr>
+      <th>Porsche 914-2</th>
+      <td>26.0</td>
+      <td>four</td>
+      <td>120.3</td>
+      <td>91.0</td>
+      <td>4.43</td>
+      <td>2.140</td>
+      <td>16.70</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>Porsche</td>
+      <td>914-2</td>
+    </tr>
+    <tr>
+      <th>Lotus Europa</th>
+      <td>30.4</td>
+      <td>four</td>
+      <td>95.1</td>
+      <td>113.0</td>
+      <td>3.77</td>
+      <td>1.513</td>
+      <td>16.90</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>120000.0</td>
+      <td>Lotus</td>
+      <td>Europa</td>
+    </tr>
+    <tr>
+      <th>Ford Pantera L</th>
+      <td>15.8</td>
+      <td>eight</td>
+      <td>351.0</td>
+      <td>264.0</td>
+      <td>4.22</td>
+      <td>3.170</td>
+      <td>14.50</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>Ford</td>
+      <td>Pantera L</td>
+    </tr>
+    <tr>
+      <th>Ferrari Dino</th>
+      <td>19.7</td>
+      <td>six</td>
+      <td>145.0</td>
+      <td>175.0</td>
+      <td>3.62</td>
+      <td>2.770</td>
+      <td>15.50</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>6.0</td>
+      <td>NaN</td>
+      <td>Ferrari</td>
+      <td>Dino</td>
+    </tr>
+    <tr>
+      <th>Maserati Bora</th>
+      <td>15.0</td>
+      <td>eight</td>
+      <td>301.0</td>
+      <td>335.0</td>
+      <td>3.54</td>
+      <td>3.570</td>
+      <td>14.60</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>8.0</td>
+      <td>NaN</td>
+      <td>Maserati</td>
+      <td>Bora</td>
+    </tr>
+    <tr>
+      <th>Volvo 142E</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Volvo</td>
+      <td>142E</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Использовать числа с плавающей точкой в качестве ключей словаря считается плохой практикой из-за особенностей их представления в компьютере: даже минимальное отклонение от точного значения ключа в словаре может привести (и почти наверняка приведет) к другому значению хэш-функции и получить искомое значение по “испорченному ключу не выйдет”.</p>
+</div>
+<p>Метод <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.applymap.html#pandas.DataFrame.applymap">DataFrame.applymap</a> применяет функцию к кажому значению в таблице.</p>
+</div>
+<div class="section" id="id5">
+<h2>Группировка по значениям столбца<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>Часто необходимо сгруппировать строки таблицы по какому-то принципу и с каждой из групп проделать какие-то операции. За группировку в <code class="docutils literal notranslate"><span class="pre">pandas</span></code> отвечает метод <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.groupby.html">DataFrame.groupby</a>. В качестве аргумента её можно передать имя столбца, по значениям которого необходима группировка (можно также передать несколько столбцов в списке).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;brand&quot;</span><span class="p">)</span>
+<span class="n">grouped</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="s2">&quot;Mazda&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mpg</th>
+      <th>cyl</th>
+      <th>disp</th>
+      <th>hp</th>
+      <th>drat</th>
+      <th>wt</th>
+      <th>qsec</th>
+      <th>vs</th>
+      <th>am</th>
+      <th>gear</th>
+      <th>carb</th>
+      <th>price</th>
+      <th>brand</th>
+      <th>model</th>
+    </tr>
+    <tr>
+      <th>car</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Mazda RX4</th>
+      <td>21.0</td>
+      <td>6.0</td>
+      <td>160.0</td>
+      <td>110.0</td>
+      <td>3.9</td>
+      <td>2.620</td>
+      <td>16.46</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>100000.0</td>
+      <td>Mazda</td>
+      <td>RX4</td>
+    </tr>
+    <tr>
+      <th>Mazda RX4 Wag</th>
+      <td>21.0</td>
+      <td>6.0</td>
+      <td>160.0</td>
+      <td>110.0</td>
+      <td>3.9</td>
+      <td>2.875</td>
+      <td>17.02</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>Mazda</td>
+      <td>RX4 Wag</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Каждую группу можно рассматривать как мини-таблицу. Часто таблицу группируют по значениям одного столбца, чтобы потом посчитать какие-нибудь агрегирующие функцию к значениям других столбцов. Сделать это можно методом <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.aggregate.html">DataFrameGroupBy.aggregate</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grouped</span><span class="p">[</span><span class="s2">&quot;mpg&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">aggregate</span><span class="p">([</span><span class="s2">&quot;min&quot;</span><span class="p">,</span> <span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot;max&quot;</span><span class="p">,</span> <span class="s2">&quot;count&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>min</th>
+      <th>mean</th>
+      <th>max</th>
+      <th>count</th>
+    </tr>
+    <tr>
+      <th>brand</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>AMC</th>
+      <td>15.2</td>
+      <td>15.200000</td>
+      <td>15.2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Cadillac</th>
+      <td>10.4</td>
+      <td>10.400000</td>
+      <td>10.4</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Camaro</th>
+      <td>13.3</td>
+      <td>13.300000</td>
+      <td>13.3</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Chrysler</th>
+      <td>14.7</td>
+      <td>14.700000</td>
+      <td>14.7</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Datsun</th>
+      <td>22.8</td>
+      <td>22.800000</td>
+      <td>22.8</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Dodge</th>
+      <td>15.5</td>
+      <td>15.500000</td>
+      <td>15.5</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Duster</th>
+      <td>14.3</td>
+      <td>14.300000</td>
+      <td>14.3</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Ferrari</th>
+      <td>19.7</td>
+      <td>19.700000</td>
+      <td>19.7</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Fiat</th>
+      <td>27.3</td>
+      <td>29.850000</td>
+      <td>32.4</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Ford</th>
+      <td>15.8</td>
+      <td>15.800000</td>
+      <td>15.8</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Honda</th>
+      <td>30.4</td>
+      <td>30.400000</td>
+      <td>30.4</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Hornet</th>
+      <td>18.7</td>
+      <td>20.050000</td>
+      <td>21.4</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Lincoln</th>
+      <td>10.4</td>
+      <td>10.400000</td>
+      <td>10.4</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Lotus</th>
+      <td>30.4</td>
+      <td>30.400000</td>
+      <td>30.4</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Maserati</th>
+      <td>15.0</td>
+      <td>15.000000</td>
+      <td>15.0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Mazda</th>
+      <td>21.0</td>
+      <td>21.000000</td>
+      <td>21.0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Merc</th>
+      <td>15.2</td>
+      <td>19.014286</td>
+      <td>24.4</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>Pontiac</th>
+      <td>19.2</td>
+      <td>19.200000</td>
+      <td>19.2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Porsche</th>
+      <td>26.0</td>
+      <td>26.000000</td>
+      <td>26.0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Toyota</th>
+      <td>21.5</td>
+      <td>27.700000</td>
+      <td>33.9</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Valiant</th>
+      <td>18.1</td>
+      <td>18.100000</td>
+      <td>18.1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Volvo</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks\pandas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="series.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">pd.Series</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="datetime.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Дата и время</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Fadeev Egor<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

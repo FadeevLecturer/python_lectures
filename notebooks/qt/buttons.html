@@ -1,0 +1,1125 @@
+
+<!DOCTYPE html>
+
+<html>
+  
+<head>
+    <link rel="icon" type="image/png" href="..\..\favicon.png"/>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Кнопки &#8212; Практикум по компьютерным технологиям</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Вывод данных" href="output.html" />
+    <link rel="prev" title="Виджеты и макеты" href="widgets.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/python-logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Практикум по компьютерным технологиям</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/index.html">
+   Практикум по компьютерным технологиям на языке программирования python3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №1
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/about_py.html">
+   О питоне
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/getting_started.html">
+   Установка python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/python_as_calculator.html">
+   Python в качестве калькулятора
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/jupyter_notebooks.html">
+   Что такое Jupyter Notebooks?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/first_notebook.html">
+   Основы работы с Jupyter Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/numbers_and_lists.html">
+   Основные типы объектов в python. Числа и списки
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/if_for_range.html">
+   Операторы потока управления
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/interpretability.html">
+   Компилируемость vs Интерпретируемость
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/dynamic_typing.html">
+   Динамическая типизация
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/mutability.html">
+   Изменяемые и неизменяемый типы объектов
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/garbage_collector.html">
+   Создание и удаление объектов. Сборщик мусора
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/sequencies.html">
+   Последовательности: списки, кортежи и строки
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №3
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/libs_pypi_conda.html">
+   Сторонние библиотеки и пакетные менеджеры
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/numpy.html">
+   Знакомство с NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/vectorization.html">
+   Векторизация
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/slices.html">
+   Срезы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/vector_product.html">
+   Умножение векторов
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/logic.html">
+   Логические операции, булевые маски
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/vectorization_example.html">
+   Векторизация на примере вычисления статистик
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/homework.html">
+   Домашнее задание №2
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №4
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/dictionaries.html">
+   Словари.
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     dict
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/functions.html">
+   Функции
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/files.html">
+   Работа с файлами
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/json.html">
+   Формат json
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №5
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/matplotlib.html">
+   matplotlib и другие графические библиотеки
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/matplotlib_animation.html">
+   Анимация  в matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/scipy.html">
+   SciPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/linalg.html">
+   Линейная алгебра
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/interpolation_approx.html">
+   Интерполяция функций, аппроксимация функций
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/integration.html">
+   Определенные интегралы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/ODE.html">
+   Решение ОДУ
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/optimization.html">
+   Оптимизация
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/nonlinear_equations.html">
+   Решение нелинейных уравнений
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/cannonball.html">
+   Пример
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/homework.html">
+   Домашнее задание №3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №6
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/python_scripts.html">
+   Создание скриптов. Работа с IDE
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/scripts_vs_modules.html">
+   Скрипты и модули
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/argparse.html">
+   Аргументы командной строки
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №7
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/pandas.html">
+   pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/series.html">
+   pd.Series
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/dataframe.html">
+   pd.DataFrame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/datetime.html">
+   Дата и время
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/covid19.html">
+   Обзор базовых возможностей pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/homework.html">
+   Домашнее задание №4
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №8
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/list_comprehensions.html">
+   Основы списковых включений
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/iterators.html">
+   Итераторы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/decorators.html">
+   Декораторы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/generators.html">
+   Генераторы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/exercises1.html">
+   Практические задания
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №9
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/custom_classes.html">
+   Пользовательские классы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/inheritance.html">
+   Наследование
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/polymorphism.html">
+   Полиморфизм в python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/operators_overloading.html">
+   Перегрузка специальных методов и операторов
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/exercises2.html">
+   Практические задания
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №10
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/exceptions.html">
+   Исключения
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/custom_exceptions.html">
+   Пользовательские исключения
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/LBYL_vs_EAFP.html">
+   Стратегии контроля ошибок
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/exercises3.html">
+   Практические задания
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №11
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="gui.html">
+   Графический пользовательский интерфейс
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="basics.html">
+   PySide. Основы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="event.html">
+   События
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="slot_signal.html">
+   Слоты и сигналы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="widgets.html">
+   Виджеты и макеты
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Кнопки
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="output.html">
+   Вывод данных
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="input.html">
+   Ввод данных
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dialogs.html">
+   Диалоговые окна
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exercises4.html">
+   Практические задания
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекции №12 и далее
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/about_12_and_so_on.html">
+   О последних лекциях
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../computer_vision/basics.html">
+   Работа с изображениями
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../computer_vision/filters.html">
+   Свёрточные операции
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../computer_vision/detection.html">
+   Задача обнаружения
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine_learning/regression.html">
+   Регрессия
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine_learning/classification.html">
+   Классификация
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine_learning/neural_networks.html">
+   Нейронный сети
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/notebooks/qt/buttons.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/FadeevLecturer/python_lectures"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/FadeevLecturer/python_lectures/issues/new?title=Issue%20on%20page%20%2Fnotebooks/qt/buttons.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/FadeevLecturer/python_lectures/edit/main/notebooks/qt/buttons.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#checkable">
+   Свойство
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Checkable
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Сигналы кнопок
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#qpushbutton">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     QPushButton
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#qcheckbox">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     QCheckBox
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#qradiobutton">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     QRadioButton
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Кнопки</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#checkable">
+   Свойство
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Checkable
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Сигналы кнопок
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#qpushbutton">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     QPushButton
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#qcheckbox">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     QCheckBox
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#qradiobutton">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     QRadioButton
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1>Кнопки<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Все кнопки наследуют от абстрактного базового класса <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QAbstractButton.html">QAbstractButton</a>. Встроенные классы кнопок:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QToolButton.html">QToolButton</a>;</p></li>
+<li><p><a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QRadioButton.html">QRadioButton</a>;</p></li>
+<li><p><a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QPushButton.html">QPushButton</a>;</p></li>
+<li><p><a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QCommandLinkButton.html">QCommandLinkButton</a>;</p></li>
+<li><p><a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QCheckBox.html">QCheckBox</a>;</p></li>
+</ul>
+<div class="section" id="checkable">
+<h2>Свойство <code class="docutils literal notranslate"><span class="pre">Checkable</span></code><a class="headerlink" href="#checkable" title="Permalink to this headline">¶</a></h2>
+<p>Кнопки могут быть переключаемыми (<code class="docutils literal notranslate"><span class="pre">checkable</span></code>) и нет. Поменять это можно методом <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QAbstractButton.html#PySide6.QtWidgets.PySide6.QtWidgets.QAbstractButton.setCheckable">setCheckable</a>. Если кнопка переключаемая, то она может находиться в двух состояниях: включенном (<code class="docutils literal notranslate"><span class="pre">checked</span></code>) и выключенном, при этом каждое последующее нажатие меняет статус кнопки. Статус кнопки всегда можно узнать методом <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QAbstractButton.html#PySide6.QtWidgets.PySide6.QtWidgets.QAbstractButton.isChecked">isChecked</a>.</p>
+<p>Проще всего объяснить разницу между переключаемыми и не переключаемыми кнопками на конкретных примерах <code class="docutils literal notranslate"><span class="pre">QPushButton</span></code> и <code class="docutils literal notranslate"><span class="pre">QCheckBox</span></code> (<a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%A4%D0%BB%D0%B0%D0%B6%D0%BE%D0%BA_(%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81)">флажок</a>).</p>
+<div class="figure align-default">
+<img alt="../../_images/checkable_1.png" src="../../_images/checkable_1.png" />
+</div>
+<p>Кнопка <code class="docutils literal notranslate"><span class="pre">QPushButton</span></code> по умолчания не является <code class="docutils literal notranslate"><span class="pre">checkable</span></code>, после нажатия на неё, кнопка возвращается в исходное состояние. Кнопка <code class="docutils literal notranslate"><span class="pre">QCheckbox</span></code> по умолчанию <code class="docutils literal notranslate"><span class="pre">checkable</span></code>. Первое нажатие на кнопку приведёт к появлению галочки внутри неё. Повторное нажатие приведет к исчезновению это галочки. Ниже приводится код, воссоздающий окно из примера выше.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">from</span> <span class="nn">PySide6.QtWidgets</span> <span class="kn">import</span> <span class="o">*</span>
+
+
+<span class="k">class</span> <span class="nc">MainWindow</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="n">widget</span> <span class="o">=</span> <span class="n">QWidget</span><span class="p">()</span>
+        <span class="n">layout</span> <span class="o">=</span> <span class="n">QHBoxLayout</span><span class="p">()</span>
+        <span class="n">widget</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="n">layout</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span>
+
+        <span class="c1"># buttons</span>
+        <span class="n">check_box</span> <span class="o">=</span> <span class="n">QCheckBox</span><span class="p">(</span><span class="s2">&quot;Check box&quot;</span><span class="p">)</span>
+        <span class="n">push_button</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s2">&quot;Push button&quot;</span><span class="p">)</span>
+        <span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">check_box</span><span class="p">)</span>
+        <span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">push_button</span><span class="p">)</span>
+
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+<span class="n">main_window</span> <span class="o">=</span> <span class="n">MainWindow</span><span class="p">()</span>
+<span class="n">main_window</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">app</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Тем не менее <code class="docutils literal notranslate"><span class="pre">QPushButton</span></code> тоже можно сделать <code class="docutils literal notranslate"><span class="pre">checkable</span></code>.</p>
+</div>
+<div class="section" id="id2">
+<h2>Сигналы кнопок<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">clicked</span></code> — нажатие на кнопку;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pressed</span></code> — зажатие кнопки;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">released</span></code> — отпуск кнопки;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">toggled</span></code> — изменения состояние <code class="docutils literal notranslate"><span class="pre">checkable</span></code> кнопки.</p></li>
+</ul>
+</div>
+<div class="section" id="qpushbutton">
+<h2><code class="docutils literal notranslate"><span class="pre">QPushButton</span></code><a class="headerlink" href="#qpushbutton" title="Permalink to this headline">¶</a></h2>
+<p>Кнопка <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QPushButton.html">QPushButton</a> уже встречалась и подробно здесь обсуждаться не будет.</p>
+<ul class="simple">
+<li><p>основной сигнал — <code class="docutils literal notranslate"><span class="pre">clicked</span></code>;</p></li>
+<li><p>методом <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QAbstractButton.html#PySide6.QtWidgets.PySide6.QtWidgets.QAbstractButton.setIcon">setIcon</a> можно установить иконку кнопки, методом <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QAbstractButton.html#PySide6.QtWidgets.PySide6.QtWidgets.QAbstractButton.setIconSize">setIconSize</a> можно поменять её размер.</p></li>
+<li><p>методом <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QAbstractButton.html#PySide6.QtWidgets.PySide6.QtWidgets.QAbstractButton.setCheckable">setCheckable</a> можно сделать её переключаемой;</p></li>
+<li><p>методом <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QPushButton.html#PySide6.QtWidgets.PySide6.QtWidgets.QPushButton.setFlat">setFlat</a> можно указать, показывать ли границу кнопки или нет;</p></li>
+</ul>
+<p>Код под спойлером ниже демонстрирует поведение этих методов на примере так называемой <code class="docutils literal notranslate"><span class="pre">toggle</span></code> кнопки.</p>
+<div class="figure align-default">
+<img alt="../../_images/toggle_buttons.png" src="../../_images/toggle_buttons.png" />
+</div>
+<details>
+<summary>Код.</summary>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">from</span> <span class="nn">PySide6.QtCore</span> <span class="kn">import</span> <span class="n">QSize</span>
+<span class="kn">from</span> <span class="nn">PySide6.QtGui</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">PySide6.QtWidgets</span> <span class="kn">import</span> <span class="o">*</span>
+
+
+<span class="k">class</span> <span class="nc">ToggleButton</span><span class="p">(</span><span class="n">QPushButton</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">setCheckable</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setChecked</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setFlat</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">updateIcon</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">icon_on</span> <span class="o">=</span> <span class="n">QIcon</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;icons&quot;</span><span class="p">,</span> <span class="s2">&quot;on-button.png&quot;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">icon_off</span> <span class="o">=</span> <span class="n">QIcon</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;icons&quot;</span><span class="p">,</span> <span class="s2">&quot;off-button.png&quot;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">updateIcon</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">updateIcon</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isChecked</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">setIcon</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">icon_on</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">setIcon</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">icon_off</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setIconSize</span><span class="p">(</span><span class="n">QSize</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">30</span><span class="p">))</span>
+
+
+<span class="k">class</span> <span class="nc">MainWindow</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="n">widget</span> <span class="o">=</span> <span class="n">QWidget</span><span class="p">()</span>
+        <span class="n">main_layout</span> <span class="o">=</span> <span class="n">QVBoxLayout</span><span class="p">()</span>
+        <span class="n">widget</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="n">main_layout</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span>
+
+        <span class="c1"># top row</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">button</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s2">&quot;Button&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="s2">&quot;Label&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">setAlignment</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">AlignCenter</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">edit</span> <span class="o">=</span> <span class="n">QLineEdit</span><span class="p">()</span>
+
+        <span class="c1"># bottom row</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">enable_button</span> <span class="o">=</span> <span class="n">ToggleButton</span><span class="p">(</span><span class="s2">&quot;Enable&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">show_button</span> <span class="o">=</span> <span class="n">ToggleButton</span><span class="p">(</span><span class="s2">&quot;Show&quot;</span><span class="p">)</span>
+
+        <span class="c1"># layout</span>
+        <span class="n">top_layout</span> <span class="o">=</span> <span class="n">QHBoxLayout</span><span class="p">()</span>
+        <span class="n">top_layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">button</span><span class="p">)</span>
+        <span class="n">top_layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="p">)</span>
+        <span class="n">top_layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">edit</span><span class="p">)</span>
+        <span class="n">main_layout</span><span class="o">.</span><span class="n">addLayout</span><span class="p">(</span><span class="n">top_layout</span><span class="p">)</span>
+
+        <span class="n">bottom_layout</span> <span class="o">=</span> <span class="n">QHBoxLayout</span><span class="p">()</span>
+        <span class="n">bottom_layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">enable_button</span><span class="p">)</span>
+        <span class="n">bottom_layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">show_button</span><span class="p">)</span>
+        <span class="n">main_layout</span><span class="o">.</span><span class="n">addLayout</span><span class="p">(</span><span class="n">bottom_layout</span><span class="p">)</span>
+
+        <span class="c1"># connections</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">enable_button</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">on_button_enable_click</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">show_button</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">on_button_show_click</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">on_button_show_click</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">widget</span> <span class="ow">in</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">button</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">edit</span><span class="p">]:</span>
+            <span class="n">widget</span><span class="o">.</span><span class="n">setVisible</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">show_button</span><span class="o">.</span><span class="n">isChecked</span><span class="p">())</span>
+
+    <span class="k">def</span> <span class="nf">on_button_enable_click</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">widget</span> <span class="ow">in</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">button</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">edit</span><span class="p">]:</span>
+            <span class="n">widget</span><span class="o">.</span><span class="n">setEnabled</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">enable_button</span><span class="o">.</span><span class="n">isChecked</span><span class="p">())</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+<span class="n">main_window</span> <span class="o">=</span> <span class="n">MainWindow</span><span class="p">()</span>
+<span class="n">main_window</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">app</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
+</pre></div>
+</div>
+</details>
+</div>
+<div class="section" id="qcheckbox">
+<h2><code class="docutils literal notranslate"><span class="pre">QCheckBox</span></code><a class="headerlink" href="#qcheckbox" title="Permalink to this headline">¶</a></h2>
+<p>Флажки <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QCheckBox.html">QCheckBox</a> обычно представляют опции программы, которые могут быть включены и выключены без влияния на другие опции. Все <code class="docutils literal notranslate"><span class="pre">QCheckBox</span></code> изначально являются переключаемыми (<code class="docutils literal notranslate"><span class="pre">checkable</span></code>), а значит хранят состояние (поставлен флажок или нет), которое всегда можно узнать методом <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QAbstractButton.html#PySide6.QtWidgets.PySide6.QtWidgets.QAbstractButton.isChecked">isChecked</a>.</p>
+<p>По умолчанию <code class="docutils literal notranslate"><span class="pre">QCheckBox</span></code> может находиться в двух состояния: флажок поставлен (<code class="docutils literal notranslate"><span class="pre">checked</span></code>) и флажок не поставлен (<code class="docutils literal notranslate"><span class="pre">unchecked</span></code>). Методом <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QCheckBox.html#PySide6.QtWidgets.PySide6.QtWidgets.QCheckBox.setTristate">setTristate</a> можно сделать <code class="docutils literal notranslate"><span class="pre">QCheckBox</span></code> с третьим возможным состоянием “флажок поставлен частично” (<code class="docutils literal notranslate"><span class="pre">partially</span> <span class="pre">checked</span></code>). В таком случае состояние флажка запрашивать надо методом <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QCheckBox.html#PySide6.QtWidgets.PySide6.QtWidgets.QCheckBox.checkState">checkState</a>, который возвращает <code class="docutils literal notranslate"><span class="pre">enum</span></code> <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtCore/Qt.html#PySide6.QtCore.PySide6.QtCore.Qt.CheckState">Qt.CheckState</a> с тремя возможными значениями: <code class="docutils literal notranslate"><span class="pre">Qt.Unchecked</span></code>, <code class="docutils literal notranslate"><span class="pre">Qt.PartiallyChecked</span></code> и <code class="docutils literal notranslate"><span class="pre">Qt.Checked</span></code>.</p>
+<p>Как и у всех кнопок у <code class="docutils literal notranslate"><span class="pre">QCheckBox</span></code> есть сигнал <code class="docutils literal notranslate"><span class="pre">clicked</span></code>, но лучше использовать специальный сигнал <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QCheckBox.html#PySide6.QtWidgets.PySide6.QtWidgets.QCheckBox.stateChanged">stateChanged</a>, который излучается каждый раз, когда меняется состояние (ставится флажок, или наоборот).</p>
+<div class="figure align-default">
+<img alt="../../_images/checkboxes.png" src="../../_images/checkboxes.png" />
+</div>
+<p>Код под спойлером ниже демонстрирует все перечисленные особенности <code class="docutils literal notranslate"><span class="pre">QCheckBox</span></code>.</p>
+<details>
+<summary>Код.</summary>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">from</span> <span class="nn">PySide6.QtGui</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">PySide6.QtWidgets</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">bistate_to_text</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="kc">False</span><span class="p">:</span> <span class="s2">&quot;Unchecked&quot;</span><span class="p">,</span>
+    <span class="kc">True</span><span class="p">:</span> <span class="s2">&quot;Checked&quot;</span>
+<span class="p">}</span>
+
+<span class="n">tristate_to_text</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">Qt</span><span class="o">.</span><span class="n">CheckState</span><span class="o">.</span><span class="n">Unchecked</span><span class="p">:</span> <span class="s2">&quot;Unchecked&quot;</span><span class="p">,</span>
+    <span class="n">Qt</span><span class="o">.</span><span class="n">CheckState</span><span class="o">.</span><span class="n">PartiallyChecked</span><span class="p">:</span> <span class="s2">&quot;Partially Checked&quot;</span><span class="p">,</span>
+    <span class="n">Qt</span><span class="o">.</span><span class="n">CheckState</span><span class="o">.</span><span class="n">Checked</span><span class="p">:</span> <span class="s2">&quot;Checked&quot;</span>
+<span class="p">}</span>
+
+
+<span class="k">class</span> <span class="nc">MainWindow</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="n">widget</span> <span class="o">=</span> <span class="n">QWidget</span><span class="p">()</span>
+        <span class="n">main_layout</span> <span class="o">=</span> <span class="n">QVBoxLayout</span><span class="p">()</span>
+        <span class="n">widget</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="n">main_layout</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span>
+
+        <span class="c1"># widgets</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">common_checkbox</span> <span class="o">=</span> <span class="n">QCheckBox</span><span class="p">(</span><span class="s2">&quot;Common checkbox&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tristate_checkbox</span> <span class="o">=</span> <span class="n">QCheckBox</span><span class="p">(</span><span class="s2">&quot;Tristate checkbox&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tristate_checkbox</span><span class="o">.</span><span class="n">setTristate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="s2">&quot;Unchecked and Unchecked&quot;</span><span class="p">)</span>
+
+        <span class="c1"># layout</span>
+        <span class="n">main_layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">common_checkbox</span><span class="p">)</span>
+        <span class="n">main_layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tristate_checkbox</span><span class="p">)</span>
+        <span class="n">main_layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="p">)</span>
+
+        <span class="c1"># connections</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">common_checkbox</span><span class="o">.</span><span class="n">stateChanged</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">update_label</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tristate_checkbox</span><span class="o">.</span><span class="n">stateChanged</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">update_label</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">update_label</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">s1</span> <span class="o">=</span> <span class="n">bistate_to_text</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">common_checkbox</span><span class="o">.</span><span class="n">isChecked</span><span class="p">()]</span>
+        <span class="n">s2</span> <span class="o">=</span> <span class="n">tristate_to_text</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">tristate_checkbox</span><span class="o">.</span><span class="n">checkState</span><span class="p">()]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">s1</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">s2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+<span class="n">main_window</span> <span class="o">=</span> <span class="n">MainWindow</span><span class="p">()</span>
+<span class="n">main_window</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">app</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
+</pre></div>
+</div>
+</details>
+</div>
+<div class="section" id="qradiobutton">
+<h2><code class="docutils literal notranslate"><span class="pre">QRadioButton</span></code><a class="headerlink" href="#qradiobutton" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QRadioButton.html">QRadioButton</a> предназначен для создания <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%A0%D0%B0%D0%B4%D0%B8%D0%BE%D0%BA%D0%BD%D0%BE%D0%BF%D0%BA%D0%B0">радиокнопок</a>, т.е. переключаемых кнопок, которые могут быть во включенном и выключенном состоянии. Обычно радиокнопки используются для предоставления доступа “один из”, т.е. в группе радиокнопок только одна кнопка может быть активной в любой момент времени, нажатие на другую кнопку включает её, но выключает остальные.</p>
+<p>При изменении состояния радиокнопка излучает сигнал <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QAbstractButton.html#PySide6.QtWidgets.PySide6.QtWidgets.QAbstractButton.toggled">toggled</a>. Узнать её состояние можно методом <code class="docutils literal notranslate"><span class="pre">isChecked</span></code>.</p>
+<p>Один экземпляр <code class="docutils literal notranslate"><span class="pre">QRadioButton</span></code> соответствует одной кнопке, т.е. одной альтернативе. По умолчанию все радиокнопки с общим родительским виджетом (<code class="docutils literal notranslate"><span class="pre">parent</span></code>) являются взаимоисключающими, но удобнее использовать виджет <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QButtonGroup.html">QButtonGroup</a> для этих целей. Этот виджет не предназначен для отрисовки каждой радиокнопки, а лишь следит за логическими связями между ними и за их состояниями. <code class="docutils literal notranslate"><span class="pre">QButtonGroup</span></code> создаётся пустым, методом <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QButtonGroup.html#PySide6.QtWidgets.PySide6.QtWidgets.QButtonGroup.addButton">addButton</a> в него можно добавлять кнопки. <code class="docutils literal notranslate"><span class="pre">QButtonGroup</span></code> сигнал <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QButtonGroup.html#PySide6.QtWidgets.PySide6.QtWidgets.QButtonGroup.buttonClicked">buttonClicked</a>, если на одну из кнопок группы было произведено нажатие.</p>
+<p>Чтобы отображать кнопки одной группы удобно использовать виджет-контейнер <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QGroupBox.html">QGroupBox</a>, который отображает группу любых виджетов (необязательно радиокнопки) в рамке с общим заголовком. Виджеты в нем располагаются так же, как и в <code class="docutils literal notranslate"><span class="pre">QWidget</span></code>, т.е. внутри макетов.</p>
+<div class="figure align-default">
+<img alt="../../_images/radiobuttons.png" src="../../_images/radiobuttons.png" />
+</div>
+<p>Код под спойлером ниже создаёт группу взаимоисключающих радиокнопок, определяющих заголовок и иконку главного окна. Кнопки помещаются в <code class="docutils literal notranslate"><span class="pre">QButtonGroup</span></code> для достижения эффекта взаимоисключаемости и упрощения обработки сигналов кнопок. Для отрисовки используется <code class="docutils literal notranslate"><span class="pre">QGroupBox</span></code>.</p>
+<details>
+<summary>Код.</summary>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">from</span> <span class="nn">PySide6.QtGui</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">PySide6.QtWidgets</span> <span class="kn">import</span> <span class="o">*</span>
+
+
+<span class="k">class</span> <span class="nc">ChooseIcon</span><span class="p">(</span><span class="n">QGroupBox</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s2">&quot;Window icon and title&quot;</span><span class="p">)</span>
+
+        <span class="c1"># icons</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">python_icon</span> <span class="o">=</span> <span class="n">QIcon</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;icons&quot;</span><span class="p">,</span> <span class="s2">&quot;python.png&quot;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">qt_icon</span> <span class="o">=</span> <span class="n">QIcon</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;icons&quot;</span><span class="p">,</span> <span class="s2">&quot;qt.png&quot;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">phys_icon</span> <span class="o">=</span> <span class="n">QIcon</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;icons&quot;</span><span class="p">,</span> <span class="s2">&quot;phys.png&quot;</span><span class="p">))</span>
+
+        <span class="c1"># buttons</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">python_button</span> <span class="o">=</span> <span class="n">QRadioButton</span><span class="p">(</span><span class="s2">&quot;Python&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">python_button</span><span class="o">.</span><span class="n">setIcon</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">python_icon</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">qt_button</span> <span class="o">=</span> <span class="n">QRadioButton</span><span class="p">(</span><span class="s2">&quot;Qt&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">qt_button</span><span class="o">.</span><span class="n">setIcon</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">qt_icon</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">phys_button</span> <span class="o">=</span> <span class="n">QRadioButton</span><span class="p">(</span><span class="s2">&quot;Faculty of physics&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">phys_button</span><span class="o">.</span><span class="n">setIcon</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">phys_icon</span><span class="p">)</span>
+
+        <span class="c1"># ButtonGroup</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">button_group</span> <span class="o">=</span> <span class="n">QButtonGroup</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">button_group</span><span class="o">.</span><span class="n">addButton</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">python_button</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">button_group</span><span class="o">.</span><span class="n">addButton</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">qt_button</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">button_group</span><span class="o">.</span><span class="n">addButton</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">phys_button</span><span class="p">)</span>
+
+        <span class="c1"># layout</span>
+        <span class="n">layout</span> <span class="o">=</span> <span class="n">QVBoxLayout</span><span class="p">()</span>
+        <span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">python_button</span><span class="p">)</span>
+        <span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">qt_button</span><span class="p">)</span>
+        <span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">phys_button</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="n">layout</span><span class="p">)</span>
+
+        <span class="c1"># activating one button</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">python_button</span><span class="o">.</span><span class="n">setChecked</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">MainWindow</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">130</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">choose_icon</span> <span class="o">=</span> <span class="n">ChooseIcon</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">choose_icon</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_bar</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">choose_icon</span><span class="o">.</span><span class="n">button_group</span><span class="o">.</span><span class="n">buttonClicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">update_bar</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">update_bar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">active_button</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">choose_icon</span><span class="o">.</span><span class="n">button_group</span><span class="o">.</span><span class="n">checkedButton</span><span class="p">()</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">active_button</span><span class="o">.</span><span class="n">text</span><span class="p">()</span>
+        <span class="n">icon</span> <span class="o">=</span> <span class="n">active_button</span><span class="o">.</span><span class="n">icon</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowIcon</span><span class="p">(</span><span class="n">icon</span><span class="p">)</span>
+
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+<span class="n">main_window</span> <span class="o">=</span> <span class="n">MainWindow</span><span class="p">()</span>
+<span class="n">main_window</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">app</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
+</pre></div>
+</div>
+</details></div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks\qt"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="widgets.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Виджеты и макеты</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="output.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Вывод данных</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Fadeev Egor<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

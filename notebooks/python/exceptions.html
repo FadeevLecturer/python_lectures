@@ -1,0 +1,1377 @@
+
+<!DOCTYPE html>
+
+<html>
+  
+<head>
+    <link rel="icon" type="image/png" href="..\..\favicon.png"/>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Исключения &#8212; Практикум по компьютерным технологиям</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Пользовательские исключения" href="custom_exceptions.html" />
+    <link rel="prev" title="Практические задания" href="exercises2.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/python-logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Практикум по компьютерным технологиям</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/index.html">
+   Практикум по компьютерным технологиям на языке программирования python3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №1
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/about_py.html">
+   О питоне
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/getting_started.html">
+   Установка python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/python_as_calculator.html">
+   Python в качестве калькулятора
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/jupyter_notebooks.html">
+   Что такое Jupyter Notebooks?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="first_notebook.html">
+   Основы работы с Jupyter Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numbers_and_lists.html">
+   Основные типы объектов в python. Числа и списки
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="if_for_range.html">
+   Операторы потока управления
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/interpretability.html">
+   Компилируемость vs Интерпретируемость
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dynamic_typing.html">
+   Динамическая типизация
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mutability.html">
+   Изменяемые и неизменяемый типы объектов
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="garbage_collector.html">
+   Создание и удаление объектов. Сборщик мусора
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sequencies.html">
+   Последовательности: списки, кортежи и строки
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №3
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/libs_pypi_conda.html">
+   Сторонние библиотеки и пакетные менеджеры
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/numpy.html">
+   Знакомство с NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/vectorization.html">
+   Векторизация
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/slices.html">
+   Срезы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/vector_product.html">
+   Умножение векторов
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/logic.html">
+   Логические операции, булевые маски
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/vectorization_example.html">
+   Векторизация на примере вычисления статистик
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/homework.html">
+   Домашнее задание №2
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №4
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="dictionaries.html">
+   Словари.
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     dict
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="functions.html">
+   Функции
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="files.html">
+   Работа с файлами
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="json.html">
+   Формат json
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №5
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/matplotlib.html">
+   matplotlib и другие графические библиотеки
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/matplotlib_animation.html">
+   Анимация  в matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/scipy.html">
+   SciPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/linalg.html">
+   Линейная алгебра
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/interpolation_approx.html">
+   Интерполяция функций, аппроксимация функций
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/integration.html">
+   Определенные интегралы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/ODE.html">
+   Решение ОДУ
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/optimization.html">
+   Оптимизация
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/nonlinear_equations.html">
+   Решение нелинейных уравнений
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/cannonball.html">
+   Пример
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/homework.html">
+   Домашнее задание №3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №6
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_scripts.html">
+   Создание скриптов. Работа с IDE
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scripts_vs_modules.html">
+   Скрипты и модули
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="argparse.html">
+   Аргументы командной строки
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №7
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/pandas.html">
+   pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/series.html">
+   pd.Series
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/dataframe.html">
+   pd.DataFrame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/datetime.html">
+   Дата и время
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/covid19.html">
+   Обзор базовых возможностей pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/homework.html">
+   Домашнее задание №4
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №8
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="list_comprehensions.html">
+   Основы списковых включений
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="iterators.html">
+   Итераторы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="decorators.html">
+   Декораторы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="generators.html">
+   Генераторы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exercises1.html">
+   Практические задания
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №9
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="custom_classes.html">
+   Пользовательские классы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="inheritance.html">
+   Наследование
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="polymorphism.html">
+   Полиморфизм в python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="operators_overloading.html">
+   Перегрузка специальных методов и операторов
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exercises2.html">
+   Практические задания
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №10
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Исключения
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="custom_exceptions.html">
+   Пользовательские исключения
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="LBYL_vs_EAFP.html">
+   Стратегии контроля ошибок
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exercises3.html">
+   Практические задания
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №11
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/gui.html">
+   Графический пользовательский интерфейс
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/basics.html">
+   PySide. Основы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/event.html">
+   События
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/slot_signal.html">
+   Слоты и сигналы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/widgets.html">
+   Виджеты и макеты
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/buttons.html">
+   Кнопки
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/output.html">
+   Вывод данных
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/input.html">
+   Ввод данных
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/dialogs.html">
+   Диалоговые окна
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/exercises4.html">
+   Практические задания
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекции №12 и далее
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="about_12_and_so_on.html">
+   О последних лекциях
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../computer_vision/basics.html">
+   Работа с изображениями
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../computer_vision/filters.html">
+   Свёрточные операции
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../computer_vision/detection.html">
+   Задача обнаружения
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine_learning/regression.html">
+   Регрессия
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine_learning/classification.html">
+   Классификация
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine_learning/neural_networks.html">
+   Нейронный сети
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/notebooks/python/exceptions.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/FadeevLecturer/python_lectures"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/FadeevLecturer/python_lectures/issues/new?title=Issue%20on%20page%20%2Fnotebooks/python/exceptions.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/FadeevLecturer/python_lectures/edit/main/notebooks/python/exceptions.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/FadeevLecturer/python_lectures/main?urlpath=tree/notebooks/python/exceptions.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/FadeevLecturer/python_lectures/blob/main/notebooks/python/exceptions.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Встроенные исключения
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#raise">
+   Возбуждение исключений.
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     raise
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   Обработка исключений.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#try-except">
+   Блок
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     try/except
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#except">
+   Дополнительные возможности
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     except
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#try-finally">
+   Блок
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     try/finally
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#try-except-finally">
+   Блок
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     try/except/finally
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Исключения</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Встроенные исключения
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#raise">
+   Возбуждение исключений.
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     raise
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   Обработка исключений.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#try-except">
+   Блок
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     try/except
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#except">
+   Дополнительные возможности
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     except
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#try-finally">
+   Блок
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     try/finally
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#try-except-finally">
+   Блок
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     try/except/finally
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="exceptions">
+<span id="id1"></span><h1>Исключения<a class="headerlink" href="#exceptions" title="Permalink to this headline">¶</a></h1>
+<p>В <code class="docutils literal notranslate"><span class="pre">Python</span></code> существует минимум два типа ошибок: синтаксические ошибки и <a class="reference external" href="https://docs.python.org/3/tutorial/errors.html">исключения</a>. Синтаксические ошибки чаще возникают у изучающих <code class="docutils literal notranslate"><span class="pre">python</span></code> программистов из-за нарушения синтаксиса. Но попытка запуска корректной с точки зрения синтаксиса программы может привести к возникновению ошибки. Ошибки, обнаруженные во время исполнения программы, называются исключениями (<code class="docutils literal notranslate"><span class="pre">exception</span></code>) и не всегда ведут к падению программы: их можно обрабатывать и восстанавливать нормальный поток исполнения программы.</p>
+<p>Тем не менее большинство ошибок программой не обрабатывается и их возникновение приводит к выводу сообщения об ошибке. В качестве примера попробуем поделить на ноль.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
+
+<span class="ne">ZeroDivisionError</span>: division by zero
+</pre></div>
+</div>
+</div>
+</div>
+<p>Как видимо, появилось сообщение об ошибке. Последняя строка этого сообщения, говорит, что конкретно произошло.</p>
+<ul class="simple">
+<li><p>Исключения бывают разных типов и конкретный тип брошенного исключения печатается до двоеточия. В данном случае это <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ZeroDivisionError">ZeroDivisionError</a>.</p></li>
+<li><p>После типа ошибки выводится дополнительная информация, которая может зависеть от типа ошибки и причины её возникновения.</p></li>
+<li><p>Всё, что идёт до последней строки, демонстрирует в каком контексте возникла ошибка в виде трассировочных данных. Более наглядное представление о трассировочной информации даёт пример, когда ошибка возникает внутри нескольких функций.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+    <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
+
+<span class="k">def</span> <span class="nf">g</span><span class="p">():</span>
+    <span class="n">f</span><span class="p">()</span>
+
+<span class="n">g</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">Input In [2],</span> in <span class="ni">&lt;cell line: 7&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">def</span> <span class="nf">g</span><span class="p">():</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">f</span><span class="p">()</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">g</span><span class="p">()</span>
+
+<span class="nn">Input In [2],</span> in <span class="ni">g</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">def</span> <span class="nf">g</span><span class="p">():</span>
+<span class="ne">----&gt; </span><span class="mi">5</span>     <span class="n">f</span><span class="p">()</span>
+
+<span class="nn">Input In [2],</span> in <span class="ni">f</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
+
+<span class="ne">ZeroDivisionError</span>: division by zero
+</pre></div>
+</div>
+</div>
+</div>
+<p>В этот раз сообщение об ошибке гораздо длиннее, потому что ошибка возникла не на самом верхнем уровне, а на уровне функции.</p>
+<div class="section" id="id2">
+<h2>Встроенные исключения<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>В <code class="docutils literal notranslate"><span class="pre">python</span></code> есть приличное количество встроенных исключений, которые интерпретатор бросает при обнаружении ошибки во время исполнения. Например, если попытаться обратиться к необъявленной переменной (несуществующему имени), то возникнет ошибка <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#NameError">NameError</a>. Обращение к неправильному атрибуту вызовет ошибку <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#AttributeError">AttributeError</a>, обращение за пределы списка — <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#IndexError">IndexError</a>, поиск в словаре по несуществующему ключу — <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#KeyError">KeyError</a> и т.д.</p>
+<p>В ряде ситуаций <code class="docutils literal notranslate"><span class="pre">python</span></code> возбуждает исключение не в результате ошибки, а в служебных целях. Например, как обсуждалось ранее, функции работающие с итерируемыми объектами ожидают исключение <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#StopIteration">StopIteration</a>, т.е. появление такого исключения — не является исключительной ситуацией, связанной с логической ошибкой в коде, а лишь механизм, которым итерируемый объект сообщает клиентскому коду, что элементы в нем исчерпались.</p>
+<p>В <code class="docutils literal notranslate"><span class="pre">python</span></code> всё является объектом, в том числе и исключения. При этом у каждого исключения есть свой тип, примеры которых уже обсуждалось выше: <code class="docutils literal notranslate"><span class="pre">NameError</span></code>, <code class="docutils literal notranslate"><span class="pre">AttributeError</span></code>, <code class="docutils literal notranslate"><span class="pre">StopIteration</span></code> и т.д. — это всё тип исключения. Обнаружение ошибки приводит к тому, что создаётся экземпляр исключения соответствующего типа и это исключение начинает распространяться. При этом все встроенные типы исключений находятся в иерархии, с которой можно ознакомиться по <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#exception-hierarchy">ссылке</a>.</p>
+<p>Так, на самом верху располагается базовый класс <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#BaseException">BaseException</a> от которого наследуется все остальные типы исключений. На втором этаже располагаются исключения связанные с завершением исполнения программы (например, <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#BaseException">SystemExit</a> возникает при вызове функции <a class="reference external" href="https://docs.python.org/3/library/sys.html#sys.exit">sys.exit()</a>, <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#KeyboardInterrupt">KeyboardInterrupt</a> возникает, если пользователь нажимает прерывающую комбинацию клавиш во время работы приложения), а так же класс <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception">Exception</a>, который и является базовым классом для всех исключений не связанных с завершением программы.</p>
+<p>С полным списком встроенных исключений можно ознакомиться на <a class="reference external" href="https://docs.python.org/3/library/exceptions.html">странице официальной документации</a>.</p>
+</div>
+<div class="section" id="raise">
+<h2>Возбуждение исключений. <code class="docutils literal notranslate"><span class="pre">raise</span></code><a class="headerlink" href="#raise" title="Permalink to this headline">¶</a></h2>
+<p>Многие исключения бросаются интерпретатором <code class="docutils literal notranslate"><span class="pre">python</span></code> при обнаружении ошибки или в служебных целях. Для этого используется ключевое слово <code class="docutils literal notranslate"><span class="pre">raise</span></code> справа от которого указывается экземпляр исключения.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Моё первое исключение!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">Exception</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [3],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Моё первое исключение!&quot;</span><span class="p">)</span>
+
+<span class="ne">Exception</span>: Моё первое исключение!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Когда исключение возбужденно, оно начинает распространяться, т.е. нормальное исполнение программы прекращается. Так, например, покинуть функцию можно не только используя ключевое слово <code class="docutils literal notranslate"><span class="pre">return</span></code>, но и ключевым словом <code class="docutils literal notranslate"><span class="pre">raise</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;До исключения!&quot;</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Исключение!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;После исключения!&quot;</span><span class="p">)</span>
+
+<span class="n">f</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>До исключения!
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">Exception</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [4],</span> in <span class="ni">&lt;cell line: 6&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Исключение!&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;После исключения!&quot;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">f</span><span class="p">()</span>
+
+<span class="nn">Input In [4],</span> in <span class="ni">f</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;До исключения!&quot;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">3</span>     <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Исключение!&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;После исключения!&quot;</span><span class="p">)</span>
+
+<span class="ne">Exception</span>: Исключение!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Видим, что инструкция <code class="docutils literal notranslate"><span class="pre">print(&quot;До</span> <span class="pre">исключения!&quot;)</span></code> исполнилась, а инструкция <code class="docutils literal notranslate"><span class="pre">print(&quot;После</span> <span class="pre">исключения&quot;)</span></code> — нет, т.к. сразу после возбуждения исключения нормальный поток исполнения программы прекратился и исключение начало распространяться. Исключение распространяется наверх по стеку вызовов, пока не встретится блок, обрабатывающий это исключение. Если такой блок так и не встречается, то выводится сообщение об ошибке и программа падает (или может продолжить ожидание инструкций от пользователя в интерактивном режиме, что происходит, например, в <code class="docutils literal notranslate"><span class="pre">jupyter</span></code> ноутбуках).</p>
+</div>
+<div class="section" id="id3">
+<h2>Обработка исключений.<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Обработка ошибок в <code class="docutils literal notranslate"><span class="pre">python</span></code> осуществляется с помощью инструкции <code class="docutils literal notranslate"><span class="pre">try</span></code>, которая может встречаться в блоках двух видов:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">try/except</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">try/finally</span></code>;</p></li>
+</ul>
+</div>
+<div class="section" id="try-except">
+<h2>Блок <code class="docutils literal notranslate"><span class="pre">try/except</span></code><a class="headerlink" href="#try-except" title="Permalink to this headline">¶</a></h2>
+<p>С помощью блока <code class="docutils literal notranslate"><span class="pre">try/except</span></code> можно обрабатывать конкретные типы исключений. В самой простой своей форме он выглядит примерно следующим образом.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">инструкции</span>
+<span class="k">except</span> <span class="n">ТипИсключения</span><span class="p">:</span>
+    <span class="n">инструкции</span>
+</pre></div>
+</div>
+<p>После ключевого слова <code class="docutils literal notranslate"><span class="pre">try</span></code> помещаются инструкции, исполнение которых может привести к возникновению исключения. Инструкции в блоке <code class="docutils literal notranslate"><span class="pre">except</span></code> выполняются только, если а) вовремя выполнения инструкций в блоке <code class="docutils literal notranslate"><span class="pre">try</span></code> возникла ошибка и б) её тип совпал с указанным типом.</p>
+<p>В качестве примера опять поделим на ноль, но в этот раз поместим это деление в блок <code class="docutils literal notranslate"><span class="pre">try/except</span></code> и обработаем исключение типа <code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;После попытки деления.&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Перехвачена ошибка деления на ноль!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Перехвачена ошибка деления на ноль!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Видим, что</p>
+<ol class="simple">
+<li><p>сообщения об ошибке с типом ошибки и трассировочной информацией не появилось, т.к. ошибка была обработана;</p></li>
+<li><p>вместо этого выполнилась инструкция <code class="docutils literal notranslate"><span class="pre">print</span></code> в блоке <code class="docutils literal notranslate"><span class="pre">except</span> <span class="pre">ZeroDivisionError</span></code>;</p></li>
+<li><p>инструкция <code class="docutils literal notranslate"><span class="pre">print</span></code> в блоке <code class="docutils literal notranslate"><span class="pre">try</span></code> после деления на ноль не выполнилась, т.к. ошибка возникла раньше и начала распространяться.</p></li>
+</ol>
+<p>Когда исключение возникает, оно начинает распространяться вверх по стеку вызовов функций, а нормальное исполнение программы прекращается. Как только встречается первый блок <code class="docutils literal notranslate"><span class="pre">except</span></code> совпадающего типа, распространение исключения прекращается и выполняется код в этом блоке.</p>
+<p>Приведем несколько примеров, чтобы продемонстрировать этот механизм.</p>
+<p>Следующий пример демонстрирует, что исключение продолжает распространяться, пока не встретит правильный блок <code class="docutils literal notranslate"><span class="pre">except</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
+    <span class="k">except</span> <span class="ne">NameError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ошибка перехвачена внутренним блоком try/except.&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ошибка перехвачена внешним блоком try/except.&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Инструкция после обработки исключения.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ошибка перехвачена внешним блоком try/except.
+Инструкция после обработки исключения.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Здесь исключение <code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code> возникло во внутреннем блоке <code class="docutils literal notranslate"><span class="pre">try/except</span></code>, но тип возникшего исключения не совпал с <code class="docutils literal notranslate"><span class="pre">NameError</span></code>. В итоге внутренний блок <code class="docutils literal notranslate"><span class="pre">try/except</span></code> ошибку не обработало и она продолжила распространяться, в результате чего попала во внешний блок <code class="docutils literal notranslate"><span class="pre">try/except</span></code>, который обрабатывает ошибки типа <code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code>, что привело прекращению распространения ошибки и к исполнению инструкции <code class="docutils literal notranslate"><span class="pre">print</span></code> во внешнем блоке. Далее программа продолжает исполняться в нормальном режиме.</p>
+<p>Следующий пример демонстрирует, что исключение прекращает распространяться, как только встретит правильный блок <code class="docutils literal notranslate"><span class="pre">except</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
+    <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ошибка перехвачена внутренним блоком except.&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ошибка перехвачена внешним блоком except.&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Инструкция после обработки исключения.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ошибка перехвачена внутренним блоком except.
+Инструкция после обработки исключения.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Здесь внутренний блок <code class="docutils literal notranslate"><span class="pre">try/except</span></code> обрабатывает правильный тип исключения. Возникшее исключение прекращает распространяться в этом внутреннем блоке <code class="docutils literal notranslate"><span class="pre">try/except</span></code> и выполняется инструкция <code class="docutils literal notranslate"><span class="pre">print</span></code> во внутреннем блоке <code class="docutils literal notranslate"><span class="pre">except</span></code>. Т.к. исполнение инструкций после внешнего ключевого слова <code class="docutils literal notranslate"><span class="pre">try</span></code> проходит без ошибок (ошибка возникает, но внешний блок её не замечает, т.к. она обрабатывается внутренним блоком <code class="docutils literal notranslate"><span class="pre">try/except</span></code>), то внешний блок <code class="docutils literal notranslate"><span class="pre">except</span></code> игнорируется.</p>
+<p>Блоков <code class="docutils literal notranslate"><span class="pre">except</span></code> может быть несколько в одном блоке <code class="docutils literal notranslate"><span class="pre">try/except</span></code>, что позволяет по-разному реагировать на ошибки разных типов.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
+<span class="k">except</span> <span class="ne">NameError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Перехвачена ошибка NameError&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Перехвачена ошибка ZeroDivisionError&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Перехвачена ошибка ZeroDivisionError
+</pre></div>
+</div>
+</div>
+</div>
+<p>Интерпретатор читает блоки <code class="docutils literal notranslate"><span class="pre">except</span></code> сверху вниз и останавливается на первом, который обрабатывает исключение правильного типа. Т.к. типы исключений располагаются в иерархии между собой, то необходимо придерживаться следующего правила.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Сначала всегда обрабатывайте самые специфичные исключения, а уже потом более общие.</p>
+</div>
+<p>Если не придерживаться этого правила, то специфичные блоки <code class="docutils literal notranslate"><span class="pre">except</span></code> будут недостижимы. Продемонстрируем это на примере, воспользовавшись тем, что <code class="docutils literal notranslate"><span class="pre">Exception</span></code> является базовым классом почти для всех остальных встроенных исключений, а значит исключения этого типа являются чуть ли не самыми общими.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
+<span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Перехвачено неожиданное исключение!&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Перехвачено исключение ZeroDivisionError!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Перехвачено неожиданное исключение!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Здесь в блоке <code class="docutils literal notranslate"><span class="pre">try</span></code> возникает исключение <code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code> и начинает распространяться. В блоке <code class="docutils literal notranslate"><span class="pre">except</span> <span class="pre">Exception</span></code> проверка на тип успешно проходит (иерархия между ними выглядит так: <code class="docutils literal notranslate"><span class="pre">Exception</span></code> <span class="math notranslate nohighlight">\(\to\)</span> <code class="docutils literal notranslate"><span class="pre">ArithmeticError</span></code> <span class="math notranslate nohighlight">\(\to\)</span> <code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code>), а значит вызывается инструкции в соответствующем блоке, а до блока <code class="docutils literal notranslate"><span class="pre">except</span> <span class="pre">ZeroDivisionError</span></code> дело так и не доходит: ошибка обработана ранее.</p>
+<p>Правильнее в данном случае было бы поменять эти блоки местами.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
+<span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Перехвачено исключение ZeroDivisionError!&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Перехвачено неожиданное исключение!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Перехвачено исключение ZeroDivisionError!
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="except">
+<h2>Дополнительные возможности <code class="docutils literal notranslate"><span class="pre">except</span></code><a class="headerlink" href="#except" title="Permalink to this headline">¶</a></h2>
+<p>После <code class="docutils literal notranslate"><span class="pre">except</span></code> можно указать целевую переменную, чтобы получить доступ к объекту исключения синтаксисом</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">except</span> <span class="n">ТипИсключения</span> <span class="k">as</span> <span class="n">цель</span><span class="p">:</span>
+    <span class="n">операции</span> <span class="n">над</span> <span class="n">цель</span>
+</pre></div>
+</div>
+<p>Из некоторых объектов исключений можно получить дополнительную информацию об контексте, при которым они возбудились. У всех стандартных исключений преобразование к строке определенно таким образом, чтобы выводить сообщение, указанное при создании.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Сообщение исключения!&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Сообщение исключения!
+</pre></div>
+</div>
+</div>
+</div>
+<p>После ключевого слова <code class="docutils literal notranslate"><span class="pre">except</span></code> необязательно должен быть указан только один тип исключения: можно указать кортеж.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
+<span class="k">except</span> <span class="p">(</span><span class="ne">ZeroDivisionError</span><span class="p">,</span> <span class="ne">NameError</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Возникло исключение ZeroDivisionError или NameError!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Возникло исключение ZeroDivisionError или NameError!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Так же, в самом конце блока <code class="docutils literal notranslate"><span class="pre">try/except</span></code> можно добавить блок <code class="docutils literal notranslate"><span class="pre">else</span></code>, инструкции в котором исполняться, только если блок <code class="docutils literal notranslate"><span class="pre">try</span></code> завершится без ошибок. Чтобы продемонстрировать это, определим функцию <code class="docutils literal notranslate"><span class="pre">divide</span></code>, которая будет пытаться делить первый аргумент на второй и возвращать результат деления, если деление произошло успешно, и возвращать бесконечность, если второй параметр равен нулю.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">divide</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
+    <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Попытка деления на ноль.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;inf&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Деление произошло успешно.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Блок <code class="docutils literal notranslate"><span class="pre">else</span></code> в этой функции исполнится, только если в блоке <code class="docutils literal notranslate"><span class="pre">try</span></code> деление произойдет успешно, т.е. если не возникнет ошибки деления на ноль.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">divide</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="mi">14</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">divide</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Деление произошло успешно.
+3.0
+Попытка деления на ноль.
+inf
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="try-finally">
+<h2>Блок <code class="docutils literal notranslate"><span class="pre">try/finally</span></code><a class="headerlink" href="#try-finally" title="Permalink to this headline">¶</a></h2>
+<p>Синтаксис блока <code class="docutils literal notranslate"><span class="pre">try/except</span></code> выглядит следующим образом.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">инструкции</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">инструкции</span>
+</pre></div>
+</div>
+<p>Инструкции в блоке <code class="docutils literal notranslate"><span class="pre">finally</span></code> исполнятся в не зависимости от того, возникнет ли ошибка в блоке <code class="docutils literal notranslate"><span class="pre">try</span></code> или нет. Если ошибка все же возникает, то выполняется код в блоке <code class="docutils literal notranslate"><span class="pre">finally</span></code> и ошибка продолжает распространяться.</p>
+<p>Этот блок часто называют обработчик очистки: часто в нем размещают инструкции, которые выполняют чистку (например, освобождение ресурсов). Это позволяет гарантировать, что инструкции в этом блоке исполнятся в любом случае.</p>
+<p>Например, раньше часто встречались конструкции следующего вида.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">some_file</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">do_something_with_file</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Т.е. операции над открытым файлом производились в блоке <code class="docutils literal notranslate"><span class="pre">try/finally</span></code>, что гарантировало, что файл будет закрыт, даже если возникнет исключение. Сегодня гораздо удобнее использовать контекстные менеджеры <code class="docutils literal notranslate"><span class="pre">with</span></code> для таких целей.</p>
+</div>
+<div class="section" id="try-except-finally">
+<h2>Блок <code class="docutils literal notranslate"><span class="pre">try/except/finally</span></code><a class="headerlink" href="#try-except-finally" title="Permalink to this headline">¶</a></h2>
+<p>Если встречается блок обработки ошибки, в котором встречаются и <code class="docutils literal notranslate"><span class="pre">except</span></code> и <code class="docutils literal notranslate"><span class="pre">finally</span></code>, то его можно представить в виде вложения блока <code class="docutils literal notranslate"><span class="pre">try/except</span></code> внутрь блока <code class="docutils literal notranslate"><span class="pre">try/finally</span></code>. Иными словами, следующие две конструкции ведут себя одинаково.</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">инструкции</span>
+<span class="k">except</span> <span class="n">SomeException</span><span class="p">:</span>
+    <span class="n">инструкции</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">инструкции</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">инструкции</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">инструкции</span>
+    <span class="k">except</span> <span class="n">SomeException</span><span class="p">:</span>
+        <span class="n">инструкции</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">инструкции</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">инструкции</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Для демонстрации работы блока такого вида приведем пример из документации.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">divide</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="n">y</span>
+    <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Попытка деления на ноль!&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Результат деления </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Выполнение блока &#39;finally&#39;.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Функция <code class="docutils literal notranslate"><span class="pre">divide</span></code> пытается поделить <code class="docutils literal notranslate"><span class="pre">x</span></code> на <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+<p>Если деление происходит успешно (<code class="docutils literal notranslate"><span class="pre">else</span></code>), то выводится результат.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">divide</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Результат деления 2.0
+Выполнение блока &#39;finally&#39;.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Если возникает ошибка деления на ноль, то она перехватывается и выводится соответствующее сообщение.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">divide</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Попытка деления на ноль!
+Выполнение блока &#39;finally&#39;.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Если возникает ошибка другого рода, то её распространение продолжается.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">divide</span><span class="p">(</span><span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Выполнение блока &#39;finally&#39;.
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [18],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">divide</span><span class="p">(</span><span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">)</span>
+
+<span class="nn">Input In [15],</span> in <span class="ni">divide</span><span class="nt">(x, y)</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">divide</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">----&gt; </span><span class="mi">3</span>         <span class="n">result</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="n">y</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Попытка деления на ноль!&quot;</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: unsupported operand type(s) for /: &#39;str&#39; and &#39;str&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Блок <code class="docutils literal notranslate"><span class="pre">finally</span></code> выполняется в любом случае.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks\python"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="exercises2.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Практические задания</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="custom_exceptions.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Пользовательские исключения</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Fadeev Egor<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
