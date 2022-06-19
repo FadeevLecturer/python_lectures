@@ -26,9 +26,9 @@ notebook_interface            : "notebook"
 
 only_build_toc_files: true
 
-Launch button settings
-repository:
- url                         : https://github.com/FadeevLecturer/python_lectures
+# Launch button settings
+# repository:
+#  url                         : https://github.com/FadeevLecturer/python_lectures
 #  path_to_book                : "python_lectures"
 
 # binder:
