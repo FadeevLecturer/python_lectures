@@ -1,0 +1,106 @@
+format: jb-book
+root: docs/index
+parts:
+  - caption: "Лекция №1"
+    chapters:
+      - file: docs/about_py
+      - file: docs/getting_started
+      - file: docs/python_as_calculator
+      - file: docs/jupyter_notebooks
+      - file: notebooks/python/first_notebook
+      - file: notebooks/python/numbers_and_lists
+      - file: notebooks/python/if_for_range
+  - caption: "Лекция №2"
+    chapters:
+      - file: docs/interpretability
+      - file: notebooks/python/dynamic_typing
+      - file: notebooks/python/mutability
+      - file: notebooks/python/garbage_collector
+      - file: notebooks/python/sequencies
+  - caption: "Лекция №3"
+    chapters:
+      - file: docs/libs_pypi_conda
+      - file: notebooks/numpy/numpy
+      - file: notebooks/numpy/vectorization
+      - file: notebooks/numpy/slices
+      - file: notebooks/numpy/vector_product
+      - file: notebooks/numpy/logic
+      - file: notebooks/numpy/vectorization_example
+      - file: notebooks/numpy/homework
+  - caption: "Лекция №4"
+    chapters:
+      - file: notebooks/python/dictionaries
+      - file: notebooks/python/functions
+      - file: notebooks/python/files
+      - file: notebooks/python/json
+  - caption: "Лекция №5"
+    chapters:
+      - file: notebooks/visualization/matplotlib
+      - file: notebooks/visualization/matplotlib_animation
+      - file: notebooks/scipy/scipy
+      - file: notebooks/scipy/linalg
+      - file: notebooks/scipy/interpolation_approx
+      - file: notebooks/scipy/integration
+      - file: notebooks/scipy/ODE
+      - file: notebooks/scipy/optimization
+      - file: notebooks/scipy/nonlinear_equations
+      - file: notebooks/scipy/cannonball
+      - file: notebooks/scipy/homework
+  - caption: "Лекция №6"
+    chapters:
+      - file: notebooks/python/python_scripts
+      - file: notebooks/python/scripts_vs_modules
+      - file: notebooks/python/argparse
+  - caption: "Лекция №7"
+    chapters:    
+      - file: notebooks/pandas/pandas
+      - file: notebooks/pandas/series
+      - file: notebooks/pandas/dataframe
+      - file: notebooks/pandas/datetime
+      - file: notebooks/pandas/covid19
+      - file: notebooks/pandas/homework 
+  - caption: "Лекция №8"
+    chapters:
+      - file: notebooks/python/list_comprehensions
+      - file: notebooks/python/iterators
+      - file: notebooks/python/decorators
+      - file: notebooks/python/generators
+      - file: notebooks/python/exercises1
+  - caption: "Лекция №9"
+    chapters:
+      - file: notebooks/python/custom_classes
+      - file: notebooks/python/inheritance
+      - file: notebooks/python/polymorphism
+      - file: notebooks/python/operators_overloading
+      - file: notebooks/python/exercises2
+  - caption: "Лекция №10"
+    chapters:
+      - file: notebooks/python/exceptions
+      - file: notebooks/python/custom_exceptions
+      - file: notebooks/python/LBYL_vs_EAFP
+      - file: notebooks/python/exercises3
+  - caption: "Лекция №11"
+    chapters:
+      - file: notebooks/qt/gui
+      - file: notebooks/qt/basics
+      - file: notebooks/qt/event
+      - file: notebooks/qt/slot_signal
+      - file: notebooks/qt/widgets
+      - file: notebooks/qt/buttons
+      - file: notebooks/qt/output
+      - file: notebooks/qt/input
+      - file: notebooks/qt/dialogs
+      - file: notebooks/qt/exercises4
+  - caption: "Лекции №12 и далее"
+    chapters:
+      - file: notebooks/python/about_12_and_so_on
+      - file: notebooks/computer_vision/basics
+      - file: notebooks/computer_vision/filters
+      - file: notebooks/computer_vision/detection
+      - file: notebooks/machine_learning/regression
+      - file: notebooks/machine_learning/classification
+      - file: notebooks/machine_learning/neural_networks
+      
+      
+      
+      

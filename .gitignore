@@ -1,0 +1,9 @@
+*_build
+*.ipynb_checkpoints/
+*/_build
+*/.ipynb_checkpoints/
+*.html
+*.pyc
+.vscode
+*tmp*
+venv

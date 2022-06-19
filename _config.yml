@@ -1,0 +1,42 @@
+title : Практикум по компьютерным технологиям
+author: Fadeev Egor
+logo: 'python-logo.png'
+
+# Short description about the book
+description: >-
+  Курс лекций по дисциплине "Практикум по компьютерным технологиям".
+
+execute:
+  execute_notebooks: cache
+  allow_errors     : true
+  exclude_patterns : 
+    - 'machine_learning/*'
+    - 'pandas/*'
+    - 'computer_vision/*'
+
+# HTML-specific settings
+html:
+  home_page_in_navbar         : true
+
+# Interact link settings
+notebook_interface            : "notebook"
+
+only_build_toc_files: true
+
+# Launch button settings
+#repository:
+#  url                         : https://github.com/executablebooks/quantecon-mini-example
+#  path_to_book                : "mini_book"
+
+# binder:
+#  binderhub_url               : "https://mybinder.org"
+#  text                        : "Launch binder"
+
+# LaTeX settings
+bibtex_bibfiles:
+   - _bibliography/references.bib
+
+#latex:
+#  latex_engine                : "xelatex"
+#  latex_documents:
+#    targetname: book.tex
