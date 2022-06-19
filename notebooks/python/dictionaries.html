@@ -118,7 +118,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../docs/getting_started.html">
-   Установка python
+   Установка
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     python
+    </span>
+   </code>
   </a>
  </li>
  <li class="toctree-l1">
@@ -138,7 +143,13 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="numbers_and_lists.html">
-   Основные типы объектов в python. Числа и списки
+   Основные типы объектов в
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     python
+    </span>
+   </code>
+   . Числа и списки
   </a>
  </li>
  <li class="toctree-l1">
@@ -192,7 +203,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../numpy/numpy.html">
-   Знакомство с NumPy
+   Знакомство с
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     NumPy
+    </span>
+   </code>
   </a>
  </li>
  <li class="toctree-l1">
@@ -784,7 +800,7 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="dict">
 <h1>Словари. <code class="docutils literal notranslate"><span class="pre">dict</span></code><a class="headerlink" href="#dict" title="Permalink to this headline">¶</a></h1>
-<p>Новый тип контейнера — <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#mapping-types-dict">dict</a> (словарь, отображение, хэш-таблица), который как и любой другой контейнер хранит в себе элементы, но в отличие от всех ранее рассмотренных контейнеров (списки, кортежи, строки и диапазоны),  словари <strong>не</strong> является последовательностями. Это значит, что его элементы словаря не упорядочены (не пронумерованы) и к ним нельзя обращаться по индексу (по смещению). Словари в <code class="docutils literal notranslate"><span class="pre">python</span></code> <strong>изменяемы</strong>.</p>
+<p>Новый тип контейнера — <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#mapping-types-dict">dict</a> (словарь, отображение, хэш-таблица), который как и любой другой контейнер хранит в себе элементы, но в отличие от всех ранее рассмотренных контейнеров (списки, кортежи, строки и диапазоны),  словари <strong>не</strong> являются последовательностями, т.е. элементы словаря не упорядочены (не пронумерованы) и к ним нельзя обращаться по индексу (по смещению). Словари в <code class="docutils literal notranslate"><span class="pre">python</span></code> <strong>изменяемы</strong>.</p>
 <div class="section" id="id1">
 <h2>Хэш-таблицы<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>По сути дела словари в <code class="docutils literal notranslate"><span class="pre">python</span></code> реализуют <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%A5%D0%B5%D1%88-%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D0%B0">хеш-таблицу</a> — распространенную во многих языках программирования структуру данных. Наиболее близкий аналог к словарям из <code class="docutils literal notranslate"><span class="pre">python</span></code> в <code class="docutils literal notranslate"><span class="pre">C/C++</span></code> — <a class="reference external" href="https://en.cppreference.com/w/cpp/container/unordered_map">std::unordered_map</a>. Хеш-таблицы хранят пары (<code class="docutils literal notranslate"><span class="pre">ключ</span></code>, <code class="docutils literal notranslate"><span class="pre">значение</span></code>) (<code class="docutils literal notranslate"><span class="pre">key</span></code>, <code class="docutils literal notranslate"><span class="pre">value</span></code>) и позволяют выполнять следующие три операции:</p>
@@ -800,20 +816,24 @@ const thebe_selector_output = ".output, .cell_output"
     h\colon K \to [0, ..., M],
 \]</div>
 <p>где <span class="math notranslate nohighlight">\(K\)</span> — множество <strong>ключей</strong>, <span class="math notranslate nohighlight">\(M\)</span> — максимальное значение хеш-функции.</p>
-<p>Пусть <span class="math notranslate nohighlight">\((k, v)\)</span> — пара (<code class="docutils literal notranslate"><span class="pre">ключ</span></code>, <code class="docutils literal notranslate"><span class="pre">значение</span></code>). Идея заключается в том, чтобы хранить все такие пары в обычном массиве <span class="math notranslate nohighlight">\(A\)</span> размера <span class="math notranslate nohighlight">\(M + 1\)</span>, где индекс ячейки массива для данной пары определяется значением хеш-функции <span class="math notranslate nohighlight">\(h(k)\)</span> от <strong>ключа</strong> <span class="math notranslate nohighlight">\(k\)</span>:</p>
+<p>Пусть <span class="math notranslate nohighlight">\((k, v)\)</span> — пара (<code class="docutils literal notranslate"><span class="pre">ключ</span></code>, <code class="docutils literal notranslate"><span class="pre">значение</span></code>). Идея заключается в том, чтобы хранить все такие пары в обычном массиве <span class="math notranslate nohighlight">\(A\)</span> размера <span class="math notranslate nohighlight">\(M + 1\)</span>, где индекс ячейки массива для данной пары <span class="math notranslate nohighlight">\((k, v)\)</span> определяется значением хеш-функции <span class="math notranslate nohighlight">\(h(k)\)</span> от <strong>ключа</strong> <span class="math notranslate nohighlight">\(k\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
 A[h(k)] = (k, v).
 \]</div>
 <p>Такая конструкция позволяет искать пару (<code class="docutils literal notranslate"><span class="pre">ключ</span></code>, <code class="docutils literal notranslate"><span class="pre">значение</span></code>) по <strong>ключу</strong> за время индексации массива <span class="math notranslate nohighlight">\(A\)</span> плюс время вычисления хеш-функции <span class="math notranslate nohighlight">\(h(k)\)</span>. Индексация сплошного массива по смещению — очень быстрая операция, а скорость вычисления значения хеш-функции — одно из ключевых требований к хорошей хеш-функции.</p>
-<p>В реальности может найтись два таких <strong>ключа</strong> <span class="math notranslate nohighlight">\(k_1\)</span> и <span class="math notranslate nohighlight">\(k_2\)</span>, что значение хеш-функций на них совпадут: <span class="math notranslate nohighlight">\(h(k_1)= h(k_2)\)</span>. Такое явление называют коллизией. Разработаны методы разрешения коллизий, которые позволяют все же хранить в одной хеш-таблице пары с дающими одно и тоже значение хеш-функции <strong>ключами</strong>, но минимизация количества коллизий — ещё одно ключевое требование к хорошей хеш-функциям.</p>
-<p>На сегодня разработано огромное количество качественных хеш-функций, а реализация хорошей по сегодняшним меркам хеш-таблицы — сложная задача. Конкретная реализация словарей в <code class="docutils literal notranslate"><span class="pre">CPython</span></code> достаточна изощрена и здесь опускаются её детали. Из всего вышеприведенного важно вынести самое основное:</p>
+<p>В реальности может найтись два таких <strong>ключа</strong> <span class="math notranslate nohighlight">\(k_1\)</span> и <span class="math notranslate nohighlight">\(k_2\)</span>, что значение хеш-функций на них совпадут: <span class="math notranslate nohighlight">\(h(k_1)= h(k_2)\)</span>. Такое явление называют коллизией, для разрешения которых разработано множество методов. Эти методы позволяют хранить в хеш-таблице пары с любыми <strong>уникальными</strong> ключами, но время поиска ключа в таблице замедляется, если встречаются коллизии. В связи с этим минимизация количества коллизий — ещё одно ключевое требование к хорошим хеш-функциям.</p>
+<p>На сегодня разработано огромное количество качественных хеш-функций и хеш-таблицы на их основе действительно позволяют делать все объявленные операции за почти константное время <span class="math notranslate nohighlight">\(O(1)\)</span>. Конкретная реализация словарей в <code class="docutils literal notranslate"><span class="pre">CPython</span></code> достаточна изощрена и здесь опускаются её детали. Из всего вышеприведенного важно вынести самое основное:</p>
 <ul class="simple">
-<li><p>хеш-таблицы хранят пары (<code class="docutils literal notranslate"><span class="pre">ключ</span></code>,<code class="docutils literal notranslate"><span class="pre">значения</span></code>);</p></li>
+<li><p>хеш-таблицы хранят пары (<code class="docutils literal notranslate"><span class="pre">ключ</span></code>, <code class="docutils literal notranslate"><span class="pre">значение</span></code>);</p></li>
 <li><p>для их работы необходима возможность вычислять значение хеш-функции от ключей, т.е. ключи должны быть <strong>хэшируемы</strong> (<code class="docutils literal notranslate"><span class="pre">hashable</span></code>);</p></li>
 <li><p>кроме того, ключи в хеш-таблице должны быть уникальными;</p></li>
 <li><p>хеш-таблицы позволяют очень быстро искать, добавлять и удалять пары (<code class="docutils literal notranslate"><span class="pre">ключ</span></code>, <code class="docutils literal notranslate"><span class="pre">значение</span></code>) по <strong>ключу</strong>.</p></li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Любопытный может почитать о том, как устроены словари в <code class="docutils literal notranslate"><span class="pre">CPython</span></code> <a class="reference external" href="https://github.com/python/cpython/blob/main/Objects/dictobject.c">в исходном коде для словарей</a>: их поведение очень хорошо описано в комментариях к исходному коду.</p>
+</div>
 </div>
 <div class="section" id="id2">
 <h2>Создание словарей<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>

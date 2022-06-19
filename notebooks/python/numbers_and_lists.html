@@ -116,7 +116,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../docs/getting_started.html">
-   Установка python
+   Установка
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     python
+    </span>
+   </code>
   </a>
  </li>
  <li class="toctree-l1">
@@ -136,7 +141,13 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Основные типы объектов в python. Числа и списки
+   Основные типы объектов в
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     python
+    </span>
+   </code>
+   . Числа и списки
   </a>
  </li>
  <li class="toctree-l1">
@@ -190,7 +201,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../numpy/numpy.html">
-   Знакомство с NumPy
+   Знакомство с
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     NumPy
+    </span>
+   </code>
   </a>
  </li>
  <li class="toctree-l1">
@@ -887,7 +903,7 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="python">
-<h1>Основные типы объектов в python. Числа и списки<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h1>
+<h1>Основные типы объектов в <code class="docutils literal notranslate"><span class="pre">python</span></code>. Числа и списки<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h1>
 <p>Программы на языке <code class="docutils literal notranslate"><span class="pre">python</span></code> могут быть разложены на модули, операторы, выражения и объекты по схеме ниже.</p>
 <ol class="simple">
 <li><p>Программы состоят из модулей;</p></li>
@@ -936,7 +952,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<p>Напомним, что в <code class="docutils literal notranslate"><span class="pre">C/C++</span></code> 32-битные целые числа принимают значения в диапазоне от <code class="docutils literal notranslate"><span class="pre">-2</span> <span class="pre">**</span> <span class="pre">32</span> <span class="pre">=</span> <span class="pre">-2,147,483,648</span></code> до <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">**</span> <span class="pre">32</span> <span class="pre">-</span> <span class="pre">1</span> <span class="pre">=</span> <span class="pre">2,147,483,647</span></code>. В python целые числа могут принимать величину, ограниченную только объемом оперативной памяти машины, на которой запускается код. Это очень удобно, так как не нужно заботиться о переполнении и нет необходимости определять пользовательские типы для обработки больших значений.</p>
+<p>Напомним, что в <code class="docutils literal notranslate"><span class="pre">C/C++</span></code> 32-битные целые числа принимают значения в диапазоне от <code class="docutils literal notranslate"><span class="pre">-2</span> <span class="pre">**</span> <span class="pre">32</span> <span class="pre">=</span> <span class="pre">-2,147,483,648</span></code> до <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">**</span> <span class="pre">32</span> <span class="pre">-</span> <span class="pre">1</span> <span class="pre">=</span> <span class="pre">2,147,483,647</span></code>. В <code class="docutils literal notranslate"><span class="pre">python</span></code> целые числа могут принимать величину, ограниченную только объемом оперативной памяти машины, на которой запускается код. Это очень удобно, так как не нужно заботиться о переполнении и нет необходимости определять пользовательские типы для обработки больших значений.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">100</span><span class="p">)</span>
@@ -986,7 +1002,7 @@ d = 1.77
 </div>
 <div class="section" id="id3">
 <h3>1.3. Комплексные числа<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<p>Так же в python встроены комплексные числа <code class="docutils literal notranslate"><span class="pre">complex</span></code>.</p>
+<p>Так же в <code class="docutils literal notranslate"><span class="pre">python</span></code> встроены комплексные числа <code class="docutils literal notranslate"><span class="pre">complex</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">e</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
@@ -1179,7 +1195,7 @@ False
 </div>
 <div class="section" id="none">
 <h3>1.5.  <code class="docutils literal notranslate"><span class="pre">None</span></code><a class="headerlink" href="#none" title="Permalink to this headline">¶</a></h3>
-<p>В python есть специальный тип данных <code class="docutils literal notranslate"><span class="pre">NoneType</span></code>, который может принимать единственно возможное значение <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<p>В <code class="docutils literal notranslate"><span class="pre">python</span></code> есть специальный тип данных <code class="docutils literal notranslate"><span class="pre">NoneType</span></code>, который может принимать единственно возможное значение <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">null_variable</span> <span class="o">=</span> <span class="kc">None</span>
@@ -1211,8 +1227,8 @@ False
 <div class="section" id="id7">
 <h2>2. Списки<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
 <p>Первый контейнер, с которым мы познакомимся - список. Список (<code class="docutils literal notranslate"><span class="pre">list</span></code>) - наиболее близкий аналог к массиву из <code class="docutils literal notranslate"><span class="pre">C/C++</span></code>, если брать в расчет только встроенные типы. Существенным отличием является возможность хранения в одном и том же списке объекты разных типов.</p>
-<p>В python ряд контейнеров обладают общими чертами. <code class="docutils literal notranslate"><span class="pre">list</span></code> — представитель группы контейнеров <code class="docutils literal notranslate"><span class="pre">Sequence</span> <span class="pre">Types</span></code> (последовательности). <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range">Последовательность</a> означает, что элементы контейнера пронумерованы и к ним можно обращаться по индексу (<a class="reference external" href="https://en.wikipedia.org/wiki/Zero-based_numbering">zero-based</a>, как и в <code class="docutils literal notranslate"><span class="pre">C/C++</span></code> ).</p>
-<p>Другие представители последовательностей в python:</p>
+<p>В <code class="docutils literal notranslate"><span class="pre">python</span></code> ряд контейнеров обладают общими чертами. <code class="docutils literal notranslate"><span class="pre">list</span></code> — представитель группы контейнеров <code class="docutils literal notranslate"><span class="pre">Sequence</span> <span class="pre">Types</span></code> (последовательности). <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range">Последовательность</a> означает, что элементы контейнера пронумерованы и к ним можно обращаться по индексу (<a class="reference external" href="https://en.wikipedia.org/wiki/Zero-based_numbering">zero-based</a>, как и в <code class="docutils literal notranslate"><span class="pre">C/C++</span></code> ).</p>
+<p>Другие представители последовательностей в <code class="docutils literal notranslate"><span class="pre">python</span></code>:</p>
 <ul class="simple">
 <li><p>кортежи <code class="docutils literal notranslate"><span class="pre">tuple</span></code>;</p></li>
 <li><p>диапазоны <code class="docutils literal notranslate"><span class="pre">range</span></code>;</p></li>

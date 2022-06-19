@@ -118,7 +118,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../docs/getting_started.html">
-   Установка python
+   Установка
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     python
+    </span>
+   </code>
   </a>
  </li>
  <li class="toctree-l1">
@@ -138,7 +143,13 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../python/numbers_and_lists.html">
-   Основные типы объектов в python. Числа и списки
+   Основные типы объектов в
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     python
+    </span>
+   </code>
+   . Числа и списки
   </a>
  </li>
  <li class="toctree-l1">
@@ -192,7 +203,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Знакомство с NumPy
+   Знакомство с
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     NumPy
+    </span>
+   </code>
   </a>
  </li>
  <li class="toctree-l1">
@@ -681,7 +697,12 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id1">
-   Зачем нужен NumPy
+   Зачем нужен
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     NumPy
+    </span>
+   </code>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -691,7 +712,13 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id3">
-   О массивах NumPy. Тип данных, размерность, форма.
+   О массивах
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     NumPy
+    </span>
+   </code>
+   . Тип данных, размерность, оси и форма.
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -701,7 +728,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id5">
-   Арифметические операции над массивами NumPy
+   Арифметические операции над массивами
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     NumPy
+    </span>
+   </code>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -746,7 +778,12 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id1">
-   Зачем нужен NumPy
+   Зачем нужен
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     NumPy
+    </span>
+   </code>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -756,7 +793,13 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id3">
-   О массивах NumPy. Тип данных, размерность, форма.
+   О массивах
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     NumPy
+    </span>
+   </code>
+   . Тип данных, размерность, оси и форма.
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -766,7 +809,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id5">
-   Арифметические операции над массивами NumPy
+   Арифметические операции над массивами
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     NumPy
+    </span>
+   </code>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -799,12 +847,16 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="numpy">
-<h1>Знакомство с NumPy<a class="headerlink" href="#numpy" title="Permalink to this headline">¶</a></h1>
+<h1>Знакомство с <code class="docutils literal notranslate"><span class="pre">NumPy</span></code><a class="headerlink" href="#numpy" title="Permalink to this headline">¶</a></h1>
 <p>Первая сторонняя библиотека, с которой мы познакомимся — <a class="reference external" href="https://numpy.org/">NumPy</a> (Numerical Python).</p>
 <p>Библиотека <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> предоставляет доступ к многомерным массивам однородных данных (одного типа, обычно числа), подобным массивам <code class="docutils literal notranslate"><span class="pre">C/C++</span></code>, и к методам их обработки. На самом деле, под капотом эти самые массивы реализованы с помощью динамических массивов <code class="docutils literal notranslate"><span class="pre">C/C++</span></code>, которые в отличие от списков, хранят непосредственно данные, а не указатели на них.</p>
 <div class="section" id="id1">
-<h2>Зачем нужен NumPy<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>Необходимость в специальной библиотеке для работы с большими массивами чисел, возникает из-за скорости работы <code class="docutils literal notranslate"><span class="pre">python</span></code>. За гибкость, выразительность, динамическую типизацию и многие другие достоинства, <code class="docutils literal notranslate"><span class="pre">python</span></code> приходится платить скоростью: код написанные на <code class="docutils literal notranslate"><span class="pre">python</span></code>, практически всегда будет работать медленнее, чем аналогичный код, написанный на <code class="docutils literal notranslate"><span class="pre">C/C++</span></code>. Проще всего заметить на примере циклов.</p>
+<h2>Зачем нужен <code class="docutils literal notranslate"><span class="pre">NumPy</span></code><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Необходимость в специальной библиотеке для работы с большими массивами чисел возникает из-за скорости работы <code class="docutils literal notranslate"><span class="pre">python</span></code>. За гибкость, выразительность, динамическую типизацию и многие другие достоинства, <code class="docutils literal notranslate"><span class="pre">python</span></code> приходится платить скоростью: код написанные на <code class="docutils literal notranslate"><span class="pre">python</span></code>, практически всегда будет работать медленнее, чем аналогичный код, написанный на <code class="docutils literal notranslate"><span class="pre">C/C++</span></code>. Проще всего продемонстрировать это на примере с циклами.</p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="a4f6f377-5c99-4ffe-a085-1991f2d2265d" name="82e84651-77bb-49cc-8fe5-3bc1cc6d80de" type="radio">
+</input><label class="tabbed-label" for="a4f6f377-5c99-4ffe-a085-1991f2d2265d">
+c++</label><div class="tabbed-content docutils">
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;chrono&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
@@ -812,7 +864,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="cp">#define N 10000000</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// Готовим генератор случайных чисел</span>
+<span class="w">    </span><span class="c1">// Готовим генератор случайных чисел в промежутке от -1 до 1</span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">random_device</span><span class="w"> </span><span class="n">rd</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">mt19937</span><span class="w"> </span><span class="n">gen</span><span class="p">(</span><span class="n">rd</span><span class="p">());</span><span class="w"></span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">uniform_real_distribution</span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">dis</span><span class="p">(</span><span class="mf">-1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">);</span><span class="w"></span>
@@ -837,11 +889,15 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+</div>
+<input id="1158c089-8a36-415a-8a3e-003dc90be8f3" name="82e84651-77bb-49cc-8fe5-3bc1cc6d80de" type="radio">
+</input><label class="tabbed-label" for="1158c089-8a36-415a-8a3e-003dc90be8f3">
+python</label><div class="tabbed-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">perf_counter</span>
 <span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">uniform</span>
 
 
-<span class="n">N</span> <span class="o">=</span> <span class="mi">10000000</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">10_000_000</span>
 
 <span class="c1"># Создаём списки случайных чисел</span>
 <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span> <span class="c1"># новый синтаксис, список случайных чисел</span>
@@ -849,35 +905,42 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.</span><span class="p">]</span> <span class="o">*</span> <span class="n">N</span> 
 
 <span class="c1"># Измеряем время сложения этих списков</span>
-<span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
     <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
         
-<span class="n">t2</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="p">(</span><span class="n">t2</span> <span class="o">-</span> <span class="n">t1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span><span class="si">}</span><span class="s2"> ms&quot;</span><span class="p">)</span> <span class="c1"># time() - время в секундах</span>
 </pre></div>
 </div>
+</div>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Документацию по модулю <code class="docutils literal notranslate"><span class="pre">time</span></code> можно найти <a class="reference external" href="https://docs.python.org/3/library/time.html">здесь</a>, а по модулю <code class="docutils literal notranslate"><span class="pre">random</span></code> <a class="reference external" href="https://docs.python.org/3/library/random.html">здесь</a>.</p>
+<p>Документацию по модулю <code class="docutils literal notranslate"><span class="pre">time</span></code> можно найти <a class="reference external" href="https://docs.python.org/3/library/time.html">по этой ссылке</a>, а по модулю <code class="docutils literal notranslate"><span class="pre">random</span></code> <a class="reference external" href="https://docs.python.org/3/library/random.html">по этой ссылке</a>.</p>
 </div>
-<p>Два исходных кода выше делают похожие вещи, но на <code class="docutils literal notranslate"><span class="pre">C/C++</span></code> и <code class="docutils literal notranslate"><span class="pre">python</span></code> соответственно. Оба создают массивы случайных чисел и измеряют время, необходимое на их сложение. Я сохранил эти исходные коды в файлы <code class="docutils literal notranslate"><span class="pre">loops.cpp</span></code> и <code class="docutils literal notranslate"><span class="pre">loops.py</span></code> и исполнял этот код на одной и той же машине, следующими командами. Флаг <code class="docutils literal notranslate"><span class="pre">-O0</span></code> сообщает компилятору, что компилировать надо в режиме <code class="docutils literal notranslate"><span class="pre">debug</span></code>, что отключает огромное количество оптимизаций.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>g++ loops.cpp -O0 -o loops
-loops.exe
+<p>Выше приведено содержимое двух файлов с исходным кодом, каждый из которых складывает два вектора чисел размерности <span class="math notranslate nohighlight">\(10^8\)</span>.</p>
+<ol class="simple">
+<li><p>Первый файл на языке <code class="docutils literal notranslate"><span class="pre">C++</span></code> использует для представления векторов в программе <a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector">std::vector</a>.</p></li>
+<li><p>Второй файл на языке <code class="docutils literal notranslate"><span class="pre">python</span></code> использует для представления векторов в программе списки.</p></li>
+</ol>
+<p>Эти файлы располагаются <span class="xref myst">по ссылке</span> и могут быть запущены следующему командами в командной строке.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>g++ loops.cpp -O2 -o loops
+.<span class="se">\l</span>oops.exe
 python loops.py
 </pre></div>
 </div>
-<p>В среднем, я получил следующие результаты.</p>
+<p>В среднем я получил следующие результаты.</p>
 <table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="text-align:center head"><p><code class="docutils literal notranslate"><span class="pre">python</span></code></p></th>
-<th class="text-align:center head"><p><code class="docutils literal notranslate"><span class="pre">C/C++</span></code></p></th>
+<tr class="row-odd"><th class="text-align:center head"><p><code class="docutils literal notranslate"><span class="pre">C++</span></code></p></th>
+<th class="text-align:center head"><p><code class="docutils literal notranslate"><span class="pre">python</span></code></p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:center"><p>2425 ms</p></td>
-<td class="text-align:center"><p>87 ms</p></td>
+<tr class="row-even"><td class="text-align:center"><p>25 ms</p></td>
+<td class="text-align:center"><p>1700 ms</p></td>
 </tr>
 </tbody>
 </table>
@@ -902,64 +965,147 @@ python loops.py
 </div>
 </div>
 </div>
-<p>Библиотека <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> используется настолько часто и настолько многими, что сложилась традиция импортировать <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> с псевдонимом <code class="docutils literal notranslate"><span class="pre">np</span></code>. Любой программист, увидев где-то в коде выражение вида <code class="docutils literal notranslate"><span class="pre">np.some_method()</span></code> догадается, что вызывается метод <code class="docutils literal notranslate"><span class="pre">some_method</span></code> из библиотеки <code class="docutils literal notranslate"><span class="pre">numpy</span></code> и ему не потребуется искать глазами определение объекта <code class="docutils literal notranslate"><span class="pre">np</span></code>, чтобы понять, что скрывается за этим именем.</p>
+<p>Библиотека <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> используется настолько часто и настолько многими, что сложилась традиция импортировать <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> с псевдонимом <code class="docutils literal notranslate"><span class="pre">np</span></code>. Любой программист, увидев где-то в коде выражение вида <code class="docutils literal notranslate"><span class="pre">np.some_method()</span></code> догадается, что вызывается метод <code class="docutils literal notranslate"><span class="pre">some_method</span></code> из библиотеки <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> и ему не потребуется искать глазами определение объекта <code class="docutils literal notranslate"><span class="pre">np</span></code>, чтобы понять, что скрывается за этим именем.</p>
 </div>
 <div class="section" id="id3">
-<h2>О массивах NumPy. Тип данных, размерность, форма.<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
-<p>Все элемента массива обязательно одного и того же типа. Этот тип можно узнать по полю <code class="docutils literal notranslate"><span class="pre">dtype</span></code> (data type). Этих типов может быть много, но большинство из них — стандартные числовые типы <code class="docutils literal notranslate"><span class="pre">C/C++</span></code>: <code class="docutils literal notranslate"><span class="pre">np.bool8</span></code>, <code class="docutils literal notranslate"><span class="pre">np.int8</span></code>, <code class="docutils literal notranslate"><span class="pre">np.int16</span></code>, <code class="docutils literal notranslate"><span class="pre">np.int32</span></code>, <code class="docutils literal notranslate"><span class="pre">np.int64</span></code>, <code class="docutils literal notranslate"><span class="pre">np.unit8</span></code>, <code class="docutils literal notranslate"><span class="pre">np.unit16</span></code>, <code class="docutils literal notranslate"><span class="pre">np.unit32</span></code>, <code class="docutils literal notranslate"><span class="pre">np.uint64</span></code>, <code class="docutils literal notranslate"><span class="pre">np.float16</span></code>, <code class="docutils literal notranslate"><span class="pre">np.float32</span></code>, <code class="docutils literal notranslate"><span class="pre">np.float64</span></code>, <code class="docutils literal notranslate"><span class="pre">np.complex64</span></code>, <code class="docutils literal notranslate"><span class="pre">np.complex128</span></code> (<a class="reference external" href="https://numpy.org/doc/stable/user/basics.types.html">подробнее про типы</a>).</p>
+<h2>О массивах <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>. Тип данных, размерность, оси и форма.<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>В ячейке ниже создаётся массив <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> из случайных чисел. Можете пока не вникать, как конкретно он создаётся. Важно лишь понять, что имя <code class="docutils literal notranslate"><span class="pre">array</span></code> связывается с каким-то массивом <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.78691594 0.58196961 0.86767001]
+ [0.63891866 0.30963327 0.28967785]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Массивы в библиотеке представляются типом <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html">numpy.ndarray</a> (<strong>n</strong> <strong>d</strong>imensional <strong>array</strong>, n-мерный массив).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">array</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;numpy.ndarray&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Тип <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> является типизированным контейнером данных, т.к. он предназначен для хранения данных одного и того же типа данных. Тип данных массива хранится в атрибуте <code class="docutils literal notranslate"><span class="pre">dtype</span></code> (<strong>d</strong>ata <strong>t</strong>ype). Этих типов может быть много, но большинство из них — стандартные числовые типы <code class="docutils literal notranslate"><span class="pre">C/C++</span></code>: <code class="docutils literal notranslate"><span class="pre">np.bool8</span></code>, <code class="docutils literal notranslate"><span class="pre">np.int8</span></code>, <code class="docutils literal notranslate"><span class="pre">np.int16</span></code>, <code class="docutils literal notranslate"><span class="pre">np.int32</span></code>, <code class="docutils literal notranslate"><span class="pre">np.int64</span></code>, <code class="docutils literal notranslate"><span class="pre">np.unit8</span></code>, <code class="docutils literal notranslate"><span class="pre">np.unit16</span></code>, <code class="docutils literal notranslate"><span class="pre">np.unit32</span></code>, <code class="docutils literal notranslate"><span class="pre">np.uint64</span></code>, <code class="docutils literal notranslate"><span class="pre">np.float16</span></code>, <code class="docutils literal notranslate"><span class="pre">np.float32</span></code>, <code class="docutils literal notranslate"><span class="pre">np.float64</span></code>, <code class="docutils literal notranslate"><span class="pre">np.complex64</span></code>, <code class="docutils literal notranslate"><span class="pre">np.complex128</span></code> (<a class="reference external" href="https://numpy.org/doc/stable/user/basics.types.html">подробнее про типы</a>).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Целые числа в массивах NumPy введут себя совсем не как тип <code class="docutils literal notranslate"><span class="pre">int</span></code> из <code class="docutils literal notranslate"><span class="pre">python</span></code>. Они всегда занимают определенное количество байт и склонны к переполнению, как в <code class="docutils literal notranslate"><span class="pre">C/C++</span></code>.</p>
+<p>Целые числа в массивах <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> введут себя совсем не как тип <code class="docutils literal notranslate"><span class="pre">int</span></code> из <code class="docutils literal notranslate"><span class="pre">python</span></code>: они всегда занимают определенное количество байт и могут переполняться, т.е. совпадают с целочисленными типами из <code class="docutils literal notranslate"><span class="pre">C/C++</span></code>.</p>
 </div>
-<p>Так же в этих массивах можно хранить и другие типы данных, но тогда храниться в массиве будут указатели на них, а не сами объекты и большинство преимуществ массивов <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> спадут на нет.</p>
-<p>Кроме типа данных <code class="docutils literal notranslate"><span class="pre">dtype</span></code> у массива можно спросить его размерность <code class="docutils literal notranslate"><span class="pre">ndim</span></code> и его форму <code class="docutils literal notranslate"><span class="pre">shape</span></code> — длину массива вдоль каждого измерения. Эти измерения называются осями (<code class="docutils literal notranslate"><span class="pre">axis</span></code> в ед. числе и <code class="docutils literal notranslate"><span class="pre">axes</span></code> в мн. числе). Общее количество элементов в массиве (произведение количеств элементов вдоль каждой из осей) хранится в атрибуте <code class="docutils literal notranslate"><span class="pre">size</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Вообще говоря, в массивах <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> можно хранить и объекты произвольного типа, но тогда вместо самих объектов, в массиве будут храниться ссылки на них. Чаще всего массивы <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> используются все же для хранения чисел.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">array</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Исходя из значения атрибута <code class="docutils literal notranslate"><span class="pre">dtype</span></code> массива <code class="docutils literal notranslate"><span class="pre">array</span></code> можно понять, что он хранит в себе 64-битные числа с плавающей запятой.</p>
+<p>Ещё <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> массивы хранят количество своих измерений в атрибуте <code class="docutils literal notranslate"><span class="pre">ndim</span></code> (<strong>n</strong>umber of <strong>d</strong>imensions). Массивы <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> могут быть любой размерности: одномерные массивы часто используются для представления векторов, двумерные — для представления матриц и таблиц.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="o">.</span><span class="n">ndim</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<p>Исходя из значения атрибута <code class="docutils literal notranslate"><span class="pre">ndim</span></code> массива <code class="docutils literal notranslate"><span class="pre">array</span></code> видим, что он является двухмерным.</p>
+<p>Ещё обязательный атрибут массивов <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> — форма (<code class="docutils literal notranslate"><span class="pre">shape</span></code>) — размеры массива вдоль каждого измерения. Эти измерения называются осями (<code class="docutils literal notranslate"><span class="pre">axis</span></code> в ед. числе и <code class="docutils literal notranslate"><span class="pre">axes</span></code> в мн. числе). Общее количество элементов в массиве (произведение количеств элементов вдоль каждой из осей) хранится в атрибуте <code class="docutils literal notranslate"><span class="pre">size</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2, 3)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Атрибут <code class="docutils literal notranslate"><span class="pre">shape</span></code> массива <code class="docutils literal notranslate"><span class="pre">array</span></code> говорит нам, что у него есть 2 элемента вдоль первого измерения и 3 вдоль второго. Иными словами можно сказать, что это таблица из двух строк и трех столбцов.</p>
 <p>Все массивы должны быть “прямоугольными”, т.е. не может быть матрицы со строками разных длин.</p>
-<p><img alt="image" src="../../_images/ndarrays.png" /></p>
+<p>Картинка ниже наглядно иллюстрирует смысл всех только-что введенных понятий.</p>
+<div class="figure align-default">
+<img alt="../../_images/ndarrays.png" src="../../_images/ndarrays.png" />
+</div>
 </div>
 <div class="section" id="id4">
 <h2>Создание массивов<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
-<p>Создавать массивы <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> (<code class="docutils literal notranslate"><span class="pre">ndarray</span></code>) можно огромным количеством образом.
-Например, из списков (или любых других последовательностей) python. При этом итоговый тип данных в массиве определяется как самый общий, среди присутствующих в списке, если не указан явно.</p>
+<p>Создавать массивы <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> — <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> — можно огромным количеством образом, но для их создания редко используется конструктор самого типа. Вместо этого гораздо чаще используются другие методы. Например, метод <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html">numpy.array</a> конструирует <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> из других объектов.</p>
+<p>Чаще всего он используется для создания массивов из <code class="docutils literal notranslate"><span class="pre">python</span></code> списков чисел. Тип данных выводится как самый общий тип данных, если он не указан явно именованным параметром <code class="docutils literal notranslate"><span class="pre">dtype</span></code>.</p>
+<p>Ниже создаётся одномерный массив из списка четырёх чисел. При этом тип данных явно не указывается и в итоге получается массив чисел с плавающей точкой (<code class="docutils literal notranslate"><span class="pre">float64</span></code>), т.к. в исходном списке были числа типа <code class="docutils literal notranslate"><span class="pre">int</span></code> и <code class="docutils literal notranslate"><span class="pre">float</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># вектор (одномерный массив) из np.float64</span>
-<span class="n">a1D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span> 
-<span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">a1D</span><span class="p">),</span> <span class="n">a1D</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">a1D</span><span class="o">.</span><span class="n">ndim</span><span class="p">,</span> <span class="n">a1D</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a1D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span> 
+<span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">a1D</span><span class="p">))</span> 
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a1D</span><span class="o">.</span><span class="n">dtype</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a1D</span><span class="o">.</span><span class="n">ndim</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a1D</span><span class="o">.</span><span class="n">shape</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1., 2., 3., 4.])
-float64
-1
-(4,)
+a1D.dtype=dtype(&#39;float64&#39;)
+a1D.ndim=1
+a1D.shape=(4,)
 </pre></div>
 </div>
 </div>
 </div>
+<p>В ячейке ниже демонстрируется, как создаются двухмерные массивы. Для этого её на вход передаются списки списков, где каждый вложенный список — строка будущей таблицы. Т.к. внутри всех этих списков находятся только целые числа, то итоговый тип массива тоже целочисленный.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># матрица (двухмерный массив) из целых чисел</span>
-<span class="n">a2D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span> 
-<span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">a2D</span><span class="p">),</span> <span class="n">a2D</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">a2D</span><span class="o">.</span><span class="n">ndim</span><span class="p">,</span> <span class="n">a2D</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a2D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span> 
+<span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">a2D</span><span class="p">))</span> 
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a2D</span><span class="o">.</span><span class="n">dtype</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a2D</span><span class="o">.</span><span class="n">ndim</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a2D</span><span class="o">.</span><span class="n">shape</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1, 2],
        [3, 4]])
-int32
-2
-(2, 2)
+a2D.dtype=dtype(&#39;int32&#39;)
+a2D.ndim=2
+a2D.shape=(2, 2)
 </pre></div>
 </div>
 </div>
 </div>
+<p>Трехмерные массивы создаются по аналогии. В ячейке ниже приводится пример. Обратите внимание, что все числа в передаваемом списке списков списков целочисленного типа, но результирующий массив получается типа <code class="docutils literal notranslate"><span class="pre">float32</span></code>, т.к. этот тип явно указан при создании массива.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Явно указан тип, тензор третьего ранга (трехмерный массив)</span>
-<span class="n">a3D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> 
-<span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">a3D</span><span class="p">),</span> <span class="n">a3D</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">a3D</span><span class="o">.</span><span class="n">ndim</span><span class="p">,</span> <span class="n">a3D</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a3D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">a3D</span><span class="p">))</span> 
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a3D</span><span class="o">.</span><span class="n">dtype</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a3D</span><span class="o">.</span><span class="n">ndim</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a3D</span><span class="o">.</span><span class="n">shape</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -969,14 +1115,14 @@ int32
 
        [[5., 6.],
         [7., 8.]]], dtype=float32)
-float32
-3
-(2, 2, 2)
+a3D.dtype=dtype(&#39;float32&#39;)
+a3D.ndim=3
+a3D.shape=(2, 2, 2)
 </pre></div>
 </div>
 </div>
 </div>
-<p>Так же есть ряд встроенных функций, создающих массивы (<a class="reference external" href="https://numpy.org/doc/stable/user/basics.creation.html">array creation</a>). Каждая из них принимает в качестве опционального аргумента <code class="docutils literal notranslate"><span class="pre">dtype</span></code>.</p>
+<p>Так же есть ряд встроенных функций, создающих массивы. Каждая из них принимает в качестве опционального аргумента <code class="docutils literal notranslate"><span class="pre">dtype</span></code>.</p>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="text-align:center head"><p>Метод</p></th>
@@ -1019,6 +1165,66 @@ float32
 </tr>
 </tbody>
 </table>
+<p>Продемонстрируем ключевые из них. Массив из нулей создаётся методом <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.zeros.html#numpy.zeros">np.zeros</a>, который на вход принимает форму массива.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zeros</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">zeros</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0. 0.]
+ [0. 0.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Функция <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ones.html#numpy.ones">np.ones</a> делает тоже самое, но создаёт массив из единиц.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ones</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ones</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1. 1.]
+ [1. 1.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Функция <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.eye.html#numpy.eye">np.eye</a> часто создаётся для создания единичных матриц.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eye</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">eye</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1. 0.]
+ [0. 1.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Функция <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.diag.html#numpy.diag">np.diag</a> конструирует диагональную матрицу, используя для заполнения диагонали элементы из переданного ей массива.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">([</span><span class="mf">3.14</span><span class="p">,</span> <span class="mi">42</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">diag</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 3.14  0.  ]
+ [ 0.   42.  ]]
+</pre></div>
+</div>
+</div>
+</div>
 <p>Кроме того, существует ряд методов, позволяющих создавать массивы из других массивов.</p>
 <table class="colwidths-auto table">
 <thead>
@@ -1041,29 +1247,26 @@ float32
 </tr>
 </tbody>
 </table>
+<p>Продемонстрируем метод <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.hstack.html#numpy.block">np.block</a>, который позволяет создавать массивы из блоков, в качестве которых могут выступать другие массивы.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-<span class="n">B</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">A</span>
-<span class="n">C</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">A</span>
-<span class="n">D</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">A</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">block</span><span class="p">([[</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">],</span> <span class="p">[</span><span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">]]))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">block</span><span class="p">([[</span><span class="n">zeros</span><span class="p">,</span> <span class="n">ones</span><span class="p">],</span> <span class="p">[</span><span class="n">eye</span><span class="p">,</span> <span class="n">diag</span><span class="p">]]))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1. 1. 2. 2.]
- [1. 1. 2. 2.]
- [3. 3. 4. 4.]
- [3. 3. 4. 4.]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.    0.    1.    1.  ]
+ [ 0.    0.    1.    1.  ]
+ [ 1.    0.    3.14  0.  ]
+ [ 0.    1.    0.   42.  ]]
 </pre></div>
 </div>
 </div>
 </div>
+<p>Более подробно о создании массивов <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> по <a class="reference external" href="https://numpy.org/doc/stable/user/basics.creation.html">ссылке</a>.</p>
 </div>
 <div class="section" id="id5">
-<h2>Арифметические операции над массивами NumPy<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<h2>Арифметические операции над массивами <code class="docutils literal notranslate"><span class="pre">NumPy</span></code><a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <p>Все основные арифметические операторы (<code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>, <code class="docutils literal notranslate"><span class="pre">//</span></code>, <code class="docutils literal notranslate"><span class="pre">%</span></code>, <code class="docutils literal notranslate"><span class="pre">**</span></code>) перегружены для работы с массивами. Определим скаляры и векторы, чтобы разобраться, какие действия они позволяют выполнять.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1385,9 +1588,10 @@ matrix([[1., 1., 1.],
 </div>
 </div>
 </div>
-<p>Мы создали массив (<code class="docutils literal notranslate"><span class="pre">ndarray</span></code>) размера 6, который владеет данными <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">5]</span></code> типа <code class="docutils literal notranslate"><span class="pre">np.int</span></code>. Созданный массив мы связали с именем <code class="docutils literal notranslate"><span class="pre">A</span></code>.
-<img alt="image" src="../../_images/base_a.svg" />
-Теперь создадим новый массив <code class="docutils literal notranslate"><span class="pre">B</span></code> путем изменения формы массива <code class="docutils literal notranslate"><span class="pre">A</span></code> методом <code class="docutils literal notranslate"><span class="pre">reshape</span></code>. Убедимся, что он использует те же данные.</p>
+<p>Мы создали массив (<code class="docutils literal notranslate"><span class="pre">ndarray</span></code>) размера 6, который владеет данными <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">5]</span></code> типа <code class="docutils literal notranslate"><span class="pre">np.int</span></code>. Созданный массив мы связали с именем <code class="docutils literal notranslate"><span class="pre">A</span></code>.</p>
+<div class="figure align-default">
+<img alt="../../_images/base_a.svg" src="../../_images/base_a.svg" /></div>
+<p>Теперь создадим новый массив <code class="docutils literal notranslate"><span class="pre">B</span></code> путем изменения формы массива <code class="docutils literal notranslate"><span class="pre">A</span></code> методом <code class="docutils literal notranslate"><span class="pre">reshape</span></code>. Убедимся, что он использует те же данные.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
@@ -1415,7 +1619,8 @@ matrix([[1., 1., 1.],
 </div>
 <p>Итак, массив содержит те же числа, но расположенные уже по строкам матрицы размера <span class="math notranslate nohighlight">\(2 \times 3\)</span>.
 Напротив флага <code class="docutils literal notranslate"><span class="pre">&quot;OWNSDATA&quot;</span></code> стоит <code class="docutils literal notranslate"><span class="pre">False</span></code>, т.е. данными он не владеет. Картинка ниже объясняет, что произошло. Создался новый объект с новыми метаданными, который ссылается на тот же массив с данными. Эти новые метаданные указывают, что массив данных следует интерпретировать так, как будто в нём хранится матрица размера <span class="math notranslate nohighlight">\(2 \times 3\)</span>, записанная по строкам друг за другом.</p>
-<p><img alt="image" src="../../_images/view_b.svg" /></p>
+<div class="figure align-default">
+<img alt="../../_images/view_b.svg" src="../../_images/view_b.svg" /></div>
 <p>Создадим транспонированную матрицу методом <code class="docutils literal notranslate"><span class="pre">transpose</span></code> и убедимся, что она тоже использует данные исходного массива <code class="docutils literal notranslate"><span class="pre">A</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1437,7 +1642,8 @@ matrix([[1., 1., 1.],
 </div>
 <p>Матрица <code class="docutils literal notranslate"><span class="pre">C</span></code> — транспонирование матрицы <code class="docutils literal notranslate"><span class="pre">B</span></code>. Под неё тоже не выделился новый массив с данными, а только лишь новые метаданные.
 В данном случае, метаданные указывают, что в массиве хранится матрица размера <span class="math notranslate nohighlight">\(3 \times 2\)</span>, которая расположена в памяти таким образом, что первый индекс меняется быстрее второго (т.е. как бы по столбцам).</p>
-<p><img alt="image" src="../../_images/view_c.svg" /></p>
+<div class="figure align-default">
+<img alt="../../_images/view_c.svg" src="../../_images/view_c.svg" /></div>
 <p>Продемонстрируем, что изменение элементов любого из этих массивов повлияет на остальные.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
