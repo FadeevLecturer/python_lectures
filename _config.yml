@@ -26,6 +26,10 @@ notebook_interface            : "notebook"
 
 only_build_toc_files: true
 
+sphinx:
+  config:
+    html_extra_path: ['assets']
+
 # Launch button settings
 repository:
   url: https://github.com/FadeevLecturer/python_lectures
