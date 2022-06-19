@@ -725,6 +725,28 @@ const thebe_selector_output = ".output, .cell_output"
     </span>
    </code>
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     # 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     # 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     # 3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     # 4
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -792,6 +814,28 @@ const thebe_selector_output = ".output, .cell_output"
     </span>
    </code>
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     # 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     # 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     # 3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     # 4
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -809,11 +853,11 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>               <span class="c1"># a - переменная типа int</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
-<span class="n">a</span> <span class="o">=</span> <span class="mf">0.</span>              <span class="c1"># теперь a - переменная типа float</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mf">0.0</span>             <span class="c1"># теперь a - переменная типа float</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 <span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;zero&quot;</span>          <span class="c1"># теперь a - переменная типа str</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
-<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="s2">&quot;zero&quot;</span><span class="p">]</span> <span class="c1"># теперь a - переменная типа list</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">&quot;zero&quot;</span><span class="p">]</span> <span class="c1"># теперь a - переменная типа list</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -885,7 +929,11 @@ ABCD
 <span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">*&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">a</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Чтобы провернуть трюк, необходимо сначала поменять тип указателя, для чего используется <a class="reference external" href="https://en.cppreference.com/w/cpp/language/reinterpret_cast">reinterpret_cast</a>, т.к. <code class="docutils literal notranslate"><span class="pre">C++</span></code> — статические типизированный язык программирования и компилятор бы ругался на</p>
+<p>Чтобы провернуть такой трюк, необходимо сначала поменять тип указателя, для чего используется <a class="reference external" href="https://en.cppreference.com/w/cpp/language/reinterpret_cast">reinterpret_cast</a>, т.к. <code class="docutils literal notranslate"><span class="pre">C++</span></code> — статически типизированный язык программирования и компилятор бы ругался на несоответствие типов.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Такие возможности языка <code class="docutils literal notranslate"><span class="pre">C/C++</span></code> приводятся здесь только с целью продемонстрировать механизм работы переменных в <code class="docutils literal notranslate"><span class="pre">C/C++</span></code>. В настоящих программах рекомендуется избегать таких приёмов.</p>
+</div>
 </div>
 <div class="section" id="id4">
 <h3>// 3<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
@@ -915,7 +963,7 @@ ABCD
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"> </span>
 </pre></div>
 </div>
-<p>Т.к. компилятор знает, что <code class="docutils literal notranslate"><span class="pre">a</span></code> — переменная типа <code class="docutils literal notranslate"><span class="pre">int</span></code> и <code class="docutils literal notranslate"><span class="pre">A</span></code> — значение типа <code class="docutils literal notranslate"><span class="pre">char</span></code>, которое может быть безопасно без потерь приведено к <code class="docutils literal notranslate"><span class="pre">int</span></code>, то он допускает эту операцию. При этом в область памяти, соответствующую переменной <code class="docutils literal notranslate"><span class="pre">a</span></code>, записываются новые данные.</p>
+<p>Из-за того, что <code class="docutils literal notranslate"><span class="pre">C/C++</span></code> — статически типизированный язык, то компилятор знает, что <code class="docutils literal notranslate"><span class="pre">a</span></code> — переменная типа <code class="docutils literal notranslate"><span class="pre">int</span></code> и <code class="docutils literal notranslate"><span class="pre">A</span></code> — значение типа <code class="docutils literal notranslate"><span class="pre">char</span></code>, которое может быть без потерь приведено к <code class="docutils literal notranslate"><span class="pre">int</span></code>. Исходя из этой информации он допускает эту операцию, неявно приводя символьное значение <code class="docutils literal notranslate"><span class="pre">'A'</span></code> к целочисленному значению 65 и записывая в соответствующую переменной <code class="docutils literal notranslate"><span class="pre">a</span></code> область памяти это значение.</p>
 </div>
 <div class="section" id="id6">
 <h3>Итого<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
@@ -936,51 +984,130 @@ ABCD
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>В python работать с адресами памяти напрямую невозможно. Единственное исключение составляет функция <code class="docutils literal notranslate"><span class="pre">id</span></code>, которая в некоторых реализациях возвращает адрес памяти (целое число), где хранится объект. Эта функция нужна только для того, чтобы всегда можно было выяснить, ссылаются ли два имени на один и тот же объект. Обратится по этому адресу средствами <code class="docutils literal notranslate"><span class="pre">python</span></code> невозможно.</p>
+<p>В <code class="docutils literal notranslate"><span class="pre">python</span></code> работать с адресами памяти напрямую невозможно. Единственное исключение составляет функция <code class="docutils literal notranslate"><span class="pre">id</span></code>, которая в некоторых реализациях возвращает адрес памяти (целое число), где хранится объект. Эта функция нужна только для того, чтобы всегда можно было выяснить, ссылаются ли два имени на один и тот же объект. Обратится по этому адресу средствами <code class="docutils literal notranslate"><span class="pre">python</span></code> невозможно.</p>
 </div>
 <p>Рассмотрим следующий код в <code class="docutils literal notranslate"><span class="pre">python</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>       <span class="c1"># 1</span>
-<span class="n">a</span> <span class="o">=</span> <span class="mi">42</span>      <span class="c1"># 2</span>
-<span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;s&quot;</span>     <span class="c1"># 3</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>               <span class="c1"># a - переменная типа int</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mf">0.</span>              <span class="c1"># теперь a - переменная типа float</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;zero&quot;</span>          <span class="c1"># теперь a - переменная типа str</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="s2">&quot;zero&quot;</span><span class="p">]</span> <span class="c1"># теперь a - переменная типа list</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 &lt;class &#39;int&#39;&gt;
+0.0 &lt;class &#39;float&#39;&gt;
+zero &lt;class &#39;str&#39;&gt;
+[0, 0.0, &#39;zero&#39;] &lt;class &#39;list&#39;&gt;
 </pre></div>
 </div>
 </div>
 </div>
-<p>Первая инструкция <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">0</span></code>. Сначала вычисляется значение выражения справа: создается объект типа <code class="docutils literal notranslate"><span class="pre">int</span></code> содержащий в себе значение <code class="docutils literal notranslate"><span class="pre">0</span></code>. Так как имени <code class="docutils literal notranslate"><span class="pre">a</span></code> до этого объявлено не было, то такое имя создаётся и связывается с объектом справа.</p>
+<div class="section" id="id7">
+<h3># 1<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>Первая инструкция <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">0</span></code>.</p>
+<ol class="simple">
+<li><p>Сначала вычисляется значение выражения справа: создается объект целочисленного типа <code class="docutils literal notranslate"><span class="pre">int</span></code> содержащий в себе значение <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
+<li><ol class="simple">
+<li><p>Так как имени <code class="docutils literal notranslate"><span class="pre">a</span></code> до этого объявлено не было, то такое имя создаётся и связывается с объектом справа.</p></li>
+</ol>
+</li>
+</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>       <span class="c1"># 1</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>               <span class="c1"># a - переменная типа int</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 &lt;class &#39;int&#39;&gt;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="figure align-default">
-<img alt="../../_images/a0.svg" src="../../_images/a0.svg" /></div>
-<p>Вторая инструкция <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">42</span></code>. Создаётся объект типа <code class="docutils literal notranslate"><span class="pre">int</span></code>, содержащий значение <code class="docutils literal notranslate"><span class="pre">42</span></code>. Имя <code class="docutils literal notranslate"><span class="pre">a</span></code> связывается с новым объектом.</p>
+<img alt="../../_images/a_int.svg" src="../../_images/a_int.svg" /></div>
+</div>
+<div class="section" id="id8">
+<h3># 2<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>Вторая инструкция <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">0.0</span></code>.</p>
+<ol class="simple">
+<li><p>Создаётся объект типа <code class="docutils literal notranslate"><span class="pre">float</span></code>, содержащий значение <code class="docutils literal notranslate"><span class="pre">0.0</span></code>.</p></li>
+<li><p>Т.к. Имя <code class="docutils literal notranslate"><span class="pre">a</span></code> уже существует, то оно связывается с новым объектом.</p></li>
+</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">42</span>      <span class="c1"># 2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">0.0</span>            <span class="c1"># теперь a - переменная типа float</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="figure align-default" id="ais42">
-<img alt="../../_images/a42.svg" src="../../_images/a42.svg" /></div>
-<p>Третья инструкция <code class="docutils literal notranslate"><span class="pre">a=&quot;s&quot;</span></code>. Создаётся объект типа <code class="docutils literal notranslate"><span class="pre">str</span></code>, содержащий значение <code class="docutils literal notranslate"><span class="pre">&quot;s&quot;</span></code>. Имя <code class="docutils literal notranslate"><span class="pre">a</span></code> связывается связывается с новым объектом, который имеет другой тип.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;s&quot;</span>     <span class="c1"># 3</span>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0 &lt;class &#39;float&#39;&gt;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="figure align-default">
-<img alt="../../_images/as.svg" src="../../_images/as.svg" /></div>
+<img alt="../../_images/a_float.svg" src="../../_images/a_float.svg" /></div>
+</div>
+<div class="section" id="id9">
+<h3># 3<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>Третья инструкция <code class="docutils literal notranslate"><span class="pre">a=&quot;zero&quot;</span></code>.</p>
+<ol class="simple">
+<li><p>Создаётся объект строкового типа <code class="docutils literal notranslate"><span class="pre">str</span></code>, содержащий значение <code class="docutils literal notranslate"><span class="pre">&quot;zero&quot;</span></code>.</p></li>
+<li><p>Существующее имя <code class="docutils literal notranslate"><span class="pre">a</span></code> связывается связывается с новым объектом, который имеет другой тип.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;zero&quot;</span>          <span class="c1"># теперь a - переменная типа str</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>zero &lt;class &#39;str&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="figure align-default">
+<img alt="../../_images/a_str.svg" src="../../_images/a_str.svg" /></div>
+</div>
+<div class="section" id="id10">
+<h3># 4<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>Четвертая инструкция <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">[0,</span> <span class="pre">0.0,</span> <span class="pre">&quot;zero&quot;]</span></code>.</p>
+<ol class="simple">
+<li><p>Создаётся три объекта: целочисленный объект <code class="docutils literal notranslate"><span class="pre">0</span></code>, действительнозначный объект <code class="docutils literal notranslate"><span class="pre">0.0</span></code> и строковый объект <code class="docutils literal notranslate"><span class="pre">&quot;zero&quot;</span></code>.</p></li>
+<li><p>Создаётся объект спискового объект длинны 3, ячейки которого связываются с объектами, созданными на предыдущем этапе.</p></li>
+<li><p>Существующее имя <code class="docutils literal notranslate"><span class="pre">a</span></code> связывается связывается с новым объектом, который имеет другой тип.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">&quot;zero&quot;</span><span class="p">]</span> <span class="c1"># теперь a - переменная типа list</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 0.0, &#39;zero&#39;] &lt;class &#39;list&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="figure align-default">
+<img alt="../../_images/a_list.svg" src="../../_images/a_list.svg" /></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Иногда говорят, что тип объекта “живёт” в самом объекте, а не в “переменной”.</p>
+</div>
 </div>
 </div>
 </div>
