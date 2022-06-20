@@ -792,17 +792,26 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Создаются объекты в результате вычисления выражений <code class="docutils literal notranslate"><span class="pre">python</span></code>. Рассмотрим следующую строку кода.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1001</span> <span class="o">+</span> <span class="mi">1002</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1001</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;1002&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>Когда интерпретатор исполняет исходный код, он сначала вычисляет выражение справа от оператора равно.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">1001</span> <span class="o">+</span> <span class="mi">1002</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">1001</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;1002&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Чтобы его вычислить, сначала вычисляются подвыражения <code class="docutils literal notranslate"><span class="pre">1001</span></code> и <code class="docutils literal notranslate"><span class="pre">1002</span></code>, оба из которых являются <a class="reference external" href="https://docs.python.org/3/reference/lexical_analysis.html#literals">литералами</a> целых чисел, что приводит к созданию целочисленных объектов с значениями 1001 и 1002.</p>
-<p>Затем интерпретатор видит, что к этим целочисленным объектами необходимо применить операцию сложения, что приводит к созданию ещё одного целочисленного объекта с значением 2003.</p>
+<p>Так как это составное выражение, то чтобы его вычислить, сначала вычисляются подвыражения <code class="docutils literal notranslate"><span class="pre">1001</span></code> и <code class="docutils literal notranslate"><span class="pre">int(&quot;1002&quot;)</span></code>.</p>
+<ol class="simple">
+<li><p>Первое из них является <a class="reference external" href="https://docs.python.org/3/reference/lexical_analysis.html#literals">литералом</a> целого числа 1001. Его интерпретация приводит к целочисленного объекта с значением 1001.</p></li>
+<li><p>Второе выражение тоже является составным.</p>
+<ol class="simple">
+<li><p>Сначала вычисляется выражение <code class="docutils literal notranslate"><span class="pre">&quot;1002&quot;</span></code>, указанное в качестве аргумента функции <code class="docutils literal notranslate"><span class="pre">int</span></code>. Это выражение является литералом строки, а значит его интерпретация приводит к созданию строкового объекта с значением <code class="docutils literal notranslate"><span class="pre">&quot;1002&quot;</span></code>.</p></li>
+<li><p>Далее этот объект передаётся на вход функции <code class="docutils literal notranslate"><span class="pre">int</span></code>, что приводит к созданию целочисленного объекта с значением <code class="docutils literal notranslate"><span class="pre">1002</span></code>.</p></li>
+</ol>
+</li>
+</ol>
+<p>Затем интерпретатор применяет операцию сложения к объектам целочисленного типа, что приводит к созданию ещё одного целочисленного объекта с значением 2003.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -815,8 +824,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<p>Далее имя <code class="docutils literal notranslate"><span class="pre">x</span></code> связывается с эти объектом. Итого, в результате вычисления этой строки кода была создано 3 объекта. Но как объекты в <code class="docutils literal notranslate"><span class="pre">python</span></code> удаляются?</p>
-<p>Прежде чем объяснить принцип удаления объектов из памяти, рассмотрим ключевой механизм для этого процесса.</p>
+<p>Далее имя <code class="docutils literal notranslate"><span class="pre">x</span></code> связывается с эти объектом. Итого, в результате вычисления этой строки кода была создано 3 объекта.</p>
+<div class="figure align-default">
+<img alt="../../_images/expressions.svg" src="../../_images/expressions.svg" /></div>
+<p>Но как объекты в <code class="docutils literal notranslate"><span class="pre">python</span></code> удаляются? Прежде чем объяснить принцип удаления объектов из памяти, рассмотрим ключевой механизм для этого процесса.</p>
 </div>
 <div class="section" id="id3">
 <h2>Механизм подсчета ссылок на объект<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
@@ -826,7 +837,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p class="admonition-title">Note</p>
 <p>Важно учесть, что когда мы передаем объект на вход этой функции, создаётся временная ссылка на этот объект внутри неё, что приводит к тому, что она возвращает значение на 1 больше, чем можно было ожидать.</p>
 </div>
-<p>Т.к. <code class="docutils literal notranslate"><span class="pre">python</span></code> проводит ряд оптимизация при работе с неизменяемыми объектами, то для чистоты эксперимента создадим списковый объект, свяжем его с именем <code class="docutils literal notranslate"><span class="pre">a</span></code> и выведем количество ссылок на него.</p>
+<p>Так как <code class="docutils literal notranslate"><span class="pre">python</span></code> проводит ряд оптимизация при работе с неизменяемыми объектами (таких, как <a class="reference external" href="https://en.wikipedia.org/wiki/String_interning">интернирование строк</a> и малых целых чисел), то для чистоты эксперимента создадим изменяемый объект — пустой список, свяжем его с именем <code class="docutils literal notranslate"><span class="pre">a</span></code> и выведем количество ссылок на него.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">getrefcount</span>
@@ -843,6 +854,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>Видим, что количество ссылок на этот объект равняется двум: одна из этих ссылок — имя <code class="docutils literal notranslate"><span class="pre">a</span></code>, другая — временная ссылка, созданная внутри функции <code class="docutils literal notranslate"><span class="pre">getrefcount</span></code> при передаче этого объекта в качестве аргумента.</p>
+<div class="figure align-default">
+<img alt="../../_images/refcount_1.svg" src="../../_images/refcount_1.svg" /></div>
 <p>Создадим ещё пару ссылок на этот объект и снова напечатаем количество ссылок на список.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -861,6 +874,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>Видим, что счетчик вырастает на 1, каждый раз, когда мы связываем новое имя с исходным объектом.</p>
+<div class="figure align-default">
+<img alt="../../_images/refcount_2.svg" src="../../_images/refcount_2.svg" /></div>
 <p>Кроме имен программы на объект могут ссылаться другие объект (или даже тот же самый в предельном случае). Например, список хранит в себе ссылки на свои элементы.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -876,12 +891,14 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>Созданный список <code class="docutils literal notranslate"><span class="pre">L=[a,</span> <span class="pre">a,</span> <span class="pre">a]</span></code> содержит 3 ссылки на исходный список, что отражается на увеличении счетчика ссылок.</p>
+<div class="figure align-default">
+<img alt="../../_images/refcount_3.svg" src="../../_images/refcount_3.svg" /></div>
 <p>Также временные ссылки создаются при передаче объекта в качестве аргумента функции. Именно этим и объясняется увеличенное значение, возвращаемое функцией <code class="docutils literal notranslate"><span class="pre">getrefcount</span></code>.</p>
 </div>
 <div class="section" id="python-del">
 <h2>Удаление объектов в <code class="docutils literal notranslate"><span class="pre">python</span></code>. Ключевое слово <code class="docutils literal notranslate"><span class="pre">del</span></code><a class="headerlink" href="#python-del" title="Permalink to this headline">¶</a></h2>
-<p>Механизм подсчета ссылок используется для определения того, какие объекты можно удалять. Действительно, если ссылок на объект нет, то значит он недостижим для программы и его можно смело удалять.</p>
-<p>Чтобы счетчик ссылок обнулился, необходимо чтобы пропали все ссылки на этот объект. Такое может происходить по разным причинам. Например, если связать какое-то существующее в программе имя с новым объектом, то пропадёт одна ссылка на объект, на которое ссылалось это имя прежде.</p>
+<p>Механизм подсчета ссылок используется для определения того, какие объекты можно удалять. Действительно, если ссылок на объект нет, то значит он <strong>недостижим</strong> для программы и его можно смело удалять.</p>
+<p>Чтобы счетчик ссылок обнулился, необходимо чтобы пропали все ссылки на этот объект. Такое может происходить по разным причинам. Например, если связать какое-то существующее в программе имя с новым объектом, то пропадёт одна ссылка на объект, на которое это имя ссылалось прежде.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="mi">0</span>
@@ -896,7 +913,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>Видим, что связывание имени <code class="docutils literal notranslate"><span class="pre">b</span></code> с целочисленным объектом <code class="docutils literal notranslate"><span class="pre">0</span></code> привело к тому, что количество ссылок на пустой список, на который ссылалось имя <code class="docutils literal notranslate"><span class="pre">b</span></code> прежде, упало на 1.</p>
-<p>Кроме того, можно просто удалить имя из программы, а вместе с этим и ссылку на объект, на которое это имя ссылается, с помощью ключевого слова <code class="docutils literal notranslate"><span class="pre">del</span></code>. Чтобы удалить имя <code class="docutils literal notranslate"><span class="pre">name</span></code> из текущего пространства имён, используется следующий синтаксис.</p>
+<div class="figure align-default">
+<img alt="../../_images/refcount_4.svg" src="../../_images/refcount_4.svg" /></div>
+<p>Кроме того с помощью ключевого слова <code class="docutils literal notranslate"><span class="pre">del</span></code> можно просто удалить имя из программы, а вместе с этим и ссылку на объект, на которое это имя ссылается. Чтобы удалить имя <code class="docutils literal notranslate"><span class="pre">name</span></code> из текущего пространства имён, используется следующий синтаксис.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">name</span>
 </pre></div>
 </div>
@@ -914,6 +933,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
+<div class="figure align-default">
+<img alt="../../_images/refcount_5.svg" src="../../_images/refcount_5.svg" /></div>
 <p>Локальные для функции имена удаляются автоматически при выходе из функции.</p>
 <p>Если удаляется объект, то удаляются все его ссылки на другие объект. Чтобы продемонстрировать этот эффект, удалим список <code class="docutils literal notranslate"><span class="pre">L</span></code> и убедимся, что количество ссылок на <code class="docutils literal notranslate"><span class="pre">a</span></code> упадёт на 3.</p>
 <div class="cell docutils container">
@@ -929,6 +950,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
+<div class="figure align-default">
+<img alt="../../_images/refcount_6.svg" src="../../_images/refcount_6.svg" /></div>
 </div>
 <div class="section" id="id4">
 <h2>Сборщик мусора<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
@@ -972,7 +995,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Положительная сторона такого подхода заключается в том, что удаление объектов происходит полностью автоматически и у программиста нет необходимости удалять все объекты самостоятельно. Отрицательная — накладные расходы: помимо интересующей пользователя программы параллельно работает дополнительный процесс, который может вызвать небольшие замедления в её работе.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Модуль <a class="reference external" href="https://docs.python.org/3/library/gc.html">gc</a> предоставляет интерфейс к взаимодействию с сборщиком мусора. В частности, можно отключить автоматическую сборку мусора, например, если производительность важнее раздувания памяти.</p>
+<p>Модуль <a class="reference external" href="https://docs.python.org/3/library/gc.html">gc</a> предоставляет интерфейс к взаимодействию с сборщиком мусора. В частности, можно отключить автоматическую сборку мусора методом <a class="reference external" href="https://docs.python.org/3/library/gc.html#gc.disable">disable</a>, например, если сценарий программы не подразумевает создание циклических структур, или если стабильная производительность программы важнее потенциальной утечки программы. Кроме отключения сборщика мусора, с помощью этого модуля можно в ручную его запускать методом <a class="reference external" href="https://docs.python.org/3/library/gc.html#gc.collect">collect</a>.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
