@@ -977,7 +977,7 @@ Wall time: 32.3 s
 <p><strong>Пример 1. Скаляр и массив.</strong></p>
 <p>Начнем с самого простого примера. Если в арифметическом выражении участвует массив любой формы и скаляр, то можно представить, что скаляр расширяется до массива такой же формы, у которого все элементы равны значению скаляра.</p>
 <div class="figure align-default">
-<img alt="_static/lecture_specific/vectorization/broadcasting_1.svg" src="_static/lecture_specific/vectorization/broadcasting_1.svg" /></div>
+<img alt="../../_images/broadcasting_1.svg" src="../../_images/broadcasting_1.svg" /></div>
 <p>На картинке выше массив <code class="docutils literal notranslate"><span class="pre">a</span></code> из трех элементов умножается на скаляр <code class="docutils literal notranslate"><span class="pre">b</span></code> (который можно представить в виде массива из одного элемента).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1059,7 +1059,7 @@ Wall time: 32.3 s
 <p><strong>Пример 2. Матрица и вектор-строка</strong>.</p>
 <p>Если складываются (умножаются и т.п.) двумерный и одномерный массивы, то операция возможна, если количество столбцов в матрице соответствует количеству элементов в одномерном массиве.</p>
 <div class="figure align-default">
-<img alt="_static/lecture_specific/vectorization/broadcasting_2.svg" src="_static/lecture_specific/vectorization/broadcasting_2.svg" /></div>
+<img alt="../../_images/broadcasting_2.svg" src="../../_images/broadcasting_2.svg" /></div>
 <p>В примере выше складываются массивы с формами <code class="docutils literal notranslate"><span class="pre">(4,</span> <span class="pre">3)</span></code> и <code class="docutils literal notranslate"><span class="pre">(3,</span> <span class="pre">)</span></code>, что эквивалентно записи <code class="docutils literal notranslate"><span class="pre">(4,</span> <span class="pre">3)</span></code> и <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">3)</span></code>. Формы совместимы и результат выходит такой, будто одномерный массив расширяется до двумерного массива с формой <code class="docutils literal notranslate"><span class="pre">(4,</span> <span class="pre">3)</span></code> “по столбцам”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1087,7 +1087,7 @@ Wall time: 32.3 s
 </div>
 </div>
 <div class="figure align-default">
-<img alt="_static/lecture_specific/vectorization/broadcasting_3.svg" src="_static/lecture_specific/vectorization/broadcasting_3.svg" /></div>
+<img alt="../../_images/broadcasting_3.svg" src="../../_images/broadcasting_3.svg" /></div>
 <p>А в этом примере формы не совместимы.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1168,7 +1168,8 @@ Wall time: 32.3 s
 </div>
 <p><strong>Пример 3. Вектор столбец и вектор строка</strong></p>
 <p>Если складывать вектор столбец и вектор строку, то каждая из них как бы расширится до матрицы по строкам и по столбцам.</p>
-<p><img alt="image" src="_static/lecture_specific/vectorization/broadcasting_4.svg" /></p>
+<div class="figure align-default">
+<img alt="../../_images/broadcasting_4.svg" src="../../_images/broadcasting_4.svg" /></div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">])[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
