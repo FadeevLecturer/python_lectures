@@ -7,7 +7,7 @@
    viewBox="0 0 347.03808 240.90753"
    version="1.1"
    id="svg5"
-   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
    sodipodi:docname="base_a.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -24,12 +24,12 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="0.69664706"
-     inkscape:cx="312.92747"
-     inkscape:cy="647.38664"
-     inkscape:window-width="1920"
-     inkscape:window-height="986"
-     inkscape:window-x="-11"
-     inkscape:window-y="-11"
+     inkscape:cx="312.20974"
+     inkscape:cy="531.83315"
+     inkscape:window-width="1600"
+     inkscape:window-height="837"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1"
      inkscape:snap-object-midpoints="true"
@@ -342,28 +342,28 @@
        id="text9224-3"><tspan
          sodipodi:role="line"
          id="tspan9222-58"
-         style="font-size:11.2889px;stroke-width:0.264583"
+         style="font-weight:bold;font-size:11.2889px;stroke-width:0.264583"
          x="2.2288213"
          y="-25.393055">metadata</tspan><tspan
          sodipodi:role="line"
-         style="font-size:11.2889px;stroke-width:0.264583"
+         style="font-weight:bold;font-size:11.2889px;fill:#008000;stroke-width:0.264583"
          x="2.2288213"
-         y="-11.281929"
+         y="-11.23358"
          id="tspan19379">base</tspan><tspan
          sodipodi:role="line"
          style="font-size:11.2889px;stroke-width:0.264583"
          x="2.2288213"
-         y="2.829196"
+         y="2.9258955"
          id="tspan798">shape: (6, )</tspan><tspan
          sodipodi:role="line"
          style="font-size:11.2889px;stroke-width:0.264583"
          x="2.2288213"
-         y="16.940321"
+         y="17.037022"
          id="tspan9566">data</tspan><tspan
          sodipodi:role="line"
          style="font-size:11.2889px;stroke-width:0.264583"
          x="2.2288213"
-         y="31.051447"
+         y="31.148146"
          id="tspan13828">...</tspan></text>
     <text
        xml:space="preserve"
@@ -448,7 +448,9 @@
          style="font-size:11.2889px;stroke-width:0.264583"
          x="-2.3961129"
          y="55.615578"
-         id="tspan798-4">data, dtype: np.int</tspan></text>
+         id="tspan798-4"><tspan
+   style="font-weight:bold"
+   id="tspan7613">data</tspan>, dtype: np.int</tspan></text>
     <rect
        style="fill:#000000;fill-opacity:0;fill-rule:evenodd;stroke:#000000;stroke-width:0.974967;stroke-linecap:square;stroke-linejoin:round"
        id="rect11026"
@@ -479,7 +481,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:64px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;white-space:pre;shape-inside:url(#rect42224);fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="-528.24414"
          y="-155.63758"
-         id="tspan6087">Имена</tspan></text>
+         id="tspan1031">Имена</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,140.66491,-48.432791)"
@@ -487,7 +489,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:64px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;white-space:pre;shape-inside:url(#rect42224-6);fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="-528.24414"
          y="-155.63758"
-         id="tspan6089">Объекты
+         id="tspan1033">Объекты
 </tspan></text>
     <text
        xml:space="preserve"
@@ -496,7 +498,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:64px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;white-space:pre;shape-inside:url(#rect42224-7);fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="-528.24414"
          y="-155.63758"
-         id="tspan6091">A</tspan></text>
+         id="tspan1035">A</tspan></text>
     <circle
        id="path48678"
        style="fill:#000000;stroke:none;stroke-width:0.264583"
@@ -504,7 +506,7 @@
        cy="-1.0127791"
        r="0.39687499" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.765;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow1Lstart)"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow1Lstart)"
        d="M -4.9480348,-1.0127792 H -85.071258"
        id="path48680" />
   </g>
