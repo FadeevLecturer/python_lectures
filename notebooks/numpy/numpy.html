@@ -58,6 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Векторизация" href="vectorization.html" />
@@ -280,6 +281,11 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/libraries.html">
+   Построение графиков и визуализация данных
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../visualization/matplotlib.html">
    matplotlib и другие графические библиотеки
@@ -888,8 +894,8 @@ const thebe_selector_output = ".output, .cell_output"
 <h2>Зачем нужен <code class="docutils literal notranslate"><span class="pre">NumPy</span></code><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>Необходимость в специальной библиотеке для работы с большими массивами чисел возникает из-за скорости работы <code class="docutils literal notranslate"><span class="pre">python</span></code>. За гибкость, выразительность, динамическую типизацию и многие другие достоинства, <code class="docutils literal notranslate"><span class="pre">python</span></code> приходится платить скоростью: код написанные на <code class="docutils literal notranslate"><span class="pre">python</span></code>, практически всегда будет работать медленнее, чем аналогичный код, написанный на <code class="docutils literal notranslate"><span class="pre">C/C++</span></code>. Проще всего продемонстрировать это на примере с громоздкими циклами.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="59a1ec1c-cdc4-489b-9856-eee1fa231eb0" name="bcd5ee65-ec71-40e5-abdb-f7f24c2c54c1" type="radio">
-</input><label class="tabbed-label" for="59a1ec1c-cdc4-489b-9856-eee1fa231eb0">
+<input checked="checked" id="f1271502-026e-4918-9bd2-2ce98fa97741" name="857957a7-94c0-4009-b647-d5fb71506691" type="radio">
+</input><label class="tabbed-label" for="f1271502-026e-4918-9bd2-2ce98fa97741">
 c++</label><div class="tabbed-content docutils">
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;chrono&gt;</span><span class="cp"></span>
@@ -924,8 +930,8 @@ c++</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="ef5574ec-532c-4279-8d82-65434bba9303" name="bcd5ee65-ec71-40e5-abdb-f7f24c2c54c1" type="radio">
-</input><label class="tabbed-label" for="ef5574ec-532c-4279-8d82-65434bba9303">
+<input id="5d535a4c-c681-4890-8c77-27e1bf66647a" name="857957a7-94c0-4009-b647-d5fb71506691" type="radio">
+</input><label class="tabbed-label" for="5d535a4c-c681-4890-8c77-27e1bf66647a">
 python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">perf_counter</span>
 <span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">uniform</span>

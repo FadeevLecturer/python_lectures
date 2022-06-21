@@ -58,6 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="События" href="event.html" />
@@ -280,6 +281,11 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/libraries.html">
+   Построение графиков и визуализация данных
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../visualization/matplotlib.html">
    matplotlib и другие графические библиотеки
@@ -1109,8 +1115,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Макет сам распределяет пространство, которое будет занимать виджет исходя из геометрии окна, политики размера каждого из виджетов (<a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QSizePolicy.html">QSizePolicy</a>, который среди прочего определяем минимальный размер виджета) и коэффициента растяжения (<code class="docutils literal notranslate"><span class="pre">stretching</span></code>), который определяет насколько жадно этот виджет будет занимать пространство. По умолчанию под каждый виджет отводится одинаковое количество места, но если указать параметр <code class="docutils literal notranslate"><span class="pre">stretch</span></code> (его принимают все три вышеописанных метода), то виджета с большим значением будет занимать больше пространства.</p>
 <p>В качестве примера, создадим два виджета <code class="docutils literal notranslate"><span class="pre">QLabel</span></code>, положим в них картинку методом <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QLabel.html#PySide6.QtWidgets.PySide6.QtWidgets.QLabel.setPixmap">setPixmap</a>, который ожидает на вход объект <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtGui/QPixmap.html">QPixmap</a>, и добавим их в макет.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="03ccfcca-6f0d-4dd4-9de5-61ebda610b0d" name="599216fd-980c-4a18-a7a2-9a8f33f7f7ec" type="radio">
-</input><label class="tabbed-label" for="03ccfcca-6f0d-4dd4-9de5-61ebda610b0d">
+<input checked="checked" id="fd221706-6751-49d4-b44f-0d03cfa197ea" name="e0849628-893e-4453-ac12-e6580c6b3c16" type="radio">
+</input><label class="tabbed-label" for="fd221706-6751-49d4-b44f-0d03cfa197ea">
 QHBoxLayout</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">os</span>
@@ -1159,8 +1165,8 @@ QHBoxLayout</label><div class="tabbed-content docutils">
 <img alt="../../_images/HBoxLayout.png" src="../../_images/HBoxLayout.png" />
 </div>
 </div>
-<input id="7b8ee46e-22e9-430e-86e3-1ac7c8663054" name="599216fd-980c-4a18-a7a2-9a8f33f7f7ec" type="radio">
-</input><label class="tabbed-label" for="7b8ee46e-22e9-430e-86e3-1ac7c8663054">
+<input id="e570a73e-ad2b-48a5-a46d-460d6867f53e" name="e0849628-893e-4453-ac12-e6580c6b3c16" type="radio">
+</input><label class="tabbed-label" for="e570a73e-ad2b-48a5-a46d-460d6867f53e">
 QVBoxLayout</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">os</span>
