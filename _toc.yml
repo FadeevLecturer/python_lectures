@@ -35,6 +35,7 @@ parts:
       - file: notebooks/python/json
   - caption: "Лекция №5"
     chapters:
+      - file: notebooks/visualization/libraries
       - file: notebooks/visualization/matplotlib
       - file: notebooks/visualization/matplotlib_animation
       - file: notebooks/scipy/scipy
