@@ -37,6 +37,7 @@ parts:
     chapters:
       - file: notebooks/visualization/libraries
       - file: notebooks/visualization/matplotlib
+      - file: notebooks/visualization/details
       - file: notebooks/visualization/matplotlib_animation
       - file: notebooks/scipy/scipy
       - file: notebooks/scipy/linalg
