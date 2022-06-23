@@ -2,10 +2,7 @@
 <!DOCTYPE html>
 
 <html>
-  
-<head>
-    <link rel="icon" type="image/png" href="..\..\favicon.png"/>
-
+  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Знакомство с NumPy &#8212; Практикум по компьютерным технологиям</title>
@@ -54,11 +51,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Векторизация" href="vectorization.html" />
@@ -903,8 +899,8 @@ const thebe_selector_output = ".output, .cell_output"
 <h2>Зачем нужен <code class="docutils literal notranslate"><span class="pre">NumPy</span></code><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>Необходимость в специальной библиотеке для работы с большими массивами чисел возникает из-за скорости работы <code class="docutils literal notranslate"><span class="pre">python</span></code>. За гибкость, выразительность, динамическую типизацию и многие другие достоинства, <code class="docutils literal notranslate"><span class="pre">python</span></code> приходится платить скоростью: код написанные на <code class="docutils literal notranslate"><span class="pre">python</span></code>, практически всегда будет работать медленнее, чем аналогичный код, написанный на <code class="docutils literal notranslate"><span class="pre">C/C++</span></code>. Проще всего продемонстрировать это на примере с громоздкими циклами.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="ff8c3eac-a1e5-414f-b8c1-b28871ff1bc4" name="d0819bf4-590f-4103-9f58-5102d83ae209" type="radio">
-</input><label class="tabbed-label" for="ff8c3eac-a1e5-414f-b8c1-b28871ff1bc4">
+<input checked="checked" id="9a5fab69-759d-422b-8764-9a59e639f8a1" name="f9634955-ee94-41dc-99aa-7663a43ace29" type="radio">
+</input><label class="tabbed-label" for="9a5fab69-759d-422b-8764-9a59e639f8a1">
 c++</label><div class="tabbed-content docutils">
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;chrono&gt;</span><span class="cp"></span>
@@ -939,8 +935,8 @@ c++</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="a516ad66-94bf-4900-bec7-925476dcdf33" name="d0819bf4-590f-4103-9f58-5102d83ae209" type="radio">
-</input><label class="tabbed-label" for="a516ad66-94bf-4900-bec7-925476dcdf33">
+<input id="a346a8f8-72d5-46c1-97e1-392f053beb04" name="f9634955-ee94-41dc-99aa-7663a43ace29" type="radio">
+</input><label class="tabbed-label" for="a346a8f8-72d5-46c1-97e1-392f053beb04">
 python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">perf_counter</span>
 <span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">uniform</span>

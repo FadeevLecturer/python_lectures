@@ -2,10 +2,7 @@
 <!DOCTYPE html>
 
 <html>
-  
-<head>
-    <link rel="icon" type="image/png" href="..\..\favicon.png"/>
-
+  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Пользовательские исключения &#8212; Практикум по компьютерным технологиям</title>
@@ -55,8 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Стратегии контроля ошибок" href="LBYL_vs_EAFP.html" />
@@ -784,9 +780,9 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">MyException</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
-<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 4&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">class</span> <span class="nc">MyException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_16112</span><span class="o">/</span><span class="mf">91365735.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="k">pass</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
 <span class="ne">----&gt; </span><span class="mi">4</span> <span class="k">raise</span> <span class="n">MyException</span><span class="p">(</span><span class="s2">&quot;Моё первое пользовательское исключение.&quot;</span><span class="p">)</span>
 
 <span class="ne">MyException</span>: Моё первое пользовательское исключение.
@@ -822,7 +818,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Перехвачено какое-то исключение со следующим сообщением:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Перехвачено какое-то исключение с следующим сообщением:
 Моё пользовательское исключение!
 </pre></div>
 </div>
@@ -853,13 +849,6 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="k">except</span> <span class="n">MyException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Перехвачено исключение типа MyException со следующим сообщением:</span><span class="se">\n</span><span class="s1">&quot;</span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Время возбуждения исключения: </span><span class="si">{</span><span class="n">e</span><span class="o">.</span><span class="n">time</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Перехвачено исключение типа MyException со следующим сообщением:
-&quot;Какое-то сообщение!&quot;
-Время возбуждения исключения: Thu Jun 23 20:17:49 2022.
 </pre></div>
 </div>
 </div>
@@ -951,15 +940,15 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">LowIndexError</span><span class="g g-Whitespace">                             </span>Traceback (most recent call last)
-<span class="nn">Input In [9],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_16112</span><span class="o">/</span><span class="mf">2775217345.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">l</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span>
 
-<span class="nn">Input In [8],</span> in <span class="ni">MyList.__getitem__</span><span class="nt">(self, k)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_elements</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="k">if</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="o">-</span><span class="n">n</span><span class="p">:</span>
-<span class="ne">----&gt; </span><span class="mi">8</span>     <span class="k">raise</span> <span class="n">LowIndexError</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="k">elif</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_elements</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+<span class="nn">~\AppData\Local\Temp/ipykernel_16112/1588382805.py</span> in <span class="ni">__getitem__</span><span class="nt">(self, k)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>         <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_elements</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>         <span class="k">if</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="o">-</span><span class="n">n</span><span class="p">:</span>
+<span class="ne">----&gt; </span><span class="mi">8</span>             <span class="k">raise</span> <span class="n">LowIndexError</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>         <span class="k">elif</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_elements</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
 
 <span class="ne">LowIndexError</span>: Lowest acceptable index is -3, but -4 was given.
 </pre></div>
@@ -976,13 +965,15 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">HighIndexError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="nn">Input In [10],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_16112</span><span class="o">/</span><span class="mf">219327365.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">l</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
 
-<span class="nn">Input In [8],</span> in <span class="ni">MyList.__getitem__</span><span class="nt">(self, k)</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_elements</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">12</span>     <span class="k">raise</span> <span class="n">HighIndexError</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="nn">~\AppData\Local\Temp/ipykernel_16112/1588382805.py</span> in <span class="ni">__getitem__</span><span class="nt">(self, k)</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_elements</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span>         <span class="k">else</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">12</span>             <span class="k">raise</span> <span class="n">HighIndexError</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> 
+<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="k">def</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">):</span>
 
 <span class="ne">HighIndexError</span>: Highest acceptable index is 2, but 3 was given.
 </pre></div>

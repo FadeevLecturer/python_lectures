@@ -2,10 +2,7 @@
 <!DOCTYPE html>
 
 <html>
-  
-<head>
-    <link rel="icon" type="image/png" href="..\..\favicon.png"/>
-
+  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Перегрузка специальных методов и операторов &#8212; Практикум по компьютерным технологиям</title>
@@ -54,11 +51,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Практические задания" href="exercises2.html" />
@@ -946,7 +942,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Quaternion object at 0x000002DC26B3CE20&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Quaternion object at 0x00000228CEFE1FD0&gt;
 </pre></div>
 </div>
 </div>
@@ -1072,7 +1068,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x2dc2adeed60&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1deae7afe50&gt;
 </pre></div>
 </div>
 <img alt="../../_images/operators_overloading_10_1.png" src="../../_images/operators_overloading_10_1.png" />
@@ -1178,7 +1174,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Создан итератор.
-&lt;__main__.Vector3D.Iterator object at 0x000002DC2AE37E50&gt;
+&lt;__main__.Vector3D.Iterator object at 0x00000228CE202730&gt;
 42 3 13 
 </pre></div>
 </div>
@@ -1350,9 +1346,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Значение 3 по адресу 3144635643648
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Значение 3 по адресу 2017574962800
 Умножение 3 на 7 на месте
-Значение 21 по адресу 3144635643648
+Значение 21 по адресу 2017574962800
 </pre></div>
 </div>
 </div>
@@ -1463,8 +1459,8 @@ False
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[MyMutableInt(value=-9), MyMutableInt(value=3), MyMutableInt(value=-7), MyMutableInt(value=-7), MyMutableInt(value=7)]
-[MyMutableInt(value=-9), MyMutableInt(value=-7), MyMutableInt(value=-7), MyMutableInt(value=3), MyMutableInt(value=7)]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[MyMutableInt(value=6), MyMutableInt(value=-1), MyMutableInt(value=-4), MyMutableInt(value=5), MyMutableInt(value=10)]
+[MyMutableInt(value=-4), MyMutableInt(value=-1), MyMutableInt(value=5), MyMutableInt(value=6), MyMutableInt(value=10)]
 </pre></div>
 </div>
 </div>
@@ -1637,11 +1633,6 @@ False
     <span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
 <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">msg</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Индексация возможна только целым числом
 </pre></div>
 </div>
 </div>

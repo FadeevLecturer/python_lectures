@@ -2,10 +2,7 @@
 <!DOCTYPE html>
 
 <html>
-  
-<head>
-    <link rel="icon" type="image/png" href="..\..\favicon.png"/>
-
+  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Решение нелинейных уравнений &#8212; Практикум по компьютерным технологиям</title>
@@ -54,11 +51,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Пример" href="cannonball.html" />
@@ -899,16 +895,16 @@ x_2 = 1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    fjac: array([[-1.00000000e+00, -1.09073861e-12],
-       [ 1.09073861e-12, -1.00000000e+00]])
-     fun: array([0., 0.])
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    fjac: array([[-0.89914291,  0.43765515],
+       [-0.43765515, -0.89914291]])
+     fun: array([-1.11022302e-16,  0.00000000e+00])
  message: &#39;The solution converged.&#39;
-    nfev: 5
-     qtf: array([-2.18114415e-12, -2.18114415e-12])
-       r: array([-1.00000000e+00, -2.18119967e-12, -1.00000000e+00])
+    nfev: 12
+     qtf: array([ 1.19565972e-11, -4.12770392e-12])
+       r: array([-2.16690469,  1.03701789, -1.10605417])
   status: 1
  success: True
-       x: array([1., 1.])
+       x: array([0.8411639, 0.1588361])
 </pre></div>
 </div>
 </div>
@@ -921,17 +917,17 @@ x_2 = 1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    fjac: array([[-1.,  0.],
-       [ 0., -1.]])
-     fun: array([0., 0.])
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    fjac: array([[ 0.89914291, -0.43765515],
+       [ 0.43765515,  0.89914291]])
+     fun: array([-1.11022302e-16,  0.00000000e+00])
  message: &#39;The solution converged.&#39;
-    nfev: 2
+    nfev: 10
     njev: 1
-     qtf: array([1., 1.])
-       r: array([-1., -0., -1.])
+     qtf: array([-1.19565972e-11,  4.12770392e-12])
+       r: array([ 2.16690469, -1.03701789,  1.10605417])
   status: 1
  success: True
-       x: array([1., 1.])
+       x: array([0.8411639, 0.1588361])
 </pre></div>
 </div>
 </div>

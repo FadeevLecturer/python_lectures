@@ -2,10 +2,7 @@
 <!DOCTYPE html>
 
 <html>
-  
-<head>
-    <link rel="icon" type="image/png" href="..\..\favicon.png"/>
-
+  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Интерполяция функций, аппроксимация функций &#8212; Практикум по компьютерным технологиям</title>
@@ -54,11 +51,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Определенные интегралы" href="integration.html" />
@@ -996,7 +992,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x207a01876d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1c442e6ed90&gt;
 </pre></div>
 </div>
 <img alt="../../_images/interpolation_approx_8_1.png" src="../../_images/interpolation_approx_8_1.png" />
@@ -1054,10 +1050,10 @@ A = \begin{pmatrix}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.084700264535238 5.076785149216267
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0036541526156261706 5.057467746802313
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x207a0213ee0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x19bb069e760&gt;
 </pre></div>
 </div>
 <img alt="../../_images/interpolation_approx_10_2.png" src="../../_images/interpolation_approx_10_2.png" />
@@ -1095,10 +1091,10 @@ A = \begin{pmatrix}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.48813538801521655 1.8778983716928468 3.1973867627747405
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4254345494947798 2.3228917501598714 2.7353265065738697
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x207a028f5b0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x19bb07180a0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/interpolation_approx_12_2.png" src="../../_images/interpolation_approx_12_2.png" />
@@ -1157,7 +1153,7 @@ A = \begin{pmatrix}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x207a02f3df0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x2b6f1464520&gt;
 </pre></div>
 </div>
 <img alt="../../_images/interpolation_approx_14_1.png" src="../../_images/interpolation_approx_14_1.png" />
@@ -1198,9 +1194,9 @@ A = \begin{pmatrix}
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Найденные параметры: 
-alpha: 2.031,
-beta: -2.594,
-gamma: 3.957
+alpha: 1.928,
+beta: -3.292,
+gamma: 4.060
 </pre></div>
 </div>
 <img alt="../../_images/interpolation_approx_16_1.png" src="../../_images/interpolation_approx_16_1.png" />
@@ -1211,7 +1207,8 @@ gamma: 3.957
 </div>
 <div class="section" id="id11">
 <h2>Список литературы<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
-<p id="id12"><dl class="citation">
+<div class="docutils container" id="id12">
+<dl class="citation">
 <dt class="label" id="id13"><span class="brackets">1</span><span class="fn-backref">(<a href="#id3">1</a>,<a href="#id4">2</a>,<a href="#id7">3</a>)</span></dt>
 <dd><p>Гулин А.В. Самарский А.А. <em>Численные методы</em>. М. Наука, 1989. ISBN 5-02-013996-3.</p>
 </dd>
@@ -1219,7 +1216,7 @@ gamma: 3.957
 <dd><p>Брайан К. Джонс Дэвид Бизли. <em>Python. Книга рецептов</em>. М. ДМК Пресс, 2019. ISBN 978-5-97060-751-0.</p>
 </dd>
 </dl>
-</p>
+</div>
 </div>
 </div>
 

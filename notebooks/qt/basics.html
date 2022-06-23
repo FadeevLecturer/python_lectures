@@ -2,10 +2,7 @@
 <!DOCTYPE html>
 
 <html>
-  
-<head>
-    <link rel="icon" type="image/png" href="..\..\favicon.png"/>
-
+  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PySide. Основы &#8212; Практикум по компьютерным технологиям</title>
@@ -54,11 +51,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="События" href="event.html" />
@@ -1124,8 +1120,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Макет сам распределяет пространство, которое будет занимать виджет исходя из геометрии окна, политики размера каждого из виджетов (<a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QSizePolicy.html">QSizePolicy</a>, который среди прочего определяем минимальный размер виджета) и коэффициента растяжения (<code class="docutils literal notranslate"><span class="pre">stretching</span></code>), который определяет насколько жадно этот виджет будет занимать пространство. По умолчанию под каждый виджет отводится одинаковое количество места, но если указать параметр <code class="docutils literal notranslate"><span class="pre">stretch</span></code> (его принимают все три вышеописанных метода), то виджета с большим значением будет занимать больше пространства.</p>
 <p>В качестве примера, создадим два виджета <code class="docutils literal notranslate"><span class="pre">QLabel</span></code>, положим в них картинку методом <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QLabel.html#PySide6.QtWidgets.PySide6.QtWidgets.QLabel.setPixmap">setPixmap</a>, который ожидает на вход объект <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtGui/QPixmap.html">QPixmap</a>, и добавим их в макет.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="86fe11de-ebba-47f4-981d-06e5b2439916" name="dd06829e-e343-423a-b468-97a6a7e2c60a" type="radio">
-</input><label class="tabbed-label" for="86fe11de-ebba-47f4-981d-06e5b2439916">
+<input checked="checked" id="0339b102-d359-468c-912a-00078986cfe2" name="6106f816-dc15-4997-9e2c-95544816153c" type="radio">
+</input><label class="tabbed-label" for="0339b102-d359-468c-912a-00078986cfe2">
 QHBoxLayout</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">os</span>
@@ -1174,8 +1170,8 @@ QHBoxLayout</label><div class="tabbed-content docutils">
 <img alt="../../_images/HBoxLayout.png" src="../../_images/HBoxLayout.png" />
 </div>
 </div>
-<input id="458494f0-2567-4df5-b62c-ac87a898233a" name="dd06829e-e343-423a-b468-97a6a7e2c60a" type="radio">
-</input><label class="tabbed-label" for="458494f0-2567-4df5-b62c-ac87a898233a">
+<input id="daa2daa9-af23-4c7e-b7f5-721366fe5e9f" name="6106f816-dc15-4997-9e2c-95544816153c" type="radio">
+</input><label class="tabbed-label" for="daa2daa9-af23-4c7e-b7f5-721366fe5e9f">
 QVBoxLayout</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">os</span>
