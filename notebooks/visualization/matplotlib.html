@@ -712,7 +712,7 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id1">
-   О
+   О библиотеке
    <code class="docutils literal notranslate">
     <span class="pre">
      Matplotlib
@@ -770,11 +770,6 @@ const thebe_selector_output = ".output, .cell_output"
        Axes
       </span>
      </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
-     Отсечки и координатная сетка
     </a>
    </li>
   </ul>
@@ -801,7 +796,7 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id1">
-   О
+   О библиотеке
    <code class="docutils literal notranslate">
     <span class="pre">
      Matplotlib
@@ -861,11 +856,6 @@ const thebe_selector_output = ".output, .cell_output"
      </code>
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
-     Отсечки и координатная сетка
-    </a>
-   </li>
   </ul>
  </li>
 </ul>
@@ -880,12 +870,12 @@ const thebe_selector_output = ".output, .cell_output"
   <div class="tex2jax_ignore mathjax_ignore section" id="matplotlib">
 <h1><code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code><a class="headerlink" href="#matplotlib" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="id1">
-<h2>О <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code> входит в дистрибутив <code class="docutils literal notranslate"><span class="pre">Anaconda</span></code> как и <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>, но требует дополнительной установки в общем случае, т.к. является сторонней библиотекой. Установить его с помощью <code class="docutils literal notranslate"><span class="pre">PyPi</span></code> можно следующей командой.</p>
+<h2>О библиотеке <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code> входит в дистрибутив <code class="docutils literal notranslate"><span class="pre">Anaconda</span></code> как и <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>, но требует дополнительной установки в общем случае, т.к. является сторонней библиотекой. Установить его с помощью <code class="docutils literal notranslate"><span class="pre">PyPI</span></code> можно следующей командой.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python -m pip install matplotlib
 </pre></div>
 </div>
-<p>Построение графиков в минималистичном варианте <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code> осуществляется довольно просто: чтобы построить самый простой график, достаточно нескольких строк кода. Ниже приводится <a class="reference external" href="https://matplotlib.org/stable/users/getting_started/index.html#draw-a-first-plot">пример минимального исходного кода</a> из документации и генерируемый ей график. При этом первые 4 из 7 строк этого кода импортируют библиотеки и генерируют данные для построения графиков и лишь три последних строки кода отвечают за построение графика.</p>
+<p>Построение графиков в минималистичном варианте в <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code> осуществляется довольно просто: чтобы построить самый простой график, достаточно нескольких строк кода. Ниже приводится <a class="reference external" href="https://matplotlib.org/stable/users/getting_started/index.html#draw-a-first-plot">пример минимального исходного кода</a> из документации и генерируемый ей график. При этом первые 4 из 7 строк этого кода импортируют библиотеки и генерируют данные для построения графиков и лишь три последние строки кода отвечают за построение графика.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -916,14 +906,14 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="id2">
 <h2>Иерархическая структура графиков в <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p>Работать с <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code> гораздо проще, если устройство графических объектов понимать из каких объектов состоят графики <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code>, и какая между ними есть иерархия. Важно выделить 3 основных типа объектов: <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html">figure</a>, <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html">axes</a> и <a class="reference external" href="https://matplotlib.org/stable/api/artist_api.html">artist</a>.</p>
+<p>Работать с <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code> гораздо проще, если понимать из каких объектов состоят графики <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code>, и какая между ними есть иерархия. Важно выделить 3 основных типа объектов: <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html">figure</a>, <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html">axes</a> и <a class="reference external" href="https://matplotlib.org/stable/api/artist_api.html">artist</a>.</p>
 <div class="figure align-default">
 <img alt="../../_images/hierarchy.svg" src="../../_images/hierarchy.svg" /></div>
 <p>Рисунок выше иллюстрирует иерархию между ними.</p>
 <ol class="simple">
 <li><p>Наверху иерархии находится <code class="docutils literal notranslate"><span class="pre">Figure</span></code>, внутри которой происходит отрисовка всех остальных объектов. Фигура может принимать разную форму: в обычных скриптах эта фигура выводится в отдельном окне или встраивается в уже существующее пользовательское приложение с графическим интерфейсом, в блокнотах <code class="docutils literal notranslate"><span class="pre">jupyter</span></code> фигуры автоматически встраиваются в вывод ячейки.</p></li>
-<li><p>Внутри <code class="docutils literal notranslate"><span class="pre">Figure</span></code> в произвольных позициях может быть произвольное количество объектов <code class="docutils literal notranslate"><span class="pre">Axes</span></code>, каждый из которых задаёт локальную систему координат для отображения графических объектов, а также отвечает за отображения координатных осей этой системы координат. <code class="docutils literal notranslate"><span class="pre">Axes</span></code> бывают разных типов: от самых стандартных декартовых или полярных координат на плоскости до трехмерных координатных систем или даже географических координатных систем.</p></li>
-<li><p>Внутри системы координат любой из <code class="docutils literal notranslate"><span class="pre">Axes</span></code> можно построить произвольное количество объектов <code class="docutils literal notranslate"><span class="pre">Artist</span></code>, каждый из который представляет графический элемент на графике, такой, как, например, кривая на плоскости или в пространстве, поверхность в пространстве, геометрические примитивы и т.д.</p></li>
+<li><p>Внутри <code class="docutils literal notranslate"><span class="pre">Figure</span></code> в произвольных позициях может быть произвольное количество объектов <code class="docutils literal notranslate"><span class="pre">Axes</span></code>, каждый из которых задаёт локальную систему координат для отображения графических объектов, а также отвечает за отображения координатных осей этой системы координат. <code class="docutils literal notranslate"><span class="pre">Axes</span></code> бывают разных типов: от самых стандартных декартовых или полярных координат на плоскости до трехмерных координатных систем или даже географических.</p></li>
+<li><p>Внутри системы координат любой из <code class="docutils literal notranslate"><span class="pre">Axes</span></code> можно построить произвольное количество объектов <code class="docutils literal notranslate"><span class="pre">Artist</span></code>, каждый из который представляет графический элемент на графике, такой, как, например, кривая на плоскости или в пространстве, поверхность в пространстве, текст, геометрический примитив и т.д.</p></li>
 </ol>
 <p>Если держать эту иерархию в голове, то легко понять какой объект за что отвечает и методы какого объекта необходимо вызывать, чтобы добиться требуемых изменений.</p>
 <p>Код в ячейке ниже демонстрирует объекты всех трех типов:</p>
@@ -1000,7 +990,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="id4">
 <h3>Стиль программирования<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>Прежде всего стоит отметить, то что <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code> <a class="reference external" href="https://matplotlib.org/stable/tutorials/introductory/usage.html#coding-styles">поддерживает построение графиков в двух стилях программирования</a>.</p>
-<p>Первый из них черпает вдохновение из математического пакета <code class="docutils literal notranslate"><span class="pre">matlab</span></code>. При таком подходе программист полагается на библиотеку <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code> на создание и управление всеми фигурами и осями. Такой подход можно назвать <strong>неявным</strong> и разработчики библиотеки <strong>не</strong> рекомендуют прибегать к нему при построении хоть сколько-нибудь сложных графиков. Тем не менее в документации встречаются примеры в таком, написанные в таком стиле, поэтому полезно иметь представление о существовании такого стиля.</p>
+<p>Первый из них черпает вдохновение из математического пакета <code class="docutils literal notranslate"><span class="pre">matlab</span></code>. При таком подходе программист возлагает создание и управление всеми фигурами и осями на библиотеку <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code>. Такой подход можно назвать <strong>неявным</strong> и разработчики библиотеки <strong>не</strong> рекомендуют прибегать к нему при построении хоть сколько-нибудь сложных графиков. Тем не менее в документации встречаются примеры, написанные в таком стиле, поэтому полезно иметь представление о существовании такого стиля.</p>
 <p>Ниже приводится создания графика в таком стиле. Обратите внимание, что все методы при таком подходе вызываются напрямую от <code class="docutils literal notranslate"><span class="pre">plt</span></code>, а библиотека <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code> сама следит за тем, какая фигура и какие оси были созданы (или активированы в общем случае) последними.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1027,8 +1017,8 @@ const thebe_selector_output = ".output, .cell_output"
 <img alt="../../_images/matplotlib_5_1.png" src="../../_images/matplotlib_5_1.png" />
 </div>
 </div>
-<p>Второй стиль называют объектно ориентированный, так как он подразумевает создание в явном объектов фигур и осей и последующее использование этих объектов для совершения связанных с ними операций, таких как, например, построение графиков в них. Такой подход как правило приводит к гораздо более читабельному, гибкому и прозрачному коду, т.е. все операции совершаются в явном виде.</p>
-<p>В ячейке ниже находится исходных код и примера выше, но переделанный под ОО стиль. Обратите внимание, что почти все методы вызываются не от <code class="docutils literal notranslate"><span class="pre">plt</span></code>, а объекта <code class="docutils literal notranslate"><span class="pre">ax</span></code>, который соответствует конкретным заранее созданным осям.</p>
+<p>Второй стиль называют объектно-ориентированным, так как он подразумевает создание в явном виде объектов фигур и осей и последующее использование этих объектов для совершения связанных с ними операций, таких как, например, построение графиков в них. Такой подход как правило приводит к гораздо более читабельному, гибкому и прозрачному коду, т.к. все операции совершаются в явном виде.</p>
+<p>В ячейке ниже находится исходных код из примера выше, но переделанный под объектно-ориентированный стиль. Обратите внимание, что почти все методы вызываются не от <code class="docutils literal notranslate"><span class="pre">plt</span></code>, а объекта <code class="docutils literal notranslate"><span class="pre">ax</span></code>, который соответствует конкретным заранее созданным осям.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>  <span class="c1"># Sample data.</span>
@@ -1049,7 +1039,7 @@ const thebe_selector_output = ".output, .cell_output"
 <img alt="../../_images/matplotlib_7_0.png" src="../../_images/matplotlib_7_0.png" />
 </div>
 </div>
-<p>Автор курса рекомендует прибегать именно к второму подходу.</p>
+<p>Автор курса рекомендует прибегать именно к объектно-ориентированному подходу.</p>
 </div>
 <div class="section" id="figure-1-axes">
 <h3>1 <code class="docutils literal notranslate"><span class="pre">Figure</span></code> - 1 <code class="docutils literal notranslate"><span class="pre">Axes</span></code><a class="headerlink" href="#figure-1-axes" title="Permalink to this headline">¶</a></h3>
@@ -1166,7 +1156,7 @@ True True True
 <div class="section" id="figure-n-axes">
 <h3>1 <code class="docutils literal notranslate"><span class="pre">Figure</span></code> - N <code class="docutils literal notranslate"><span class="pre">Axes</span></code><a class="headerlink" href="#figure-n-axes" title="Permalink to this headline">¶</a></h3>
 <p>В <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code> предусмотрено несколько путей, чтобы создавать несколько осей внутри одной фигуры. Подробно почитать об этом в документации можно <a class="reference external" href="https://matplotlib.org/stable/tutorials/intermediate/arranging_axes.html#sphx-glr-tutorials-intermediate-arranging-axes-py">по ссылке</a>. В большинстве ситуаций хватает все того же метода <code class="docutils literal notranslate"><span class="pre">subplots</span></code>.</p>
-<p>Метод <code class="docutils literal notranslate"><span class="pre">subplots</span></code> позволяет создавать как-бы таблицу из осей. За количество строк и столбцов таблицы отвечают параметры <code class="docutils literal notranslate"><span class="pre">nrows</span></code> (<strong>n</strong>umber of <strong>rows</strong>) и <code class="docutils literal notranslate"><span class="pre">ncols</span></code> (<strong>n</strong>umber of <strong>col</strong>umn<strong>s</strong>) соответственно. В ячейке ниже создаётся фигура с 6 осями внутри неё в виде таблицы из двух строк и трех столбцов.</p>
+<p>Метод <code class="docutils literal notranslate"><span class="pre">subplots</span></code> позволяет создавать фигуры с как-бы таблицей из осей. За количество строк и столбцов таблицы отвечают параметры <code class="docutils literal notranslate"><span class="pre">nrows</span></code> (<strong>n</strong>umber of <strong>rows</strong>) и <code class="docutils literal notranslate"><span class="pre">ncols</span></code> (<strong>n</strong>umber of <strong>col</strong>umn<strong>s</strong>) соответственно. В ячейке ниже создаётся фигура с 6 осями внутри неё в виде таблицы из двух строк и трех столбцов.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
@@ -1177,7 +1167,7 @@ True True True
 <img alt="../../_images/matplotlib_17_0.png" src="../../_images/matplotlib_17_0.png" />
 </div>
 </div>
-<p>Если создаётся больше одних осей, то вторым параметром <code class="docutils literal notranslate"><span class="pre">subplots</span></code> возвращает сразу <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> массив объектов <code class="docutils literal notranslate"><span class="pre">Axes</span></code> указанной при создании таблицы формы.</p>
+<p>Если создаётся больше одних осей, то вторым значением <code class="docutils literal notranslate"><span class="pre">subplots</span></code> возвращает сразу <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> массив объектов <code class="docutils literal notranslate"><span class="pre">Axes</span></code> формы, совпадающей с формой таблицы.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">axs</span><span class="p">)</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -1212,59 +1202,6 @@ axs.shape=(2, 3)
 </div>
 <div class="cell_output docutils container">
 <img alt="../../_images/matplotlib_21_0.png" src="../../_images/matplotlib_21_0.png" />
-</div>
-</div>
-</div>
-<div class="section" id="id5">
-<h3>Отсечки и координатная сетка<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code> автоматически генерирует и набор отсечек (<code class="docutils literal notranslate"><span class="pre">ticks</span></code>) вдоль осей, но можно в ручную указать как и набор отсечек вдоль каждой оси, так и набор меток для вывода рядом с ними (<code class="docutils literal notranslate"><span class="pre">tick</span> <span class="pre">label</span></code>). Для изменения количества и локацию отсечек удобно использовать методы <a class="reference external" href="https://matplotlib.org/3.5.0/api/_as_gen/matplotlib.axes.Axes.set_xticks.html">set_xticks</a> и <a class="reference external" href="https://matplotlib.org/3.5.0/api/_as_gen/matplotlib.axes.Axes.set_yticks.html">set_yticks</a>, а для изменения меток рядом с ними — методы <a class="reference external" href="https://matplotlib.org/3.5.0/api/_as_gen/matplotlib.axes.Axes.set_xticklabels.html">set_xticklabels</a> и <a class="reference external" href="https://matplotlib.org/3.5.0/api/_as_gen/matplotlib.axes.Axes.set_yticklabels.html">set_yticklabels</a>.</p>
-<p>Метод <a class="reference external" href="https://matplotlib.org/3.5.0/api/_as_gen/matplotlib.axes.Axes.grid.html">grid</a> включает (или выключает) отображение координатной сетки, линии которой, кстати, определяются отсечками вдоль осей.</p>
-<p>Ниже демонстрируется применение этих методов.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-
-<span class="c1"># генерация данных</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-
-<span class="c1"># положения отсечек</span>
-<span class="n">x_ticks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="n">y_ticks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-
-<span class="c1"># метки отсечек</span>
-<span class="n">x_tickslabels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$\frac{\pi}</span><span class="si">{2}</span><span class="s2">$&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$\pi$&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$\frac{3\pi}</span><span class="si">{2}</span><span class="s2">$&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$2\pi$&quot;</span><span class="p">]</span>
-<span class="n">y_tickslabels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;-1&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$-\frac</span><span class="si">{1}{2}</span><span class="s2">$&quot;</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$\frac</span><span class="si">{1}{2}</span><span class="s2">$&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">]</span>
-<span class="n">size</span> <span class="o">=</span> <span class="mi">18</span>
-
-<span class="c1"># построение одинакового графика в четырех осях</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">14</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axs</span><span class="o">.</span><span class="n">flatten</span><span class="p">():</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-    
-
-<span class="c1"># изменение только положения отсечек в правых верхних осях</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">x_ticks</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">y_ticks</span><span class="p">)</span>
-
-<span class="c1"># изменение положение отсечек и их меток в левых нижних осях</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">x_ticks</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">y_ticks</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">x_tickslabels</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">y_tickslabels</span><span class="p">)</span>
-
-<span class="c1"># указан размер отсечек</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">x_ticks</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">y_ticks</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">x_tickslabels</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">y_tickslabels</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/matplotlib_23_0.png" src="../../_images/matplotlib_23_0.png" />
 </div>
 </div>
 </div>
