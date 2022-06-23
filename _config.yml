@@ -7,19 +7,16 @@ description: >-
   Курс лекций по дисциплине "Практикум по компьютерным технологиям".
 
 execute:
-  execute_notebooks: cache
+  execute_notebooks: 'off'
   allow_errors     : true
-  exclude_patterns : 
-    - 'machine_learning/*'
-    - 'pandas/*'
-    - 'computer_vision/*'
-    - 'numpy/*'
-    - 'scpiy/*'
-    - 'visualization/*' 
-
+  
 # HTML-specific settings
 html:
+  favicon                     : "favicon.png" 
   home_page_in_navbar         : true
+  use_repository_button       : true
+  use_issues_button           : true
+  use_edit_page_button        : true
 
 # Interact link settings
 notebook_interface            : "notebook"
@@ -36,21 +33,10 @@ sphinx:
 repository:
   url: https://github.com/FadeevLecturer/python_lectures
   branch: main 
-html:
-  use_repository_button: true
-  use_issues_button: true
-  use_edit_page_button: true
 launch_buttons:
   colab_url: "https://colab.research.google.com"
-# binder:
-#  binderhub_url               : "https://mybinder.org"
-#  text                        : "Launch binder"
 
 # LaTeX settings
 bibtex_bibfiles:
    - _bibliography/references.bib
 
-#latex:
-#  latex_engine                : "xelatex"
-#  latex_documents:
-#    targetname: book.tex
