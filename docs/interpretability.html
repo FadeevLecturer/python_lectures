@@ -703,8 +703,18 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#python">
+  <a class="reference internal nav-link" href="#id1">
    Компилятор
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     С++
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python">
+   Интерпретатор
    <code class="docutils literal notranslate">
     <span class="pre">
      python
@@ -713,17 +723,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#c-c">
-   Интерпретатор
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     C/C++
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
+  <a class="reference internal nav-link" href="#id2">
    Интерпретатор vs. компилятор
   </a>
  </li>
@@ -748,8 +748,18 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#python">
+  <a class="reference internal nav-link" href="#id1">
    Компилятор
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     С++
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python">
+   Интерпретатор
    <code class="docutils literal notranslate">
     <span class="pre">
      python
@@ -758,17 +768,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#c-c">
-   Интерпретатор
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     C/C++
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
+  <a class="reference internal nav-link" href="#id2">
    Интерпретатор vs. компилятор
   </a>
  </li>
@@ -786,8 +786,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p><strong>Компилятор</strong> — программа, переводящая текст, написанный на языке программирования, в набор машинных кодов.</p>
 <p><strong>Интерпретация</strong> — построчный анализ, обработка и выполнение исходного кода программы или запроса.</p>
 <p>Источник - Wikipedia (<a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%9A%D0%BE%D0%BC%D0%BF%D0%B8%D0%BB%D1%8F%D1%82%D0%BE%D1%80">1</a> и <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%BF%D1%80%D0%B5%D1%82%D0%B0%D1%82%D0%BE%D1%80">2</a>).</p>
-<div class="section" id="python">
-<h2>Компилятор <code class="docutils literal notranslate"><span class="pre">python</span></code><a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h2>Компилятор <code class="docutils literal notranslate"><span class="pre">С++</span></code><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>Компилируемых языков много. Ограничимся в рассмотрении <code class="docutils literal notranslate"><span class="pre">C/C++</span></code>. Цель компилятора <code class="docutils literal notranslate"><span class="pre">C/C++</span></code> — преобразовать текст программы на языке программирования высокого уровня (<code class="docutils literal notranslate"><span class="pre">C/C++</span></code> в данном случае) и преобразовать его в машинный код. Большинство современных компиляторов (например, <code class="docutils literal notranslate"><span class="pre">gcc</span></code>) являются  трехэтапными в соответствии с следующей структурой.</p>
 <div class="figure align-default" id="comp-design">
 <a class="reference internal image-reference" href="../_images/Compiler_design.png"><img alt="../_images/Compiler_design.png" src="../_images/Compiler_design.png" style="width: 960.0px; height: 167.0px;" /></a>
@@ -799,13 +799,13 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p>Такая трехэтапная структура позволяет использовать один и тот же <em>middle end</em> для разных языков программирования и архитектур процессоров, меняя <em>front end</em> и <em>back end</em>.</p>
 </div>
-<div class="section" id="c-c">
-<h2>Интерпретатор <code class="docutils literal notranslate"><span class="pre">C/C++</span></code><a class="headerlink" href="#c-c" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="python">
+<h2>Интерпретатор <code class="docutils literal notranslate"><span class="pre">python</span></code><a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Python</span></code> — интерпретируемый язык программирования и установка <code class="docutils literal notranslate"><span class="pre">python</span></code> как раз и подразумевает установку интерпретатора. В большинстве случаев устанавливают стандартный написанный на языке <code class="docutils literal notranslate"><span class="pre">C</span></code> интерпретатор <code class="docutils literal notranslate"><span class="pre">CPython</span></code>. Существуют и альтернативные менее распространенные интерпретаторы для <code class="docutils literal notranslate"><span class="pre">python</span></code>, такие как <a class="reference external" href="https://www.jython.org/">jython</a>, <a class="reference external" href="https://cython.org/">cython</a>, <a class="reference external" href="https://www.pypy.org/">PyPy</a> и др.</p>
 <p>Исходный код <code class="docutils literal notranslate"><span class="pre">python</span></code> не транслируется в машинный код непосредственно, а вместо этого транслируется в <em>байт код</em>, который исполняется <em>виртуальной машинной python</em>. При этом трансляция кода и его исполнение происходят одновременно, т.е. интерпретатору не требуется заранее увидеть исходный код всей программы, чтобы начать его исполнять. Говоря конкретнее, интерпретатор <code class="docutils literal notranslate"><span class="pre">python</span></code> исполняет команды в скрипте сверху вниз, не заглядывая вперёд.</p>
 </div>
-<div class="section" id="id1">
-<h2>Интерпретатор vs. компилятор<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h2>Интерпретатор vs. компилятор<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p><strong>Требования к наличию транслятора</strong>:</p>
 <ul class="simple">
