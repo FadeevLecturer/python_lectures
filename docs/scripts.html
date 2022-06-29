@@ -107,11 +107,6 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="about_py.html">
-   О питоне
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="getting_started.html">
    Установка
    <code class="docutils literal notranslate">
@@ -789,7 +784,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="id1">
 <h2>Стандартные потоки ввода и вывода<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>Из примера “<a class="reference external" href="http://helloworld.py">helloworld.py</a>” можно заметить, что для вывода строки “Hello, World!” в стандартный поток вывода используется функция <a class="reference external" href="https://docs.python.org/3/library/functions.html#print">print</a>. Тут и проявляется не значительная разница с интерактивной оболочкой, в которой результаты вычислений инструкции сразу же и выводились в стандартный поток вывода, если они не присваивались в переменную. В случае скриптов такого не происходит и необходимо явно вызывать функцию <code class="docutils literal notranslate"><span class="pre">print</span></code>, чтобы что-то вывести в стандартный поток вывода.</p>
+<p>Из примера <code class="docutils literal notranslate"><span class="pre">helloworld.py</span></code> можно заметить, что для вывода строки “Hello, World!” в стандартный поток вывода используется функция <a class="reference external" href="https://docs.python.org/3/library/functions.html#print">print</a>. Тут и проявляется не значительная разница с интерактивной оболочкой, в которой результаты вычислений инструкции сразу же и выводились в стандартный поток вывода, если они не присваивались в переменную. В случае скриптов такого не происходит и необходимо явно вызывать функцию <code class="docutils literal notranslate"><span class="pre">print</span></code>, чтобы что-то вывести в стандартный поток вывода.</p>
 <p>Функция <code class="docutils literal notranslate"><span class="pre">print</span></code> принимает произвольное количество аргументов и выводит их все в стандартном потоке вывода в том же порядке, разделяя значения пробелом и в самом конце совершая перенос строки. Опциональными параметрами функции можно настроить:</p>
 <ul class="simple">
 <li><p>поток вывода (параметр <code class="docutils literal notranslate"><span class="pre">file</span></code>, по умолчанию стандартный поток вывода);</p></li>
