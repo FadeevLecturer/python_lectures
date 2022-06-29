@@ -3,7 +3,7 @@ root: docs/index
 parts:
   - caption: "Лекция №1"
     chapters:
-      - file: docs/about_py
+      - file: notebooks/about_python
       - file: docs/getting_started
       - file: docs/python_as_calculator
       - file: docs/scripts
