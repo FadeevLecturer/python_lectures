@@ -731,7 +731,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
-   Переменные и оператора присваивания
+   Переменные и оператор присваивания
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -756,7 +756,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id6">
-   Польза интерактивной оболочки
+   Области применения интерактивной оболочки
   </a>
  </li>
 </ul>
@@ -786,7 +786,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
-   Переменные и оператора присваивания
+   Переменные и оператор присваивания
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -811,7 +811,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id6">
-   Польза интерактивной оболочки
+   Области применения интерактивной оболочки
   </a>
  </li>
 </ul>
@@ -835,7 +835,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Если во время установке вы не добавили <code class="docutils literal notranslate"><span class="pre">python</span></code> в переменную <code class="docutils literal notranslate"><span class="pre">PATH</span></code> среды, то чтобы вызвать интерактивную оболочку из командной стоки придется сначала перейти в папку с установленным <code class="docutils literal notranslate"><span class="pre">python</span></code>.</p>
+<p>Если во время установке вы не добавили <code class="docutils literal notranslate"><span class="pre">python</span></code> в переменную среды <code class="docutils literal notranslate"><span class="pre">PATH</span></code>, то чтобы вызвать интерактивную оболочку из командной стоки придется сначала перейти в папку с установленным <code class="docutils literal notranslate"><span class="pre">python</span></code>.</p>
 </div>
 <p>Набирая команду <code class="docutils literal notranslate"><span class="pre">python</span></code>, вы запускаете сессию интерактивной оболочки <code class="docutils literal notranslate"><span class="pre">python</span></code>. Сразу же вы должны увидеть приветственное сообщение интерактивной оболочки, в котором должна быть перечислена версия <code class="docutils literal notranslate"><span class="pre">python</span></code>, время сборки, задействованный компилятор и другое. На последней строке отображается приглашение <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code>, которое сигнализирует, что интерпретатор ждет команды от пользователя. Набор допустимых команд почти не зависит от режима взаимодействия и ряд из них будет рассмотрен ниже. Прямо сейчас рассмотрим одну из немногих доступных только в интерактивном режиме команд <code class="docutils literal notranslate"><span class="pre">quit()</span></code>, которая завершает сеанс интерактивной оболочки.</p>
 <div class="figure align-default">
@@ -897,13 +897,25 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Как и в <code class="docutils literal notranslate"><span class="pre">C/C++</span></code> в <code class="docutils literal notranslate"><span class="pre">python</span></code> определены битовые операторы для целых чисел: “<code class="docutils literal notranslate"><span class="pre">|</span></code>”, “<code class="docutils literal notranslate"><span class="pre">&amp;</span></code>”, “<code class="docutils literal notranslate"><span class="pre">^</span></code>”, “<code class="docutils literal notranslate"><span class="pre">&lt;</span></code>” и “’&gt;’”.</p>
+<p>Как и в <code class="docutils literal notranslate"><span class="pre">C/C++</span></code> в <code class="docutils literal notranslate"><span class="pre">python</span></code> определены битовые операторы для целых чисел: “<code class="docutils literal notranslate"><span class="pre">|</span></code>”, “<code class="docutils literal notranslate"><span class="pre">&amp;</span></code>”, “<code class="docutils literal notranslate"><span class="pre">^</span></code>”, “<code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code>” и “<code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code>”.</p>
 </div>
 </div>
 <div class="section" id="id2">
-<h2>Переменные и оператора присваивания<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p>Оператор присваивания “<code class="docutils literal notranslate"><span class="pre">=</span></code>” позволяет объявлять переменные и менять их значения. Чтобы объявить переменную, необходимо просто оператором присвоения связать её с каким-то значением, т.е. нельзя объявить, но не инициализировать её. Указывать тип переменной при этом необходимости нет: <code class="docutils literal notranslate"><span class="pre">python</span></code> — язык с <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%94%D0%B8%D0%BD%D0%B0%D0%BC%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F_%D1%82%D0%B8%D0%BF%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F">динамической типизацией</a>  и пока можете считать, что тип переменной определится автоматически (более подробно особенности типизации в <code class="docutils literal notranslate"><span class="pre">python</span></code> будут обсуждаться на следующей лекции).</p>
-<p>Так, например, выражение <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">14</span></code> объявляет целочисленную переменную <code class="docutils literal notranslate"><span class="pre">a</span></code> с значением 14.</p>
+<h2>Переменные и оператор присваивания<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Оператор присваивания “<code class="docutils literal notranslate"><span class="pre">=</span></code>” позволяет объявлять переменные и менять значения уже существующих. Чтобы объявить переменную, необходимо просто оператором присвоения связать её с каким-то значением.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">имя_переменной</span> <span class="o">=</span> <span class="n">значение</span>
+</pre></div>
+</div>
+<p>При этом нет необходимости указывать тип переменной : <code class="docutils literal notranslate"><span class="pre">python</span></code> — язык с <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%94%D0%B8%D0%BD%D0%B0%D0%BC%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F_%D1%82%D0%B8%D0%BF%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F">динамической типизацией</a> и пока можете считать, что тип переменной определяется автоматически по типу значением (более подробно особенности типизации в <code class="docutils literal notranslate"><span class="pre">python</span></code> будут обсуждаться на следующей лекции).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Если справа от оператора “<code class="docutils literal notranslate"><span class="pre">=</span></code>” стоит не просто значение, а сразу выражение, то сначала это выражение вычисляется и только потом в переменную слева от оператора “<code class="docutils literal notranslate"><span class="pre">=</span></code>” записывается результат вычисления выражения.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Нельзя объявить переменную и не проинициализировать её.</p>
+</div>
+<p>Так, например, выражение <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">14</span></code> объявляет целочисленную переменную <code class="docutils literal notranslate"><span class="pre">a</span></code> с значением 14.</p>
 <div class="figure align-default">
 <img alt="../_images/variables_1.gif" src="../_images/variables_1.gif" />
 </div>
@@ -915,10 +927,24 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="id3">
 <h2>Логические операторы<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>Числа в <code class="docutils literal notranslate"><span class="pre">python</span></code> можно сравнивать теми же операторами <code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, что и в <code class="docutils literal notranslate"><span class="pre">C/C++</span></code>. Результатом сравнения чисел является значение <code class="docutils literal notranslate"><span class="pre">True</span></code> или <code class="docutils literal notranslate"><span class="pre">False</span></code> типа <code class="docutils literal notranslate"><span class="pre">bool</span></code>. Это значение затем может быть использовано для условного ветвления (<code class="docutils literal notranslate"><span class="pre">if</span></code>).</p>
+<div class="figure align-default">
+<img alt="../_images/logic.gif" src="../_images/logic.gif" />
+</div>
 </div>
 <div class="section" id="id4">
 <h2>Встроенные функции для работы с числами<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
-<p>В любой момент в программе доступны следующие функции для работы с числовыми значениями. Как и в большинстве других языков программирования, чтобы вызвать функцию, необходимо после её имени указать пару круглых скобок “<code class="docutils literal notranslate"><span class="pre">()</span></code>”, внутри которых необходимо перечислить аргументы.</p>
+<p>В любой момент в программе доступны следующие функции для работы с числовыми значениями. Как и в большинстве других языков программирования, чтобы вызвать функцию, необходимо после её имени указать пару круглых скобок “<code class="docutils literal notranslate"><span class="pre">()</span></code>”, внутри которых необходимо перечислить аргументы, разделяя их запятой, т.е. для вызова функции без аргументов используется синтаксис</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">имя_функции</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>А для вызова функции с <span class="math notranslate nohighlight">\(n\)</span> аргументами:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">имя_функции</span><span class="p">(</span><span class="n">аргумент_1</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">аргумент_n</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>В большинстве случаев функции возвращают какое-то значение, которое может быть непосредственно задействовано в дальнейших вычислениях или связано с переменной оператором присваивания “<code class="docutils literal notranslate"><span class="pre">=</span></code>”.</p>
+</div>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="text-align:left head"><p>Функция</p></th>
@@ -997,8 +1023,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Кроме <code class="docutils literal notranslate"><span class="pre">sqrt</span></code> в <code class="docutils literal notranslate"><span class="pre">math</span></code> доступны почти все основные математические функции, такие как <code class="docutils literal notranslate"><span class="pre">sin</span></code>, <code class="docutils literal notranslate"><span class="pre">cos</span></code>, <code class="docutils literal notranslate"><span class="pre">tan</span></code>, <code class="docutils literal notranslate"><span class="pre">log</span></code>, <code class="docutils literal notranslate"><span class="pre">exp</span></code> и т.п. С полным списком можно ознакомиться в документации по модулю <a class="reference external" href="https://docs.python.org/3/library/math.html">math</a>.</p>
 </div>
 <div class="section" id="id6">
-<h2>Польза интерактивной оболочки<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
-<p>Кроме того, что интерактивная оболочка является отличной заменой калькулятору, она ещё очень удобна для тестирования из-за своей динамической природы. Так, например, если какая-то команда завершается с ошибкой, то сеанс продолжается и можно попробовать разобраться, что пошло не так, внести необходимые правки и попробовать снова.</p>
+<h2>Области применения интерактивной оболочки<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>Кроме того, что интерактивная оболочка является отличной заменой калькулятору, она ещё очень удобна для тестирования и изучения из-за своей динамической природы. Так, например, если какая-то команда завершается с ошибкой, то сеанс продолжается и можно попробовать разобраться, что пошло не так, внести необходимые правки и попробовать снова.</p>
+<p>Тем не менее набранные в течении сессии инструкции никуда не сохраняются по завершению сессии и требуется в ручную подтверждать ввод каждой команды нажатием клавиши <code class="docutils literal notranslate"><span class="pre">Enter</span></code>, что довольно сильно ограничивает область применения интерактивной оболочки. Далее будет рассмотрено ещё 2 способа взаимодействия с <code class="docutils literal notranslate"><span class="pre">python</span></code>, один из которых (скрипты) полностью лишен только что озвученных недостатков ценой интерактивности, а второй (блокноты <code class="docutils literal notranslate"><span class="pre">jupyter</span></code>) представляет собой некоторый компромисс: интерактивность, возможность сохранять и переиспользовать набор инструкций между сессиями (исходный код) и частичная автоматизация запуска исходного кода.</p>
 </div>
 </div>
 
