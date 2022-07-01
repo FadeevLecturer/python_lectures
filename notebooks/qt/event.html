@@ -147,13 +147,16 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../../docs/jupyter_notebooks.html">
-   Что такое Jupyter Notebooks?
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../python/first_notebook.html">
-   Основы работы с Jupyter Notebooks
+  <a class="reference internal" href="../python/jupyter.html">
+   Блокноты.
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Jupyter
+    </span>
+    <span class="pre">
+     Notebooks
+    </span>
+   </code>
   </a>
  </li>
  <li class="toctree-l1">
@@ -802,7 +805,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Любое взаимодействие пользователя с приложением <code class="docutils literal notranslate"><span class="pre">Qt</span></code>, будь то клики мышкой или нажатия клавиш клавиатуры, осуществляется в форме событий (<code class="docutils literal notranslate"><span class="pre">events</span></code>). Кроме пользователя события могут быть порождены операционной системой, самим приложением или другими событиями. Чтобы как-то реагировать на эти события, приложение должно следить за их возникновениями и как-то их обрабатывать (<code class="docutils literal notranslate"><span class="pre">event</span> <span class="pre">handling</span></code>). В частности, метод <code class="docutils literal notranslate"><span class="pre">exec</span></code> приложения запускает событийный цикл (<code class="docutils literal notranslate"><span class="pre">event</span> <span class="pre">loop</span></code>), которая и организовывает всё взаимодействие с графическим интерфейсом.</p>
 <div class="figure align-default" id="id8">
 <img alt="../../_images/event-loop.png" src="../../_images/event-loop.png" />
-<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Картинка позаимствована <a class="reference external" href="https://www.pythonguis.com/tutorials/creating-your-first-pyqt-window/">отсюда</a>.</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Картинка позаимствована <a class="reference external" href="https://www.pythonguis.com/tutorials/creating-your-first-pyqt-window/">отсюда</a>.</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
 </div>
 <p>Каждое взаимодействие с приложением порождает объект типа <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtCore/QEvent.html?highlight=qevent">QtCore.QEvent</a> или производного от него типа. Затем событие помещается в очередь событий (<code class="docutils literal notranslate"><span class="pre">event</span> <span class="pre">queue</span></code>). Событийный цикл на каждой итерации проверяет эту очередь и, если находится ожидающее событие, передаёт управление соответствующему обработчику (<code class="docutils literal notranslate"><span class="pre">event</span> <span class="pre">handler</span></code>).</p>
 <p>Например, щелчок мышью на виджет состоит из двух событий: зажатие кнопки мыши <code class="docutils literal notranslate"><span class="pre">QEvent.MouseButtonPress</span></code> и отпуск кнопки мыши <code class="docutils literal notranslate"><span class="pre">QEvent.MouseButtonRelease</span></code>. Оба из них генерируют объект события типа <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtGui/QMouseEvent.html#qmouseevent">QMouseEvent</a>. Чтобы их обработать особым образом, необходимо переопределить у виджета соответствующие обработчики.</p>
