@@ -7,8 +7,7 @@ parts:
       - file: docs/getting_started
       - file: docs/python_as_calculator
       - file: docs/scripts
-      - file: docs/jupyter_notebooks
-      - file: notebooks/python/first_notebook
+      - file: notebooks/python/jupyter
       - file: notebooks/python/numbers_and_lists
       - file: notebooks/python/if_for_range
   - caption: "Лекция №2"
