@@ -10,6 +10,8 @@ parts:
       - file: notebooks/python/jupyter
       - file: notebooks/python/numbers_and_lists
       - file: notebooks/python/if_for_range
+      - file: notebooks/homework/1
+      
   - caption: "Лекция №2"
     chapters:
       - file: docs/interpretability
