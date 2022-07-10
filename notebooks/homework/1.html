@@ -54,7 +54,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -830,22 +829,31 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="o1">
 <h1>Домашнее задание №1<a class="headerlink" href="#o1" title="Permalink to this headline">¶</a></h1>
+<p>В рамках первого домашнего задания от вас требуется:</p>
+<ol class="simple">
+<li><p>Установить <code class="docutils literal notranslate"><span class="pre">python</span></code>;</p></li>
+<li><p>Установить среду разработки на вкус;</p></li>
+<li><p>Реализовать один из численных методов описанных ниже.</p></li>
+</ol>
+<p>Метод и функция, для которой его необходимо применить в обязательном порядке, определяются вариантом, которые перечисленны ниже.</p>
 <div class="section" id="id1">
 <h2>Численные методы поиска минимума или корня скалярной функции<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>В рамках первого домашнего задания от вас потребуется реализовать 1) численный метод поиска корней скалярного уравнения вида</p>
+<p>В рамках первого домашнего задания от вас потребуется реализовать численный метод поиска корня уравнения вида</p>
 <div class="math notranslate nohighlight" id="equation-equation">
 <span class="eqno">(1)<a class="headerlink" href="#equation-equation" title="Permalink to this equation">¶</a></span>\[f(x) = 0,\]</div>
-<p>или 2) численный метод поиска минимума скалярной функции <span class="math notranslate nohighlight">\(f\)</span>:</p>
+<p>или численный метод поиска минимума скалярной функции <span class="math notranslate nohighlight">\(f\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-notebooks-homework-1-0">
 <span class="eqno">(2)<a class="headerlink" href="#equation-notebooks-homework-1-0" title="Permalink to this equation">¶</a></span>\[f(x) \sim \min_{x \in X}.\]</div>
-<p>Это задание нацелено в первую очередь на освоение синтаксиса языка <code class="docutils literal notranslate"><span class="pre">python</span></code>, поэтому ниже приводится подробное описание алгоритмов работы каждого метода.</p>
-<p>К вашему решению предъявляются следующие требования:</p>
+<p>В обоих случаях <span class="math notranslate nohighlight">\(f\)</span> — скалярная функция одного аргумента, т.е. <span class="math notranslate nohighlight">\(f\colon \mathbb{R} \to \mathbb{R}\)</span>.</p>
+<p>Это задание нацелено в первую очередь на освоение синтаксиса языка <code class="docutils literal notranslate"><span class="pre">python</span></code>, поэтому ниже приводится подробное описание алгоритмов работы каждого метода, а вам предлагается реализовать один из них средствами <code class="docutils literal notranslate"><span class="pre">python</span></code>. К вашему решению предъявляются следующие требования:</p>
 <ol class="simple">
-<li><p>Решение должно быть оформлено в виде скрипта <code class="docutils literal notranslate"><span class="pre">python</span></code> (не блокнот <code class="docutils literal notranslate"><span class="pre">jupyter</span></code>)!</p></li>
-<li><p>Численный метод должен быть оформлен в виде отдельной функции, которая в качестве параметров должна принимать все необходимые для решения задачи значения, а возвращать найденный корень или минимум, если алгоритма сошелся, или значение <code class="docutils literal notranslate"><span class="pre">None</span></code>, если алгоритм не применим или разошелся.</p></li>
-<li><p>Приём параметров задачи должен осуществляться из стандартного потока ввода снаружи метода поиска корня.</p></li>
+<li><p>Решение должно быть оформлено в виде скрипта <code class="docutils literal notranslate"><span class="pre">python</span></code> (файл с расширением “<code class="docutils literal notranslate"><span class="pre">.py</span></code>”, а не блокнот <code class="docutils literal notranslate"><span class="pre">jupyter</span></code>)!</p></li>
+<li><p>Ввод параметров должен осуществляться пользователем средствами стандартного потока ввода.</p></li>
+<li><p>Численный метод должен быть оформлен в виде отдельной процедуры (<code class="docutils literal notranslate"><span class="pre">python</span></code> функции).</p></li>
+<li><p>Введенные пользователем данные должны передаваться процедуре численного метода в качестве аргументов.</p></li>
+<li><p>Процедура численного метода должна возвращать найденный корень или минимум, если алгоритм сошелся, и значение <code class="docutils literal notranslate"><span class="pre">None</span></code>, если алгоритм не применим или разошелся.</p></li>
+<li><p>Реализованный метод должен печатать отладочную информацию в стандартный поток вывода.</p></li>
 <li><p>Реализованный метод поиска корня должен быть протестирован на каких-то простых примерах.</p></li>
-<li><p>Реализованный метод должен печатать отладочную информацию в самом начале и конце, а также на каждой итерации в стандартный поток вывода.</p></li>
 </ol>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -859,11 +867,9 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="math notranslate nohighlight" id="equation-signs-bisect">
 <span class="eqno">(3)<a class="headerlink" href="#equation-signs-bisect" title="Permalink to this equation">¶</a></span>\[f(a)f(b)&lt;0. \]</div>
 <p>Тогда из теоремы о промежуточном значении следует, что найдется минимум один корень функции <span class="math notranslate nohighlight">\(f\)</span> на отрезке <span class="math notranslate nohighlight">\([a, b]\)</span>, а метод бисекции позволяет найти этот корень с произвольной точностью.</p>
-<div class="math notranslate nohighlight" id="equation-secant">
-<span class="eqno">(4)<a class="headerlink" href="#equation-secant" title="Permalink to this equation">¶</a></span>\[f(a)f(b)&lt;0. \]</div>
 <p>Основная идея алгоритма поиска корня методом бисекции заключается в следующем. Поделим отрезок <span class="math notranslate nohighlight">\([a, b]\)</span> пополам, т.е. найдем точку <span class="math notranslate nohighlight">\(c\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-middle-bisect">
-<span class="eqno">(5)<a class="headerlink" href="#equation-middle-bisect" title="Permalink to this equation">¶</a></span>\[c = \dfrac{a + b}{2}.\]</div>
+<span class="eqno">(4)<a class="headerlink" href="#equation-middle-bisect" title="Permalink to this equation">¶</a></span>\[c = \dfrac{a + b}{2}.\]</div>
 <p>В зависимости от значения величины <span class="math notranslate nohighlight">\(f(c)\)</span>, реализуется один из следующих вариантов.</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(f(c) = 0\)</span>, т.е. уравнение <a class="reference internal" href="#equation-equation">(1)</a> решено и <span class="math notranslate nohighlight">\(c\)</span> — его корень;</p></li>
@@ -881,10 +887,10 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="figure align-default">
 <img alt="../../_images/bisection.gif" src="../../_images/bisection.gif" />
 </div>
-<p>Пусть заданы требуемые точность <code class="docutils literal notranslate"><span class="pre">delta</span></code> и невязка <code class="docutils literal notranslate"><span class="pre">epsilon</span></code>. Тогда алгоритма поиска минимума корня функции <span class="math notranslate nohighlight">\(f\)</span> на отрезке <code class="docutils literal notranslate"><span class="pre">[a,</span> <span class="pre">b]</span></code> методом бисекции состоит из следующих шагов.</p>
+<p>Пусть заданы требуемые точность <code class="docutils literal notranslate"><span class="pre">delta</span></code> и невязка <code class="docutils literal notranslate"><span class="pre">epsilon</span></code>. Тогда алгоритма поиска минимума корня функции <code class="docutils literal notranslate"><span class="pre">f</span></code> на отрезке <code class="docutils literal notranslate"><span class="pre">[a,</span> <span class="pre">b]</span></code> методом бисекции состоит из следующих шагов.</p>
 <ol class="simple">
 <li><p>Проверить выполнение условия <a class="reference internal" href="#equation-signs-bisect">(3)</a>. Если условие не выполняется, то решения на заданном интервале нет, либо оно не единственно. Работа алгоритма немедленно завершается. Если условие выполняется, то перейти к следующему шагу.</p></li>
-<li><p>Найти середину отрезка <code class="docutils literal notranslate"><span class="pre">c</span></code> по формуле <a class="reference internal" href="#equation-middle-bisect">(5)</a>.</p></li>
+<li><p>Найти середину отрезка <code class="docutils literal notranslate"><span class="pre">c</span></code> по формуле <a class="reference internal" href="#equation-middle-bisect">(4)</a>.</p></li>
 <li><p>Проверить выполнение критериев остановки. Если <code class="docutils literal notranslate"><span class="pre">|f(c)|</span> <span class="pre">&lt;</span> <span class="pre">epsilon</span></code> и <code class="docutils literal notranslate"><span class="pre">|b-a|&lt;</span> <span class="pre">delta</span></code>, то принять, что <code class="docutils literal notranslate"><span class="pre">c</span></code> — искомый корень и работа алгоритма прекращается немедленно. Иначе перейти к следующему шагу.</p></li>
 <li><p>Проверить, на каком из двух отрезков <code class="docutils literal notranslate"><span class="pre">[a,</span> <span class="pre">c]</span></code> или <code class="docutils literal notranslate"><span class="pre">[c,</span> <span class="pre">b]</span></code> функция меняет знак. Если <code class="docutils literal notranslate"><span class="pre">f(a)</span> <span class="pre">f(c)</span> <span class="pre">&lt;</span> <span class="pre">0</span></code>, то <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">c</span></code>. Иначе, <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">c</span></code>. Вернуться к шагу №2.</p></li>
 </ol>
@@ -893,10 +899,15 @@ const thebe_selector_output = ".output, .cell_output"
 <span id="id3"></span><h3>Метод хорд<a class="headerlink" href="#secant" title="Permalink to this headline">¶</a></h3>
 <p>Идея метода хорд очень похожа на идею метода бисекции. Корень тоже ищется на отрезке <span class="math notranslate nohighlight">\([a, b]\)</span>, на концах которого непрерывная функция <span class="math notranslate nohighlight">\(f\)</span> должна иметь разные знаки.</p>
 <div class="math notranslate nohighlight" id="equation-signs-secant">
-<span class="eqno">(6)<a class="headerlink" href="#equation-signs-secant" title="Permalink to this equation">¶</a></span>\[f(a)f(b)&lt;0. \]</div>
-<p>На каждой итерации отрезок тоже делится на две части, но не пополам, а по следующей схеме. Через точки <span class="math notranslate nohighlight">\((a, f(a))\)</span> и <span class="math notranslate nohighlight">\((b, f(b))\)</span> проводится хорда, которая гарантировано пересекает ось абсцисс в точке</p>
+<span class="eqno">(5)<a class="headerlink" href="#equation-signs-secant" title="Permalink to this equation">¶</a></span>\[f(a)f(b)&lt;0. \]</div>
+<p>На каждой итерации отрезок тоже делится на две части, но не пополам, а по следующей схеме. Через точки <span class="math notranslate nohighlight">\((a, f(a))\)</span> и <span class="math notranslate nohighlight">\((b, f(b))\)</span> проводится прямая</p>
+<div class="math notranslate nohighlight">
+\[
+y =  f(a) \dfrac{x - b}{a - b} + f(b) \dfrac{a - x}{a - b},
+\]</div>
+<p>которую называют хордой или секущей. Эта прямая пересекает ось абсцисс в точке</p>
 <div class="math notranslate nohighlight" id="equation-middle-secant">
-<span class="eqno">(7)<a class="headerlink" href="#equation-middle-secant" title="Permalink to this equation">¶</a></span>\[c = a - \dfrac{f(b)(b-a)}{f(b) - f(a)},\]</div>
+<span class="eqno">(6)<a class="headerlink" href="#equation-middle-secant" title="Permalink to this equation">¶</a></span>\[c = a - \dfrac{f(b)(b-a)}{f(b) - f(a)} \in (a, b),\]</div>
 <p>которая определяет деление отрезка <span class="math notranslate nohighlight">\([a, b]\)</span> на два отрезка меньшей длинны: <span class="math notranslate nohighlight">\([a, c]\)</span> и <span class="math notranslate nohighlight">\([c, b]\)</span>. Если точка <span class="math notranslate nohighlight">\(c\)</span> сама по себе не является корнем, то поиск продолжается на одном из двух этих отрезков. Обычно такие шаги применяют многократно до тех пор, пока не будет достигнута необходимая точность (длина отрезка <span class="math notranslate nohighlight">\([a, b]\)</span>) и невязка в средней точке (модуль значения функции <span class="math notranslate nohighlight">\(|f(c)|\)</span>), т.е. критерием сходимости метода является одновременное выполнение двух условий</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -910,25 +921,25 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p>Пусть заданы требуемые точность <code class="docutils literal notranslate"><span class="pre">delta</span></code> и невязка <code class="docutils literal notranslate"><span class="pre">epsilon</span></code>. Тогда алгоритма поиска минимума корня функции <code class="docutils literal notranslate"><span class="pre">f</span></code> на отрезке <code class="docutils literal notranslate"><span class="pre">[a,</span> <span class="pre">b]</span></code> методом хорд состоит из следующих шагов.</p>
 <ol class="simple">
-<li><p>Проверить выполнение условия <a class="reference internal" href="#equation-signs-secant">(6)</a>. Если условие не выполняется, то решения на заданном интервале нет, либо оно не единственно. Работа алгоритма немедленно завершается. Если условие выполняется, то перейти к следующему шагу.</p></li>
-<li><p>Найти середину отрезка <code class="docutils literal notranslate"><span class="pre">c</span></code> по формуле <a class="reference internal" href="#equation-middle-secant">(7)</a>.</p></li>
+<li><p>Проверить выполнение условия <a class="reference internal" href="#equation-signs-secant">(5)</a>. Если условие не выполняется, то решения на заданном интервале нет, либо оно не единственно. Работа алгоритма немедленно завершается. Если условие выполняется, то перейти к следующему шагу.</p></li>
+<li><p>Найти точку <code class="docutils literal notranslate"><span class="pre">c</span></code> по формуле <a class="reference internal" href="#equation-middle-secant">(6)</a>.</p></li>
 <li><p>Проверить выполнение критериев остановки. Если <code class="docutils literal notranslate"><span class="pre">|f(c)|</span> <span class="pre">&lt;</span> <span class="pre">epsilon</span></code> и <code class="docutils literal notranslate"><span class="pre">|b-a|&lt;</span> <span class="pre">delta</span></code>,  то принимается, что <code class="docutils literal notranslate"><span class="pre">c</span></code> — искомый корень и работа алгоритма прекращается немедленно. Иначе, перейти к следующему шагу.</p></li>
 <li><p>Выяснить, на каком из двух отрезков <code class="docutils literal notranslate"><span class="pre">[a,</span> <span class="pre">c]</span></code> или <code class="docutils literal notranslate"><span class="pre">[c,</span> <span class="pre">b]</span></code> функция меняет знак. Если <code class="docutils literal notranslate"><span class="pre">f(a)</span> <span class="pre">f(c)</span> <span class="pre">&lt;</span> <span class="pre">0</span></code>, то <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">c</span></code>. Иначе, <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">c</span></code>. Вернуться  к шагу №2.</p></li>
 </ol>
 </div>
 <div class="section" id="newton">
 <span id="id4"></span><h3>Метод Ньютона<a class="headerlink" href="#newton" title="Permalink to this headline">¶</a></h3>
-<p>Метод касательных (он же метод Ньютона) накладывает дополнительные требования на функцию <span class="math notranslate nohighlight">\(f\)</span>: кроме непрерывности самой функции <span class="math notranslate nohighlight">\(f\)</span> требуется и непрерывность производная. Другое отличие заключается в виде начального приближения: предыдущие два методы требовали отрезок, а метод Ньютона всего одну точку.</p>
-<p>Пусть задано начальное приближение <span class="math notranslate nohighlight">\(x_0\)</span>. Идея метода Ньютона заключается в том, чтобы аппроксимировать кривую <span class="math notranslate nohighlight">\(f(x)\)</span> касательной в окрестности точки <span class="math notranslate nohighlight">\(x_0\)</span> и найти следующее приближение <span class="math notranslate nohighlight">\(x_1\)</span> к корню функции <span class="math notranslate nohighlight">\(f(x)\)</span> как пересечение этой касательной с осью абсцисс. Касательная <span class="math notranslate nohighlight">\(\hat{f}\)</span> определяется уравнением</p>
+<p>Метод касательных (он же метод Ньютона) накладывает дополнительные требования на функцию <span class="math notranslate nohighlight">\(f\)</span>: кроме непрерывности самой функции <span class="math notranslate nohighlight">\(f\)</span> требуется и непрерывность производной <span class="math notranslate nohighlight">\(f'\)</span>. Другое отличие заключается в виде начального приближения: предыдущие два методы требовали отрезок, а метод Ньютона всего одну точку.</p>
+<p>Пусть задано начальное приближение <span class="math notranslate nohighlight">\(x_0\)</span>. Идея метода Ньютона заключается в том, чтобы аппроксимировать кривую <span class="math notranslate nohighlight">\(f(x)\)</span> касательной в окрестности точки <span class="math notranslate nohighlight">\(x_0\)</span> и найти следующее приближение <span class="math notranslate nohighlight">\(x_1\)</span> к корню функции <span class="math notranslate nohighlight">\(f(x)\)</span> как пересечение этой касательной с осью абсцисс. Касательная <span class="math notranslate nohighlight">\(\hat{f}\)</span> к функции <span class="math notranslate nohighlight">\(f\)</span> в точке <span class="math notranslate nohighlight">\(x_0\)</span> определяется уравнением</p>
 <div class="math notranslate nohighlight">
 \[\hat{f}(x) = f'(x_0)(x - x_0) + f(x_0),\]</div>
 <p>а координата <span class="math notranslate nohighlight">\(x_1\)</span> её точки пересечения с осью абсцисс выражением</p>
 <div class="math notranslate nohighlight">
 \[x_1 = x_0 - \dfrac{f(x_0)}{f'(x_0)}.\]</div>
-<p>Далее <span class="math notranslate nohighlight">\(x_1\)</span> используется в качестве начального приближения на следующей итерации, чтобы найти <span class="math notranslate nohighlight">\(x_2\)</span> и т.д.</p>
+<p>Далее <span class="math notranslate nohighlight">\(x_1\)</span> используется в качестве начального приближения на следующей итерации, чтобы найти <span class="math notranslate nohighlight">\(x_2\)</span> и так далее.</p>
 <div class="math notranslate nohighlight" id="equation-newton-iteration">
-<span class="eqno">(8)<a class="headerlink" href="#equation-newton-iteration" title="Permalink to this equation">¶</a></span>\[x_{i+1} = x_{i} - \dfrac{f(x_i)}{f'(x_i)}.\]</div>
-<p>Условием сходимости является достаточная близость нулевого приближения <span class="math notranslate nohighlight">\(x_0\)</span> к корню. Гарантировать требуемую точность на каждой конкретной итерации не представляется возможным, поэтому погрешность обычно оценивают, как величину <span class="math notranslate nohighlight">\(|x_{i+1} - x_i|\)</span>, т.к. критерием сходимости является выполнение условий</p>
+<span class="eqno">(7)<a class="headerlink" href="#equation-newton-iteration" title="Permalink to this equation">¶</a></span>\[x_{i+1} = x_{i} - \dfrac{f(x_i)}{f'(x_i)}.\]</div>
+<p>Условием сходимости является достаточная близость нулевого приближения <span class="math notranslate nohighlight">\(x_0\)</span> к корню. Гарантировать требуемую точность на каждой конкретной итерации не представляется возможным, поэтому погрешность обычно оценивают как величину <span class="math notranslate nohighlight">\(|x_{i+1} - x_i|\)</span>, т.е. критерием сходимости является выполнение условий</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{cases}
@@ -936,14 +947,14 @@ const thebe_selector_output = ".output, .cell_output"
 |f(x_{i+1})| &lt; \varepsilon. 
 \end{cases}
 \end{split}\]</div>
-<p>Так как метод Ньютона может разойтись, если приближение далеко от корня, то кроме контроля невязки и точности требуется ограничивать максимальное количество итерация, чтобы не попасть в бесконечный цикл.</p>
+<p>Так как метод Ньютона может разойтись, если приближение далеко от корня, то кроме контроля невязки и точности требуется ограничивать максимальное количество итераций, чтобы исключить возможность попадания в бесконечный цикл.</p>
 <div class="figure align-default">
 <img alt="../../_images/newton.gif" src="../../_images/newton.gif" />
 </div>
-<p>Пусть заданы требуемые точность <code class="docutils literal notranslate"><span class="pre">delta</span></code>, невязка <code class="docutils literal notranslate"><span class="pre">epsilon</span></code>, максимальное количество итераций <code class="docutils literal notranslate"><span class="pre">max_iter</span></code> и начальное приближение <code class="docutils literal notranslate"><span class="pre">x0</span></code>. Тогда алгоритма поиска минимума корня функции <code class="docutils literal notranslate"><span class="pre">f</span></code> методом Ньютона состоит из следующих шагов.</p>
+<p>Пусть заданы требуемые точность <code class="docutils literal notranslate"><span class="pre">delta</span></code>, невязка <code class="docutils literal notranslate"><span class="pre">epsilon</span></code>, максимальное количество итераций <code class="docutils literal notranslate"><span class="pre">max_iter</span></code> и начальное приближение <code class="docutils literal notranslate"><span class="pre">x0</span></code>. Тогда алгоритма поиска корня функции <code class="docutils literal notranslate"><span class="pre">f</span></code> методом Ньютона состоит из следующих шагов.</p>
 <ol class="simple">
 <li><p>Инициализировать счетчик <code class="docutils literal notranslate"><span class="pre">iter</span></code> нулевым значением, а переменную <code class="docutils literal notranslate"><span class="pre">x_previous</span></code> значением <code class="docutils literal notranslate"><span class="pre">x0</span></code>.</p></li>
-<li><p>Вычислить следующее приближение <code class="docutils literal notranslate"><span class="pre">x_next</span></code> на основе предыдущего <code class="docutils literal notranslate"><span class="pre">x_previous</span></code> по формуле <a class="reference internal" href="#equation-newton-iteration">(8)</a>.</p></li>
+<li><p>Вычислить следующее приближение <code class="docutils literal notranslate"><span class="pre">x_next</span></code> на основе предыдущего <code class="docutils literal notranslate"><span class="pre">x_previous</span></code> по формуле <a class="reference internal" href="#equation-newton-iteration">(7)</a>.</p></li>
 <li><p>Если <code class="docutils literal notranslate"><span class="pre">|x_next</span> <span class="pre">-</span> <span class="pre">x_previous|</span> <span class="pre">&lt;</span> <span class="pre">delta</span></code> и <code class="docutils literal notranslate"><span class="pre">f(x_next)</span> <span class="pre">&lt;</span> <span class="pre">epsilon</span></code>, то принять, что <code class="docutils literal notranslate"><span class="pre">x1</span></code> — искомый корень и работа алгоритма прекращается немедленно. Иначе, перейти к шагу №4.</p></li>
 <li><p>Если <code class="docutils literal notranslate"><span class="pre">iter</span> <span class="pre">==</span> <span class="pre">max_iter</span></code>, то принять, что алгоритм Ньютона разошелся и работа алгоритма прекращается немедленно. Иначе, перейти к шагу №5.</p></li>
 <li><p>Присвоить переменной <code class="docutils literal notranslate"><span class="pre">x_previous</span></code> значение переменной <code class="docutils literal notranslate"><span class="pre">x_next</span></code>, увеличить счетчик <code class="docutils literal notranslate"><span class="pre">iter</span></code> на 1 и вернуться к шагу №2.</p></li>
@@ -973,7 +984,7 @@ const thebe_selector_output = ".output, .cell_output"
 \]</div>
 <p>Метод <strong>золотого сечения</strong> — частный, который предписывает выбирать <span class="math notranslate nohighlight">\(x_1\)</span> и <span class="math notranslate nohighlight">\(x_2\)</span> по формулам</p>
 <div class="math notranslate nohighlight" id="equation-golden-ratio">
-<span class="eqno">(9)<a class="headerlink" href="#equation-golden-ratio" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{cases}
+<span class="eqno">(8)<a class="headerlink" href="#equation-golden-ratio" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{cases}
 x_1 = \dfrac{a + b}{2} - (b - a)(\dfrac{1}{\Phi} - \dfrac{1}{2}), \\
 x_2 = \dfrac{a + b}{2} + (b - a)(\dfrac{1}{\Phi} - \dfrac{1}{2}),
 \end{cases}\end{split}\]</div>
@@ -983,38 +994,42 @@ x_2 = \dfrac{a + b}{2} + (b - a)(\dfrac{1}{\Phi} - \dfrac{1}{2}),
 </div>
 <p>Пусть задана требуемая точность <code class="docutils literal notranslate"><span class="pre">delta</span></code>. Тогда алгоритма поиска минимума функции <code class="docutils literal notranslate"><span class="pre">f</span></code> на отрезке <code class="docutils literal notranslate"><span class="pre">[a,</span> <span class="pre">b]</span></code> методом золотого сечения состоит из следующих шагов.</p>
 <ol class="simple">
-<li><p>Найти <code class="docutils literal notranslate"><span class="pre">x1</span></code> и <code class="docutils literal notranslate"><span class="pre">x2</span></code> по формулам <a class="reference internal" href="#equation-golden-ratio">(9)</a>.</p></li>
+<li><p>Найти <code class="docutils literal notranslate"><span class="pre">x1</span></code> и <code class="docutils literal notranslate"><span class="pre">x2</span></code> по формулам <a class="reference internal" href="#equation-golden-ratio">(8)</a>.</p></li>
 <li><p>Если <code class="docutils literal notranslate"><span class="pre">f(x1)</span> <span class="pre">&gt;</span> <span class="pre">f(x2)</span></code>, то <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">x1</span></code>. Иначе, <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">x_2</span></code>.</p></li>
 <li><p>Если <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">-</span> <span class="pre">a</span> <span class="pre">&lt;</span> <span class="pre">delta</span></code>, то требуемая точность достигнута и принимается, что <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">=</span> <span class="pre">(a</span> <span class="pre">+</span> <span class="pre">b)</span> <span class="pre">/</span> <span class="pre">2</span></code>  — положение глобального минимума и работа алгоритма завершается. Иначе, вернуться к шагу №1.</p></li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Выбор <span class="math notranslate nohighlight">\(x_1\)</span> и <span class="math notranslate nohighlight">\(x_2\)</span> по формулам <a class="reference internal" href="#equation-golden-ratio">(9)</a> позволяет сэкономить вычисления на втором и следующих итерация. Например, если на предыдущей итерации алгоритм попал в ветку, где <span class="math notranslate nohighlight">\(f(x_1) &gt; f(x_2)\)</span>, то на следующей итерации <span class="math notranslate nohighlight">\(a = x_1\)</span> и можно показать, что <span class="math notranslate nohighlight">\(x_1\)</span> на следующей итерации совпадает с <span class="math notranslate nohighlight">\(x_2\)</span> на предыдущей и можно переиспользовать вычисленные на предыдущей итерации значения <span class="math notranslate nohighlight">\(x_2\)</span> и <span class="math notranslate nohighlight">\(f(x_2)\)</span> как значения <span class="math notranslate nohighlight">\(x_1\)</span> и <span class="math notranslate nohighlight">\(f(x_1)\)</span> на следующей.</p>
+<p>Выбор <span class="math notranslate nohighlight">\(x_1\)</span> и <span class="math notranslate nohighlight">\(x_2\)</span> по формулам <a class="reference internal" href="#equation-golden-ratio">(8)</a> позволяет сэкономить вычисления на втором и следующих итерация. Например, если на предыдущей итерации алгоритм попал в ветку, где <span class="math notranslate nohighlight">\(f(x_1) &gt; f(x_2)\)</span>, то на следующей итерации <span class="math notranslate nohighlight">\(a = x_1\)</span> и можно показать, что <span class="math notranslate nohighlight">\(x_1\)</span> на следующей итерации совпадает с <span class="math notranslate nohighlight">\(x_2\)</span> на предыдущей и можно переиспользовать вычисленные на предыдущей итерации значения <span class="math notranslate nohighlight">\(x_2\)</span> и <span class="math notranslate nohighlight">\(f(x_2)\)</span> как значения <span class="math notranslate nohighlight">\(x_1\)</span> и <span class="math notranslate nohighlight">\(f(x_1)\)</span> на следующей.</p>
 </div>
 </div>
 <div class="section" id="id6">
 <h3>Метод градиентного спуска<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
-<p>Метод градиентного спуска — один из самых распространенных методов минимизации функции. Для его работы требуется не только не прерывность самой функции <span class="math notranslate nohighlight">\(f\)</span>, но ещё и её первой производной <span class="math notranslate nohighlight">\(f'\)</span>.</p>
-<p>Метода градиентного спуска основывается на очень простом наблюдении: по знаку производной в точки <span class="math notranslate nohighlight">\(x_0\)</span> можно судить, растёт ли функция <span class="math notranslate nohighlight">\(f(x_*)\)</span> в окрестности <span class="math notranslate nohighlight">\(x_0\)</span> (<span class="math notranslate nohighlight">\(f'(x_0) &gt; 0\)</span>), убывает ли (<span class="math notranslate nohighlight">\(f'(x_0) &lt; 0\)</span>) или найден локальный экстремум <span class="math notranslate nohighlight">\(f'(x_0) = 0\)</span>. Использую информацию о направлении роста функции <span class="math notranslate nohighlight">\(f\)</span> в окрестности текущей точки <span class="math notranslate nohighlight">\(x_0\)</span>, можно сделать небольшой шаг в противоположном направлении и тем самым найти точку <span class="math notranslate nohighlight">\(x_1\)</span>, которая может оказаться ближе к глобальному минимуму. Повторяя эту процедуру многократно, можно надеяться, что последовательность <span class="math notranslate nohighlight">\(\{x_0, x_1, ..., x_i, ...\}\)</span> сойдется к глобальному минимуму.</p>
-<p>Один шаг градиентного спуска задается выражением</p>
+<p>Метод градиентного спуска — один из самых распространенных методов минимизации функции. Для его работы требуется не только непрерывность самой функции <span class="math notranslate nohighlight">\(f\)</span>, но ещё и непрерывность её первой производной <span class="math notranslate nohighlight">\(f'\)</span>.</p>
+<p>Известно, что в случае функции нескольких переменных <span class="math notranslate nohighlight">\(f\colon \mathbb{R}^n \to \mathbb{R}\)</span>, градиент <span class="math notranslate nohighlight">\(\nabla f(x)\)</span> определяет направление наискорейшего роста в окрестности точки <span class="math notranslate nohighlight">\(x\)</span>. И наоборот, в противоположном направлении функция <span class="math notranslate nohighlight">\(f\)</span> убывает быстрее всего. Метод градиентного спуска опирается на это свойство градиента: на каждой итерации алгоритма совершается шаг в направлении антиградиента (<span class="math notranslate nohighlight">\(-\nabla f(x)\)</span>), т.е. направлении наискорейшего спуска.</p>
+<p>Градиент <span class="math notranslate nohighlight">\(\nabla f\)</span> функции <span class="math notranslate nohighlight">\(f\colon \mathbb{R} \to \mathbb{R}\)</span> совпадает с её производной и один шаг градиентного спуска в таком случае задается формулой</p>
 <div class="math notranslate nohighlight">
 \[
 x_{i + 1} = x_i - \alpha_i f'(x_i),
 \]</div>
 <p>где <span class="math notranslate nohighlight">\(x_i\)</span> — текущее приближение, <span class="math notranslate nohighlight">\(x_{i+1}\)</span> — следующее приближение, а <span class="math notranslate nohighlight">\(\alpha_i\)</span> — шаг градиентного спуска на <span class="math notranslate nohighlight">\(i\)</span>-й итерации.</p>
-<p>Если <span class="math notranslate nohighlight">\(f\)</span> строго выпукла, то при наложении определенных требования на последовательность <span class="math notranslate nohighlight">\(\{\alpha_0, \alpha_1, ..., \alpha_i, ...\}\)</span> можно доказать, что метод градиентного спуска сойдется к глобальному методу. Но даже при не выполнении этих условий метод градиентного спуска может сойтись, но гарантировать сходимость не представляется возможным. В качестве контроля сходимости иногда используется величина градиента, так как в экстремальной точке дифференцируемой функции производная равна нулю. Иными словами, критерием остановки алгоритма градиентного спуска иногда выступает условие</p>
+<p>Если <span class="math notranslate nohighlight">\(f\)</span> строго выпукла, то при наложении определенных требований на последовательность <span class="math notranslate nohighlight">\(\{\alpha_0, \alpha_1, ..., \alpha_i, ...\}\)</span> можно доказать, что метод градиентного спуска сойдется к глобальному минимуму. Но даже при не выполнении этих условий метод градиентного спуска может сойтись, но тогда гарантировать сходимость не представляется возможным. В качестве контроля сходимости иногда используется величина градиента, так как в экстремальной точке дифференцируемой функции производная равна нулю. Иными словами, критерием остановки алгоритма градиентного спуска иногда выступает условие</p>
 <div class="math notranslate nohighlight">
 \[
-|f'(x_i + 1)| &lt; \epsilon.
+|f'(x_i + 1)| &lt; \varepsilon.
 \]</div>
-<p>Так как гарантировать достижение даже локального минимума в общем случае невозможно, то также требуется ограничивать максимальное количество шагов, чтобы исключить возможность попадания в бесконечный цикл.</p>
-<p>Вам предлагается реализовать метод градиентного спуска с постоянным шагом <span class="math notranslate nohighlight">\(\alpha\)</span>. Правильный подбор этого параметра критические влияет на сходимость алгоритма. Слишком маленький шаг потребует много итераций для сходимости и почти наверняка застрянет в первом же встреченном локальном минимуме. Слишком большой шаг может разойтись, а может сравнительно быстро сойтись  при удачном стечении обстоятельств и почти наверняка проскочит минимум, что хорошо, если минимум локальный, и плохо, если минимум глобальный.</p>
+<p>Так как гарантировать достижение даже локального минимума в общем случае невозможно, то также требуется ограничивать максимальное количество итераций, чтобы исключить возможность попадания в бесконечный цикл.</p>
+<p>Вам предлагается реализовать метод градиентного спуска с постоянным шагом <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
 <div class="math notranslate nohighlight" id="equation-gradient-descent">
-<span class="eqno">(10)<a class="headerlink" href="#equation-gradient-descent" title="Permalink to this equation">¶</a></span>\[x_{i + 1} = x_i - \alpha f'(x_i),\]</div>
+<span class="eqno">(9)<a class="headerlink" href="#equation-gradient-descent" title="Permalink to this equation">¶</a></span>\[x_{i + 1} = x_i - \alpha f'(x_i).\]</div>
+<p>Правильный подбор этого параметра критические влияет на сходимость алгоритма. Слишком маленький шаг потребует много итераций для сходимости и почти наверняка застрянет в первом же встреченном локальном минимуме. Слишком большой шаг может разойтись, а может сравнительно быстро сойтись  при удачном стечении обстоятельств и почти наверняка проскочит минимум, что хорошо, если минимум локальный, и плохо, если минимум глобальный.</p>
+<div class="figure align-default">
+<img alt="../../_images/gradient.gif" src="../../_images/gradient.gif" />
+</div>
 <p>Пусть задана величина <code class="docutils literal notranslate"><span class="pre">epsilon</span></code>, максимальное число итераций <code class="docutils literal notranslate"><span class="pre">max_iter</span></code>, шаг градиентного спуска <code class="docutils literal notranslate"><span class="pre">alpha</span></code> и начальное приближение <code class="docutils literal notranslate"><span class="pre">x0</span></code>. Тогда алгоритм поиска минимума функции <code class="docutils literal notranslate"><span class="pre">f</span></code> с производной <code class="docutils literal notranslate"><span class="pre">f_prime</span></code> на отрезке <code class="docutils literal notranslate"><span class="pre">[a,</span> <span class="pre">b]</span></code> методом золотого сечения состоит из следующих шагов.</p>
 <ol class="simple">
 <li><p>Инициализировать переменную <code class="docutils literal notranslate"><span class="pre">iter</span></code> нулем, а переменную <code class="docutils literal notranslate"><span class="pre">x_previous</span></code> величиной <code class="docutils literal notranslate"><span class="pre">x_next</span></code>;</p></li>
-<li><p>Найти следующее приближение <code class="docutils literal notranslate"><span class="pre">x_next</span></code> по формуле <a class="reference internal" href="#equation-gradient-descent">(10)</a>: <code class="docutils literal notranslate"><span class="pre">x_next</span> <span class="pre">=</span> <span class="pre">x_previous</span> <span class="pre">-</span> <span class="pre">alpha</span> <span class="pre">*</span> <span class="pre">f_prime(x_previous)</span></code>;</p></li>
+<li><p>Найти следующее приближение <code class="docutils literal notranslate"><span class="pre">x_next</span></code> по формуле <a class="reference internal" href="#equation-gradient-descent">(9)</a>: <code class="docutils literal notranslate"><span class="pre">x_next</span> <span class="pre">=</span> <span class="pre">x_previous</span> <span class="pre">-</span> <span class="pre">alpha</span> <span class="pre">*</span> <span class="pre">f_prime(x_previous)</span></code>;</p></li>
 <li><p>Если <code class="docutils literal notranslate"><span class="pre">|f_prime(x_next)|</span> <span class="pre">&lt;</span> <span class="pre">epsilon</span></code>, то принять, что <code class="docutils literal notranslate"><span class="pre">x_next</span></code> — найденный минимум, алгоритма завершает свою работу. Иначе, перейти к шагу №4.</p></li>
 <li><p>Увеличить значение переменной <code class="docutils literal notranslate"><span class="pre">iter</span></code> на 1 и, если <code class="docutils literal notranslate"><span class="pre">iter</span> <span class="pre">==</span> <span class="pre">max_iter</span></code>, принять, что метод разошелся и алгоритм завершает работу. Иначе, вернуться к шагу №2.</p></li>
 </ol>
