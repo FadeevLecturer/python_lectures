@@ -94,7 +94,7 @@ parts:
       - file: notebooks/qt/output
       - file: notebooks/qt/input
       - file: notebooks/qt/dialogs
-      - file: notebooks/qt/exercises4
+      - file: notebooks/qt/exercises
   - caption: "Лекции №12 и далее"
     chapters:
       - file: notebooks/python/about_12_and_so_on
