@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Логические операции, булевые маски &#8212; Практикум по компьютерным технологиям</title>
+    <title>Логические операции &#8212; Практикум по компьютерным технологиям</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -51,6 +51,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -251,7 +253,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Логические операции, булевые маски
+   Логические операции
   </a>
  </li>
  <li class="toctree-l1">
@@ -575,7 +577,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../qt/exercises4.html">
+  <a class="reference internal" href="../qt/exercises.html">
    Практические задания
   </a>
  </li>
@@ -743,8 +745,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#np-any-np-all">
-   np.any и np.all
+  <a class="reference internal nav-link" href="#id3">
+   Агрегация булевых значений
   </a>
  </li>
 </ul>
@@ -757,7 +759,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Логические операции, булевые маски</h1>
+                <h1>Логические операции</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -778,8 +780,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#np-any-np-all">
-   np.any и np.all
+  <a class="reference internal nav-link" href="#id3">
+   Агрегация булевых значений
   </a>
  </li>
 </ul>
@@ -792,94 +794,115 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1>Логические операции, булевые маски<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<h1>Логические операции<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="numpy">
 <h2>Сравнение массивов NumPy<a class="headerlink" href="#numpy" title="Permalink to this headline">¶</a></h2>
-<p>Операторы сравнения <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">==</span></code> и <code class="docutils literal notranslate"><span class="pre">!=</span></code> перегружены для массивов <code class="docutils literal notranslate"><span class="pre">numpy</span></code> и работают аналогичные правила, как и для арифметических операторов:</p>
-<ul class="simple">
-<li><p>выполняется поэлементное сравнение;</p></li>
-<li><p>формы должны или совпадать или быть совместимы (<code class="docutils literal notranslate"><span class="pre">broadcastable</span></code>).</p></li>
-</ul>
-<p>Результатом операции сравнения является <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> наиболее общей формы, содержащий булевые значения <code class="docutils literal notranslate"><span class="pre">True</span></code> и <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p>Операторы сравнения “<code class="docutils literal notranslate"><span class="pre">&lt;</span></code>”, “<code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>”, “<code class="docutils literal notranslate"><span class="pre">&gt;</span></code>”, “<code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>”, “<code class="docutils literal notranslate"><span class="pre">==</span></code>” и “<code class="docutils literal notranslate"><span class="pre">!=</span></code>” перегружены для массивов <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> и работают аналогичные правила, как и для арифметических операторов. Результатом операции сравнения является <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> массив булевых значений <code class="docutils literal notranslate"><span class="pre">True</span></code> и <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-
-<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">A</span> <span class="o">&gt;=</span> <span class="mi">7</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0  1  2  3]
- [ 4  5  6  7]
- [ 8  9 10 11]
- [12 13 14 15]]
-[[False False False False]
- [False False False  True]
- [ True  True  True  True]
- [ True  True  True  True]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1  1]
+ [-1 -1]
+ [ 1 -1]
+ [-1  1]]
 </pre></div>
 </div>
 </div>
 </div>
-<p>В отличие от встроенных в python булевых значений, логические операции “<strong>И</strong>”, “<strong>ИЛИ</strong>” и “<strong>НЕ</strong>” (логическое отрицание) осуществляются операторами <code class="docutils literal notranslate"><span class="pre">|</span></code>, <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> и <code class="docutils literal notranslate"><span class="pre">~</span></code>, а не ключевыми словами <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code> и <code class="docutils literal notranslate"><span class="pre">not</span></code>.</p>
+<p>Например, можно в следующей ячейке демонстрируется, как можно одной строкой кода узнать, какие элемента массива неотрицательны.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ True  True]
+ [False False]
+ [ True False]
+ [False  True]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>В результирующем булевом массиве на месте неотрицательных элементов стоит значение <code class="docutils literal notranslate"><span class="pre">True</span></code>, а в остальных позициях стоит <code class="docutils literal notranslate"><span class="pre">False</span></code>,</p>
+<p>Как и в случае арифметических операторов, логические операции тоже осуществляются поэлементно. В предыдущем примере применялся <code class="docutils literal notranslate"><span class="pre">broadcasting</span></code>, т.к. двумерный массив сравнивался со скаляром <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<p>В примере ниже тот же самый массив <code class="docutils literal notranslate"><span class="pre">a</span></code> сравнивается с массивом строкой <code class="docutils literal notranslate"><span class="pre">[-1,</span> <span class="pre">1]</span></code>. В итоге все элементы первого столбца массива <code class="docutils literal notranslate"><span class="pre">a</span></code> сравниваются с числом <code class="docutils literal notranslate"><span class="pre">-1</span></code>, а все элементы второго — с числом <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ True False]
+ [False  True]
+ [ True  True]
+ [False False]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>В отличие от встроенных в <code class="docutils literal notranslate"><span class="pre">python</span></code> булевых значений, логические операции “<strong>И</strong>”, “<strong>ИЛИ</strong>” и “<strong>НЕ</strong>” (логическое отрицание) осуществляются операторами “<code class="docutils literal notranslate"><span class="pre">|</span></code>”, “<code class="docutils literal notranslate"><span class="pre">&amp;</span></code>” и “<code class="docutils literal notranslate"><span class="pre">~</span></code>” соответственно, а не ключевыми словами <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code> и <code class="docutils literal notranslate"><span class="pre">not</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>В самом python операторы <code class="docutils literal notranslate"><span class="pre">|</span></code>, <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> и <code class="docutils literal notranslate"><span class="pre">~</span></code> определенны для целых чисел и представляют из себя побитовые операции.</p>
+<p>В самом <code class="docutils literal notranslate"><span class="pre">python</span></code> операторы “<code class="docutils literal notranslate"><span class="pre">|</span></code>”, “<code class="docutils literal notranslate"><span class="pre">&amp;</span></code>” и “<code class="docutils literal notranslate"><span class="pre">~</span></code>” определенны для целых чисел и представляют из себя побитовые операции.</p>
 </div>
-<p>Логическое  “<strong>И</strong>”:</p>
+<p>Логическое  “<strong>И</strong>” — оператор “<code class="docutils literal notranslate"><span class="pre">&amp;</span></code>”. В качестве примера найдем числа в диапазоне от 3 до 6.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">A</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">A</span> <span class="o">&lt;</span> <span class="mi">11</span><span class="p">)</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">between_3_and_6</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">6</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">between_3_and_6</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[False, False, False, False],
-       [False,  True,  True,  True],
-       [ True,  True,  True, False],
-       [False, False, False, False]])
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0 1 2 3 4 5 6 7 8 9]
+[False False False  True  True  True  True False False False]
 </pre></div>
 </div>
 </div>
 </div>
-<p>Логическое “<strong>ИЛИ</strong>”:</p>
+<p>Логическое “<strong>ИЛИ</strong>” — оператор “<code class="docutils literal notranslate"><span class="pre">|</span></code>”. В качестве примера найдем числа снаружи предыдущего диапазона.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">A</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">A</span> <span class="o">&gt;</span> <span class="mi">11</span><span class="p">)</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">outside_of_3_and_6</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">6</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">outside_of_3_and_6</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ True,  True,  True,  True],
-       [False, False, False, False],
-       [False, False, False, False],
-       [ True,  True,  True,  True]])
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ True  True  True False False False False  True  True  True]
 </pre></div>
 </div>
 </div>
 </div>
-<p>Логическое отрицание:</p>
+<p>Логическое “<strong>НЕ</strong>” — оператор “<code class="docutils literal notranslate"><span class="pre">~</span></code>”. В качестве примера найдем числа снаружи диапазона <span class="math notranslate nohighlight">\([3, 6]\)</span> как отрицание чисел внутри диапазона.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="n">A</span> <span class="o">&gt;</span> <span class="mi">7</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="o">~</span><span class="n">mask</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="o">~</span><span class="n">between_3_and_6</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[False False False False]
- [False False False False]
- [ True  True  True  True]
- [ True  True  True  True]]
-[[ True  True  True  True]
- [ True  True  True  True]
- [False False False False]
- [False False False False]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ True  True  True False False False False  True  True  True]
 </pre></div>
 </div>
 </div>
@@ -887,60 +910,107 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="id2">
 <h2>Индексация булевымы массивами<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p>Такая булевые массивы могут быть использованы для индексации. Это часто используется для фильтрации значений и т.п.</p>
+<p>Массивы булевых значений могут быть использованы для индексации: если между парой квадратных скобок “<code class="docutils literal notranslate"><span class="pre">[]</span></code>” массива <code class="docutils literal notranslate"><span class="pre">python</span></code> указать массив булевых значений, то в качестве ответа возвращаются те значения массива, напротив которых стояло значение <code class="docutils literal notranslate"><span class="pre">True</span></code>. Такие массивы булевых значений часто называют <strong>масками</strong>.</p>
+<div class="figure align-default">
+<img alt="../../_images/masks.svg" src="../../_images/masks.svg" /></div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">A</span> <span class="o">&gt;</span> <span class="mi">7</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+<span class="p">])</span>
+
+<span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span>
+    <span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">],</span>
+    <span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span>
+<span class="p">])</span>
+
+<span class="n">array</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 8  9 10 11 12 13 14 15]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 6, 8, 9])
 </pre></div>
 </div>
 </div>
 </div>
+<p>Так как результаты логических операций над массивами <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> приводят к как раз булевым маскам, то можно очень легко фильтровать значения массива.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">[(</span><span class="n">A</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">A</span><span class="o">&gt;</span><span class="mi">7</span><span class="p">)])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 0  1  2  8  9 10 11 12 13 14 15]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-0.53883649  0.04717316 -0.88935288 -0.94240822  0.60245659 -0.30592793
+  1.24714734  0.7061065 ]
 </pre></div>
 </div>
 </div>
 </div>
-<p>При этом допускается даже присваивание.</p>
+<p>Например, в ячейке выше генерируется массив из 20 случайных чисел из нормального распределения. Извлечь только положительные из него можно инструкцией.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">[</span><span class="n">A</span> <span class="o">&gt;</span> <span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0 1 2 3]
- [4 5 6 7]
- [0 0 0 0]
- [0 0 0 0]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.04717316 0.60245659 1.24714734 0.7061065 ]
 </pre></div>
 </div>
 </div>
 </div>
-<p>Можно индексировать булевыми масками вдоль осей. Например, оставить только строки, напротив которых стоит <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<p>Обратите внимание, что внутри пары квадратных скобок “<code class="docutils literal notranslate"><span class="pre">[]</span></code>” располагается выражение <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">0</span></code>, которое при вычислении даёт массив булевых значений. Этот массив далее используется в качестве маски, что и приводит к тому, что в результате мы видим только положительные значения.</p>
+<p>Сгенерируем выборку побольше и эмпирически проверим правило трех сигм, согласно которому с вероятностью <span class="math notranslate nohighlight">\(\approx99.73\%\)</span> нормально распределенная случайная величина располагается в интервале <span class="math notranslate nohighlight">\((\mu - 3\sigma, \mu + 3\sigma)\)</span>, где <span class="math notranslate nohighlight">\(\mu\)</span> — математическое ожидание, <span class="math notranslate nohighlight">\(\sigma\)</span> — среднеквадратичное отклонение. Это значит, что при <span class="math notranslate nohighlight">\(\mu=0\)</span> и <span class="math notranslate nohighlight">\(\sigma=1\)</span> ожидается, что чуть меньше 3 чисел из выборки размером 10000 окажутся за пределами интервала <span class="math notranslate nohighlight">\((-3, 3)\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a1dmask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">])</span>
-<span class="n">A</span><span class="p">[</span><span class="n">a1dmask</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">x</span><span class="p">[(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">3</span><span class="p">)]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0, 1, 2, 3],
-       [4, 5, 6, 7],
-       [0, 0, 0, 0]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3.07690946, 3.04144012, 3.1831983 ])
+</pre></div>
+</div>
+</div>
+</div>
+<p>В результате численного эксперимента получилось ровно три числа, но стохастическая природа этого эксперимента не обещает, что при повторном проведении такого результата вы получите такие же результаты.</p>
+<p>Можно индексировать булевыми масками вдоль осей.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[7 8 8 4]
+ [0 3 0 3]
+ [4 2 5 5]
+ [4 8 7 6]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Например, оставить только строки, напротив которых стоит <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">mask</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[7 8 8 4]
+ [4 2 5 5]
+ [4 8 7 6]]
 </pre></div>
 </div>
 </div>
@@ -948,28 +1018,28 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Или аналогично со столбцами.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">[:,</span> <span class="n">a1dmask</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">[:,</span> <span class="n">mask</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0, 1, 3],
-       [4, 5, 7],
-       [0, 0, 0],
-       [0, 0, 0]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[7, 8, 4],
+       [0, 0, 3],
+       [4, 5, 5],
+       [4, 7, 6]], dtype=int64)
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="section" id="np-any-np-all">
-<h2>np.any и np.all<a class="headerlink" href="#np-any-np-all" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h2>Агрегация булевых значений<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>Функции <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.any.html">np.any</a> и <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.all.html">np.all</a> принимают на вход булевый массив и агрегируют значения в нем:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">np.any</span></code> возвращает <code class="docutils literal notranslate"><span class="pre">True</span></code>, если хотя бы один из элементов массива <code class="docutils literal notranslate"><span class="pre">True</span></code> или приводится к <code class="docutils literal notranslate"><span class="pre">True</span></code>;</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">np.all</span></code> возвращает <code class="docutils literal notranslate"><span class="pre">True</span></code>, если все элементы массива <code class="docutils literal notranslate"><span class="pre">True</span></code> или приводятся к <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
 </ul>
-<p>По поведению эти функции похожи на функции на функции <code class="docutils literal notranslate"><span class="pre">np.sum</span></code> и <code class="docutils literal notranslate"><span class="pre">np.prod</span></code>. Они также принимают опциональный аргумент <code class="docutils literal notranslate"><span class="pre">axis</span></code>.</p>
+<p>По поведению эти функции похожи на функции на функции <code class="docutils literal notranslate"><span class="pre">np.sum</span></code> и <code class="docutils literal notranslate"><span class="pre">np.prod</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span>
@@ -979,16 +1049,14 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[False False False False]
- [False False False False]
- [ True  True  True  True]
- [ True  True  True  True]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ True False  True  True]
 any: True
 all: False
 </pre></div>
 </div>
 </div>
 </div>
+<p>Они также принимают опциональный аргумент <code class="docutils literal notranslate"><span class="pre">axis</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -1001,6 +1069,23 @@ all: False
 </div>
 </div>
 </div>
+<p>Функция <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.sum.html">np.sum</a> может просуммировать и булевый массив. Значение <code class="docutils literal notranslate"><span class="pre">True</span></code> интерпретируется как 1, значение <code class="docutils literal notranslate"><span class="pre">False</span></code> — как 0. Если <code class="docutils literal notranslate"><span class="pre">mask</span></code> — булевая маска, то <code class="docutils literal notranslate"><span class="pre">np.sum(mask)</span></code> может быть использовано для того, что подсчитать количество значений <code class="docutils literal notranslate"><span class="pre">True</span></code> в этой маске. Тоже самое верное и про <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.mean.html?highlight=mean#numpy.mean">np.mean</a> — эта функция может использована для того, чтобы найти долю значений <code class="docutils literal notranslate"><span class="pre">True</span></code> в маске булевых значений.</p>
+<p>В целях демонстрации вернемся к примеру с правилом трех сигм. Сгенерируем массив из миллиона распределенных по нормальному закону случайных чисел, составим маску тех значений, которые находятся внутри интервала <span class="math notranslate nohighlight">\((-3\sigma, 3\sigma)\)</span>, и подсчитаем их долю во всём массиве.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">)</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mask</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.002716
+</pre></div>
+</div>
+</div>
+</div>
+<p>Получили значение, очень близкое к ожидаемому.</p>
 </div>
 </div>
 
