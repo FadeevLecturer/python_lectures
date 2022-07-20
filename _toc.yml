@@ -41,6 +41,7 @@ parts:
       - file: notebooks/visualization/matplotlib
       - file: notebooks/visualization/details
       - file: notebooks/visualization/matplotlib_animation
+      - file: notebooks/visualization/homework
       - file: notebooks/scipy/scipy
       - file: notebooks/scipy/linalg
       - file: notebooks/scipy/interpolation_approx
