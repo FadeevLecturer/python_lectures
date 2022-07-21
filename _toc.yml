@@ -28,6 +28,7 @@ parts:
       - file: notebooks/numpy/vector_product
       - file: notebooks/numpy/logic
       - file: notebooks/numpy/vectorization_example
+      - file: notebooks/numpy/random
       - file: notebooks/numpy/homework
   - caption: "Лекция №4"
     chapters:
