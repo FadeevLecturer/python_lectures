@@ -35,28 +35,12 @@ parts:
       - file: notebooks/python/functions
       - file: notebooks/python/files
       - file: notebooks/python/json
-  - caption: "Лекция №5"
-    chapters:
       - file: notebooks/visualization/libraries
       - file: notebooks/visualization/matplotlib
       - file: notebooks/visualization/details
       - file: notebooks/visualization/matplotlib_animation
       - file: notebooks/visualization/homework
-      - file: notebooks/scipy/scipy
-      - file: notebooks/scipy/linalg
-      - file: notebooks/scipy/interpolation_approx
-      - file: notebooks/scipy/integration
-      - file: notebooks/scipy/ODE
-      - file: notebooks/scipy/optimization
-      - file: notebooks/scipy/nonlinear_equations
-      - file: notebooks/scipy/cannonball
-      - file: notebooks/scipy/homework
-  - caption: "Лекция №6"
-    chapters:
-      - file: notebooks/python/python_scripts
-      - file: notebooks/python/scripts_vs_modules
-      - file: notebooks/python/argparse
-  - caption: "Лекция №7"
+  - caption: "Лекция №5"
     chapters:    
       - file: notebooks/pandas/pandas
       - file: notebooks/pandas/series
@@ -64,27 +48,27 @@ parts:
       - file: notebooks/pandas/datetime
       - file: notebooks/pandas/covid19
       - file: notebooks/pandas/homework 
-  - caption: "Лекция №8"
+  - caption: "Лекция №6"
     chapters:
       - file: notebooks/python/list_comprehensions
       - file: notebooks/python/iterators
       - file: notebooks/python/decorators
       - file: notebooks/python/generators
       - file: notebooks/python/exercises1
-  - caption: "Лекция №9"
+  - caption: "Лекция №7"
     chapters:
       - file: notebooks/python/custom_classes
       - file: notebooks/python/inheritance
       - file: notebooks/python/polymorphism
       - file: notebooks/python/operators_overloading
       - file: notebooks/python/exercises2
-  - caption: "Лекция №10"
+  - caption: "Лекция №8"
     chapters:
       - file: notebooks/python/exceptions
       - file: notebooks/python/custom_exceptions
       - file: notebooks/python/LBYL_vs_EAFP
       - file: notebooks/python/exercises3
-  - caption: "Лекция №11"
+  - caption: "Лекция №9"
     chapters:
       - file: notebooks/qt/gui
       - file: notebooks/qt/basics
@@ -96,7 +80,7 @@ parts:
       - file: notebooks/qt/input
       - file: notebooks/qt/dialogs
       - file: notebooks/qt/exercises
-  - caption: "Лекции №12 и далее"
+  - caption: "TBD"
     chapters:
       - file: notebooks/python/about_12_and_so_on
       - file: notebooks/computer_vision/basics
@@ -105,7 +89,19 @@ parts:
       - file: notebooks/machine_learning/regression
       - file: notebooks/machine_learning/classification
       - file: notebooks/machine_learning/neural_networks
-      
+      - file: notebooks/scipy/scipy
+      - file: notebooks/scipy/linalg
+      - file: notebooks/scipy/interpolation_approx
+      - file: notebooks/scipy/integration
+      - file: notebooks/scipy/ODE
+      - file: notebooks/scipy/optimization
+      - file: notebooks/scipy/nonlinear_equations
+      - file: notebooks/scipy/cannonball
+      - file: notebooks/scipy/homework
+      - file: notebooks/python/python_scripts
+      - file: notebooks/python/scripts_vs_modules
+      - file: notebooks/python/argparse
+  
       
       
       
