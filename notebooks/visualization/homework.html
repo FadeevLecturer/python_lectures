@@ -812,7 +812,7 @@ const thebe_selector_output = ".output, .cell_output"
 \[
 \rho = \sin\left(\dfrac{m}{n}\varphi\right).
 \]</div>
-<p>Ваша задача построить графики такой кривой при <span class="math notranslate nohighlight">\(m=1,\ldots,M\)</span> и <span class="math notranslate nohighlight">\(n=1,\ldots,N\)</span> в виде таблицы, вдоль строк которых сохраняется постоянное значение коэффициента <span class="math notranslate nohighlight">\(n\)</span>, а вдоль столбцов — коэффициента <span class="math notranslate nohighlight">\(m\)</span>.</p>
+<p>Ваша задача построить графики такой кривой при <span class="math notranslate nohighlight">\(m=1,\ldots,M\)</span> и <span class="math notranslate nohighlight">\(n=1,\ldots,N\)</span> в виде таблицы, вдоль строк которых сохраняется постоянное значение коэффициента <span class="math notranslate nohighlight">\(m\)</span>, а вдоль столбцов — коэффициента <span class="math notranslate nohighlight">\(n\)</span>.</p>
 <div class="figure align-default">
 <img alt="../../_images/rose.png" src="../../_images/rose.png" />
 </div>
@@ -832,7 +832,7 @@ p_A = P\{(x, y) \in A\} = \dfrac{S_A}{S_R},
 \[
 \hat{S}_A = S_R \dfrac{n}{N}.
 \]</div>
-<p>От вас требуется найти с помощью метода Монте-Карло <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%90%D1%81%D1%82%D1%80%D0%BE%D0%B8%D0%B4%D0%B0">Астроиды</a>, которая в параметрическом виде имеет вид</p>
+<p>От вас требуется найти площадь <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%90%D1%81%D1%82%D1%80%D0%BE%D0%B8%D0%B4%D0%B0">Астроиды</a> с помощью метода Монте-Карло, которая в параметрическом виде имеет вид</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{cases}
@@ -844,18 +844,23 @@ y(t) = \cos^3 t,
 <p>а в полярной системе координат</p>
 <div class="math notranslate nohighlight">
 \[
-\rho(\phi) = \dfrac{1}{\sqrt{\left(\sqrt[3]{\sin^2 \phi} + \sqrt[3]{\cos^3 \phi}\right)^2}}.
+\rho(\varphi) = \dfrac{1}{\sqrt{\left(\sqrt[3]{\sin^2\varphi} + \sqrt[3]{\cos^2\varphi}\right)^2}}.
 \]</div>
 <ol class="simple">
 <li><p>Постройте график Астроиды.</p></li>
 <li><p>Случайным образом сгенерируйте выборку <span class="math notranslate nohighlight">\(\{(x_1, y_1), \ldots, (x_N, y_N)\}\)</span> из <span class="math notranslate nohighlight">\(N\)</span> точек, равномерно распределенных на квадрате <span class="math notranslate nohighlight">\([-1, 1]^2\)</span>. Для этого достаточно сгенерировать <span class="math notranslate nohighlight">\(2N\)</span> чисел, равномерно распределенных на отрезке <span class="math notranslate nohighlight">\([-1, 1]\)</span>, и считать, что первая половина из них — <span class="math notranslate nohighlight">\(x\)</span>-координаты точек, а вторая — <span class="math notranslate nohighlight">\(y\)</span>-координаты этих точек.</p></li>
-<li><p>Выяснить, какие из этих точек находятся внутри астроиды, а какие снаружи. Нанести всю выборку на график с циклоидой, пометив при этом точки внутри зеленным цветом, а снаружи — красным.</p></li>
+<li><p>Выяснить, какие из этих точек находятся внутри астроиды, а какие снаружи.</p></li>
+<li><p>Нанести всю выборку на график с циклоидой в виде <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html">диаграммы рассеивания</a>, пометив при этом внутренние точки зеленным цветом, а наружные — красным.</p></li>
 <li><p>Оценить площадь астроиды по формуле <span class="math notranslate nohighlight">\(\hat{S} =  \dfrac{4n}{N}\)</span>, где <span class="math notranslate nohighlight">\(n\)</span> — количество точек внутри астроиды.</p></li>
 <li><p>Сравнить оценку с точным значением <span class="math notranslate nohighlight">\(S=\dfrac{3}{8}\pi\)</span>.</p></li>
 </ol>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Генерировать выборку случайных чисел, распределенных по равномерному на отрезке <code class="docutils literal notranslate"><span class="pre">[low,</span> <span class="pre">high]</span></code> можно методом <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.uniform.html">numpy.random.uniform</a>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Формула для астроиды в полярных координатах удобна, чтобы определять, находится ли точка <span class="math notranslate nohighlight">\((x^*, y^*)\)</span> внутри кривой или снаружи. Достаточно определить координаты <span class="math notranslate nohighlight">\(\phi^*\)</span> и <span class="math notranslate nohighlight">\(\rho^*\)</span> этой точки в полярной системе координат, и если <span class="math notranslate nohighlight">\(\rho^* &lt; \rho(\phi^*)\)</span>, то эта точка внутри.</p>
 </div>
 <div class="figure align-default">
 <img alt="../../_images/area.png" src="../../_images/area.png" />
@@ -869,6 +874,8 @@ y(t) = \cos^3 t,
 p = P(\{\xi \in [a, b]\}) = \int_a^b f(x) \, dx.
 \]</div>
 <p>Цель этого задания — проиллюстрировать этот факт.</p>
+<div class="figure align-default">
+<img alt="../../_images/pdf.svg" src="../../_images/pdf.svg" /></div>
 <p>Перепишем выражение вероятности в следующем виде:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -895,6 +902,10 @@ f(x) = \dfrac{1}{2\pi}e^{-x^2 / 2},
 <p>Если все верно, то при достаточно большом <span class="math notranslate nohighlight">\(n\)</span> и малом <span class="math notranslate nohighlight">\(\Delta x\)</span> гистограмма должна неплохо аппроксимировать функцию плотности распределения.</p>
 <div class="figure align-default">
 <img alt="../../_images/histogram.png" src="../../_images/histogram.png" />
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Метод <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html">hist</a> по умолчанию строит гистограмму на равномерной сетке из 10 интервалов от минимального до максимального значения. Управлять сеткой можно с помощью опциональных параметров <code class="docutils literal notranslate"><span class="pre">bins</span></code> и <code class="docutils literal notranslate"><span class="pre">range</span></code>.</p>
 </div>
 </div>
 </div>
