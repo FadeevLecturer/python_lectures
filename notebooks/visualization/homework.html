@@ -732,17 +732,27 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id1">
-   Роза
+   Нормальное распределение
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
-   Вычисление площади Астроиды методом Монте-Карло
+   Роза
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id3">
+   Вычисление площади методом Монте-Карло
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
    Геометрическая интерпретация плотности вероятности
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   Состав вселенной
   </a>
  </li>
 </ul>
@@ -767,17 +777,27 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id1">
-   Роза
+   Нормальное распределение
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
-   Вычисление площади Астроиды методом Монте-Карло
+   Роза
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id3">
+   Вычисление площади методом Монте-Карло
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
    Геометрическая интерпретация плотности вероятности
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   Состав вселенной
   </a>
  </li>
 </ul>
@@ -792,7 +812,19 @@ const thebe_selector_output = ".output, .cell_output"
   <div class="tex2jax_ignore mathjax_ignore section" id="o3">
 <h1>Домашнее задание №3<a class="headerlink" href="#o3" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="id1">
-<h2>Роза<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>Нормальное распределение<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%9D%D0%BE%D1%80%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5_%D1%80%D0%B0%D1%81%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5">Нормальное распределение</a> определяется <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%9F%D0%BB%D0%BE%D1%82%D0%BD%D0%BE%D1%81%D1%82%D1%8C_%D0%B2%D0%B5%D1%80%D0%BE%D1%8F%D1%82%D0%BD%D0%BE%D1%81%D1%82%D0%B8">плотностью вероятности</a></p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = \dfrac{1}{\sigma\sqrt{2\pi}}e^{-\tfrac{(x - \mu)^2}{2\sigma^2}}.
+\]</div>
+<p>На одном графике (в одних осях) постройте график плотности вероятности при <span class="math notranslate nohighlight">\(\sigma=1\)</span>, <span class="math notranslate nohighlight">\(\sigma=\dfrac{1}{2}\)</span> и <span class="math notranslate nohighlight">\(\sigma = 2\)</span> разным цветом. На графике в обязательном порядке должна присутствовать легенда.</p>
+<div class="figure align-default">
+<img alt="../../_images/normal-distribution.png" src="../../_images/normal-distribution.png" />
+</div>
+</div>
+<div class="section" id="id2">
+<h2>Роза<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%A0%D0%BE%D0%B7%D0%B0_(%D0%BF%D0%BB%D0%BE%D1%81%D0%BA%D0%B0%D1%8F_%D0%BA%D1%80%D0%B8%D0%B2%D0%B0%D1%8F)">Кривая “роза”</a> задаётся в полярной системе координат уравнением</p>
 <div class="math notranslate nohighlight">
 \[
@@ -808,8 +840,8 @@ const thebe_selector_output = ".output, .cell_output"
 <img alt="../../_images/rose.png" src="../../_images/rose.png" />
 </div>
 </div>
-<div class="section" id="id2">
-<h2>Вычисление площади Астроиды методом Монте-Карло<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h2>Вычисление площади методом Монте-Карло<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>Метод Монте-Карло может быть применен для поиска площади произвольной геометрической фигуры. Пусть геометрическая фигура <span class="math notranslate nohighlight">\(A\)</span> находится внутри прямоугольника <span class="math notranslate nohighlight">\(R\)</span> и требуется найти <span class="math notranslate nohighlight">\(S_A\)</span> — площадь фигуры <span class="math notranslate nohighlight">\(A\)</span>.</p>
 <div class="figure align-default">
 <img alt="../../_images/monte-carlo.svg" src="../../_images/monte-carlo.svg" /></div>
@@ -823,42 +855,25 @@ p_A = P\{(x, y) \in A\} = \dfrac{S_A}{S_R},
 \[
 \hat{S}_A = S_R \dfrac{n}{N}.
 \]</div>
-<p>От вас требуется найти площадь <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%90%D1%81%D1%82%D1%80%D0%BE%D0%B8%D0%B4%D0%B0">Астроиды</a> с помощью метода Монте-Карло, которая в параметрическом виде имеет вид</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{cases}
-x(t) = \cos^3 t, \\
-y(t) = \cos^3 t,
-\end{cases}
-\quad t\in[0, 2\pi],
-\end{split}\]</div>
-<p>а в полярной системе координат</p>
-<div class="math notranslate nohighlight">
-\[
-\rho(\varphi) = \dfrac{1}{\sqrt{\left(\sqrt[3]{\sin^2\varphi} + \sqrt[3]{\cos^2\varphi}\right)^2}}.
-\]</div>
+<p>От вас требуется найти площадь единичной окружности.</p>
 <ol class="simple">
-<li><p>Постройте график Астроиды.</p></li>
+<li><p>Постройте график окружности.</p></li>
 <li><p>Случайным образом сгенерируйте выборку <span class="math notranslate nohighlight">\(\{(x_1, y_1), \ldots, (x_N, y_N)\}\)</span> из <span class="math notranslate nohighlight">\(N\)</span> точек, равномерно распределенных на квадрате <span class="math notranslate nohighlight">\([-1, 1]^2\)</span>. Для этого достаточно сгенерировать <span class="math notranslate nohighlight">\(2N\)</span> чисел, равномерно распределенных на отрезке <span class="math notranslate nohighlight">\([-1, 1]\)</span>, и считать, что первая половина из них — <span class="math notranslate nohighlight">\(x\)</span>-координаты точек, а вторая — <span class="math notranslate nohighlight">\(y\)</span>-координаты этих точек.</p></li>
-<li><p>Выяснить, какие из этих точек находятся внутри астроиды, а какие снаружи.</p></li>
-<li><p>Нанести всю выборку на график с циклоидой в виде <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html">диаграммы рассеивания</a>, пометив при этом внутренние точки зеленным цветом, а наружные — красным.</p></li>
-<li><p>Оценить площадь астроиды по формуле <span class="math notranslate nohighlight">\(\hat{S} =  \dfrac{4n}{N}\)</span>, где <span class="math notranslate nohighlight">\(n\)</span> — количество точек внутри астроиды.</p></li>
-<li><p>Сравнить оценку с точным значением <span class="math notranslate nohighlight">\(S=\dfrac{3}{8}\pi\)</span>.</p></li>
+<li><p>Выяснить, какие из этих точек находятся внутри окружности, а какие снаружи.</p></li>
+<li><p>Нанести всю выборку на график с окружностью в виде <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html">диаграммы рассеивания</a>, пометив при этом точки внутри окружности зеленным цветом, а снаружи — красным.</p></li>
+<li><p>Оценить площадь окружности по формуле <span class="math notranslate nohighlight">\(\hat{S} =  \dfrac{S_R n}{N} = \dfrac{4 n}{N}\)</span>, где <span class="math notranslate nohighlight">\(n\)</span> — количество точек внутри окружности.</p></li>
+<li><p>Сравнить оценку с точным значением <span class="math notranslate nohighlight">\(S=\pi\)</span>.</p></li>
 </ol>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Генерировать выборку случайных чисел, распределенных по равномерному на отрезке <code class="docutils literal notranslate"><span class="pre">[low,</span> <span class="pre">high]</span></code> можно методом <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.uniform.html">numpy.random.uniform</a>.</p>
 </div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Формула для астроиды в полярных координатах удобна, чтобы определять, находится ли точка <span class="math notranslate nohighlight">\((x^*, y^*)\)</span> внутри кривой или снаружи. Достаточно определить координаты <span class="math notranslate nohighlight">\(\phi^*\)</span> и <span class="math notranslate nohighlight">\(\rho^*\)</span> этой точки в полярной системе координат, и если <span class="math notranslate nohighlight">\(\rho^* &lt; \rho(\phi^*)\)</span>, то эта точка внутри.</p>
-</div>
 <div class="figure align-default">
 <img alt="../../_images/area.png" src="../../_images/area.png" />
 </div>
 </div>
-<div class="section" id="id3">
-<h2>Геометрическая интерпретация плотности вероятности<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h2>Геометрическая интерпретация плотности вероятности<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <p>Пусть непрерывная случайная величина <span class="math notranslate nohighlight">\(\xi\)</span> имеет плотность распределения <span class="math notranslate nohighlight">\(f\colon \mathbb{R} \to \mathbb{R}\)</span>, тогда вероятность <span class="math notranslate nohighlight">\(p\)</span> попадания <span class="math notranslate nohighlight">\(\xi\)</span> в интервал <span class="math notranslate nohighlight">\([a, b]\)</span> можно найти по формуле</p>
 <div class="math notranslate nohighlight">
 \[
@@ -887,7 +902,7 @@ p = \dfrac{b-a}{b-a}\int_a^b f(x) \, dx = (b - a) \underbrace{\dfrac{1}{b-a}\int
 </ol>
 <div class="math notranslate nohighlight">
 \[
-f(x) = \dfrac{1}{2\pi}e^{-x^2 / 2},
+f(x) = \dfrac{1}{\sqrt{2\pi}}e^{-x^2 / 2},
 \]</div>
 <p>домноженной на коэффициент <span class="math notranslate nohighlight">\(n\Delta x\)</span>.</p>
 <p>Если все верно, то при достаточно большом <span class="math notranslate nohighlight">\(n\)</span> и малом <span class="math notranslate nohighlight">\(\Delta x\)</span> гистограмма должна неплохо аппроксимировать функцию плотности распределения.</p>
@@ -897,6 +912,32 @@ f(x) = \dfrac{1}{2\pi}e^{-x^2 / 2},
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Метод <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html">hist</a> по умолчанию строит гистограмму на равномерной сетке из 10 интервалов от минимального до максимального значения. Управлять сеткой можно с помощью опциональных параметров <code class="docutils literal notranslate"><span class="pre">bins</span></code> и <code class="docutils literal notranslate"><span class="pre">range</span></code>.</p>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>Состав вселенной<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%A2%D1%91%D0%BC%D0%BD%D0%B0%D1%8F_%D0%BC%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D1%8F">Согласно википедии</a> вселенная имеет примерно следующий состав.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Вид</p></th>
+<th class="head"><p>Доля, %</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Темная энергия</p></td>
+<td><p>68.3</p></td>
+</tr>
+<tr class="row-odd"><td><p>Темная материя</p></td>
+<td><p>26.8</p></td>
+</tr>
+<tr class="row-even"><td><p>Обычная масса-энергия</p></td>
+<td><p>4.9</p></td>
+</tr>
+</tbody>
+</table>
+<p>Постройте круговую диаграмму состава вселенной в соответствии с этой таблицей.</p>
+<div class="figure align-default">
+<img alt="../../_images/pie.png" src="../../_images/pie.png" />
 </div>
 </div>
 </div>
