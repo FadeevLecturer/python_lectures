@@ -755,6 +755,11 @@ const thebe_selector_output = ".output, .cell_output"
    Состав вселенной
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   Поверхности
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -800,6 +805,11 @@ const thebe_selector_output = ".output, .cell_output"
    Состав вселенной
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   Поверхности
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -816,9 +826,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p><a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%9D%D0%BE%D1%80%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5_%D1%80%D0%B0%D1%81%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5">Нормальное распределение</a> определяется <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%9F%D0%BB%D0%BE%D1%82%D0%BD%D0%BE%D1%81%D1%82%D1%8C_%D0%B2%D0%B5%D1%80%D0%BE%D1%8F%D1%82%D0%BD%D0%BE%D1%81%D1%82%D0%B8">плотностью вероятности</a></p>
 <div class="math notranslate nohighlight">
 \[
-f(x) = \dfrac{1}{\sigma\sqrt{2\pi}}e^{-\tfrac{(x - \mu)^2}{2\sigma^2}}.
+f(x) = \dfrac{1}{\sigma\sqrt{2\pi}}e^{-\tfrac{(x - \mu)^2}{2\sigma^2}},
 \]</div>
-<p>На одном графике (в одних осях) постройте график плотности вероятности при <span class="math notranslate nohighlight">\(\sigma=1\)</span>, <span class="math notranslate nohighlight">\(\sigma=\dfrac{1}{2}\)</span> и <span class="math notranslate nohighlight">\(\sigma = 2\)</span> разным цветом. На графике в обязательном порядке должна присутствовать легенда.</p>
+<p>где <span class="math notranslate nohighlight">\(\mu\)</span> — математическое ожидание, а <span class="math notranslate nohighlight">\(\sigma\)</span> — среднеквадратичное отклонение. На одном графике (в одних осях) постройте график плотности вероятности при <span class="math notranslate nohighlight">\(\sigma=1\)</span>, <span class="math notranslate nohighlight">\(\sigma=\dfrac{1}{2}\)</span> и <span class="math notranslate nohighlight">\(\sigma = 2\)</span> разным цветом. На графике в обязательном порядке должна присутствовать легенда.</p>
 <div class="figure align-default">
 <img alt="../../_images/normal-distribution.png" src="../../_images/normal-distribution.png" />
 </div>
@@ -848,7 +858,7 @@ f(x) = \dfrac{1}{\sigma\sqrt{2\pi}}e^{-\tfrac{(x - \mu)^2}{2\sigma^2}}.
 <p>Сгенерируем случайную точку <span class="math notranslate nohighlight">\((x, y)\)</span> внутри прямоугольника равномерным образом. Тогда согласно геометрическому определению вероятности вероятность <span class="math notranslate nohighlight">\(p_A\)</span>, того что эта точка окажется внутри геометрической фигуры <span class="math notranslate nohighlight">\(A\)</span>, определяется соотношением</p>
 <div class="math notranslate nohighlight">
 \[
-p_A = P\{(x, y) \in A\} = \dfrac{S_A}{S_R},
+p_A = P(\{(x, y) \in A\}) = \dfrac{S_A}{S_R},
 \]</div>
 <p>где <span class="math notranslate nohighlight">\(S_R\)</span> — площадь прямоугольника <span class="math notranslate nohighlight">\(R\)</span>. Таким образом, чтобы найти <span class="math notranslate nohighlight">\(S_A\)</span>, достаточно знать вероятность <span class="math notranslate nohighlight">\(p_A\)</span>. Применение метода Монте-Карло заключается здесь в том, чтобы оценить эту самую вероятность эмпирически. Для этого генерируется <span class="math notranslate nohighlight">\(N\)</span> равномерно распределенных внутри прямоугольника <span class="math notranslate nohighlight">\(R\)</span> точек, подсчитывается количество <span class="math notranslate nohighlight">\(n\)</span> точек, оказавшихся внутри фигуры <span class="math notranslate nohighlight">\(a\)</span> и принимается, что если <span class="math notranslate nohighlight">\(N\)</span> достаточно велико, то <span class="math notranslate nohighlight">\(p_A \approx \dfrac{n}{N}\)</span> и формула для оценки площади <span class="math notranslate nohighlight">\(\hat{S}_A\)</span> принимает вид</p>
 <div class="math notranslate nohighlight">
@@ -938,6 +948,18 @@ f(x) = \dfrac{1}{\sqrt{2\pi}}e^{-x^2 / 2},
 <p>Постройте круговую диаграмму состава вселенной в соответствии с этой таблицей.</p>
 <div class="figure align-default">
 <img alt="../../_images/pie.png" src="../../_images/pie.png" />
+</div>
+</div>
+<div class="section" id="id6">
+<h2>Поверхности<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>Постройте график функции</p>
+<div class="math notranslate nohighlight">
+\[
+f(x, y) = \sin\left(\sqrt{x^2 + y^2}\right)
+\]</div>
+<p>при <span class="math notranslate nohighlight">\(x\in[-5, 5]\)</span> и <span class="math notranslate nohighlight">\(y\in[-5, 5]\)</span> в виде поверхности в трехмерных осях, а также в виде линий уровня в двухмерных осях (ось <span class="math notranslate nohighlight">\(Oz\)</span> обозначается цветом).</p>
+<div class="figure align-default">
+<img alt="../../_images/surface.png" src="../../_images/surface.png" />
 </div>
 </div>
 </div>
