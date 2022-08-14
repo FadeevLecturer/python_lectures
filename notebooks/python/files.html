@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Работа с файлами &#8212; Практикум по компьютерным технологиям</title>
+    <title>Работа с файлами. Сериализация: json и pickle &#8212; Практикум по компьютерным технологиям</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -55,8 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Формат json" href="json.html" />
-    <link rel="prev" title="Функции" href="functions.html" />
+    <link rel="next" title="Построение графиков и визуализация данных" href="../visualization/libraries.html" />
+    <link rel="prev" title="Взаимодействие с файловой системой" href="filesystem.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -291,14 +291,25 @@ const thebe_selector_output = ".output, .cell_output"
    Функции
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Работа с файлами
+ <li class="toctree-l1">
+  <a class="reference internal" href="filesystem.html">
+   Взаимодействие с файловой системой
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="json.html">
-   Формат json
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Работа с файлами. Сериализация:
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     json
+    </span>
+   </code>
+   и
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pickle
+    </span>
+   </code>
   </a>
  </li>
  <li class="toctree-l1">
@@ -729,36 +740,39 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#open-with">
-   Функция open, контекстный менеджер with
+  <a class="reference internal nav-link" href="#open">
+   Файловый объект. Функция
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     open
+    </span>
+   </code>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#os-pathlib-glob">
-   Модули os, pathlib,  glob
+  <a class="reference internal nav-link" href="#with">
+   Контекстный менеджер
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     with
+    </span>
+   </code>
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     Текущая директория
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     Путь к файлу/папке
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
-     Содержимое папки
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
-     Создание папок
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Итерация по текстовому файлу
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#json">
+   Формат
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     JSON
+    </span>
+   </code>
+  </a>
  </li>
 </ul>
 
@@ -770,7 +784,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Работа с файлами</h1>
+                <h1>Работа с файлами. Сериализация: json и pickle</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -781,36 +795,39 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#open-with">
-   Функция open, контекстный менеджер with
+  <a class="reference internal nav-link" href="#open">
+   Файловый объект. Функция
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     open
+    </span>
+   </code>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#os-pathlib-glob">
-   Модули os, pathlib,  glob
+  <a class="reference internal nav-link" href="#with">
+   Контекстный менеджер
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     with
+    </span>
+   </code>
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     Текущая директория
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     Путь к файлу/папке
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
-     Содержимое папки
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
-     Создание папок
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Итерация по текстовому файлу
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#json">
+   Формат
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     JSON
+    </span>
+   </code>
+  </a>
  </li>
 </ul>
 
@@ -821,19 +838,11 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1>Работа с файлами<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="open-with">
-<h2>Функция open, контекстный менеджер with<a class="headerlink" href="#open-with" title="Permalink to this headline">¶</a></h2>
-<p>Для работы с файлами существует функция <a class="reference external" href="https://docs.python.org/3/library/functions.html#open">open</a>, которая создаёт <a class="reference external" href="https://docs.python.org/3/glossary.html#term-file-object">файловый объект</a> и наиболее часто используются с двумя параметрами:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>file — путь к файлу (глобальный или относительно текущей директории);</p></li>
-<li><p>mode — режим, в котором требуется открыть файл.
-Параметр <code class="docutils literal notranslate"><span class="pre">file</span></code> обязательный, а в качестве параметра <code class="docutils literal notranslate"><span class="pre">mode</span></code> передаётся строка символов:</p></li>
-</ul>
+  <div class="tex2jax_ignore mathjax_ignore section" id="json-pickle">
+<h1>Работа с файлами. Сериализация: <code class="docutils literal notranslate"><span class="pre">json</span></code> и <code class="docutils literal notranslate"><span class="pre">pickle</span></code><a class="headerlink" href="#json-pickle" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="open">
+<h2>Файловый объект. Функция <code class="docutils literal notranslate"><span class="pre">open</span></code><a class="headerlink" href="#open" title="Permalink to this headline">¶</a></h2>
+<p>Для работы с файлами существует функция <a class="reference external" href="https://docs.python.org/3/library/functions.html#open">open</a>, которая создаёт <a class="reference external" href="https://docs.python.org/3/glossary.html#term-file-object">файловый объект</a>. Единственный обязательный параметр этой функции <code class="docutils literal notranslate"><span class="pre">path</span></code> — путь к файлу. Очень важный опциональный параметр <code class="docutils literal notranslate"><span class="pre">mode</span></code> отвечает за режим открытия файла.</p>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="text-align:left head"><p>Символ</p></th>
@@ -851,7 +860,7 @@ const thebe_selector_output = ".output, .cell_output"
 <td class="text-align:right"><p>Создать файл и открыть на запись (ошибка, если файл существует)</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">a</span></code></p></td>
-<td class="text-align:right"><p>Открыть файл на запись (если файл существует, то дозаписывать в конец файла)</p></td>
+<td class="text-align:right"><p>Открыть файл на дозапись (если файл существует, то дозаписывать в конец файла)</p></td>
 </tr>
 <tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">b</span></code></p></td>
 <td class="text-align:right"><p>Открыть как бинарный файл</p></td>
@@ -864,77 +873,72 @@ const thebe_selector_output = ".output, .cell_output"
 </tr>
 </tbody>
 </table>
-<p>По умолчанию функцию <code class="docutils literal notranslate"><span class="pre">open</span></code> открывает файл как текстовый для чтения, но указав <code class="docutils literal notranslate"><span class="pre">mode</span></code> можно это поменять.</p>
-<p>Чтобы продемонстрировать поведение функции <code class="docutils literal notranslate"><span class="pre">open</span></code>, рассмотрим пример. Для начала создадим файл средствами python. Сделать это в папке <code class="docutils literal notranslate"><span class="pre">tmp</span></code> можно было бы следующими командами.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;./tmp/first_file.txt&quot;</span>
-<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Но у такого подхода есть один недостаток: он может не сработать на другой платформе. Тут есть ряд деталей</p>
-<ul class="simple">
-<li><p>В <code class="docutils literal notranslate"><span class="pre">unix-like</span></code> системах (<code class="docutils literal notranslate"><span class="pre">Ubuntu</span></code>, <code class="docutils literal notranslate"><span class="pre">OSX</span></code>) в качестве разделителя каталогов используется символ <code class="docutils literal notranslate"><span class="pre">/</span></code>, а в <code class="docutils literal notranslate"><span class="pre">windows</span></code> используется <code class="docutils literal notranslate"><span class="pre">\</span></code>;</p></li>
-<li><p>Символ <code class="docutils literal notranslate"><span class="pre">\</span></code> используется python для экранирования символов. Например, комбинация <code class="docutils literal notranslate"><span class="pre">\n</span></code> — новая строка и т.п. Чтобы корректно использовать разделитель каталогов <code class="docutils literal notranslate"><span class="pre">\</span></code> в <code class="docutils literal notranslate"><span class="pre">windows</span></code> необходимо использовать или <code class="docutils literal notranslate"><span class="pre">r</span></code> строки (r<code class="docutils literal notranslate"><span class="pre">C:\Users\Ivan</span></code>) внутри которых <code class="docutils literal notranslate"><span class="pre">\</span></code> не используется для экранирования, или экранировать сам символ <code class="docutils literal notranslate"><span class="pre">\</span></code> (‘C:\Users\Ivan’);</p></li>
-</ul>
-<p>Поэтому, для работы с путями в файловых системах используется модуль стандартной библиотеки <a class="reference external" href="https://docs.python.org/3/library/os.html">os</a> или <a class="reference external" href="https://docs.python.org/3/library/pathlib.html">pathlib</a>, которые предоставляют платформонезависимый интерфейс для работы с файловыми системами. Подробнее они будут обсуждаться ниже, а пока воспользуемся модулем <code class="docutils literal notranslate"><span class="pre">pathlib</span></code>, чтобы задать файл <code class="docutils literal notranslate"><span class="pre">first_file.txt</span></code> внутри папки <code class="docutils literal notranslate"><span class="pre">tmp</span></code>.</p>
+<p>По умолчанию функцию <code class="docutils literal notranslate"><span class="pre">open</span></code> открывает файл как текстовый для чтения. В качестве примера создадим файл <code class="docutils literal notranslate"><span class="pre">&quot;first_file.txt&quot;</span></code> в папке <code class="docutils literal notranslate"><span class="pre">&quot;tmp&quot;</span></code>. Для этого сначала убедимся в том, что папка существует и создадим строку <code class="docutils literal notranslate"><span class="pre">path</span></code>, представляющую путь до будущего файла.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 
-<span class="c1"># Используя pathlib</span>
-<span class="n">folder</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;tmp&quot;</span><span class="p">)</span>
-<span class="n">filename</span> <span class="o">=</span> <span class="n">folder</span> <span class="o">/</span> <span class="s2">&quot;first_file.txt&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="n">folder</span> <span class="o">=</span> <span class="s2">&quot;tmp&quot;</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;first_file.txt&quot;</span>
+<span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
 
-<span class="c1"># Используя os</span>
-<span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;tmp&quot;</span><span class="p">,</span> <span class="s2">&quot;first_file.txt&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tmp\first_file.txt
-tmp\first_file.txt
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Как мы видим, создался путь в стиле <code class="docutils literal notranslate"><span class="pre">Windows</span></code>. Это произошло, потому-что сборка этих материалов осуществлялась на машине под управлением <code class="docutils literal notranslate"><span class="pre">Windows</span> <span class="pre">10</span></code>. Теперь откроем файл на запись и запишем в него три строки.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Так как мы хотим создать файл внутри папки <code class="docutils literal notranslate"><span class="pre">tmp</span></code>, то создадим её с помощью метода <a class="reference external" href="https://docs.python.org/3/library/os.html#os.makedirs">os.makedirs</a>.</p>
-</div>
+<p>Теперь создадим файловый объект, запишем в него текст. Для этого необходимо открыть файл в режиме на запись в текстовом режиме (флаг <code class="docutils literal notranslate"><span class="pre">&quot;wt&quot;</span></code> или <code class="docutils literal notranslate"><span class="pre">&quot;w&quot;</span></code>, т.к. текстовый режим подразумевается по умолчанию), записать строки текста в него методом <a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOBase.write">write</a>, а в конце обязательно закрыть файл методом <a class="reference external" href="https://docs.python.org/3/library/io.html#io.IOBase.close">close</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
 
-<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+<span class="sd">&quot;&quot;&quot;Первая строка.</span>
+<span class="sd">Вторая строка.</span>
+<span class="sd">Последняя строка.&quot;&quot;&quot;</span>
+<span class="p">)</span>
 
-<span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Первая строка.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Вторая строка.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Последняя строка.&quot;</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Теперь, чтобы убедиться в успешном создании файла, можно повторить эти операции, но на чтение. Как и прежде, в начале создаётся файловый объект встроенной функцией <a class="reference external" href="https://docs.python.org/3/library/functions.html#open">open</a> и в конце закрыть его методом <a class="reference external" href="https://docs.python.org/3/library/io.html#io.IOBase.close">close</a>, но в этот раз режим открытия на чтение, а значит в качестве параметра можно передать <code class="docutils literal notranslate"><span class="pre">&quot;rt&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;r&quot;</span></code> или не передать ничего, так как по умолчанию подразумевается открытие на чтение в текстовом режиме. Считывать содержимое из файла можно несколькими методами, но для начала рассмотрим самый простой — чтение сразу всего содержимого методом <a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOBase.read">read</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+<span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
 
 <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Первая строка.
+Вторая строка.
+Последняя строка.
 </pre></div>
 </div>
 </div>
 </div>
-<p>По исполнению этой ячейки должен был создаться файл <code class="docutils literal notranslate"><span class="pre">first_file.txt</span></code> в папке <code class="docutils literal notranslate"><span class="pre">./tmp</span></code>.</p>
-<p>Когда работа с файлом прекращена, следует вызвать метод <code class="docutils literal notranslate"><span class="pre">close()</span></code> у файлового объекта. Вообще говоря, этот метод вызовется автоматически при сборке мусора. Однако, если программа упадёт до закрытия файла, то могут произойти неожиданные последствия.</p>
-<p>Хорошей практикой является использование ключевого слова <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#with">with</a> для работы с файлами:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Первая строка.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Вторая строка.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Последняя строка.&quot;</span><span class="p">)</span>
+<p>Видим, что все операции завершились успешно.</p>
+</div>
+<div class="section" id="with">
+<h2>Контекстный менеджер <code class="docutils literal notranslate"><span class="pre">with</span></code><a class="headerlink" href="#with" title="Permalink to this headline">¶</a></h2>
+<p>При создании файлового объекта в явном виде необходимо следить за тем, чтобы в самом конце вызвать метод <a class="reference external" href="https://docs.python.org/3/library/io.html#io.IOBase.close">close</a>. Это принципиально по нескольким причинам. Во-первых, считается хорошей практикой освобождать ресурсы (возвращать их под управление операционной системы), как только в них пропала нужда. Во-вторых, если исполнение программы прекратится в экстренном режиме (например, из-за логической ошибки в программе или в результате технического сбоя в аппаратном обеспечении), то риски повреждения незакрытого файла многократно растут.</p>
+<p>Тем не менее в хорошем коде <code class="docutils literal notranslate"><span class="pre">python</span></code> вы встретите вызов метода <a class="reference external" href="https://docs.python.org/3/library/io.html#io.IOBase.close">close</a> в явном виде очень редко. Все это из-за того, что хорошей практикой является использование контекстного менеджера <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#with">with</a>, который не только автоматически освобождает файловый ресурс по выходу из соответствующего блока, но и проследит за освобождением ресурсов даже в том случае, если при работе программы возникла логическая ошибка и программа упала. Для работы с файлами обычно используется приблизительно следующая конструкция.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">as</span> <span class="n">name</span><span class="p">:</span>
+    <span class="n">первая</span> <span class="n">строка</span> <span class="n">блока</span> <span class="k">with</span>
+    <span class="o">...</span>
+    <span class="n">последняя</span> <span class="n">строка</span> <span class="n">блока</span> <span class="k">with</span>
+
+<span class="n">первая</span> <span class="n">инструкция</span> <span class="n">после</span> <span class="n">блока</span> <span class="k">with</span> <span class="c1"># здесь файл гарантировано закрыт</span>
 </pre></div>
 </div>
-<p>Преимущество такого подхода заключается в том, что файл закроется автоматически при выходе за пределы блока <code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">...</span> <span class="pre">as</span> <span class="pre">...</span></code> или при возникновении исключения.</p>
-<p>Прочитаем содержимое только что созданного файла.</p>
+<p>В заголовке блока <code class="docutils literal notranslate"><span class="pre">with</span></code> открывается файл и результирующий файловый объект связывается с именем <code class="docutils literal notranslate"><span class="pre">name</span></code>. Этот файл будет открыт до тех пор, пока программа не покинет следующий за заголовком блок кода. Как только программы этот блок покидает (естественным образом или в результате распространения исключения), файл автоматически закрывается и имя <code class="docutils literal notranslate"><span class="pre">name</span></code> освобождается.</p>
+<p>Считаем содержимое созданного в предыдущем разделе файла с блоком <code class="docutils literal notranslate"><span class="pre">with</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -950,123 +954,126 @@ tmp\first_file.txt
 </div>
 </div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>При открытии на запись мы передали строку <code class="docutils literal notranslate"><span class="pre">&quot;w&quot;</span></code>, а т.к. открытие по умолчанию осуществляется на чтение, то можно не передавать строку <code class="docutils literal notranslate"><span class="pre">&quot;r&quot;</span></code>.</p>
+<p>Если возможно, то всегда рекомендуется открывать файлы именно с помощью блока <code class="docutils literal notranslate"><span class="pre">with</span></code>.</p>
 </div>
-<p>Метод <code class="docutils literal notranslate"><span class="pre">read</span></code> считывает содержимое всего файла в строку. Может удобнее быть читать из файла по строкам. Для этого можно рассмотреть три основных подхода:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">readline</span></code> считывает одну строку файла;</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">readlines</span></code> возвращает список строк в файле;</p></li>
-<li><p>использовать итератор файлового объекта;</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;readline:&quot;</span><span class="p">)</span>
-    
-    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">())</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">())</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">())</span>
-
-    <span class="n">end</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;|</span><span class="si">{</span><span class="n">end</span><span class="si">}</span><span class="s2">|&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>readline:
-Первая строка.
-
-Вторая строка.
-
-Последняя строка.
-
-||
-</pre></div>
-</div>
-</div>
-</div>
-<p>Метод <code class="docutils literal notranslate"><span class="pre">readline</span></code> считывает одну строку из файла и передвигает указатель на следующую. Если файл закончился, то считывается пустая строка.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;readlines:&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">())</span>
-    
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>readlines:
-[&#39;Первая строка.\n&#39;, &#39;Вторая строка.\n&#39;, &#39;Последняя строка.\n&#39;]
-</pre></div>
-</div>
-</div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">readlines</span></code> считывает сразу все строки (начиная с текущего указателя) из файла и возвращает список из них.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Оба этих метода оставляют символы переноса в строке. Строковый метод <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.rstrip">rstrip</a> позволяет избавиться от них при необходимости.</p>
-</div>
-<p>Самый распространенный подход — использование файлового объекта для итерации по файлу.</p>
+<div class="section" id="id1">
+<h2>Итерация по текстовому файлу<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Читать содержимое текстового файла можно несколько способами, кроме уже упомянутого метода <a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOBase.read">read</a>, есть также методы <a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOBase.readline">readline</a> (чтение одной строки) и <a class="reference external" href="https://docs.python.org/3/library/io.html#io.IOBase.readlines">readlines</a> (возвращает список всех строк файла). Но в подавляющем большинстве случаев содержимое файла считывают построчно, просто итерируясь по файловому объекту.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Первая строка.&#39;
-&#39;Вторая строка.&#39;
-&#39;Последняя строка.&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Первая строка.
+
+Вторая строка.
+
+Последняя строка.
 </pre></div>
 </div>
 </div>
 </div>
+<p>Видим, что при печати строки оказались разреженными. Дело в том, что при итерации в переменную <code class="docutils literal notranslate"><span class="pre">line</span></code> попадает вся считанная строка целиком, включая управляющий символ <code class="docutils literal notranslate"><span class="pre">&quot;\n&quot;</span></code>, если он есть в конце. От этого можно избавиться методом <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.rstrip">rstrip</a>.</p>
 </div>
-<div class="section" id="os-pathlib-glob">
-<h2>Модули os, pathlib,  glob<a class="headerlink" href="#os-pathlib-glob" title="Permalink to this headline">¶</a></h2>
-<p>При работе с файлами возникает необходимость взаимодействия с файловой системой. Чаще всего для этого используются 4 следующих модуля стандартной библиотеки:</p>
+<div class="section" id="json">
+<h2>Формат <code class="docutils literal notranslate"><span class="pre">JSON</span></code><a class="headerlink" href="#json" title="Permalink to this headline">¶</a></h2>
+<p>Нередко возникает необходимость сохранять и передавать структурированные данные в текстовом виде. Хотя можно разработать и свою схему сохранения данных, но гораздо удобнее использовать для таких целей форматом <a class="reference external" href="https://www.json.org/json-en.html">JSON</a>.</p>
+<blockquote>
+<div><p>JSON (англ. JavaScript Object Notation, обычно произносится как /ˈdʒeɪsən/ JAY-sən) — текстовый формат обмена данными, основанный на JavaScript. Как и многие другие текстовые форматы, JSON легко читается людьми. Источник: <a class="reference external" href="https://ru.wikipedia.org/wiki/JSON">Wikipedia</a>.</p>
+</div></blockquote>
+<p>JSON изначально был придуман для <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%A1%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F">сериализации</a> объектов языка <code class="docutils literal notranslate"><span class="pre">javascript</span></code>, но со временем стал применяться и в других языках программирования. Его применение распространено и в <code class="docutils literal notranslate"><span class="pre">python</span></code>, т.к. две основные структуры данных в <code class="docutils literal notranslate"><span class="pre">python</span></code> — списки и словари — являются и основными блоками синтаксиса <code class="docutils literal notranslate"><span class="pre">JSON</span></code>.</p>
+<p>За работу с <code class="docutils literal notranslate"><span class="pre">JSON</span></code> в <code class="docutils literal notranslate"><span class="pre">python</span></code> отвечает модуль стандартной библиотеки <a class="reference external" href="https://docs.python.org/3/library/json.html#module-json">json</a>. Основные методы этого модуля:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://docs.python.org/3/library/os.html">os</a>;</p></li>
-<li><p><a class="reference external" href="https://docs.python.org/3/library/pathlib.html">pathlib</a>;</p></li>
-<li><p><a class="reference external" href="https://docs.python.org/3/library/shutil.html">shutil</a>;</p></li>
-<li><p><a class="reference external" href="https://docs.python.org/3/library/glob.html">glob</a>;</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/json.html#json.dumps">json.dumps</a> сериализует объект в строку;</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/json.html#json.dump">json.dump</a> тоже самое, но сразу записывает в файл;</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/json.html#json.loads">json.loads</a> десериализует строку <code class="docutils literal notranslate"><span class="pre">json</span></code> и создаёт объект;</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/json.html#json.load">json.load</a> десериализует содержимое файла <code class="docutils literal notranslate"><span class="pre">json</span></code>.</p></li>
 </ul>
-<p>Разберем ряд методов из этих модулей.</p>
-<div class="section" id="id2">
-<h3>Текущая директория<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<p>Во время работы программы есть такое понятие как рабочая (текущая) директория/папка (похоже на <code class="docutils literal notranslate"><span class="pre">pwd</span></code> в <code class="docutils literal notranslate"><span class="pre">unix-like</span></code> системах). В самом начале исполнения программы рабочей директорией является та директория, из которой был запущен скрипт/ноутбук/сессия интерпретатора. Узнать эту папку в любой момент времени можно командой <a class="reference external" href="https://docs.python.org/3/library/os.html#os.getcwd">os.getcwd</a>, а поменять (перейти в другую папку, похоже на <code class="docutils literal notranslate"><span class="pre">cd</span></code> в командной строке) можно командой <a class="reference external" href="https://docs.python.org/3/library/os.html#os.chdir">os.chdir</a> (сокращение от <code class="docutils literal notranslate"><span class="pre">change</span> <span class="pre">directory</span></code>).</p>
-<p>При открытии файлов путь к ним можно указывать в абсолютном формате (т.е. начиная с буквы диска в <code class="docutils literal notranslate"><span class="pre">windows</span></code> (<code class="docutils literal notranslate"><span class="pre">r&quot;C:\users\user_name\some_file.txt&quot;</span></code>)
-) или с корневой директории <code class="docutils literal notranslate"><span class="pre">/</span></code> в <code class="docutils literal notranslate"><span class="pre">unix-like</span></code> системах (<code class="docutils literal notranslate"><span class="pre">&quot;/home/users/user_name/some_file.txt&quot;</span></code>)) или относительно текущей папки.</p>
+<p>Рассмотрим самый простой пример с ними: создадим список и словарь и сериализуем их в строки.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">]</span>
+<span class="n">json_list</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>
+
+<span class="n">a_dict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;key1&quot;</span><span class="p">:</span> <span class="s2">&quot;value1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;key2&quot;</span><span class="p">:</span> <span class="s2">&quot;value2&quot;</span>
+    <span class="p">}</span>
+<span class="n">json_dict</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">a_dict</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;json представление для списка: </span><span class="si">{</span><span class="n">json_list</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;json представление для словаря: </span><span class="si">{</span><span class="n">json_dict</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="section" id="id3">
-<h3>Путь к файлу/папке<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<p>Из-за того, что разделители каталогов в разных операционных системах разные, то формирования пути рекомендуется использовать <code class="docutils literal notranslate"><span class="pre">os.path.join</span></code> или <code class="docutils literal notranslate"><span class="pre">Path</span></code> из <code class="docutils literal notranslate"><span class="pre">pathlib</span></code>.</p>
 </div>
-<div class="section" id="id4">
-<h3>Содержимое папки<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<p>Получить список файлов и папок в директории можно:</p>
-<ul class="simple">
-<li><p>методом <a class="reference external" href="https://docs.python.org/3/library/os.html#os.listdir">os.listdir</a>, который по умолчанию возвращает список файлов в текущей директории, но в качестве опционального аргумента принимает путь до папки, содержимое которой необходимо вывести;</p></li>
-<li><p>методом <a class="reference external" href="https://docs.python.org/3/library/glob.html#module-glob"><code class="docutils literal notranslate"><span class="pre">glob.glob</span></code></a> из модуля <code class="docutils literal notranslate"><span class="pre">glob</span></code>. Этот метод предоставляет доступ к поиску файлов, название которых удовлетворят некоторому шаблону. Например, поиск всех файлов с расширением <code class="docutils literal notranslate"><span class="pre">&quot;.txt&quot;</span></code> в текущей директории можно выполнить командой <code class="docutils literal notranslate"><span class="pre">glob.glob(&quot;*.txt&quot;)</span></code>.</p></li>
-</ul>
-<p>Проверить, существует ли файл по указанному пути, можно методом <a class="reference external" href="https://docs.python.org/dev/library/os.path.html#os.path.exists">os.path.exists</a>.</p>
 </div>
-<div class="section" id="id5">
-<h3>Создание папок<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
-<p>Для создания директорий используются методы</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://docs.python.org/3/library/os.html#os.mkdir">os.mkdir</a> создаёт папку по указанному пути и бросает ошибку, если папка уже существует. Так же бросает ошибку, если по пути нужно создать больше, чем одну папку; Проверить, существует ли уже папка по указанному пути, можно методом <a class="reference external" href="https://docs.python.org/dev/library/os.path.html#os.path.isdir">os.path.isdir</a>;</p></li>
-<li><p><a class="reference external" href="https://docs.python.org/3/library/os.html#os.makedirs">os.makedirs</a> делает тоже самое, но может обрабатывать существующие папки (параметр <code class="docutils literal notranslate"><span class="pre">exist_ok</span></code>) и создавать необходимые папки по пути.</p></li>
-</ul>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Если нужно создавать временные файлы или папки исключительно на время работы программы или даже меньше, то модуль <a class="reference external" href="https://docs.python.org/3/library/tempfile.html">tempfile</a> предоставляет удобный интерфейс для таких операций.</p>
+<p>Теперь исходные объекты можно восстановить обратным методом <a class="reference external" href="https://docs.python.org/3/library/json.html#json.loads">json.loads</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_list_recovery</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_list</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a_list_recovery</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">a_list_recovery</span><span class="p">))</span>
+
+<span class="n">a_dict_recovery</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_dict</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a_dict_recovery</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">a_dict_recovery</span><span class="p">))</span>
+</pre></div>
 </div>
+</div>
+</div>
+<p>Из примера видно, что удалось десериализовать объекты из строки <code class="docutils literal notranslate"><span class="pre">json</span></code> в исходном виде. Заметим, что между сериализацией и десериализацией строковое представление объекта могло быть сохранено в файл и прочитано обратно, передано по сети интернет и прочитано другим компьютером и т.д.</p>
+<p>Коллекции в <code class="docutils literal notranslate"><span class="pre">python</span></code> могут быть вложенными друг в друга и <code class="docutils literal notranslate"><span class="pre">json</span></code> без проблем справляется с представлением таких вложенных структур.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">course_description</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;lecturer&quot;</span><span class="p">:</span> <span class="s2">&quot;Fadeev Egor&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;course&quot;</span><span class="p">:</span> <span class="s2">&quot;Computer technologies workshop&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;topics&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;python3&quot;</span><span class="p">,</span> <span class="s2">&quot;scientific libraries&quot;</span><span class="p">,</span> <span class="s2">&quot;mathematical modeling&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;where&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;Faculty&quot;</span><span class="p">:</span> <span class="s2">&quot;Faculty of physics&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;room&quot;</span><span class="p">:</span> <span class="s2">&quot;5-42&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;when&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;day of week&quot;</span><span class="p">:</span> <span class="s2">&quot;Thursday&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="s2">&quot;5:05 pm&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;number of students&quot;</span><span class="p">:</span> <span class="mi">25</span>
+<span class="p">}</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s2">&quot;tmp&quot;</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;tmp&quot;</span><span class="p">,</span> <span class="s2">&quot;course_description.json&quot;</span><span class="p">),</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">course_description</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Если выполнить предыдущую ячейку, то в папке <code class="docutils literal notranslate"><span class="pre">tmp</span></code> должен создаться файл <code class="docutils literal notranslate"><span class="pre">course_description.json</span></code> с следующим содержимым (с точностью до порядка ключей).</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;lecturer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Fadeev Egor&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;course&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Computer technologies workshop&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;topics&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;python3&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;scientific libraries&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;mathematical modeling&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;where&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;Faculty&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Faculty of physics&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;room&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;5-42&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;when&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;day of week&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Thursday&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;5:05 pm&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;number of students&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -1096,17 +1103,17 @@ tmp\first_file.txt
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="functions.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="filesystem.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Функции</p>
+            <p class="prev-next-title">Взаимодействие с файловой системой</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="json.html" title="next page">
+    <a class='right-next' id="next-link" href="../visualization/libraries.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Формат json</p>
+        <p class="prev-next-title">Построение графиков и визуализация данных</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

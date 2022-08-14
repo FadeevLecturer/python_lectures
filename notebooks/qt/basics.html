@@ -294,13 +294,24 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../python/files.html">
-   Работа с файлами
+  <a class="reference internal" href="../python/filesystem.html">
+   Взаимодействие с файловой системой
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../python/json.html">
-   Формат json
+  <a class="reference internal" href="../python/files.html">
+   Работа с файлами. Сериализация:
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     json
+    </span>
+   </code>
+   и
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pickle
+    </span>
+   </code>
   </a>
  </li>
  <li class="toctree-l1">
@@ -1144,8 +1155,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Макет сам распределяет пространство, которое будет занимать виджет исходя из геометрии окна, политики размера каждого из виджетов (<a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QSizePolicy.html">QSizePolicy</a>, который среди прочего определяем минимальный размер виджета) и коэффициента растяжения (<code class="docutils literal notranslate"><span class="pre">stretching</span></code>), который определяет насколько жадно этот виджет будет занимать пространство. По умолчанию под каждый виджет отводится одинаковое количество места, но если указать параметр <code class="docutils literal notranslate"><span class="pre">stretch</span></code> (его принимают все три вышеописанных метода), то виджета с большим значением будет занимать больше пространства.</p>
 <p>В качестве примера, создадим два виджета <code class="docutils literal notranslate"><span class="pre">QLabel</span></code>, положим в них картинку методом <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QLabel.html#PySide6.QtWidgets.PySide6.QtWidgets.QLabel.setPixmap">setPixmap</a>, который ожидает на вход объект <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtGui/QPixmap.html">QPixmap</a>, и добавим их в макет.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="117b410e-fedb-4bc4-847e-176282dcc50f" name="12bfe950-3409-4b35-98ea-539a32abcd5a" type="radio">
-</input><label class="tabbed-label" for="117b410e-fedb-4bc4-847e-176282dcc50f">
+<input checked="checked" id="0cd6ef2a-db00-449f-81e4-20652cbd77d0" name="a6be4c8b-a992-48f8-ac54-32f198eff971" type="radio">
+</input><label class="tabbed-label" for="0cd6ef2a-db00-449f-81e4-20652cbd77d0">
 QHBoxLayout</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">os</span>
@@ -1194,8 +1205,8 @@ QHBoxLayout</label><div class="tabbed-content docutils">
 <img alt="../../_images/HBoxLayout.png" src="../../_images/HBoxLayout.png" />
 </div>
 </div>
-<input id="248ec377-077d-4365-b2de-5c766b06b2ac" name="12bfe950-3409-4b35-98ea-539a32abcd5a" type="radio">
-</input><label class="tabbed-label" for="248ec377-077d-4365-b2de-5c766b06b2ac">
+<input id="6c9a0b10-0c27-490d-8720-fe250211b35a" name="a6be4c8b-a992-48f8-ac54-32f198eff971" type="radio">
+</input><label class="tabbed-label" for="6c9a0b10-0c27-490d-8720-fe250211b35a">
 QVBoxLayout</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">os</span>
