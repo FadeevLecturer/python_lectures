@@ -34,8 +34,8 @@ parts:
     chapters:
       - file: notebooks/python/dictionaries
       - file: notebooks/python/functions
+      - file: notebooks/python/filesystem
       - file: notebooks/python/files
-      - file: notebooks/python/json
       - file: notebooks/visualization/libraries
       - file: notebooks/visualization/matplotlib
       - file: notebooks/visualization/details
