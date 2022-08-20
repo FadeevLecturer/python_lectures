@@ -863,7 +863,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">a</span> <span class="o">+=</span> <span class="mi">1</span>    <span class="c1"># 2</span>
 </pre></div>
 </div>
-<p>Программисту <code class="docutils literal notranslate"><span class="pre">C/C++</span></code> может показаться, что во второй строке значение, хранящееся в целочисленном объекте созданном в первой строке, увеличивается на <code class="docutils literal notranslate"><span class="pre">1</span></code>. На самом деле это не так: создаётся новый объект, хранящий результат вычисления выражения <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">1</span></code>, а затем <code class="docutils literal notranslate"><span class="pre">a</span></code> связывается с этим новым объектом. Чтобы продемонстрировать это, напечатаем идентификатор объекта.</p>
+<p>Программисту <code class="docutils literal notranslate"><span class="pre">C/C++</span></code> может показаться, что во второй строке увеличивается на <code class="docutils literal notranslate"><span class="pre">1</span></code> значение, хранящееся в созданном на первой строке целочисленном объекте. На самом деле это не так: создаётся новый объект, хранящий результат вычисления выражения <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">1</span></code>, а затем имя <code class="docutils literal notranslate"><span class="pre">a</span></code> связывается с этим новым объектом. Чтобы продемонстрировать это, напечатаем идентификатор объекта до и после увеличения на 1.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
@@ -880,6 +880,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
+<p>Видим, что идентификатор меняет свое значение, а значит имя <code class="docutils literal notranslate"><span class="pre">a</span></code> ссылается на разные объекты до и после инструкции <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+=</span> <span class="pre">1</span></code>.</p>
 <p>В <code class="docutils literal notranslate"><span class="pre">python</span></code> все типы объектов можно разделить на два вида: <strong>изменяемые</strong> (<code class="docutils literal notranslate"><span class="pre">mutable</span></code>) и <strong>неизменяемые</strong> (<code class="docutils literal notranslate"><span class="pre">immutable</span></code>).</p>
 <ul class="simple">
 <li><p>Значение, хранящееся в объекте неизменяемого типа, невозможно изменить никакими способами. Единственный способ получить объект такого типа с другим значением — создать новый объект с нужным значением.</p></li>
@@ -944,7 +945,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p class="admonition-title">Note</p>
 <p>Имена всегда указывают на объекты. Имена не могут указывать на другие имена, но объекты могут содержать в себе ссылки на другие объекты.</p>
 </div>
-<p>Расширим предыдущий пример ещё двумя строками.</p>
+<p>Увеличим значение <code class="docutils literal notranslate"><span class="pre">a</span></code> на 42.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">+=</span> <span class="mi">42</span>

@@ -832,7 +832,7 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="id1">
 <h1>Создание и удаление объектов. Сборщик мусора<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<p>Итого, в <code class="docutils literal notranslate"><span class="pre">python</span></code> все данные представляются в виде объектов, доступ к которым осуществляется или через имена/ссылки/идентификаторы в исходном коде программы.</p>
+<p>Итого, в <code class="docutils literal notranslate"><span class="pre">python</span></code> все данные представляются в виде объектов, доступ к которым осуществляется или через имена/ссылки/идентификаторы в исходном коде программы. Разберемся, как эти объекты создаются и удаляются.</p>
 <div class="section" id="id2">
 <h2>Создание объектов<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>Создаются объекты в результате вычисления выражений <code class="docutils literal notranslate"><span class="pre">python</span></code>. Рассмотрим следующую строку кода.</p>
@@ -849,7 +849,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p>Так как это составное выражение, то чтобы его вычислить, сначала вычисляются подвыражения <code class="docutils literal notranslate"><span class="pre">1001</span></code> и <code class="docutils literal notranslate"><span class="pre">int(&quot;1002&quot;)</span></code>.</p>
 <ol class="simple">
-<li><p>Первое из них является <a class="reference external" href="https://docs.python.org/3/reference/lexical_analysis.html#literals">литералом</a> целого числа 1001. Его интерпретация приводит к целочисленного объекта с значением 1001.</p></li>
+<li><p>Первое из них является <a class="reference external" href="https://docs.python.org/3/reference/lexical_analysis.html#literals">литералом</a> целого числа 1001. Его интерпретация приводит к созданию целочисленного объекта с значением 1001.</p></li>
 <li><p>Второе выражение тоже является составным.</p>
 <ol class="simple">
 <li><p>Сначала вычисляется выражение <code class="docutils literal notranslate"><span class="pre">&quot;1002&quot;</span></code>, указанное в качестве аргумента функции <code class="docutils literal notranslate"><span class="pre">int</span></code>. Это выражение является литералом строки, а значит его интерпретация приводит к созданию строкового объекта с значением <code class="docutils literal notranslate"><span class="pre">&quot;1002&quot;</span></code>.</p></li>
