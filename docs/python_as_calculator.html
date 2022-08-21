@@ -915,7 +915,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">имя_переменной</span> <span class="o">=</span> <span class="n">значение</span>
 </pre></div>
 </div>
-<p>При этом нет необходимости указывать тип переменной : <code class="docutils literal notranslate"><span class="pre">python</span></code> — язык с <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%94%D0%B8%D0%BD%D0%B0%D0%BC%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F_%D1%82%D0%B8%D0%BF%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F">динамической типизацией</a> и пока можете считать, что тип переменной определяется автоматически по типу значением (более подробно особенности типизации в <code class="docutils literal notranslate"><span class="pre">python</span></code> будут обсуждаться на следующей лекции).</p>
+<p>При этом нет необходимости указывать тип переменной : <code class="docutils literal notranslate"><span class="pre">python</span></code> — язык с <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%94%D0%B8%D0%BD%D0%B0%D0%BC%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F_%D1%82%D0%B8%D0%BF%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F">динамической типизацией</a> и пока можете считать, что тип переменной определяется автоматически по типу значения (более подробно особенности типизации в <code class="docutils literal notranslate"><span class="pre">python</span></code> будут обсуждаться на следующей лекции).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Если справа от оператора “<code class="docutils literal notranslate"><span class="pre">=</span></code>” стоит не просто значение, а сразу выражение, то сначала это выражение вычисляется и только потом в переменную слева от оператора “<code class="docutils literal notranslate"><span class="pre">=</span></code>” записывается результат вычисления выражения.</p>
@@ -963,47 +963,47 @@ const thebe_selector_output = ".output, .cell_output"
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">abs()</span></code></p></td>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">abs</span></code></p></td>
 <td class="text-align:center"><p>абсолютное значение</p></td>
 <td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">number</span></code></p></td>
 <td class="text-align:right"><p><code class="docutils literal notranslate"><span class="pre">abs(-1)</span></code></p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">bin()</span></code>, <code class="docutils literal notranslate"><span class="pre">oct</span></code>, <code class="docutils literal notranslate"><span class="pre">hex()</span></code></p></td>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">bin</span></code>, <code class="docutils literal notranslate"><span class="pre">oct</span></code>, <code class="docutils literal notranslate"><span class="pre">hex</span></code></p></td>
 <td class="text-align:center"><p>возвращает строку, соответствующую двоичному/восьмеричному/шестнадцатеричному представлению числа</p></td>
 <td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">int</span></code></p></td>
 <td class="text-align:right"><p><code class="docutils literal notranslate"><span class="pre">bin(2</span> <span class="pre">**</span> <span class="pre">8</span> <span class="pre">-</span> <span class="pre">1)</span></code></p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">bool()</span></code></p></td>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
 <td class="text-align:center"><p>приведение к <code class="docutils literal notranslate"><span class="pre">True</span></code> или <code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
 <td class="text-align:center"><p>любой</p></td>
 <td class="text-align:right"><p><code class="docutils literal notranslate"><span class="pre">bool(0)</span></code>, <code class="docutils literal notranslate"><span class="pre">bool(1)</span></code></p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">char()</span></code></p></td>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">char</span></code></p></td>
 <td class="text-align:center"><p>символ, код которого в таблице юникод совпадает с аргументом</p></td>
 <td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">int</span></code></p></td>
 <td class="text-align:right"><p><code class="docutils literal notranslate"><span class="pre">char(169)</span></code></p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">divmod()</span></code></p></td>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">divmod</span></code></p></td>
 <td class="text-align:center"><p>возвращает целую часть и остаток от деления</p></td>
 <td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
 <td class="text-align:right"><p><code class="docutils literal notranslate"><span class="pre">divmod(42,</span> <span class="pre">13)</span></code></p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">float()</span></code></p></td>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
 <td class="text-align:center"><p>конструктор числа с плавающей точкой</p></td>
 <td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
 <td class="text-align:right"><p><code class="docutils literal notranslate"><span class="pre">float(&quot;69.420&quot;)</span></code>, <code class="docutils literal notranslate"><span class="pre">float(&quot;Nan&quot;)</span></code>, <code class="docutils literal notranslate"><span class="pre">float(&quot;-inf&quot;)</span></code></p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">int()</span></code></p></td>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">int</span></code></p></td>
 <td class="text-align:center"><p>Конструктор целого числа.  В качестве первого аргумента принимает число, строку и ряд других. Если это <code class="docutils literal notranslate"><span class="pre">float</span></code>, то число округляется в сторону нуля. Если строка, то в качестве второго аргумента принимает основание системы счисления.</p></td>
 <td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code>, …</p></td>
 <td class="text-align:right"><p><code class="docutils literal notranslate"><span class="pre">int(-3)</span></code>, <code class="docutils literal notranslate"><span class="pre">int(&quot;010&quot;,</span> <span class="pre">8)</span></code></p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">pow()</span></code></p></td>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">pow</span></code></p></td>
 <td class="text-align:center"><p>возведение в степень</p></td>
 <td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
 <td class="text-align:right"><p><code class="docutils literal notranslate"><span class="pre">pow(2,</span> <span class="pre">100)</span></code></p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">round()</span></code></p></td>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">round</span></code></p></td>
 <td class="text-align:center"><p>округляет число (первый аргумент) до заданного количества цифр после запятой (второй аргумент)</p></td>
 <td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">round(1/3,</span> <span class="pre">4)</span></code></p></td>
 <td class="text-align:right"><p></p></td>
@@ -1034,7 +1034,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="id6">
 <h2>Области применения интерактивной оболочки<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
 <p>Кроме того, что интерактивная оболочка является отличной заменой калькулятору, она ещё очень удобна для тестирования и изучения из-за своей динамической природы. Так, например, если какая-то команда завершается с ошибкой, то сеанс продолжается и можно попробовать разобраться, что пошло не так, внести необходимые правки и попробовать снова.</p>
-<p>Тем не менее набранные в течении сессии инструкции никуда не сохраняются по завершению сессии и требуется в ручную подтверждать ввод каждой команды нажатием клавиши <code class="docutils literal notranslate"><span class="pre">Enter</span></code>, что довольно сильно ограничивает область применения интерактивной оболочки. Далее будет рассмотрено ещё 2 способа взаимодействия с <code class="docutils literal notranslate"><span class="pre">python</span></code>, один из которых (скрипты) полностью лишен только что озвученных недостатков ценой интерактивности, а второй (блокноты <code class="docutils literal notranslate"><span class="pre">jupyter</span></code>) представляет собой некоторый компромисс: интерактивность, возможность сохранять и переиспользовать набор инструкций между сессиями (исходный код) и частичная автоматизация запуска исходного кода.</p>
+<p>Тем не менее набранные в течение сессии инструкции никуда не сохраняются по завершению сессии и требуется в ручную подтверждать ввод каждой команды нажатием клавиши <code class="docutils literal notranslate"><span class="pre">Enter</span></code>, что довольно сильно ограничивает область применения интерактивной оболочки. Далее будет рассмотрено ещё 2 способа взаимодействия с <code class="docutils literal notranslate"><span class="pre">python</span></code>, один из которых (скрипты) полностью лишен только что озвученных недостатков ценой интерактивности, а второй (блокноты <code class="docutils literal notranslate"><span class="pre">jupyter</span></code>) представляет собой некоторый компромисс: интерактивность, возможность сохранять и переиспользовать набор инструкций между сессиями (исходный код) и частичная автоматизация запуска исходного кода.</p>
 </div>
 </div>
 
