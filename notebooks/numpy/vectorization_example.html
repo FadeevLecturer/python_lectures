@@ -748,7 +748,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id3">
-   Векторизованные версии.
+   Векторизованные версии
   </a>
  </li>
 </ul>
@@ -778,7 +778,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id3">
-   Векторизованные версии.
+   Векторизованные версии
   </a>
  </li>
 </ul>
@@ -824,7 +824,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<p>Приведенная функция накапливает сумму квадратов отклонений чисел массива от среднего значения и возвращает корень из этой суммы деленной на количество элементов в массиве. В <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> есть методы <code class="docutils literal notranslate"><span class="pre">mean</span></code> и <code class="docutils literal notranslate"><span class="pre">std</span></code>. Проведем хотя бы один тест, чтобы убедиться, что приведенные выше функции работают.</p>
+<p>Приведенная функция накапливает сумму квадратов отклонений чисел массива от среднего значения и возвращает корень из этой суммы, деленной на количество элементов в массиве. В <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> есть методы <code class="docutils literal notranslate"><span class="pre">mean</span></code> и <code class="docutils literal notranslate"><span class="pre">std</span></code>. Проведем хотя бы один тест, чтобы убедиться, что приведенные выше функции работают.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -852,7 +852,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="id3">
-<h2>Векторизованные версии.<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<h2>Векторизованные версии<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>Функции работают, теперь перепишем их, используя векторизацию.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -879,7 +879,7 @@ const thebe_selector_output = ".output, .cell_output"
     <span class="n">tmp_1</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">mean</span>
 </pre></div>
 </div>
-<p>Как и прежде, чтобы не вычислять дважды среднее принимаем <code class="docutils literal notranslate"><span class="pre">mean</span></code> в качестве второго аргумента. На следующей стоке вычисляется разница между массивом <code class="docutils literal notranslate"><span class="pre">x</span></code> и средним значением <code class="docutils literal notranslate"><span class="pre">mean</span></code> (скаляром). Формы не совпадают, а значит производится <code class="docutils literal notranslate"><span class="pre">broadcasting</span></code> и в результате <code class="docutils literal notranslate"><span class="pre">tmp_1[i]</span> <span class="pre">=</span> <span class="pre">x[i]</span> <span class="pre">-</span> <span class="pre">mean</span></code>.</p>
+<p>Как и прежде, чтобы не вычислять дважды среднее принимаем, <code class="docutils literal notranslate"><span class="pre">mean</span></code> в качестве второго аргумента. На следующей стоке вычисляется разница между массивом <code class="docutils literal notranslate"><span class="pre">x</span></code> и средним значением <code class="docutils literal notranslate"><span class="pre">mean</span></code> (скаляром). Формы не совпадают, а значит производится <code class="docutils literal notranslate"><span class="pre">broadcasting</span></code> и в результате <code class="docutils literal notranslate"><span class="pre">tmp_1[i]</span> <span class="pre">=</span> <span class="pre">x[i]</span> <span class="pre">-</span> <span class="pre">mean</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">std1D_vectorized</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mean</span><span class="p">):</span>
     <span class="n">tmp_1</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">mean</span>
     <span class="n">tmp_2</span> <span class="o">=</span> <span class="n">tmp_1</span> <span class="o">**</span> <span class="mi">2</span>
@@ -901,7 +901,7 @@ const thebe_selector_output = ".output, .cell_output"
     <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">tmp_3</span> <span class="o">/</span> <span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>И наконец, вычислив такую сумму, функцию возвращает квадратный корень из нее деленной на размер массива.</p>
+<p>И наконец, вычислив такую сумму, функция возвращает квадратный корень из нее деленной на размер массива.</p>
 <p>Конечно, вводить переменные <code class="docutils literal notranslate"><span class="pre">tmp_1</span></code>, <code class="docutils literal notranslate"><span class="pre">tmp_2</span></code> и <code class="docutils literal notranslate"><span class="pre">tmp_3</span></code> вовсе не обязательно. Это сделано в этом примере, лишь для того, чтобы подробнее по этапам объяснить, что происходит под капотом функции ниже.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -918,7 +918,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<p>Тем не менее первая версия этой функции позволяет явно обратить ваше внимание на то, что в процессе работы векторизованной функции (и изначальной и сокращенной) создаются дополнительные массивы. Для этого выделяется дополнительная память и в ряде случаев это может быть критично. Эти дополнительные массивы собираются сборщиком мусора, как только они перестают быть нужными. В первом случае на выходе из функции (когда локальные имена <code class="docutils literal notranslate"><span class="pre">tmp_1</span></code>, <code class="docutils literal notranslate"><span class="pre">tmp_2</span></code> и <code class="docutils literal notranslate"><span class="pre">tmp_3</span></code> уничтожаются) и во втором случае сразу, как только вычисления с ними закончены.</p>
+<p>Кроме того первая версия этой функции позволяет явно обратить ваше внимание на то, что в процессе работы векторизованной функции (и изначальной и сокращенной) создаются дополнительные массивы. Для этого выделяется дополнительная память и в ряде случаев это может быть критично. Эти дополнительные массивы собираются сборщиком мусора, как только они перестают быть нужными. В первом случае на выходе из функции (когда локальные имена <code class="docutils literal notranslate"><span class="pre">tmp_1</span></code>, <code class="docutils literal notranslate"><span class="pre">tmp_2</span></code> и <code class="docutils literal notranslate"><span class="pre">tmp_3</span></code> уничтожаются) и во втором случае сразу, как только вычисления с ними закончены.</p>
 </div>
 </div>
 

@@ -955,7 +955,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="id1">
 <h2>Матрица Вандермонда<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>Для заданного набора чисел  <span class="math notranslate nohighlight">\(x = \{x_i, i=1,..,n\}\)</span> <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%9E%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D0%B8%D1%82%D0%B5%D0%BB%D1%8C_%D0%92%D0%B0%D0%BD%D0%B4%D0%B5%D1%80%D0%BC%D0%BE%D0%BD%D0%B4%D0%B0">определитель Вандермонда</a> — определитель следующей матрицы.</p>
+<p>Для заданного набора чисел  <span class="math notranslate nohighlight">\(x = \{x_i,\,i=1,..,n\}\)</span> <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%9E%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D0%B8%D1%82%D0%B5%D0%BB%D1%8C_%D0%92%D0%B0%D0%BD%D0%B4%D0%B5%D1%80%D0%BC%D0%BE%D0%BD%D0%B4%D0%B0">определитель Вандермонда</a> — определитель следующей матрицы.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{pmatrix}
@@ -978,15 +978,66 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="id2">
 <h2>Максимальный остаток<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p>Рассмотрим набор целых чисел <span class="math notranslate nohighlight">\(x = \{x_i \in \mathbb{N}, i=1,..,n\}\)</span>. Пусть <span class="math notranslate nohighlight">\(mod_{ij}\)</span> — остаток от деления <span class="math notranslate nohighlight">\(x_i\)</span> на <span class="math notranslate nohighlight">\(x_j\)</span>. Найти максимальный такой остаток.</p>
+<p>Рассмотрим набор целых чисел <span class="math notranslate nohighlight">\(x = \{x_i \in \mathbb{N},\,i=1,..,n\}\)</span>. Пусть <span class="math notranslate nohighlight">\(\mathrm{mod}_{ij}\)</span> — остаток от деления <span class="math notranslate nohighlight">\(x_i\)</span> на <span class="math notranslate nohighlight">\(x_j\)</span>. Найти максимальный такой остаток.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">largest_mod</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="o">...</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">largest_mod</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="c1"># 9</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id3">
 <h2>Обработка данных<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
-<p>Представим себе эксперимент, в котором измеряется <span class="math notranslate nohighlight">\(m\)</span> величин <span class="math notranslate nohighlight">\(x_i\)</span> в моменты времени <span class="math notranslate nohighlight">\(t_i, i=1,...,n\)</span>. Будем считать, что все измерения поступают нам в виде матрицы <code class="docutils literal notranslate"><span class="pre">X</span></code> (двумерный массив <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>) размера <span class="math notranslate nohighlight">\(n \times m\)</span>, <span class="math notranslate nohighlight">\(j\)</span>-й столбец которой соответствует измеряемой величине <span class="math notranslate nohighlight">\(x_j\)</span>, а <span class="math notranslate nohighlight">\(i\)</span>-я строка — моменту времени <span class="math notranslate nohighlight">\(t_i\)</span>, т.е. <code class="docutils literal notranslate"><span class="pre">X[i,</span> <span class="pre">j]</span></code> — измерение величины <span class="math notranslate nohighlight">\(x_j\)</span> в момент времени <span class="math notranslate nohighlight">\(t_i\)</span>.</p>
+<p>Представим себе эксперимент, в котором измеряется <span class="math notranslate nohighlight">\(m\)</span> величин <span class="math notranslate nohighlight">\(x_j,\,j=0,\ldots,m-1\)</span> в моменты времени <span class="math notranslate nohighlight">\(t_i,\,i=0,\ldots,n-1\)</span>. Будем считать, что все измерения поступают нам в виде матрицы <code class="docutils literal notranslate"><span class="pre">X</span></code> (двумерный массив <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>) размера <span class="math notranslate nohighlight">\(n \times m\)</span>, <span class="math notranslate nohighlight">\(j\)</span>-й столбец которой соответствует измеряемой величине <span class="math notranslate nohighlight">\(x_j\)</span>, а <span class="math notranslate nohighlight">\(i\)</span>-я строка — моменту времени <span class="math notranslate nohighlight">\(t_i\)</span>, т.е. <code class="docutils literal notranslate"><span class="pre">X[i,</span> <span class="pre">j]</span></code> — измерение величины <span class="math notranslate nohighlight">\(x_j\)</span> в момент времени <span class="math notranslate nohighlight">\(t_i\)</span>.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p></p></th>
+<th class="text-align:center head"><p><span class="math notranslate nohighlight">\(x_0\)</span></p></th>
+<th class="text-align:center head"><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></th>
+<th class="text-align:center head"><p><span class="math notranslate nohighlight">\(x_j\)</span></p></th>
+<th class="text-align:left head"><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></th>
+<th class="text-align:center head"><p><span class="math notranslate nohighlight">\(x_{m-1}\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p><span class="math notranslate nohighlight">\(t_0\)</span></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">X[0,</span> <span class="pre">0]</span></code></p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">X[0,</span> <span class="pre">j]</span></code></p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">X[0,</span> <span class="pre">m-1]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><span class="math notranslate nohighlight">\(t_i\)</span></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">X[i,</span> <span class="pre">0]</span></code></p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">X[i,</span> <span class="pre">j]</span></code></p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">X[i,</span> <span class="pre">m-1]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><span class="math notranslate nohighlight">\(t_{n-1}\)</span></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">X[n-1,</span> <span class="pre">0]</span></code></p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">X[n-1,</span> <span class="pre">j]</span></code></p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">X[n-1,</span> <span class="pre">m-1]</span></code></p></td>
+</tr>
+</tbody>
+</table>
 <div class="section" id="id4">
 <h3>1. Чистка данных<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>Допустим, что если измерение <span class="math notranslate nohighlight">\(X_{ij}\)</span> (измерение <span class="math notranslate nohighlight">\(x_j\)</span> при <span class="math notranslate nohighlight">\(t=t_i\)</span>) не удалось произвести, то в массив попадает значение <code class="docutils literal notranslate"><span class="pre">X[i,</span> <span class="pre">j]</span> <span class="pre">=</span> <span class="pre">np.nan</span></code>. Ваша задача реализовать процедуру чистки таблицы <code class="docutils literal notranslate"><span class="pre">X</span></code> от всех строк, в которых есть хотя бы один <code class="docutils literal notranslate"><span class="pre">np.nan</span></code>.</p>
@@ -994,7 +1045,13 @@ const thebe_selector_output = ".output, .cell_output"
     <span class="o">...</span>
     
     
-<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">]])</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span>         <span class="mi">1</span><span class="p">,</span>          <span class="mi">2</span><span class="p">],</span> 
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span>         <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span>     <span class="mi">2</span><span class="p">],</span> 
+    <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span>    <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span>     <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> 
+    <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span>        <span class="o">-</span><span class="mi">2</span><span class="p">,</span>         <span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+<span class="p">])</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="n">clear</span><span class="p">(</span><span class="n">X</span><span class="p">))</span> <span class="c1"># [[0, 1, 2], [-1, -2, -3]]</span>
 </pre></div>
 </div>
@@ -1008,7 +1065,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>В статистике рассматриваются характеристики таких числовых рядов. Например, среднее величина, среднеквадратичное отклонение, минимальное и максимальное значения, и многие другие.</p>
 <p>В ряде задач удобнее анализировать такие данные, если они находятся в удобном диапазоне. Рассмотрим три подхода, чтобы преобразовать эти данные в удобный диапазон на примере измерений одной величины <span class="math notranslate nohighlight">\(x\)</span> в моменты времени <span class="math notranslate nohighlight">\(t_i\)</span>.</p>
 <ul class="simple">
-<li><p>Рассмотрим новый ряд <span class="math notranslate nohighlight">\(y = \{y_i, i=1,...,n\}\)</span>, который получается их набора <span class="math notranslate nohighlight">\(x\)</span> по формуле</p></li>
+<li><p>Рассмотрим новый ряд <span class="math notranslate nohighlight">\(y = \{y_i,\,i=1,...,n\}\)</span>, который получается их набора <span class="math notranslate nohighlight">\(x\)</span> по формуле</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[
@@ -1032,7 +1089,7 @@ S = \sqrt{\frac{1}{n}\sum_{i=1}^{n} (x_i - \bar{x})^2}.
 y_i = \frac{x_i - x_{min}}{x_{max} - x_{min}}.
 \]</div>
 <ul class="simple">
-<li><p>Представим измерения <span class="math notranslate nohighlight">\(x=\{x_i, i=1,...,n\}\)</span> в виде вектора и отнормируем его:</p></li>
+<li><p>Представим измерения <span class="math notranslate nohighlight">\(x=\{x_i,\, i=1,...,n\}\)</span> в виде вектора и отнормируем его:</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[
