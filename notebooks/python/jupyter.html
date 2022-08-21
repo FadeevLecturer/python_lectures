@@ -1100,7 +1100,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>Ячейки с исходным кодом, про которые речь шла выше.</p></li>
 <li><p>Ячейки с текстовым наполнением на языке разметки <a class="reference external" href="https://ru.wikipedia.org/wiki/Markdown">markdown</a>.</p></li>
 </ol>
-<p>Все это в совокупности позволяет в одном месте (блокнот <code class="docutils literal notranslate"><span class="pre">jupyter</span></code>) помещать исходный код, генерируемый им вывод и сопровождать всё это текстовым описанием. Все страницы этого ресурса представляют из себя конвертированные в <code class="docutils literal notranslate"><span class="pre">html</span></code> блокноты <code class="docutils literal notranslate"><span class="pre">jupyter</span></code>  со слегка расширенным до <a class="reference external" href="https://www.sphinx-doc.org/en/master/">sphinx</a> языком разметки.</p>
+<p>Все это в совокупности позволяет в одном месте (блокнот <code class="docutils literal notranslate"><span class="pre">jupyter</span></code>) помещать исходный код, генерируемый им вывод и сопровождать всё это текстовым описанием. Все страницы этого ресурса представляют собой конвертированные в <code class="docutils literal notranslate"><span class="pre">html</span></code> блокноты <code class="docutils literal notranslate"><span class="pre">jupyter</span></code>  со слегка расширенным до <a class="reference external" href="https://www.sphinx-doc.org/en/master/">sphinx</a> языком разметки.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Это в частности значит, что вы можете скачать оригинальный блокнот, из которого была сгенерирована текущая страница, с помощью кнопки на панели сверху.</p>
@@ -1135,8 +1135,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="id2">
 <h2>Командный режим и режим редактирования<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p>Во время работы с блокнотами <code class="docutils literal notranslate"><span class="pre">jupyter</span></code> вы можете находится в одном из двух режимов: режим редактирования и командный режим. В режиме редактирования вы как-бы находитесь на уровне одной конкретной ячейки, а в командном — на уровне всего блокнота.</p>
-<p>В режиме редактирования активная ячейка выделяется <strong>зеленной</strong> рамкой. Внутри ячейки мигает курсор и набираемый на клавиатуре текст попадает прямиком в содержимое ячейки.</p>
+<p>Во время работы с блокнотами <code class="docutils literal notranslate"><span class="pre">jupyter</span></code> вы можете находиться в одном из двух режимов: режим редактирования и командный режим. В режиме редактирования вы как бы находитесь на уровне одной конкретной ячейки, а в командном — на уровне всего блокнота.</p>
+<p>В режиме редактирования активная ячейка выделяется <strong>зеленной</strong> рамкой. Внутри ячейки мигает курсор, и набираемый на клавиатуре текст попадает прямиком в содержимое ячейки.</p>
 <div class="figure align-default">
 <img alt="../../_images/active_cell.png" src="../../_images/active_cell.png" />
 </div>
@@ -1144,7 +1144,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="figure align-default">
 <img alt="../../_images/inactive_cell.png" src="../../_images/inactive_cell.png" />
 </div>
-<p>Чтобы перейти из командного режима в режим редактирования необходимо нажать клавишу <code class="docutils literal notranslate"><span class="pre">Enter</span></code> или кликнуть мышкой внутри редактируемой области. Чтобы совершить обратный переход необходимо нажать клавишу <code class="docutils literal notranslate"><span class="pre">Esc</span></code> или кликнуть мышкой снаружи ячейки.</p>
+<p>Чтобы перейти из командного режима в режим редактирования необходимо нажать клавишу <code class="docutils literal notranslate"><span class="pre">Enter</span></code> или кликнуть мышкой внутри редактируемой области. Чтобы совершить обратный переход, необходимо нажать клавишу <code class="docutils literal notranslate"><span class="pre">Esc</span></code> или кликнуть мышкой снаружи ячейки.</p>
 <div class="section" id="id3">
 <h3>Режим редактирования<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>В режиме редактирования вы в основном набираете исходный код. Чтобы запустить код в активной ячейке, удобнее всего нажать сочетание клавиш <code class="docutils literal notranslate"><span class="pre">Shift-Enter</span></code>, но можно добраться и до пункта <code class="docutils literal notranslate"><span class="pre">Cell</span></code> <span class="math notranslate nohighlight">\(\to\)</span> <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">Cells</span></code> на панели управления мышкой.</p>
@@ -1155,7 +1155,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="id4">
 <h3>Командный режим<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<p>В командном режиме вы как-бы редактируете не содержимое ячейки, а сами ячейки. Например, двойное нажатие на клавишу “<code class="docutils literal notranslate"><span class="pre">d</span></code>” удаляет выделенную ячейку целиком.</p>
+<p>В командном режиме вы как бы редактируете не содержимое ячейки, а сами ячейки. Например, двойное нажатие на клавишу “<code class="docutils literal notranslate"><span class="pre">d</span></code>” удаляет выделенную ячейку целиком.</p>
 <p>Приведем здесь пару полезных горячих сочетаний клавиш.</p>
 <table class="colwidths-auto table">
 <thead>
@@ -1201,13 +1201,13 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="google-colab">
 <h2>Удаленная работа. <code class="docutils literal notranslate"><span class="pre">Google</span> <span class="pre">Colab</span></code><a class="headerlink" href="#google-colab" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">Jupyter</span></code> вовсе не обязательно должен быть запущен на той же машине, с которой ей поступают команды. Нередко <code class="docutils literal notranslate"><span class="pre">jupyter</span></code> запускают на мощных серверах, а работают с ним удаленно. Такой подход позволяет как-бы получать доступ к вычислительным мощностям удаленного сервера, например, со своего ноутбука.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Jupyter</span></code> вовсе не обязательно должен быть запущен на той же машине, с которой ей поступают команды. Нередко <code class="docutils literal notranslate"><span class="pre">jupyter</span></code> запускают на мощных серверах, а работают с ним удаленно. Такой подход позволяет как бы получать доступ к вычислительным мощностям удаленного сервера, например, со своего ноутбука.</p>
 <p><a class="reference external" href="https://colab.research.google.com/">Google Colab</a> позволяет бесплатно запускать слегка доработанные <code class="docutils literal notranslate"><span class="pre">jupyter</span></code> блокноты на серверах <code class="docutils literal notranslate"><span class="pre">google</span></code>. Бесплатная версия предоставляет безлимитный по времени доступ к одной сессии в <code class="docutils literal notranslate"><span class="pre">google</span> <span class="pre">colab</span></code> и может оказаться очень полезным, если вычислительные мощности вашей машины не соответствуют современным стандартам.</p>
 <p>Тем не менее <code class="docutils literal notranslate"><span class="pre">google</span> <span class="pre">colab</span></code> не является полноценной заменой обычным блокнотам. Ниже приведены основные ограничения.</p>
 <ol class="simple">
 <li><p>Так как блокнот <code class="docutils literal notranslate"><span class="pre">jupyter</span></code> запущен на сервере, то и файловая система используется из него. Это значит, что если вам требуется работать с вашими файлами, то необходимо в явном виде загружать их на выделенный сервер</p></li>
-<li><p>Отсутствует полный доступ к кастомизации рабочего пространства. На серверах <code class="docutils literal notranslate"><span class="pre">google</span></code> установленно большинство необходимых для ученного библиотек и инструментов, установить дополнительные библиотеки обычно можно почти без проблем. Но все же полный контроль получить не удасться и, например, невозможно поменять установленную версию <code class="docutils literal notranslate"><span class="pre">python</span></code> и т.д.</p></li>
-<li><p>Чтобы работать в <code class="docutils literal notranslate"><span class="pre">google</span> <span class="pre">colab</span></code> необходимо подключение к интернет. Кроме этого в бесплатной версии требуется проявлять регулярную активность, чтобы <code class="docutils literal notranslate"><span class="pre">google</span></code> не сбросил вашу сессию. Т.е. если вы запустили продолжительные расчеты, то вы не можете на долго отойти от машины.</p></li>
+<li><p>Отсутствует полный доступ к кастомизации рабочего пространства. На серверах <code class="docutils literal notranslate"><span class="pre">google</span></code> установленно большинство необходимых для ученого библиотек и инструментов, установить дополнительные библиотеки обычно можно почти без проблем. Но все же полный контроль получить не удастся и, например, невозможно поменять установленную версию <code class="docutils literal notranslate"><span class="pre">python</span></code> и т.д.</p></li>
+<li><p>Чтобы работать в <code class="docutils literal notranslate"><span class="pre">google</span> <span class="pre">colab</span></code> необходимо подключение к интернету. Кроме этого в бесплатной версии требуется проявлять регулярную активность, чтобы <code class="docutils literal notranslate"><span class="pre">google</span></code> не сбросил вашу сессию. Т.е. если вы запустили продолжительные расчеты, то вы не можете на долго отойти от машины.</p></li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>

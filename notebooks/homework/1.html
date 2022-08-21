@@ -877,7 +877,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><span class="math notranslate nohighlight">\(f(c) f(a) &lt; 0\)</span>, т.е. можно продолжить поиск корная на отрезке <span class="math notranslate nohighlight">\([a, c]\)</span>;</p></li>
 <li><p><span class="math notranslate nohighlight">\(f(c) f(a) &gt; 0\)</span>, а значит <span class="math notranslate nohighlight">\(f(c) f(b) &lt; 0\)</span> и можно продолжить поиск корня на отрезке <span class="math notranslate nohighlight">\([c, b]\)</span>.</p></li>
 </ul>
-<p>Итого, с помощью одного такого шага мы или найдем корень или сузим вдвое длину отрезка, на котором ищется корень. Обычно такие шаги применяют многократно до тех пор, пока не будет достигнута необходимая точность (длина отрезка <span class="math notranslate nohighlight">\([a, b]\)</span>) и невязка (модуль значения функции <span class="math notranslate nohighlight">\(|f(c)|\)</span>), т.е. критерием сходимости метода является одновременное выполнение двух условий</p>
+<p>Итого, с помощью одного такого шага мы или найдем корень, или сузим вдвое длину отрезка, на котором ищется корень. Обычно такие шаги применяют многократно до тех пор, пока не будет достигнута необходимая точность (длина отрезка <span class="math notranslate nohighlight">\([a, b]\)</span>) и невязка (модуль значения функции <span class="math notranslate nohighlight">\(|f(c)|\)</span>), т.е. критерием сходимости метода является одновременное выполнение двух условий</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{cases}
@@ -976,7 +976,7 @@ y =  f(a) \dfrac{x - b}{a - b} + f(b) \dfrac{a - x}{a - b},
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Корректное определение унимодальной функции подразумевает несколько более общее определение, в котором точка минимума <span class="math notranslate nohighlight">\(c\)</span> как-бы превращается в отрезок <span class="math notranslate nohighlight">\([c_1, c_2]\)</span>, каждая точка которого является глобальным минимумом. Описанный здесь метод дихотомии сходится и для таких функций.</p>
+<p>Корректное определение унимодальной функции подразумевает несколько более общее определение, в котором точка минимума <span class="math notranslate nohighlight">\(c\)</span> как бы превращается в отрезок <span class="math notranslate nohighlight">\([c_1, c_2]\)</span>, каждая точка которого является глобальным минимумом. Описанный здесь метод дихотомии сходится и для таких функций.</p>
 </div>
 <p>После сужения отрезка <span class="math notranslate nohighlight">\([a, b]\)</span> до <span class="math notranslate nohighlight">\([x_1, b]\)</span> или <span class="math notranslate nohighlight">\([a, x_2]\)</span> можно повторить процедуру деления отрезка на три части произвольное количество раз до достижения необходимой точности. За точность принимается длинна отрезка <span class="math notranslate nohighlight">\([a, b]\)</span> (величина <span class="math notranslate nohighlight">\(b - a\)</span>), т.е. критерием сходимости алгоритма считается выполнение условия</p>
 <div class="math notranslate nohighlight">
@@ -1023,7 +1023,7 @@ x_{i + 1} = x_i - \alpha_i f'(x_i),
 <p>Вам предлагается реализовать метод градиентного спуска с постоянным шагом <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
 <div class="math notranslate nohighlight" id="equation-gradient-descent">
 <span class="eqno">(9)<a class="headerlink" href="#equation-gradient-descent" title="Permalink to this equation">¶</a></span>\[x_{i + 1} = x_i - \alpha f'(x_i).\]</div>
-<p>Правильный подбор этого параметра критические влияет на сходимость алгоритма. Слишком маленький шаг потребует много итераций для сходимости и почти наверняка застрянет в первом же встреченном локальном минимуме. Слишком большой шаг может разойтись, а может сравнительно быстро сойтись  при удачном стечении обстоятельств и почти наверняка проскочит минимум, что хорошо, если минимум локальный, и плохо, если минимум глобальный.</p>
+<p>Правильный подбор этого параметра критические влияет на сходимость алгоритма. Слишком маленький шаг потребует много итераций для сходимости и почти наверняка застрянет в первом встреченном локальном минимуме. Слишком большой шаг может разойтись, а может сравнительно быстро сойтись  при удачном стечении обстоятельств и почти наверняка проскочит минимум, что хорошо, если минимум локальный, и плохо, если минимум глобальный.</p>
 <div class="figure align-default">
 <img alt="../../_images/gradient.gif" src="../../_images/gradient.gif" />
 </div>
