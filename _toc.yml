@@ -19,6 +19,7 @@ parts:
       - file: notebooks/python/mutability
       - file: notebooks/python/garbage_collector
       - file: notebooks/python/sequencies
+      - file: notebooks/homework/2
   - caption: "Лекция №3"
     chapters:
       - file: docs/libs_pypi_conda
