@@ -742,6 +742,11 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id1">
+   Варианты
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
    Численные методы поиска минимума или корня скалярной функции
   </a>
   <ul class="nav section-nav flex-column">
@@ -761,12 +766,12 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
+    <a class="reference internal nav-link" href="#id6">
      Метод дихотомии (метод золотого сечения)
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
+    <a class="reference internal nav-link" href="#id7">
      Метод градиентного спуска
     </a>
    </li>
@@ -794,6 +799,11 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id1">
+   Варианты
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
    Численные методы поиска минимума или корня скалярной функции
   </a>
   <ul class="nav section-nav flex-column">
@@ -813,12 +823,12 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
+    <a class="reference internal nav-link" href="#id6">
      Метод дихотомии (метод золотого сечения)
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
+    <a class="reference internal nav-link" href="#id7">
      Метод градиентного спуска
     </a>
    </li>
@@ -843,7 +853,120 @@ const thebe_selector_output = ".output, .cell_output"
 </ol>
 <p>Метод и функция, для которой его необходимо применить в обязательном порядке, определяются вариантом, которые перечисленны ниже.</p>
 <div class="section" id="id1">
-<h2>Численные методы поиска минимума или корня скалярной функции<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>Варианты<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>Вариант №</p></th>
+<th class="text-align:center head"><p>Метод</p></th>
+<th class="text-align:center head"><p><span class="math notranslate nohighlight">\(f(x)\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>1</p></td>
+<td class="text-align:center"><p>Бисекции</p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(\ln x - \dfrac{1}{x}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>2</p></td>
+<td class="text-align:center"><p>Хорд</p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(e^x + x\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>3</p></td>
+<td class="text-align:center"><p>Ньютона</p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(\dfrac{1}{x} - 2x\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>4</p></td>
+<td class="text-align:center"><p>Золотого сечения</p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(\log (\lvert x \rvert+1)\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>5</p></td>
+<td class="text-align:center"><p>Градиентного спуска</p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(\tanh x + x^2\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>6</p></td>
+<td class="text-align:center"><p>Бисекции</p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(\log x + 1\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>7</p></td>
+<td class="text-align:center"><p>Хорд</p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(\arctan x - \dfrac{1}{2}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>8</p></td>
+<td class="text-align:center"><p>Ньютона</p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(e^x - \dfrac{1}{2}\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>9</p></td>
+<td class="text-align:center"><p>Золотого сечения</p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(\lvert x-1\rvert + x^2\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>10</p></td>
+<td class="text-align:center"><p>Градиентного спуска</p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(x^2 + 2x - 3\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>11</p></td>
+<td class="text-align:center"><p>Бисекции</p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(\tan 2x - 1 - x\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>12</p></td>
+<td class="text-align:center"><p>Хорд</p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(2e^{-x} - x\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>13</p></td>
+<td class="text-align:center"><p>Ньютона</p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(e^{-3x^2} - x\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>14</p></td>
+<td class="text-align:center"><p>Золотого сечения</p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(e^{\lvert x-1\rvert} - x^2\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>15</p></td>
+<td class="text-align:center"><p>Градиентного спуска</p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(\cosh x + x\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>16</p></td>
+<td class="text-align:center"><p>Бисекции</p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(e^{-3x} + 1 - x\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>17</p></td>
+<td class="text-align:center"><p>Хорд</p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(e^{-x^2} - x\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>18</p></td>
+<td class="text-align:center"><p>Ньютона</p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(e^{-x^2} - x^2\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>19</p></td>
+<td class="text-align:center"><p>Золотого сечения</p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(e^{-x^2}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>20</p></td>
+<td class="text-align:center"><p>Градиентного спуска</p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(\arctan x + x^2\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>21</p></td>
+<td class="text-align:center"><p>Бисекции</p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(3e^{-3x} - x\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>22</p></td>
+<td class="text-align:center"><p>Хорд</p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(e^{-x^3} - 1 - x^3\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>23</p></td>
+<td class="text-align:center"><p>Ньютона</p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(2e^{-3x} + 1 - x\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>24</p></td>
+<td class="text-align:center"><p>Золотого сечения</p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(\sinh(\lvert x\rvert+1) - x^2\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>25</p></td>
+<td class="text-align:center"><p>Градиентного спуска</p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(-\arctan e^{-x^2}\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id2">
+<h2>Численные методы поиска минимума или корня скалярной функции<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>В рамках первого домашнего задания от вас потребуется реализовать численный метод поиска корня уравнения вида</p>
 <div class="math notranslate nohighlight" id="equation-equation">
 <span class="eqno">(1)<a class="headerlink" href="#equation-equation" title="Permalink to this equation">¶</a></span>\[f(x) = 0,\]</div>
@@ -868,7 +991,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Более гибкое решение подразумевает передачу искомой функции <span class="math notranslate nohighlight">\(f(x)\)</span> (и/или <span class="math notranslate nohighlight">\(f'(x)\)</span>) в качестве аргумента в метод поиска корня. В <code class="docutils literal notranslate"><span class="pre">python</span></code> функции можно передавать в качестве аргументов другим функциям точно также, как и любые другие переменные (иными словами функции в <code class="docutils literal notranslate"><span class="pre">python</span></code> — <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%9E%D0%B1%D1%8A%D0%B5%D0%BA%D1%82_%D0%BF%D0%B5%D1%80%D0%B2%D0%BE%D0%B3%D0%BE_%D0%BA%D0%BB%D0%B0%D1%81%D1%81%D0%B0">объекты первого класса</a>).</p>
 </div>
 <div class="section" id="bisect">
-<span id="id2"></span><h3>Метод бисекции<a class="headerlink" href="#bisect" title="Permalink to this headline">¶</a></h3>
+<span id="id3"></span><h3>Метод бисекции<a class="headerlink" href="#bisect" title="Permalink to this headline">¶</a></h3>
 <p>Метод бисекции — один из самых примитивных методов решения уравнений вида <a class="reference internal" href="#equation-equation">(1)</a>, который ищет корень непрерывной на некотором отрезке <span class="math notranslate nohighlight">\([a, b]\)</span> функции. Для работы этого метода требуется, чтобы значение функции <span class="math notranslate nohighlight">\(f\)</span> на концах отрезка <span class="math notranslate nohighlight">\([a, b]\)</span> были разного знака:</p>
 <div class="math notranslate nohighlight" id="equation-signs-bisect">
 <span class="eqno">(3)<a class="headerlink" href="#equation-signs-bisect" title="Permalink to this equation">¶</a></span>\[f(a)f(b)&lt;0. \]</div>
@@ -902,7 +1025,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ol>
 </div>
 <div class="section" id="secant">
-<span id="id3"></span><h3>Метод хорд<a class="headerlink" href="#secant" title="Permalink to this headline">¶</a></h3>
+<span id="id4"></span><h3>Метод хорд<a class="headerlink" href="#secant" title="Permalink to this headline">¶</a></h3>
 <p>Идея метода хорд очень похожа на идею метода бисекции. Корень тоже ищется на отрезке <span class="math notranslate nohighlight">\([a, b]\)</span>, на концах которого непрерывная функция <span class="math notranslate nohighlight">\(f\)</span> должна иметь разные знаки.</p>
 <div class="math notranslate nohighlight" id="equation-signs-secant">
 <span class="eqno">(5)<a class="headerlink" href="#equation-signs-secant" title="Permalink to this equation">¶</a></span>\[f(a)f(b)&lt;0. \]</div>
@@ -934,7 +1057,7 @@ y =  f(a) \dfrac{x - b}{a - b} + f(b) \dfrac{a - x}{a - b},
 </ol>
 </div>
 <div class="section" id="newton">
-<span id="id4"></span><h3>Метод Ньютона<a class="headerlink" href="#newton" title="Permalink to this headline">¶</a></h3>
+<span id="id5"></span><h3>Метод Ньютона<a class="headerlink" href="#newton" title="Permalink to this headline">¶</a></h3>
 <p>Метод касательных (он же метод Ньютона) накладывает дополнительные требования на функцию <span class="math notranslate nohighlight">\(f\)</span>: кроме непрерывности самой функции <span class="math notranslate nohighlight">\(f\)</span> требуется и непрерывность производной <span class="math notranslate nohighlight">\(f'\)</span>. Другое отличие заключается в виде начального приближения: предыдущие два методы требовали отрезок, а метод Ньютона всего одну точку.</p>
 <p>Пусть задано начальное приближение <span class="math notranslate nohighlight">\(x_0\)</span>. Идея метода Ньютона заключается в том, чтобы аппроксимировать кривую <span class="math notranslate nohighlight">\(f(x)\)</span> касательной в окрестности точки <span class="math notranslate nohighlight">\(x_0\)</span> и найти следующее приближение <span class="math notranslate nohighlight">\(x_1\)</span> к корню функции <span class="math notranslate nohighlight">\(f(x)\)</span> как пересечение этой касательной с осью абсцисс. Касательная <span class="math notranslate nohighlight">\(\hat{f}\)</span> к функции <span class="math notranslate nohighlight">\(f\)</span> в точке <span class="math notranslate nohighlight">\(x_0\)</span> определяется уравнением</p>
 <div class="math notranslate nohighlight">
@@ -966,8 +1089,8 @@ y =  f(a) \dfrac{x - b}{a - b} + f(b) \dfrac{a - x}{a - b},
 <li><p>Присвоить переменной <code class="docutils literal notranslate"><span class="pre">x_previous</span></code> значение переменной <code class="docutils literal notranslate"><span class="pre">x_next</span></code>, увеличить счетчик <code class="docutils literal notranslate"><span class="pre">iter</span></code> на 1 и вернуться к шагу №2.</p></li>
 </ol>
 </div>
-<div class="section" id="id5">
-<h3>Метод дихотомии (метод золотого сечения)<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h3>Метод дихотомии (метод золотого сечения)<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <p>Метод <strong>дихотомии</strong> предназначен для поиска минимумов унимодальной функции.  Непрерывная функция <span class="math notranslate nohighlight">\(f\colon \mathbb{R} \to \mathbb{R}\)</span> называется <strong>унимодальной</strong> на отрезке <span class="math notranslate nohighlight">\([a, b]\)</span>, если  <span class="math notranslate nohighlight">\(\exists! c \in [a, b]\)</span>, такая, что:</p>
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(c\)</span> — глобальный минимум функции <span class="math notranslate nohighlight">\(f\)</span>, т.е. <span class="math notranslate nohighlight">\(f(c) = f_* = \min\limits_{x\in[a, b]} f(x)\)</span>;</p></li>
@@ -1009,8 +1132,8 @@ x_2 = \dfrac{a + b}{2} + (b - a)(\dfrac{1}{\Phi} - \dfrac{1}{2}),
 <p>Выбор <span class="math notranslate nohighlight">\(x_1\)</span> и <span class="math notranslate nohighlight">\(x_2\)</span> по формулам <a class="reference internal" href="#equation-golden-ratio">(8)</a> позволяет сэкономить вычисления на втором и следующих итерация. Например, если на предыдущей итерации алгоритм попал в ветку, где <span class="math notranslate nohighlight">\(f(x_1) &gt; f(x_2)\)</span>, то на следующей итерации <span class="math notranslate nohighlight">\(a = x_1\)</span> и можно показать, что <span class="math notranslate nohighlight">\(x_1\)</span> на следующей итерации совпадает с <span class="math notranslate nohighlight">\(x_2\)</span> на предыдущей и можно переиспользовать вычисленные на предыдущей итерации значения <span class="math notranslate nohighlight">\(x_2\)</span> и <span class="math notranslate nohighlight">\(f(x_2)\)</span> как значения <span class="math notranslate nohighlight">\(x_1\)</span> и <span class="math notranslate nohighlight">\(f(x_1)\)</span> на следующей.</p>
 </div>
 </div>
-<div class="section" id="id6">
-<h3>Метод градиентного спуска<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id7">
+<h3>Метод градиентного спуска<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <p>Метод градиентного спуска — один из самых распространенных методов минимизации функции. Для его работы требуется не только непрерывность самой функции <span class="math notranslate nohighlight">\(f\)</span>, но ещё и непрерывность её первой производной <span class="math notranslate nohighlight">\(f'\)</span>.</p>
 <p>Известно, что в случае функции нескольких переменных <span class="math notranslate nohighlight">\(f\colon \mathbb{R}^n \to \mathbb{R}\)</span>, градиент <span class="math notranslate nohighlight">\(\nabla f(x)\)</span> определяет направление наискорейшего роста в окрестности точки <span class="math notranslate nohighlight">\(x\)</span>. И наоборот, в противоположном направлении функция <span class="math notranslate nohighlight">\(f\)</span> убывает быстрее всего. Метод градиентного спуска опирается на это свойство градиента: на каждой итерации алгоритма совершается шаг в направлении антиградиента (<span class="math notranslate nohighlight">\(-\nabla f(x)\)</span>), т.е. направлении наискорейшего спуска.</p>
 <p>Градиент <span class="math notranslate nohighlight">\(\nabla f\)</span> функции <span class="math notranslate nohighlight">\(f\colon \mathbb{R} \to \mathbb{R}\)</span> совпадает с её производной и один шаг градиентного спуска в таком случае задается формулой</p>
