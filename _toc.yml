@@ -44,6 +44,7 @@ parts:
       - file: notebooks/visualization/homework
   - caption: "Лекция №5"
     chapters:    
+      - file: notebooks/pandas/tables
       - file: notebooks/pandas/pandas
       - file: notebooks/pandas/series
       - file: notebooks/pandas/dataframe
