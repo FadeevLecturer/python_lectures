@@ -1,0 +1,1336 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Таблицы &#8212; Практикум по компьютерным технологиям</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="pandas" href="pandas.html" />
+    <link rel="prev" title="Домашнее задание №4" href="../visualization/homework.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Практикум по компьютерным технологиям</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/index.html">
+   Практикум по компьютерным технологиям на языке программирования python3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №1
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/about_python.html">
+   О
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     python
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/getting_started.html">
+   Установка
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     python
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/python_as_calculator.html">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Python
+    </span>
+   </code>
+   в качестве калькулятора
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/scripts.html">
+   Скрипты
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     python
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/jupyter.html">
+   Блокноты.
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Jupyter
+    </span>
+    <span class="pre">
+     Notebooks
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/numbers_and_lists.html">
+   Основные типы объектов: числа и списки
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/if_for_range.html">
+   Операторы потока управления
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../homework/1.html">
+   Домашнее задание №1
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/interpretability.html">
+   Компилируемость vs Интерпретируемость
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/dynamic_typing.html">
+   Динамическая типизация
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/mutability.html">
+   Изменяемые и неизменяемый типы объектов
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/garbage_collector.html">
+   Создание и удаление объектов. Сборщик мусора
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/sequencies.html">
+   Последовательности: списки, кортежи и строки
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../homework/2.html">
+   Домашнее задание №2
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №3
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/libs_pypi_conda.html">
+   Сторонние библиотеки и пакетные менеджеры
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/numpy.html">
+   Знакомство с
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     NumPy
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/vectorization.html">
+   Векторизация
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/slices.html">
+   Срезы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/vector_product.html">
+   Умножение векторов
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/logic.html">
+   Логические операции
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/vectorization_example.html">
+   Векторизация на примере вычисления статистик
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/random.html">
+   Случайные числа
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/homework.html">
+   Домашнее задание №3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №4
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/dictionaries.html">
+   Словари.
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     dict
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/functions.html">
+   Функции
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/filesystem.html">
+   Взаимодействие с файловой системой
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/files.html">
+   Работа с файлами. Сериализация:
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     json
+    </span>
+   </code>
+   и
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pickle
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/libraries.html">
+   Построение графиков и визуализация данных
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/matplotlib.html">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Matplotlib
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/details.html">
+   Настройка деталей графиков
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/matplotlib_animation.html">
+   Анимация  в matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/homework.html">
+   Домашнее задание №4
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №5
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Таблицы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas.html">
+   pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="series.html">
+   pd.Series
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dataframe.html">
+   pd.DataFrame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="datetime.html">
+   Дата и время
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="covid19.html">
+   Обзор базовых возможностей pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework.html">
+   Домашнее задание №5
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №6
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/list_comprehensions.html">
+   Основы списковых включений
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/iterators.html">
+   Итераторы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/decorators.html">
+   Декораторы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/generators.html">
+   Генераторы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/exercises1.html">
+   Практические задания
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №7
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/custom_classes.html">
+   Пользовательские классы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/inheritance.html">
+   Наследование
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/polymorphism.html">
+   Полиморфизм в python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/operators_overloading.html">
+   Перегрузка специальных методов и операторов
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/exercises2.html">
+   Практические задания
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №8
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/exceptions.html">
+   Исключения
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/custom_exceptions.html">
+   Пользовательские исключения
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/LBYL_vs_EAFP.html">
+   Стратегии контроля ошибок
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/exercises3.html">
+   Практические задания
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №9
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/gui.html">
+   Графический пользовательский интерфейс
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/basics.html">
+   PySide. Основы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/event.html">
+   События
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/slot_signal.html">
+   Слоты и сигналы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/widgets.html">
+   Виджеты и макеты
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/buttons.html">
+   Кнопки
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/output.html">
+   Вывод данных
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/input.html">
+   Ввод данных
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/dialogs.html">
+   Диалоговые окна
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/exercises.html">
+   Практические задания
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  TBD
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/about_12_and_so_on.html">
+   О последних лекциях
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../computer_vision/basics.html">
+   Работа с изображениями
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../computer_vision/filters.html">
+   Свёрточные операции
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../computer_vision/detection.html">
+   Задача обнаружения
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine_learning/regression.html">
+   Регрессия
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine_learning/classification.html">
+   Классификация
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine_learning/neural_networks.html">
+   Нейронный сети
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/scipy.html">
+   SciPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/linalg.html">
+   Линейная алгебра
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/interpolation_approx.html">
+   Интерполяция функций, аппроксимация функций
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/integration.html">
+   Определенные интегралы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/ODE.html">
+   Решение ОДУ
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/optimization.html">
+   Оптимизация
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/nonlinear_equations.html">
+   Решение нелинейных уравнений
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/cannonball.html">
+   Пример
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/homework.html">
+   Домашнее задание №3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/python_scripts.html">
+   Создание скриптов. Работа с IDE
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/scripts_vs_modules.html">
+   Скрипты и модули
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/argparse.html">
+   Аргументы командной строки
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/notebooks/pandas/tables.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/FadeevLecturer/python_lectures"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/FadeevLecturer/python_lectures/issues/new?title=Issue%20on%20page%20%2Fnotebooks/pandas/tables.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/FadeevLecturer/python_lectures/edit/main/notebooks/pandas/tables.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/FadeevLecturer/python_lectures/main?urlpath=tree/notebooks/pandas/tables.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/FadeevLecturer/python_lectures/blob/main/notebooks/pandas/tables.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#csv">
+   Модуль стандартной библиотеки
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     csv
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pandas">
+   Ограничения
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
+   и альтернативы
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#polars">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Polars
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dask-pyspark">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Dask
+      </span>
+     </code>
+     и
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       PySpark
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Таблицы</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#csv">
+   Модуль стандартной библиотеки
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     csv
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pandas">
+   Ограничения
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
+   и альтернативы
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#polars">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Polars
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dask-pyspark">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Dask
+      </span>
+     </code>
+     и
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       PySpark
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1>Таблицы<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Часто данные удобно представлять в виде таблиц. В экосистеме <code class="docutils literal notranslate"><span class="pre">python</span></code> существует множество инструментов для работы с табличными данными. Самый распространенный из них — библиотека <a class="reference external" href="https://pandas.pydata.org/">pandas</a>, основное внимание которой и будет уделено в этом курсе. На этой же страничке будет приведен краткий обзор других основных инструментов для работы с табличными данными.</p>
+<div class="section" id="csv">
+<h2>Модуль стандартной библиотеки <code class="docutils literal notranslate"><span class="pre">csv</span></code><a class="headerlink" href="#csv" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://ru.wikipedia.org/wiki/CSV">CSV</a> (<strong>C</strong>omma-<strong>S</strong>eparated <strong>V</strong>alues) — самый простой и один из самых распространенных форматов хранения табличных данных. В <code class="docutils literal notranslate"><span class="pre">CSV</span></code> данные хранятся в текстовом формате, строке таблицы соответствует строка в файле <code class="docutils literal notranslate"><span class="pre">CSV</span></code> (иными словами разделитель строк — символ переноса строки), а значения внутри строки разделяются друг от друга специальными символом, в качестве которого обычно выступает символ запятой “<code class="docutils literal notranslate"><span class="pre">,</span></code>” (откуда и название).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Название</span><span class="p">,</span><span class="n">Количество</span> <span class="n">спутников</span><span class="p">,</span><span class="n">Среднее</span> <span class="n">расстояние</span> <span class="n">до</span> <span class="n">солнца</span><span class="p">,</span><span class="n">Группа</span><span class="p">,</span><span class="n">Кольца</span>
+<span class="n">Меркурий</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.0055</span><span class="p">,</span><span class="n">земная</span> <span class="n">группа</span><span class="p">,</span><span class="n">Нет</span>
+<span class="n">Венера</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.815</span><span class="p">,</span><span class="n">земная</span> <span class="n">группа</span><span class="p">,</span><span class="n">Нет</span>
+<span class="n">Земля</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.</span><span class="p">,</span><span class="n">земная</span> <span class="n">группа</span><span class="p">,</span><span class="n">Нет</span>
+<span class="n">Марс</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">0.107</span><span class="p">,</span><span class="n">земная</span> <span class="n">группа</span><span class="p">,</span><span class="n">Нет</span>
+<span class="n">Юпитер</span><span class="p">,</span><span class="mi">62</span><span class="p">,</span><span class="mf">317.8</span><span class="p">,</span><span class="n">газовый</span> <span class="n">гигант</span><span class="p">,</span><span class="n">Да</span> 
+<span class="n">Сатурн</span><span class="p">,</span><span class="mi">34</span><span class="p">,</span><span class="mf">95.2</span><span class="p">,</span><span class="n">газовый</span> <span class="n">гигант</span><span class="p">,</span><span class="n">Да</span>
+<span class="n">Уран</span><span class="p">,</span><span class="mi">27</span><span class="p">,</span><span class="mf">14.37</span><span class="p">,</span><span class="n">ледяной</span> <span class="n">гигант</span><span class="p">,</span><span class="n">Да</span>
+<span class="n">Нептун</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mf">17.15</span><span class="p">,</span><span class="n">ледяной</span> <span class="n">гигант</span><span class="p">,</span><span class="n">Да</span>
+</pre></div>
+</div>
+<p>Модуль стандартной библиотеки <a class="reference external" href="https://docs.python.org/3/library/csv.html">csv</a> позволяет считывать табличные данные из файла в формате <code class="docutils literal notranslate"><span class="pre">CSV</span></code>. Про возможности этого модуля полезно знать, но на практике вы гораздо чаще будете пользоваться продвинутыми библиотеками для работы с таблицами, поэтому здесь ограничимся лишь примером, в котором содержимое таблицы считывается в список списков.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">csv</span>
+<span class="kn">from</span> <span class="nn">tabulate</span> <span class="kn">import</span> <span class="n">tabulate</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;assets&quot;</span><span class="p">,</span> <span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="s2">&quot;tables&quot;</span><span class="p">,</span> <span class="s2">&quot;planets.csv&quot;</span><span class="p">)</span>
+
+<span class="n">table</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">csvfile</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">):</span>
+        <span class="n">table</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">tabulate</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="s2">&quot;firstrow&quot;</span><span class="p">,</span> <span class="n">tablefmt</span><span class="o">=</span><span class="s2">&quot;grid&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+------------+------------------------+--------------------------------+----------------+----------+
+| Название   |   Количество спутников |   Среднее расстояние до солнца | Группа         | Кольца   |
++============+========================+================================+================+==========+
+| Меркурий   |                      0 |                         0.0055 | земная группа  | Нет      |
++------------+------------------------+--------------------------------+----------------+----------+
+| Венера     |                      0 |                         0.815  | земная группа  | Нет      |
++------------+------------------------+--------------------------------+----------------+----------+
+| Земля      |                      1 |                         1      | земная группа  | Нет      |
++------------+------------------------+--------------------------------+----------------+----------+
+| Марс       |                      2 |                         0.107  | земная группа  | Нет      |
++------------+------------------------+--------------------------------+----------------+----------+
+| Юпитер     |                     62 |                       317.8    | газовый гигант | Да       |
++------------+------------------------+--------------------------------+----------------+----------+
+| Сатурн     |                     34 |                        95.2    | газовый гигант | Да       |
++------------+------------------------+--------------------------------+----------------+----------+
+| Уран       |                     27 |                        14.37   | ледяной гигант | Да       |
++------------+------------------------+--------------------------------+----------------+----------+
+| Нептун     |                     13 |                        17.15   | ледяной гигант | Да       |
++------------+------------------------+--------------------------------+----------------+----------+
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>В этом примере для вывода таблицы в красивом виде используются средства библиотеки <a class="reference external" href="https://pypi.org/project/tabulate/">tabulate</a>.</p>
+</div>
+</div>
+<div class="section" id="pandas">
+<h2>Ограничения <code class="docutils literal notranslate"><span class="pre">pandas</span></code> и альтернативы<a class="headerlink" href="#pandas" title="Permalink to this headline">¶</a></h2>
+<p>Библиотека <a class="reference external" href="https://pandas.pydata.org/">pandas</a> — с большим запасом самая распространенная библиотека для работы с таблицами в <code class="docutils literal notranslate"><span class="pre">python</span></code>. Именно эта библиотека считается стандартом индустрии и многие другие инструменты  (такие как библиотеки по анализу данных и машинному обучению) хорошо дружат с этой библиотекой. Именно поэтому в рамках этого курса этой библиотеке и будет уделено основное внимание. Ниже приводится исходный код, необходимый для чтения того же самого <code class="docutils literal notranslate"><span class="pre">CSV</span></code> файла.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Название</th>
+      <th>Количество спутников</th>
+      <th>Среднее расстояние до солнца</th>
+      <th>Группа</th>
+      <th>Кольца</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Меркурий</td>
+      <td>0</td>
+      <td>0.0055</td>
+      <td>земная группа</td>
+      <td>Нет</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Венера</td>
+      <td>0</td>
+      <td>0.8150</td>
+      <td>земная группа</td>
+      <td>Нет</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Земля</td>
+      <td>1</td>
+      <td>1.0000</td>
+      <td>земная группа</td>
+      <td>Нет</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Марс</td>
+      <td>2</td>
+      <td>0.1070</td>
+      <td>земная группа</td>
+      <td>Нет</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Юпитер</td>
+      <td>62</td>
+      <td>317.8000</td>
+      <td>газовый гигант</td>
+      <td>Да</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Сатурн</td>
+      <td>34</td>
+      <td>95.2000</td>
+      <td>газовый гигант</td>
+      <td>Да</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Уран</td>
+      <td>27</td>
+      <td>14.3700</td>
+      <td>ледяной гигант</td>
+      <td>Да</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Нептун</td>
+      <td>13</td>
+      <td>17.1500</td>
+      <td>ледяной гигант</td>
+      <td>Да</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Тем не менее важно понимать, что наряду с большим количеством преимуществ у <code class="docutils literal notranslate"><span class="pre">pandas</span></code> есть и ряд недостатков, которые ограничивают сферу его применений. Поэтому важно знать, что есть ряд альтернативных инструментов. У <code class="docutils literal notranslate"><span class="pre">pandas</span></code> есть три основных недостатка:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> всегда загружает таблицу целиком, т.е. можно работать только с помещающимися в оперативную память таблицами;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> не умеет производить вычисления лениво, что иногда приводит к не оптимальной производительности и чрезмерному потреблению ресурсов компьютера;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> навязывает наличие индекса у таблицы, что приводит к неоправданно усложненному коду в задачах, где такой индекс не возникает естественным образом.</p></li>
+</ul>
+<div class="section" id="polars">
+<h3><code class="docutils literal notranslate"><span class="pre">Polars</span></code><a class="headerlink" href="#polars" title="Permalink to this headline">¶</a></h3>
+<p>Все три вышеперечисленных недостатка не свойственны библиотеке <a class="reference external" href="https://www.pola.rs/">Polars</a>, которая довольно стремительно набирает популярность в сообществе разработчиков <code class="docutils literal notranslate"><span class="pre">python</span></code> из-за более продуманной архитектуры.</p>
+<p>Ниже приводится пример, который демонстрирует, что считать <code class="docutils literal notranslate"><span class="pre">CSV</span></code> файл средствами этой библиотеки также легко, как и средствами <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">polars</span> <span class="k">as</span> <span class="nn">pl</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+
+    .dataframe td {
+        white-space: pre;
+    }
+
+    .dataframe td {
+        padding-top: 0;
+    }
+
+    .dataframe td {
+        padding-bottom: 0;
+    }
+</style>
+<table border="1" class="dataframe" >
+<small>shape: (8, 5)</small>
+<thead>
+<tr>
+<th>
+Название
+</th>
+<th>
+Количество спутников
+</th>
+<th>
+Среднее расстояние до солнца
+</th>
+<th>
+Группа
+</th>
+<th>
+Кольца
+</th>
+</tr>
+<tr>
+<td>
+str
+</td>
+<td>
+i64
+</td>
+<td>
+f64
+</td>
+<td>
+str
+</td>
+<td>
+str
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+"Меркурий"
+</td>
+<td>
+0
+</td>
+<td>
+0.0055
+</td>
+<td>
+"земная группа"
+</td>
+<td>
+"Нет"
+</td>
+</tr>
+<tr>
+<td>
+"Венера"
+</td>
+<td>
+0
+</td>
+<td>
+0.815
+</td>
+<td>
+"земная группа"
+</td>
+<td>
+"Нет"
+</td>
+</tr>
+<tr>
+<td>
+"Земля"
+</td>
+<td>
+1
+</td>
+<td>
+1.0
+</td>
+<td>
+"земная группа"
+</td>
+<td>
+"Нет"
+</td>
+</tr>
+<tr>
+<td>
+"Марс"
+</td>
+<td>
+2
+</td>
+<td>
+0.107
+</td>
+<td>
+"земная группа"
+</td>
+<td>
+"Нет"
+</td>
+</tr>
+<tr>
+<td>
+"Юпитер"
+</td>
+<td>
+62
+</td>
+<td>
+317.8
+</td>
+<td>
+"газовый гигант...
+</td>
+<td>
+"Да "
+</td>
+</tr>
+<tr>
+<td>
+"Сатурн"
+</td>
+<td>
+34
+</td>
+<td>
+95.2
+</td>
+<td>
+"газовый гигант...
+</td>
+<td>
+"Да"
+</td>
+</tr>
+<tr>
+<td>
+"Уран"
+</td>
+<td>
+27
+</td>
+<td>
+14.37
+</td>
+<td>
+"ледяной гигант...
+</td>
+<td>
+"Да"
+</td>
+</tr>
+<tr>
+<td>
+"Нептун"
+</td>
+<td>
+13
+</td>
+<td>
+17.15
+</td>
+<td>
+"ледяной гигант...
+</td>
+<td>
+"Да"
+</td>
+</tr>
+</tbody>
+</table>
+</div></div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Polars</span></code> может не только загружать всю таблицу в оперативную память как <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, но и сканировать её в ленивом режиме (или даже открывать в таком режиме таблицу, разбитую на несколько файлов), а затем при необходимости пробегаться по строкам этой таблицы и эффективно производить вычисления.</p>
+<p>Кроме этого <code class="docutils literal notranslate"><span class="pre">Polars</span></code> может производить вычисления в ленивом режиме, т.е. пользователь библиотеки как-бы делает запрос того, что он хочет, а результат он получит только тогда, когда результат этого запроса будет необходим. За счет такой организации вычислений библиотеке <code class="docutils literal notranslate"><span class="pre">Polars</span></code> удаётся в ряде ситуаций оптимизировать запрос, а также спланировать эти вычисления таким образом, чтобы максимально эффективно задействовать ресурсы компьютера (в том числе и многопоточность).</p>
+</div>
+<div class="section" id="dask-pyspark">
+<h3><code class="docutils literal notranslate"><span class="pre">Dask</span></code> и <code class="docutils literal notranslate"><span class="pre">PySpark</span></code><a class="headerlink" href="#dask-pyspark" title="Permalink to this headline">¶</a></h3>
+<p>Однако и <code class="docutils literal notranslate"><span class="pre">pandas</span></code> и <code class="docutils literal notranslate"><span class="pre">Polars</span></code> ограничены одним компьютером, т.е. не позволяют производить распределенные вычисления на кластерах, что может оказаться критичным в случае реально больших данных. В таких ситуациях есть две основные опции: <a class="reference external" href="https://www.dask.org/">Dask</a> и <a class="reference external" href="https://spark.apache.org/docs/latest/api/python/">PySpark</a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Dask</span></code> является в каком-то смысле расширением для <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. Из-за этого с ним гораздо проще освоиться, если уже знакомы с <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. <code class="docutils literal notranslate"><span class="pre">PySpark</span></code> — обертка библиотеки <code class="docutils literal notranslate"><span class="pre">Spark</span></code> для <code class="docutils literal notranslate"><span class="pre">Java</span></code>, из-за чего её интерфейс существенно отличается от интерфейса <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, но в <code class="docutils literal notranslate"><span class="pre">PySpark</span></code> встроен <code class="docutils literal notranslate"><span class="pre">SQL</span></code> движок, что позволяет довольно быстро освоиться с библиотекой, при условии знакомства с языком запросов <code class="docutils literal notranslate"><span class="pre">SQL</span></code>. Обе библиотеки могут производить вычисления лениво и на распределенных системах. В бизнес среде чаще предпочитают <code class="docutils literal notranslate"><span class="pre">PySpark</span></code> в связи с тем, что можно оплатить коммерческую лицензию и обеспечить себе техническую поддержку разработчиков библиотеки, чего нельзя сказать про <code class="docutils literal notranslate"><span class="pre">Dask</span></code>, т.к. она является проектом с открытым исходным кодом.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks\pandas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../visualization/homework.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Домашнее задание №4</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="pandas.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">pandas</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Fadeev Egor<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
