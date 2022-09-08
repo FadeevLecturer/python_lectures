@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pd.Series &#8212; Практикум по компьютерным технологиям</title>
+    <title>Столбцы в pandas &#8212; Практикум по компьютерным технологиям</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -56,7 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="pd.DataFrame" href="dataframe.html" />
-    <link rel="prev" title="pandas" href="pandas.html" />
+    <link rel="prev" title="Библиотека pandas" href="pandas.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -354,12 +354,22 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="pandas.html">
-   pandas
+   Библиотека
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   pd.Series
+   Столбцы в
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
   </a>
  </li>
  <li class="toctree-l1">
@@ -754,12 +764,12 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
+  <a class="reference internal nav-link" href="#pd-series">
    Изменяемость pd.Series
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
+  <a class="reference internal nav-link" href="#id3">
    Операции над pd.Series
   </a>
  </li>
@@ -773,7 +783,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>pd.Series</h1>
+                <h1>Столбцы в pandas</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -794,12 +804,12 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
+  <a class="reference internal nav-link" href="#pd-series">
    Изменяемость pd.Series
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
+  <a class="reference internal nav-link" href="#id3">
    Операции над pd.Series
   </a>
  </li>
@@ -812,11 +822,12 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="pd-series">
-<h1>pd.Series<a class="headerlink" href="#pd-series" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="pandas">
+<h1>Столбцы в <code class="docutils literal notranslate"><span class="pre">pandas</span></code><a class="headerlink" href="#pandas" title="Permalink to this headline">¶</a></h1>
+<p>Резюмируя содержание предыдущей страницы, столбцы таблиц в <code class="docutils literal notranslate"><span class="pre">pandas</span></code> представляются объектами <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series">pandas.Series</a>, у которых есть сходства и различия с одномерными массивами <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>: оба являются последовательностями данных (т.е. элементы столбца пронумерованы и по номеру можно получить доступ к соответствующему значению в столбце) одного типа, но в отличии от массивов <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> столбцы <code class="docutils literal notranslate"><span class="pre">pandas</span></code> поддерживают продвинутую индексацию.</p>
 <div class="section" id="id1">
 <h2>Создание<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>Создать <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code> можно:</p>
+<p>Создать столбец <code class="docutils literal notranslate"><span class="pre">pandas</span></code> можно многими разными способами. В большинстве случаев</p>
 <ol class="simple">
 <li><p>Из скаляра (число, строка);</p></li>
 <li><p>Из итерируемого объекта (<code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">np.array</span></code> и т.д.);</p></li>
@@ -1013,8 +1024,8 @@ dtype: int64
 <li><p>Выравнивать данные разных столбцов между собой. Это может пригодиться, если данные приходят из разных источников и упорядоченны по-разному, но все из них помечены однообразно. В таком случае можно не затрудняясь выравнять эти данные между собой средствами <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p></li>
 </ol>
 </div>
-<div class="section" id="id3">
-<h2>Изменяемость pd.Series<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pd-series">
+<h2>Изменяемость pd.Series<a class="headerlink" href="#pd-series" title="Permalink to this headline">¶</a></h2>
 <p>Аналогично с массивами <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>, можно изменять содержимое ячейки/среза, но нельзя изменять размер (длину) столбца.</p>
 <p>Например, изменить содержимое ячейки по метке <code class="docutils literal notranslate"><span class="pre">a</span></code> можно сделать следующим образом.</p>
 <div class="cell docutils container">
@@ -1060,8 +1071,8 @@ dtype: int64
 </div>
 </div>
 </div>
-<div class="section" id="id4">
-<h2>Операции над pd.Series<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h2>Операции над pd.Series<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>При выполнении операций над столбцами метки играют важную роль. Например, при сложении двух столбцов складываются значения с одинаковыми метками. Индекс результирующего столбца — объединение индексов столбцов слагаемых, а напротив тех меток, которые присутствуют в индексе только одного столбца записывается значение <code class="docutils literal notranslate"><span class="pre">np.nan</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1147,7 +1158,7 @@ dtype: float64
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">pandas</p>
+            <p class="prev-next-title">Библиотека <code class="docutils literal notranslate"><span class="pre">pandas</span></code></p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="dataframe.html" title="next page">
