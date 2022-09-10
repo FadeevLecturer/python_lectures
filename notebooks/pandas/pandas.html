@@ -864,7 +864,7 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="pandas">
 <h1>Библиотека <code class="docutils literal notranslate"><span class="pre">pandas</span></code><a class="headerlink" href="#pandas" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" href="https://pandas.pydata.org/">pandas</a> (<a class="reference external" href="https://en.wikipedia.org/wiki/Panel_data"><strong>pan</strong>el <strong>da</strong>ta</a>) — самая популярная библиотека для работы с таблицами в <code class="docutils literal notranslate"><span class="pre">python</span></code>. <code class="docutils literal notranslate"><span class="pre">pandas</span></code> — сторонняя библиотека, а значит требует дополнительной но входит в дистрибутив <code class="docutils literal notranslate"><span class="pre">anaconda</span></code>.</p>
+<p><a class="reference external" href="https://pandas.pydata.org/">pandas</a> (<a class="reference external" href="https://en.wikipedia.org/wiki/Panel_data"><strong>pan</strong>el <strong>da</strong>ta</a>) — самая популярная библиотека для работы с таблицами в <code class="docutils literal notranslate"><span class="pre">python</span></code>. <code class="docutils literal notranslate"><span class="pre">pandas</span></code> — сторонняя библиотека, а значит требует дополнительной установки в общем случае, но входит в дистрибутив <code class="docutils literal notranslate"><span class="pre">anaconda</span></code>.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">conda install pandas</span>
 </pre></div>
 </div>
@@ -883,7 +883,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="id1">
 <h2>Основные объекты <code class="docutils literal notranslate"><span class="pre">pandas</span></code><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>Своё название библиотека <code class="docutils literal notranslate"><span class="pre">pandas</span></code> берет от английского термина <a class="reference external" href="https://en.wikipedia.org/wiki/Panel_data"><strong>pan</strong>el <strong>da</strong>ta</a> или русскоязычного аналогоа “<a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%9F%D0%B0%D0%BD%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5_%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5">панельные данные</a>”. Своим названием <code class="docutils literal notranslate"><span class="pre">pandas</span></code> подсказывает то, как табличные данные представляются в ней. Дело в том, что в <code class="docutils literal notranslate"><span class="pre">pandas</span></code> существует асимметрия относительно строк и столбцов: чтобы таблицы в <code class="docutils literal notranslate"><span class="pre">pandas</span></code> работали эффективно, необходимо чтобы в столбцах этой таблицы были данные одинакового типа.</p>
+<p>Своё название библиотека <code class="docutils literal notranslate"><span class="pre">pandas</span></code> берет от английского термина <a class="reference external" href="https://en.wikipedia.org/wiki/Panel_data"><strong>pan</strong>el <strong>da</strong>ta</a> (<a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%9F%D0%B0%D0%BD%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5_%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5">панельные данные</a>). Своим названием <code class="docutils literal notranslate"><span class="pre">pandas</span></code> подсказывает то, как табличные данные представляются в ней. Дело в том, что в <code class="docutils literal notranslate"><span class="pre">pandas</span></code> существует асимметрия относительно строк и столбцов: чтобы таблицы в <code class="docutils literal notranslate"><span class="pre">pandas</span></code> работали эффективно, необходимо чтобы в столбцах этой таблицы были данные одинакового типа. В случае панельных данных, такой эффект достигается естественным образом, если поставить в соответствие каждой измеряемой величине столбец, а ось времени отложить вместе со строками.</p>
 <p>В <code class="docutils literal notranslate"><span class="pre">pandas</span></code> есть два основных типа объекта: <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> — соответствует таблице, <code class="docutils literal notranslate"><span class="pre">Series</span></code> — соответствует одному столбцу таблицы, но может существовать и сам по себе.</p>
 <div class="figure align-default">
 <img alt="../../_images/hierarchy.svg" src="../../_images/hierarchy.svg" /></div>
@@ -1068,9 +1068,9 @@ age.loc[&#39;Ivan&#39;]=22
     <span class="s2">&quot;Иванов&quot;</span><span class="p">:</span> <span class="mi">4</span>
 <span class="p">},</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Химия&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Int8Dtype</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">physics</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">chemistry</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">discipline</span> <span class="ow">in</span> <span class="p">(</span><span class="n">math</span><span class="p">,</span> <span class="n">physics</span><span class="p">,</span> <span class="n">chemistry</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">discipline</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="o">*</span><span class="mi">80</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1080,14 +1080,17 @@ age.loc[&#39;Ivan&#39;]=22
 Сидоров    4
 Фадеев     2
 Name: Математика, dtype: object
+________________________________________________________________________________
 Сидоров    5
 Иванов     3
 Петров     4
 Name: Физика, dtype: object
+________________________________________________________________________________
 Петров     5
 Сидоров    3
 Иванов     4
 Name: Химия, dtype: object
+________________________________________________________________________________
 </pre></div>
 </div>
 </div>
