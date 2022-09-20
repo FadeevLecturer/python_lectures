@@ -16,6 +16,7 @@ parts:
     chapters:
       - file: docs/interpretability
       - file: notebooks/python/dynamic_typing
+      - file: notebooks/python/type_annotations
       - file: notebooks/python/mutability
       - file: notebooks/python/garbage_collector
       - file: notebooks/python/sequencies
