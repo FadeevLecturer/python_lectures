@@ -762,16 +762,21 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
+   Расширенный синтаксис сигнатуры функции
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
    Преимущества статической типизации
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
+    <a class="reference internal nav-link" href="#id4">
      Обнаружение ошибок
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
+    <a class="reference internal nav-link" href="#id5">
      Документирование кода
     </a>
    </li>
@@ -804,16 +809,21 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
+   Расширенный синтаксис сигнатуры функции
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
    Преимущества статической типизации
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
+    <a class="reference internal nav-link" href="#id4">
      Обнаружение ошибок
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
+    <a class="reference internal nav-link" href="#id5">
      Документирование кода
     </a>
    </li>
@@ -835,13 +845,57 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="id1">
 <h1>Аннотация типов<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<p>Динамическая типизация с одной стороны делает язык <code class="docutils literal notranslate"><span class="pre">python</span></code> чрезвычайно гибким, а с другой стороны и что-то отнимает.</p>
 <div class="section" id="id2">
-<h2>Преимущества статической типизации<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>Расширенный синтаксис сигнатуры функции<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>При определении функции в <code class="docutils literal notranslate"><span class="pre">python</span></code> тип параметров не играет роли.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>Тем не менее допускается его указать, или иными словами аннотировать. Например, если мы знаем, что функция <code class="docutils literal notranslate"><span class="pre">f</span></code> всегда будет работать с целочисленным аргументом, то можно объявить её так.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Такое объявление функции <strong>не</strong> значит, что её можно вызвать только с целочисленным аргументом: на этапе исполнения программы аннотация типов не используется интерпретатором <code class="docutils literal notranslate"><span class="pre">python</span></code> для проверки типов аргументов на соответствие типам параметров при вызове функции.</p>
+</div>
+<p>Функция <code class="docutils literal notranslate"><span class="pre">f</span></code> в примере выше очевидно вернет целочисленное значение, если ей передать целое число. Это тоже можно обозначить: для этого используется комбинация символов <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+  <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Такое объявление функции <strong>не</strong> значит, что такая функция обязательно вернет целое число. На этапе исполнения программы аннотация типов не используется интерпретатором <code class="docutils literal notranslate"><span class="pre">python</span></code> для проверки типа возвращаемого значения на соответствие заявленному.</p>
+</div>
+<p>Пример в ячейке ниже демонстрирует, что объявленную “целочисленную” функцию <code class="docutils literal notranslate"><span class="pre">f</span></code> можно вызвать и с действительным числом.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mf">3.14</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.140000000000001
+</pre></div>
+</div>
+</div>
+</div>
+<p>Может показаться, что если аннотация тип не влияет на работу программы, то она бесполезна, но это вовсе не так. Сегодня при разработке программного обеспечения аннотация типов используется повсеместно. В следующем разделе приводятся три основных причины, почему аннотация типом стала стандартом индустрии.</p>
+<p>В рамках данного курса не удаётся поместить полноценный рассказ про аннотацию типов. Да и далеко не все научные инструменты начали аннотировать типы своих методов. Самостоятельное изучение аннотации типов можно начать <a class="reference external" href="https://docs.python.org/3/library/typing.html">со странички в официальной документации</a>.</p>
+</div>
 <div class="section" id="id3">
-<h3>Обнаружение ошибок<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<p>Во-первых, статическая типизация позволяет обнаруживать ошибки на этапе компиляции.</p>
-<p>В качестве примера рассмотрим следующий код на <code class="docutils literal notranslate"><span class="pre">C++</span></code>.</p>
+<h2>Преимущества статической типизации<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Динамическая типизация с одной стороны делает язык <code class="docutils literal notranslate"><span class="pre">python</span></code> чрезвычайно гибким, а с другой стороны и что-то отнимает.</p>
+<div class="section" id="id4">
+<h3>Обнаружение ошибок<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Статическая типизация позволяет обнаруживать ошибки на этапе компиляции, т.е. до исполнения самой программы. В качестве примера рассмотрим следующий код на <code class="docutils literal notranslate"><span class="pre">C++</span></code>.</p>
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="cpf">&lt;string&gt;</span><span class="cp"></span>
 
@@ -861,6 +915,9 @@ const thebe_selector_output = ".output, .cell_output"
                   <span class="o">^</span>
 </pre></div>
 </div>
+<div class="figure align-default">
+<img alt="../../_images/compilation_error.gif" src="../../_images/compilation_error.gif" />
+</div>
 <p>Эта ошибка связана с тем, что функция <code class="docutils literal notranslate"><span class="pre">f</span></code> объявлена с целочисленным параметром <code class="docutils literal notranslate"><span class="pre">x</span></code>, а вызывается она со строковым значением.</p>
 <p>Сравним это с аналогичным кодом на <code class="docutils literal notranslate"><span class="pre">python</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -879,9 +936,14 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="ne">TypeError</span><span class="p">:</span> <span class="n">can</span> <span class="n">only</span> <span class="n">concatenate</span> <span class="nb">str</span> <span class="p">(</span><span class="ow">not</span> <span class="s2">&quot;int&quot;</span><span class="p">)</span> <span class="n">to</span> <span class="nb">str</span>
 </pre></div>
 </div>
+<div class="figure align-default">
+<img alt="../../_images/execution_error.gif" src="../../_images/execution_error.gif" />
+</div>
 <p>Возникает ошибка при попытке сложить строку и число. Существенная разница заключается в том, что эта ошибка возникает во время исполнения программы, а не на предварительно этапе.</p>
-<p>Вообще говоря в <code class="docutils literal notranslate"><span class="pre">python</span></code> существуют <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%A1%D1%82%D0%B0%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9_%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7_%D0%BA%D0%BE%D0%B4%D0%B0">инструменты статического анализа кода</a>, которые пытаются обнаружить ошибки в программе, анализируя её исходный код, но не запуская её. <a class="reference external" href="http://mypy-lang.org/">Mypy</a> — один из таких инструментов.</p>
-<p>Применение его к тому же исходному коду не приведет к обнаружению ошибок.</p>
+<p>Вообще говоря почти для любого языка разработаны <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%A1%D1%82%D0%B0%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9_%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7_%D0%BA%D0%BE%D0%B4%D0%B0">инструменты статического анализа кода</a>, которые пытаются анализируя исходный код программы обнаружить ошибки или плохие куски кода в ней, при этом не запуская саму программу непосредственно. <a class="reference external" href="http://mypy-lang.org/">Mypy</a> — один из таких инструментов. Применение его к тому же исходному коду не приведет к обнаружению ошибок.</p>
+<div class="figure align-default">
+<img alt="../../_images/mypy_no_error.gif" src="../../_images/mypy_no_error.gif" />
+</div>
 <p>Однако если добавить подсказку типа для параметра <code class="docutils literal notranslate"><span class="pre">x</span></code> следующим образом.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
@@ -890,27 +952,33 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>Тогда <code class="docutils literal notranslate"><span class="pre">mypy</span></code> обнаружит несоответствие типа параметра <code class="docutils literal notranslate"><span class="pre">x</span></code> и переменной <code class="docutils literal notranslate"><span class="pre">s</span></code>.</p>
+<div class="figure align-default">
+<img alt="../../_images/mypy_error.gif" src="../../_images/mypy_error.gif" />
 </div>
-<div class="section" id="id4">
-<h3>Документирование кода<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<p>Рассмотрим функцию <code class="docutils literal notranslate"><span class="pre">integrate</span></code> на языке <code class="docutils literal notranslate"><span class="pre">С++</span></code> с следующей сигнатурой.</p>
+<p>Тогда <code class="docutils literal notranslate"><span class="pre">mypy</span></code> обнаружит несоответствие типа параметра <code class="docutils literal notranslate"><span class="pre">x</span></code> и переменной <code class="docutils literal notranslate"><span class="pre">s</span></code>.</p>
+<p>В большинство современных <code class="docutils literal notranslate"><span class="pre">IDE</span></code> встроен тот или иной статический анализатор кода. Анимация ниже демонстрирует, что при добавлении аннотации типа параметра <code class="docutils literal notranslate"><span class="pre">x</span></code>, появляется индикации ошибки в строке с вызовом функции <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p>
+<div class="figure align-default">
+<img alt="../../_images/IDE_type_checking.gif" src="../../_images/IDE_type_checking.gif" />
+</div>
+</div>
+<div class="section" id="id5">
+<h3>Документирование кода<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Рассмотрим функцию <code class="docutils literal notranslate"><span class="pre">integrate</span></code> на языке <code class="docutils literal notranslate"><span class="pre">С++</span></code> со следующей сигнатурой.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span><span class="w"> </span><span class="n">integrate</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Исходя из типов параметров, легко предположить, что</p>
 <ol class="simple">
 <li><p>в качестве первого параметра необходимо передать функцию <span class="math notranslate nohighlight">\(f\)</span>, которая должна принимать на вход число типа <code class="docutils literal notranslate"><span class="pre">double</span></code> и возвращать тоже число типа <code class="docutils literal notranslate"><span class="pre">double</span></code>;</p></li>
-<li><p>в качестве второго и третьего параметров ожидаются границы отрезка интегрирования в виде чисел типа <code class="docutils literal notranslate"><span class="pre">double</span></code>;</p></li>
+<li><p>в качестве второго и третьего параметров ожидаются границы отрезка интегрирования в виде двух чисел типа <code class="docutils literal notranslate"><span class="pre">double</span></code>;</p></li>
 <li><p>функция <code class="docutils literal notranslate"><span class="pre">integrate</span></code> возвращает результат интегрирования в виде числа типа <code class="docutils literal notranslate"><span class="pre">double</span></code>.</p></li>
 </ol>
-<p>Т.е. сигнатура функции подсказывает пользователю, как её правильно вызывать, тем самым осуществляя документирующую функцию. А тем рассмотрим, как будет выглядеть сигнатура аналогичной функции в языке с динамической типизацией.</p>
+<p>Т.е. сигнатура функции подсказывает пользователю, как её правильно вызывать, тем самым осуществляя документирующую функцию. Для сравнения рассмотрим, как может выглядеть сигнатура аналогичной функции в языке с динамической типизацией.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">integrate</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="o">...</span>
 </pre></div>
 </div>
-<p>Смотря только на сигнатуру можно только предположить, что <code class="docutils literal notranslate"><span class="pre">f</span></code> — функция, а параметры <code class="docutils literal notranslate"><span class="pre">a</span></code> и <code class="docutils literal notranslate"><span class="pre">b</span></code> — границы интегрирования. Но только из сигнатуры не удается понять, какое поведение ожидается от функции <code class="docutils literal notranslate"><span class="pre">f</span></code>, а также в каком виде возвращается результат вычисления интеграла: число или может быть структура данных с дополнительной отладочной информацией?</p>
-<p>Схожего документирующего эффекта можно добиться следующей аннотацией функции <code class="docutils literal notranslate"><span class="pre">integrate</span></code>, которая является абсолютно корректным кодом с точки зрения интерпретатора <code class="docutils literal notranslate"><span class="pre">python</span></code>.</p>
+<p>Смотря только на сигнатуру, можно только предположить, что <code class="docutils literal notranslate"><span class="pre">f</span></code> — функция, а параметры <code class="docutils literal notranslate"><span class="pre">a</span></code> и <code class="docutils literal notranslate"><span class="pre">b</span></code> — границы интегрирования. При этом только из сигнатуры не удается понять, какое поведение ожидается от функции <code class="docutils literal notranslate"><span class="pre">f</span></code>, а также в каком виде возвращается результат вычисления интеграла: число или может быть структура данных с дополнительной отладочной информацией? Схожего документирующего эффекта можно добиться следующей аннотацией функции <code class="docutils literal notranslate"><span class="pre">integrate</span></code> из предыдущего примера: приведенный ниже код корректен с точки зрения синтаксиса <code class="docutils literal notranslate"><span class="pre">python</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Callable</span>
 
 <span class="k">def</span> <span class="nf">integrate</span><span class="p">(</span><span class="n">f</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">float</span><span class="p">],</span> <span class="nb">float</span><span class="p">],</span> <span class="n">a</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
@@ -920,17 +988,17 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="ide">
 <h3>Автозаполнение в IDE<a class="headerlink" href="#ide" title="Permalink to this headline">¶</a></h3>
-<p>Среды разработки стараются упростить процесс разработки и опытные программисты этим пользуются. В частности <code class="docutils literal notranslate"><span class="pre">IDE</span></code> на основе типов переменных и параметров функции могут определить список доступных методов и предложить возможные варианты для автоматического дополнения.</p>
+<p>Среды разработки стараются упростить процесс разработки и опытные программисты этим пользуются. В частности <code class="docutils literal notranslate"><span class="pre">IDE</span></code> на основе типов переменных и параметров функции могут определить список доступных методов и предложить возможные варианты для автоматического заполнения.</p>
 <div class="figure align-default">
 <img alt="../../_images/cpp_hint.gif" src="../../_images/cpp_hint.gif" />
 </div>
-<p>В анимации выше среда разработки с каждой набранной буквой метода <code class="docutils literal notranslate"><span class="pre">push_back</span></code> подсказывает все более узкий список возможных продолжений, т.к. среде разработки известно, что переменная <code class="docutils literal notranslate"><span class="pre">x</span></code> является контейнером <a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector">std::vector</a>, все методы которого её тоже известны.</p>
-<p>В случае с динамической типизацией вместо получается совершенно другая картина.</p>
+<p>В анимации выше среда разработки с каждой набранной буквой метода <code class="docutils literal notranslate"><span class="pre">push_back</span></code> подсказывает все более узкий список возможных продолжений, т.к. среде разработки известно, что переменная <code class="docutils literal notranslate"><span class="pre">x</span></code> является контейнером <a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector">std::vector</a>, все методы которого ей (среде разработки) тоже известны.</p>
+<p>В случае с динамической типизацией наблюдается совершенно иная картина.</p>
 <div class="figure align-default">
 <img alt="../../_images/python_no_hint.gif" src="../../_images/python_no_hint.gif" />
 </div>
-<p>При вызове функции <code class="docutils literal notranslate"><span class="pre">f</span></code> на месте переменной <code class="docutils literal notranslate"><span class="pre">x</span></code> может оказаться объект любого типа. Даже если программисту известно, что это всегда будет список, у которого есть метод <code class="docutils literal notranslate"><span class="pre">append</span></code>, то среде разработке это отнюдь не очевидно. Это приводит к тому, что она не может подсказать возможное продолжение, т.к. список возможных продолжений близок к безграничному.</p>
-<p>Однако если подсказать среде разработке, что <code class="docutils literal notranslate"><span class="pre">x</span></code> — переменная типа <code class="docutils literal notranslate"><span class="pre">list</span></code>, то она начнет подсказывать.</p>
+<p>При вызове функции <code class="docutils literal notranslate"><span class="pre">f</span></code> на месте переменной <code class="docutils literal notranslate"><span class="pre">x</span></code> может оказаться объект любого типа. Даже если программисту известно, что это всегда будет список, у которого есть метод <code class="docutils literal notranslate"><span class="pre">append</span></code>, то среде разработки это отнюдь не очевидно. Это приводит к тому, что она не может подсказать возможное продолжение, т.к. список возможных продолжений близок к безграничному.</p>
+<p>Однако если подсказать среде разработке, что <code class="docutils literal notranslate"><span class="pre">x</span></code> — переменная типа <code class="docutils literal notranslate"><span class="pre">list</span></code>, то она начнет реагировать в соответствии.</p>
 <div class="figure align-default">
 <img alt="../../_images/python_hint.gif" src="../../_images/python_hint.gif" />
 </div>
