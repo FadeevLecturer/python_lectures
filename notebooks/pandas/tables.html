@@ -379,7 +379,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="dataframe.html">
-   pd.DataFrame
+   Таблицы
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
   </a>
  </li>
  <li class="toctree-l1">
@@ -887,10 +892,10 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="csv">
 <h2>Модуль стандартной библиотеки <code class="docutils literal notranslate"><span class="pre">csv</span></code><a class="headerlink" href="#csv" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://ru.wikipedia.org/wiki/CSV">CSV</a> (<strong>C</strong>omma-<strong>S</strong>eparated <strong>V</strong>alues) — самый простой и один из самых распространенных форматов хранения табличных данных. В <code class="docutils literal notranslate"><span class="pre">CSV</span></code> данные хранятся в текстовом формате, строке таблицы соответствует строка в файле <code class="docutils literal notranslate"><span class="pre">CSV</span></code> (иными словами разделитель строк — символ переноса строки), а значения внутри строки разделяются друг от друга специальными символом, в качестве которого обычно выступает символ запятой “<code class="docutils literal notranslate"><span class="pre">,</span></code>” (откуда и название).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Название</span><span class="p">,</span><span class="n">Количество</span> <span class="n">спутников</span><span class="p">,</span><span class="n">Среднее</span> <span class="n">расстояние</span> <span class="n">до</span> <span class="n">солнца</span><span class="p">,</span><span class="n">Группа</span><span class="p">,</span><span class="n">Кольца</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Название</span><span class="p">,</span><span class="n">Количество</span> <span class="n">спутников</span><span class="p">,</span><span class="n">Масса</span><span class="p">,</span><span class="n">Группа</span><span class="p">,</span><span class="n">Кольца</span>
 <span class="n">Меркурий</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.0055</span><span class="p">,</span><span class="n">земная</span> <span class="n">группа</span><span class="p">,</span><span class="n">Нет</span>
 <span class="n">Венера</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.815</span><span class="p">,</span><span class="n">земная</span> <span class="n">группа</span><span class="p">,</span><span class="n">Нет</span>
-<span class="n">Земля</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.</span><span class="p">,</span><span class="n">земная</span> <span class="n">группа</span><span class="p">,</span><span class="n">Нет</span>
+<span class="n">Земля</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="n">земная</span> <span class="n">группа</span><span class="p">,</span><span class="n">Нет</span>
 <span class="n">Марс</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">0.107</span><span class="p">,</span><span class="n">земная</span> <span class="n">группа</span><span class="p">,</span><span class="n">Нет</span>
 <span class="n">Юпитер</span><span class="p">,</span><span class="mi">62</span><span class="p">,</span><span class="mf">317.8</span><span class="p">,</span><span class="n">газовый</span> <span class="n">гигант</span><span class="p">,</span><span class="n">Да</span> 
 <span class="n">Сатурн</span><span class="p">,</span><span class="mi">34</span><span class="p">,</span><span class="mf">95.2</span><span class="p">,</span><span class="n">газовый</span> <span class="n">гигант</span><span class="p">,</span><span class="n">Да</span>
@@ -917,25 +922,25 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+------------+------------------------+--------------------------------+----------------+----------+
-| Название   |   Количество спутников |   Среднее расстояние до солнца | Группа         | Кольца   |
-+============+========================+================================+================+==========+
-| Меркурий   |                      0 |                         0.0055 | земная группа  | Нет      |
-+------------+------------------------+--------------------------------+----------------+----------+
-| Венера     |                      0 |                         0.815  | земная группа  | Нет      |
-+------------+------------------------+--------------------------------+----------------+----------+
-| Земля      |                      1 |                         1      | земная группа  | Нет      |
-+------------+------------------------+--------------------------------+----------------+----------+
-| Марс       |                      2 |                         0.107  | земная группа  | Нет      |
-+------------+------------------------+--------------------------------+----------------+----------+
-| Юпитер     |                     62 |                       317.8    | газовый гигант | Да       |
-+------------+------------------------+--------------------------------+----------------+----------+
-| Сатурн     |                     34 |                        95.2    | газовый гигант | Да       |
-+------------+------------------------+--------------------------------+----------------+----------+
-| Уран       |                     27 |                        14.37   | ледяной гигант | Да       |
-+------------+------------------------+--------------------------------+----------------+----------+
-| Нептун     |                     13 |                        17.15   | ледяной гигант | Да       |
-+------------+------------------------+--------------------------------+----------------+----------+
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+------------+------------------------+----------+----------------+----------+
+| Название   |   Количество спутников |    Масса | Группа         | Кольца   |
++============+========================+==========+================+==========+
+| Меркурий   |                      0 |   0.0055 | земная группа  | Нет      |
++------------+------------------------+----------+----------------+----------+
+| Венера     |                      0 |   0.815  | земная группа  | Нет      |
++------------+------------------------+----------+----------------+----------+
+| Земля      |                      1 |   1      | земная группа  | Нет      |
++------------+------------------------+----------+----------------+----------+
+| Марс       |                      2 |   0.107  | земная группа  | Нет      |
++------------+------------------------+----------+----------------+----------+
+| Юпитер     |                     62 | 317.8    | газовый гигант | Да       |
++------------+------------------------+----------+----------------+----------+
+| Сатурн     |                     34 |  95.2    | газовый гигант | Да       |
++------------+------------------------+----------+----------------+----------+
+| Уран       |                     27 |  14.37   | ледяной гигант | Да       |
++------------+------------------------+----------+----------------+----------+
+| Нептун     |                     13 |  17.15   | ледяной гигант | Да       |
++------------+------------------------+----------+----------------+----------+
 </pre></div>
 </div>
 </div>
@@ -978,7 +983,7 @@ const thebe_selector_output = ".output, .cell_output"
       <th></th>
       <th>Название</th>
       <th>Количество спутников</th>
-      <th>Среднее расстояние до солнца</th>
+      <th>Масса</th>
       <th>Группа</th>
       <th>Кольца</th>
     </tr>
@@ -1109,7 +1114,7 @@ const thebe_selector_output = ".output, .cell_output"
 Количество спутников
 </th>
 <th>
-Среднее расстояние до солнца
+Масса
 </th>
 <th>
 Группа

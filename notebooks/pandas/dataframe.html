@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pd.DataFrame &#8212; Практикум по компьютерным технологиям</title>
+    <title>Таблицы pandas &#8212; Практикум по компьютерным технологиям</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -379,7 +379,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   pd.DataFrame
+   Таблицы
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
   </a>
  </li>
  <li class="toctree-l1">
@@ -762,35 +767,71 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal nav-link" href="#id1">
    Создание таблицы
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numpy">
+     Список списков или двухмерный массив
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       NumPy
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Словарь
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       По столбцам
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       По строкам
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-   Хранение и чтение таблиц
+  <a class="reference internal nav-link" href="#id5">
+   Чтение таблиц с жесткого диска
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dataframe">
-   Индексация DataFrame
+  <a class="reference internal nav-link" href="#id6">
+   Индексация
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     Строки
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     Столбцы
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     Конкретные ячейки
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
+  <a class="reference internal nav-link" href="#id10">
    Добавление столбцов
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
+  <a class="reference internal nav-link" href="#id11">
    Пропущенные значения
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#apply-map-applymap">
-   apply, map, applymap
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id5">
-   Группировка по значениям столбца
   </a>
  </li>
 </ul>
@@ -803,7 +844,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>pd.DataFrame</h1>
+                <h1>Таблицы pandas</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -817,35 +858,71 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal nav-link" href="#id1">
    Создание таблицы
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numpy">
+     Список списков или двухмерный массив
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       NumPy
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Словарь
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       По столбцам
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       По строкам
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-   Хранение и чтение таблиц
+  <a class="reference internal nav-link" href="#id5">
+   Чтение таблиц с жесткого диска
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dataframe">
-   Индексация DataFrame
+  <a class="reference internal nav-link" href="#id6">
+   Индексация
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     Строки
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     Столбцы
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     Конкретные ячейки
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
+  <a class="reference internal nav-link" href="#id10">
    Добавление столбцов
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
+  <a class="reference internal nav-link" href="#id11">
    Пропущенные значения
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#apply-map-applymap">
-   apply, map, applymap
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id5">
-   Группировка по значениям столбца
   </a>
  </li>
 </ul>
@@ -857,31 +934,27 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="pd-dataframe">
-<h1>pd.DataFrame<a class="headerlink" href="#pd-dataframe" title="Permalink to this headline">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> — по сути дела таблица, на которую можно смотреть как на объединение столбцов <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code> с выравниванием по общему индексу.</p>
-<p>Можно изменять содержимое ячеек таблицы, добавление новых строк — дорогостоящая операция (пересоздание таблицы), но добавление столбцов осуществляется на месте.</p>
-<div class="section" id="id1">
-<h2>Создание таблицы<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>Есть множество способов создать датафрейм из уже существующих объектов python.</p>
-<p>Один самых удобных — используя словари.</p>
-<p>Если ключи в словаре соответствуют именам столбцов, а значения — списки, <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> массивы, <code class="docutils literal notranslate"><span class="pre">pandas</span></code> серии данных этих столбцов, то используется конструктор <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code>. При этом если в значениях присутствуют объекты <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code>, то индекс созданного датафрейма будет объединением индексов серий, а данные всех столбцов выравниваются по меткам этого индекса.</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="pandas">
+<h1>Таблицы <code class="docutils literal notranslate"><span class="pre">pandas</span></code><a class="headerlink" href="#pandas" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html">pandas.DataFrame</a> — по сути дела таблица, на которую можно смотреть как на объединение столбцов <code class="docutils literal notranslate"><span class="pre">pandas.Series</span></code> с выравниванием по общему индексу.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="n">col1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">])</span>
-<span class="n">col2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">])</span>
-<span class="n">col3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">])</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span>
+    <span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span>
+<span class="p">},</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;Int8&quot;</span><span class="p">)</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span>
+    <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="s2">&quot;two&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="s2">&quot;three&quot;</span>
+<span class="p">})</span>
 
-<span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;col1&#39;</span><span class="p">:</span> <span class="n">col1</span><span class="p">,</span> 
-    <span class="s1">&#39;col2&#39;</span><span class="p">:</span> <span class="n">col2</span><span class="p">,</span>
-    <span class="s1">&#39;col3&#39;</span><span class="p">:</span> <span class="n">col3</span><span class="p">,</span>
-<span class="p">}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;s1&quot;</span><span class="p">:</span> <span class="n">s1</span><span class="p">,</span>
+    <span class="s2">&quot;s2&quot;</span><span class="p">:</span> <span class="n">s2</span>
+<span class="p">})</span>
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
 <span class="n">df</span>
 </pre></div>
 </div>
@@ -905,43 +978,227 @@ const thebe_selector_output = ".output, .cell_output"
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>col1</th>
-      <th>col2</th>
-      <th>col3</th>
+      <th>s1</th>
+      <th>s2</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>a</th>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>5</td>
+      <td>1</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>b</th>
-      <td>2.0</td>
-      <td>3.0</td>
-      <td>6</td>
+      <td>2</td>
+      <td>two</td>
     </tr>
     <tr>
       <th>c</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>7</td>
+      <td>&lt;NA&gt;</td>
+      <td>three</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-<p>Если значения в словаре списки или массивы, то они должны быть одной длинны.  В созданной таблице данные в столбцах идут в том же порядке, что и в исходных списках/массивах (без выравнивания), что и в списках. Индекс созданной таблицы по умолчанию — <code class="docutils literal notranslate"><span class="pre">RangeIndex</span></code>, но можно явно указать его при создании опциональным параметром <code class="docutils literal notranslate"><span class="pre">index</span></code>.</p>
+<p>Таблицы изменяемы с точки зрения содержимого их ячеек, но лишь частично изменяемы сточки зрения размера: добавлять на месте можно только столбцы, но не строки.</p>
+<div class="section" id="id1">
+<h2>Создание таблицы<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Как и в случае со столбцами, есть множество способов создать таблицу <code class="docutils literal notranslate"><span class="pre">pandas</span></code> из уже существующих объектов <code class="docutils literal notranslate"><span class="pre">python</span></code>. Большинство из них опираются на конструктор <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html">pandas.DataFrame</a>.</p>
+<div class="section" id="numpy">
+<h3>Список списков или двухмерный массив <code class="docutils literal notranslate"><span class="pre">NumPy</span></code><a class="headerlink" href="#numpy" title="Permalink to this headline">¶</a></h3>
+<p>Если ваши данные хранятся в виде списка списков, то на выходе каждый вложенный список будет соответствовать строке таблице.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">col1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
-<span class="n">col2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s2">&quot;a11&quot;</span><span class="p">,</span> <span class="s2">&quot;a12&quot;</span><span class="p">,</span> <span class="s2">&quot;a13&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;a21&quot;</span><span class="p">,</span> <span class="s2">&quot;a22&quot;</span><span class="p">,</span> <span class="s2">&quot;a23&quot;</span><span class="p">]</span>
+    <span class="p">]</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>a11</td>
+      <td>a12</td>
+      <td>a13</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>a21</td>
+      <td>a22</td>
+      <td>a23</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>По умолчанию генерируется <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.RangeIndex.html">RangeIndex</a> и для строк и для столбцов таблицы.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="si">=}</span><span class="s2">, </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>df.index=RangeIndex(start=0, stop=2, step=1), df.columns=RangeIndex(start=0, stop=3, step=1)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Опциональными параметрами конструктора <code class="docutils literal notranslate"><span class="pre">columns</span></code> и <code class="docutils literal notranslate"><span class="pre">index</span></code> можно указать пользовательские значения.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;column 1&quot;</span><span class="p">,</span> <span class="s2">&quot;column 2&quot;</span><span class="p">,</span> <span class="s2">&quot;column 3&quot;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;row 1&quot;</span><span class="p">,</span> <span class="s2">&quot;row 2&quot;</span><span class="p">])</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>column 1</th>
+      <th>column 2</th>
+      <th>column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>row 1</th>
+      <td>a11</td>
+      <td>a12</td>
+      <td>a13</td>
+    </tr>
+    <tr>
+      <th>row 2</th>
+      <td>a21</td>
+      <td>a22</td>
+      <td>a23</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Если вместо списка списков передавать двухмерный массив <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>, то все будет работать точно также, кроме возможной потери типов.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;column 1&quot;</span><span class="p">,</span> <span class="s2">&quot;column 2&quot;</span><span class="p">,</span> <span class="s2">&quot;column 3&quot;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;row 1&quot;</span><span class="p">,</span> <span class="s2">&quot;row 2&quot;</span><span class="p">])</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>column 1</th>
+      <th>column 2</th>
+      <th>column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>row 1</th>
+      <td>a11</td>
+      <td>a12</td>
+      <td>a13</td>
+    </tr>
+    <tr>
+      <th>row 2</th>
+      <td>a21</td>
+      <td>a22</td>
+      <td>a23</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Словарь<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Один самых удобных способов создавать таблицу в <code class="docutils literal notranslate"><span class="pre">pandas</span></code> — использовать словари.</p>
+<p>Тут возможно два варианта.</p>
+<ol class="simple">
+<li><p>ключи словаря — названия столбца, значение по ключу — содержимое соответствующего столбца;2</p></li>
+<li><p>ключи словаря — метки строк, значение по ключу — содержимое соответствующей строки.</p></li>
+</ol>
+<div class="section" id="id3">
+<h4>По столбцам<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<p>Первый вариант гораздо более распространен, поэтому его рассмотрим первым. Итак, ключи словаря станут названиями столбцов, значение по ключу — станет содержимым с соответствующим значением.</p>
+<p>Будущие столбцы в словари могут быть представлены списком, массивом <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>, а также столбцом <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. При этом в случае списков и массивов <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> накладывается требование на одинаковую длину всех столбцов, а также автоматически генерируется <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.RangeIndex.html">RangeIndex</a>, если он не указан в явном виде опциональным параметром <code class="docutils literal notranslate"><span class="pre">index</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">col1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s2">&quot;a11&quot;</span><span class="p">,</span> <span class="s2">&quot;a21&quot;</span><span class="p">])</span>
+<span class="n">col2</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a21&quot;</span><span class="p">,</span> <span class="s2">&quot;a22&quot;</span><span class="p">]</span>
+<span class="n">col3</span> <span class="o">=</span> <span class="s2">&quot;a31&quot;</span><span class="p">,</span> <span class="s2">&quot;a32&quot;</span>
 
 <span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;col1&quot;</span><span class="p">:</span> <span class="n">col1</span><span class="p">,</span>
-    <span class="s2">&quot;col2&quot;</span><span class="p">:</span> <span class="n">col2</span>
+    <span class="s2">&quot;column 1&quot;</span><span class="p">:</span> <span class="n">col1</span><span class="p">,</span>
+    <span class="s2">&quot;column 2&quot;</span><span class="p">:</span> <span class="n">col2</span><span class="p">,</span>
+    <span class="s2">&quot;column 3&quot;</span><span class="p">:</span> <span class="n">col3</span>
 <span class="p">}</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">])</span>
@@ -968,31 +1225,105 @@ const thebe_selector_output = ".output, .cell_output"
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>col1</th>
-      <th>col2</th>
+      <th>column 1</th>
+      <th>column 2</th>
+      <th>column 3</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>a</th>
-      <td>1</td>
-      <td>3</td>
+      <td>a11</td>
+      <td>a21</td>
+      <td>a31</td>
     </tr>
     <tr>
       <th>b</th>
-      <td>2</td>
-      <td>4</td>
+      <td>a21</td>
+      <td>a22</td>
+      <td>a32</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-<p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.from_dict.html#pandas.DataFrame.from_dict">pd.DataFrame.form_dict</a> — более специализированный метод для создания датафрейма из словаря. В предыдущих двух примерах он сработал бы аналогично, но его имя длиннее. Его преимущество заключается, например, в том, что он позволяет создать датафрейм из словаря, в котором ключи — метки строк (индекс), а значения — строки будущей таблицы.</p>
-<p>Для этого необходимо указать в качестве параметра <code class="docutils literal notranslate"><span class="pre">orient</span></code> строку <code class="docutils literal notranslate"><span class="pre">index</span></code>. Далее все аналогично. Если строки представлены в виде <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code>, то метки попадут в названия столбцов с выравниванием данных. Если это простые массивы, то имена столбцов — <code class="docutils literal notranslate"><span class="pre">RangeIndex</span></code>, но можно явно указать имена столбцов по параметру <code class="docutils literal notranslate"><span class="pre">columns</span></code>.</p>
+<p>Если же содержимое будущих столбцов представлено в виде столбцов <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, то индекс таблицы генерируется из индексов этих столбцов, а ограничение на одинаковую длину столбцов снимается: строки таблицы выравниваются по индексу.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">row1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">])</span>
-<span class="n">row2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">col1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">])</span>
+<span class="n">col2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;Int64&quot;</span><span class="p">)</span>
+<span class="n">col3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">])</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;column 1&#39;</span><span class="p">:</span> <span class="n">col1</span><span class="p">,</span> 
+    <span class="s1">&#39;column 2&#39;</span><span class="p">:</span> <span class="n">col2</span><span class="p">,</span>
+    <span class="s1">&#39;column 3&#39;</span><span class="p">:</span> <span class="n">col3</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>column 1</th>
+      <th>column 2</th>
+      <th>column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>1.0</td>
+      <td>4</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>2.0</td>
+      <td>3</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>NaN</td>
+      <td>&lt;NA&gt;</td>
+      <td>7</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h4>По строкам<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<p>Статический метод <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.from_dict.html#pandas.DataFrame.from_dict">pandas.DataFrame.form_dict</a> — более специализированный метод для создания таблицы из словаря. В примерах из предыдущего раздела этот метод сработает точно также, как и базовый конструктор класса, но наличие дополнительного опционального параметра <code class="docutils literal notranslate"><span class="pre">orient</span></code> (<code class="docutils literal notranslate"><span class="pre">orientation</span></code>) позволяет создавать таблицу из строк.</p>
+<p>Если указать в качестве <code class="docutils literal notranslate"><span class="pre">orient</span></code> строку <code class="docutils literal notranslate"><span class="pre">index</span></code>, то ключи словаря будут восприниматься в качестве меток строк, а значение по ключу — содержимое строки с соответствующей меткой. Все остальное продолжает работать также, но с заменой меток и названий столбцов местами.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">row1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;column 1&quot;</span><span class="p">,</span> <span class="s2">&quot;column 2&quot;</span><span class="p">])</span>
+<span class="n">row2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;column 2&quot;</span><span class="p">,</span> <span class="s2">&quot;column 1&quot;</span><span class="p">])</span>
 
 <span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;row1&quot;</span><span class="p">:</span> <span class="n">row1</span><span class="p">,</span>
@@ -1022,8 +1353,8 @@ const thebe_selector_output = ".output, .cell_output"
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>a</th>
-      <th>b</th>
+      <th>column 1</th>
+      <th>column 2</th>
     </tr>
   </thead>
   <tbody>
@@ -1041,139 +1372,53 @@ const thebe_selector_output = ".output, .cell_output"
 </table>
 </div></div></div>
 </div>
-<p>Если данные представлены в виде какой-то двухмерной структуры, в которой отсутствуют метки и строк и столбцов, то можно воспользоваться методом <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code>, при этом индекс и имена столбцов можно указать соответствующими параметрами <code class="docutils literal notranslate"><span class="pre">index</span></code> и <code class="docutils literal notranslate"><span class="pre">columns</span></code>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
-<span class="p">]</span>
-
-<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;row1&quot;</span><span class="p">,</span> <span class="s2">&quot;row2&quot;</span><span class="p">,</span> <span class="s2">&quot;row3&quot;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;col1&quot;</span><span class="p">,</span> <span class="s2">&quot;col2&quot;</span><span class="p">])</span>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>Чтение таблиц с жесткого диска<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>Библиотека <code class="docutils literal notranslate"><span class="pre">pandas</span></code> позволяет свободно оперировать с таблицами в формате <code class="docutils literal notranslate"><span class="pre">csv</span></code>, <code class="docutils literal notranslate"><span class="pre">json</span></code>, таблицами <code class="docutils literal notranslate"><span class="pre">excel</span></code> (потребуется установка дополнительной библиотеки, например, <a class="reference external" href="https://openpyxl.readthedocs.io/en/stable/">openpyxl</a>), а также более продвинутыми бинарными форматами <a class="reference external" href="https://en.wikipedia.org/wiki/Hierarchical_Data_Format#HDF5">hdf5</a>, <a class="reference external" href="https://parquet.apache.org/docs/">apache parquet</a> и многими другими форматами. Формат <code class="docutils literal notranslate"><span class="pre">csv</span></code> — один из самых простых и распространенных в научной среде, поэтому рассмотрим чтение таблиц средствами <code class="docutils literal notranslate"><span class="pre">pandas</span></code> именно на его примере.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Все таблицы из этой лекции хранятся в репозитории с исходниками этого ресурса в папке по <a class="reference external" href="https://github.com/FadeevLecturer/python_lectures/tree/main/assets/data/tables">ссылке</a>.</p>
+</div>
+<p>Предположим следующее содержимое хранится в текстовом файле <code class="docutils literal notranslate"><span class="pre">planets.csv</span></code> со следующим содержимым.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Название</span><span class="p">,</span><span class="n">Количество</span> <span class="n">спутников</span><span class="p">,</span><span class="n">Масса</span><span class="p">,</span><span class="n">Группа</span><span class="p">,</span><span class="n">Кольца</span>
+<span class="n">Меркурий</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.0055</span><span class="p">,</span><span class="n">земная</span> <span class="n">группа</span><span class="p">,</span><span class="n">Нет</span>
+<span class="n">Венера</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.815</span><span class="p">,</span><span class="n">земная</span> <span class="n">группа</span><span class="p">,</span><span class="n">Нет</span>
+<span class="n">Земля</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="n">земная</span> <span class="n">группа</span><span class="p">,</span><span class="n">Нет</span>
+<span class="n">Марс</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">0.107</span><span class="p">,</span><span class="n">земная</span> <span class="n">группа</span><span class="p">,</span><span class="n">Нет</span>
+<span class="n">Юпитер</span><span class="p">,</span><span class="mi">62</span><span class="p">,</span><span class="mf">317.8</span><span class="p">,</span><span class="n">газовый</span> <span class="n">гигант</span><span class="p">,</span><span class="n">Да</span> 
+<span class="n">Сатурн</span><span class="p">,</span><span class="mi">34</span><span class="p">,</span><span class="mf">95.2</span><span class="p">,</span><span class="n">газовый</span> <span class="n">гигант</span><span class="p">,</span><span class="n">Да</span>
+<span class="n">Уран</span><span class="p">,</span><span class="mi">27</span><span class="p">,</span><span class="mf">14.37</span><span class="p">,</span><span class="n">ледяной</span> <span class="n">гигант</span><span class="p">,</span><span class="n">Да</span>
+<span class="n">Нептун</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mf">17.15</span><span class="p">,</span><span class="n">ледяной</span> <span class="n">гигант</span><span class="p">,</span><span class="n">Да</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>col1</th>
-      <th>col2</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>row1</th>
-      <td>1</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>row2</th>
-      <td>3</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>row3</th>
-      <td>5</td>
-      <td>6</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-</div>
-<div class="section" id="id2">
-<h2>Хранение и чтение таблиц<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p>Для хранения таблиц чаще всего используются</p>
-<p>Гораздо чаще датафрейм получается, как результат чтение таблицы из файла. Чаще всего такие таблицы хранятся в формате <a class="reference external" href="https://ru.wikipedia.org/wiki/CSV">csv</a> или в форматах таблиц <code class="docutils literal notranslate"><span class="pre">excel</span></code>.</p>
-<blockquote>
-<div><p>Строка таблицы соответствует строке текста, которая содержит одно или несколько полей, разделенных запятыми.</p>
-</div></blockquote>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">brand</span><span class="p">,</span><span class="n">mpg</span><span class="p">,</span><span class="n">cyl</span><span class="p">,</span><span class="n">disp</span><span class="p">,</span><span class="n">hp</span><span class="p">,</span><span class="n">drat</span><span class="p">,</span><span class="n">wt</span><span class="p">,</span><span class="n">qsec</span><span class="p">,</span><span class="n">vs</span><span class="p">,</span><span class="n">am</span><span class="p">,</span><span class="n">gear</span><span class="p">,</span><span class="n">carb</span>
-<span class="n">Mazda</span> <span class="n">RX4</span><span class="p">,</span><span class="mf">21.0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mf">160.0</span><span class="p">,</span><span class="mi">110</span><span class="p">,</span><span class="mf">3.9</span><span class="p">,</span><span class="mf">2.62</span><span class="p">,</span><span class="mf">16.46</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span>
-<span class="n">Mazda</span> <span class="n">RX4</span> <span class="n">Wag</span><span class="p">,</span><span class="mf">21.0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mf">160.0</span><span class="p">,</span><span class="mi">110</span><span class="p">,</span><span class="mf">3.9</span><span class="p">,</span><span class="mf">2.875</span><span class="p">,</span><span class="mf">17.02</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span>
-<span class="n">Datsun</span> <span class="mi">710</span><span class="p">,</span><span class="mf">22.8</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mf">108.0</span><span class="p">,</span><span class="mi">93</span><span class="p">,</span><span class="mf">3.85</span><span class="p">,</span><span class="mf">2.32</span><span class="p">,</span><span class="mf">18.61</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span>
-<span class="n">Hornet</span> <span class="mi">4</span> <span class="n">Drive</span><span class="p">,</span><span class="mf">21.4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mf">258.0</span><span class="p">,</span><span class="mi">110</span><span class="p">,</span><span class="mf">3.08</span><span class="p">,</span><span class="mf">3.215</span><span class="p">,</span><span class="mf">19.44</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span>
-<span class="n">Hornet</span> <span class="n">Sportabout</span><span class="p">,</span><span class="mf">18.7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">360.0</span><span class="p">,</span><span class="mi">175</span><span class="p">,</span><span class="mf">3.15</span><span class="p">,</span><span class="mf">3.44</span><span class="p">,</span><span class="mf">17.02</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span>
-<span class="n">Valiant</span><span class="p">,</span><span class="mf">18.1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mf">225.0</span><span class="p">,</span><span class="mi">105</span><span class="p">,</span><span class="mf">2.76</span><span class="p">,</span><span class="mf">3.46</span><span class="p">,</span><span class="mf">20.22</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span>
-<span class="n">Duster</span> <span class="mi">360</span><span class="p">,</span><span class="mf">14.3</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">360.0</span><span class="p">,</span><span class="mi">245</span><span class="p">,</span><span class="mf">3.21</span><span class="p">,</span><span class="mf">3.57</span><span class="p">,</span><span class="mf">15.84</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span>
-<span class="n">Merc</span> <span class="mi">240</span><span class="n">D</span><span class="p">,</span><span class="mf">24.4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mf">146.7</span><span class="p">,</span><span class="mi">62</span><span class="p">,</span><span class="mf">3.69</span><span class="p">,</span><span class="mf">3.19</span><span class="p">,</span><span class="mf">20.0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span>
-<span class="n">Merc</span> <span class="mi">230</span><span class="p">,</span><span class="mf">22.8</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mf">140.8</span><span class="p">,</span><span class="mi">95</span><span class="p">,</span><span class="mf">3.92</span><span class="p">,</span><span class="mf">3.15</span><span class="p">,</span><span class="mf">22.9</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span>
-<span class="n">Merc</span> <span class="mi">280</span><span class="p">,</span><span class="mf">19.2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mf">167.6</span><span class="p">,</span><span class="mi">123</span><span class="p">,</span><span class="mf">3.92</span><span class="p">,</span><span class="mf">3.44</span><span class="p">,</span><span class="mf">18.3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span>
-<span class="n">Merc</span> <span class="mi">280</span><span class="n">C</span><span class="p">,</span><span class="mf">17.8</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mf">167.6</span><span class="p">,</span><span class="mi">123</span><span class="p">,</span><span class="mf">3.92</span><span class="p">,</span><span class="mf">3.44</span><span class="p">,</span><span class="mf">18.9</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span>
-<span class="n">Merc</span> <span class="mi">450</span><span class="n">SE</span><span class="p">,</span><span class="mf">16.4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">275.8</span><span class="p">,</span><span class="mi">180</span><span class="p">,</span><span class="mf">3.07</span><span class="p">,</span><span class="mf">4.07</span><span class="p">,</span><span class="mf">17.4</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span>
-<span class="n">Merc</span> <span class="mi">450</span><span class="n">SL</span><span class="p">,</span><span class="mf">17.3</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">275.8</span><span class="p">,</span><span class="mi">180</span><span class="p">,</span><span class="mf">3.07</span><span class="p">,</span><span class="mf">3.73</span><span class="p">,</span><span class="mf">17.6</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span>
-<span class="n">Merc</span> <span class="mi">450</span><span class="n">SLC</span><span class="p">,</span><span class="mf">15.2</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">275.8</span><span class="p">,</span><span class="mi">180</span><span class="p">,</span><span class="mf">3.07</span><span class="p">,</span><span class="mf">3.78</span><span class="p">,</span><span class="mf">18.0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span>
-<span class="n">Cadillac</span> <span class="n">Fleetwood</span><span class="p">,</span><span class="mf">10.4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">472.0</span><span class="p">,</span><span class="mi">205</span><span class="p">,</span><span class="mf">2.93</span><span class="p">,</span><span class="mf">5.25</span><span class="p">,</span><span class="mf">17.98</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span>
-<span class="n">Lincoln</span> <span class="n">Continental</span><span class="p">,</span><span class="mf">10.4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">460.0</span><span class="p">,</span><span class="mi">215</span><span class="p">,</span><span class="mf">3.0</span><span class="p">,</span><span class="mf">5.424</span><span class="p">,</span><span class="mf">17.82</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span>
-<span class="n">Chrysler</span> <span class="n">Imperial</span><span class="p">,</span><span class="mf">14.7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">440.0</span><span class="p">,</span><span class="mi">230</span><span class="p">,</span><span class="mf">3.23</span><span class="p">,</span><span class="mf">5.345</span><span class="p">,</span><span class="mf">17.42</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span>
-<span class="n">Fiat</span> <span class="mi">128</span><span class="p">,</span><span class="mf">32.4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mf">78.7</span><span class="p">,</span><span class="mi">66</span><span class="p">,</span><span class="mf">4.08</span><span class="p">,</span><span class="mf">2.2</span><span class="p">,</span><span class="mf">19.47</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span>
-<span class="n">Honda</span> <span class="n">Civic</span><span class="p">,</span><span class="mf">30.4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mf">75.7</span><span class="p">,</span><span class="mi">52</span><span class="p">,</span><span class="mf">4.93</span><span class="p">,</span><span class="mf">1.615</span><span class="p">,</span><span class="mf">18.52</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span>
-<span class="n">Toyota</span> <span class="n">Corolla</span><span class="p">,</span><span class="mf">33.9</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mf">71.1</span><span class="p">,</span><span class="mi">65</span><span class="p">,</span><span class="mf">4.22</span><span class="p">,</span><span class="mf">1.835</span><span class="p">,</span><span class="mf">19.9</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span>
-<span class="n">Toyota</span> <span class="n">Corona</span><span class="p">,</span><span class="mf">21.5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mf">120.1</span><span class="p">,</span><span class="mi">97</span><span class="p">,</span><span class="mf">3.7</span><span class="p">,</span><span class="mf">2.465</span><span class="p">,</span><span class="mf">20.01</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span>
-<span class="n">Dodge</span> <span class="n">Challenger</span><span class="p">,</span><span class="mf">15.5</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">318.0</span><span class="p">,</span><span class="mi">150</span><span class="p">,</span><span class="mf">2.76</span><span class="p">,</span><span class="mf">3.52</span><span class="p">,</span><span class="mf">16.87</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span>
-<span class="n">AMC</span> <span class="n">Javelin</span><span class="p">,</span><span class="mf">15.2</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">304.0</span><span class="p">,</span><span class="mi">150</span><span class="p">,</span><span class="mf">3.15</span><span class="p">,</span><span class="mf">3.435</span><span class="p">,</span><span class="mf">17.3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span>
-<span class="n">Camaro</span> <span class="n">Z28</span><span class="p">,</span><span class="mf">13.3</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">350.0</span><span class="p">,</span><span class="mi">245</span><span class="p">,</span><span class="mf">3.73</span><span class="p">,</span><span class="mf">3.84</span><span class="p">,</span><span class="mf">15.41</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span>
-<span class="n">Pontiac</span> <span class="n">Firebird</span><span class="p">,</span><span class="mf">19.2</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">400.0</span><span class="p">,</span><span class="mi">175</span><span class="p">,</span><span class="mf">3.08</span><span class="p">,</span><span class="mf">3.845</span><span class="p">,</span><span class="mf">17.05</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span>
-<span class="n">Fiat</span> <span class="n">X1</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span><span class="mf">27.3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mf">79.0</span><span class="p">,</span><span class="mi">66</span><span class="p">,</span><span class="mf">4.08</span><span class="p">,</span><span class="mf">1.935</span><span class="p">,</span><span class="mf">18.9</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span>
-<span class="n">Porsche</span> <span class="mi">914</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mf">26.0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mf">120.3</span><span class="p">,</span><span class="mi">91</span><span class="p">,</span><span class="mf">4.43</span><span class="p">,</span><span class="mf">2.14</span><span class="p">,</span><span class="mf">16.7</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span>
-<span class="n">Lotus</span> <span class="n">Europa</span><span class="p">,</span><span class="mf">30.4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mf">95.1</span><span class="p">,</span><span class="mi">113</span><span class="p">,</span><span class="mf">3.77</span><span class="p">,</span><span class="mf">1.513</span><span class="p">,</span><span class="mf">16.9</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span>
-<span class="n">Ford</span> <span class="n">Pantera</span> <span class="n">L</span><span class="p">,</span><span class="mf">15.8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">351.0</span><span class="p">,</span><span class="mi">264</span><span class="p">,</span><span class="mf">4.22</span><span class="p">,</span><span class="mf">3.17</span><span class="p">,</span><span class="mf">14.5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span>
-<span class="n">Ferrari</span> <span class="n">Dino</span><span class="p">,</span><span class="mf">19.7</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mf">145.0</span><span class="p">,</span><span class="mi">175</span><span class="p">,</span><span class="mf">3.62</span><span class="p">,</span><span class="mf">2.77</span><span class="p">,</span><span class="mf">15.5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span>
-<span class="n">Maserati</span> <span class="n">Bora</span><span class="p">,</span><span class="mf">15.0</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">301.0</span><span class="p">,</span><span class="mi">335</span><span class="p">,</span><span class="mf">3.54</span><span class="p">,</span><span class="mf">3.57</span><span class="p">,</span><span class="mf">14.6</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">8</span>
-<span class="n">Volvo</span> <span class="mi">142</span><span class="n">E</span><span class="p">,,,,,,,,,,,</span>
-
-</pre></div>
-</div>
-<p>Пример простейшего <code class="docutils literal notranslate"><span class="pre">csv</span></code> файла приведен выше. В этом примере первая строка выступает в качестве заголовка, т.е. в ней перечислены названия столбцов, разделенные запятыми. Далее в каждой строке приведены значения этих столбцов, разделенные запятыми. В последней строке пропущены значения всех столбцов, кроме первого (brand).</p>
-<p>Предположим, что текстовый файл с таким содержимым хранится в папке <code class="docutils literal notranslate"><span class="pre">data</span></code> под именем <code class="docutils literal notranslate"><span class="pre">mtcars.csv</span></code>. Для чтения такой таблицы используется метод <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html">read_csv</a>.</p>
+<p>Для чтения такой таблицы используется метод <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html">read_csv</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="s2">&quot;mtcars.csv&quot;</span><span class="p">)</span>
+<span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;assets&quot;</span><span class="p">,</span> <span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="s2">&quot;tables&quot;</span><span class="p">,</span> <span class="s2">&quot;planets.csv&quot;</span><span class="p">)</span>
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
-<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">planets</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">planets</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
+<span class="n">planets</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-RangeIndex: 32 entries, 0 to 31
-Data columns (total 12 columns):
- #   Column  Non-Null Count  Dtype  
----  ------  --------------  -----  
- 0   brand   32 non-null     object 
- 1   mpg     31 non-null     float64
- 2   cyl     31 non-null     float64
- 3   disp    31 non-null     float64
- 4   hp      31 non-null     float64
- 5   drat    31 non-null     float64
- 6   wt      31 non-null     float64
- 7   qsec    31 non-null     float64
- 8   vs      31 non-null     float64
- 9   am      31 non-null     float64
- 10  gear    31 non-null     float64
- 11  carb    31 non-null     float64
-dtypes: float64(11), object(1)
-memory usage: 3.1+ KB
+RangeIndex: 8 entries, 0 to 7
+Data columns (total 5 columns):
+ #   Column                Non-Null Count  Dtype  
+---  ------                --------------  -----  
+ 0   Название              8 non-null      object 
+ 1   Количество спутников  8 non-null      int64  
+ 2   Масса                 8 non-null      float64
+ 3   Группа                8 non-null      object 
+ 4   Кольца                8 non-null      object 
+dtypes: float64(1), int64(1), object(3)
+memory usage: 448.0+ bytes
 None
 </pre></div>
 </div>
@@ -1195,95 +1440,53 @@ None
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>brand</th>
-      <th>mpg</th>
-      <th>cyl</th>
-      <th>disp</th>
-      <th>hp</th>
-      <th>drat</th>
-      <th>wt</th>
-      <th>qsec</th>
-      <th>vs</th>
-      <th>am</th>
-      <th>gear</th>
-      <th>carb</th>
+      <th>Название</th>
+      <th>Количество спутников</th>
+      <th>Масса</th>
+      <th>Группа</th>
+      <th>Кольца</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>Mazda RX4</td>
-      <td>21.0</td>
-      <td>6.0</td>
-      <td>160.0</td>
-      <td>110.0</td>
-      <td>3.90</td>
-      <td>2.620</td>
-      <td>16.46</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>4.0</td>
+      <td>Меркурий</td>
+      <td>0</td>
+      <td>0.0055</td>
+      <td>земная группа</td>
+      <td>Нет</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Mazda RX4 Wag</td>
-      <td>21.0</td>
-      <td>6.0</td>
-      <td>160.0</td>
-      <td>110.0</td>
-      <td>3.90</td>
-      <td>2.875</td>
-      <td>17.02</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>4.0</td>
+      <td>Венера</td>
+      <td>0</td>
+      <td>0.8150</td>
+      <td>земная группа</td>
+      <td>Нет</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Datsun 710</td>
-      <td>22.8</td>
-      <td>4.0</td>
-      <td>108.0</td>
-      <td>93.0</td>
-      <td>3.85</td>
-      <td>2.320</td>
-      <td>18.61</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>1.0</td>
+      <td>Земля</td>
+      <td>1</td>
+      <td>1.0000</td>
+      <td>земная группа</td>
+      <td>Нет</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Hornet 4 Drive</td>
-      <td>21.4</td>
-      <td>6.0</td>
-      <td>258.0</td>
-      <td>110.0</td>
-      <td>3.08</td>
-      <td>3.215</td>
-      <td>19.44</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>1.0</td>
+      <td>Марс</td>
+      <td>2</td>
+      <td>0.1070</td>
+      <td>земная группа</td>
+      <td>Нет</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Hornet Sportabout</td>
-      <td>18.7</td>
-      <td>8.0</td>
-      <td>360.0</td>
-      <td>175.0</td>
-      <td>3.15</td>
-      <td>3.440</td>
-      <td>17.02</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>2.0</td>
+      <td>Юпитер</td>
+      <td>62</td>
+      <td>317.8000</td>
+      <td>газовый гигант</td>
+      <td>Да</td>
     </tr>
   </tbody>
 </table>
@@ -1292,21 +1495,21 @@ None
 <p>В самом простом варианте использования функции <code class="docutils literal notranslate"><span class="pre">read_csv</span></code></p>
 <ul class="simple">
 <li><p>имена столбцов распознаются из первой строки файла (параметром <code class="docutils literal notranslate"><span class="pre">header</span></code> можно повлиять на это);</p></li>
-<li><p>в качестве индекса генерируется <code class="docutils literal notranslate"><span class="pre">RangeIndex</span></code> (параметром <code class="docutils literal notranslate"><span class="pre">index_col</span></code> можно выбрать столбец индекса);</p></li>
-<li><p>в качестве разделителя ожидается символ запятой (<code class="docutils literal notranslate"><span class="pre">,</span></code>) (параметром <code class="docutils literal notranslate"><span class="pre">sep</span></code> можно на это повлиять);</p></li>
-<li><p>пропущенные значения заполняются <code class="docutils literal notranslate"><span class="pre">np.nan</span></code>;</p></li>
-<li><p>столбцы с датами не распознаются.</p></li>
+<li><p>в качестве индекса генерируется <code class="docutils literal notranslate"><span class="pre">RangeIndex</span></code> (параметром <code class="docutils literal notranslate"><span class="pre">index_col</span></code> можно выбрать столбец индекса таблицы);</p></li>
+<li><p>в качестве разделителя ожидается символ запятой “<code class="docutils literal notranslate"><span class="pre">,</span></code>” (параметром <code class="docutils literal notranslate"><span class="pre">sep</span></code> можно на это повлиять);</p></li>
+<li><p>пропущенные значения заполняются значением “<code class="docutils literal notranslate"><span class="pre">np.nan</span></code>” (параметром <code class="docutils literal notranslate"><span class="pre">na_values</span></code> можно указать, какие ещё значения интерпретировать, как пропущенные);</p></li>
+<li><p>столбцы с датами не распознаются (смотри страницу “<a class="reference internal" href="datetime.html"><span class="doc std std-doc">Дата и время</span></a>”).</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Метод <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.head.html">DataFrame.head</a> возвращает первые <code class="docutils literal notranslate"><span class="pre">n</span></code> строк таблицы. По умолчанию <code class="docutils literal notranslate"><span class="pre">n</span></code> равно 5, но можно указать явно. Похожий по смыслу метод <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.tail.html">DataFrame.tail</a> возвращает последние <code class="docutils literal notranslate"><span class="pre">n</span></code> строк.</p>
+<p>Метод <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.head.html">DataFrame.head</a> возвращает первые <code class="docutils literal notranslate"><span class="pre">n</span></code> строк таблицы. По умолчанию <code class="docutils literal notranslate"><span class="pre">n</span></code> равно 5, но можно указать явно и другое значение. Похожий по смыслу метод <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.tail.html">DataFrame.tail</a> возвращает последние <code class="docutils literal notranslate"><span class="pre">n</span></code> строк.</p>
 <p>Метод <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.info.html">DataFrame.info</a> печатает информацию о таблице. В частности, из вывода этой функции можно понять количество строк и столбцов, тип индекса таблицы, имя каждого столбца, тип данных и количество непропущенных значений в них.</p>
 </div>
-<p>Считаем эту таблицу ещё раз, указав в этот раз в качестве индекса столбец <code class="docutils literal notranslate"><span class="pre">brand</span></code>.</p>
+<p>Считаем эту таблицу ещё раз, указав в этот раз в качестве индекса столбец <code class="docutils literal notranslate"><span class="pre">&quot;Название&quot;</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s2">&quot;brand&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
-<span class="n">df</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">planets</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s2">&quot;Название&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+<span class="n">planets</span>
 </pre></div>
 </div>
 </div>
@@ -1329,27 +1532,13 @@ None
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>mpg</th>
-      <th>cyl</th>
-      <th>disp</th>
-      <th>hp</th>
-      <th>drat</th>
-      <th>wt</th>
-      <th>qsec</th>
-      <th>vs</th>
-      <th>am</th>
-      <th>gear</th>
-      <th>carb</th>
+      <th>Количество спутников</th>
+      <th>Масса</th>
+      <th>Группа</th>
+      <th>Кольца</th>
     </tr>
     <tr>
-      <th>brand</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Название</th>
       <th></th>
       <th></th>
       <th></th>
@@ -1358,452 +1547,60 @@ None
   </thead>
   <tbody>
     <tr>
-      <th>Mazda RX4</th>
-      <td>21.0</td>
-      <td>6.0</td>
-      <td>160.0</td>
-      <td>110.0</td>
-      <td>3.90</td>
-      <td>2.620</td>
-      <td>16.46</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>4.0</td>
+      <th>Меркурий</th>
+      <td>0</td>
+      <td>0.0055</td>
+      <td>земная группа</td>
+      <td>Нет</td>
     </tr>
     <tr>
-      <th>Mazda RX4 Wag</th>
-      <td>21.0</td>
-      <td>6.0</td>
-      <td>160.0</td>
-      <td>110.0</td>
-      <td>3.90</td>
-      <td>2.875</td>
-      <td>17.02</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>4.0</td>
+      <th>Венера</th>
+      <td>0</td>
+      <td>0.8150</td>
+      <td>земная группа</td>
+      <td>Нет</td>
     </tr>
     <tr>
-      <th>Datsun 710</th>
-      <td>22.8</td>
-      <td>4.0</td>
-      <td>108.0</td>
-      <td>93.0</td>
-      <td>3.85</td>
-      <td>2.320</td>
-      <td>18.61</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>1.0</td>
+      <th>Земля</th>
+      <td>1</td>
+      <td>1.0000</td>
+      <td>земная группа</td>
+      <td>Нет</td>
     </tr>
     <tr>
-      <th>Hornet 4 Drive</th>
-      <td>21.4</td>
-      <td>6.0</td>
-      <td>258.0</td>
-      <td>110.0</td>
-      <td>3.08</td>
-      <td>3.215</td>
-      <td>19.44</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>1.0</td>
+      <th>Марс</th>
+      <td>2</td>
+      <td>0.1070</td>
+      <td>земная группа</td>
+      <td>Нет</td>
     </tr>
     <tr>
-      <th>Hornet Sportabout</th>
-      <td>18.7</td>
-      <td>8.0</td>
-      <td>360.0</td>
-      <td>175.0</td>
-      <td>3.15</td>
-      <td>3.440</td>
-      <td>17.02</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>2.0</td>
+      <th>Юпитер</th>
+      <td>62</td>
+      <td>317.8000</td>
+      <td>газовый гигант</td>
+      <td>Да</td>
     </tr>
     <tr>
-      <th>Valiant</th>
-      <td>18.1</td>
-      <td>6.0</td>
-      <td>225.0</td>
-      <td>105.0</td>
-      <td>2.76</td>
-      <td>3.460</td>
-      <td>20.22</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>1.0</td>
+      <th>Сатурн</th>
+      <td>34</td>
+      <td>95.2000</td>
+      <td>газовый гигант</td>
+      <td>Да</td>
     </tr>
     <tr>
-      <th>Duster 360</th>
-      <td>14.3</td>
-      <td>8.0</td>
-      <td>360.0</td>
-      <td>245.0</td>
-      <td>3.21</td>
-      <td>3.570</td>
-      <td>15.84</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>4.0</td>
+      <th>Уран</th>
+      <td>27</td>
+      <td>14.3700</td>
+      <td>ледяной гигант</td>
+      <td>Да</td>
     </tr>
     <tr>
-      <th>Merc 240D</th>
-      <td>24.4</td>
-      <td>4.0</td>
-      <td>146.7</td>
-      <td>62.0</td>
-      <td>3.69</td>
-      <td>3.190</td>
-      <td>20.00</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>4.0</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>Merc 230</th>
-      <td>22.8</td>
-      <td>4.0</td>
-      <td>140.8</td>
-      <td>95.0</td>
-      <td>3.92</td>
-      <td>3.150</td>
-      <td>22.90</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>4.0</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>Merc 280</th>
-      <td>19.2</td>
-      <td>6.0</td>
-      <td>167.6</td>
-      <td>123.0</td>
-      <td>3.92</td>
-      <td>3.440</td>
-      <td>18.30</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>4.0</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>Merc 280C</th>
-      <td>17.8</td>
-      <td>6.0</td>
-      <td>167.6</td>
-      <td>123.0</td>
-      <td>3.92</td>
-      <td>3.440</td>
-      <td>18.90</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>4.0</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>Merc 450SE</th>
-      <td>16.4</td>
-      <td>8.0</td>
-      <td>275.8</td>
-      <td>180.0</td>
-      <td>3.07</td>
-      <td>4.070</td>
-      <td>17.40</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>3.0</td>
-    </tr>
-    <tr>
-      <th>Merc 450SL</th>
-      <td>17.3</td>
-      <td>8.0</td>
-      <td>275.8</td>
-      <td>180.0</td>
-      <td>3.07</td>
-      <td>3.730</td>
-      <td>17.60</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>3.0</td>
-    </tr>
-    <tr>
-      <th>Merc 450SLC</th>
-      <td>15.2</td>
-      <td>8.0</td>
-      <td>275.8</td>
-      <td>180.0</td>
-      <td>3.07</td>
-      <td>3.780</td>
-      <td>18.00</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>3.0</td>
-    </tr>
-    <tr>
-      <th>Cadillac Fleetwood</th>
-      <td>10.4</td>
-      <td>8.0</td>
-      <td>472.0</td>
-      <td>205.0</td>
-      <td>2.93</td>
-      <td>5.250</td>
-      <td>17.98</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>Lincoln Continental</th>
-      <td>10.4</td>
-      <td>8.0</td>
-      <td>460.0</td>
-      <td>215.0</td>
-      <td>3.00</td>
-      <td>5.424</td>
-      <td>17.82</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>Chrysler Imperial</th>
-      <td>14.7</td>
-      <td>8.0</td>
-      <td>440.0</td>
-      <td>230.0</td>
-      <td>3.23</td>
-      <td>5.345</td>
-      <td>17.42</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>Fiat 128</th>
-      <td>32.4</td>
-      <td>4.0</td>
-      <td>78.7</td>
-      <td>66.0</td>
-      <td>4.08</td>
-      <td>2.200</td>
-      <td>19.47</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>Honda Civic</th>
-      <td>30.4</td>
-      <td>4.0</td>
-      <td>75.7</td>
-      <td>52.0</td>
-      <td>4.93</td>
-      <td>1.615</td>
-      <td>18.52</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>Toyota Corolla</th>
-      <td>33.9</td>
-      <td>4.0</td>
-      <td>71.1</td>
-      <td>65.0</td>
-      <td>4.22</td>
-      <td>1.835</td>
-      <td>19.90</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>Toyota Corona</th>
-      <td>21.5</td>
-      <td>4.0</td>
-      <td>120.1</td>
-      <td>97.0</td>
-      <td>3.70</td>
-      <td>2.465</td>
-      <td>20.01</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>Dodge Challenger</th>
-      <td>15.5</td>
-      <td>8.0</td>
-      <td>318.0</td>
-      <td>150.0</td>
-      <td>2.76</td>
-      <td>3.520</td>
-      <td>16.87</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>AMC Javelin</th>
-      <td>15.2</td>
-      <td>8.0</td>
-      <td>304.0</td>
-      <td>150.0</td>
-      <td>3.15</td>
-      <td>3.435</td>
-      <td>17.30</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>Camaro Z28</th>
-      <td>13.3</td>
-      <td>8.0</td>
-      <td>350.0</td>
-      <td>245.0</td>
-      <td>3.73</td>
-      <td>3.840</td>
-      <td>15.41</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>Pontiac Firebird</th>
-      <td>19.2</td>
-      <td>8.0</td>
-      <td>400.0</td>
-      <td>175.0</td>
-      <td>3.08</td>
-      <td>3.845</td>
-      <td>17.05</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>Fiat X1-9</th>
-      <td>27.3</td>
-      <td>4.0</td>
-      <td>79.0</td>
-      <td>66.0</td>
-      <td>4.08</td>
-      <td>1.935</td>
-      <td>18.90</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>Porsche 914-2</th>
-      <td>26.0</td>
-      <td>4.0</td>
-      <td>120.3</td>
-      <td>91.0</td>
-      <td>4.43</td>
-      <td>2.140</td>
-      <td>16.70</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>5.0</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>Lotus Europa</th>
-      <td>30.4</td>
-      <td>4.0</td>
-      <td>95.1</td>
-      <td>113.0</td>
-      <td>3.77</td>
-      <td>1.513</td>
-      <td>16.90</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>5.0</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>Ford Pantera L</th>
-      <td>15.8</td>
-      <td>8.0</td>
-      <td>351.0</td>
-      <td>264.0</td>
-      <td>4.22</td>
-      <td>3.170</td>
-      <td>14.50</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>5.0</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>Ferrari Dino</th>
-      <td>19.7</td>
-      <td>6.0</td>
-      <td>145.0</td>
-      <td>175.0</td>
-      <td>3.62</td>
-      <td>2.770</td>
-      <td>15.50</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>5.0</td>
-      <td>6.0</td>
-    </tr>
-    <tr>
-      <th>Maserati Bora</th>
-      <td>15.0</td>
-      <td>8.0</td>
-      <td>301.0</td>
-      <td>335.0</td>
-      <td>3.54</td>
-      <td>3.570</td>
-      <td>14.60</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>5.0</td>
-      <td>8.0</td>
-    </tr>
-    <tr>
-      <th>Volvo 142E</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <th>Нептун</th>
+      <td>13</td>
+      <td>17.1500</td>
+      <td>ледяной гигант</td>
+      <td>Да</td>
     </tr>
   </tbody>
 </table>
@@ -1812,158 +1609,91 @@ None
 <p>Аналогично можно считывать данные из таблиц <code class="docutils literal notranslate"><span class="pre">excel</span></code> методом <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.read_excel.html">read_excel</a>.</p>
 <p>Методами <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_csv.html#pandas.DataFrame.to_csv">to_csv</a> и <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_excel.html#pandas.DataFrame.to_excel">to_excel</a> можно сохранить <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> в таблицу удобном формате (для сохранения в <code class="docutils literal notranslate"><span class="pre">excel</span></code> необходимо поставить библиотеку <a class="reference external" href="https://openpyxl.readthedocs.io/en/stable/">openpyxl</a> или её аналоги).</p>
 </div>
-<div class="section" id="dataframe">
-<h2>Индексация DataFrame<a class="headerlink" href="#dataframe" title="Permalink to this headline">¶</a></h2>
-<p>Доступ к строкам <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> осуществляется в точности, как осуществляется доступ к элементам <code class="docutils literal notranslate"><span class="pre">Series</span></code>, т.е. используются методы <code class="docutils literal notranslate"><span class="pre">loc</span></code> и <code class="docutils literal notranslate"><span class="pre">iloc</span></code>, которые сразу возвращают строку в виде объекта <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code>, у которого в качестве индекса выступают имена столбцов.</p>
+<div class="section" id="id6">
+<h2>Индексация<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id7">
+<h3>Строки<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>Для получения строк таблицы используются те же самые <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html">.loc</a> и <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html">iloc</a> (метки и порядковый номер соответственно).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;Volvo 142E&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">planets</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;Марс&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;_&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">planets</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mpg    NaN
-cyl    NaN
-disp   NaN
-hp     NaN
-drat   NaN
-wt     NaN
-qsec   NaN
-vs     NaN
-am     NaN
-gear   NaN
-carb   NaN
-Name: Volvo 142E, dtype: float64
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Количество спутников                2
+Масса                           0.107
+Группа                  земная группа
+Кольца                            Нет
+Name: Марс, dtype: object
+________________________________________________________________________________
+Количество спутников                1
+Масса                             1.0
+Группа                  земная группа
+Кольца                            Нет
+Name: Земля, dtype: object
 </pre></div>
 </div>
 </div>
 </div>
-<p>Оператор <code class="docutils literal notranslate"><span class="pre">[]</span></code> датафрейма предназначен для выбора столбцов. Передавать в него можно имя нужного столбца или список таких имен. Результат в первом случае — столбец в виде <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code>, а во втором случае — таблица <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> из указанных столбцов.</p>
+<p>В ответ вы получаете объект <code class="docutils literal notranslate"><span class="pre">pandas.Series</span></code> соответствующей всей строке, при этом индекс этого объекта соответствует названиям столбцов. Если использовать срезы или список меток, то вы получите новую таблицу с, возможно, меньшим количеством строк.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Простые квадратные скобки “<code class="docutils literal notranslate"><span class="pre">[]</span></code>” не индексируют таблицу по строкам!</p>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>Столбцы<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>Для получения столбца используется оператор “<code class="docutils literal notranslate"><span class="pre">[]</span></code>”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;mpg&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">planets</span><span class="p">[</span><span class="s2">&quot;Количество спутников&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>brand
-Mazda RX4            21.0
-Mazda RX4 Wag        21.0
-Datsun 710           22.8
-Hornet 4 Drive       21.4
-Hornet Sportabout    18.7
-Name: mpg, dtype: float64
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Название
+Меркурий     0
+Венера       0
+Земля        1
+Марс         2
+Юпитер      62
+Сатурн      34
+Уран        27
+Нептун      13
+Name: Количество спутников, dtype: int64
 </pre></div>
 </div>
 </div>
 </div>
+<p>Если в названии столбца нет пробелов и оно не совпадает ни с одним методом класса <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code>, то можно использовать точечную нотацию. Хотя, конечно, в случае кириллицы это выглядит странно.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;cyl&quot;</span><span class="p">,</span> <span class="s2">&quot;wt&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">planets</span><span class="o">.</span><span class="n">Масса</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>cyl</th>
-      <th>wt</th>
-    </tr>
-    <tr>
-      <th>brand</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Lotus Europa</th>
-      <td>4.0</td>
-      <td>1.513</td>
-    </tr>
-    <tr>
-      <th>Ford Pantera L</th>
-      <td>8.0</td>
-      <td>3.170</td>
-    </tr>
-    <tr>
-      <th>Ferrari Dino</th>
-      <td>6.0</td>
-      <td>2.770</td>
-    </tr>
-    <tr>
-      <th>Maserati Bora</th>
-      <td>8.0</td>
-      <td>3.570</td>
-    </tr>
-    <tr>
-      <th>Volvo 142E</th>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Название
+Меркурий      0.0055
+Венера        0.8150
+Земля         1.0000
+Марс          0.1070
+Юпитер      317.8000
+Сатурн       95.2000
+Уран         14.3700
+Нептун       17.1500
+Name: Масса, dtype: float64
+</pre></div>
 </div>
-<p>Если в названии столбца нет пробелов, то можно обращаться к столбцу, как к атрибуту объекта.</p>
+</div>
+</div>
+<p>Можно указывать список названий столбцов, чтобы извлечь сразу подтаблицу целиком.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">carb</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>brand
-Mazda RX4        4.0
-Mazda RX4 Wag    4.0
-Datsun 710       1.0
-Name: carb, dtype: float64
-</pre></div>
-</div>
-</div>
-</div>
-<p>Методы <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.at.html">DataFrame.at</a> и <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.iat.html#pandas.DataFrame.iat">DataFrame.iat</a> позволяют получить одно значение на пересечении строки и столбца.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>21.0
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="id3">
-<h2>Добавление столбцов<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
-<p>Добавление и изменение столбцов в таблицу похоже на добавление элементов в словарь. При этом, если добавляется столбец с индексом (<code class="docutils literal notranslate"><span class="pre">pd.Series</span></code>), то данные автоматически выравниваются.</p>
-<p>Пусть поступили данные о стоимости автомобилей определенной марки.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">price</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span>
-    <span class="s2">&quot;Mazda RX4&quot;</span><span class="p">:</span> <span class="mi">100_000</span><span class="p">,</span> 
-    <span class="s2">&quot;Lotus Europa&quot;</span><span class="p">:</span> <span class="mi">120_000</span>
-    <span class="p">})</span>
-<span class="n">df</span><span class="p">[</span><span class="s2">&quot;price&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">price</span>
-<span class="n">df</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">planets</span><span class="p">[[</span><span class="s2">&quot;Группа&quot;</span><span class="p">,</span> <span class="s2">&quot;Кольца&quot;</span><span class="p">,</span> <span class="s2">&quot;Масса&quot;</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
@@ -1986,28 +1716,225 @@ Name: carb, dtype: float64
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>mpg</th>
-      <th>cyl</th>
-      <th>disp</th>
-      <th>hp</th>
-      <th>drat</th>
-      <th>wt</th>
-      <th>qsec</th>
-      <th>vs</th>
-      <th>am</th>
-      <th>gear</th>
-      <th>carb</th>
-      <th>price</th>
+      <th>Группа</th>
+      <th>Кольца</th>
+      <th>Масса</th>
     </tr>
     <tr>
-      <th>brand</th>
+      <th>Название</th>
       <th></th>
       <th></th>
       <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Меркурий</th>
+      <td>земная группа</td>
+      <td>Нет</td>
+      <td>0.0055</td>
+    </tr>
+    <tr>
+      <th>Венера</th>
+      <td>земная группа</td>
+      <td>Нет</td>
+      <td>0.8150</td>
+    </tr>
+    <tr>
+      <th>Земля</th>
+      <td>земная группа</td>
+      <td>Нет</td>
+      <td>1.0000</td>
+    </tr>
+    <tr>
+      <th>Марс</th>
+      <td>земная группа</td>
+      <td>Нет</td>
+      <td>0.1070</td>
+    </tr>
+    <tr>
+      <th>Юпитер</th>
+      <td>газовый гигант</td>
+      <td>Да</td>
+      <td>317.8000</td>
+    </tr>
+    <tr>
+      <th>Сатурн</th>
+      <td>газовый гигант</td>
+      <td>Да</td>
+      <td>95.2000</td>
+    </tr>
+    <tr>
+      <th>Уран</th>
+      <td>ледяной гигант</td>
+      <td>Да</td>
+      <td>14.3700</td>
+    </tr>
+    <tr>
+      <th>Нептун</th>
+      <td>ледяной гигант</td>
+      <td>Да</td>
+      <td>17.1500</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="id9">
+<h3>Конкретные ячейки<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>Для получения доступа сразу к конкретной ячейке используются методы <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.at.html">DataFrame.at</a> и <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.iat.html#pandas.DataFrame.iat">DataFrame.iat</a>.</p>
+<ul class="simple">
+<li><p>метод <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.at.html">DataFrame.at</a> принимает на вход метку строки и название столбца, и возвращает значение ячейки, располагающейся на их пересечении.</p></li>
+<li><p>метод <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.iat.html">DataFrame.iat</a> принимает на вход номер строки и номер столбца,  и возвращает значение ячейки, располагающейся на их пересечении.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">planets</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="s1">&#39;Меркурий&#39;</span><span class="p">,</span> <span class="s1">&#39;Количество спутников&#39;</span><span class="p">]</span><span class="si">=}</span><span class="s2">, </span><span class="si">{</span><span class="n">planets</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>planets.at[&#39;Меркурий&#39;, &#39;Количество спутников&#39;]=0, planets.iat[0, 0]=0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Однако, если метки строк и названия столбцов повторяются, то методом “<code class="docutils literal notranslate"><span class="pre">.at</span></code>” вместо значения одной ячейки вы можете получить или сразу <code class="docutils literal notranslate"><span class="pre">pandas.Series</span></code> или <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">duplicated_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">])</span>
+<span class="n">duplicated_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
       <th></th>
+      <th>b</th>
+      <th>b</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>a</th>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">duplicated_df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
       <th></th>
+      <th>b</th>
+      <th>b</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>a</th>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="id10">
+<h2>Добавление столбцов<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<p>Добавление и изменение столбцов в таблицу похоже на добавление элементов в словарь. При этом данные автоматически выравниваются по индексу. В качестве примера добавим к таблице про планет столбец с данными про экваториальный диаметр. Обратите внимание, что планеты перечислены в порядке отличном от порядка таблицы, и далеко не все планеты есть в новом столбце. В итоговой таблицы все присутствующие значения выравниваются, а недостающие заменяются на <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">planets</span><span class="p">[</span><span class="s2">&quot;Экваториальный диаметр&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span>
+    <span class="s2">&quot;Венера&quot;</span><span class="p">:</span> <span class="mf">0.949</span><span class="p">,</span>
+    <span class="s2">&quot;Сатурн&quot;</span><span class="p">:</span> <span class="mf">9.449</span><span class="p">,</span>
+    <span class="s2">&quot;Земля&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+    <span class="s2">&quot;Меркурий&quot;</span><span class="p">:</span> <span class="mf">0.382</span><span class="p">,</span>
+<span class="p">})</span>
+
+<span class="n">planets</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
       <th></th>
-      <th></th>
+      <th>Количество спутников</th>
+      <th>Масса</th>
+      <th>Группа</th>
+      <th>Кольца</th>
+      <th>Экваториальный диаметр</th>
+    </tr>
+    <tr>
+      <th>Название</th>
       <th></th>
       <th></th>
       <th></th>
@@ -2017,483 +1944,67 @@ Name: carb, dtype: float64
   </thead>
   <tbody>
     <tr>
-      <th>Mazda RX4</th>
-      <td>21.0</td>
-      <td>6.0</td>
-      <td>160.0</td>
-      <td>110.0</td>
-      <td>3.90</td>
-      <td>2.620</td>
-      <td>16.46</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>4.0</td>
-      <td>100000.0</td>
+      <th>Меркурий</th>
+      <td>0</td>
+      <td>0.0055</td>
+      <td>земная группа</td>
+      <td>Нет</td>
+      <td>0.382</td>
     </tr>
     <tr>
-      <th>Mazda RX4 Wag</th>
-      <td>21.0</td>
-      <td>6.0</td>
-      <td>160.0</td>
-      <td>110.0</td>
-      <td>3.90</td>
-      <td>2.875</td>
-      <td>17.02</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>4.0</td>
-      <td>NaN</td>
+      <th>Венера</th>
+      <td>0</td>
+      <td>0.8150</td>
+      <td>земная группа</td>
+      <td>Нет</td>
+      <td>0.949</td>
     </tr>
     <tr>
-      <th>Datsun 710</th>
-      <td>22.8</td>
-      <td>4.0</td>
-      <td>108.0</td>
-      <td>93.0</td>
-      <td>3.85</td>
-      <td>2.320</td>
-      <td>18.61</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>1.0</td>
+      <th>Земля</th>
+      <td>1</td>
+      <td>1.0000</td>
+      <td>земная группа</td>
+      <td>Нет</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <th>Марс</th>
+      <td>2</td>
+      <td>0.1070</td>
+      <td>земная группа</td>
+      <td>Нет</td>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>Hornet 4 Drive</th>
-      <td>21.4</td>
-      <td>6.0</td>
-      <td>258.0</td>
-      <td>110.0</td>
-      <td>3.08</td>
-      <td>3.215</td>
-      <td>19.44</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>1.0</td>
+      <th>Юпитер</th>
+      <td>62</td>
+      <td>317.8000</td>
+      <td>газовый гигант</td>
+      <td>Да</td>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>Hornet Sportabout</th>
-      <td>18.7</td>
-      <td>8.0</td>
-      <td>360.0</td>
-      <td>175.0</td>
-      <td>3.15</td>
-      <td>3.440</td>
-      <td>17.02</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>2.0</td>
+      <th>Сатурн</th>
+      <td>34</td>
+      <td>95.2000</td>
+      <td>газовый гигант</td>
+      <td>Да</td>
+      <td>9.449</td>
+    </tr>
+    <tr>
+      <th>Уран</th>
+      <td>27</td>
+      <td>14.3700</td>
+      <td>ледяной гигант</td>
+      <td>Да</td>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>Valiant</th>
-      <td>18.1</td>
-      <td>6.0</td>
-      <td>225.0</td>
-      <td>105.0</td>
-      <td>2.76</td>
-      <td>3.460</td>
-      <td>20.22</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>1.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>Duster 360</th>
-      <td>14.3</td>
-      <td>8.0</td>
-      <td>360.0</td>
-      <td>245.0</td>
-      <td>3.21</td>
-      <td>3.570</td>
-      <td>15.84</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>4.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>Merc 240D</th>
-      <td>24.4</td>
-      <td>4.0</td>
-      <td>146.7</td>
-      <td>62.0</td>
-      <td>3.69</td>
-      <td>3.190</td>
-      <td>20.00</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>4.0</td>
-      <td>2.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>Merc 230</th>
-      <td>22.8</td>
-      <td>4.0</td>
-      <td>140.8</td>
-      <td>95.0</td>
-      <td>3.92</td>
-      <td>3.150</td>
-      <td>22.90</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>4.0</td>
-      <td>2.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>Merc 280</th>
-      <td>19.2</td>
-      <td>6.0</td>
-      <td>167.6</td>
-      <td>123.0</td>
-      <td>3.92</td>
-      <td>3.440</td>
-      <td>18.30</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>4.0</td>
-      <td>4.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>Merc 280C</th>
-      <td>17.8</td>
-      <td>6.0</td>
-      <td>167.6</td>
-      <td>123.0</td>
-      <td>3.92</td>
-      <td>3.440</td>
-      <td>18.90</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>4.0</td>
-      <td>4.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>Merc 450SE</th>
-      <td>16.4</td>
-      <td>8.0</td>
-      <td>275.8</td>
-      <td>180.0</td>
-      <td>3.07</td>
-      <td>4.070</td>
-      <td>17.40</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>3.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>Merc 450SL</th>
-      <td>17.3</td>
-      <td>8.0</td>
-      <td>275.8</td>
-      <td>180.0</td>
-      <td>3.07</td>
-      <td>3.730</td>
-      <td>17.60</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>3.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>Merc 450SLC</th>
-      <td>15.2</td>
-      <td>8.0</td>
-      <td>275.8</td>
-      <td>180.0</td>
-      <td>3.07</td>
-      <td>3.780</td>
-      <td>18.00</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>3.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>Cadillac Fleetwood</th>
-      <td>10.4</td>
-      <td>8.0</td>
-      <td>472.0</td>
-      <td>205.0</td>
-      <td>2.93</td>
-      <td>5.250</td>
-      <td>17.98</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>4.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>Lincoln Continental</th>
-      <td>10.4</td>
-      <td>8.0</td>
-      <td>460.0</td>
-      <td>215.0</td>
-      <td>3.00</td>
-      <td>5.424</td>
-      <td>17.82</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>4.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>Chrysler Imperial</th>
-      <td>14.7</td>
-      <td>8.0</td>
-      <td>440.0</td>
-      <td>230.0</td>
-      <td>3.23</td>
-      <td>5.345</td>
-      <td>17.42</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>4.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>Fiat 128</th>
-      <td>32.4</td>
-      <td>4.0</td>
-      <td>78.7</td>
-      <td>66.0</td>
-      <td>4.08</td>
-      <td>2.200</td>
-      <td>19.47</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>1.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>Honda Civic</th>
-      <td>30.4</td>
-      <td>4.0</td>
-      <td>75.7</td>
-      <td>52.0</td>
-      <td>4.93</td>
-      <td>1.615</td>
-      <td>18.52</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>2.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>Toyota Corolla</th>
-      <td>33.9</td>
-      <td>4.0</td>
-      <td>71.1</td>
-      <td>65.0</td>
-      <td>4.22</td>
-      <td>1.835</td>
-      <td>19.90</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>1.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>Toyota Corona</th>
-      <td>21.5</td>
-      <td>4.0</td>
-      <td>120.1</td>
-      <td>97.0</td>
-      <td>3.70</td>
-      <td>2.465</td>
-      <td>20.01</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>1.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>Dodge Challenger</th>
-      <td>15.5</td>
-      <td>8.0</td>
-      <td>318.0</td>
-      <td>150.0</td>
-      <td>2.76</td>
-      <td>3.520</td>
-      <td>16.87</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>2.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>AMC Javelin</th>
-      <td>15.2</td>
-      <td>8.0</td>
-      <td>304.0</td>
-      <td>150.0</td>
-      <td>3.15</td>
-      <td>3.435</td>
-      <td>17.30</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>2.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>Camaro Z28</th>
-      <td>13.3</td>
-      <td>8.0</td>
-      <td>350.0</td>
-      <td>245.0</td>
-      <td>3.73</td>
-      <td>3.840</td>
-      <td>15.41</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>4.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>Pontiac Firebird</th>
-      <td>19.2</td>
-      <td>8.0</td>
-      <td>400.0</td>
-      <td>175.0</td>
-      <td>3.08</td>
-      <td>3.845</td>
-      <td>17.05</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>2.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>Fiat X1-9</th>
-      <td>27.3</td>
-      <td>4.0</td>
-      <td>79.0</td>
-      <td>66.0</td>
-      <td>4.08</td>
-      <td>1.935</td>
-      <td>18.90</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>1.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>Porsche 914-2</th>
-      <td>26.0</td>
-      <td>4.0</td>
-      <td>120.3</td>
-      <td>91.0</td>
-      <td>4.43</td>
-      <td>2.140</td>
-      <td>16.70</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>5.0</td>
-      <td>2.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>Lotus Europa</th>
-      <td>30.4</td>
-      <td>4.0</td>
-      <td>95.1</td>
-      <td>113.0</td>
-      <td>3.77</td>
-      <td>1.513</td>
-      <td>16.90</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>5.0</td>
-      <td>2.0</td>
-      <td>120000.0</td>
-    </tr>
-    <tr>
-      <th>Ford Pantera L</th>
-      <td>15.8</td>
-      <td>8.0</td>
-      <td>351.0</td>
-      <td>264.0</td>
-      <td>4.22</td>
-      <td>3.170</td>
-      <td>14.50</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>5.0</td>
-      <td>4.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>Ferrari Dino</th>
-      <td>19.7</td>
-      <td>6.0</td>
-      <td>145.0</td>
-      <td>175.0</td>
-      <td>3.62</td>
-      <td>2.770</td>
-      <td>15.50</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>5.0</td>
-      <td>6.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>Maserati Bora</th>
-      <td>15.0</td>
-      <td>8.0</td>
-      <td>301.0</td>
-      <td>335.0</td>
-      <td>3.54</td>
-      <td>3.570</td>
-      <td>14.60</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>5.0</td>
-      <td>8.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>Volvo 142E</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <th>Нептун</th>
+      <td>13</td>
+      <td>17.1500</td>
+      <td>ледяной гигант</td>
+      <td>Да</td>
       <td>NaN</td>
     </tr>
   </tbody>
@@ -2501,37 +2012,33 @@ Name: carb, dtype: float64
 </div></div></div>
 </div>
 </div>
-<div class="section" id="id4">
-<h2>Пропущенные значения<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
-<p>Большинство методов <code class="docutils literal notranslate"><span class="pre">pandas</span></code> разработаны таким образом, чтобы обрабатывать пропущенные значения.</p>
+<div class="section" id="id11">
+<h2>Пропущенные значения<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<p>Большинство методов <code class="docutils literal notranslate"><span class="pre">pandas</span></code> разработаны таким образом, чтобы они работали с пропущенными значениями.</p>
+<p>Например, метод <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.mean.html">mean</a> вычисляет среднее всех столбцов с численными значениями. В том числе он сработает и для столбца <code class="docutils literal notranslate"><span class="pre">&quot;Экваториальный</span> <span class="pre">диаметр&quot;</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Параметр <code class="docutils literal notranslate"><span class="pre">numeric_only</span></code> необходим, так как в таблице есть не только столбцы с числами, но столбцы другого рода.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">planets</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mpg          20.048387
-cyl           6.258065
-disp        234.261290
-hp          147.903226
-drat          3.580000
-wt            3.231355
-qsec         17.824516
-vs            0.419355
-am            0.387097
-gear          3.677419
-carb          2.838710
-price    110000.000000
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Количество спутников      17.375000
+Масса                     55.805937
+Экваториальный диаметр     2.945000
 dtype: float64
 </pre></div>
 </div>
 </div>
 </div>
-<p>Тем не менее иногда необходимо избавиться от строк или столбцов с пропущенными данными. Для этого удобно использовать метод <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.dropna.html">DataFrame.dropna</a>, который возвращает новую таблицу, состоящую из строк исходной таблицы, не содержащих <code class="docutils literal notranslate"><span class="pre">np.nan</span></code>.</p>
+<p>Тем не менее иногда необходимо избавиться от строк или столбцов с пропущенными данными. Для этого удобно использовать метод <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.dropna.html">DataFrame.dropna</a>, который возвращает новую таблицу (иными словами работает <strong>не на месте</strong>, но параметром <code class="docutils literal notranslate"><span class="pre">inplace</span></code> можно заставить его отработать на месте), состоящую из не содержащих <code class="docutils literal notranslate"><span class="pre">np.nan</span></code> строк исходной таблицы.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">planets</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -2554,28 +2061,14 @@ dtype: float64
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>mpg</th>
-      <th>cyl</th>
-      <th>disp</th>
-      <th>hp</th>
-      <th>drat</th>
-      <th>wt</th>
-      <th>qsec</th>
-      <th>vs</th>
-      <th>am</th>
-      <th>gear</th>
-      <th>carb</th>
-      <th>price</th>
+      <th>Количество спутников</th>
+      <th>Масса</th>
+      <th>Группа</th>
+      <th>Кольца</th>
+      <th>Экваториальный диаметр</th>
     </tr>
     <tr>
-      <th>brand</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Название</th>
       <th></th>
       <th></th>
       <th></th>
@@ -2585,44 +2078,45 @@ dtype: float64
   </thead>
   <tbody>
     <tr>
-      <th>Mazda RX4</th>
-      <td>21.0</td>
-      <td>6.0</td>
-      <td>160.0</td>
-      <td>110.0</td>
-      <td>3.90</td>
-      <td>2.620</td>
-      <td>16.46</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>4.0</td>
-      <td>100000.0</td>
+      <th>Меркурий</th>
+      <td>0</td>
+      <td>0.0055</td>
+      <td>земная группа</td>
+      <td>Нет</td>
+      <td>0.382</td>
     </tr>
     <tr>
-      <th>Lotus Europa</th>
-      <td>30.4</td>
-      <td>4.0</td>
-      <td>95.1</td>
-      <td>113.0</td>
-      <td>3.77</td>
-      <td>1.513</td>
-      <td>16.90</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>5.0</td>
-      <td>2.0</td>
-      <td>120000.0</td>
+      <th>Венера</th>
+      <td>0</td>
+      <td>0.8150</td>
+      <td>земная группа</td>
+      <td>Нет</td>
+      <td>0.949</td>
+    </tr>
+    <tr>
+      <th>Земля</th>
+      <td>1</td>
+      <td>1.0000</td>
+      <td>земная группа</td>
+      <td>Нет</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <th>Сатурн</th>
+      <td>34</td>
+      <td>95.2000</td>
+      <td>газовый гигант</td>
+      <td>Да</td>
+      <td>9.449</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-<p>Параметром <code class="docutils literal notranslate"><span class="pre">axis</span></code> можно выбрать, отбрасывать ли строки или столбцы. Параметр <code class="docutils literal notranslate"><span class="pre">how</span></code> может быть равен или <code class="docutils literal notranslate"><span class="pre">all</span></code> или <code class="docutils literal notranslate"><span class="pre">any</span></code> (по умолчанию <code class="docutils literal notranslate"><span class="pre">any</span></code>) и в зависимости от этого отбрасываются те строки таблицы (столбцы), в которых пропущены все или хотя бы одно значения.</p>
-<p>Вместо того чтобы отбросить пропущенные значения, методом <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.fillna.html">df.fillna</a> можно их заполнить. В самом простом варианте он заполняет <code class="docutils literal notranslate"><span class="pre">na</span></code> во всех столбцах одним и тем же значением (по умолчанию не на месте).</p>
+<p>Параметром <code class="docutils literal notranslate"><span class="pre">axis</span></code> можно выбрать, отбрасывать ли строки или столбцы.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">planets</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;columns&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2645,28 +2139,115 @@ dtype: float64
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>mpg</th>
-      <th>cyl</th>
-      <th>disp</th>
-      <th>hp</th>
-      <th>drat</th>
-      <th>wt</th>
-      <th>qsec</th>
-      <th>vs</th>
-      <th>am</th>
-      <th>gear</th>
-      <th>carb</th>
-      <th>price</th>
+      <th>Количество спутников</th>
+      <th>Масса</th>
+      <th>Группа</th>
+      <th>Кольца</th>
     </tr>
     <tr>
-      <th>brand</th>
+      <th>Название</th>
       <th></th>
       <th></th>
       <th></th>
       <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Меркурий</th>
+      <td>0</td>
+      <td>0.0055</td>
+      <td>земная группа</td>
+      <td>Нет</td>
+    </tr>
+    <tr>
+      <th>Венера</th>
+      <td>0</td>
+      <td>0.8150</td>
+      <td>земная группа</td>
+      <td>Нет</td>
+    </tr>
+    <tr>
+      <th>Земля</th>
+      <td>1</td>
+      <td>1.0000</td>
+      <td>земная группа</td>
+      <td>Нет</td>
+    </tr>
+    <tr>
+      <th>Марс</th>
+      <td>2</td>
+      <td>0.1070</td>
+      <td>земная группа</td>
+      <td>Нет</td>
+    </tr>
+    <tr>
+      <th>Юпитер</th>
+      <td>62</td>
+      <td>317.8000</td>
+      <td>газовый гигант</td>
+      <td>Да</td>
+    </tr>
+    <tr>
+      <th>Сатурн</th>
+      <td>34</td>
+      <td>95.2000</td>
+      <td>газовый гигант</td>
+      <td>Да</td>
+    </tr>
+    <tr>
+      <th>Уран</th>
+      <td>27</td>
+      <td>14.3700</td>
+      <td>ледяной гигант</td>
+      <td>Да</td>
+    </tr>
+    <tr>
+      <th>Нептун</th>
+      <td>13</td>
+      <td>17.1500</td>
+      <td>ледяной гигант</td>
+      <td>Да</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Параметр <code class="docutils literal notranslate"><span class="pre">how</span></code> может быть равен или <code class="docutils literal notranslate"><span class="pre">all</span></code> или <code class="docutils literal notranslate"><span class="pre">any</span></code> (по умолчанию <code class="docutils literal notranslate"><span class="pre">any</span></code>) и в зависимости от этого отбрасываются те строки таблицы (столбцы), в которых пропущены все или хотя бы одно значения.</p>
+<p>Вместо того чтобы отбросить пропущенные значения, методом <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.fillna.html">df.fillna</a> можно их заполнить. В самом простом варианте он заполняет <code class="docutils literal notranslate"><span class="pre">NaN</span></code> во всех столбцах одним и тем же значением (по умолчанию <strong>не на месте</strong>, но тоже есть параметр <code class="docutils literal notranslate"><span class="pre">inplace</span></code>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">planets</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
       <th></th>
-      <th></th>
-      <th></th>
+      <th>Количество спутников</th>
+      <th>Масса</th>
+      <th>Группа</th>
+      <th>Кольца</th>
+      <th>Экваториальный диаметр</th>
+    </tr>
+    <tr>
+      <th>Название</th>
       <th></th>
       <th></th>
       <th></th>
@@ -2676,484 +2257,68 @@ dtype: float64
   </thead>
   <tbody>
     <tr>
-      <th>Mazda RX4</th>
-      <td>21.0</td>
-      <td>6.0</td>
-      <td>160.0</td>
-      <td>110.0</td>
-      <td>3.90</td>
-      <td>2.620</td>
-      <td>16.46</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>4.0</td>
-      <td>100000.0</td>
+      <th>Меркурий</th>
+      <td>0</td>
+      <td>0.0055</td>
+      <td>земная группа</td>
+      <td>Нет</td>
+      <td>0.382</td>
     </tr>
     <tr>
-      <th>Mazda RX4 Wag</th>
-      <td>21.0</td>
-      <td>6.0</td>
-      <td>160.0</td>
-      <td>110.0</td>
-      <td>3.90</td>
-      <td>2.875</td>
-      <td>17.02</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>4.0</td>
-      <td>0.0</td>
+      <th>Венера</th>
+      <td>0</td>
+      <td>0.8150</td>
+      <td>земная группа</td>
+      <td>Нет</td>
+      <td>0.949</td>
     </tr>
     <tr>
-      <th>Datsun 710</th>
-      <td>22.8</td>
-      <td>4.0</td>
-      <td>108.0</td>
-      <td>93.0</td>
-      <td>3.85</td>
-      <td>2.320</td>
-      <td>18.61</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
+      <th>Земля</th>
+      <td>1</td>
+      <td>1.0000</td>
+      <td>земная группа</td>
+      <td>Нет</td>
+      <td>1.000</td>
     </tr>
     <tr>
-      <th>Hornet 4 Drive</th>
-      <td>21.4</td>
-      <td>6.0</td>
-      <td>258.0</td>
-      <td>110.0</td>
-      <td>3.08</td>
-      <td>3.215</td>
-      <td>19.44</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>Hornet Sportabout</th>
-      <td>18.7</td>
-      <td>8.0</td>
-      <td>360.0</td>
-      <td>175.0</td>
-      <td>3.15</td>
-      <td>3.440</td>
-      <td>17.02</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>2.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>Valiant</th>
-      <td>18.1</td>
-      <td>6.0</td>
-      <td>225.0</td>
-      <td>105.0</td>
-      <td>2.76</td>
-      <td>3.460</td>
-      <td>20.22</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>Duster 360</th>
-      <td>14.3</td>
-      <td>8.0</td>
-      <td>360.0</td>
-      <td>245.0</td>
-      <td>3.21</td>
-      <td>3.570</td>
-      <td>15.84</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>4.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>Merc 240D</th>
-      <td>24.4</td>
-      <td>4.0</td>
-      <td>146.7</td>
-      <td>62.0</td>
-      <td>3.69</td>
-      <td>3.190</td>
-      <td>20.00</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>4.0</td>
-      <td>2.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>Merc 230</th>
-      <td>22.8</td>
-      <td>4.0</td>
-      <td>140.8</td>
-      <td>95.0</td>
-      <td>3.92</td>
-      <td>3.150</td>
-      <td>22.90</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>4.0</td>
-      <td>2.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>Merc 280</th>
-      <td>19.2</td>
-      <td>6.0</td>
-      <td>167.6</td>
-      <td>123.0</td>
-      <td>3.92</td>
-      <td>3.440</td>
-      <td>18.30</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>4.0</td>
-      <td>4.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>Merc 280C</th>
-      <td>17.8</td>
-      <td>6.0</td>
-      <td>167.6</td>
-      <td>123.0</td>
-      <td>3.92</td>
-      <td>3.440</td>
-      <td>18.90</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>4.0</td>
-      <td>4.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>Merc 450SE</th>
-      <td>16.4</td>
-      <td>8.0</td>
-      <td>275.8</td>
-      <td>180.0</td>
-      <td>3.07</td>
-      <td>4.070</td>
-      <td>17.40</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>3.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>Merc 450SL</th>
-      <td>17.3</td>
-      <td>8.0</td>
-      <td>275.8</td>
-      <td>180.0</td>
-      <td>3.07</td>
-      <td>3.730</td>
-      <td>17.60</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>3.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>Merc 450SLC</th>
-      <td>15.2</td>
-      <td>8.0</td>
-      <td>275.8</td>
-      <td>180.0</td>
-      <td>3.07</td>
-      <td>3.780</td>
-      <td>18.00</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>3.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>Cadillac Fleetwood</th>
-      <td>10.4</td>
-      <td>8.0</td>
-      <td>472.0</td>
-      <td>205.0</td>
-      <td>2.93</td>
-      <td>5.250</td>
-      <td>17.98</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>4.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>Lincoln Continental</th>
-      <td>10.4</td>
-      <td>8.0</td>
-      <td>460.0</td>
-      <td>215.0</td>
-      <td>3.00</td>
-      <td>5.424</td>
-      <td>17.82</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>4.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>Chrysler Imperial</th>
-      <td>14.7</td>
-      <td>8.0</td>
-      <td>440.0</td>
-      <td>230.0</td>
-      <td>3.23</td>
-      <td>5.345</td>
-      <td>17.42</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>4.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>Fiat 128</th>
-      <td>32.4</td>
-      <td>4.0</td>
-      <td>78.7</td>
-      <td>66.0</td>
-      <td>4.08</td>
-      <td>2.200</td>
-      <td>19.47</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>Honda Civic</th>
-      <td>30.4</td>
-      <td>4.0</td>
-      <td>75.7</td>
-      <td>52.0</td>
-      <td>4.93</td>
-      <td>1.615</td>
-      <td>18.52</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>2.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>Toyota Corolla</th>
-      <td>33.9</td>
-      <td>4.0</td>
-      <td>71.1</td>
-      <td>65.0</td>
-      <td>4.22</td>
-      <td>1.835</td>
-      <td>19.90</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>Toyota Corona</th>
-      <td>21.5</td>
-      <td>4.0</td>
-      <td>120.1</td>
-      <td>97.0</td>
-      <td>3.70</td>
-      <td>2.465</td>
-      <td>20.01</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>Dodge Challenger</th>
-      <td>15.5</td>
-      <td>8.0</td>
-      <td>318.0</td>
-      <td>150.0</td>
-      <td>2.76</td>
-      <td>3.520</td>
-      <td>16.87</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>2.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>AMC Javelin</th>
-      <td>15.2</td>
-      <td>8.0</td>
-      <td>304.0</td>
-      <td>150.0</td>
-      <td>3.15</td>
-      <td>3.435</td>
-      <td>17.30</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>2.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>Camaro Z28</th>
-      <td>13.3</td>
-      <td>8.0</td>
-      <td>350.0</td>
-      <td>245.0</td>
-      <td>3.73</td>
-      <td>3.840</td>
-      <td>15.41</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>4.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>Pontiac Firebird</th>
-      <td>19.2</td>
-      <td>8.0</td>
-      <td>400.0</td>
-      <td>175.0</td>
-      <td>3.08</td>
-      <td>3.845</td>
-      <td>17.05</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>2.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>Fiat X1-9</th>
-      <td>27.3</td>
-      <td>4.0</td>
-      <td>79.0</td>
-      <td>66.0</td>
-      <td>4.08</td>
-      <td>1.935</td>
-      <td>18.90</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>Porsche 914-2</th>
-      <td>26.0</td>
-      <td>4.0</td>
-      <td>120.3</td>
-      <td>91.0</td>
-      <td>4.43</td>
-      <td>2.140</td>
-      <td>16.70</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>5.0</td>
-      <td>2.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>Lotus Europa</th>
-      <td>30.4</td>
-      <td>4.0</td>
-      <td>95.1</td>
-      <td>113.0</td>
-      <td>3.77</td>
-      <td>1.513</td>
-      <td>16.90</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>5.0</td>
-      <td>2.0</td>
-      <td>120000.0</td>
-    </tr>
-    <tr>
-      <th>Ford Pantera L</th>
-      <td>15.8</td>
-      <td>8.0</td>
-      <td>351.0</td>
-      <td>264.0</td>
-      <td>4.22</td>
-      <td>3.170</td>
-      <td>14.50</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>5.0</td>
-      <td>4.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>Ferrari Dino</th>
-      <td>19.7</td>
-      <td>6.0</td>
-      <td>145.0</td>
-      <td>175.0</td>
-      <td>3.62</td>
-      <td>2.770</td>
-      <td>15.50</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>5.0</td>
-      <td>6.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>Maserati Bora</th>
-      <td>15.0</td>
-      <td>8.0</td>
-      <td>301.0</td>
-      <td>335.0</td>
-      <td>3.54</td>
-      <td>3.570</td>
-      <td>14.60</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>5.0</td>
-      <td>8.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>Volvo 142E</th>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.00</td>
+      <th>Марс</th>
+      <td>2</td>
+      <td>0.1070</td>
+      <td>земная группа</td>
+      <td>Нет</td>
       <td>0.000</td>
-      <td>0.00</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Юпитер</th>
+      <td>62</td>
+      <td>317.8000</td>
+      <td>газовый гигант</td>
+      <td>Да</td>
+      <td>0.000</td>
+    </tr>
+    <tr>
+      <th>Сатурн</th>
+      <td>34</td>
+      <td>95.2000</td>
+      <td>газовый гигант</td>
+      <td>Да</td>
+      <td>9.449</td>
+    </tr>
+    <tr>
+      <th>Уран</th>
+      <td>27</td>
+      <td>14.3700</td>
+      <td>ледяной гигант</td>
+      <td>Да</td>
+      <td>0.000</td>
+    </tr>
+    <tr>
+      <th>Нептун</th>
+      <td>13</td>
+      <td>17.1500</td>
+      <td>ледяной гигант</td>
+      <td>Да</td>
+      <td>0.000</td>
     </tr>
   </tbody>
 </table>
@@ -3163,7 +2328,7 @@ dtype: float64
 <p>Методом <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.interpolate.html">DataFrame.interpolate</a> можно заполнить пропущенные значения интерполируя по непропущенным.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">planets</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3186,28 +2351,14 @@ dtype: float64
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>mpg</th>
-      <th>cyl</th>
-      <th>disp</th>
-      <th>hp</th>
-      <th>drat</th>
-      <th>wt</th>
-      <th>qsec</th>
-      <th>vs</th>
-      <th>am</th>
-      <th>gear</th>
-      <th>carb</th>
-      <th>price</th>
+      <th>Количество спутников</th>
+      <th>Масса</th>
+      <th>Группа</th>
+      <th>Кольца</th>
+      <th>Экваториальный диаметр</th>
     </tr>
     <tr>
-      <th>brand</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Название</th>
       <th></th>
       <th></th>
       <th></th>
@@ -3217,2061 +2368,68 @@ dtype: float64
   </thead>
   <tbody>
     <tr>
-      <th>Mazda RX4</th>
-      <td>21.0</td>
-      <td>6.0</td>
-      <td>160.0</td>
-      <td>110.0</td>
-      <td>3.90</td>
-      <td>2.620</td>
-      <td>16.46</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>4.0</td>
-      <td>100000.000000</td>
-    </tr>
-    <tr>
-      <th>Mazda RX4 Wag</th>
-      <td>21.0</td>
-      <td>6.0</td>
-      <td>160.0</td>
-      <td>110.0</td>
-      <td>3.90</td>
-      <td>2.875</td>
-      <td>17.02</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>4.0</td>
-      <td>100740.740741</td>
-    </tr>
-    <tr>
-      <th>Datsun 710</th>
-      <td>22.8</td>
-      <td>4.0</td>
-      <td>108.0</td>
-      <td>93.0</td>
-      <td>3.85</td>
-      <td>2.320</td>
-      <td>18.61</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>1.0</td>
-      <td>101481.481481</td>
-    </tr>
-    <tr>
-      <th>Hornet 4 Drive</th>
-      <td>21.4</td>
-      <td>6.0</td>
-      <td>258.0</td>
-      <td>110.0</td>
-      <td>3.08</td>
-      <td>3.215</td>
-      <td>19.44</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>1.0</td>
-      <td>102222.222222</td>
-    </tr>
-    <tr>
-      <th>Hornet Sportabout</th>
-      <td>18.7</td>
-      <td>8.0</td>
-      <td>360.0</td>
-      <td>175.0</td>
-      <td>3.15</td>
-      <td>3.440</td>
-      <td>17.02</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>2.0</td>
-      <td>102962.962963</td>
-    </tr>
-    <tr>
-      <th>Valiant</th>
-      <td>18.1</td>
-      <td>6.0</td>
-      <td>225.0</td>
-      <td>105.0</td>
-      <td>2.76</td>
-      <td>3.460</td>
-      <td>20.22</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>1.0</td>
-      <td>103703.703704</td>
-    </tr>
-    <tr>
-      <th>Duster 360</th>
-      <td>14.3</td>
-      <td>8.0</td>
-      <td>360.0</td>
-      <td>245.0</td>
-      <td>3.21</td>
-      <td>3.570</td>
-      <td>15.84</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>4.0</td>
-      <td>104444.444444</td>
-    </tr>
-    <tr>
-      <th>Merc 240D</th>
-      <td>24.4</td>
-      <td>4.0</td>
-      <td>146.7</td>
-      <td>62.0</td>
-      <td>3.69</td>
-      <td>3.190</td>
-      <td>20.00</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>4.0</td>
-      <td>2.0</td>
-      <td>105185.185185</td>
-    </tr>
-    <tr>
-      <th>Merc 230</th>
-      <td>22.8</td>
-      <td>4.0</td>
-      <td>140.8</td>
-      <td>95.0</td>
-      <td>3.92</td>
-      <td>3.150</td>
-      <td>22.90</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>4.0</td>
-      <td>2.0</td>
-      <td>105925.925926</td>
-    </tr>
-    <tr>
-      <th>Merc 280</th>
-      <td>19.2</td>
-      <td>6.0</td>
-      <td>167.6</td>
-      <td>123.0</td>
-      <td>3.92</td>
-      <td>3.440</td>
-      <td>18.30</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>4.0</td>
-      <td>4.0</td>
-      <td>106666.666667</td>
-    </tr>
-    <tr>
-      <th>Merc 280C</th>
-      <td>17.8</td>
-      <td>6.0</td>
-      <td>167.6</td>
-      <td>123.0</td>
-      <td>3.92</td>
-      <td>3.440</td>
-      <td>18.90</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>4.0</td>
-      <td>4.0</td>
-      <td>107407.407407</td>
-    </tr>
-    <tr>
-      <th>Merc 450SE</th>
-      <td>16.4</td>
-      <td>8.0</td>
-      <td>275.8</td>
-      <td>180.0</td>
-      <td>3.07</td>
-      <td>4.070</td>
-      <td>17.40</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>3.0</td>
-      <td>108148.148148</td>
-    </tr>
-    <tr>
-      <th>Merc 450SL</th>
-      <td>17.3</td>
-      <td>8.0</td>
-      <td>275.8</td>
-      <td>180.0</td>
-      <td>3.07</td>
-      <td>3.730</td>
-      <td>17.60</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>3.0</td>
-      <td>108888.888889</td>
-    </tr>
-    <tr>
-      <th>Merc 450SLC</th>
-      <td>15.2</td>
-      <td>8.0</td>
-      <td>275.8</td>
-      <td>180.0</td>
-      <td>3.07</td>
-      <td>3.780</td>
-      <td>18.00</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>3.0</td>
-      <td>109629.629630</td>
-    </tr>
-    <tr>
-      <th>Cadillac Fleetwood</th>
-      <td>10.4</td>
-      <td>8.0</td>
-      <td>472.0</td>
-      <td>205.0</td>
-      <td>2.93</td>
-      <td>5.250</td>
-      <td>17.98</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>4.0</td>
-      <td>110370.370370</td>
-    </tr>
-    <tr>
-      <th>Lincoln Continental</th>
-      <td>10.4</td>
-      <td>8.0</td>
-      <td>460.0</td>
-      <td>215.0</td>
-      <td>3.00</td>
-      <td>5.424</td>
-      <td>17.82</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>4.0</td>
-      <td>111111.111111</td>
-    </tr>
-    <tr>
-      <th>Chrysler Imperial</th>
-      <td>14.7</td>
-      <td>8.0</td>
-      <td>440.0</td>
-      <td>230.0</td>
-      <td>3.23</td>
-      <td>5.345</td>
-      <td>17.42</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>4.0</td>
-      <td>111851.851852</td>
-    </tr>
-    <tr>
-      <th>Fiat 128</th>
-      <td>32.4</td>
-      <td>4.0</td>
-      <td>78.7</td>
-      <td>66.0</td>
-      <td>4.08</td>
-      <td>2.200</td>
-      <td>19.47</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>1.0</td>
-      <td>112592.592593</td>
-    </tr>
-    <tr>
-      <th>Honda Civic</th>
-      <td>30.4</td>
-      <td>4.0</td>
-      <td>75.7</td>
-      <td>52.0</td>
-      <td>4.93</td>
-      <td>1.615</td>
-      <td>18.52</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>2.0</td>
-      <td>113333.333333</td>
-    </tr>
-    <tr>
-      <th>Toyota Corolla</th>
-      <td>33.9</td>
-      <td>4.0</td>
-      <td>71.1</td>
-      <td>65.0</td>
-      <td>4.22</td>
-      <td>1.835</td>
-      <td>19.90</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>1.0</td>
-      <td>114074.074074</td>
-    </tr>
-    <tr>
-      <th>Toyota Corona</th>
-      <td>21.5</td>
-      <td>4.0</td>
-      <td>120.1</td>
-      <td>97.0</td>
-      <td>3.70</td>
-      <td>2.465</td>
-      <td>20.01</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>1.0</td>
-      <td>114814.814815</td>
-    </tr>
-    <tr>
-      <th>Dodge Challenger</th>
-      <td>15.5</td>
-      <td>8.0</td>
-      <td>318.0</td>
-      <td>150.0</td>
-      <td>2.76</td>
-      <td>3.520</td>
-      <td>16.87</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>2.0</td>
-      <td>115555.555556</td>
-    </tr>
-    <tr>
-      <th>AMC Javelin</th>
-      <td>15.2</td>
-      <td>8.0</td>
-      <td>304.0</td>
-      <td>150.0</td>
-      <td>3.15</td>
-      <td>3.435</td>
-      <td>17.30</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>2.0</td>
-      <td>116296.296296</td>
-    </tr>
-    <tr>
-      <th>Camaro Z28</th>
-      <td>13.3</td>
-      <td>8.0</td>
-      <td>350.0</td>
-      <td>245.0</td>
-      <td>3.73</td>
-      <td>3.840</td>
-      <td>15.41</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>4.0</td>
-      <td>117037.037037</td>
-    </tr>
-    <tr>
-      <th>Pontiac Firebird</th>
-      <td>19.2</td>
-      <td>8.0</td>
-      <td>400.0</td>
-      <td>175.0</td>
-      <td>3.08</td>
-      <td>3.845</td>
-      <td>17.05</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>2.0</td>
-      <td>117777.777778</td>
-    </tr>
-    <tr>
-      <th>Fiat X1-9</th>
-      <td>27.3</td>
-      <td>4.0</td>
-      <td>79.0</td>
-      <td>66.0</td>
-      <td>4.08</td>
-      <td>1.935</td>
-      <td>18.90</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>1.0</td>
-      <td>118518.518519</td>
-    </tr>
-    <tr>
-      <th>Porsche 914-2</th>
-      <td>26.0</td>
-      <td>4.0</td>
-      <td>120.3</td>
-      <td>91.0</td>
-      <td>4.43</td>
-      <td>2.140</td>
-      <td>16.70</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>5.0</td>
-      <td>2.0</td>
-      <td>119259.259259</td>
-    </tr>
-    <tr>
-      <th>Lotus Europa</th>
-      <td>30.4</td>
-      <td>4.0</td>
-      <td>95.1</td>
-      <td>113.0</td>
-      <td>3.77</td>
-      <td>1.513</td>
-      <td>16.90</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>5.0</td>
-      <td>2.0</td>
-      <td>120000.000000</td>
-    </tr>
-    <tr>
-      <th>Ford Pantera L</th>
-      <td>15.8</td>
-      <td>8.0</td>
-      <td>351.0</td>
-      <td>264.0</td>
-      <td>4.22</td>
-      <td>3.170</td>
-      <td>14.50</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>5.0</td>
-      <td>4.0</td>
-      <td>120000.000000</td>
-    </tr>
-    <tr>
-      <th>Ferrari Dino</th>
-      <td>19.7</td>
-      <td>6.0</td>
-      <td>145.0</td>
-      <td>175.0</td>
-      <td>3.62</td>
-      <td>2.770</td>
-      <td>15.50</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>5.0</td>
-      <td>6.0</td>
-      <td>120000.000000</td>
-    </tr>
-    <tr>
-      <th>Maserati Bora</th>
-      <td>15.0</td>
-      <td>8.0</td>
-      <td>301.0</td>
-      <td>335.0</td>
-      <td>3.54</td>
-      <td>3.570</td>
-      <td>14.60</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>5.0</td>
-      <td>8.0</td>
-      <td>120000.000000</td>
-    </tr>
-    <tr>
-      <th>Volvo 142E</th>
-      <td>15.0</td>
-      <td>8.0</td>
-      <td>301.0</td>
-      <td>335.0</td>
-      <td>3.54</td>
-      <td>3.570</td>
-      <td>14.60</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>5.0</td>
-      <td>8.0</td>
-      <td>120000.000000</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-</div>
-<div class="section" id="apply-map-applymap">
-<h2>apply, map, applymap<a class="headerlink" href="#apply-map-applymap" title="Permalink to this headline">¶</a></h2>
-<p>Применить некоторую функцию к всем строкам/столбцам таблицы можно методом <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.apply.html">DataFrame.apply</a>. Передавать этому методу необходимо такую функцию, рассчитывая, что ей на вход будет подаваться объект <code class="docutils literal notranslate"><span class="pre">pd.series</span></code>, который в зависимости от значения параметра <code class="docutils literal notranslate"><span class="pre">axis</span></code> будет или строкой или столбцом таблицы.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> 
-
-<span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s2">&quot;rows&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mpg      23.50
-cyl       4.00
-disp    400.90
-hp      283.00
-drat      2.17
-dtype: float64
-</pre></div>
-</div>
-</div>
-</div>
-<p>Метод <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.map.html">Series.map</a> позволяет применить функцию к каждому значению столбца. Чтобы продемонстрировать принцип работы этого метода, извлечем из столбца <code class="docutils literal notranslate"><span class="pre">brand</span></code> марку и модель автомобиля в разные столбцы.</p>
-<p>Для этого определим функции, которые в качестве аргумента принимают строку из столбца <code class="docutils literal notranslate"><span class="pre">brand</span></code> и возвращают марку или модель автомобиля из неё. В данной таблице, марка автомобиля всегда встречается до первого пробела, а модель автомобиля — все после первого пробела.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_brand</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-
-<span class="k">def</span> <span class="nf">get_model</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="n">b</span><span class="p">,</span> <span class="o">*</span><span class="n">m</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span> <span class="c1"># все после первого пробела попадает в переменную m</span>
-    <span class="k">return</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
-
-<span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Mazda RX4 Wag&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2"> -&gt; </span><span class="si">{</span><span class="n">get_brand</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">get_model</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mazda RX4 Wag -&gt; Mazda and RX4 Wag
-</pre></div>
-</div>
-</div>
-</div>
-<p>Определив эти функции применим их к столбцу <code class="docutils literal notranslate"><span class="pre">brand</span></code>. Т.к. <code class="docutils literal notranslate"><span class="pre">brand</span></code> — индекс, то создадим из него <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code>, применим определенные функции методом <code class="docutils literal notranslate"><span class="pre">map</span></code> и запишем результаты в таблицу в качестве новых столбцов.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fullname</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;car&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">df</span><span class="p">[</span><span class="s2">&quot;brand&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fullname</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">get_brand</span><span class="p">)</span>
-<span class="n">df</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fullname</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">get_model</span><span class="p">)</span>
-<span class="n">df</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>mpg</th>
-      <th>cyl</th>
-      <th>disp</th>
-      <th>hp</th>
-      <th>drat</th>
-      <th>wt</th>
-      <th>qsec</th>
-      <th>vs</th>
-      <th>am</th>
-      <th>gear</th>
-      <th>carb</th>
-      <th>price</th>
-      <th>brand</th>
-      <th>model</th>
-    </tr>
-    <tr>
-      <th>car</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Mazda RX4</th>
-      <td>21.0</td>
-      <td>6.0</td>
-      <td>160.0</td>
-      <td>110.0</td>
-      <td>3.90</td>
-      <td>2.620</td>
-      <td>16.46</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>4.0</td>
-      <td>100000.0</td>
-      <td>Mazda</td>
-      <td>RX4</td>
-    </tr>
-    <tr>
-      <th>Mazda RX4 Wag</th>
-      <td>21.0</td>
-      <td>6.0</td>
-      <td>160.0</td>
-      <td>110.0</td>
-      <td>3.90</td>
-      <td>2.875</td>
-      <td>17.02</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>4.0</td>
-      <td>NaN</td>
-      <td>Mazda</td>
-      <td>RX4 Wag</td>
-    </tr>
-    <tr>
-      <th>Datsun 710</th>
-      <td>22.8</td>
-      <td>4.0</td>
-      <td>108.0</td>
-      <td>93.0</td>
-      <td>3.85</td>
-      <td>2.320</td>
-      <td>18.61</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>Datsun</td>
-      <td>710</td>
-    </tr>
-    <tr>
-      <th>Hornet 4 Drive</th>
-      <td>21.4</td>
-      <td>6.0</td>
-      <td>258.0</td>
-      <td>110.0</td>
-      <td>3.08</td>
-      <td>3.215</td>
-      <td>19.44</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>Hornet</td>
-      <td>4 Drive</td>
-    </tr>
-    <tr>
-      <th>Hornet Sportabout</th>
-      <td>18.7</td>
-      <td>8.0</td>
-      <td>360.0</td>
-      <td>175.0</td>
-      <td>3.15</td>
-      <td>3.440</td>
-      <td>17.02</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>2.0</td>
-      <td>NaN</td>
-      <td>Hornet</td>
-      <td>Sportabout</td>
-    </tr>
-    <tr>
-      <th>Valiant</th>
-      <td>18.1</td>
-      <td>6.0</td>
-      <td>225.0</td>
-      <td>105.0</td>
-      <td>2.76</td>
-      <td>3.460</td>
-      <td>20.22</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>Valiant</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>Duster 360</th>
-      <td>14.3</td>
-      <td>8.0</td>
-      <td>360.0</td>
-      <td>245.0</td>
-      <td>3.21</td>
-      <td>3.570</td>
-      <td>15.84</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>4.0</td>
-      <td>NaN</td>
-      <td>Duster</td>
-      <td>360</td>
-    </tr>
-    <tr>
-      <th>Merc 240D</th>
-      <td>24.4</td>
-      <td>4.0</td>
-      <td>146.7</td>
-      <td>62.0</td>
-      <td>3.69</td>
-      <td>3.190</td>
-      <td>20.00</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>4.0</td>
-      <td>2.0</td>
-      <td>NaN</td>
-      <td>Merc</td>
-      <td>240D</td>
-    </tr>
-    <tr>
-      <th>Merc 230</th>
-      <td>22.8</td>
-      <td>4.0</td>
-      <td>140.8</td>
-      <td>95.0</td>
-      <td>3.92</td>
-      <td>3.150</td>
-      <td>22.90</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>4.0</td>
-      <td>2.0</td>
-      <td>NaN</td>
-      <td>Merc</td>
-      <td>230</td>
-    </tr>
-    <tr>
-      <th>Merc 280</th>
-      <td>19.2</td>
-      <td>6.0</td>
-      <td>167.6</td>
-      <td>123.0</td>
-      <td>3.92</td>
-      <td>3.440</td>
-      <td>18.30</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>4.0</td>
-      <td>4.0</td>
-      <td>NaN</td>
-      <td>Merc</td>
-      <td>280</td>
-    </tr>
-    <tr>
-      <th>Merc 280C</th>
-      <td>17.8</td>
-      <td>6.0</td>
-      <td>167.6</td>
-      <td>123.0</td>
-      <td>3.92</td>
-      <td>3.440</td>
-      <td>18.90</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>4.0</td>
-      <td>4.0</td>
-      <td>NaN</td>
-      <td>Merc</td>
-      <td>280C</td>
-    </tr>
-    <tr>
-      <th>Merc 450SE</th>
-      <td>16.4</td>
-      <td>8.0</td>
-      <td>275.8</td>
-      <td>180.0</td>
-      <td>3.07</td>
-      <td>4.070</td>
-      <td>17.40</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>3.0</td>
-      <td>NaN</td>
-      <td>Merc</td>
-      <td>450SE</td>
-    </tr>
-    <tr>
-      <th>Merc 450SL</th>
-      <td>17.3</td>
-      <td>8.0</td>
-      <td>275.8</td>
-      <td>180.0</td>
-      <td>3.07</td>
-      <td>3.730</td>
-      <td>17.60</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>3.0</td>
-      <td>NaN</td>
-      <td>Merc</td>
-      <td>450SL</td>
-    </tr>
-    <tr>
-      <th>Merc 450SLC</th>
-      <td>15.2</td>
-      <td>8.0</td>
-      <td>275.8</td>
-      <td>180.0</td>
-      <td>3.07</td>
-      <td>3.780</td>
-      <td>18.00</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>3.0</td>
-      <td>NaN</td>
-      <td>Merc</td>
-      <td>450SLC</td>
-    </tr>
-    <tr>
-      <th>Cadillac Fleetwood</th>
-      <td>10.4</td>
-      <td>8.0</td>
-      <td>472.0</td>
-      <td>205.0</td>
-      <td>2.93</td>
-      <td>5.250</td>
-      <td>17.98</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>4.0</td>
-      <td>NaN</td>
-      <td>Cadillac</td>
-      <td>Fleetwood</td>
-    </tr>
-    <tr>
-      <th>Lincoln Continental</th>
-      <td>10.4</td>
-      <td>8.0</td>
-      <td>460.0</td>
-      <td>215.0</td>
-      <td>3.00</td>
-      <td>5.424</td>
-      <td>17.82</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>4.0</td>
-      <td>NaN</td>
-      <td>Lincoln</td>
-      <td>Continental</td>
-    </tr>
-    <tr>
-      <th>Chrysler Imperial</th>
-      <td>14.7</td>
-      <td>8.0</td>
-      <td>440.0</td>
-      <td>230.0</td>
-      <td>3.23</td>
-      <td>5.345</td>
-      <td>17.42</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>4.0</td>
-      <td>NaN</td>
-      <td>Chrysler</td>
-      <td>Imperial</td>
-    </tr>
-    <tr>
-      <th>Fiat 128</th>
-      <td>32.4</td>
-      <td>4.0</td>
-      <td>78.7</td>
-      <td>66.0</td>
-      <td>4.08</td>
-      <td>2.200</td>
-      <td>19.47</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>Fiat</td>
-      <td>128</td>
-    </tr>
-    <tr>
-      <th>Honda Civic</th>
-      <td>30.4</td>
-      <td>4.0</td>
-      <td>75.7</td>
-      <td>52.0</td>
-      <td>4.93</td>
-      <td>1.615</td>
-      <td>18.52</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>2.0</td>
-      <td>NaN</td>
-      <td>Honda</td>
-      <td>Civic</td>
-    </tr>
-    <tr>
-      <th>Toyota Corolla</th>
-      <td>33.9</td>
-      <td>4.0</td>
-      <td>71.1</td>
-      <td>65.0</td>
-      <td>4.22</td>
-      <td>1.835</td>
-      <td>19.90</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>Toyota</td>
-      <td>Corolla</td>
-    </tr>
-    <tr>
-      <th>Toyota Corona</th>
-      <td>21.5</td>
-      <td>4.0</td>
-      <td>120.1</td>
-      <td>97.0</td>
-      <td>3.70</td>
-      <td>2.465</td>
-      <td>20.01</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>Toyota</td>
-      <td>Corona</td>
-    </tr>
-    <tr>
-      <th>Dodge Challenger</th>
-      <td>15.5</td>
-      <td>8.0</td>
-      <td>318.0</td>
-      <td>150.0</td>
-      <td>2.76</td>
-      <td>3.520</td>
-      <td>16.87</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>2.0</td>
-      <td>NaN</td>
-      <td>Dodge</td>
-      <td>Challenger</td>
-    </tr>
-    <tr>
-      <th>AMC Javelin</th>
-      <td>15.2</td>
-      <td>8.0</td>
-      <td>304.0</td>
-      <td>150.0</td>
-      <td>3.15</td>
-      <td>3.435</td>
-      <td>17.30</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>2.0</td>
-      <td>NaN</td>
-      <td>AMC</td>
-      <td>Javelin</td>
-    </tr>
-    <tr>
-      <th>Camaro Z28</th>
-      <td>13.3</td>
-      <td>8.0</td>
-      <td>350.0</td>
-      <td>245.0</td>
-      <td>3.73</td>
-      <td>3.840</td>
-      <td>15.41</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>4.0</td>
-      <td>NaN</td>
-      <td>Camaro</td>
-      <td>Z28</td>
-    </tr>
-    <tr>
-      <th>Pontiac Firebird</th>
-      <td>19.2</td>
-      <td>8.0</td>
-      <td>400.0</td>
-      <td>175.0</td>
-      <td>3.08</td>
-      <td>3.845</td>
-      <td>17.05</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>2.0</td>
-      <td>NaN</td>
-      <td>Pontiac</td>
-      <td>Firebird</td>
-    </tr>
-    <tr>
-      <th>Fiat X1-9</th>
-      <td>27.3</td>
-      <td>4.0</td>
-      <td>79.0</td>
-      <td>66.0</td>
-      <td>4.08</td>
-      <td>1.935</td>
-      <td>18.90</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>Fiat</td>
-      <td>X1-9</td>
-    </tr>
-    <tr>
-      <th>Porsche 914-2</th>
-      <td>26.0</td>
-      <td>4.0</td>
-      <td>120.3</td>
-      <td>91.0</td>
-      <td>4.43</td>
-      <td>2.140</td>
-      <td>16.70</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>5.0</td>
-      <td>2.0</td>
-      <td>NaN</td>
-      <td>Porsche</td>
-      <td>914-2</td>
-    </tr>
-    <tr>
-      <th>Lotus Europa</th>
-      <td>30.4</td>
-      <td>4.0</td>
-      <td>95.1</td>
-      <td>113.0</td>
-      <td>3.77</td>
-      <td>1.513</td>
-      <td>16.90</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>5.0</td>
-      <td>2.0</td>
-      <td>120000.0</td>
-      <td>Lotus</td>
-      <td>Europa</td>
-    </tr>
-    <tr>
-      <th>Ford Pantera L</th>
-      <td>15.8</td>
-      <td>8.0</td>
-      <td>351.0</td>
-      <td>264.0</td>
-      <td>4.22</td>
-      <td>3.170</td>
-      <td>14.50</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>5.0</td>
-      <td>4.0</td>
-      <td>NaN</td>
-      <td>Ford</td>
-      <td>Pantera L</td>
-    </tr>
-    <tr>
-      <th>Ferrari Dino</th>
-      <td>19.7</td>
-      <td>6.0</td>
-      <td>145.0</td>
-      <td>175.0</td>
-      <td>3.62</td>
-      <td>2.770</td>
-      <td>15.50</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>5.0</td>
-      <td>6.0</td>
-      <td>NaN</td>
-      <td>Ferrari</td>
-      <td>Dino</td>
-    </tr>
-    <tr>
-      <th>Maserati Bora</th>
-      <td>15.0</td>
-      <td>8.0</td>
-      <td>301.0</td>
-      <td>335.0</td>
-      <td>3.54</td>
-      <td>3.570</td>
-      <td>14.60</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>5.0</td>
-      <td>8.0</td>
-      <td>NaN</td>
-      <td>Maserati</td>
-      <td>Bora</td>
-    </tr>
-    <tr>
-      <th>Volvo 142E</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Volvo</td>
-      <td>142E</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<p>Вместо функции, методу <code class="docutils literal notranslate"><span class="pre">map</span></code> можно передать словарь.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n2str</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="mf">4.0</span><span class="p">:</span> <span class="s2">&quot;four&quot;</span><span class="p">,</span>
-    <span class="mf">6.0</span><span class="p">:</span> <span class="s2">&quot;six&quot;</span><span class="p">,</span>
-    <span class="mf">8.0</span><span class="p">:</span> <span class="s2">&quot;eight&quot;</span>
-    <span class="p">}</span>
-<span class="n">df</span><span class="p">[</span><span class="s2">&quot;cyl&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;cyl&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">n2str</span><span class="p">)</span>
-<span class="n">df</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>mpg</th>
-      <th>cyl</th>
-      <th>disp</th>
-      <th>hp</th>
-      <th>drat</th>
-      <th>wt</th>
-      <th>qsec</th>
-      <th>vs</th>
-      <th>am</th>
-      <th>gear</th>
-      <th>carb</th>
-      <th>price</th>
-      <th>brand</th>
-      <th>model</th>
-    </tr>
-    <tr>
-      <th>car</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Mazda RX4</th>
-      <td>21.0</td>
-      <td>six</td>
-      <td>160.0</td>
-      <td>110.0</td>
-      <td>3.90</td>
-      <td>2.620</td>
-      <td>16.46</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>4.0</td>
-      <td>100000.0</td>
-      <td>Mazda</td>
-      <td>RX4</td>
-    </tr>
-    <tr>
-      <th>Mazda RX4 Wag</th>
-      <td>21.0</td>
-      <td>six</td>
-      <td>160.0</td>
-      <td>110.0</td>
-      <td>3.90</td>
-      <td>2.875</td>
-      <td>17.02</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>4.0</td>
-      <td>NaN</td>
-      <td>Mazda</td>
-      <td>RX4 Wag</td>
-    </tr>
-    <tr>
-      <th>Datsun 710</th>
-      <td>22.8</td>
-      <td>four</td>
-      <td>108.0</td>
-      <td>93.0</td>
-      <td>3.85</td>
-      <td>2.320</td>
-      <td>18.61</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>Datsun</td>
-      <td>710</td>
-    </tr>
-    <tr>
-      <th>Hornet 4 Drive</th>
-      <td>21.4</td>
-      <td>six</td>
-      <td>258.0</td>
-      <td>110.0</td>
-      <td>3.08</td>
-      <td>3.215</td>
-      <td>19.44</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>Hornet</td>
-      <td>4 Drive</td>
-    </tr>
-    <tr>
-      <th>Hornet Sportabout</th>
-      <td>18.7</td>
-      <td>eight</td>
-      <td>360.0</td>
-      <td>175.0</td>
-      <td>3.15</td>
-      <td>3.440</td>
-      <td>17.02</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>2.0</td>
-      <td>NaN</td>
-      <td>Hornet</td>
-      <td>Sportabout</td>
-    </tr>
-    <tr>
-      <th>Valiant</th>
-      <td>18.1</td>
-      <td>six</td>
-      <td>225.0</td>
-      <td>105.0</td>
-      <td>2.76</td>
-      <td>3.460</td>
-      <td>20.22</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>Valiant</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>Duster 360</th>
-      <td>14.3</td>
-      <td>eight</td>
-      <td>360.0</td>
-      <td>245.0</td>
-      <td>3.21</td>
-      <td>3.570</td>
-      <td>15.84</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>4.0</td>
-      <td>NaN</td>
-      <td>Duster</td>
-      <td>360</td>
-    </tr>
-    <tr>
-      <th>Merc 240D</th>
-      <td>24.4</td>
-      <td>four</td>
-      <td>146.7</td>
-      <td>62.0</td>
-      <td>3.69</td>
-      <td>3.190</td>
-      <td>20.00</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>4.0</td>
-      <td>2.0</td>
-      <td>NaN</td>
-      <td>Merc</td>
-      <td>240D</td>
-    </tr>
-    <tr>
-      <th>Merc 230</th>
-      <td>22.8</td>
-      <td>four</td>
-      <td>140.8</td>
-      <td>95.0</td>
-      <td>3.92</td>
-      <td>3.150</td>
-      <td>22.90</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>4.0</td>
-      <td>2.0</td>
-      <td>NaN</td>
-      <td>Merc</td>
-      <td>230</td>
-    </tr>
-    <tr>
-      <th>Merc 280</th>
-      <td>19.2</td>
-      <td>six</td>
-      <td>167.6</td>
-      <td>123.0</td>
-      <td>3.92</td>
-      <td>3.440</td>
-      <td>18.30</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>4.0</td>
-      <td>4.0</td>
-      <td>NaN</td>
-      <td>Merc</td>
-      <td>280</td>
-    </tr>
-    <tr>
-      <th>Merc 280C</th>
-      <td>17.8</td>
-      <td>six</td>
-      <td>167.6</td>
-      <td>123.0</td>
-      <td>3.92</td>
-      <td>3.440</td>
-      <td>18.90</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>4.0</td>
-      <td>4.0</td>
-      <td>NaN</td>
-      <td>Merc</td>
-      <td>280C</td>
-    </tr>
-    <tr>
-      <th>Merc 450SE</th>
-      <td>16.4</td>
-      <td>eight</td>
-      <td>275.8</td>
-      <td>180.0</td>
-      <td>3.07</td>
-      <td>4.070</td>
-      <td>17.40</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>3.0</td>
-      <td>NaN</td>
-      <td>Merc</td>
-      <td>450SE</td>
-    </tr>
-    <tr>
-      <th>Merc 450SL</th>
-      <td>17.3</td>
-      <td>eight</td>
-      <td>275.8</td>
-      <td>180.0</td>
-      <td>3.07</td>
-      <td>3.730</td>
-      <td>17.60</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>3.0</td>
-      <td>NaN</td>
-      <td>Merc</td>
-      <td>450SL</td>
-    </tr>
-    <tr>
-      <th>Merc 450SLC</th>
-      <td>15.2</td>
-      <td>eight</td>
-      <td>275.8</td>
-      <td>180.0</td>
-      <td>3.07</td>
-      <td>3.780</td>
-      <td>18.00</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>3.0</td>
-      <td>NaN</td>
-      <td>Merc</td>
-      <td>450SLC</td>
-    </tr>
-    <tr>
-      <th>Cadillac Fleetwood</th>
-      <td>10.4</td>
-      <td>eight</td>
-      <td>472.0</td>
-      <td>205.0</td>
-      <td>2.93</td>
-      <td>5.250</td>
-      <td>17.98</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>4.0</td>
-      <td>NaN</td>
-      <td>Cadillac</td>
-      <td>Fleetwood</td>
-    </tr>
-    <tr>
-      <th>Lincoln Continental</th>
-      <td>10.4</td>
-      <td>eight</td>
-      <td>460.0</td>
-      <td>215.0</td>
-      <td>3.00</td>
-      <td>5.424</td>
-      <td>17.82</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>4.0</td>
-      <td>NaN</td>
-      <td>Lincoln</td>
-      <td>Continental</td>
-    </tr>
-    <tr>
-      <th>Chrysler Imperial</th>
-      <td>14.7</td>
-      <td>eight</td>
-      <td>440.0</td>
-      <td>230.0</td>
-      <td>3.23</td>
-      <td>5.345</td>
-      <td>17.42</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>4.0</td>
-      <td>NaN</td>
-      <td>Chrysler</td>
-      <td>Imperial</td>
-    </tr>
-    <tr>
-      <th>Fiat 128</th>
-      <td>32.4</td>
-      <td>four</td>
-      <td>78.7</td>
-      <td>66.0</td>
-      <td>4.08</td>
-      <td>2.200</td>
-      <td>19.47</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>Fiat</td>
-      <td>128</td>
-    </tr>
-    <tr>
-      <th>Honda Civic</th>
-      <td>30.4</td>
-      <td>four</td>
-      <td>75.7</td>
-      <td>52.0</td>
-      <td>4.93</td>
-      <td>1.615</td>
-      <td>18.52</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>2.0</td>
-      <td>NaN</td>
-      <td>Honda</td>
-      <td>Civic</td>
-    </tr>
-    <tr>
-      <th>Toyota Corolla</th>
-      <td>33.9</td>
-      <td>four</td>
-      <td>71.1</td>
-      <td>65.0</td>
-      <td>4.22</td>
-      <td>1.835</td>
-      <td>19.90</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>Toyota</td>
-      <td>Corolla</td>
-    </tr>
-    <tr>
-      <th>Toyota Corona</th>
-      <td>21.5</td>
-      <td>four</td>
-      <td>120.1</td>
-      <td>97.0</td>
-      <td>3.70</td>
-      <td>2.465</td>
-      <td>20.01</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>Toyota</td>
-      <td>Corona</td>
-    </tr>
-    <tr>
-      <th>Dodge Challenger</th>
-      <td>15.5</td>
-      <td>eight</td>
-      <td>318.0</td>
-      <td>150.0</td>
-      <td>2.76</td>
-      <td>3.520</td>
-      <td>16.87</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>2.0</td>
-      <td>NaN</td>
-      <td>Dodge</td>
-      <td>Challenger</td>
-    </tr>
-    <tr>
-      <th>AMC Javelin</th>
-      <td>15.2</td>
-      <td>eight</td>
-      <td>304.0</td>
-      <td>150.0</td>
-      <td>3.15</td>
-      <td>3.435</td>
-      <td>17.30</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>2.0</td>
-      <td>NaN</td>
-      <td>AMC</td>
-      <td>Javelin</td>
-    </tr>
-    <tr>
-      <th>Camaro Z28</th>
-      <td>13.3</td>
-      <td>eight</td>
-      <td>350.0</td>
-      <td>245.0</td>
-      <td>3.73</td>
-      <td>3.840</td>
-      <td>15.41</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>4.0</td>
-      <td>NaN</td>
-      <td>Camaro</td>
-      <td>Z28</td>
-    </tr>
-    <tr>
-      <th>Pontiac Firebird</th>
-      <td>19.2</td>
-      <td>eight</td>
-      <td>400.0</td>
-      <td>175.0</td>
-      <td>3.08</td>
-      <td>3.845</td>
-      <td>17.05</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>2.0</td>
-      <td>NaN</td>
-      <td>Pontiac</td>
-      <td>Firebird</td>
-    </tr>
-    <tr>
-      <th>Fiat X1-9</th>
-      <td>27.3</td>
-      <td>four</td>
-      <td>79.0</td>
-      <td>66.0</td>
-      <td>4.08</td>
-      <td>1.935</td>
-      <td>18.90</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>Fiat</td>
-      <td>X1-9</td>
-    </tr>
-    <tr>
-      <th>Porsche 914-2</th>
-      <td>26.0</td>
-      <td>four</td>
-      <td>120.3</td>
-      <td>91.0</td>
-      <td>4.43</td>
-      <td>2.140</td>
-      <td>16.70</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>5.0</td>
-      <td>2.0</td>
-      <td>NaN</td>
-      <td>Porsche</td>
-      <td>914-2</td>
-    </tr>
-    <tr>
-      <th>Lotus Europa</th>
-      <td>30.4</td>
-      <td>four</td>
-      <td>95.1</td>
-      <td>113.0</td>
-      <td>3.77</td>
-      <td>1.513</td>
-      <td>16.90</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>5.0</td>
-      <td>2.0</td>
-      <td>120000.0</td>
-      <td>Lotus</td>
-      <td>Europa</td>
-    </tr>
-    <tr>
-      <th>Ford Pantera L</th>
-      <td>15.8</td>
-      <td>eight</td>
-      <td>351.0</td>
-      <td>264.0</td>
-      <td>4.22</td>
-      <td>3.170</td>
-      <td>14.50</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>5.0</td>
-      <td>4.0</td>
-      <td>NaN</td>
-      <td>Ford</td>
-      <td>Pantera L</td>
-    </tr>
-    <tr>
-      <th>Ferrari Dino</th>
-      <td>19.7</td>
-      <td>six</td>
-      <td>145.0</td>
-      <td>175.0</td>
-      <td>3.62</td>
-      <td>2.770</td>
-      <td>15.50</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>5.0</td>
-      <td>6.0</td>
-      <td>NaN</td>
-      <td>Ferrari</td>
-      <td>Dino</td>
-    </tr>
-    <tr>
-      <th>Maserati Bora</th>
-      <td>15.0</td>
-      <td>eight</td>
-      <td>301.0</td>
-      <td>335.0</td>
-      <td>3.54</td>
-      <td>3.570</td>
-      <td>14.60</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>5.0</td>
-      <td>8.0</td>
-      <td>NaN</td>
-      <td>Maserati</td>
-      <td>Bora</td>
-    </tr>
-    <tr>
-      <th>Volvo 142E</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Volvo</td>
-      <td>142E</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Использовать числа с плавающей точкой в качестве ключей словаря считается плохой практикой из-за особенностей их представления в компьютере: даже минимальное отклонение от точного значения ключа в словаре может привести (и почти наверняка приведет) к другому значению хэш-функции и получить искомое значение по “испорченному ключу не выйдет”.</p>
-</div>
-<p>Метод <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.applymap.html#pandas.DataFrame.applymap">DataFrame.applymap</a> применяет функцию к кажому значению в таблице.</p>
-</div>
-<div class="section" id="id5">
-<h2>Группировка по значениям столбца<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
-<p>Часто необходимо сгруппировать строки таблицы по какому-то принципу и с каждой из групп проделать какие-то операции. За группировку в <code class="docutils literal notranslate"><span class="pre">pandas</span></code> отвечает метод <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.groupby.html">DataFrame.groupby</a>. В качестве аргумента её можно передать имя столбца, по значениям которого необходима группировка (можно также передать несколько столбцов в списке).</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;brand&quot;</span><span class="p">)</span>
-<span class="n">grouped</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="s2">&quot;Mazda&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>mpg</th>
-      <th>cyl</th>
-      <th>disp</th>
-      <th>hp</th>
-      <th>drat</th>
-      <th>wt</th>
-      <th>qsec</th>
-      <th>vs</th>
-      <th>am</th>
-      <th>gear</th>
-      <th>carb</th>
-      <th>price</th>
-      <th>brand</th>
-      <th>model</th>
-    </tr>
-    <tr>
-      <th>car</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Mazda RX4</th>
-      <td>21.0</td>
-      <td>6.0</td>
-      <td>160.0</td>
-      <td>110.0</td>
-      <td>3.9</td>
-      <td>2.620</td>
-      <td>16.46</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>4.0</td>
-      <td>100000.0</td>
-      <td>Mazda</td>
-      <td>RX4</td>
-    </tr>
-    <tr>
-      <th>Mazda RX4 Wag</th>
-      <td>21.0</td>
-      <td>6.0</td>
-      <td>160.0</td>
-      <td>110.0</td>
-      <td>3.9</td>
-      <td>2.875</td>
-      <td>17.02</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>4.0</td>
-      <td>NaN</td>
-      <td>Mazda</td>
-      <td>RX4 Wag</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<p>Каждую группу можно рассматривать как мини-таблицу. Часто таблицу группируют по значениям одного столбца, чтобы потом посчитать какие-нибудь агрегирующие функцию к значениям других столбцов. Сделать это можно методом <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.aggregate.html">DataFrameGroupBy.aggregate</a>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grouped</span><span class="p">[</span><span class="s2">&quot;mpg&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">aggregate</span><span class="p">([</span><span class="s2">&quot;min&quot;</span><span class="p">,</span> <span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot;max&quot;</span><span class="p">,</span> <span class="s2">&quot;count&quot;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>min</th>
-      <th>mean</th>
-      <th>max</th>
-      <th>count</th>
-    </tr>
-    <tr>
-      <th>brand</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>AMC</th>
-      <td>15.2</td>
-      <td>15.200000</td>
-      <td>15.2</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>Cadillac</th>
-      <td>10.4</td>
-      <td>10.400000</td>
-      <td>10.4</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>Camaro</th>
-      <td>13.3</td>
-      <td>13.300000</td>
-      <td>13.3</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>Chrysler</th>
-      <td>14.7</td>
-      <td>14.700000</td>
-      <td>14.7</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>Datsun</th>
-      <td>22.8</td>
-      <td>22.800000</td>
-      <td>22.8</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>Dodge</th>
-      <td>15.5</td>
-      <td>15.500000</td>
-      <td>15.5</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>Duster</th>
-      <td>14.3</td>
-      <td>14.300000</td>
-      <td>14.3</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>Ferrari</th>
-      <td>19.7</td>
-      <td>19.700000</td>
-      <td>19.7</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>Fiat</th>
-      <td>27.3</td>
-      <td>29.850000</td>
-      <td>32.4</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>Ford</th>
-      <td>15.8</td>
-      <td>15.800000</td>
-      <td>15.8</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>Honda</th>
-      <td>30.4</td>
-      <td>30.400000</td>
-      <td>30.4</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>Hornet</th>
-      <td>18.7</td>
-      <td>20.050000</td>
-      <td>21.4</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>Lincoln</th>
-      <td>10.4</td>
-      <td>10.400000</td>
-      <td>10.4</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>Lotus</th>
-      <td>30.4</td>
-      <td>30.400000</td>
-      <td>30.4</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>Maserati</th>
-      <td>15.0</td>
-      <td>15.000000</td>
-      <td>15.0</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>Mazda</th>
-      <td>21.0</td>
-      <td>21.000000</td>
-      <td>21.0</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>Merc</th>
-      <td>15.2</td>
-      <td>19.014286</td>
-      <td>24.4</td>
-      <td>7</td>
-    </tr>
-    <tr>
-      <th>Pontiac</th>
-      <td>19.2</td>
-      <td>19.200000</td>
-      <td>19.2</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>Porsche</th>
-      <td>26.0</td>
-      <td>26.000000</td>
-      <td>26.0</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>Toyota</th>
-      <td>21.5</td>
-      <td>27.700000</td>
-      <td>33.9</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>Valiant</th>
-      <td>18.1</td>
-      <td>18.100000</td>
-      <td>18.1</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>Volvo</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <th>Меркурий</th>
       <td>0</td>
+      <td>0.0055</td>
+      <td>земная группа</td>
+      <td>Нет</td>
+      <td>0.382000</td>
+    </tr>
+    <tr>
+      <th>Венера</th>
+      <td>0</td>
+      <td>0.8150</td>
+      <td>земная группа</td>
+      <td>Нет</td>
+      <td>0.949000</td>
+    </tr>
+    <tr>
+      <th>Земля</th>
+      <td>1</td>
+      <td>1.0000</td>
+      <td>земная группа</td>
+      <td>Нет</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>Марс</th>
+      <td>2</td>
+      <td>0.1070</td>
+      <td>земная группа</td>
+      <td>Нет</td>
+      <td>3.816333</td>
+    </tr>
+    <tr>
+      <th>Юпитер</th>
+      <td>62</td>
+      <td>317.8000</td>
+      <td>газовый гигант</td>
+      <td>Да</td>
+      <td>6.632667</td>
+    </tr>
+    <tr>
+      <th>Сатурн</th>
+      <td>34</td>
+      <td>95.2000</td>
+      <td>газовый гигант</td>
+      <td>Да</td>
+      <td>9.449000</td>
+    </tr>
+    <tr>
+      <th>Уран</th>
+      <td>27</td>
+      <td>14.3700</td>
+      <td>ледяной гигант</td>
+      <td>Да</td>
+      <td>9.449000</td>
+    </tr>
+    <tr>
+      <th>Нептун</th>
+      <td>13</td>
+      <td>17.1500</td>
+      <td>ледяной гигант</td>
+      <td>Да</td>
+      <td>9.449000</td>
     </tr>
   </tbody>
 </table>
