@@ -903,7 +903,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>арифметическое среднее;</p></li>
 <li><p>геометрическое среднее;</p></li>
 <li><p>гармоническое среднее;</p></li>
-<li><p>Расстояние между объектами.</p></li>
+<li><p>расстояние между объектами.</p></li>
 </ol>
 <p>Перед реализацией самих функций прочитайте дополнительный материал. При реализации функций старайтесь избегать плохих практик, упомянутых в дополнительном материале.</p>
 <div class="section" id="id1">
@@ -930,7 +930,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<p>Начинающие иногда используют вместо <code class="docutils literal notranslate"><span class="pre">isinstance(объект,</span> <span class="pre">класс)</span></code> конструкцию вида <code class="docutils literal notranslate"><span class="pre">type(объект,</span> <span class="pre">класс)</span></code>. Эти выражения во многих случаях эквиваленты, но считается хорошей практикой всегда прибегать к первому варианту. Разница между этими двумя выражениями наблюдается тогда, когда объект не является экземпляром непосредственно указанного класса, а является экземпляром производного класса.</p>
+<p>Начинающие иногда используют вместо <code class="docutils literal notranslate"><span class="pre">isinstance(объект,</span> <span class="pre">класс)</span></code> конструкцию вида <code class="docutils literal notranslate"><span class="pre">type(объект)</span> <span class="pre">==</span> <span class="pre">класс</span></code>. Эти выражения во многих случаях эквиваленты, но считается хорошей практикой всегда прибегать к первому варианту. Разница между этими двумя выражениями наблюдается тогда, когда объект не является экземпляром непосредственно указанного класса, а является экземпляром производного класса.</p>
 <p>В качестве примера рассмотрим абстрактный базовый класс <a class="reference external" href="https://docs.python.org/3/library/numbers.html#numbers.Number">Number</a> для всех чисел в <code class="docutils literal notranslate"><span class="pre">python</span></code>. Все встроенные числовые типы являются производными классами от класса <code class="docutils literal notranslate"><span class="pre">Number</span></code>, и функция <code class="docutils literal notranslate"><span class="pre">isinstance</span></code> всегда вернет корректное значение, а непосредственное сравнение на тип может обмануть.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1019,8 +1019,8 @@ x=None
 </div>
 </div>
 </div>
-<p>Кроме этого значение <code class="docutils literal notranslate"><span class="pre">None</span></code> часто используется в качестве значений по умолчанию опциональных параметров функции, в качестве значения <a class="reference external" href="https://docs.python.org/3/library/weakref.html">слабой ссылки</a>, указывающей на уже освобожденный ресурс, и многое другое. В пользовательском коде <code class="docutils literal notranslate"><span class="pre">None</span></code> часто используют для индикации отсутствующих значений.</p>
-<p>Повсеместное употребление <code class="docutils literal notranslate"><span class="pre">None</span></code> обуславливается не только договором сообщества программистов, но и тем, как это само значение устроенно. Дело в том, что <code class="docutils literal notranslate"><span class="pre">None</span></code> реализован по шаблону программирования <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%9E%D0%B4%D0%B8%D0%BD%D0%BE%D1%87%D0%BA%D0%B0_(%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD_%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F)">одиночка</a>: на самом деле есть класс <code class="docutils literal notranslate"><span class="pre">NoneType</span></code> у которого гарантировано всегда есть единственный экземпляр <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<p>Кроме этого значение <code class="docutils literal notranslate"><span class="pre">None</span></code> часто используется в качестве значений по умолчанию опциональных параметров функции, в качестве значения <a class="reference external" href="https://docs.python.org/3/library/weakref.html">слабой ссылки</a>, указывающей на уже освобожденный ресурс, и т.д. В пользовательском коде <code class="docutils literal notranslate"><span class="pre">None</span></code> часто используют для индикации отсутствующих значений.</p>
+<p>Повсеместное употребление <code class="docutils literal notranslate"><span class="pre">None</span></code> обуславливается не только договором сообщества программистов, но и тем, как это само значение устроенно. Дело в том, что <code class="docutils literal notranslate"><span class="pre">None</span></code> реализован по шаблону программирования <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%9E%D0%B4%D0%B8%D0%BD%D0%BE%D1%87%D0%BA%D0%B0_(%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD_%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F)">одиночка</a>: на самом деле есть класс <code class="docutils literal notranslate"><span class="pre">NoneType</span></code> у которого гарантировано всегда есть единственный экземпляр <code class="docutils literal notranslate"><span class="pre">None</span></code>. Иными словами в исходном коде программы может многократно встречаться <code class="docutils literal notranslate"><span class="pre">None</span></code>, но в момент исполнения программы гарантируется, что всего будет создан единственный объект <code class="docutils literal notranslate"><span class="pre">None</span></code>, а при попытке создания нового будет всегда возвращаться ссылка на уже существующий.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="kc">None</span>
@@ -1053,7 +1053,7 @@ x=None
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Напомним, что оператор <code class="docutils literal notranslate"><span class="pre">is</span></code> проверяет, указывают ли два имени на один и тот же объект, а оператор <code class="docutils literal notranslate"><span class="pre">==</span></code> сравнивает два объекта на равенство. Оператор <code class="docutils literal notranslate"><span class="pre">is</span></code> всегда работает быстрее, т.к. сравнивает всего навсего значения ссылок, а оператор <code class="docutils literal notranslate"><span class="pre">==</span></code> кроме того, что всегда медленнее, но ещё и может быть перегружен не очевидным образом.</p>
+<p>Напомним, что оператор <code class="docutils literal notranslate"><span class="pre">is</span></code> проверяет, указывают ли два имени на один и тот же объект, а оператор <code class="docutils literal notranslate"><span class="pre">==</span></code> сравнивает два объекта на равенство. Оператор <code class="docutils literal notranslate"><span class="pre">is</span></code> всегда работает быстрее, т.к. сравнивает всего-навсего значения ссылок, а оператор <code class="docutils literal notranslate"><span class="pre">==</span></code> кроме того, что всегда медленнее, но ещё и может быть перегружен не очевидным образом.</p>
 </div>
 </div>
 <div class="section" id="id2">
@@ -1122,7 +1122,7 @@ tail(range(15))=14
     <span class="k">return</span> <span class="kc">None</span>
 </pre></div>
 </div>
-<p>Такой подход опирается на тот факт, что все встроенные коллекции при приведении в булевому значению дают <code class="docutils literal notranslate"><span class="pre">True</span></code>, если в них есть хотя бы один элемент.</p>
+<p>Такой подход опирается на тот факт, что все встроенные коллекции при приведении к булевому значению дают <code class="docutils literal notranslate"><span class="pre">True</span></code>, если в них есть хотя бы один элемент.</p>
 <p>Модифицируем функцию <code class="docutils literal notranslate"><span class="pre">tail</span></code> используя одну из вышеприведенных конструкций.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1211,7 +1211,7 @@ G = \sqrt[n]{x_1 x_2 \cdots x_n}.
 </ul>
 <div class="math notranslate nohighlight">
 \[
-H = \dfrac{n}{\sum_{i=1}^n\dfrac{1}{x_i}}.
+H = \dfrac{n}{\sum\limits_{i=1}^n\dfrac{1}{x_i}}.
 \]</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">harmonic_mean</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="o">...</span>
@@ -1233,12 +1233,13 @@ H = \dfrac{n}{\sum_{i=1}^n\dfrac{1}{x_i}}.
 \[
 \rho(x, y) = |x-y|,
 \]</div>
-<p>а в качестве расстояния между строками <span class="math notranslate nohighlight">\(s_1\)</span> и <span class="math notranslate nohighlight">\(s_2\)</span> — <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%A0%D0%B0%D1%81%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D0%B5_%D0%9B%D0%B5%D0%B2%D0%B5%D0%BD%D1%88%D1%82%D0%B5%D0%B9%D0%BD%D0%B0">расстояние Левенштейна</a>:</p>
+<p>а в качестве расстояния между строками одинаковой длины <span class="math notranslate nohighlight">\(s_1\)</span> и <span class="math notranslate nohighlight">\(s_2\)</span> вы выбрали <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%A0%D0%B0%D1%81%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D0%B5_%D0%A5%D1%8D%D0%BC%D0%BC%D0%B8%D0%BD%D0%B3%D0%B0">расстояние Хэмминга</a></p>
 <div class="math notranslate nohighlight">
 \[
-\rho(s_1, s_2) = \mathrm{lev}(s_1, s_2).
+\rho(s_1, s_2) =  |\{s_1^i \neq s_2^i\mid i=0,\ldots,n-1\}|,
 \]</div>
-<p>Реализуйте функцию <code class="docutils literal notranslate"><span class="pre">distance(x,</span> <span class="pre">y)</span></code>, которая будет возвращать расстояние Левенштейна, если <code class="docutils literal notranslate"><span class="pre">x</span></code> и <code class="docutils literal notranslate"><span class="pre">y</span></code> строкового типа, и модуль разницы, если <code class="docutils literal notranslate"><span class="pre">x</span></code> и <code class="docutils literal notranslate"><span class="pre">y</span></code> числового типа. Псевдокод для расстояния Левенштейна можно найти в <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%A0%D0%B0%D1%81%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D0%B5_%D0%9B%D0%B5%D0%B2%D0%B5%D0%BD%D1%88%D1%82%D0%B5%D0%B9%D0%BD%D0%B0">википедии</a>.</p>
+<p>где <span class="math notranslate nohighlight">\(s_1^i\)</span> и <span class="math notranslate nohighlight">\(s_2^i\)</span> — <span class="math notranslate nohighlight">\(i\)</span>-й символы строк <span class="math notranslate nohighlight">\(s_1\)</span> и <span class="math notranslate nohighlight">\(s_2\)</span> соответственно, <span class="math notranslate nohighlight">\(n = \mathrm{len}(s_1) = \mathrm{len}(s_2)\)</span> — длина каждой строки, а <span class="math notranslate nohighlight">\(|\cdot|\)</span> обозначает мощность множества. Иными словами расстояние Хэмминга — число позиций, в которых соответствующие символы двух слов одинаковой длины различны.</p>
+<p>Реализуйте функцию <code class="docutils literal notranslate"><span class="pre">distance(x,</span> <span class="pre">y)</span></code>, которая будет возвращать расстояние Хэмминга, если <code class="docutils literal notranslate"><span class="pre">x</span></code> и <code class="docutils literal notranslate"><span class="pre">y</span></code> строкового типа, и модуль разницы, если <code class="docutils literal notranslate"><span class="pre">x</span></code> и <code class="docutils literal notranslate"><span class="pre">y</span></code> числового типа.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">distance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="o">...</span>
 
@@ -1246,7 +1247,8 @@ H = \dfrac{n}{\sum_{i=1}^n\dfrac{1}{x_i}}.
 <span class="nb">print</span><span class="p">(</span><span class="n">distance</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="mi">13</span><span class="p">))</span>                 <span class="c1"># 29</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">distance</span><span class="p">(</span><span class="mf">3.14</span><span class="p">,</span> <span class="mf">2.71</span><span class="p">))</span>             <span class="c1"># 0.43000000000000016</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">distance</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="n">j</span><span class="p">,</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span><span class="n">j</span><span class="p">))</span>         <span class="c1"># 2.8284271247461903</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">distance</span><span class="p">(</span><span class="s2">&quot;kitten&quot;</span><span class="p">,</span> <span class="s2">&quot;sitting&quot;</span><span class="p">))</span>    <span class="c1"># 3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">distance</span><span class="p">(</span><span class="s2">&quot;абв&quot;</span><span class="p">,</span> <span class="s2">&quot;вба&quot;</span><span class="p">))</span>           <span class="c1"># 2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">distance</span><span class="p">(</span><span class="s2">&quot;Течение&quot;</span><span class="p">,</span> <span class="s2">&quot;Течении&quot;</span><span class="p">))</span>   <span class="c1"># 1</span>
 </pre></div>
 </div>
 </div>
