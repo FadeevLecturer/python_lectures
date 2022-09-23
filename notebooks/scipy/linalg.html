@@ -774,12 +774,39 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
+   Вычисление норм матриц и векторов
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Векторы
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Матрицы
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
    Обращение матриц
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
-   Решение СЛАУ
+  <a class="reference internal nav-link" href="#id6">
+   Решение систем линейных алгебраических уравнений
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   Поиск собственных чисел и векторов
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id8">
+   Сингулярное разложение матрицы
   </a>
  </li>
 </ul>
@@ -804,12 +831,39 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
+   Вычисление норм матриц и векторов
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Векторы
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Матрицы
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
    Обращение матриц
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
-   Решение СЛАУ
+  <a class="reference internal nav-link" href="#id6">
+   Решение систем линейных алгебраических уравнений
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   Поиск собственных чисел и векторов
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id8">
+   Сингулярное разложение матрицы
   </a>
  </li>
 </ul>
@@ -826,16 +880,137 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Подмодуль <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/linalg.html#module-scipy.linalg">scipy.linalg</a> в целом является надмножеством над <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.linalg.html">numpy.linalg</a>, т.е. кроме того, что он содержит все методы из <code class="docutils literal notranslate"><span class="pre">numpy.linalg</span></code>, в него включены еще ряд дополнительных методов.</p>
 <p>Ряд примеров приведен в <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/linalg.html#module-scipy.linalg">документации</a>.</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/tutorial/linalg.html#finding-the-inverse">Обращение матриц</a> (функция <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/reference/generated/scipy.linalg.inv.html#scipy.linalg.inv">linalg.inv</a>) и <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/tutorial/linalg.html#solving-a-linear-system">решение СЛАУ</a> (функция <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/reference/generated/scipy.linalg.solve.html">linalg.solve</a>);</p></li>
 <li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/tutorial/linalg.html#computing-norms">Вычисление норм векторов и матриц</a>;</p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/tutorial/linalg.html#finding-the-inverse">Обращение матриц</a> (функция <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/reference/generated/scipy.linalg.inv.html#scipy.linalg.inv">linalg.inv</a>) и <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/tutorial/linalg.html#solving-a-linear-system">решение СЛАУ</a> (функция <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/reference/generated/scipy.linalg.solve.html">linalg.solve</a>);</p></li>
 <li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/tutorial/linalg.html#decompositions">Разложение матрицы</a>: собственные значения и вектора, сингулярное разложение, LU и QR разложения и другое;</p></li>
 <li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/tutorial/linalg.html#generalized-inverse">Псевдообращение матриц</a>;</p></li>
 <li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/tutorial/linalg.html#special-matrices">Методы создания специальных матриц</a>, <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/reference/generated/scipy.linalg.block_diag.html#scipy.linalg.block_diag">блочно-диагональных</a> и многих других;</p></li>
 </ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">linalg</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="id2">
-<h2>Обращение матриц<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p>Функция <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/reference/generated/scipy.linalg.inv.html#scipy.linalg.inv">linalg.inv</a> позволяет обратить матрицу.</p>
-<p>Чтобы убедиться, что она возвращает обратную матрицу, проверим выполнение равенства <span class="math notranslate nohighlight">\(A A^{-1} = A^{-1} A = I\)</span>, где <span class="math notranslate nohighlight">\(I\)</span> — единичная матрица.</p>
+<h2>Вычисление норм матриц и векторов<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Существуют разные нормы определенные на пространстве векторов и матриц. Многие из них можно вычислить средствами функции <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.norm.html">scipy.linalg.norm</a>.</p>
+<div class="section" id="id3">
+<h3>Векторы<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Для одномерных массивов по умолчанию возвращается евклидова норма (она же <span class="math notranslate nohighlight">\(l_2\)</span>), которая для <span class="math notranslate nohighlight">\(x\in\mathbb{R}^n\)</span> (или <span class="math notranslate nohighlight">\(x\in\mathbb{C}^n\)</span>) определяется формулой</p>
+<div class="math notranslate nohighlight">
+\[
+\|x\|_2 = \sqrt{\sum_{i=1}^n |x_i|^2}.
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Евклидова норма вектора x равняется </span><span class="si">{</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Евклидова норма вектора x равняется 5.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Евклидова норма является частным случаем нормы <span class="math notranslate nohighlight">\(l_p\)</span>, которая для любого положительно <span class="math notranslate nohighlight">\(p\)</span> определяется выражением</p>
+<div class="math notranslate nohighlight">
+\[
+\|x\|_p = \left(\sum_{i = 1}^n |x_i|^p\right)^{\tfrac{1}{p}}.
+\]</div>
+<p>Параметр <code class="docutils literal notranslate"><span class="pre">ord</span></code> позволяет указать значение <code class="docutils literal notranslate"><span class="pre">p</span></code> необходимой нормы. Например, очень часто вместо <span class="math notranslate nohighlight">\(l_2\)</span> (евклидова, <span class="math notranslate nohighlight">\(p=2\)</span>) используется называемся иногда абсолютной норма <span class="math notranslate nohighlight">\(l_1\)</span> (<span class="math notranslate nohighlight">\(p=1\)</span>), которая определяется выражением</p>
+<div class="math notranslate nohighlight">
+\[
+\|x\|_1 = \sum_{i=1}^n|x|.
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Абсолютная норма вектора x равняется </span><span class="si">{</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">ord</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Абсолютная норма вектора x равняется 7.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>На другом конце спектра нормированных пространств семейства <span class="math notranslate nohighlight">\(l_p\)</span> находится пространство с равномерной метрикой <span class="math notranslate nohighlight">\(l_\infty\)</span>, определяемой выражением</p>
+<div class="math notranslate nohighlight">
+\[
+\|x\|_\infty = \max_{i=1}^n |x_i|.
+\]</div>
+<p>Чтобы её вычислить, необходимо передать в качестве параметра <code class="docutils literal notranslate"><span class="pre">ord</span></code> значение <a class="reference external" href="https://numpy.org/devdocs/reference/constants.html#numpy.inf">numpy.inf</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Равномерная норма вектора x равняется </span><span class="si">{</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">ord</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Равномерная норма вектора x равняется 4.0
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>Матрицы<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Если массив двухмерный, то по умолчанию вычисляется тоже евклидова норма (она же норма Фробениуса), которая для матрицы <span class="math notranslate nohighlight">\(A\in\mathbb{R}^{n\times m}\)</span> определяется выражением</p>
+<div class="math notranslate nohighlight">
+\[
+\|A\| = \sqrt{\sum_{i=1}^n\sum_{j=1}^m A_{ij}^2}.
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Если необходимо вычислить векторную норму от множества векторов в многомерном массиве, то полезным окажется параметр <code class="docutils literal notranslate"><span class="pre">axis</span></code> этого метода.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Норма матрицы A равняется </span><span class="si">{</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Норма матрицы A равняется 5.477225575051661
+</pre></div>
+</div>
+</div>
+</div>
+<p>В ряде задач, в которых матрицы используются для представления линейных операторов, важно следить за <strong>согласованностью</strong> и <strong>подчиненностью</strong> матричных норм с соответствующими нормами векторных пространств, в которых они оперируют.</p>
+<p>Так, например, норма евклидово векторное пространство <span class="math notranslate nohighlight">\(l_2\)</span> порождает в матричном пространстве спектральную норму, которая равняется максимальному сингулярному числу этого оператора. Чтобы вычислить спектральную норму матрицы, необходимо передать 2 в качестве параметра <code class="docutils literal notranslate"><span class="pre">ord</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">singular_values</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">svdvals</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Максимальное спектральное число матрицы A равняется </span><span class="si">{</span><span class="n">singular_values</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Спектральная норма матрицы m равняется </span><span class="si">{</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="nb">ord</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Максимальное спектральное число матрицы A равняется 5.464985704219043
+Спектральная норма матрицы m равняется 5.464985704219043
+</pre></div>
+</div>
+</div>
+</div>
+<p>За более полным списком поддерживаемых норм этим методом, автор направляет вас в <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.norm.html">документацию</a>.</p>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>Обращение матриц<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>Функция <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/reference/generated/scipy.linalg.inv.html#scipy.linalg.inv">linalg.inv</a> отвечает за обращение матрицы, т.е. за поиск такой матрицы <span class="math notranslate nohighlight">\(A^{-1}\)</span>, что <span class="math notranslate nohighlight">\(A A^{-1} = A^{-1} A = I\)</span>, где <span class="math notranslate nohighlight">\(I\)</span> — единичная матрица того же размера.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -857,6 +1032,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
+<p>Чтобы убедиться, что она возвращает обратную матрицу, проверим выполнение равенства <span class="math notranslate nohighlight">\(A A^{-1} = A^{-1} A = I\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">A</span> <span class="o">@</span> <span class="n">A_inv</span><span class="p">)</span>
@@ -868,89 +1044,186 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1.0000000e+00 0.0000000e+00]
  [8.8817842e-16 1.0000000e+00]]
 [[1.00000000e+00 0.00000000e+00]
- [1.11022302e-16 1.00000000e+00]]
+ [2.22044605e-16 1.00000000e+00]]
 </pre></div>
 </div>
 </div>
 </div>
-<p>Как видим, получилась не совсем единичная матрица, но т.к. все вычисления с числами с плавающей точкой производятся в компьютере не точно, большего ожидать нельзя.</p>
-<p>Сверять целый массив глазами не очень удобно. Давайте упростим себе задачу и посчитаем норму невязки:</p>
+<p>Как видим, получилась не совсем единичная матрица, но т.к. все вычисления с числами с плавающей точкой производятся в компьютере не точно, то большего ожидать нельзя.</p>
+<p>Сверять целый массив глазами не очень удобно. Упростим себе задачу и посчитаем норму невязки, т.к. нормы матриц</p>
 <div class="math notranslate nohighlight">
 \[
-R_1 = || A A^{-1} - I ||
+R_1 = \| A A^{-1} - I \|
 \]</div>
 <p>и</p>
 <div class="math notranslate nohighlight">
 \[
-R_2 = || A^{-1} A - I ||.
+R_2 = \| A^{-1} A - I \|.
 \]</div>
-<p>Для этого воспользуемся функцией <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/reference/generated/scipy.linalg.norm.html#scipy.linalg.norm">scipy.linalg.norm</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R_1</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">A</span> <span class="o">@</span> <span class="n">A_inv</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
 <span class="n">R_2</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">A_inv</span> <span class="o">@</span> <span class="n">A</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;R_1 = </span><span class="si">{</span><span class="n">R_1</span><span class="si">}</span><span class="s2">, R_2 = </span><span class="si">{</span><span class="n">R_2</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">R_1</span><span class="si">=}</span><span class="s2">, </span><span class="si">{</span><span class="n">R_2</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R_1 = 9.930136612989092e-16, R_2 = 2.482534153247273e-16
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R_1=9.930136612989092e-16, R_2=4.965068306494546e-16
 </pre></div>
 </div>
 </div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Функция <code class="docutils literal notranslate"><span class="pre">linalg.norm</span></code> позволяет считать разные нормы, в том числе и <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%9D%D0%BE%D1%80%D0%BC%D0%B0_%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%86%D1%8B">матричные</a>.</p>
-<p>Если эта функция встречает вектор, то по умолчанию вычисляется евклидова норма, если матрицу, то по умолчанию вычисляется норма Фробениуса.</p>
 </div>
-</div>
-<div class="section" id="id3">
-<h2>Решение СЛАУ<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id6">
+<h2>Решение систем линейных алгебраических уравнений<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
 <p>Функция <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/reference/generated/scipy.linalg.solve.html">linalg.solve</a> используется для решения СЛАУ вида <span class="math notranslate nohighlight">\(Ax = b\)</span>, где <span class="math notranslate nohighlight">\(A\)</span> — квадратная матрица размера <span class="math notranslate nohighlight">\(N \times N\)</span>. Правая часть уравнения <span class="math notranslate nohighlight">\(b\)</span> может быть формы <code class="docutils literal notranslate"><span class="pre">(N,</span> <span class="pre">NRHS)</span></code>, т.е. если <span class="math notranslate nohighlight">\(b\)</span> — одномерный массив, то решается обычное СЛАУ, а если <span class="math notranslate nohighlight">\(b\)</span> — матрица из <span class="math notranslate nohighlight">\(N\)</span> строк и <code class="docutils literal notranslate"><span class="pre">NRHS</span></code> столбцов, то решается матричное уравнение (или сразу решается <code class="docutils literal notranslate"><span class="pre">NRHS</span></code> СЛАУ с общей матрицей <span class="math notranslate nohighlight">\(A\)</span>, а в качестве векторов правых частей выступают столбцы матрицы <span class="math notranslate nohighlight">\(b\)</span>).</p>
 <p>Для иллюстрации создадим матрицу <code class="docutils literal notranslate"><span class="pre">A</span></code> и вектор <code class="docutils literal notranslate"><span class="pre">x</span></code>. Сгенерируем вектор правой части <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">A</span> <span class="pre">&#64;</span> <span class="pre">x</span></code> и попробуем восстановить значение <code class="docutils literal notranslate"><span class="pre">x</span></code>, решив СЛАУ <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">b</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">linalg</span>
-
-<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">]])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">]])</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">])</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">A</span> <span class="o">@</span> <span class="n">x</span>
 
 <span class="n">x_approx</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 <span class="n">error</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x_approx</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Погрешность: </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x_approx</span><span class="si">=}</span><span class="s2">. Погрешность: </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Погрешность: 4.002966042486721e-16
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x_approx=array([1., 1.]). Погрешность: 4.002966042486721e-16
 </pre></div>
 </div>
 </div>
 </div>
-<p>Проиллюстрируем одновременное решение нескольких СЛАУ. Одновременно решим уравнение <span class="math notranslate nohighlight">\(A x = b\)</span> и <span class="math notranslate nohighlight">\(A y = c\)</span>, где <span class="math notranslate nohighlight">\(A\)</span> — общая матрица, а правые части <span class="math notranslate nohighlight">\(b\)</span> и <span class="math notranslate nohighlight">\(c\)</span> — разные. Для этого составим матрицу <span class="math notranslate nohighlight">\(B\)</span>, которая состоит из столбцов <span class="math notranslate nohighlight">\(b\)</span> и <span class="math notranslate nohighlight">\(c\)</span>. Решение <span class="math notranslate nohighlight">\(X\)</span> матричного уравнения <span class="math notranslate nohighlight">\(A X = B\)</span> — матрица, столбцы которой — решения исходных СЛАУ <span class="math notranslate nohighlight">\(x\)</span> и <span class="math notranslate nohighlight">\(y\)</span>.</p>
+<p>Кроме метода <code class="docutils literal notranslate"><span class="pre">solve</span></code>, который пытается решить СЛАУ в общем случае, в <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> предусмотрен набор методов для решения СЛАУ, если известны свойства матрицы в левой части. Например, для треугольной матрицы предпочтительно использовать метод <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.solve_triangular.html#scipy.linalg.solve_triangular">solve_triangular</a>, для <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%A6%D0%B8%D1%80%D0%BA%D1%83%D0%BB%D1%8F%D0%BD%D1%82">циркулянтной матрицы</a> — метод <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.solve_circulant.html#scipy.linalg.solve_circulant">solve_circulant</a> и т.п.</p>
+<p>Определитель квадратной матрицы вычисляется методом <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.det.html#scipy.linalg.det">det</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">42.</span><span class="p">,</span> <span class="mf">42.</span><span class="p">])</span>
-<span class="n">c</span> <span class="o">=</span> <span class="n">A</span> <span class="o">@</span> <span class="n">y</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Точные решения: </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2"> и </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
-
-<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Численные: </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2"> и </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Определитель матрицы A равен </span><span class="si">{</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Точные решения: [1. 1.] и [42. 42.]
-Численные: [1. 1.] и [42. 42.]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Определитель матрицы A равен -2.0
 </pre></div>
 </div>
 </div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>Поиск собственных чисел и векторов<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>В ряде задач требуется найти собственные числа и/или собственные значения.</p>
+<p>Метод <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.eigvals.html#scipy.linalg.eigvals">eigvals</a> отвечает за поиск собственных чисел. Найдем с помощью него собственные значения матрицы</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+A = 
+\begin{pmatrix}
+2 &amp; 1 \\
+1 &amp; 2
+\end{pmatrix}.
+\end{split}\]</div>
+<p>Характеристический полином</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+|A-\lambda I| = 
+\begin{pmatrix}
+    2 - \lambda &amp;  1\\
+    1 &amp; 2 - \lambda
+\end{pmatrix} = \lambda^2 - 4 \lambda + 3
+\end{split}\]</div>
+<p>имеет два действительных решения <span class="math notranslate nohighlight">\(\lambda_1=3\)</span> и <span class="math notranslate nohighlight">\(\lambda_2=1\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="p">])</span>
+
+<span class="n">eigen_values</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">eigvals</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Собственные значения матрицы A: </span><span class="si">{</span><span class="n">eigen_values</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Собственные значения матрицы A: [3.+0.j 1.+0.j]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Метод <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.eig.html">eig</a> вычисляет сразу и собственные числа и собственные векторы. При этом собственные вектора возвращаются как столбцы матрицы второго возвращаемого значения.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eigen_values</span><span class="p">,</span> <span class="n">eigen_vectors</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Собственные значения матрицы A: </span><span class="si">{</span><span class="n">eigen_values</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">vector</span> <span class="ow">in</span> <span class="n">eigen_vectors</span><span class="o">.</span><span class="n">T</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">vector</span><span class="si">}</span><span class="s2"> --- собственный вектор матрицы A&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Собственные значения матрицы A: [3.+0.j 1.+0.j]
+[0.70710678 0.70710678] --- собственный вектор матрицы A
+[-0.70710678  0.70710678] --- собственный вектор матрицы A
+</pre></div>
+</div>
+</div>
+</div>
+<p>Проверим, что найденные собственные вектора и числа корректны. Для этого посчитаем невязки</p>
+<div class="math notranslate nohighlight">
+\[
+R_i = \| Av_i - \lambda_i v_i \|, \, i=1,2,
+\]</div>
+<p>где <span class="math notranslate nohighlight">\(v_1\)</span> и <span class="math notranslate nohighlight">\(v_2\)</span> — собственные вектора соответствующие собственным числам <span class="math notranslate nohighlight">\(\lambda_1\)</span> и <span class="math notranslate nohighlight">\(\lambda_2\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">l</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">eigen_values</span><span class="p">,</span> <span class="n">eigen_vectors</span><span class="o">.</span><span class="n">T</span><span class="p">):</span>
+    <span class="n">R</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">A</span><span class="nd">@v</span> <span class="o">-</span> <span class="n">l</span><span class="o">*</span><span class="n">v</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">R</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R=0.0
+R=0.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Если заранее известны определенные свойства матрицы <span class="math notranslate nohighlight">\(A\)</span>, то лучше воспользоваться соответствующими методами.</p>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>Сингулярное разложение матрицы<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>За поиск сингулярных чисел отвечает функция <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.svdvals.html#scipy.linalg.svdvals">svdvalues</a>. Функция <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.svd.html#scipy.linalg.svd">svd</a> (<strong>S</strong>ingular <strong>V</strong>alue <strong>D</strong>ecomposition) вычисляет сингулярное разложение матрицы, которое определено и для прямоугольных матриц.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+<span class="p">])</span>
+<span class="n">left_vectors</span><span class="p">,</span> <span class="n">singular_values</span><span class="p">,</span> <span class="n">right_vectors</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">v</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">u</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">left_vectors</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">singular_values</span><span class="p">,</span> <span class="n">right_vectors</span><span class="p">):</span>
+    <span class="n">R</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">v</span> <span class="o">-</span> <span class="n">s</span> <span class="o">*</span> <span class="n">u</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">R</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R=1.9860273225978185e-15
+R=1.1625080825424498e-15
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Кроме сингулярного разложения в <code class="docutils literal notranslate"><span class="pre">scipy</span></code> есть и многие другие, такие как <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.qr.html#scipy.linalg.qr">QR-разложение</a>, <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.lu.html#scipy.linalg.lu">LU-разложение</a> и т.д.</p>
 </div>
 </div>
 </div>
