@@ -61,18 +61,29 @@ parts:
       - file: notebooks/python/exercises1
   - caption: "Лекция №7"
     chapters:
+      - file: notebooks/scipy/scipy
+      - file: notebooks/scipy/linalg
+      - file: notebooks/scipy/interpolation_approx
+      - file: notebooks/scipy/integration
+      - file: notebooks/scipy/ODE
+      - file: notebooks/scipy/optimization
+      - file: notebooks/scipy/nonlinear_equations
+      - file: notebooks/scipy/cannonball
+      - file: notebooks/scipy/homework
+  - caption: "Лекция №8"
+    chapters:
       - file: notebooks/python/custom_classes
       - file: notebooks/python/inheritance
       - file: notebooks/python/polymorphism
       - file: notebooks/python/operators_overloading
       - file: notebooks/python/exercises2
-  - caption: "Лекция №8"
+  - caption: "Лекция №9"
     chapters:
       - file: notebooks/python/exceptions
       - file: notebooks/python/custom_exceptions
       - file: notebooks/python/LBYL_vs_EAFP
       - file: notebooks/python/exercises3
-  - caption: "Лекция №9"
+  - caption: "Лекция №10"
     chapters:
       - file: notebooks/qt/gui
       - file: notebooks/qt/basics
@@ -93,15 +104,6 @@ parts:
       - file: notebooks/machine_learning/regression
       - file: notebooks/machine_learning/classification
       - file: notebooks/machine_learning/neural_networks
-      - file: notebooks/scipy/scipy
-      - file: notebooks/scipy/linalg
-      - file: notebooks/scipy/interpolation_approx
-      - file: notebooks/scipy/integration
-      - file: notebooks/scipy/ODE
-      - file: notebooks/scipy/optimization
-      - file: notebooks/scipy/nonlinear_equations
-      - file: notebooks/scipy/cannonball
-      - file: notebooks/scipy/homework
       - file: notebooks/python/python_scripts
       - file: notebooks/python/scripts_vs_modules
       - file: notebooks/python/argparse
