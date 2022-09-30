@@ -2,12 +2,12 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="5.1231785in"
-   height="1.439278in"
-   viewBox="0 0 130.12873 36.557661"
+   width="4.0931315in"
+   height="1.4092208in"
+   viewBox="0 0 103.96554 35.794208"
    version="1.1"
    id="svg5"
-   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
    sodipodi:docname="refcount_1.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -28,13 +28,13 @@
      fit-margin-right="0"
      fit-margin-bottom="0"
      inkscape:snap-midpoints="true"
-     inkscape:zoom="1.28"
-     inkscape:cx="223.82813"
-     inkscape:cy="195.70313"
-     inkscape:window-width="1600"
-     inkscape:window-height="837"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
+     inkscape:zoom="1.8101934"
+     inkscape:cx="129.82039"
+     inkscape:cy="199.97864"
+     inkscape:window-width="1920"
+     inkscape:window-height="986"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1"
      inkscape:snap-object-midpoints="false"
@@ -48,7 +48,10 @@
      inkscape:object-paths="true"
      inkscape:snap-bbox-edge-midpoints="false"
      inkscape:snap-nodes="true"
-     units="in" />
+     units="in"
+     inkscape:snap-global="false"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1" />
   <defs
      id="defs2">
     <marker
@@ -94,8 +97,8 @@
     <rect
        x="84.691383"
        y="55.264717"
-       width="198.80943"
-       height="96.892685"
+       width="291.77817"
+       height="56.267685"
        id="rect9657-1-6" />
     <rect
        x="84.691383"
@@ -145,27 +148,41 @@
        width="43.063416"
        height="45.216587"
        id="rect9657-5-6-9" />
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lstart-1"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.8,0,0,0.8,10,0)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path10131-0" />
+    </marker>
   </defs>
   <g
      inkscape:label="Слой 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-56.519692,-79.14246)">
+     transform="translate(-82.682873,-79.14246)">
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.332133;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 107.86189,79.14246 v 36.55766"
+       style="fill:none;stroke:#000000;stroke-width:0.328647;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 107.86189,79.14246 v 35.79421"
        id="path1447"
        sodipodi:nodetypes="cc" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="62.114803"
+       x="84.339821"
        y="88.29673"
        id="text2399"><tspan
          sodipodi:role="line"
          id="tspan2397"
          style="font-size:7.05556px;stroke-width:0.264583"
-         x="62.114803"
+         x="84.339821"
          y="88.29673">Имена</tspan></text>
     <text
        xml:space="preserve"
@@ -180,24 +197,28 @@
          y="88.405251">Объекты</tspan></text>
     <text
        xml:space="preserve"
-       transform="matrix(0.26458333,0,0,0.26458333,47.204782,84.604813)"
+       transform="matrix(0.26458333,0,0,0.26458333,69.283633,79.403821)"
        id="text9655"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.3333px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;white-space:pre;shape-inside:url(#rect9657);fill:#000000;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.3333px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;white-space:pre;shape-inside:url(#rect9657);display:inline;fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="84.691406"
          y="88.403441"
-         id="tspan26680">a
+         id="tspan4085"><tspan
+   style="font-family:Consolas;-inkscape-font-specification:Consolas"
+   id="tspan4083">a</tspan>
 </tspan></text>
     <g
        id="g28338"
        transform="translate(7.9059996,7.0450579)">
       <text
          xml:space="preserve"
-         transform="matrix(0.26458333,0,0,0.26458333,111.84465,77.779207)"
+         transform="matrix(0.26458333,0,0,0.26458333,105.86488,79.069596)"
          id="text9655-2"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.3333px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;white-space:pre;shape-inside:url(#rect9657-1);fill:#000000;fill-opacity:1;stroke:none"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;white-space:pre;shape-inside:url(#rect9657-1);display:inline;fill:#000000;fill-opacity:1;stroke:none"><tspan
            x="84.691406"
-           y="88.403441"
-           id="tspan26682">list: []</tspan></text>
+           y="83.669492"
+           id="tspan4089"><tspan
+             style="font-family:Consolas;-inkscape-font-specification:Consolas"
+             id="tspan4087">list: []</tspan></tspan></text>
       <rect
          style="fill:none;fill-opacity:0.822526;fill-rule:evenodd;stroke:none;stroke-width:0.934034;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect17120"
@@ -214,13 +235,13 @@
          y="92.940147" />
     </g>
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.25133px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 56.519692,92.875923 H 186.64842"
+       style="fill:none;stroke:#000000;stroke-width:0.224648px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 82.682873,92.875923 H 186.64842"
        id="path28689"
        inkscape:label="path28689" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.265;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow1Lstart)"
-       d="M 128.66616,105.7666 H 75.60546"
-       id="path10129" />
+       style="fill:none;stroke:#000000;stroke-width:0.265;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow1Lstart-1)"
+       d="M 128.34991,106.23985 97.824691,99.981657"
+       id="path11980-1" />
   </g>
 </svg>
