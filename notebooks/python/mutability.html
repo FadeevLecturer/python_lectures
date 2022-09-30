@@ -929,8 +929,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[42] 2835756884544
-[42, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;] 2835756884544
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[42] 1384847112704
+[42, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;] 1384847112704
 </pre></div>
 </div>
 </div>
@@ -965,7 +965,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
 </div>
@@ -980,37 +980,31 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">+=</span> <span class="mi">42</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a</span> <span class="ow">is</span> <span class="n">b</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>   
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a</span><span class="si">=}</span><span class="s2">, </span><span class="si">{</span><span class="n">b</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>  
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a is b = False
+a=42, b=0
 </pre></div>
 </div>
 </div>
 </div>
 <div class="figure align-default">
 <img alt="../../_images/ba0a42.svg" src="../../_images/ba0a42.svg" /></div>
-<p>Создаётся объект <code class="docutils literal notranslate"><span class="pre">42</span></code> и имя <code class="docutils literal notranslate"><span class="pre">a</span></code> связывается с ним. Объект <code class="docutils literal notranslate"><span class="pre">0</span></code> не претерпел изменений (и не мог бы, <code class="docutils literal notranslate"><span class="pre">int</span></code> неизменяемый), имя <code class="docutils literal notranslate"><span class="pre">b</span></code> по прежнему связанно с ним.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="ow">is</span> <span class="n">b</span><span class="p">)</span>   
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>     
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
-84 0
-</pre></div>
-</div>
-</div>
-</div>
-<p>Таким образом, если есть несколько ссылок на один и тот же неизменяемый объект, можно не переживать, что изменяя объект по одной из этих ссылок, вы измените значение по остальным ссылкам.</p>
+<p>Создаётся объект <code class="docutils literal notranslate"><span class="pre">42</span></code> и имя <code class="docutils literal notranslate"><span class="pre">a</span></code> связывается с ним. Объект <code class="docutils literal notranslate"><span class="pre">0</span></code> не претерпел изменений (и не мог бы, <code class="docutils literal notranslate"><span class="pre">int</span></code> неизменяемый), имя <code class="docutils literal notranslate"><span class="pre">b</span></code> по прежнему связанно с ним.
+Таким образом, если есть несколько ссылок на один и тот же неизменяемый объект, можно не переживать, что изменяя объект по одной из этих ссылок, вы измените значение по остальным ссылкам.</p>
 </div>
 <div class="section" id="id4">
 <h3>Разделяемые ссылки на изменяемый объект<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>Предыдущее утверждение не распространяется на изменяемые объекты. Создадим список и две ссылки на него.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l1</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">]</span>
-<span class="n">l2</span> <span class="o">=</span> <span class="n">l1</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">l1</span> <span class="ow">is</span> <span class="n">l2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L1</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">]</span>
+<span class="n">L2</span> <span class="o">=</span> <span class="n">L1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">L1</span> <span class="ow">is</span> <span class="n">L2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1020,11 +1014,13 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<p>Изменим список <code class="docutils literal notranslate"><span class="pre">l1</span></code>, добавив в него какой-нибудь элемент.</p>
+<div class="figure align-default">
+<img alt="../../_images/l1l2abc.svg" src="../../_images/l1l2abc.svg" /></div>
+<p>Изменим список <code class="docutils literal notranslate"><span class="pre">L1</span></code>, добавив в него какой-нибудь элемент.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l1</span> <span class="o">+=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">l1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L1</span> <span class="o">+=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">L1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1034,11 +1030,11 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<p>Что произошло с списком <code class="docutils literal notranslate"><span class="pre">l2</span></code>?</p>
+<p>Что произошло с списком <code class="docutils literal notranslate"><span class="pre">L2</span></code>?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">l2</span><span class="p">)</span>       
-<span class="nb">print</span><span class="p">(</span><span class="n">l1</span> <span class="ow">is</span> <span class="n">l2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">L2</span><span class="p">)</span>       
+<span class="nb">print</span><span class="p">(</span><span class="n">L1</span> <span class="ow">is</span> <span class="n">L2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1049,15 +1045,17 @@ True
 </div>
 </div>
 </div>
-<p>Изменение объекта по имени <code class="docutils literal notranslate"><span class="pre">l1</span></code> отражается и на имени <code class="docutils literal notranslate"><span class="pre">l2</span></code>, так как они ссылаются на один и тот изменяемый объект.</p>
-<p>Оба имени <code class="docutils literal notranslate"><span class="pre">l1</span></code> и <code class="docutils literal notranslate"><span class="pre">l2</span></code> ссылаются на один и тот же изменяемый объект. Изменяемые объекты могут менять своё содержимое на месте. Тем не менее оператор присваивания “<code class="docutils literal notranslate"><span class="pre">=</span></code>” сохраняет смысл связывания имени и объекта.</p>
+<p>Изменение объекта по имени <code class="docutils literal notranslate"><span class="pre">L1</span></code> отражается и на имени <code class="docutils literal notranslate"><span class="pre">L2</span></code>, так как они ссылаются на один и тот изменяемый объект.</p>
+<div class="figure align-default">
+<img alt="../../_images/l1l2abc123.svg" src="../../_images/l1l2abc123.svg" /></div>
+<p>Оба имени <code class="docutils literal notranslate"><span class="pre">L1</span></code> и <code class="docutils literal notranslate"><span class="pre">L2</span></code> ссылаются на один и тот же изменяемый объект. Изменяемые объекты могут менять своё содержимое на месте. Тем не менее оператор присваивания “<code class="docutils literal notranslate"><span class="pre">=</span></code>” сохраняет смысл связывания имени и объекта.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l1</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">]</span>
-<span class="n">l2</span> <span class="o">=</span> <span class="n">l1</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">l1</span> <span class="ow">is</span> <span class="n">l2</span><span class="p">)</span>
-<span class="n">l1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>      
-<span class="nb">print</span><span class="p">(</span><span class="n">l1</span> <span class="ow">is</span> <span class="n">l2</span><span class="p">)</span>   
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L1</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">]</span>
+<span class="n">L2</span> <span class="o">=</span> <span class="n">L1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">L1</span> <span class="ow">is</span> <span class="n">L2</span><span class="p">)</span>
+<span class="n">L1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>      
+<span class="nb">print</span><span class="p">(</span><span class="n">L1</span> <span class="ow">is</span> <span class="n">L2</span><span class="p">)</span>   
 </pre></div>
 </div>
 </div>

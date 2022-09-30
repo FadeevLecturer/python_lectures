@@ -1054,8 +1054,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p>Схема ниже иллюстрирует сложившуюся ситуацию.</p>
 <div class="figure align-default">
-<img alt="../../_images/cycle.png" src="../../_images/cycle.png" />
-</div>
+<img alt="../../_images/cycle.svg" src="../../_images/cycle.svg" /></div>
 <p>Удалим изначальные ссылки <code class="docutils literal notranslate"><span class="pre">L1</span></code> и <code class="docutils literal notranslate"><span class="pre">L2</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1066,8 +1065,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p>Теперь пропали все внешние ссылки на циклическую группу этих списков, т.е. они недостижимы для программы, но сами списки все ещё ссылаются друг на друга.</p>
 <div class="figure align-default">
-<img alt="../../_images/unreachable_cycle.png" src="../../_images/unreachable_cycle.png" />
-</div>
+<img alt="../../_images/unreachable_cycle.svg" src="../../_images/unreachable_cycle.svg" /></div>
 <p>Чтобы обнаруживать такие ситуации в <code class="docutils literal notranslate"><span class="pre">python</span></code> есть <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%A1%D0%B1%D0%BE%D1%80%D0%BA%D0%B0_%D0%BC%D1%83%D1%81%D0%BE%D1%80%D0%B0">сборщик мусора</a>, который представляет собой отдельный процесс, который переодически запускается и занимается поиском недостижимых циклических структур и удаляет их.</p>
 <p>Положительная сторона такого подхода заключается в том, что удаление объектов происходит полностью автоматически и у программиста нет необходимости удалять все объекты самостоятельно. Отрицательная — накладные расходы: помимо интересующей пользователя программы параллельно работает дополнительный процесс, который может вызвать небольшие замедления в её работе.</p>
 <div class="admonition note">
