@@ -776,14 +776,26 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal nav-link" href="#id2">
    Задача Коши
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Уравнение первого порядка
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Уравнения высшего порядка
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
+  <a class="reference internal nav-link" href="#id5">
    Выбор метода решения ОДУ
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
+  <a class="reference internal nav-link" href="#id6">
    Краевая задача
   </a>
  </li>
@@ -811,14 +823,26 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal nav-link" href="#id2">
    Задача Коши
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Уравнение первого порядка
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Уравнения высшего порядка
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
+  <a class="reference internal nav-link" href="#id5">
    Выбор метода решения ОДУ
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
+  <a class="reference internal nav-link" href="#id6">
    Краевая задача
   </a>
  </li>
@@ -833,55 +857,67 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="id1">
 <h1>Решение ОДУ<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+
+<span class="k">def</span> <span class="nf">configure_matplotlib</span><span class="p">():</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="n">usetex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;axes.titlesize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">28</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;axes.labelsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">24</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;legend.fontsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">24</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;xtick.labelsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;ytick.labelsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">18</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;text.latex.preamble&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    \usepackage[utf8]</span><span class="si">{inputenc}</span><span class="s2"></span>
+<span class="s2">    \usepackage[english,russian]</span><span class="si">{babel}</span><span class="s2"></span>
+<span class="s2">    \usepackage</span><span class="si">{amsmath}</span><span class="s2"></span>
+<span class="s2">    &quot;&quot;&quot;</span>
+
+<span class="n">configure_matplotlib</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>Подмодуль <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/integrate.html#module-scipy.integrate">scipy.integrate</a> содержит в себе множество методов решения систем обыкновенных дифференциальных уравнений (ОДУ, <code class="docutils literal notranslate"><span class="pre">ordinary</span> <span class="pre">differential</span> <span class="pre">equation</span></code>, <code class="docutils literal notranslate"><span class="pre">ODE</span></code>).</p>
 <p>Т.к. везде ниже будут строиться графики полученного и точного решений уравнения, определим функцию для построения графиков этих решений.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">exact_sol</span><span class="p">,</span> <span class="n">sol_x</span><span class="p">,</span> <span class="n">sol_y</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="s2">&quot;r.&quot;</span><span class="p">):</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">exact_sol</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s2">&quot;b&quot;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol_x</span><span class="p">,</span> <span class="n">sol_y</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">plot_solution</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">exact_sol</span><span class="p">,</span> <span class="n">sol_x</span><span class="p">,</span> <span class="n">sol_y</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;$t$&quot;</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">exact_sol</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Точное решение&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">sol_x</span><span class="p">,</span> <span class="n">sol_y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Приближенное решение&quot;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">xlabel</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;Точное решение&quot;</span><span class="p">,</span> <span class="s2">&quot;Приближенное решение&quot;</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;$y$&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="id2">
 <h2>Задача Коши<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p>Функция <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html#scipy.integrate.solve_ivp">scipy.integrate.solve_ivp</a> (<code class="docutils literal notranslate"><span class="pre">solve</span> <span class="pre">initial</span> <span class="pre">value</span> <span class="pre">problem</span></code>) позволяет численно решать задачу Коши вида</p>
+<p>Функция <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html#scipy.integrate.solve_ivp">scipy.integrate.solve_ivp</a> (<strong>solve</strong> <strong>i</strong>nitial <strong>v</strong>alue <strong>p</strong>roblem) позволяет численно решать задачу Коши вида</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{cases}
-\dfrac{dy}{dt} = f(t, y) \\
+\dfrac{dy}{dt} = f(t, y), \\
 y(t_0) = y_0.
 \end{cases}
 \end{split}\]</div>
-<p>Предполагается, что в общем случае <span class="math notranslate nohighlight">\(y=y(t)\)</span> является векторной и решается система обыкновенных дифференциальных уравнений.</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{cases}
-\dot{y}_1 = f_1(t, y_1, \cdots, y_n), \\
-\cdots \\
-\dot{y}_n = f_n(t, y_1, \cdots, y_n), \\
-y_1(t_0) = y_{10}, \\
-\cdots \\
-y_n(t_0) = y_{n0}.
-\end{cases}
-\end{split}\]</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Чтобы численно решить уравнение <span class="math notranslate nohighlight">\(n\)</span>-го порядка, необходимо свести его к системе из <span class="math notranslate nohighlight">\(n\)</span> уравнений первого порядка.</p>
-</div>
-<p>В качестве самого простого примера, решим уравнение</p>
+<div class="section" id="id3">
+<h3>Уравнение первого порядка<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>В качестве самого простого примера решим уравнение</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{cases}
 y' = y, \\
-y(0) = 0.
+y(0) = 1,
 \end{cases}
 \end{split}\]</div>
+<p>точное решение которого <span class="math notranslate nohighlight">\(y=e^t\)</span>.</p>
+<p>Чтобы численно решить это уравнение средствами <code class="docutils literal notranslate"><span class="pre">SciPy</span></code>, необходимо определить функцию правой части (<code class="docutils literal notranslate"><span class="pre">f(t,</span> <span class="pre">y)</span></code> в ячейке ниже), задать начальное значение <span class="math notranslate nohighlight">\(y(0)\)</span> в виде списка из одного элемента (<code class="docutils literal notranslate"><span class="pre">y_0</span></code> в ячейке ниже), а также задать интервал независимой переменной, на которой необходимо решить дифференциальное уравнение.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -898,44 +934,161 @@ y(0) = 0.
 <span class="n">y_0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">t_0</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">t_final</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="n">sol</span> <span class="o">=</span> <span class="n">integrate</span><span class="o">.</span><span class="n">solve_ivp</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">t_0</span><span class="p">,</span> <span class="n">t_final</span><span class="p">),</span> <span class="n">y_0</span><span class="p">)</span>
-
-
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">t_0</span><span class="p">,</span> <span class="n">t_final</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">exact_solution</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="s2">&quot;r-&quot;</span><span class="p">)</span>
+<span class="n">solution</span> <span class="o">=</span> <span class="n">integrate</span><span class="o">.</span><span class="n">solve_ivp</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">t_0</span><span class="p">,</span> <span class="n">t_final</span><span class="p">),</span> <span class="n">y_0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">solution</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ODE_3_0.png" src="../../_images/ODE_3_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  message: &#39;The solver successfully reached the end of the integration interval.&#39;
+     nfev: 26
+     njev: 0
+      nlu: 0
+      sol: None
+   status: 0
+  success: True
+        t: array([0.        , 0.10001999, 1.06609106, 2.30431769, 3.        ])
+ t_events: None
+        y: array([[ 1.        ,  1.10519301,  2.9040598 , 10.01740317, 20.08580546]])
+ y_events: None
+</pre></div>
 </div>
 </div>
-<p>На что следует обратить внимание.</p>
-<ul class="simple">
-<li><p>Хоть правая часть уравнения и не зависит явным образом от <span class="math notranslate nohighlight">\(t\)</span>, функция <code class="docutils literal notranslate"><span class="pre">f(t,</span> <span class="pre">x)</span></code> все равно объявляется с первым параметром <code class="docutils literal notranslate"><span class="pre">t</span></code>;</p></li>
-<li><p>Функция <span class="math notranslate nohighlight">\(y=y(t)\)</span> в этом уравнение скалярная, но мы представляем её в виде векторной функции <span class="math notranslate nohighlight">\(f:\mathbb{R}^1 \to \mathbb{R}^1\)</span>;</p></li>
-<li><p>Помимо функции правой части искомого ОДУ, функция <code class="docutils literal notranslate"><span class="pre">scipy.integrate.solve_ivp</span></code> принимает отрезок <code class="docutils literal notranslate"><span class="pre">t_span</span></code> (<span class="math notranslate nohighlight">\([t_0, t_{\text{final}}])\)</span>, на котором решается уравнение, и начальные условия в виде вектора <span class="math notranslate nohighlight">\(y_0\)</span>;</p></li>
-<li><p>В итоговом решение компонента <code class="docutils literal notranslate"><span class="pre">sol.t</span></code> соответствует значениям по оси <code class="docutils literal notranslate"><span class="pre">t</span></code>, а <code class="docutils literal notranslate"><span class="pre">sol.y</span></code> значениям полученного решения в точках из <code class="docutils literal notranslate"><span class="pre">sol.t</span></code>. Т.к. <span class="math notranslate nohighlight">\(y\)</span> считается векторной функцией, то <code class="docutils literal notranslate"><span class="pre">sol.е</span></code> — матрица, каждая строка которой соответствует компоненте вектора <span class="math notranslate nohighlight">\(y\)</span>, а каждый столбец значению <span class="math notranslate nohighlight">\(t\)</span> из <code class="docutils literal notranslate"><span class="pre">sol.t</span></code>;</p></li>
-<li><p>Для данного уравнения функция <code class="docutils literal notranslate"><span class="pre">scipy.integrate.solve_ivp</span></code> выдала решение, содержащее совсем небольшое количество значений <span class="math notranslate nohighlight">\(t\)</span>. Можно попросить у этой функции получить решение на заданной сетке <span class="math notranslate nohighlight">\(t\)</span>.</p></li>
-</ul>
+</div>
+<p>Метод возвращает структуру со сравнительно большим количеством полей, из которых можно получить отладочную информацию о сходимости алгоритма, а также получить приближенную оценку <span class="math notranslate nohighlight">\(\tilde{y}(t)\)</span> в наборе точек <span class="math notranslate nohighlight">\(\{t_i,\,i=1,\ldots,n\}\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span> <span class="o">=</span> <span class="n">integrate</span><span class="o">.</span><span class="n">solve_ivp</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">t_0</span><span class="p">,</span> <span class="n">t_final</span><span class="p">),</span> <span class="n">y_0</span><span class="p">,</span> <span class="n">t_eval</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">t_0</span><span class="p">,</span> <span class="n">t_final</span><span class="p">,</span> <span class="mi">50</span><span class="p">))</span>
-
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">t_0</span><span class="p">,</span> <span class="n">t_final</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">exact_solution</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">t_0</span><span class="p">,</span> <span class="n">t_final</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">plot_solution</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">exact_solution</span><span class="p">,</span> <span class="n">solution</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">solution</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ODE_5_0.png" src="../../_images/ODE_5_0.png" />
+<img alt="../../_images/ODE_7_0.png" src="../../_images/ODE_7_0.png" />
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Хоть правая часть уравнения и не зависит явным образом от <span class="math notranslate nohighlight">\(t\)</span>, функция <code class="docutils literal notranslate"><span class="pre">f(t,</span> <span class="pre">x)</span></code> все равно объявляется с первым параметром <code class="docutils literal notranslate"><span class="pre">t</span></code>.</p>
+</div>
+<p>Для данного уравнения функция <code class="docutils literal notranslate"><span class="pre">scipy.integrate.solve_ivp</span></code> выдала решение, содержащее совсем небольшое количество точек, так как метод быстро сошелся. Параметром <code class="docutils literal notranslate"><span class="pre">t_eval</span></code> можно в явно виде задать сетку, в узлах которой требуется получить оценку точного решения.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">solution</span> <span class="o">=</span> <span class="n">integrate</span><span class="o">.</span><span class="n">solve_ivp</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">t_0</span><span class="p">,</span> <span class="n">t_final</span><span class="p">),</span> <span class="n">y_0</span><span class="p">,</span> <span class="n">t_eval</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">t_0</span><span class="p">,</span> <span class="n">t_final</span><span class="p">,</span> <span class="mi">50</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">plot_solution</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">exact_solution</span><span class="p">,</span> <span class="n">solution</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">solution</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/ODE_9_0.png" src="../../_images/ODE_9_0.png" />
 </div>
 </div>
 </div>
-<div class="section" id="id3">
-<h2>Выбор метода решения ОДУ<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h3>Уравнения высшего порядка<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Предполагается, что в общем случае <span class="math notranslate nohighlight">\(y=y(t)\)</span> является векторной и решается система обыкновенных дифференциальных уравнений.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{cases}
+\dot{y}_1 = f_1(t, y_1, \cdots, y_n), \\
+\cdots \\
+\dot{y}_n = f_n(t, y_1, \cdots, y_n), \\
+y_1(t_0) = y_{1,0}, \\
+\cdots \\
+y_n(t_0) = y_{n,0}.
+\end{cases}
+\end{split}\]</div>
+<p>Если имеется дифференциальное уравнение высшего порядка разрешенное относительно старшей переменной вида</p>
+<div class="math notranslate nohighlight">
+\[
+y^{(n)} = f(t, y, y', \ldots, y^{(n-1)}), 
+\]</div>
+<p>то необходимо свести его к системе из <span class="math notranslate nohighlight">\(n\)</span> уравнение первого порядка.</p>
+<p>В качестве примера решим уравнение</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{cases}
+z'' + z = 0, \\
+z(0) = 0, \\
+z'(0) = 1,
+\end{cases}
+\end{split}\]</div>
+<p>точное решение которого — <span class="math notranslate nohighlight">\(z = \sin t\)</span>. Чтобы его решить, необходимо свести уравнение к системе двух дифференциальных уравнений первого порядка. Введём обозначения <span class="math notranslate nohighlight">\(y_1(t) = z(t)\)</span> и <span class="math notranslate nohighlight">\(y_2(t) = z'(t)\)</span>, тогда систему выше можно переписать в виде</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{cases}
+y_1'(t) = y_2(t), \\
+y_2'(t) = -y_1(t), \\
+y_1(0) = 0, \\
+y_2(0) = 1.
+\end{cases}
+\end{split}\]</div>
+<p>В таком случае функция правой части уравнения должна принимать на вход вектор <span class="math notranslate nohighlight">\(y\)</span> и возвращать вектор производны <span class="math notranslate nohighlight">\(y'=f(t, y)\)</span> в виде списка или массива <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">exact_solution</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[</span>
+        <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> 
+        <span class="o">-</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="p">]</span>
+
+<span class="n">y_0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">t_0</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">t_final</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+<span class="n">t_eval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="n">solution</span> <span class="o">=</span> <span class="n">integrate</span><span class="o">.</span><span class="n">solve_ivp</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">t_0</span><span class="p">,</span> <span class="n">t_final</span><span class="p">),</span> <span class="n">y_0</span><span class="p">,</span> <span class="n">t_eval</span><span class="o">=</span><span class="n">t_eval</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">solution</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  message: &#39;The solver successfully reached the end of the integration interval.&#39;
+     nfev: 44
+     njev: 0
+      nlu: 0
+      sol: None
+   status: 0
+  success: True
+        t: array([0.        , 0.34906585, 0.6981317 , 1.04719755, 1.3962634 ,
+       1.74532925, 2.0943951 , 2.44346095, 2.7925268 , 3.14159265])
+ t_events: None
+        y: array([[ 0.00000000e+00,  3.42054448e-01,  6.42796558e-01,
+         8.66269432e-01,  9.85009559e-01,  9.84744759e-01,
+         8.66190242e-01,  6.42630108e-01,  3.41454338e-01,
+        -5.87748431e-04],
+       [ 1.00000000e+00,  9.39714990e-01,  7.66028577e-01,
+         5.00009935e-01,  1.73634556e-01, -1.73906214e-01,
+        -5.00472507e-01, -7.66382176e-01, -9.39862784e-01,
+        -9.99961909e-01]])
+ y_events: None
+</pre></div>
+</div>
+</div>
+</div>
+<p>В решении <span class="math notranslate nohighlight">\(y\)</span> тоже возвращается в виде массива из <span class="math notranslate nohighlight">\(n\)</span> строк и <span class="math notranslate nohighlight">\(m\)</span> столбцов, где <span class="math notranslate nohighlight">\(n\)</span> — порядок системы уравнений, а <span class="math notranslate nohighlight">\(m\)</span> — количество точек, в которых построена оценка решения. В данном примере первая строка массива соответствует искомой зависимости <span class="math notranslate nohighlight">\(y_1(t)=z(t)\)</span>, а вторая строка — <span class="math notranslate nohighlight">\(y_2(t)\)</span>, которая соответствует производной решения <span class="math notranslate nohighlight">\(z'(t)\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">plot_solution</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">exact_solution</span><span class="p">,</span> <span class="n">solution</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">solution</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/ODE_13_0.png" src="../../_images/ODE_13_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>Выбор метода решения ОДУ<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <p>Решение таких систем ОДУ отнюдь не тривиально. Разработано множество методов их решения и ряд из них “зашит” в подмодуле <code class="docutils literal notranslate"><span class="pre">scipy.integrate</span></code>, среди которых:</p>
 <ul class="simple">
 <li><p>Явные <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%9C%D0%B5%D1%82%D0%BE%D0%B4_%D0%A0%D1%83%D0%BD%D0%B3%D0%B5_%E2%80%94_%D0%9A%D1%83%D1%82%D1%82%D1%8B">ме́тоды Ру́нге — Ку́тты</a> 2-го (<code class="docutils literal notranslate"><span class="pre">RK23</span></code>), 4-го (<code class="docutils literal notranslate"><span class="pre">RK45</span></code>) и 8-го (<code class="docutils literal notranslate"><span class="pre">DOP853</span></code>) порядков;</p></li>
@@ -944,41 +1097,42 @@ y(0) = 0.
 </ul>
 <p>Основным критерием выбора является <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%96%D1%91%D1%81%D1%82%D0%BA%D0%B0%D1%8F_%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0">жесткость системы ОДУ</a>: явные методы плохо проявляют себя на жестких системах. <code class="docutils literal notranslate"><span class="pre">SciPy</span></code> рекомендует использовать по умолчанию метод <code class="docutils literal notranslate"><span class="pre">RK45</span></code> и если он плохо/долго сходится переключаться на метод <code class="docutils literal notranslate"><span class="pre">Radau</span></code> иди <code class="docutils literal notranslate"><span class="pre">BDF</span></code>.</p>
 </div>
-<div class="section" id="id4">
-<h2>Краевая задача<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
-<p>Функция <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_bvp.html#scipy.integrate.solve_bvp">scipy.integrate.solve_bvp</a> (<code class="docutils literal notranslate"><span class="pre">Solve</span> <span class="pre">boundary</span> <span class="pre">value</span> <span class="pre">problem</span></code>) предназначена для решения системы ОДУ с краевыми условиями</p>
+<div class="section" id="id6">
+<h2>Краевая задача<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>Функция <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_bvp.html#scipy.integrate.solve_bvp">scipy.integrate.solve_bvp</a> (<strong>solve</strong> <strong>b</strong>oundary <strong>v</strong>alue <strong>p</strong>roblem`) предназначена для решения системы ОДУ с краевыми условиями</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{cases}
-\dfrac{dy}{dx} = f(x, y) \\
-y(a) = y_a \\
+\dfrac{dy}{dx} = f(x, y), \\
+y(a) = y_a, \\
 y(b) = y_b.
 \end{cases}
 \end{split}\]</div>
 <p>В качестве аргументов функция <code class="docutils literal notranslate"><span class="pre">solve_bvp</span></code> принимает:</p>
 <ul class="simple">
 <li><p>функцию <code class="docutils literal notranslate"><span class="pre">f</span></code>, задающую правую часть уравнения,</p></li>
-<li><p>функцию <code class="docutils literal notranslate"><span class="pre">bc</span></code> (сокращение от <code class="docutils literal notranslate"><span class="pre">boundary</span> <span class="pre">condition</span></code>), задающую невязку для граничных условий,</p></li>
+<li><p>функцию <code class="docutils literal notranslate"><span class="pre">bc</span></code> (<strong>b</strong>oundary <strong>c</strong>ondition), задающую невязку для граничных условий,</p></li>
 <li><p>массив <code class="docutils literal notranslate"><span class="pre">x</span></code>, определяющий сетку значений независимой переменной <span class="math notranslate nohighlight">\(x\)</span>,</p></li>
 <li><p>массив <code class="docutils literal notranslate"><span class="pre">y</span></code>, задающий “догадку” об итоговом решении <span class="math notranslate nohighlight">\(y = y(x)\)</span>.</p></li>
 </ul>
-<p>В качестве примера решим уравнение</p>
+<p>Функция <code class="docutils literal notranslate"><span class="pre">bc</span></code> должна принимать на вход <span class="math notranslate nohighlight">\(y(a)\)</span> и <span class="math notranslate nohighlight">\(y(b)\)</span> (векторные величины в общем случае) и возвращать вектор невязки на граничных условиях.</p>
+<p>В качестве примера решим последнюю систему,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{cases}
-y'' + y = 0 \\
-y(0) = 1 \\
-y(\frac{\pi}{2}) = 0,
+z'' + z = 0, \\
+z(0) = 0, \\
+z(\dfrac{\pi}{2}) = 1,
 \end{cases}
 \end{split}\]</div>
-<p>на отрезке <span class="math notranslate nohighlight">\(x \in [0, \frac{\pi}{2}]\)</span>. Чтобы это сделать, необходимо свести это уравнение второго порядка к системе уравнений первого порядка. Для этого введем обозначения <span class="math notranslate nohighlight">\(z_1 = y\)</span> и <span class="math notranslate nohighlight">\(z_2 = y'\)</span>. Тогда систему выше можно записать в виде</p>
+<p>но с граничными условиями на отрезке <span class="math notranslate nohighlight">\(x \in [0, \frac{\pi}{2}]\)</span>. Как и в случае задачи Коши здесь потребуется свести уравнение второго порядка к систему из двух уравнений первого порядка.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{cases}
-z_1' = z_2 \\
-z_2' = - z_1 \\
-z_1(0) = 1 \\
-z_1(\frac{\pi}{2}) = 0.
+y_1'(t) = y_2(t), \\
+y_2'(t) = -y_1(t), \\
+y_1(0) = 0,
+y_1(\dfrac{\pi}{2}) = 1.
 \end{cases}
 \end{split}\]</div>
 <div class="cell docutils container">
@@ -988,33 +1142,27 @@ z_1(\frac{\pi}{2}) = 0.
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 
 
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">[</span>
-        <span class="n">z</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-        <span class="o">-</span><span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="p">]</span>
+<span class="k">def</span> <span class="nf">boundary_residual</span><span class="p">(</span><span class="n">ya</span><span class="p">,</span> <span class="n">yb</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="n">ya</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="p">,</span> 
+        <span class="n">yb</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="p">])</span> 
 
-<span class="k">def</span> <span class="nf">R</span><span class="p">(</span><span class="n">za</span><span class="p">,</span> <span class="n">zb</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">za</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">zb</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span> 
-
-<span class="k">def</span> <span class="nf">exact_solution</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
 <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span>
 <span class="n">N</span> <span class="o">=</span> <span class="mi">30</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
-<span class="n">z_guess</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="n">N</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">y_guess</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="n">N</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
 
-<span class="n">sol</span> <span class="o">=</span> <span class="n">integrate</span><span class="o">.</span><span class="n">solve_bvp</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">z_guess</span><span class="p">)</span>
+<span class="n">sol</span> <span class="o">=</span> <span class="n">integrate</span><span class="o">.</span><span class="n">solve_bvp</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">boundary_residual</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y_guess</span><span class="p">)</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">exact_solution</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">plot_solution</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">exact_solution</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ODE_8_0.png" src="../../_images/ODE_8_0.png" />
+<img alt="../../_images/ODE_16_0.png" src="../../_images/ODE_16_0.png" />
 </div>
 </div>
 </div>
