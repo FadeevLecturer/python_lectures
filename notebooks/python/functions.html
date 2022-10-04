@@ -51,8 +51,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -1145,65 +1143,114 @@ print_function_name
 </div>
 <div class="section" id="id7">
 <h3>Возвращение из функции. Замыкание<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
-<p>Рассмотрим ситуацию, что мы работаем с функцией <span class="math notranslate nohighlight">\(f\colon \mathbb{R}^2\to \mathbb{R}\)</span> двух переменных. И иногда необходимо фиксировать значение одной из независимых переменных для решения какой-то подзадачи. Иными словами вам, например, необходимо получать функциональный объект <span class="math notranslate nohighlight">\(f_{x_*}\colon \mathbb{R} \to \mathbb{R}\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[f_{x_*}(y) = f(x_*, y).\]</div>
-<p>Такая ситуация может возникнуть, например, если вам необходимо найти корень функции <span class="math notranslate nohighlight">\(f(x, y)\)</span> по <span class="math notranslate nohighlight">\(y\)</span> при условии, что <span class="math notranslate nohighlight">\(x=x_*\)</span>. Если вы умеете получать такой функциональный объект <span class="math notranslate nohighlight">\(f_{x_*}(y)\)</span>, то остаётся решить уравнение скалярное уравнение <span class="math notranslate nohighlight">\(f_{x_*}(y)=0\)</span>, для решения которых существуют опробованные библиотечные методы (например, <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.root_scalar.html">этот метод</a>, который будет разбираться позже в лекциях).</p>
-<p>Чтобы добиться такого эффекта можно воспользоваться приёмом “<a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%97%D0%B0%D0%BC%D1%8B%D0%BA%D0%B0%D0%BD%D0%B8%D0%B5_(%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5)">замыкание</a>”.</p>
+<p>Функция может возвращать функцию из себя. Распространенное применение такого приема — декораторы (см. “<span class="xref myst"></span>”). Одна из основных причин такой распространенности — возможность реализовать шаблон <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%97%D0%B0%D0%BC%D1%8B%D0%BA%D0%B0%D0%BD%D0%B8%D0%B5_(%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5)">замыкание</a> (<code class="docutils literal notranslate"><span class="pre">closure</span></code>).</p>
+<p>Рассмотрим самый простой пример. Реализуем функцию, которая генерирует функцию, запоминающую момент своего создания.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fix_x</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">f_with_fixed_x</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">f_with_fixed_x</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Разберем подробнее, как работает эта функция.</p>
-<p>Идея  функции <code class="docutils literal notranslate"><span class="pre">fix_x</span></code> заключается в том, что она принимает на вход функцию двух переменных <code class="docutils literal notranslate"><span class="pre">f</span></code> и число <code class="docutils literal notranslate"><span class="pre">x</span></code> и фиксирует значение первого аргумента значением <code class="docutils literal notranslate"><span class="pre">x</span></code>. Чтобы этого достичь, внутри функции определяется новая функция <code class="docutils literal notranslate"><span class="pre">f_with_fixed_x</span></code>. При этом определение этой функции читается интерпретатором не когда создаётся читается определение функции <code class="docutils literal notranslate"><span class="pre">fix_x</span></code>, а каждый раз, когда она вызывается. Итого, при каждом вызове функции <code class="docutils literal notranslate"><span class="pre">fix_x</span></code> в её пространстве локальных имён создаётся новый функциональный объект с именем <code class="docutils literal notranslate"><span class="pre">f_with_fixed_x</span></code>, который затем из функции и возвращается.</p>
-<p>Функция <code class="docutils literal notranslate"><span class="pre">f_with_fixed_x</span></code> зависит уже от одного параметра <code class="docutils literal notranslate"><span class="pre">y</span></code>, а возвращает результат вычисления выражения <code class="docutils literal notranslate"><span class="pre">f(x,</span> <span class="pre">y)</span></code>. При этом <code class="docutils literal notranslate"><span class="pre">f</span></code> и <code class="docutils literal notranslate"><span class="pre">x</span></code> отсутствуют в пространстве локальных имен функции <code class="docutils literal notranslate"><span class="pre">f_with_fixed_x</span></code>, а значит подтягиваются из пространства локальных имен <em>замыкающей</em> функции <code class="docutils literal notranslate"><span class="pre">fix_x</span></code>, созданном при том вызове функции <code class="docutils literal notranslate"><span class="pre">fix_x</span></code>, при котором был создан этот функциональный объект <code class="docutils literal notranslate"><span class="pre">f_with_fixed_x</span></code>.</p>
-<p>Продемонстрировать работоспособность такой идеи.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">y</span> <span class="o">**</span> <span class="mi">2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
 
-<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">make_remembering_function</span><span class="p">():</span>
+    <span class="n">time_of_creation</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">remembering_function</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;I was created at </span><span class="si">{</span><span class="n">time_of_creation</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">remembering_function</span>
+
+<span class="n">f1</span> <span class="o">=</span> <span class="n">make_remembering_function</span><span class="p">()</span>
+<span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">f2</span> <span class="o">=</span> <span class="n">make_remembering_function</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">):</span>
+    <span class="n">f</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 1 4 
-1 2 5 
-4 5 8 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I was created at 2022-10-04 15:15:34.360450
+I was created at 2022-10-04 15:15:35.372219
 </pre></div>
 </div>
 </div>
 </div>
-<p>Определена функция <span class="math notranslate nohighlight">\(f(x, y)=x^2 + y^2\)</span> и вычислено её значение в точках <span class="math notranslate nohighlight">\([0, 1, 2] \times [0, 1, 2]\)</span> обычным вызовом функции <span class="math notranslate nohighlight">\(f\)</span> внутри двойного цикла по значениям <span class="math notranslate nohighlight">\(x\)</span> и <span class="math notranslate nohighlight">\(y\)</span>.</p>
-<p>Теперь проделаем это несколько иначе. Внешний цикл по <span class="math notranslate nohighlight">\(x\)</span> оставим как и прежде, а внутри него каждый раз будет создавать функцию <span class="math notranslate nohighlight">\(g(y) = f(x, y)\)</span> и внутри цикла по <span class="math notranslate nohighlight">\(y\)</span> будет вызывать уже её.</p>
+<p>Разберем, как этот пример работает. Обратим внимание на функцию <code class="docutils literal notranslate"><span class="pre">make_remembering_function</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_remembering_function</span><span class="p">():</span>
+    <span class="o">...</span>
+    <span class="k">def</span> <span class="nf">remembering_function</span><span class="p">():</span>
+        <span class="o">...</span>
+    <span class="k">return</span> <span class="n">remembering_function</span>
+</pre></div>
+</div>
+<p>Для начала обратим внимание на то, что внутри тела этой функции объявляется другая функция <code class="docutils literal notranslate"><span class="pre">remembering_function</span></code> и она же возвращается в качестве результата. При каждом вызове функции <code class="docutils literal notranslate"><span class="pre">make_remembering_function</span></code> интерпретатор заново встречает объявление функции <code class="docutils literal notranslate"><span class="pre">remembering_function</span></code>, создаёт функциональный объект и связывает его с именем <code class="docutils literal notranslate"><span class="pre">remembering_function</span></code> в пространстве локальных имен функции <code class="docutils literal notranslate"><span class="pre">make_remembering_function</span></code> (каждому вызову одной и той же функции соответствует своё уникальное пространство локальных имен).</p>
+<p>Теперь обратим внимание, что созданная функция <code class="docutils literal notranslate"><span class="pre">remembering_function</span></code> обращается к переменной <code class="docutils literal notranslate"><span class="pre">time_of_creation</span></code>, которая в этой функции не объявляется.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+<span class="n">time_of_creation</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">remembering_function</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;I was created at </span><span class="si">{</span><span class="n">time_of_creation</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>Такие переменные считаются свободными переменными и к списку таковых даже можно получить доступ напрямую.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-    <span class="n">g</span> <span class="o">=</span> <span class="n">fix_x</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">g</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f1</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_freevars</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 1 4 
-1 2 5 
-4 5 8 
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;time_of_creation&#39;,)
 </pre></div>
 </div>
 </div>
 </div>
+<p>Связывание свободных переменных с объектов происходит во время вызова функции. Поиск происходит в приоритете</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">nonlocals</span></code> — пространство локальных имен замыкающей функции (в данному примере пространство локальных имен функции <code class="docutils literal notranslate"><span class="pre">make_remembering_function</span></code>);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">globals</span></code> — глобальное пространство имен модуля, в котором объявлена эта функция;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">builtins</span></code> — пространство встроенных имен.</p></li>
+</ol>
+<p>Искусственно произвести процесс разрешения можно средствами модуля <a class="reference external" href="https://docs.python.org/3/library/inspect.html">inspect</a>, который предназначен для инспекции <code class="docutils literal notranslate"><span class="pre">python</span></code> объектов. Метод <a class="reference external" href="https://docs.python.org/3/library/inspect.html#inspect.getclosurevars">inspect.getclosurevars</a> разрешает все имена, которые используются в функции, но не объявлены в самой функции, с объектами.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">inspect</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getclosurevars</span><span class="p">(</span><span class="n">f1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getclosurevars</span><span class="p">(</span><span class="n">f2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ClosureVars(nonlocals={&#39;time_of_creation&#39;: datetime.datetime(2022, 10, 4, 15, 15, 34, 360450)}, globals={}, builtins={&#39;print&#39;: &lt;built-in function print&gt;}, unbound=set())
+ClosureVars(nonlocals={&#39;time_of_creation&#39;: datetime.datetime(2022, 10, 4, 15, 15, 35, 372219)}, globals={}, builtins={&#39;print&#39;: &lt;built-in function print&gt;}, unbound=set())
+</pre></div>
+</div>
+</div>
+</div>
+<p>В данном примере имя <code class="docutils literal notranslate"><span class="pre">time_of_creation</span></code> обнаружено в пространстве имен замыкающей функции, а <code class="docutils literal notranslate"><span class="pre">print</span></code> в пространстве имен встроенных функций.</p>
+<p>Рассмотрим несколько другой пример.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_greeter_function</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">greet</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hi, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">greet</span>
+
+
+<span class="n">ivan</span> <span class="o">=</span> <span class="n">make_greeter_function</span><span class="p">(</span><span class="s2">&quot;Ivan&quot;</span><span class="p">)</span>
+<span class="n">alex</span> <span class="o">=</span> <span class="n">make_greeter_function</span><span class="p">(</span><span class="s2">&quot;Alex&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="p">(</span><span class="n">ivan</span><span class="p">,</span> <span class="n">alex</span><span class="p">):</span>
+    <span class="n">f</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hi, Ivan!
+Hi, Alex!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Этот пример работает, основываясь на тех же механизмах, что и предыдущей, так как параметры функции — локальные переменные функции. В данном примере <code class="docutils literal notranslate"><span class="pre">name</span></code> — локальная переменная функции <code class="docutils literal notranslate"><span class="pre">make_greeter_function</span></code>, и она же является переменной из локального пространства имен замыкающей функции <code class="docutils literal notranslate"><span class="pre">greet</span></code> (иными словами она <code class="docutils literal notranslate"><span class="pre">nonlocal</span></code> для функции <code class="docutils literal notranslate"><span class="pre">greet</span></code>).</p>
 </div>
 </div>
 <div class="section" id="id8">
