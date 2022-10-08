@@ -82,7 +82,7 @@ parts:
       - file: notebooks/python/exceptions
       - file: notebooks/python/custom_exceptions
       - file: notebooks/python/LBYL_vs_EAFP
-      - file: notebooks/python/exercises3
+      # - file: notebooks/python/exercises3
   - caption: "Лекция №10"
     chapters:
       - file: notebooks/qt/gui
@@ -107,7 +107,3 @@ parts:
       - file: notebooks/python/python_scripts
       - file: notebooks/python/scripts_vs_modules
       - file: notebooks/python/argparse
-  
-      
-      
-      
