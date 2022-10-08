@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Знакомство с NumPy &#8212; Практикум по компьютерным технологиям</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -39,12 +37,14 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -53,7 +53,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -66,7 +65,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -75,9 +88,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -95,14 +109,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../docs/index.html">
-   Практикум по компьютерным технологиям на языке программирования python3
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../docs/index.html">
+                    Практикум по компьютерным технологиям на языке программирования python3
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Лекция №1
  </span>
@@ -546,11 +561,6 @@ const thebe_selector_output = ".output, .cell_output"
    Стратегии контроля ошибок
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../python/exercises3.html">
-   Практические задания
-  </a>
- </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -668,114 +678,244 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/notebooks/numpy/numpy.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/FadeevLecturer/python_lectures"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/FadeevLecturer/python_lectures/issues/new?title=Issue%20on%20page%20%2Fnotebooks/numpy/numpy.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/FadeevLecturer/python_lectures/edit/main/notebooks/numpy/numpy.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/FadeevLecturer/python_lectures/main?urlpath=tree/notebooks/numpy/numpy.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <a class="colab-button" href="https://colab.research.google.com/github/FadeevLecturer/python_lectures/blob/main/notebooks/numpy/numpy.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../../_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/FadeevLecturer/python_lectures/main?urlpath=tree/notebooks/numpy/numpy.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/FadeevLecturer/python_lectures/blob/main/notebooks/numpy/numpy.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/FadeevLecturer/python_lectures"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/FadeevLecturer/python_lectures/issues/new?title=Issue%20on%20page%20%2Fnotebooks/numpy/numpy.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/FadeevLecturer/python_lectures/edit/main/notebooks/numpy/numpy.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/notebooks/numpy/numpy.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id1">
    Зачем нужен
@@ -856,12 +996,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Знакомство с NumPy</h1>
@@ -958,20 +1097,21 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="numpy">
-<h1>Знакомство с <code class="docutils literal notranslate"><span class="pre">NumPy</span></code><a class="headerlink" href="#numpy" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="numpy">
+<h1>Знакомство с <code class="docutils literal notranslate"><span class="pre">NumPy</span></code><a class="headerlink" href="#numpy" title="Permalink to this headline">#</a></h1>
 <p>Первая сторонняя библиотека, с которой мы познакомимся — <a class="reference external" href="https://numpy.org/">NumPy</a> (<strong>Num</strong>erical <strong>Py</strong>thon).</p>
 <p>Библиотека <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> предоставляет доступ к многомерным массивам однородных данных (одного типа, обычно числа), подобным массивам <code class="docutils literal notranslate"><span class="pre">C/C++</span></code>, и к методам их обработки. Под капотом эти самые массивы реализованы с помощью динамических массивов <code class="docutils literal notranslate"><span class="pre">C</span></code>, которые в отличие от списков хранят непосредственно данные, а не указатели на них.</p>
-<div class="section" id="id1">
-<h2>Зачем нужен <code class="docutils literal notranslate"><span class="pre">NumPy</span></code><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<section id="id1">
+<h2>Зачем нужен <code class="docutils literal notranslate"><span class="pre">NumPy</span></code><a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
 <p>Необходимость в специальной библиотеке для работы с большими массивами чисел возникает из-за скорости работы <code class="docutils literal notranslate"><span class="pre">python</span></code>. За гибкость, выразительность, динамическую типизацию и многие другие достоинства <code class="docutils literal notranslate"><span class="pre">python</span></code> приходится платить скоростью: код написанный на <code class="docutils literal notranslate"><span class="pre">python</span></code>, практически всегда будет работать медленнее, чем аналогичный код, написанный на <code class="docutils literal notranslate"><span class="pre">C/C++</span></code>. Проще всего продемонстрировать это на примере с громоздкими циклами.</p>
-<div class="tabbed-set docutils">
-<input checked="checked" id="4d32dc47-6751-4938-b67d-d846fb0d59bf" name="8973628a-9e04-4b48-b706-031816a8cd67" type="radio">
-</input><label class="tabbed-label" for="4d32dc47-6751-4938-b67d-d846fb0d59bf">
-c++</label><div class="tabbed-content docutils">
+<div class="sd-tab-set docutils">
+<input checked="checked" id="9c64f303-a713-4d61-a816-68530c1925b5" name="8778f7c0-4a6d-42a7-a4d6-ad41cddf13b0" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-c++" for="9c64f303-a713-4d61-a816-68530c1925b5">
+C++</label><div class="sd-tab-content docutils">
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;chrono&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
@@ -1005,9 +1145,9 @@ c++</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="45859412-2405-4cce-b47e-4db1cac88d86" name="8973628a-9e04-4b48-b706-031816a8cd67" type="radio">
-</input><label class="tabbed-label" for="45859412-2405-4cce-b47e-4db1cac88d86">
-python</label><div class="tabbed-content docutils">
+<input id="06f6ded1-6a5f-4f07-b160-abe822cb8eb5" name="8778f7c0-4a6d-42a7-a4d6-ad41cddf13b0" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-python" for="06f6ded1-6a5f-4f07-b160-abe822cb8eb5">
+PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">perf_counter</span>
 <span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">uniform</span>
 
@@ -1065,9 +1205,9 @@ python loops.py
 </div>
 <p>“Среднее” приложение на <code class="docutils literal notranslate"><span class="pre">python</span></code> не сталкивается с обработкой больших объемов данных и обычно разница в производительности компенсируется затраченным на реализацию алгоритма временем. Но научные вычисления очень часто представляют собой “программы по перемолке чисел” и такое замедление существенно.</p>
 <p>Чтобы совместить скорость компилируемого языка и удобство <code class="docutils literal notranslate"><span class="pre">python</span></code> многие библиотеки поставляются вместе со скомпилированными модулями, написанными на <code class="docutils literal notranslate"><span class="pre">C/C++</span></code> (или другом компилируемом языке), а в <code class="docutils literal notranslate"><span class="pre">python</span></code> “прокидывают” интерфейс для взаимодействия с ними. <code class="docutils literal notranslate"><span class="pre">NumPY</span></code> — яркий пример такой библиотеки.</p>
-</div>
-<div class="section" id="id2">
-<h2>Установка <code class="docutils literal notranslate"><span class="pre">NumPy</span></code><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id2">
+<h2>Установка <code class="docutils literal notranslate"><span class="pre">NumPy</span></code><a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
 <p>В <code class="docutils literal notranslate"><span class="pre">anaconda</span></code> <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> установлен по умолчанию, а установить его с помощью <code class="docutils literal notranslate"><span class="pre">PyPI</span></code> можно следующей командой.</p>
 <div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>python -m pip install numpy
 </pre></div>
@@ -1081,9 +1221,9 @@ python loops.py
 </div>
 </div>
 <p>Библиотека <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> используется настолько часто и настолько многими, что сложилась традиция импортировать <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> с псевдонимом <code class="docutils literal notranslate"><span class="pre">np</span></code>. Любой программист, увидев где-то в коде выражение вида <code class="docutils literal notranslate"><span class="pre">np.some_method()</span></code> догадается, что вызывается метод <code class="docutils literal notranslate"><span class="pre">some_method</span></code> из библиотеки <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> и ему не потребуется искать глазами определение объекта <code class="docutils literal notranslate"><span class="pre">np</span></code>, чтобы понять, что скрывается за этим именем.</p>
-</div>
-<div class="section" id="id3">
-<h2>О массивах <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>. Тип данных, размерность, оси и форма.<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id3">
+<h2>О массивах <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>. Тип данных, размерность, оси и форма.<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
 <p>В ячейке ниже создаётся массив <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> из случайных чисел. Можете пока не вникать, как конкретно он создаётся. Важно лишь понять, что имя <code class="docutils literal notranslate"><span class="pre">array</span></code> связывается с каким-то массивом <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1177,12 +1317,12 @@ python loops.py
 </div>
 <p>Все массивы должны быть выравненными, т.е. не может быть матрицы со строками разных длин, трехмерного массива из матриц разных размеров и т.п.</p>
 <p>Картинка ниже наглядно иллюстрирует смысл всех только-что введенных понятий.</p>
-<div class="figure align-default">
+<figure class="align-default">
 <img alt="../../_images/ndarrays.png" src="../../_images/ndarrays.png" />
-</div>
-</div>
-<div class="section" id="id4">
-<h2>Создание массивов<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+</figure>
+</section>
+<section id="id4">
+<h2>Создание массивов<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
 <p>Создавать массивы <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> — <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> — можно огромным количеством образом, но для их создания редко используется конструктор самого типа. Вместо этого гораздо чаще используются другие методы. Например, метод <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html">numpy.array</a> конструирует <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> из других объектов.</p>
 <p>Чаще всего он используется для создания массивов <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> из <code class="docutils literal notranslate"><span class="pre">python</span></code> списков чисел. Тип данных выводится как самый общий тип данных, если он не указан явно именованным параметром <code class="docutils literal notranslate"><span class="pre">dtype</span></code>.</p>
 <p>Ниже создаётся одномерный массив из списка четырёх чисел. При этом тип данных явно не указывается и в итоге получается массив чисел с плавающей точкой (<code class="docutils literal notranslate"><span class="pre">float64</span></code>), т.к. в исходном списке были числа типа <code class="docutils literal notranslate"><span class="pre">int</span></code> и <code class="docutils literal notranslate"><span class="pre">float</span></code>.</p>
@@ -1392,9 +1532,9 @@ a3D.shape=(2, 2, 2)
 </div>
 </div>
 <p>Более подробно о создании массивов <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> можно почитать по <a class="reference external" href="https://numpy.org/doc/stable/user/basics.creation.html">ссылке</a>.</p>
-</div>
-<div class="section" id="id5">
-<h2>Арифметические операции над массивами <code class="docutils literal notranslate"><span class="pre">NumPy</span></code><a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id5">
+<h2>Арифметические операции над массивами <code class="docutils literal notranslate"><span class="pre">NumPy</span></code><a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
 <p>Все основные арифметические операторы (<code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>, <code class="docutils literal notranslate"><span class="pre">//</span></code>, <code class="docutils literal notranslate"><span class="pre">%</span></code>, <code class="docutils literal notranslate"><span class="pre">**</span></code>) перегружены для работы с массивами. Определим скаляр и вектор, чтобы разобраться, какие действия они позволяют выполнять.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1404,8 +1544,8 @@ a3D.shape=(2, 2, 2)
 </div>
 </div>
 </div>
-<div class="section" id="id6">
-<h3>Массив и скаляр<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<section id="id6">
+<h3>Массив и скаляр<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
 <p>Если в арифметическом выражении участвуют скаляр и массив, то результатом является массив значений поэлементного применения указанной арифметической операции с скаляром. Т.е., можно, например, умножить массив на число.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1494,9 +1634,9 @@ x ** alpha = array([       2187,    62748517, -1388900736], dtype=int32)
 <p class="admonition-title">Note</p>
 <p>При возведение в степень в последней ячейке произошло переполнение целого числа.</p>
 </div>
-</div>
-<div class="section" id="id7">
-<h3>Массив и массив<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id7">
+<h3>Массив и массив<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
 <p>Если в выражении участвует два массива, то они должны быть одинаковой формы, а арифметическая операция все равно применяется поэлементно.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1541,10 +1681,10 @@ x ** y = array([ 1914644777, -1692154371,       74088])
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="id8">
-<h2>Матричное умножение<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="id8">
+<h2>Матричное умножение<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h2>
 <p>Оператор <code class="docutils literal notranslate"><span class="pre">*</span></code> совершает поэлементное умножение, в том числе и для для двухмерных массивов.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1592,9 +1732,9 @@ x ** y = array([ 1914644777, -1692154371,       74088])
 <p class="admonition-title">Note</p>
 <p>Оператор <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> ввели в <code class="docutils literal notranslate"><span class="pre">python</span></code> специально для обозначения матричного умножения в <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> в <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">3.5</span></code>. До этого для представления матриц в <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> использовался специальный тип <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.matrix.html">numpy</a>, на экземпляры которого оператор <code class="docutils literal notranslate"><span class="pre">*</span></code> действовал, как оператор матричного умножения. Сегодня разработчики <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> рекомендуют не пользоваться этим типом в своих программах.</p>
 </div>
-</div>
-<div class="section" id="id9">
-<h2>Индексация<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id9">
+<h2>Индексация<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h2>
 <p>Индексация одномерных массивов <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> осуществляется очень похоже на индексацию последовательностей <code class="docutils literal notranslate"><span class="pre">python</span></code> (списков, например).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1654,9 +1794,9 @@ a2D[1] = array([3, 4]), a2D[-1] = array([3, 4])
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">[</span><span class="n">i_1</span><span class="p">,</span> <span class="n">i_2</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">i_n</span><span class="p">]</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id10">
-<h2>Изменение формы массива<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id10">
+<h2>Изменение формы массива<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h2>
 <p>Можно изменять размерность и форму массива, сохраняя данные исходного массива, но с условием, что общее количество элементов остается (<code class="docutils literal notranslate"><span class="pre">size</span></code>) неизменным.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1722,9 +1862,9 @@ a2D[1] = array([3, 4]), a2D[-1] = array([3, 4])
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="view">
-<h2>View. Разделяемое владение данными и копирование<a class="headerlink" href="#view" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="view">
+<h2>View. Разделяемое владение данными и копирование<a class="headerlink" href="#view" title="Permalink to this headline">#</a></h2>
 <p>На самом деле массивы <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> устроены чуть сложнее. Массивы <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> могут разделять одни и те же данные между собой. Массивы можно разделить на два вида: <code class="docutils literal notranslate"><span class="pre">base</span></code> и <code class="docutils literal notranslate"><span class="pre">view</span></code>, последний из которых не имеет собственных данных, а ссылается на данные внутри массива <code class="docutils literal notranslate"><span class="pre">base</span></code>.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">base</span></code> массив владеет данными;</p></li>
@@ -1755,8 +1895,8 @@ a2D[1] = array([3, 4]), a2D[-1] = array([3, 4])
 </div>
 </div>
 <p>Мы создали массив (<code class="docutils literal notranslate"><span class="pre">ndarray</span></code>) размера 6, который владеет данными <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">5]</span></code> типа <code class="docutils literal notranslate"><span class="pre">np.int</span></code>. Созданный массив мы связали с именем <code class="docutils literal notranslate"><span class="pre">A</span></code>.</p>
-<div class="figure align-default">
-<img alt="../../_images/base_a.svg" src="../../_images/base_a.svg" /></div>
+<figure class="align-default">
+<img alt="../../_images/base_a.svg" src="../../_images/base_a.svg" /></figure>
 <p>Теперь создадим новый массив <code class="docutils literal notranslate"><span class="pre">B</span></code> путем изменения формы массива <code class="docutils literal notranslate"><span class="pre">A</span></code> методом <code class="docutils literal notranslate"><span class="pre">reshape</span></code>. Убедимся, что он использует те же данные.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1785,8 +1925,8 @@ a2D[1] = array([3, 4]), a2D[-1] = array([3, 4])
 </div>
 <p>Итак, массив содержит те же числа, но расположенные уже по строкам матрицы размера <span class="math notranslate nohighlight">\(2 \times 3\)</span>.
 Напротив флага <code class="docutils literal notranslate"><span class="pre">&quot;OWNDATA&quot;</span></code> стоит <code class="docutils literal notranslate"><span class="pre">False</span></code>, т.е. данными он не владеет. Картинка ниже объясняет, что произошло. Создался новый объект с новыми метаданными, который ссылается на тот же массив с данными. Эти новые метаданные указывают, что массив данных следует интерпретировать так, как будто в нём хранится матрица размера <span class="math notranslate nohighlight">\(2 \times 3\)</span>, записанная по строкам друг за другом.</p>
-<div class="figure align-default">
-<img alt="../../_images/view_b.svg" src="../../_images/view_b.svg" /></div>
+<figure class="align-default">
+<img alt="../../_images/view_b.svg" src="../../_images/view_b.svg" /></figure>
 <p>Создадим транспонированную матрицу методом <code class="docutils literal notranslate"><span class="pre">transpose</span></code> и убедимся, что она тоже использует данные исходного массива <code class="docutils literal notranslate"><span class="pre">A</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1807,8 +1947,8 @@ a2D[1] = array([3, 4]), a2D[-1] = array([3, 4])
 </div>
 <p>Матрица <code class="docutils literal notranslate"><span class="pre">C</span></code> — транспонирование матрицы <code class="docutils literal notranslate"><span class="pre">B</span></code>. Под неё тоже не выделился новый массив с данными, а только лишь новые метаданные.
 В данном случае, метаданные указывают, что в массиве хранится матрица размера <span class="math notranslate nohighlight">\(3 \times 2\)</span>, которая расположена в памяти таким образом, что первый индекс меняется быстрее второго (т.е. как бы по столбцам).</p>
-<div class="figure align-default">
-<img alt="../../_images/view_c.svg" src="../../_images/view_c.svg" /></div>
+<figure class="align-default">
+<img alt="../../_images/view_c.svg" src="../../_images/view_c.svg" /></figure>
 <p>Продемонстрируем, что изменение элементов любого из этих массивов повлияет на остальные.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1832,8 +1972,8 @@ C=array([[ 0,  3],
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1857,9 +1997,11 @@ C=array([[ 0,  3],
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="../../docs/libs_pypi_conda.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1875,24 +2017,28 @@ C=array([[ 0,  3],
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Fadeev Egor<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Fadeev Egor<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

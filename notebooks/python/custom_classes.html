@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Пользовательские классы &#8212; Практикум по компьютерным технологиям</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -39,12 +37,14 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -53,7 +53,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -66,7 +65,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -75,9 +88,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -95,14 +109,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../docs/index.html">
-   Практикум по компьютерным технологиям на языке программирования python3
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../docs/index.html">
+                    Практикум по компьютерным технологиям на языке программирования python3
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Лекция №1
  </span>
@@ -546,11 +561,6 @@ const thebe_selector_output = ".output, .cell_output"
    Стратегии контроля ошибок
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="exercises3.html">
-   Практические задания
-  </a>
- </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -668,114 +678,244 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/notebooks/python/custom_classes.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/FadeevLecturer/python_lectures"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/FadeevLecturer/python_lectures/issues/new?title=Issue%20on%20page%20%2Fnotebooks/python/custom_classes.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/FadeevLecturer/python_lectures/edit/main/notebooks/python/custom_classes.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/FadeevLecturer/python_lectures/main?urlpath=tree/notebooks/python/custom_classes.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <a class="colab-button" href="https://colab.research.google.com/github/FadeevLecturer/python_lectures/blob/main/notebooks/python/custom_classes.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../../_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/FadeevLecturer/python_lectures/main?urlpath=tree/notebooks/python/custom_classes.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/FadeevLecturer/python_lectures/blob/main/notebooks/python/custom_classes.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/FadeevLecturer/python_lectures"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/FadeevLecturer/python_lectures/issues/new?title=Issue%20on%20page%20%2Fnotebooks/python/custom_classes.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/FadeevLecturer/python_lectures/edit/main/notebooks/python/custom_classes.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/notebooks/python/custom_classes.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
    Объявление класса
@@ -818,12 +958,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Пользовательские классы</h1>
@@ -882,23 +1021,24 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1>Пользовательские классы<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id2">
-<h2>Объявление класса<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>Пользовательские классы<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<section id="id2">
+<h2>Объявление класса<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
 <p>Сравним базовый синтаксис объявления классов в <code class="docutils literal notranslate"><span class="pre">C/C++</span></code> и в <code class="docutils literal notranslate"><span class="pre">python</span></code>. Пока оставим наследование на потом, но заметим, что пользовательские классы наследуют от самого общего класса <code class="docutils literal notranslate"><span class="pre">object</span></code>, если не указанно иначе. Так или иначе, любой тип является производным от <code class="docutils literal notranslate"><span class="pre">object</span></code>.</p>
-<div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">C++</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>C++</strong></p>
 </div>
-<div class="card-body docutils">
-<p class="card-text">Объявление класса в <code class="docutils literal notranslate"><span class="pre">C++</span></code> выглядит примерно следующим образом.</p>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Объявление класса в <code class="docutils literal notranslate"><span class="pre">C++</span></code> выглядит примерно следующим образом.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">	</span><span class="c1">// все </span>
@@ -909,21 +1049,21 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 <ul class="simple">
-<li><p class="card-text">объявление класса начинается с ключевого слова <code class="docutils literal notranslate"><span class="pre">class</span></code>;</p></li>
-<li><p class="card-text">за ним следует имя класса (<code class="docutils literal notranslate"><span class="pre">MyClass</span></code> в нашем случае);</p></li>
-<li><p class="card-text">далее следует тело класса которое помещается в фигурные скобки <code class="docutils literal notranslate"><span class="pre">{}</span></code>;</p></li>
-<li><p class="card-text">завершается объявление класса точкой с запятой “<code class="docutils literal notranslate"><span class="pre">;</span></code>”.</p></li>
+<li><p class="sd-card-text">объявление класса начинается с ключевого слова <code class="docutils literal notranslate"><span class="pre">class</span></code>;</p></li>
+<li><p class="sd-card-text">за ним следует имя класса (<code class="docutils literal notranslate"><span class="pre">MyClass</span></code> в нашем случае);</p></li>
+<li><p class="sd-card-text">далее следует тело класса которое помещается в фигурные скобки <code class="docutils literal notranslate"><span class="pre">{}</span></code>;</p></li>
+<li><p class="sd-card-text">завершается объявление класса точкой с запятой “<code class="docutils literal notranslate"><span class="pre">;</span></code>”.</p></li>
 </ul>
 </div>
 </div>
 </div>
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">python</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>python</strong></p>
 </div>
-<div class="card-body docutils">
-<p class="card-text">В <code class="docutils literal notranslate"><span class="pre">python</span></code> класс объявляется очень похоже, если вспомнить разницу в объявлении функций в <code class="docutils literal notranslate"><span class="pre">C++</span></code> и <code class="docutils literal notranslate"><span class="pre">python</span></code>.</p>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">В <code class="docutils literal notranslate"><span class="pre">python</span></code> класс объявляется очень похоже, если вспомнить разницу в объявлении функций в <code class="docutils literal notranslate"><span class="pre">C++</span></code> и <code class="docutils literal notranslate"><span class="pre">python</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span> <span class="c1"># заголовок класса</span>
 	<span class="c1"># все </span>
 	<span class="c1"># детали </span>
@@ -932,11 +1072,11 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 <ul class="simple">
-<li><p class="card-text">объявление класса начинается с ключевого слова <code class="docutils literal notranslate"><span class="pre">class</span></code>;</p></li>
-<li><p class="card-text">за ним следует имя класса (<code class="docutils literal notranslate"><span class="pre">MyClass</span></code> в нашем случае) и символ двоеточия;</p></li>
-<li><p class="card-text">далее следует тело класса (состоящее хотя бы из одной инструкции), которое обозначается постоянным отступом в право;</p></li>
-<li><p class="card-text">завершается объявление класса тогда, когда отступ возвращается к прежнему уровню;</p></li>
-<li><p class="card-text">опционально, тело класса может начинаться с документирующей строки.</p></li>
+<li><p class="sd-card-text">объявление класса начинается с ключевого слова <code class="docutils literal notranslate"><span class="pre">class</span></code>;</p></li>
+<li><p class="sd-card-text">за ним следует имя класса (<code class="docutils literal notranslate"><span class="pre">MyClass</span></code> в нашем случае) и символ двоеточия;</p></li>
+<li><p class="sd-card-text">далее следует тело класса (состоящее хотя бы из одной инструкции), которое обозначается постоянным отступом в право;</p></li>
+<li><p class="sd-card-text">завершается объявление класса тогда, когда отступ возвращается к прежнему уровню;</p></li>
+<li><p class="sd-card-text">опционально, тело класса может начинаться с документирующей строки.</p></li>
 </ul>
 </div>
 </div>
@@ -994,9 +1134,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p class="admonition-title">Note</p>
 <p>Объект объявления класса создаётся после того, как завершится исполнение всех инструкций в теле класса. Т.е. если попытаться в примере выше изменить инструкцию в теле класса на <code class="docutils literal notranslate"><span class="pre">print(f&quot;Создаётся</span> <span class="pre">класс</span> <span class="pre">{MyClass.__name__}&quot;)</span></code>, то возникнет ошибка <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#NameError">NameError</a>, т.к. объект объявления класса ещё не создан и имя <code class="docutils literal notranslate"><span class="pre">MyClass</span></code> ни с чем не связанно.</p>
 </div>
-</div>
-<div class="section" id="create-instance">
-<span id="id3"></span><h2>Создание экземпляра<a class="headerlink" href="#create-instance" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="create-instance">
+<span id="id3"></span><h2>Создание экземпляра<a class="headerlink" href="#create-instance" title="Permalink to this headline">#</a></h2>
 <p>Несмотря на то, что <code class="docutils literal notranslate"><span class="pre">EmptyClass</span></code> не содержит описания того, какими должны быть его экземпляры (кроме документирующей строки), уже можно создавать экземпляры. Чтобы создать экземпляр класса, необходимо вызвать имя класса, как если бы оно было функцией. В данном случае при вызове имени класса передавать аргументов не надо, но в более содержательных случаях это может потребоваться (смотри <a class="reference internal" href="#initialization"><span class="std std-ref">Инициализация объекта</span></a>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1030,9 +1170,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p class="admonition-title">Note</p>
 <p>Атрибуты и методы, имена которых начинаются и завершается двумя нижними подчеркиваниями, считаются <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#special-method-names">специальными</a>. Часто их называются <a class="reference external" href="https://docs.python.org/3/glossary.html#term-magic-method">магическими</a>. Они автоматически генерируются <code class="docutils literal notranslate"><span class="pre">python</span></code> для внутренних целей. За исключением ряда ситуаций, не принято давать имена в таком стиле своим атрибутам. Хотя их переопределение в производном классе — очень распространенная практика.</p>
 </div>
-</div>
-<div class="section" id="class-attributes">
-<span id="id4"></span><h2>Атрибуты класса и атрибуты объекта<a class="headerlink" href="#class-attributes" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="class-attributes">
+<span id="id4"></span><h2>Атрибуты класса и атрибуты объекта<a class="headerlink" href="#class-attributes" title="Permalink to this headline">#</a></h2>
 <p>Если при объявлении аттрибутов в <code class="docutils literal notranslate"><span class="pre">python</span></code> действовать по аналогии с <code class="docutils literal notranslate"><span class="pre">С++</span></code>, то сразу возникнут трудности. Рассмотрим объявление класса <code class="docutils literal notranslate"><span class="pre">C++</span></code> с одним атрибутом.</p>
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">A</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
@@ -1090,14 +1230,14 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>Изменение значения атрибута класса привело к его изменению и у всех экземпляров. Таким образом, следующие два блока кода схожи между собой в <code class="docutils literal notranslate"><span class="pre">C++</span></code> и <code class="docutils literal notranslate"><span class="pre">python</span></code>.</p>
-<div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">C++</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>C++</strong></p>
 </div>
-<div class="card-body docutils">
+<div class="sd-card-body docutils">
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">A</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="k">public</span><span class="o">:</span><span class="w"></span>
@@ -1105,21 +1245,21 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="p">};</span><span class="w"></span>
 </pre></div>
 </div>
-<p class="card-text">Класс <code class="docutils literal notranslate"><span class="pre">A</span></code> с целочисленным <strong>статическим</strong> атрибутом <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p class="sd-card-text">Класс <code class="docutils literal notranslate"><span class="pre">A</span></code> с целочисленным <strong>статическим</strong> атрибутом <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 </div>
 </div>
 </div>
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">python</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>python</strong></p>
 </div>
-<div class="card-body docutils">
+<div class="sd-card-body docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
     <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
 </pre></div>
 </div>
-<p class="card-text">Класс <code class="docutils literal notranslate"><span class="pre">A</span></code> с <strong>атрибутом класса</strong> <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p class="sd-card-text">Класс <code class="docutils literal notranslate"><span class="pre">A</span></code> с <strong>атрибутом класса</strong> <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 </div>
 </div>
 </div>
@@ -1163,9 +1303,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p>Создание атрибутов объекта обычно происходит когда объект уже создан. Однако, стараются избегать ситуации, когда атрибуты (и методы) экземпляра создаются вне тела класса, т.к. это может привести к ситуации, когда у объектов одного типа есть разные атрибуты и методы (интерфейс). Если так случилось, то стоит задаться вопросом, а действительно ли эти сущности должны быть одного типа (класса), так уж ли много у них общего, чтобы считать их объектами одного типа?</p>
 <p>Чтобы проконтролировать, что у объектов одного типа одинаковый набор атрибутов, определяют специальный метод-“конструктор” класса. Но прежде разберем, как объявляются и вызываются методы класса вообще.</p>
-</div>
-<div class="section" id="id5">
-<h2>Методы класса<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id5">
+<h2>Методы класса<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
 <p>Методы класса объявляются в теле класса как обычные функции в модуле.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1254,9 +1394,9 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </details>
-</div>
-<div class="section" id="staticmethod">
-<span id="id6"></span><h2>Статические методы<a class="headerlink" href="#staticmethod" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="staticmethod">
+<span id="id6"></span><h2>Статические методы<a class="headerlink" href="#staticmethod" title="Permalink to this headline">#</a></h2>
 <p>Итак, вызов метода через объект объявления класса и через экземпляр класса приводит к разным эффектам. В первом случае метод вызывается в точности, как он объявлен, а во втором случае в качестве первого параметра передаётся ссылка на вызвавший экземпляр. Но что, если мы хотим объявить метод внутри класса, который никак не взаимодействует с экземпляром класса, но хотим иметь возможность вызывать его одинакового через экземпляр и через класс?</p>
 <p>Для таких целей есть встроенная декорирующая функция <a class="reference external" href="https://docs.python.org/3/library/functions.html#staticmethod">staticmethod</a>.</p>
 <div class="cell docutils container">
@@ -1319,20 +1459,20 @@ my_instance_method() takes 0 positional arguments but 1 was given
 <p class="admonition-title">Note</p>
 <p>Часто возникают сомнения, должен ли метод быть объявлен статическим внутри класса или снаружи в виде обычной функции, если они никак не взаимодействуют с экземпляром. Общего правила на это счет нет. Иногда удобно объявить метод статическим, чтобы поместить его в пространство имен класса и тем самым не только освободить глобальное пространство имен модуля, но и явно указать, что этот метод как-то связан с этим типом данных. Ещё часто статические методы применяют для реализации альтернативных конструкторов: действительно, конструктор класса, по определению не должен принимать на вход экземпляр класса, а должен его возвращать.</p>
 </div>
-</div>
-<div class="section" id="initialization">
-<span id="id7"></span><h2>Инициализация объекта<a class="headerlink" href="#initialization" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="initialization">
+<span id="id7"></span><h2>Инициализация объекта<a class="headerlink" href="#initialization" title="Permalink to this headline">#</a></h2>
 <p>Теперь, когда мы знаем, как объявляются методы, разберем, как модифицировать создание экземпляров, чтобы гарантировать наличие у них уникальных атрибутов.</p>
 <p>При создании экземпляра класса (вызов объекта объявления класса) сначала вызывается специальный метод <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html?highlight=__new__#object.__new__">__new__</a> соответствующего класса, который именно создаёт объект и возвращает его. Затем у этого уже созданного объекта вызывается специальный метод <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html?highlight=__init__#object.__init__">__init__</a>, который его инициализирует. По умолчанию эти методы наследуются от базового класса (<code class="docutils literal notranslate"><span class="pre">object</span></code> во всех предыдущих примерах). Чтобы модифицировать создание объекта, необходимо переопределить один (или оба) из методов <code class="docutils literal notranslate"><span class="pre">__new__</span></code> и <code class="docutils literal notranslate"><span class="pre">__init__</span></code>.</p>
 <p>Метод <code class="docutils literal notranslate"><span class="pre">__new__</span></code> переопределяется относительно редко и раскрываться здесь не будет. При инициализации объекта методом <code class="docutils literal notranslate"><span class="pre">__init__</span></code> обычно создаются атрибуты объекта. Ниже приводятся примеры объявления классов с одним <strong>не</strong> статическим атрибутом в <code class="docutils literal notranslate"><span class="pre">C++</span></code> и <code class="docutils literal notranslate"><span class="pre">python</span></code>.</p>
-<div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">C++</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>C++</strong></p>
 </div>
-<div class="card-body docutils">
+<div class="sd-card-body docutils">
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">A</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="k">public</span><span class="o">:</span><span class="w"></span>
@@ -1341,24 +1481,22 @@ my_instance_method() takes 0 positional arguments but 1 was given
 <span class="p">};</span><span class="w"></span>
 </pre></div>
 </div>
-<p class="card-text">В конструкторе <code class="docutils literal notranslate"><span class="pre">A::A(int)</span></code> инициализируется целочисленная переменная <code class="docutils literal notranslate"><span class="pre">x</span></code> значением, переданным в конструктор.</p>
+<p class="sd-card-text">В конструкторе <code class="docutils literal notranslate"><span class="pre">A::A(int)</span></code> инициализируется целочисленная переменная <code class="docutils literal notranslate"><span class="pre">x</span></code> значением, переданным в конструктор.</p>
 </div>
 </div>
 </div>
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">python</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>python</strong></p>
 </div>
-<div class="card-body docutils">
+<div class="sd-card-body docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
-
-
 </pre></div>
 </div>
-<p class="card-text">В инициализирующем методе <code class="docutils literal notranslate"><span class="pre">A.__init__</span></code> у объекта <code class="docutils literal notranslate"><span class="pre">self</span></code> создаётся атрибут <code class="docutils literal notranslate"><span class="pre">x</span></code> и связывается со значением, переданным в качестве второго параметра.</p>
+<p class="sd-card-text">В инициализирующем методе <code class="docutils literal notranslate"><span class="pre">A.__init__</span></code> у объекта <code class="docutils literal notranslate"><span class="pre">self</span></code> создаётся атрибут <code class="docutils literal notranslate"><span class="pre">x</span></code> и связывается со значением, переданным в качестве второго параметра.</p>
 </div>
 </div>
 </div>
@@ -1447,9 +1585,9 @@ new value
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="id8">
-<h2>Публичные и не публичные поля. Справка по классу<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id8">
+<h2>Публичные и не публичные поля. Справка по классу<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h2>
 <p>В python нет поистине приватных атрибутов: какие бы меры вы не приняли, будет возможно получить доступ ко всем атрибутам класса. От части в связи с этим, в <code class="docutils literal notranslate"><span class="pre">python</span></code> не принято принимать больших усилий для скрытия атрибутов. Вместо этого существует общепринятое правило, которое отличает публичные имена в классе от не публичных.</p>
 <ol class="simple">
 <li><p>Все атрибуты и методы, имена которых начинаются с одинарного нижнего подчеркивания, не считаются публичными. Разработчик класса не рассчитывает, что к ним будет осуществляться доступ напрямую вне самого класса.</p></li>
@@ -1505,9 +1643,9 @@ class A(builtins.object)
 <p class="admonition-title">Note</p>
 <p>Имена, начинающиеся с двух нижних подчеркиваний (но не заканчивающиеся двумя подчеркиваниями), тоже имеют особую роль, которая проявляется при наследовании.</p>
 </div>
-</div>
-<div class="section" id="c">
-<h2>Пример c треугольниками<a class="headerlink" href="#c" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="c">
+<h2>Пример c треугольниками<a class="headerlink" href="#c" title="Permalink to this headline">#</a></h2>
 <p>Предположим, вы пишите программу, которая должна работать с треугольниками, вычислять их площадь и периметр. В результате у вас может получиться что-то следующее.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1669,8 +1807,8 @@ class Triangle(builtins.object)
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1694,9 +1832,11 @@ class Triangle(builtins.object)
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="../scipy/homework.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1712,24 +1852,28 @@ class Triangle(builtins.object)
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Fadeev Egor<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Fadeev Egor<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

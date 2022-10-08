@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>PySide. Основы &#8212; Практикум по компьютерным технологиям</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -39,12 +37,14 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -53,7 +53,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -66,7 +65,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -75,9 +88,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -95,14 +109,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../docs/index.html">
-   Практикум по компьютерным технологиям на языке программирования python3
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../docs/index.html">
+                    Практикум по компьютерным технологиям на языке программирования python3
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Лекция №1
  </span>
@@ -546,11 +561,6 @@ const thebe_selector_output = ".output, .cell_output"
    Стратегии контроля ошибок
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../python/exercises3.html">
-   Практические задания
-  </a>
- </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -668,92 +678,244 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/notebooks/qt/basics.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/FadeevLecturer/python_lectures"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/FadeevLecturer/python_lectures/issues/new?title=Issue%20on%20page%20%2Fnotebooks/qt/basics.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/FadeevLecturer/python_lectures/edit/main/notebooks/qt/basics.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/FadeevLecturer/python_lectures/main?urlpath=tree/notebooks/qt/basics.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/FadeevLecturer/python_lectures/blob/main/notebooks/qt/basics.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/FadeevLecturer/python_lectures"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/FadeevLecturer/python_lectures/issues/new?title=Issue%20on%20page%20%2Fnotebooks/qt/basics.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/FadeevLecturer/python_lectures/edit/main/notebooks/qt/basics.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/notebooks/qt/basics.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id1">
    Установка
@@ -848,12 +1010,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>PySide. Основы</h1>
@@ -964,20 +1125,21 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="pyside">
-<h1>PySide. Основы<a class="headerlink" href="#pyside" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id1">
-<h2>Установка <code class="docutils literal notranslate"><span class="pre">PySide</span></code><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="pyside">
+<h1>PySide. Основы<a class="headerlink" href="#pyside" title="Permalink to this headline">#</a></h1>
+<section id="id1">
+<h2>Установка <code class="docutils literal notranslate"><span class="pre">PySide</span></code><a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
 <p>Установить <code class="docutils literal notranslate"><span class="pre">PySide6</span></code> можно используя <code class="docutils literal notranslate"><span class="pre">pip</span></code></p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip install PySide6
 </pre></div>
 </div>
-</div>
-<div class="section" id="id2">
-<h2>Репозиторий<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id2">
+<h2>Репозиторий<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
 <p>Здесь и везде далее по теме <code class="docutils literal notranslate"><span class="pre">PySide</span></code> будет приводиться исходный код, эффект запуска которого не получится в полной мере продемонстрировать в рамках статического примера. Чтобы лучше почувствовать возможности <code class="docutils literal notranslate"><span class="pre">Qt</span></code>, лучше самостоятельно запускать приводимые примеры на своей машине. Все необходимое для этого можно найти в репозитории по <a class="reference external" href="https://github.com/FadeevLecturer/PySide6_intro">ссылке</a>, клонировать который можно командой (потребуется установленный <a class="reference external" href="https://git-scm.com/">git</a>)</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git clone git@github.com:FadeevLecturer/PySide6_intro.git
 </pre></div>
@@ -987,9 +1149,9 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python -m pip install -r requirements.txt
 </pre></div>
 </div>
-</div>
-<div class="section" id="id3">
-<h2>Пространство имен <code class="docutils literal notranslate"><span class="pre">PySide</span></code><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id3">
+<h2>Пространство имен <code class="docutils literal notranslate"><span class="pre">PySide</span></code><a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
 <p>В <code class="docutils literal notranslate"><span class="pre">PySide</span></code> можно выделить три основных модуля.</p>
 <ol class="simple">
 <li><p><a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtCore/index.html#module-PySide6.QtCore">QtCore</a> — ядро библиотеки, предоставляет доступ к ключевому функционалу, который не завязан на графическом интерфейсе: сигналы, слоты, базовые классы и др.</p></li>
@@ -1007,9 +1169,9 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 <p>В данном случае это не так страшно, т.к. все имена в модулях <code class="docutils literal notranslate"><span class="pre">PySide</span></code> имеют специфическую форму и не перекрываются с именами встроенной библиотеки. В крупных программах принято реализовывать графический интерфейс и остальную логику программы в разных местах, что ещё в большей степени нивелирует проблему “запутанности” пространства имен.</p>
-</div>
-<div class="section" id="qt-qapplication">
-<h2>Qt приложение. <code class="docutils literal notranslate"><span class="pre">QApplication</span></code><a class="headerlink" href="#qt-qapplication" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="qt-qapplication">
+<h2>Qt приложение. <code class="docutils literal notranslate"><span class="pre">QApplication</span></code><a class="headerlink" href="#qt-qapplication" title="Permalink to this headline">#</a></h2>
 <p>Чтобы разрабатывать приложение с графическим интерфейсом на основе <code class="docutils literal notranslate"><span class="pre">Qt</span></code> необходимо в первую очередь создать объект типа <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QApplication.html">QApplication</a>. При этом такой объект <strong>должен быть ровно один</strong> вне зависимости от обстоятельств, количества окон у приложения и т.п. <code class="docutils literal notranslate"><span class="pre">QApplication</span></code> делает очень много закулисной работы по обработке событий и организации виджетов.</p>
 <p>Самое примитивное приложение на <code class="docutils literal notranslate"><span class="pre">PySide</span></code> без каких либо окон выглядит примерно так.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
@@ -1024,9 +1186,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Команда <code class="docutils literal notranslate"><span class="pre">app.exec()</span></code> запускает <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%A6%D0%B8%D0%BA%D0%BB_%D1%81%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D0%B9">цикл событий</a> (<a class="reference external" href="https://en.wikipedia.org/wiki/Event_loop">event loop</a>), который ожидает <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%A1%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D0%B9%D0%BD%D0%BE-%D0%BE%D1%80%D0%B8%D0%B5%D0%BD%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D0%BE%D0%B5_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5">события</a> (<a class="reference external" href="https://en.wikipedia.org/wiki/Event-driven_programming">events</a>) и вызывает соответствующий обработчик события (<code class="docutils literal notranslate"><span class="pre">event</span> <span class="pre">handler</span></code>). Цикл события из себя представляет бесконечный цикл типа <code class="docutils literal notranslate"><span class="pre">while</span></code>, выход из которого осуществляется при возникновении события <code class="docutils literal notranslate"><span class="pre">exit</span></code>.</p>
 <p>Важно понимать, что когда <code class="docutils literal notranslate"><span class="pre">Qt</span></code> приложение запущено (<code class="docutils literal notranslate"><span class="pre">app.exec()</span></code>), программа попадает в событийный цикл, из которого она не выйдет, пока приложение не будет закрыто. Иными словами исполнение кода в скрипте <code class="docutils literal notranslate"><span class="pre">python</span></code> приостанавливается, управление потоком исполнения программы передаётся <code class="docutils literal notranslate"><span class="pre">Qt</span></code>. Так, инструкция <code class="docutils literal notranslate"><span class="pre">print</span></code> в скрипте выше не выполнится до тех пор, пока не будет вызван метод <code class="docutils literal notranslate"><span class="pre">app.exit()</span></code>, к которому мы не предоставили прямого доступа.</p>
 <p>Итого, в примере выше цикл событий будет крутиться в пустую, так как мы не обрабатываем ни одного события. Создадим окно у приложения, чтобы начать обрабатывать хоть какие-то события.</p>
-</div>
-<div class="section" id="qmainwindow">
-<h2>Главное окно приложения. <code class="docutils literal notranslate"><span class="pre">QMainWindow</span></code><a class="headerlink" href="#qmainwindow" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="qmainwindow">
+<h2>Главное окно приложения. <code class="docutils literal notranslate"><span class="pre">QMainWindow</span></code><a class="headerlink" href="#qmainwindow" title="Permalink to this headline">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">QApplication</span></code> самого по себе недостаточно, чтобы на экране появился графический интерфейс. Для этого необходимо создать какой-нибудь элемент интерфейса (<code class="docutils literal notranslate"><span class="pre">widget</span></code>) и вывести его на экран, т.к. по умолчанию они скрыты. Для главного окна приложения удобнее всего использовать виджет <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QMainWindow.html">QMainWindow</a>.</p>
 <p>Следующий пример расширяет предыдущий, добавляя создание экземпляр класса <code class="docutils literal notranslate"><span class="pre">QMainWindow</span></code> и выводя его на экран методом <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QWidget.html#PySide6.QtWidgets.PySide6.QtWidgets.QWidget.show">show</a> (по умолчанию все виджеты скрыты).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
@@ -1041,9 +1203,9 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 <p>При запуске этого приложения должно появиться окно, которое в зависимости от операционной системы может выглядеть следующим образом.</p>
-<div class="figure align-default">
+<figure class="align-default">
 <img alt="../../_images/main_window_1.png" src="../../_images/main_window_1.png" />
-</div>
+</figure>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>У метода <code class="docutils literal notranslate"><span class="pre">show</span></code> есть аналоги
@@ -1061,16 +1223,16 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p>Т.е. <code class="docutils literal notranslate"><span class="pre">Qt</span></code> сам сгенерировал ряд элементов графического интерфейса, а также реализовал обработку ряда событий (например, нажатие на кнопку закрытия приложения).</p>
 <p>При этом только после закрытия этого окна программа покинет цикл событий, сработает инструкция <code class="docutils literal notranslate"><span class="pre">print</span></code> и в консоли появится сообщение “Application is closed!”.</p>
-</div>
-<div class="section" id="id4">
-<h2>Кастомизация <code class="docutils literal notranslate"><span class="pre">QMainWindow</span></code><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id4">
+<h2>Кастомизация <code class="docutils literal notranslate"><span class="pre">QMainWindow</span></code><a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
 <p>В предыдущем примере окно было создано с дефолтным размером, дефолтной иконкой и дефолтным заголовком “python”, который даже полностью не влезает из-за размеров окна. Все это можно настроить под свои нужды.</p>
 <ul class="simple">
 <li><p>Размер окна можно изменить методом <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QWidget.html#PySide6.QtWidgets.PySide6.QtWidgets.QWidget.setGeometry">setGeometry</a>, который на вход принимает четыре параметра: координаты <code class="docutils literal notranslate"><span class="pre">x</span></code> и <code class="docutils literal notranslate"><span class="pre">y</span></code> левого верхнего угла окна, ширину <code class="docutils literal notranslate"><span class="pre">w</span></code> и высоту <code class="docutils literal notranslate"><span class="pre">h</span></code> окна. Ось <span class="math notranslate nohighlight">\(Ox\)</span> и <span class="math notranslate nohighlight">\(Oy\)</span> направлены слева направо и сверху вниз соответственно.</p></li>
 </ul>
-<div class="figure align-default">
+<figure class="align-default">
 <img alt="../../_images/geometry.png" src="../../_images/geometry.png" />
-</div>
+</figure>
 <ul class="simple">
 <li><p>Заголовок окна можно изменить методом <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QWidget.html#PySide6.QtWidgets.PySide6.QtWidgets.QWidget.setWindowTitle">setWindowTitle</a>, который на вход принимает строку.</p></li>
 <li><p>Иконку окна можно изменить с помощью метода <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QWidget.html#PySide6.QtWidgets.PySide6.QtWidgets.QWidget.setWindowIcon">setWindowIcon</a>, которая на вход принимает объект <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtGui/QIcon.html">QtGui.QIcon</a>.
@@ -1124,12 +1286,12 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p>Ну и создаем мы теперь экземпляр нового класса <code class="docutils literal notranslate"><span class="pre">MainWindow</span></code>, а не исходного <code class="docutils literal notranslate"><span class="pre">QMainWindow</span></code>.</p>
 <p>В итоге должны получить нечто следующее.</p>
-<div class="figure align-default">
+<figure class="align-default">
 <img alt="../../_images/main_window_2.png" src="../../_images/main_window_2.png" />
-</div>
-</div>
-<div class="section" id="qlabel">
-<h2>Виджет <code class="docutils literal notranslate"><span class="pre">QLabel</span></code><a class="headerlink" href="#qlabel" title="Permalink to this headline">¶</a></h2>
+</figure>
+</section>
+<section id="qlabel">
+<h2>Виджет <code class="docutils literal notranslate"><span class="pre">QLabel</span></code><a class="headerlink" href="#qlabel" title="Permalink to this headline">#</a></h2>
 <p>Чтобы внутри окна появились элементы графического управления необходимо добавить виджеты. Все виджеты располагаются в модуле <code class="docutils literal notranslate"><span class="pre">QtWidgets</span></code>, в том числе и один из самых простых — <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QLabel.html">QLabel</a>, который позволяет отображать текст (или изображение, но об этом в следующем разделе).</p>
 <p>Любой виджет принимает ссылку на родительский виджет <code class="docutils literal notranslate"><span class="pre">parent</span></code>. <code class="docutils literal notranslate"><span class="pre">QLabel</span></code> на вход принимает ещё и <code class="docutils literal notranslate"><span class="pre">python</span></code> строку. Метод <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QLabel.html#PySide6.QtWidgets.PySide6.QtWidgets.QLabel.setAlignment">setALignment</a> ожидает на вход <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtCore/Qt.html#PySide6.QtCore.PySide6.QtCore.Qt.AlignmentFlag">Qt.Core.AlignmentFlag</a> и отвечает за выравнивание текста по центру (<code class="docutils literal notranslate"><span class="pre">QtCore.Qt.AlignCenter</span></code>), по левому краю (<code class="docutils literal notranslate"><span class="pre">QtCore.Qt.AlignRight</span></code>) и т.п.</p>
 <p>Чтобы добавить виджет на окно, мало просто указать <code class="docutils literal notranslate"><span class="pre">parent</span></code> при его создании. Необходимо также сказать самому окну этот виджет отрисовать. Пока у нас всего один виджет можно воспользоваться методом <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QMainWindow.html#PySide6.QtWidgets.PySide6.QtWidgets.QMainWindow.setCentralWidget">QMainWindow.setCentralWidget</a>, чтобы сразу добавить наш текст в центр окна.</p>
@@ -1161,12 +1323,12 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">app</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="figure align-default">
+<figure class="align-default">
 <img alt="../../_images/label_1.png" src="../../_images/label_1.png" />
-</div>
-</div>
-<div class="section" id="layout">
-<h2>Макеты. <code class="docutils literal notranslate"><span class="pre">Layout</span></code><a class="headerlink" href="#layout" title="Permalink to this headline">¶</a></h2>
+</figure>
+</section>
+<section id="layout">
+<h2>Макеты. <code class="docutils literal notranslate"><span class="pre">Layout</span></code><a class="headerlink" href="#layout" title="Permalink to this headline">#</a></h2>
 <p>Добавить несколько виджетов на окно проще всего используя макеты (<code class="docutils literal notranslate"><span class="pre">layout</span></code>).</p>
 <p>Вообще говоря, можно расположить виджеты на окне, указав окно в качестве родителя (<code class="docutils literal notranslate"><span class="pre">parent</span></code>) и вызвав метод <code class="docutils literal notranslate"><span class="pre">setGeometry</span></code>. При таком подходе можно указывать произвольное положение кнопок, но нет никакой гарантии, что с изменением геометрии самого окна элементы будут адекватно перестраиваться.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Qt</span></code> предоставляет набор стандартных макетов, которые сами следят за эффективным использованием пространства, занимаемого элементами интерфейса. Чтобы установить макет, необходимо вызвать метод <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QWidget.html#PySide6.QtWidgets.PySide6.QtWidgets.QWidget.setLayout">setLayout</a> у какого-нибудь разумного виджета (), но у <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QWidget.html#PySide6.QtWidgets.PySide6.QtWidgets.QWidget.setLayout">QMainWindow</a></p>
@@ -1179,8 +1341,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p class="admonition-title">Note</p>
 <p>Подробнее о макетах можно почитать <a class="reference external" href="https://doc.qt.io/qtforpython/overviews/layout.html#layout-management">здесь</a>.</p>
 </div>
-<div class="section" id="qhboxlayout-qvboxlayout">
-<h3><code class="docutils literal notranslate"><span class="pre">QHBoxLayout</span></code> и <code class="docutils literal notranslate"><span class="pre">QVBoxLayout</span></code><a class="headerlink" href="#qhboxlayout-qvboxlayout" title="Permalink to this headline">¶</a></h3>
+<section id="qhboxlayout-qvboxlayout">
+<h3><code class="docutils literal notranslate"><span class="pre">QHBoxLayout</span></code> и <code class="docutils literal notranslate"><span class="pre">QVBoxLayout</span></code><a class="headerlink" href="#qhboxlayout-qvboxlayout" title="Permalink to this headline">#</a></h3>
 <p>Макет <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QHBoxLayout.html">QHBoxLayout</a> выравнивает виджеты горизонтально слева направо , а <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QVBoxLayout.html">QVBoxLayout</a> вертикально сверху вниз. У обоих из них есть среди прочих следующие методы:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QBoxLayout.html#PySide6.QtWidgets.PySide6.QtWidgets.QBoxLayout.addWidget">addWidget</a> — добавляет виджет. В качестве параметра <code class="docutils literal notranslate"><span class="pre">alignment</span></code> можно указать выравнивание, как и <code class="docutils literal notranslate"><span class="pre">QLabel</span></code>;</p></li>
@@ -1189,10 +1351,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p>Макет сам распределяет пространство, которое будет занимать виджет исходя из геометрии окна, политики размера каждого из виджетов (<a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QSizePolicy.html">QSizePolicy</a>, который среди прочего определяем минимальный размер виджета) и коэффициента растяжения (<code class="docutils literal notranslate"><span class="pre">stretching</span></code>), который определяет насколько жадно этот виджет будет занимать пространство. По умолчанию под каждый виджет отводится одинаковое количество места, но если указать параметр <code class="docutils literal notranslate"><span class="pre">stretch</span></code> (его принимают все три вышеописанных метода), то виджета с большим значением будет занимать больше пространства.</p>
 <p>В качестве примера, создадим два виджета <code class="docutils literal notranslate"><span class="pre">QLabel</span></code>, положим в них картинку методом <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QLabel.html#PySide6.QtWidgets.PySide6.QtWidgets.QLabel.setPixmap">setPixmap</a>, который ожидает на вход объект <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtGui/QPixmap.html">QPixmap</a>, и добавим их в макет.</p>
-<div class="tabbed-set docutils">
-<input checked="checked" id="434a4e7d-2568-4034-b0db-f49cf1f8c7f5" name="3bc7a77f-3f0d-4811-973f-d6ffa9fb4d5b" type="radio">
-</input><label class="tabbed-label" for="434a4e7d-2568-4034-b0db-f49cf1f8c7f5">
-QHBoxLayout</label><div class="tabbed-content docutils">
+<div class="sd-tab-set docutils">
+<input checked="checked" id="bda5616f-403e-4858-bfc2-39b002f59f56" name="c96ae28c-087e-4829-8011-ffc9df0c4c1c" type="radio">
+</input><label class="sd-tab-label" data-sync-id="hbox" for="bda5616f-403e-4858-bfc2-39b002f59f56">
+QHBoxLayout</label><div class="sd-tab-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">os</span>
 
@@ -1236,13 +1398,10 @@ QHBoxLayout</label><div class="tabbed-content docutils">
 <span class="n">app</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="figure align-default">
-<img alt="../../_images/HBoxLayout.png" src="../../_images/HBoxLayout.png" />
 </div>
-</div>
-<input id="a4d2e6bd-555f-4821-b9f4-aaf87f785ec0" name="3bc7a77f-3f0d-4811-973f-d6ffa9fb4d5b" type="radio">
-</input><label class="tabbed-label" for="a4d2e6bd-555f-4821-b9f4-aaf87f785ec0">
-QVBoxLayout</label><div class="tabbed-content docutils">
+<input id="b4a24f23-206c-4b7f-90b7-5df4cc407ca1" name="c96ae28c-087e-4829-8011-ffc9df0c4c1c" type="radio">
+</input><label class="sd-tab-label" data-sync-id="vbox" for="b4a24f23-206c-4b7f-90b7-5df4cc407ca1">
+QVBoxLayout</label><div class="sd-tab-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">os</span>
 
@@ -1286,14 +1445,27 @@ QVBoxLayout</label><div class="tabbed-content docutils">
 <span class="n">app</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="figure align-default">
+</div>
+</div>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="5ff50186-2bc0-4f3d-976e-aca06737ef2a" name="3c6e224e-0652-4b3d-9ddb-409c3b7dd3ed" type="radio">
+</input><label class="sd-tab-label" data-sync-id="hbox" for="5ff50186-2bc0-4f3d-976e-aca06737ef2a">
+QHBoxLayout</label><div class="sd-tab-content docutils">
+<figure class="align-default">
+<img alt="../../_images/HBoxLayout.png" src="../../_images/HBoxLayout.png" />
+</figure>
+</div>
+<input id="1c45ed30-f604-4a8d-98a4-f056bccdbcfc" name="3c6e224e-0652-4b3d-9ddb-409c3b7dd3ed" type="radio">
+</input><label class="sd-tab-label" data-sync-id="vbox" for="1c45ed30-f604-4a8d-98a4-f056bccdbcfc">
+QVBoxLayout</label><div class="sd-tab-content docutils">
+<figure class="align-default">
 <img alt="../../_images/VBoxLayout.png" src="../../_images/VBoxLayout.png" />
+</figure>
 </div>
 </div>
-</div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1317,9 +1489,11 @@ QVBoxLayout</label><div class="tabbed-content docutils">
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="gui.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1335,24 +1509,28 @@ QVBoxLayout</label><div class="tabbed-content docutils">
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Fadeev Egor<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Fadeev Egor<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

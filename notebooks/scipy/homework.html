@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Домашнее задание №3 &#8212; Практикум по компьютерным технологиям</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -39,12 +37,14 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -53,7 +53,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -66,7 +65,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -75,9 +88,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -95,14 +109,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../docs/index.html">
-   Практикум по компьютерным технологиям на языке программирования python3
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../docs/index.html">
+                    Практикум по компьютерным технологиям на языке программирования python3
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Лекция №1
  </span>
@@ -546,11 +561,6 @@ const thebe_selector_output = ".output, .cell_output"
    Стратегии контроля ошибок
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../python/exercises3.html">
-   Практические задания
-  </a>
- </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -668,92 +678,197 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/notebooks/scipy/homework.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/FadeevLecturer/python_lectures"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/FadeevLecturer/python_lectures/issues/new?title=Issue%20on%20page%20%2Fnotebooks/scipy/homework.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/FadeevLecturer/python_lectures/edit/main/notebooks/scipy/homework.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/FadeevLecturer/python_lectures"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/FadeevLecturer/python_lectures/issues/new?title=Issue%20on%20page%20%2Fnotebooks/scipy/homework.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/FadeevLecturer/python_lectures/edit/main/notebooks/scipy/homework.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/notebooks/scipy/homework.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id1">
    1. Вычисление моментов инерции
@@ -821,12 +936,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Домашнее задание №3</h1>
@@ -910,11 +1024,12 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="o3">
-<h1>Домашнее задание №3<a class="headerlink" href="#o3" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="o3">
+<h1>Домашнее задание №3<a class="headerlink" href="#o3" title="Permalink to this headline">#</a></h1>
 <p>Это домашнее задание посвящено численному и математическому моделированию.</p>
 <p>Вашу программу следует разделить на следующие логические этапы.</p>
 <ol class="simple">
@@ -925,8 +1040,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Ваша задача заключается не только в программировании, но и в анализе самой задачи и её решений, которые могут иметь качественно разный характер при разных параметрах. Необходимо подготовить к моменту сдачи несколько конфигурационных файлов, демонстрирующих максимально разнообразие. Конфигурационные файлы разумно представить в виде JSON.</p>
 <p>Численное моделирование следует осуществлять на основе методов библиотеки <code class="docutils literal notranslate"><span class="pre">SciPy</span></code>, а не реализовывать численные методы самостоятельно. В целях визуализации допускается использовать любую библиотеку. На каждом графике должны быть подписаны оси (<code class="docutils literal notranslate"><span class="pre">ax.set_xlabel</span></code> и т.д.). Если в одних осях построены графики нескольких функций, то следует составить легенду (<code class="docutils literal notranslate"><span class="pre">ax.set_legend</span></code>).</p>
 <p>Желательно протестировать вашу программу. Если решение вашей задачи при каких-то параметрах очевидно, то следует проверить, что ваша программа способно его найти (в пределах погрешности).</p>
-<div class="section" id="id1">
-<h2>1. Вычисление моментов инерции<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<section id="id1">
+<h2>1. Вычисление моментов инерции<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
 <p>Пусть дано тело с плотностью <span class="math notranslate nohighlight">\(\rho(x, y, z)\)</span> в пределах области <span class="math notranslate nohighlight">\(D\)</span>.</p>
 <p>Найти:</p>
 <ol class="simple">
@@ -936,17 +1051,17 @@ const thebe_selector_output = ".output, .cell_output"
 </ol>
 <p>И визуализировать это тело с его главными осями.</p>
 <p>Предусмотреть тела следующих форм: параллелепипед, сфера, цилиндр, конус и тор.</p>
-</div>
-<div class="section" id="id2">
-<h2>2. Задача двух тел<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id2">
+<h2>2. Задача двух тел<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
 <p>Записать систему дифференциальных уравнений для задачи двух тел и реализовать её численное решение. Построить траектории этих тел (опционально можно визуализировать решение анимацией).</p>
-</div>
-<div class="section" id="id3">
-<h2>3. Тепловое равновесие<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id3">
+<h2>3. Тепловое равновесие<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
 <p>Рассмотрим стержень длинны <span class="math notranslate nohighlight">\(l\)</span>, на концах которого поддерживаются температуры <span class="math notranslate nohighlight">\(T_0\)</span> и <span class="math notranslate nohighlight">\(T_l\)</span> соответственно.</p>
-<div class="figure align-default">
+<figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/heat.png"><img alt="../../_images/heat.png" src="../../_images/heat.png" style="width: 396.2px; height: 71.39999999999999px;" /></a>
-</div>
+</figure>
 <p>Если направить ось <span class="math notranslate nohighlight">\(Ox\)</span> вдоль длинны стержня как на рисунке выше и считать, что температура зависит только от координаты <span class="math notranslate nohighlight">\(x\)</span> и что стержень теплоизолирован по его длине, то распределение температуры по длине стержня при достижении теплового равновесия описывается уравнением</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -957,9 +1072,9 @@ T\big|_{x=l} = T_l.
 \end{cases}
 \end{split}\]</div>
 <p>Здесь <span class="math notranslate nohighlight">\(\rho\)</span> — коэффициент теплопроводности. В общем случае этот коэффициент зависит от <span class="math notranslate nohighlight">\(x\)</span>, а в случае однородного стержня <span class="math notranslate nohighlight">\(\rho(x)\)</span> — константа.</p>
-</div>
-<div class="section" id="id4">
-<h2>4. Осциллятор Ван дер Поля<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id4">
+<h2>4. Осциллятор Ван дер Поля<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
 <p>Реализовать численное решение уравнения Ван дер Поля</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -970,18 +1085,18 @@ y'\big|_{t=0} = y'_0
 \end{cases}
 \end{split}\]</div>
 <p>Построить график решения в осях <span class="math notranslate nohighlight">\((t, y)\)</span> и <span class="math notranslate nohighlight">\((y, y')\)</span>. Исследовать решение в зависимости от различных начальных условий, значений коэффициента <span class="math notranslate nohighlight">\(k\)</span>.</p>
-</div>
-<div class="section" id="id5">
-<h2>5. Уравнение Дуффинга<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id5">
+<h2>5. Уравнение Дуффинга<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
 <p>В теории колебаний одним из наиболее известных нелинейных уравнений является уравнение Дуффинга, которое с учётом внешней силы записывается в виде</p>
 <div class="math notranslate nohighlight">
 \[
 \ddot{x} + 2\delta \dot{x} + \alpha x + \beta x^3 = B \sin(\omega t)
 \]</div>
 <p>Пусть <span class="math notranslate nohighlight">\(\delta=0.05\)</span>, <span class="math notranslate nohighlight">\(\alpha=1\)</span>, <span class="math notranslate nohighlight">\(\beta=1\)</span>, <span class="math notranslate nohighlight">\(\omega=1\)</span></p>
-</div>
-<div class="section" id="id6">
-<h2>6. Хищник-жертва<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id6">
+<h2>6. Хищник-жертва<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h2>
 <p>Пусть <span class="math notranslate nohighlight">\(x\)</span> — плотность популяции жертвы, <span class="math notranslate nohighlight">\(y\)</span> — плотность популяции хищника, тогда, согласно модели Лотки-Вольтерра, модели хищник-жертва, можно записать следующие уравнения:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -992,9 +1107,9 @@ y'\big|_{t=0} = y'_0
 \end{split}\]</div>
 <p>где <span class="math notranslate nohighlight">\(a, b, c\)</span> и <span class="math notranslate nohighlight">\(d\)</span> положительные константы. Коэффициент <span class="math notranslate nohighlight">\(a\)</span> описывает интенсивность размножения жертв, <span class="math notranslate nohighlight">\(b\)</span> — выедание хищниками жертв, <span class="math notranslate nohighlight">\(c\)</span> — увеличение биомассы хищников за счет выедания жертв, <span class="math notranslate nohighlight">\(d\)</span> — интенсивность естественной смерти хищников.</p>
 <p>Реализовать численное решение этой системы ОДУ и подобрать такие начальные плотности популяций и коэффициенты  <span class="math notranslate nohighlight">\(a, b, c\)</span> и <span class="math notranslate nohighlight">\(d\)</span>, чтобы наблюдались периодические колебания, описывающие совместное проживание популяций жертв и хищников.</p>
-</div>
-<div class="section" id="id7">
-<h2>7. Аттрактор Лоренца<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id7">
+<h2>7. Аттрактор Лоренца<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h2>
 <p>Рассмотрим систему нелинейных ОДУ</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1005,9 +1120,9 @@ y'\big|_{t=0} = y'_0
 \end{cases}
 \end{split}\]</div>
 <p>Реализовать численное решение этой системы, продемонстрировать странный аттрактор.</p>
-</div>
-<div class="section" id="id8">
-<h2>8. Заряды в электростатическом поле<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id8">
+<h2>8. Заряды в электростатическом поле<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h2>
 <p>Пусть дано внешнее <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%AD%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D1%81%D1%82%D0%B0%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9_%D0%BF%D0%BE%D1%82%D0%B5%D0%BD%D1%86%D0%B8%D0%B0%D0%BB">электростатическое поле</a>, потенциальная энергия взаимодействия которого с зарядом <span class="math notranslate nohighlight">\(q\)</span> имеющим координаты <span class="math notranslate nohighlight">\(\vec{r}=(x, y, z)\)</span> имеет вид:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1025,13 +1140,13 @@ W(\overrightarrow{r_1}, ..., \overrightarrow{r_N}) = \sum_{i=1}^N W_{q_i}(\overr
 W(\overrightarrow{r_1}, ..., \overrightarrow{r_N}) \sim \min_{\overrightarrow{r_1}, ..., \overrightarrow{r_N}}.
 \]</div>
 <p>Визуализировать частицы в найденном положении равновесия.</p>
-</div>
-<div class="section" id="id9">
-<h2>9. Двойной маятник<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id9">
+<h2>9. Двойной маятник<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h2>
 <p>Смоделируйте поведение двойного маятника.</p>
-<div class="figure align-default">
+<figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/dbl_pendulum.png"><img alt="../../_images/dbl_pendulum.png" src="../../_images/dbl_pendulum.png" style="width: 267.4px; height: 450.09999999999997px;" /></a>
-</div>
+</figure>
 <p>Состояние системы в любой момент времени может быть описано углами <span class="math notranslate nohighlight">\(\theta_1\)</span> и <span class="math notranslate nohighlight">\(\theta_2\)</span> и угловыми скоростями <span class="math notranslate nohighlight">\(\omega_1 = \dot{\theta_1}\)</span> и <span class="math notranslate nohighlight">\(\omega_2 = \dot{\theta_2}\)</span>. Если выбрать  углы в соответствии с рисунком выше, то уравнения движения имеют вид</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1042,13 +1157,13 @@ W(\overrightarrow{r_1}, ..., \overrightarrow{r_N}) \sim \min_{\overrightarrow{r_
 \end{cases}
 \end{split}\]</div>
 <p>Здесь <span class="math notranslate nohighlight">\(\varepsilon_1 = \ddot{\theta}_1\)</span> и <span class="math notranslate nohighlight">\(\varepsilon_2 = \ddot{\theta}_2\)</span> — угловые ускорения.</p>
-</div>
-<div class="section" id="id10">
-<h2>10. Два маятника на пружине<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id10">
+<h2>10. Два маятника на пружине<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h2>
 <p>Рассмотрим механическую систему, состоящую из двух пружинных маятников, соединенных между собой ещё одной пружиной. Предположим, что в состоянии покоя системы все три пружины не испытывают деформаций.</p>
-<div class="figure align-default">
+<figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/springs.png"><img alt="../../_images/springs.png" src="../../_images/springs.png" style="width: 485.1px; height: 65.7px;" /></a>
-</div>
+</figure>
 <p>Теперь предположим, что эту систему вывели из состояния покоя, сместив грузики из положений равновесий и придав им некоторые скорости. Пусть <span class="math notranslate nohighlight">\(x_1\)</span> — смещение первого грузика вправо относительно его положения равновесия, <span class="math notranslate nohighlight">\(x_2\)</span> — смещение второго грузика вправо относительно его положения равновесия, тогда уравнения движения имеют вид</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1058,9 +1173,9 @@ ma_2 = -k_2 x_2 - k(x_2 - x_1),
 \end{cases}
 \end{split}\]</div>
 <p>где <span class="math notranslate nohighlight">\(a_1 = \ddot{x}_1\)</span> и <span class="math notranslate nohighlight">\(a_2 = \ddot{x}_2\)</span> — ускорения грузиков. Смоделировать поведение такой системы.</p>
-</div>
-<div class="section" id="id11">
-<h2>11. Заряд в электромагнитном поле<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id11">
+<h2>11. Заряд в электромагнитном поле<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h2>
 <p>Точечный заряд движется в постоянном электромагнитном поле, т.е. него действует <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%A1%D0%B8%D0%BB%D0%B0_%D0%9B%D0%BE%D1%80%D0%B5%D0%BD%D1%86%D0%B0#:~:text=%D0%A1%D0%B8%D0%BB%D0%B0%20%D0%9B%D0%BE%D1%80%D0%B5%D0%BD%D1%86%D0%B0%20%E2%80%94%20%D1%81%D0%B8%D0%BB%D0%B0%2C%20%D1%81,%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B5%20%D0%B5%D0%B4%D0%B8%D0%BD%D0%B8%D1%86%20(%D0%A1%D0%98)%20%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B0%D0%B5%D1%82%D1%81%D1%8F%20%D0%BA%D0%B0%D0%BA%3A">сила Лоренца</a></p>
 <div class="math notranslate nohighlight">
 \[
@@ -1073,9 +1188,9 @@ ma_2 = -k_2 x_2 - k(x_2 - x_1),
 m\vec{a} = \overrightarrow{F},
 \]</div>
 <p>при некоторых начальных условиях <span class="math notranslate nohighlight">\(\vec{r}\big|_{t=0} = \vec{r}_0, \, \vec{v}\big|_{t=0} = \vec{v}_0\)</span>. Предусмотреть равномерные (<span class="math notranslate nohighlight">\(\overrightarrow{E}(\vec{r}) = \overrightarrow{E}_0\)</span>, <span class="math notranslate nohighlight">\(\overrightarrow{B}(\vec{r}) = \overrightarrow{B}_0\)</span>) и радиальные (<span class="math notranslate nohighlight">\(\overrightarrow{E}(\vec{r}) = \vec{r}||\overrightarrow{E}||/||\vec{r}||\)</span>, <span class="math notranslate nohighlight">\(\overrightarrow{B}(\vec{r}) = \vec{r}||\overrightarrow{B}||/||\vec{r}||\)</span>) электрические и магнитные поля.</p>
-</div>
-<div class="section" id="id12">
-<h2>12. Ядерный реактор<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id12">
+<h2>12. Ядерный реактор<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h2>
 <p>Динамика ядерного реактора в простейшей модели описывается системой уравнений на мощность <span class="math notranslate nohighlight">\(N\)</span> и температуру <span class="math notranslate nohighlight">\(T\)</span> реактора:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1085,9 +1200,9 @@ C \dfrac{dT}{dt} = N - k (T-T_0),
 \end{cases}
 \end{split}\]</div>
 <p>где <span class="math notranslate nohighlight">\(\tau\)</span> — время жизни одного поколения нейтронов, <span class="math notranslate nohighlight">\(\alpha &gt; 0\)</span> — реактивность реактора, <span class="math notranslate nohighlight">\(C\)</span> — теплоемкость реактора, <span class="math notranslate nohighlight">\(T_1\)</span> — температура окружающей среды, <span class="math notranslate nohighlight">\(T_0 &lt; T_1\)</span> — температура охладителя реактора, <span class="math notranslate nohighlight">\(k\)</span> — коэффициент теплоотдачи реактора.</p>
-</div>
-<div class="section" id="id13">
-<h2>13. Химический реактор<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id13">
+<h2>13. Химический реактор<a class="headerlink" href="#id13" title="Permalink to this headline">#</a></h2>
 <p>Реактор представляет собой открытую систему полного перемешивания с непрерывным тепло- и массообменом с окружающей средой. Химическая реакция протекает гомогенно с выделением тепла, которое отводится как потоком вещества, так и теплопередачей через стенки реактора. Зависимость скорости реакции от концентрации реагента и температуры определяется законом действующих масс Аррениуса. В этой простейшей модели динамика реактора описывается системой уравнений на концентрацию реагента <span class="math notranslate nohighlight">\(x\)</span> и его температуру <span class="math notranslate nohighlight">\(y\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1097,8 +1212,8 @@ C \dfrac{dT}{dt} = N - k (T-T_0),
 \end{cases}
 \end{split}\]</div>
 <p>где <span class="math notranslate nohighlight">\(x_0\)</span> –– концентрация подающегося реагента, <span class="math notranslate nohighlight">\(y_0\)</span> – равновесная температура реактора при потушенной реакции, <span class="math notranslate nohighlight">\(\lambda\)</span> – скорость вывода реагента из реактора, <span class="math notranslate nohighlight">\(\mu\)</span> – скорость охлаждения за счёт вывода реагента и отвода тепла.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1122,9 +1237,11 @@ C \dfrac{dT}{dt} = N - k (T-T_0),
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="cannonball.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1140,24 +1257,28 @@ C \dfrac{dT}{dt} = N - k (T-T_0),
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Fadeev Egor<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Fadeev Egor<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

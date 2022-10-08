@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Последовательности: списки, кортежи и строки &#8212; Практикум по компьютерным технологиям</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -39,12 +37,14 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -53,7 +53,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -66,7 +65,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -75,9 +88,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -95,14 +109,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../docs/index.html">
-   Практикум по компьютерным технологиям на языке программирования python3
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../docs/index.html">
+                    Практикум по компьютерным технологиям на языке программирования python3
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Лекция №1
  </span>
@@ -546,11 +561,6 @@ const thebe_selector_output = ".output, .cell_output"
    Стратегии контроля ошибок
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="exercises3.html">
-   Практические задания
-  </a>
- </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -668,114 +678,244 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/notebooks/python/sequences.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/FadeevLecturer/python_lectures"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/FadeevLecturer/python_lectures/issues/new?title=Issue%20on%20page%20%2Fnotebooks/python/sequences.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/FadeevLecturer/python_lectures/edit/main/notebooks/python/sequences.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/FadeevLecturer/python_lectures/main?urlpath=tree/notebooks/python/sequences.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <a class="colab-button" href="https://colab.research.google.com/github/FadeevLecturer/python_lectures/blob/main/notebooks/python/sequences.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../../_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/FadeevLecturer/python_lectures/main?urlpath=tree/notebooks/python/sequences.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/FadeevLecturer/python_lectures/blob/main/notebooks/python/sequences.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/FadeevLecturer/python_lectures"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/FadeevLecturer/python_lectures/issues/new?title=Issue%20on%20page%20%2Fnotebooks/python/sequences.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/FadeevLecturer/python_lectures/edit/main/notebooks/python/sequences.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/notebooks/python/sequences.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
    Общие для последовательностей операции
@@ -888,12 +1028,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Последовательности: списки, кортежи и строки</h1>
@@ -1022,11 +1161,12 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1>Последовательности: списки, кортежи и строки<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>Последовательности: списки, кортежи и строки<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
 <p>И снова про типы данных.</p>
 <p>Следующие встроенные контейнеры являются последовательностями (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range">sequence types</a>):</p>
 <ol class="simple">
@@ -1058,8 +1198,8 @@ const thebe_selector_output = ".output, .cell_output"
 </tbody>
 </table>
 <p>При этом индексация последовательностей в <code class="docutils literal notranslate"><span class="pre">python</span></code> всегда начинается с 0 (<a class="reference external" href="https://en.wikipedia.org/wiki/Zero-based_numbering">sero based</a>).</p>
-<div class="section" id="id2">
-<h2>Общие для последовательностей операции<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<section id="id2">
+<h2>Общие для последовательностей операции<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
 <p>Следующие операции можно совершать почти над любыми последовательностями.</p>
 <table class="colwidths-auto table">
 <thead>
@@ -1097,8 +1237,8 @@ const thebe_selector_output = ".output, .cell_output"
 </tr>
 </tbody>
 </table>
-<div class="section" id="id3">
-<h3>Принадлежность контейнеру<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<section id="id3">
+<h3>Принадлежность контейнеру<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
 <p>С точки зрения <code class="docutils literal notranslate"><span class="pre">python</span></code> контейнер определяется тем, что у него всегда можно спросить, лежит ли какой-то элемент <code class="docutils literal notranslate"><span class="pre">x</span></code> в этом контейнере. Если <code class="docutils literal notranslate"><span class="pre">container</span></code> — контейнер, то проверка на наличие элемента <code class="docutils literal notranslate"><span class="pre">x</span></code> в нем осуществляется следующим синтаксисом.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="ow">in</span> <span class="n">container</span>
 </pre></div>
@@ -1176,9 +1316,9 @@ False
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="id4">
-<h3>Сложение и умножение последовательностей<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id4">
+<h3>Сложение и умножение последовательностей<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
 <p>Последовательности одного вида (кроме <code class="docutils literal notranslate"><span class="pre">range</span></code>) можно конкатенировать знаком плюс.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1208,9 +1348,9 @@ False
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="id5">
-<h3>Упорядочивание элементов последовательности<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id5">
+<h3>Упорядочивание элементов последовательности<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
 <p>Операции в этом подразделе поддерживаются, вообще говоря, всеми итерируемыми объектами, т.е. контейнерами, по элементам которого можно пробежаться в каком-то порядке. Все последовательности являются итерируемыми объектами, т.к. по их элементам можно пробежаться хотя бы в порядке, в котором они пронумерованы.</p>
 <p>Если элементы итерируемого объекта однородны, т.е. их можно сравнить друг с другом на предмет большинства и равенства, то их можно сортировать, искать минимальное и максимальное значение в них.</p>
 <p>Например, строки в <code class="docutils literal notranslate"><span class="pre">python</span></code> упорядочиваются в <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%9B%D0%B5%D0%BA%D1%81%D0%B8%D0%BA%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9_%D0%BF%D0%BE%D1%80%D1%8F%D0%B4%D0%BE%D0%BA">лексикографическом порядке</a> (как в словаре).</p>
@@ -1290,10 +1430,10 @@ True
 </div>
 </div>
 <p>Здесь встроенная функция <a class="reference external" href="https://docs.python.org/3/library/functions.html#chr">chr</a> делает символ из его <code class="docutils literal notranslate"><span class="pre">unicode</span></code> кода, который в примере выше задаётся в шестнадцатеричной системе счисления, чем и объясняется наличие префикса <code class="docutils literal notranslate"><span class="pre">0x</span></code> и цифр <code class="docutils literal notranslate"><span class="pre">abcdef</span></code> в числе. Встроенная функция <a class="reference external" href="https://docs.python.org/3/library/functions.html#ord">ord</a> совершает обратную операцию, т.е. принимает на вход символ и возвращает его код.</p>
-</div>
-</div>
-<div class="section" id="list">
-<h2>Списки. <code class="docutils literal notranslate"><span class="pre">list</span></code><a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="list">
+<h2>Списки. <code class="docutils literal notranslate"><span class="pre">list</span></code><a class="headerlink" href="#list" title="Permalink to this headline">#</a></h2>
 <p>Под капотом списки реализованы в виде <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%94%D0%B8%D0%BD%D0%B0%D0%BC%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9_%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2">динамического массива</a> (т.е. похожего на <a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector">std::vector</a> массива, размер которого может изменяться) указателей на его элементы. Ссылки могут вести на объекты произвольных типов, как и в случае обычных имён в программе.</p>
 <p>Ниже создаётся список и схематично приводится его устройство устройство.</p>
 <div class="cell docutils container">
@@ -1309,8 +1449,8 @@ True
 </div>
 </div>
 </div>
-<div class="figure align-default">
-<img alt="../../_images/list.svg" src="../../_images/list.svg" /></div>
+<figure class="align-default">
+<img alt="../../_images/list.svg" src="../../_images/list.svg" /></figure>
 <p>Создать список можно несколькими способами:</p>
 <ul class="simple">
 <li><p>Парой квадратных скобок, чтобы создать пустой список: <code class="docutils literal notranslate"><span class="pre">[]</span></code>;</p></li>
@@ -1378,8 +1518,8 @@ True
 </div>
 </div>
 <p><strong>List comprehensions</strong> — очень мощный инструмент для работы создания списков и будет обсуждаться позже в разделе “<a class="reference internal" href="list_comprehensions.html#listcomp"><span class="std std-ref">Основы списковых включений</span></a>”.</p>
-<div class="section" id="id6">
-<h3>Создание списков с помощью умножения<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<section id="id6">
+<h3>Создание списков с помощью умножения<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
 <p>Выражение <code class="docutils literal notranslate"><span class="pre">[expression]</span> <span class="pre">*</span> <span class="pre">n</span></code> может быть использовано для того, чтобы создавать не пустой список, а список из <code class="docutils literal notranslate"><span class="pre">n</span></code> одинаковых элементов — результатов вычисления выражения <code class="docutils literal notranslate"><span class="pre">expression</span></code> внутри квадратных скобок. В качестве примера создадим нулевой <code class="docutils literal notranslate"><span class="pre">n</span></code> мерный вектор.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1435,11 +1575,11 @@ True
 </div>
 </div>
 <p>Результат объясняется тем, что выражение <code class="docutils literal notranslate"><span class="pre">[0]</span> <span class="pre">*</span> <span class="pre">2</span></code> было вычислено единожды и создало один список <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">0]</span></code>, на который ссылаются все указатели списка <code class="docutils literal notranslate"><span class="pre">m</span></code>.</p>
-<div class="figure align-default">
-<img alt="../../_images/list_multiplication.svg" src="../../_images/list_multiplication.svg" /></div>
-</div>
-<div class="section" id="id7">
-<h3>Методы списка.<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<figure class="align-default">
+<img alt="../../_images/list_multiplication.svg" src="../../_images/list_multiplication.svg" /></figure>
+</section>
+<section id="id7">
+<h3>Методы списка.<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
 <p>В таблице ниже перечислены основные методы списков.</p>
 <table class="colwidths-auto table">
 <thead>
@@ -1503,10 +1643,10 @@ True
 <p class="admonition-title">Note</p>
 <p>В <code class="docutils literal notranslate"><span class="pre">python</span></code> изменяющие объекты на месте методы обычно ничего не возвращают. Например, в итоге вычисления выражения <code class="docutils literal notranslate"><span class="pre">l</span> <span class="pre">=</span> <span class="pre">l.sort()</span></code> имя <code class="docutils literal notranslate"><span class="pre">l</span></code> будет указывать на <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 </div>
-</div>
-</div>
-<div class="section" id="tuple">
-<h2>Кортежи. <code class="docutils literal notranslate"><span class="pre">tuple</span></code><a class="headerlink" href="#tuple" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="tuple">
+<h2>Кортежи. <code class="docutils literal notranslate"><span class="pre">tuple</span></code><a class="headerlink" href="#tuple" title="Permalink to this headline">#</a></h2>
 <p>Кортеж — неизменяемый (<code class="docutils literal notranslate"><span class="pre">immutable</span></code>) аналог списка.</p>
 <p>Создаётся кортеж практически также, как и список, но вместо квадратных скобок “<code class="docutils literal notranslate"><span class="pre">[]</span></code>” используются круглые “<code class="docutils literal notranslate"><span class="pre">()</span></code>” или скобки вообще опускаются. Чтобы создать кортеж из одного элемента, необходимо поставить хвостовую запятую, иначе <code class="docutils literal notranslate"><span class="pre">python</span></code> интерпретирует это значение или как сам элемент, если скобки круглые скобки не поставлены, или в качестве повышения приоритета, если скобки поставлены. Итого, кортеж создаётся:</p>
 <ul class="simple">
@@ -1556,8 +1696,8 @@ True
 </div>
 </div>
 </div>
-<div class="section" id="id8">
-<h3>Неизменяемость кортежей<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<section id="id8">
+<h3>Неизменяемость кортежей<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h3>
 <p>Кортеж под капотом является константным массивом указателей на его элементы. В отличие от списка ни размер ни содержимое этого массива менять нельзя.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1596,9 +1736,9 @@ True
 </div>
 </div>
 <p>Т.е. кортеж не даёт гарантии, что его элементы не изменятся, а гарантирует лишь то, что его элементы останутся теми же самыми объектами.</p>
-</div>
-<div class="section" id="vs">
-<h3>Кортежи vs списки<a class="headerlink" href="#vs" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="vs">
+<h3>Кортежи vs списки<a class="headerlink" href="#vs" title="Permalink to this headline">#</a></h3>
 <p>Изучив свойства кортежей может возникнуть вопрос: в чем смысл использовать кортежи, если у них урезанный функционал (по сравнению со списками), а их отличительная особенность (неизменяемость) не гарантирует неизменность его элементов?</p>
 <p>У кортежей есть два основных преимущества на фоне списков, оба из которых обусловлены их неизменяемостью:</p>
 <ol class="simple">
@@ -1607,9 +1747,9 @@ True
 </ol>
 <p>И списки и кортежи позволяют хранить произвольное количество элементов произвольного типа, но в документации рекомендуют использовать <strong>списки</strong> для хранения однородных (<code class="docutils literal notranslate"><span class="pre">homogeneous</span></code>) объектов, а кортежи для хранения разнородных (<code class="docutils literal notranslate"><span class="pre">heterogeneous</span></code>) объектов.</p>
 <p>Имеется ввиду, что в список обычно помещают элементы, которые в некотором контексте могут обрабатываться одним и тем же кодом, в предельном случае объекты одного типа. Например, если выстраивается конструкция, в которой элементы контейнера однообразно обрабатываются в цикле, то в качестве контейнера плохо подходит кортеж. Кортежи нередко используются в качестве записей. Элемента кортежа при таком подходе</p>
-</div>
-<div class="section" id="id9">
-<h3>Распаковка кортежей<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id9">
+<h3>Распаковка кортежей<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h3>
 <p>Очень часто кортежи используются для того, чтобы упаковать несколько объектов, передать их как единое целое и затем распаковать эти объекты обратно.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1701,9 +1841,9 @@ x_{1, 2} = \dfrac{-b \pm \sqrt{b^2 - 4c}}{2}.
 <p class="admonition-title">Note</p>
 <p>Распаковывать можно и списки, но это кроме того, что вынуждает писать дополнительные скобочки, ещё и работает медленнее.</p>
 </div>
-</div>
-<div class="section" id="tuples-as-records">
-<span id="id10"></span><h3>Кортежи в качестве записей<a class="headerlink" href="#tuples-as-records" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="tuples-as-records">
+<span id="id10"></span><h3>Кортежи в качестве записей<a class="headerlink" href="#tuples-as-records" title="Permalink to this headline">#</a></h3>
 <p>Кортежи нередко использую в качестве записей, т.е. таких структур данных с полями.</p>
 <p>Например, если в рамках программы планеты описываются названиями, количество спутников и их массой относительно массы земли, то для их описания можно использовать кортежи из трех элементов.</p>
 <div class="cell docutils container">
@@ -1748,10 +1888,10 @@ x_{1, 2} = \dfrac{-b \pm \sqrt{b^2 - 4c}}{2}.
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="str">
-<h2>Строки. <code class="docutils literal notranslate"><span class="pre">str</span></code><a class="headerlink" href="#str" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="str">
+<h2>Строки. <code class="docutils literal notranslate"><span class="pre">str</span></code><a class="headerlink" href="#str" title="Permalink to this headline">#</a></h2>
 <p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#textseq">Строки</a> — неизменяемые последовательности (<code class="docutils literal notranslate"><span class="pre">immutable</span> <span class="pre">sequence</span> <span class="pre">type</span></code>), предназначенные для работы с текстовыми данными в кодировке <a class="reference external" href="https://home.unicode.org/">unicode</a>. То, что <code class="docutils literal notranslate"><span class="pre">python</span></code> из коробки поддерживает <code class="docutils literal notranslate"><span class="pre">unicode</span></code>, значительно упрощает работу с текстом в общем случае, и написание <code class="docutils literal notranslate"><span class="pre">web</span></code>-ориентированных приложений в частности. Кроме того, что в <code class="docutils literal notranslate"><span class="pre">unicode</span></code> помещается английский язык и все спецсимволы, в него также помещаются русский, китайский, арабский и многие другие языки. Ещё в него помещаются <a class="reference external" href="https://home.unicode.org/emoji/about-emoji/">emoji</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1838,8 +1978,8 @@ and will keep getting better&quot; - Guido van Rossum.
 </div>
 </div>
 </div>
-<div class="section" id="id11">
-<h3>Строковые методы<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<section id="id11">
+<h3>Строковые методы<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h3>
 <p>У строковых объектов есть огромное количество методов, которые обычно возвращают отредактированную тем или иным образом строку (всегда новую, т.к. строки неизменяемы). С полным списком методов можно ознакомиться <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#string-methods">по ссылке</a>, а здесь будут упомянуты самые необходимые.</p>
 <p>Метод <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.strip">strip</a> удаляет переданные ему в качестве параметра символы по обоим краям строки. По умолчанию удаляет пробелы. Существуют аналогичные методы <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.lstrip">lstrip</a> и <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.rstrip">rstrip</a>, которые делают тоже самое, но только с левого конца и с правого конца соответственно.</p>
 <div class="cell docutils container">
@@ -1926,9 +2066,9 @@ The last man on Earth sat alone in a room. There was a knock at the door...
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="id12">
-<h3>Форматирование строк<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id12">
+<h3>Форматирование строк<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h3>
 <p>В <code class="docutils literal notranslate"><span class="pre">python</span></code> есть минимум четыре способа форматирования строк.</p>
 <ul class="simple">
 <li><p>Первым, и пожалуй самым неправильным, является склеивание строки вручную.</p></li>
@@ -2000,8 +2140,8 @@ The last man on Earth sat alone in a room. There was a knock at the door...
 <p>Форматирование в стиле <code class="docutils literal notranslate"><span class="pre">C</span></code> было введено в <code class="docutils literal notranslate"><span class="pre">python</span></code> вместе с самой первой версией языка и гарантированно будет работать на более старых версиях <code class="docutils literal notranslate"><span class="pre">python</span></code>. Из-за схожести с форматированием в языке <code class="docutils literal notranslate"><span class="pre">C</span></code>, а также из-за того, что раньше этот способ был единственным, некоторым программистам легче воспринимать код, форматирующий строки в таком стиле в силу привычки.</p>
 <p>Метод <code class="docutils literal notranslate"><span class="pre">format</span></code> более наглядный и допускает более гибкое форматирование, чем форматирование в стиле <code class="docutils literal notranslate"><span class="pre">C</span></code>. Они оба позволяют переиспользовать одну и ту жу шаблонную строку для многократного форматирования, но методом <code class="docutils literal notranslate"><span class="pre">format</span></code> это делать естественнее. Это может быть очень эффективно, если в вашей программе необходимо регулярно подставлять какие-то значения в определенные позиции одного и того же шаблона. Никакими другими перечисленными здесь методами такого эффекта не достичь, но в ряде ситуация оправданным будет использовать  для таких целей класс <a class="reference external" href="https://docs.python.org/3/library/string.html#template-strings">Template</a> из модуля <a class="reference external" href="https://docs.python.org/3/library/string.html#module-string">string</a>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">f-строки</span></code> введены сравнительно недавно и наверное представляют собой самый наглядный способ форматирования строк на сегодня, хотя и не все с этим согласны. Переиспользовать многократно одну и ту же <code class="docutils literal notranslate"><span class="pre">f-строку</span></code> не выйдет: она вычисляется на лету каждый раз. Ниже будут коротко описаны самые основы этого способа.</p>
-<div class="section" id="f">
-<h4><code class="docutils literal notranslate"><span class="pre">f-строки</span></code>.<a class="headerlink" href="#f" title="Permalink to this headline">¶</a></h4>
+<section id="f">
+<h4><code class="docutils literal notranslate"><span class="pre">f-строки</span></code>.<a class="headerlink" href="#f" title="Permalink to this headline">#</a></h4>
 <p>Чтобы писать <code class="docutils literal notranslate"><span class="pre">f</span></code>-строки, необходимо ставить перед строкой символ <code class="docutils literal notranslate"><span class="pre">f</span></code> или <code class="docutils literal notranslate"><span class="pre">F</span></code>. Далее в самом простом варианте внутри одинарных фигурных скобок “<code class="docutils literal notranslate"><span class="pre">{}</span></code>” можно указывать <code class="docutils literal notranslate"><span class="pre">python</span></code> выражение, результат вычисления которого появится вместо фигурных скобок в результирующей строке.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;abc</span><span class="si">{</span><span class="n">expression</span><span class="si">}</span><span class="s2">def&quot;</span>
 </pre></div>
@@ -2160,10 +2300,10 @@ The last man on Earth sat alone in a room. There was a knock at the door...
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -2187,9 +2327,11 @@ The last man on Earth sat alone in a room. There was a knock at the door...
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="garbage_collector.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -2205,24 +2347,28 @@ The last man on Earth sat alone in a room. There was a knock at the door...
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Fadeev Egor<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Fadeev Egor<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

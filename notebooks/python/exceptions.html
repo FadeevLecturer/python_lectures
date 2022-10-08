@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Исключения &#8212; Практикум по компьютерным технологиям</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -39,12 +37,14 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -53,7 +53,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -66,7 +65,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -75,9 +88,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -95,14 +109,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../docs/index.html">
-   Практикум по компьютерным технологиям на языке программирования python3
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../docs/index.html">
+                    Практикум по компьютерным технологиям на языке программирования python3
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Лекция №1
  </span>
@@ -546,11 +561,6 @@ const thebe_selector_output = ".output, .cell_output"
    Стратегии контроля ошибок
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="exercises3.html">
-   Практические задания
-  </a>
- </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -668,114 +678,244 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/notebooks/python/exceptions.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/FadeevLecturer/python_lectures"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/FadeevLecturer/python_lectures/issues/new?title=Issue%20on%20page%20%2Fnotebooks/python/exceptions.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/FadeevLecturer/python_lectures/edit/main/notebooks/python/exceptions.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/FadeevLecturer/python_lectures/main?urlpath=tree/notebooks/python/exceptions.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <a class="colab-button" href="https://colab.research.google.com/github/FadeevLecturer/python_lectures/blob/main/notebooks/python/exceptions.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../../_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/FadeevLecturer/python_lectures/main?urlpath=tree/notebooks/python/exceptions.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/FadeevLecturer/python_lectures/blob/main/notebooks/python/exceptions.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/FadeevLecturer/python_lectures"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/FadeevLecturer/python_lectures/issues/new?title=Issue%20on%20page%20%2Fnotebooks/python/exceptions.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/FadeevLecturer/python_lectures/edit/main/notebooks/python/exceptions.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/notebooks/python/exceptions.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
    Встроенные исключения
@@ -838,12 +978,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Исключения</h1>
@@ -922,11 +1061,12 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="exceptions-page">
-<span id="id1"></span><h1>Исключения<a class="headerlink" href="#exceptions-page" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="exceptions-page">
+<span id="id1"></span><h1>Исключения<a class="headerlink" href="#exceptions-page" title="Permalink to this headline">#</a></h1>
 <p>В <code class="docutils literal notranslate"><span class="pre">Python</span></code> существует минимум два типа ошибок: синтаксические ошибки и <a class="reference external" href="https://docs.python.org/3/tutorial/errors.html">исключения</a>. Синтаксические ошибки чаще возникают у изучающих <code class="docutils literal notranslate"><span class="pre">python</span></code> программистов из-за нарушения синтаксиса. Но попытка запуска корректной с точки зрения синтаксиса программы может привести к возникновению ошибки. Ошибки, обнаруженные во время исполнения программы, называются исключениями (<code class="docutils literal notranslate"><span class="pre">exception</span></code>) и не всегда ведут к падению программы: их можно обрабатывать и восстанавливать нормальный поток исполнения программы.</p>
 <p>Тем не менее большинство ошибок программой не обрабатывается и их возникновение приводит к выводу сообщения об ошибке. В качестве примера попробуем поделить на ноль.</p>
 <div class="cell docutils container">
@@ -992,16 +1132,16 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>В этот раз сообщение об ошибке гораздо длиннее, потому что ошибка возникла не на самом верхнем уровне, а на уровне функции.</p>
-<div class="section" id="id2">
-<h2>Встроенные исключения<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<section id="id2">
+<h2>Встроенные исключения<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
 <p>В <code class="docutils literal notranslate"><span class="pre">python</span></code> есть приличное количество встроенных исключений, которые интерпретатор бросает при обнаружении ошибки во время исполнения. Например, если попытаться обратиться к необъявленной переменной (несуществующему имени), то возникнет ошибка <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#NameError">NameError</a>. Обращение к неправильному атрибуту вызовет ошибку <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#AttributeError">AttributeError</a>, обращение за пределы списка — <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#IndexError">IndexError</a>, поиск в словаре по несуществующему ключу — <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#KeyError">KeyError</a> и т.д.</p>
 <p>В ряде ситуаций <code class="docutils literal notranslate"><span class="pre">python</span></code> возбуждает исключение не в результате ошибки, а в служебных целях. Например, как обсуждалось ранее, функции работающие с итерируемыми объектами ожидают исключение <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#StopIteration">StopIteration</a>, т.е. появление такого исключения — не является исключительной ситуацией, связанной с логической ошибкой в коде, а лишь механизм, которым итерируемый объект сообщает клиентскому коду, что элементы в нем исчерпались.</p>
 <p>В <code class="docutils literal notranslate"><span class="pre">python</span></code> всё является объектом, в том числе и исключения. При этом у каждого исключения есть свой тип, примеры которых уже обсуждалось выше: <code class="docutils literal notranslate"><span class="pre">NameError</span></code>, <code class="docutils literal notranslate"><span class="pre">AttributeError</span></code>, <code class="docutils literal notranslate"><span class="pre">StopIteration</span></code> и т.д. — это всё тип исключения. Обнаружение ошибки приводит к тому, что создаётся экземпляр исключения соответствующего типа и это исключение начинает распространяться. При этом все встроенные типы исключений находятся в иерархии, с которой можно ознакомиться по <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#exception-hierarchy">ссылке</a>.</p>
 <p>Так, на самом верху располагается базовый класс <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#BaseException">BaseException</a> от которого наследуется все остальные типы исключений. На втором этаже располагаются исключения связанные с завершением исполнения программы (например, <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#BaseException">SystemExit</a> возникает при вызове функции <a class="reference external" href="https://docs.python.org/3/library/sys.html#sys.exit">sys.exit()</a>, <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#KeyboardInterrupt">KeyboardInterrupt</a> возникает, если пользователь нажимает прерывающую комбинацию клавиш во время работы приложения), а так же класс <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception">Exception</a>, который и является базовым классом для всех исключений не связанных с завершением программы.</p>
 <p>С полным списком встроенных исключений можно ознакомиться на <a class="reference external" href="https://docs.python.org/3/library/exceptions.html">странице официальной документации</a>.</p>
-</div>
-<div class="section" id="raise">
-<h2>Возбуждение исключений. <code class="docutils literal notranslate"><span class="pre">raise</span></code><a class="headerlink" href="#raise" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="raise">
+<h2>Возбуждение исключений. <code class="docutils literal notranslate"><span class="pre">raise</span></code><a class="headerlink" href="#raise" title="Permalink to this headline">#</a></h2>
 <p>Многие исключения бросаются интерпретатором <code class="docutils literal notranslate"><span class="pre">python</span></code> при обнаружении ошибки или в служебных целях. Для этого используется ключевое слово <code class="docutils literal notranslate"><span class="pre">raise</span></code> справа от которого указывается экземпляр исключения.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1056,17 +1196,17 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>Видим, что инструкция <code class="docutils literal notranslate"><span class="pre">print(&quot;До</span> <span class="pre">исключения!&quot;)</span></code> исполнилась, а инструкция <code class="docutils literal notranslate"><span class="pre">print(&quot;После</span> <span class="pre">исключения&quot;)</span></code> — нет, т.к. сразу после возбуждения исключения нормальный поток исполнения программы прекратился и исключение начало распространяться. Исключение распространяется наверх по стеку вызовов, пока не встретится блок, обрабатывающий это исключение. Если такой блок так и не встречается, то выводится сообщение об ошибке и программа падает (или может продолжить ожидание инструкций от пользователя в интерактивном режиме, что происходит, например, в <code class="docutils literal notranslate"><span class="pre">jupyter</span></code> ноутбуках).</p>
-</div>
-<div class="section" id="id3">
-<h2>Обработка исключений.<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id3">
+<h2>Обработка исключений.<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
 <p>Обработка ошибок в <code class="docutils literal notranslate"><span class="pre">python</span></code> осуществляется с помощью инструкции <code class="docutils literal notranslate"><span class="pre">try</span></code>, которая может встречаться в блоках двух видов:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">try/except</span></code>;</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">try/finally</span></code>;</p></li>
 </ul>
-</div>
-<div class="section" id="try-except">
-<h2>Блок <code class="docutils literal notranslate"><span class="pre">try/except</span></code><a class="headerlink" href="#try-except" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="try-except">
+<h2>Блок <code class="docutils literal notranslate"><span class="pre">try/except</span></code><a class="headerlink" href="#try-except" title="Permalink to this headline">#</a></h2>
 <p>С помощью блока <code class="docutils literal notranslate"><span class="pre">try/except</span></code> можно обрабатывать конкретные типы исключений. В самой простой своей форме он выглядит примерно следующим образом.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
     <span class="n">инструкции</span>
@@ -1206,9 +1346,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="except">
-<h2>Дополнительные возможности <code class="docutils literal notranslate"><span class="pre">except</span></code><a class="headerlink" href="#except" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="except">
+<h2>Дополнительные возможности <code class="docutils literal notranslate"><span class="pre">except</span></code><a class="headerlink" href="#except" title="Permalink to this headline">#</a></h2>
 <p>После <code class="docutils literal notranslate"><span class="pre">except</span></code> можно указать целевую переменную, чтобы получить доступ к объекту исключения синтаксисом</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">except</span> <span class="n">ТипИсключения</span> <span class="k">as</span> <span class="n">цель</span><span class="p">:</span>
     <span class="n">операции</span> <span class="n">над</span> <span class="n">цель</span>
@@ -1279,9 +1419,9 @@ inf
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="try-finally">
-<h2>Блок <code class="docutils literal notranslate"><span class="pre">try/finally</span></code><a class="headerlink" href="#try-finally" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="try-finally">
+<h2>Блок <code class="docutils literal notranslate"><span class="pre">try/finally</span></code><a class="headerlink" href="#try-finally" title="Permalink to this headline">#</a></h2>
 <p>Синтаксис блока <code class="docutils literal notranslate"><span class="pre">try/except</span></code> выглядит следующим образом.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
     <span class="n">инструкции</span>
@@ -1300,15 +1440,15 @@ inf
 </pre></div>
 </div>
 <p>Т.е. операции над открытым файлом производились в блоке <code class="docutils literal notranslate"><span class="pre">try/finally</span></code>, что гарантировало, что файл будет закрыт, даже если возникнет исключение. Сегодня гораздо удобнее использовать контекстные менеджеры <code class="docutils literal notranslate"><span class="pre">with</span></code> для таких целей.</p>
-</div>
-<div class="section" id="try-except-finally">
-<h2>Блок <code class="docutils literal notranslate"><span class="pre">try/except/finally</span></code><a class="headerlink" href="#try-except-finally" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="try-except-finally">
+<h2>Блок <code class="docutils literal notranslate"><span class="pre">try/except/finally</span></code><a class="headerlink" href="#try-except-finally" title="Permalink to this headline">#</a></h2>
 <p>Если встречается блок обработки ошибки, в котором встречаются и <code class="docutils literal notranslate"><span class="pre">except</span></code> и <code class="docutils literal notranslate"><span class="pre">finally</span></code>, то его можно представить в виде вложения блока <code class="docutils literal notranslate"><span class="pre">try/except</span></code> внутрь блока <code class="docutils literal notranslate"><span class="pre">try/finally</span></code>. Иными словами, следующие две конструкции ведут себя одинаково.</p>
-<div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-body docutils">
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
     <span class="n">инструкции</span>
 <span class="k">except</span> <span class="n">SomeException</span><span class="p">:</span>
@@ -1322,9 +1462,9 @@ inf
 </div>
 </div>
 </div>
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-body docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">инструкции</span>
@@ -1415,8 +1555,8 @@ inf
 </div>
 </div>
 <p>Блок <code class="docutils literal notranslate"><span class="pre">finally</span></code> выполняется в любом случае.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1440,9 +1580,11 @@ inf
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="exercises2.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1458,24 +1600,28 @@ inf
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Fadeev Egor<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Fadeev Egor<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>
