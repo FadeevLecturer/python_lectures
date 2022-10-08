@@ -2,13 +2,16 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="144.21452mm"
+   width="101.36208mm"
    height="52.597313mm"
-   viewBox="0 0 144.21452 52.597311"
+   viewBox="0 0 101.36207 52.597311"
    version="1.1"
    id="svg5"
    sodipodi:docname="ba0a42.svg"
-   inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
+   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   inkscape:export-filename="C:\Users\cskaf\Desktop\python_lectures\_static\lecture_specific\mutable_immutable\ba0a42.png"
+   inkscape:export-xdpi="386.858"
+   inkscape:export-ydpi="386.858"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -25,15 +28,21 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:lockguides="true"
-     inkscape:zoom="2.3091837"
-     inkscape:cx="287.98055"
-     inkscape:cy="86.610692"
-     inkscape:window-width="1920"
-     inkscape:window-height="986"
-     inkscape:window-x="-11"
-     inkscape:window-y="-11"
+     inkscape:zoom="1.6328395"
+     inkscape:cx="101.35718"
+     inkscape:cy="67.979739"
+     inkscape:window-width="1680"
+     inkscape:window-height="987"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="g28338"
+     inkscape:pageshadow="2"
+     inkscape:snap-nodes="false"
+     inkscape:snap-bbox="true"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:snap-center="true"
+     inkscape:snap-object-midpoints="true" />
   <defs
      id="defs2">
     <marker
@@ -87,21 +96,21 @@
   </defs>
   <g
      id="layer1"
-     transform="translate(-35.849119,-80.896416)">
+     transform="translate(-78.701564,-80.896416)">
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.398386;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="M 107.86189,80.896416 V 133.49373"
        id="path1447" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="62.114803"
-       y="90.05069"
+       x="83.197289"
+       y="90.509003"
        id="text2399"><tspan
          id="tspan2397"
          style="font-size:7.05556px;stroke-width:0.264583"
-         x="62.114803"
-         y="90.05069">Имена</tspan></text>
+         x="83.197289"
+         y="90.509003">Имена</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -114,37 +123,37 @@
          y="90.15921">Объекты</tspan></text>
     <text
        xml:space="preserve"
-       transform="matrix(0.26458333,0,0,0.26458333,47.204782,86.358769)"
+       transform="matrix(0.26458333,0,0,0.26458333,65.995694,82.921407)"
        id="text9655"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.3333px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;white-space:pre;shape-inside:url(#rect9657);display:inline;fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="84.691406"
          y="89.325928"
-         id="tspan429"><tspan
+         id="tspan1621"><tspan
            style="font-family:Con;-inkscape-font-specification:Con"
-           id="tspan427">a</tspan></tspan></text>
+           id="tspan1619">a</tspan></tspan></text>
     <text
        xml:space="preserve"
-       transform="matrix(0.26458333,0,0,0.26458333,47.277126,106.73293)"
+       transform="matrix(0.26458333,0,0,0.26458333,65.83888,103.75388)"
        id="text9655-25"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.3333px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;white-space:pre;shape-inside:url(#rect9657-2);display:inline;fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="84.691406"
          y="88.403441"
-         id="tspan433"><tspan
+         id="tspan1625"><tspan
            style="font-family:Consolas;-inkscape-font-specification:Consolas"
-           id="tspan431">b</tspan></tspan></text>
+           id="tspan1623">b</tspan></tspan></text>
     <g
        id="g28338"
        transform="translate(7.906,8.7990138)">
       <text
          xml:space="preserve"
-         transform="matrix(0.26458333,0,0,0.26458333,102.21413,78.599437)"
+         transform="matrix(0.26458333,0,0,0.26458333,102.21413,78.724537)"
          id="text9655-2"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.3333px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;white-space:pre;shape-inside:url(#rect9657-1);display:inline;fill:#000000;fill-opacity:1;stroke:none"><tspan
            x="84.691406"
            y="88.403441"
-           id="tspan437"><tspan
+           id="tspan1629"><tspan
              style="font-family:Consolas;-inkscape-font-specification:Consolas"
-             id="tspan435">int: 0</tspan></tspan></text>
+             id="tspan1627">int: 0</tspan></tspan></text>
       <rect
          style="fill:none;fill-opacity:0.822526;fill-rule:evenodd;stroke:none;stroke-width:0.934034;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect17120"
@@ -161,14 +170,14 @@
          y="92.893288" />
       <text
          xml:space="preserve"
-         transform="matrix(0.26458333,0,0,0.26458333,99.942027,97.502049)"
+         transform="matrix(0.26458333,0,0,0.26458333,99.571053,97.502049)"
          id="text9655-2-5"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.3333px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;white-space:pre;shape-inside:url(#rect9657-1-4);display:inline;fill:#000000;fill-opacity:1;stroke:none"><tspan
            x="84.691406"
            y="88.403441"
-           id="tspan441"><tspan
+           id="tspan1633"><tspan
              style="font-family:Consolas;-inkscape-font-specification:Consolas"
-             id="tspan439">int: 42</tspan></tspan></text>
+             id="tspan1631">int: 42</tspan></tspan></text>
       <rect
          style="fill:none;fill-opacity:0.822526;fill-rule:evenodd;stroke:#000000;stroke-width:0.882148;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect17224-1"
@@ -178,16 +187,16 @@
          y="111.6708" />
     </g>
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 35.849119,94.629879 H 180.06364"
+       style="fill:none;stroke:#000000;stroke-width:0.419183;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 78.701564,94.629879 H 180.06364"
        id="path28689" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.355307;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
-       d="m 76.532057,107.41068 26.014343,9.44371 17.73008,6.43635 8.28425,3.00733"
+       style="fill:none;stroke:#000000;stroke-width:0.3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 95.596998,103.46046 16.567492,11.43608 11.29158,7.79425 5.27591,3.6418"
        id="path31444" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.306702;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Lend-1)"
-       d="M 76.549044,126.41007 127.77763,107.57615"
+       style="fill:none;stroke:#000000;stroke-width:0.3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Lend-1)"
+       d="M 94.539978,124.27678 127.94628,107.51976"
        id="path31444-3" />
   </g>
 </svg>
