@@ -1102,14 +1102,21 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="numpy">
 <h1><code class="docutils literal notranslate"><span class="pre">NumPy</span></code><a class="headerlink" href="#numpy" title="Permalink to this headline">#</a></h1>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">horizontal_line</span> <span class="o">=</span> <span class="s2">&quot;_&quot;</span> <span class="o">*</span> <span class="mi">80</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>Первая сторонняя библиотека, с которой мы познакомимся — <a class="reference external" href="https://numpy.org/">NumPy</a> (<strong>Num</strong>erical <strong>Py</strong>thon).</p>
 <p>Библиотека <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> предоставляет доступ к многомерным массивам однородных данных (одного типа, обычно числа), подобным массивам <code class="docutils literal notranslate"><span class="pre">C/C++</span></code>, и к методам их обработки. Под капотом эти самые массивы реализованы с помощью динамических массивов <code class="docutils literal notranslate"><span class="pre">C</span></code>, которые в отличие от списков хранят непосредственно данные, а не указатели на них.</p>
 <section id="id1">
 <h2>Зачем нужен <code class="docutils literal notranslate"><span class="pre">NumPy</span></code><a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
 <p>Необходимость в специальной библиотеке для работы с большими массивами чисел возникает из-за скорости работы <code class="docutils literal notranslate"><span class="pre">python</span></code>. За гибкость, выразительность, динамическую типизацию и многие другие достоинства <code class="docutils literal notranslate"><span class="pre">python</span></code> приходится платить скоростью: код написанный на <code class="docutils literal notranslate"><span class="pre">python</span></code>, практически всегда будет работать медленнее, чем аналогичный код, написанный на <code class="docutils literal notranslate"><span class="pre">C/C++</span></code>. Проще всего продемонстрировать это на примере с громоздкими циклами.</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="f26497a8-daf7-4d21-a97b-f24a950a33ed" name="075e7363-3ead-4919-a7d0-4f494fef1e65" type="radio">
-</input><label class="sd-tab-label" data-sync-id="tabcode-c++" for="f26497a8-daf7-4d21-a97b-f24a950a33ed">
+<input checked="checked" id="655ae670-df50-4d1c-8141-064c4157134f" name="5c17d802-b0cd-402b-8dc3-d4892f8662b4" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-c++" for="655ae670-df50-4d1c-8141-064c4157134f">
 C++</label><div class="sd-tab-content docutils">
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;chrono&gt;</span><span class="cp"></span>
@@ -1144,8 +1151,8 @@ C++</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="18b0c35a-e2d5-4caf-bb57-8589f2905c63" name="075e7363-3ead-4919-a7d0-4f494fef1e65" type="radio">
-</input><label class="sd-tab-label" data-sync-id="tabcode-python" for="18b0c35a-e2d5-4caf-bb57-8589f2905c63">
+<input id="eaf6b78e-c39d-44ea-807e-e12298c98e44" name="5c17d802-b0cd-402b-8dc3-d4892f8662b4" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-python" for="eaf6b78e-c39d-44ea-807e-e12298c98e44">
 PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">perf_counter</span>
 <span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">uniform</span>
@@ -1566,7 +1573,7 @@ x * alpha = array([ 21,  91, 294])
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">alpha</span> <span class="o">+</span> <span class="n">x</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span> <span class="o">+</span> <span class="n">alpha</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">horizontal_line</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">alpha</span> <span class="o">-</span> <span class="n">x</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span> <span class="o">-</span> <span class="n">alpha</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -1576,7 +1583,7 @@ x * alpha = array([ 21,  91, 294])
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>alpha + x = array([10, 20, 49])
 x + alpha = array([10, 20, 49])
-
+________________________________________________________________________________
 alpha - x = array([  4,  -6, -35])
 x - alpha = array([-4,  6, 35])
 </pre></div>
@@ -1604,12 +1611,12 @@ x / alpha = array([0.42857143, 1.85714286, 6.        ])
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">alpha</span> <span class="o">//</span> <span class="n">x</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span> <span class="o">//</span> <span class="n">alpha</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">horizontal_line</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">alpha</span> <span class="o">%</span> <span class="n">x</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span> <span class="o">%</span> <span class="n">alpha</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">horizontal_line</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">alpha</span> <span class="o">**</span> <span class="n">x</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span> <span class="o">**</span> <span class="n">alpha</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -1619,10 +1626,10 @@ x / alpha = array([0.42857143, 1.85714286, 6.        ])
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>alpha // x = array([2, 0, 0], dtype=int32)
 x // alpha = array([0, 1, 6], dtype=int32)
-
+________________________________________________________________________________
 alpha % x = array([1, 7, 7], dtype=int32)
 x % alpha = array([3, 6, 0], dtype=int32)
-
+________________________________________________________________________________
 alpha ** x = array([        343, -1895237401,  1626129905], dtype=int32)
 x ** alpha = array([       2187,    62748517, -1388900736], dtype=int32)
 </pre></div>
@@ -1649,17 +1656,17 @@ x ** alpha = array([       2187,    62748517, -1388900736], dtype=int32)
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">horizontal_line</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span> <span class="o">*</span> <span class="n">y</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span> <span class="o">/</span> <span class="n">y</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">horizontal_line</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span> <span class="o">//</span> <span class="n">y</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span> <span class="o">%</span> <span class="n">y</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">horizontal_line</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span> <span class="o">**</span> <span class="n">y</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
@@ -1668,13 +1675,13 @@ x ** alpha = array([       2187,    62748517, -1388900736], dtype=int32)
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x + y = array([45, 26, 45])
 x + y = array([45, 26, 45])
-
+________________________________________________________________________________
 x * y = array([126, 169, 126])
 x / y = array([ 0.07142857,  1.        , 14.        ])
-
+________________________________________________________________________________
 x // y = array([ 0,  1, 14])
 x % y = array([3, 0, 0])
-
+________________________________________________________________________________
 x ** y = array([ 1914644777, -1692154371,       74088])
 </pre></div>
 </div>
@@ -1755,11 +1762,9 @@ a1D[0] = 1.0, a1D[-1] = 4.0
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sep</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">40</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a2D</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a2D</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">sep</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">horizontal_line</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a2D</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="si">= }</span><span class="s2">, </span><span class="si">{</span><span class="n">a2D</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
@@ -1768,10 +1773,8 @@ a1D[0] = 1.0, a1D[-1] = 4.0
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a2D = array([[1, 2],
        [3, 4]])
-----------------------------------------
+________________________________________________________________________________
 a2D[1, 0] = 3, a2D[-1][-1] = 4
-----------------------------------------
-a2D[1] = array([3, 4]), a2D[-1] = array([3, 4])
 </pre></div>
 </div>
 </div>

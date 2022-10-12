@@ -922,22 +922,38 @@ title="Print to PDF"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id3">
-   Простые математические функции
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
-   Агрегирующие функции
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id5">
    Арифметика.
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#broadcasting">
-   Broadcasting
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Broadcasting
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   Математические функции
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Табуляция функции одной переменной
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Табуляция функции нескольких переменных
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   Агрегирующие функции
   </a>
  </li>
 </ul>
@@ -966,22 +982,38 @@ title="Print to PDF"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id3">
-   Простые математические функции
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
-   Агрегирующие функции
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id5">
    Арифметика.
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#broadcasting">
-   Broadcasting
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Broadcasting
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   Математические функции
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Табуляция функции одной переменной
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Табуляция функции нескольких переменных
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   Агрегирующие функции
   </a>
  </li>
 </ul>
@@ -996,6 +1028,13 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>Векторизация<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">horizontal_line</span> <span class="o">=</span> <span class="s2">&quot;_&quot;</span> <span class="o">*</span> <span class="mi">80</span>
+</pre></div>
+</div>
+</div>
+</div>
 <section id="id2">
 <h2>Про векторизацию<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">NumPy</span></code> оптимизирован для работы с многомерными массивами, но циклы <code class="docutils literal notranslate"><span class="pre">python</span></code> нет. В связи с этим распространен подход, называемый <strong>векторизацией</strong>, при котором устраняются циклы, а вместо них вызываются встроенные в <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> методы. Таким образом эти циклы осуществляются внутри <code class="docutils literal notranslate"><span class="pre">C</span></code> кода.</p>
@@ -1054,106 +1093,14 @@ Wall time: 3.12 s
 <p>У векторизации есть три основных плюса:</p>
 <ol class="simple">
 <li><p><strong>Скорость</strong>: векторизованный код исполняется гораздо быстрее, чем его аналог в циклах;</p></li>
-<li><p><strong>Количество кода</strong>: векторизованный код без циклов как правило короче, а значит в нем сложнее ошибиться.</p></li>
-<li><p><strong>Выразительность</strong>: векторизованный код больше похож на математическое выражение, что упрощает его чтение;</p></li>
+<li><p><strong>Количество кода</strong>: векторизованный код без циклов как правило короче, а значит в нем сложнее ошибиться;</p></li>
+<li><p><strong>Выразительность</strong>: векторизованный код больше похож на математическое выражение, что упрощает его чтение.</p></li>
 </ol>
 </section>
 <section id="id3">
-<h2>Простые математические функции<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
-<p>В <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> есть большое количество математических функций, полный список которых можно посмотреть <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.math.html">здесь</a>. Применять их можно сразу к всему массиву. Тогда выбранная функция будет применена к всем элементам массива. Все циклы выполнятся в <code class="docutils literal notranslate"><span class="pre">C</span></code> коде.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-    <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: total: 24.7 s
-Wall time: 24.9 s
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>123 ms ± 5.73 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="id4">
-<h2>Агрегирующие функции<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
-<p>Так же в <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> реализован ряд агрегирующих методов, таких как сумма элементов массива (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.sum.html#numpy.sum">ndarray.sum</a>), их произведение (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.prod.html#numpy.prod">ndarray.prod</a>), минимум (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.min.html">ndarray.min</a>), максимум (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.max.html">ndarray.max</a>) и т.п. Такого рода операции часто применяются в статистике и доступные в <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> функции такого рода перечисленны по <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.statistics.html#averages-and-variances">ссылке</a>.</p>
-<p>Продемонстрируем поведение таких функций на примере метода <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.sum.html">numpy.sum</a>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
-    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">]</span>
-<span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">matrix</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[  1   2   3]
- [ 10  20  30]
- [100 200 300]]
-666
-</pre></div>
-</div>
-</div>
-</div>
-<p>По умолчанию все агрегирующие функции игнорируют размерность и форму массива и агрегируют все данные из массива в одно число.</p>
-<figure class="align-default">
-<img alt="../../_images/sum_1.svg" src="../../_images/sum_1.svg" /></figure>
-<p>Каждая из них позволяет не только агрегировать по всему массиву целиком, но и вдоль обозначенной опциональным параметром <code class="docutils literal notranslate"><span class="pre">axis</span></code> оси. Например, чтобы просуммировать матрицу по столбцам, необходимо передать значение 0 в качестве параметра <code class="docutils literal notranslate"><span class="pre">axis</span></code>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">matrix</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[111 222 333]
-</pre></div>
-</div>
-</div>
-</div>
-<figure class="align-default">
-<img alt="../../_images/sum_2.svg" src="../../_images/sum_2.svg" /></figure>
-<p>А чтобы просуммировать по строкам — значение 1.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">matrix</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[  6  60 600]
-</pre></div>
-</div>
-</div>
-</div>
-<figure class="align-default">
-<img alt="../../_images/sum_3.svg" src="../../_images/sum_3.svg" /></figure>
-</section>
-<section id="id5">
-<h2>Арифметика.<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
-<p>Аналогично, всегда предпочтительнее использовать операторы <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>, <code class="docutils literal notranslate"><span class="pre">//</span></code>, <code class="docutils literal notranslate"><span class="pre">%</span></code>, <code class="docutils literal notranslate"><span class="pre">**</span></code>, <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>, <code class="docutils literal notranslate"><span class="pre">|</span></code>, <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> сразу к массивам целиком, а не к их элементам внутри циклов.</p>
+<h2>Арифметика.<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<p>Всегда предпочтительнее использовать арифметические операторы сразу к массивам целиком, а не к их элементам внутри циклов.</p>
+<p>Заведем два массива длинной <span class="math notranslate nohighlight">\(10^7\)</span> каждый.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
@@ -1162,6 +1109,7 @@ Wall time: 24.9 s
 </div>
 </div>
 </div>
+<p>Измерим, сколько времени займет вычисление суммы двух этих циклов поэлементно в цикле.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
@@ -1178,6 +1126,7 @@ Wall time: 4.75 s
 </div>
 </div>
 </div>
+<p>Теперь сравним это с векторизованной версией.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
@@ -1191,9 +1140,10 @@ Wall time: 4.75 s
 </div>
 </div>
 </div>
+<p>Кроме того, что вычисления заняли гораздо в 103 раза меньше времени, исходный код для сложения выглядит гораздо проще.</p>
 </section>
 <section id="broadcasting">
-<h2>Broadcasting<a class="headerlink" href="#broadcasting" title="Permalink to this headline">#</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">Broadcasting</span></code><a class="headerlink" href="#broadcasting" title="Permalink to this headline">#</a></h2>
 <p>В ряде случаев допускается применять арифметические операторы к массивам разной формы. Строго говоря, <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> может оперировать с двумя массивами, если их формы совместимы (<code class="docutils literal notranslate"><span class="pre">broadcastable</span></code>). Подробнее почитать о <code class="docutils literal notranslate"><span class="pre">broadcasting</span></code> в документации можно <a class="reference external" href="https://numpy.org/doc/stable/user/theory.broadcasting.html#array-broadcasting-in-numpy">здесь</a> и <a class="reference external" href="https://numpy.org/devdocs/user/basics.broadcasting.html">здесь</a>.</p>
 <p><strong>Пример 1. Скаляр и массив.</strong></p>
 <p>Начнем с самого простого примера. Если в арифметическом выражении участвует массив любой формы и скаляр, то можно представить, что скаляр расширяется до массива такой же формы, у которого все элементы равны значению скаляра.</p>
@@ -1287,6 +1237,7 @@ Wall time: 4.75 s
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">]])</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2"> + </span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2"> = </span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2"> &quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1341,7 +1292,7 @@ Wall time: 4.75 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1 2 3 4] [1 2 3 4]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0 1 2] [0 1 2]
 </pre></div>
 </div>
 </div>
@@ -1416,6 +1367,291 @@ Wall time: 4.75 s
 </div>
 </div>
 </div>
+</section>
+<section id="id4">
+<h2>Математические функции<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
+<p>В <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> есть большое количество математических функций, полный список которых можно посмотреть <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.math.html">здесь</a>.  Применять их можно сразу к всему массиву: выбранная функция будет применена поэлементно. Для двухмерного массива это можно проиллюстрировать следующим образом.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathrm{np.sin}\left(
+\begin{bmatrix}
+x_{11} &amp; \ldots &amp; x_{1m} \\
+\vdots &amp; \ddots &amp; \vdots \\
+x_{n1} &amp; \ldots &amp; x_{nm}
+\end{bmatrix}
+\right) = 
+\begin{bmatrix}
+\mathrm{np.sin}(x_{11}) &amp; \ldots &amp; \mathrm{np.sin}(x_{1m}) \\
+\vdots &amp; \ddots &amp; \vdots \\
+\mathrm{np.sin}(x_{n1}) &amp; \ldots &amp; \mathrm{np.sin}(x_{nm})
+\end{bmatrix}
+\end{split}\]</div>
+<p>Все циклы выполнятся в <code class="docutils literal notranslate"><span class="pre">C</span></code> коде, а значит быстро.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Применение функции в цикле поэлементно.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: total: 18.5 s
+Wall time: 20.2 s
+</pre></div>
+</div>
+</div>
+</div>
+<p>Применение функции сразу ко всему массиву.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>124 ms ± 1.85 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id5">
+<h3>Табуляция функции одной переменной<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
+<p>Для табуляции функции <span class="math notranslate nohighlight">\(f\colon \mathbb{R} \to \mathbb{R}\)</span> на узлах сетки <span class="math notranslate nohighlight">\(\{x_i, \, i=1,\ldots,N\}\)</span> достаточно просто реализовать функцию <span class="math notranslate nohighlight">\(f\)</span> средствами функций из библиотеки <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> и передать этой функции массив узлов сетки.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.  0.5 1. ]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Часто очень полезной в таких ситуациях оказывается полезной метод <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linspace.html">numpy.linspace</a>, который генерирует равномерную на отрезке сетку. Например, чтобы задать равномерную на отрезке <span class="math notranslate nohighlight">\([-1, 1]\)</span> сетку из 11 точек, достаточно вызывать этот метод в следующей форме.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-1. , -0.8, -0.6, -0.4, -0.2,  0. ,  0.2,  0.4,  0.6,  0.8,  1. ])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id6">
+<h3>Табуляция функции нескольких переменных<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
+<p>Пусть даны наборы точек <span class="math notranslate nohighlight">\(\{x_i, \, i=1,\ldots,N\}\)</span> и <span class="math notranslate nohighlight">\(\{y_i, \, i=1,\ldots,M\}\)</span> и требуется вычислить значение функции <span class="math notranslate nohighlight">\(f\colon \mathbb{R}^2 \to \mathbb{R}\)</span> в узлах этой сетки:</p>
+<div class="math notranslate nohighlight">
+\[
+z_{ji} = f(x_i, y_j), \quad  i=1,\ldots,N, \quad j=1,\ldots,M.
+\]</div>
+<p>Не векторизованный код может выглядеть как-то так.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">M</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
+        <span class="n">z</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.15852902 -0.30116868]
+ [ 0.09070257 -0.36899512]
+ [ 0.85887999  0.3991823 ]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Если в функция <span class="math notranslate nohighlight">\(f\)</span> реализована исключительно средствами функций библиотеки <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>, как в ячейке выше, то можно легко его векторизовать. Для этого удобно применить метод <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.meshgrid.html">numpy.meshgrid</a>. Принцип его действия в случае двух массивов иллюстрируется формулой</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathrm{np.meshgrid}\left(
+\begin{bmatrix}
+x_1 \\
+\vdots \\
+x_N
+\end{bmatrix}, 
+\begin{bmatrix}
+y_1 \\
+\vdots \\
+y_M
+\end{bmatrix} 
+\right) = \left(
+M\left\{
+\begin{bmatrix}
+x_1 &amp; \ldots &amp; x_N \\
+\vdots &amp; \ddots &amp; \vdots \\
+x_1 &amp; \ldots &amp; x_N 
+\end{bmatrix}\right.,
+\overbrace{
+\begin{bmatrix}
+y_1 &amp; \ldots &amp; y_1 \\
+\vdots &amp; \ddots &amp; \vdots \\
+y_M &amp; \ldots &amp; y_M
+\end{bmatrix} 
+}^{\text{N}}
+\right).
+\end{split}\]</div>
+<p>В более конкретном случае при <span class="math notranslate nohighlight">\(N=2\)</span> и <span class="math notranslate nohighlight">\(M=3\)</span> метод <code class="docutils literal notranslate"><span class="pre">numpy.meshgrid</span></code> сработает следующим образом.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathrm{np.meshgrid}\left(
+\begin{bmatrix}
+x_1 \\
+x_2
+\end{bmatrix}, 
+\begin{bmatrix}
+y_1 \\
+y_2 \\
+y_3
+\end{bmatrix} 
+\right) = \left(
+\begin{bmatrix}
+x_1 &amp; x_2 \\
+x_1 &amp; x_2 \\
+x_1 &amp; x_2
+\end{bmatrix},
+\begin{bmatrix}
+y_1 &amp; y_1 \\
+y_2 &amp; y_2 \\
+y_3 &amp; y_3
+\end{bmatrix} 
+\right).
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">y</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">horizontal_line</span><span class="p">)</span>
+
+<span class="n">xv</span><span class="p">,</span> <span class="n">yv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">xv</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">yv</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x=array([0, 1])
+y=array([-1, -2, -3])
+
+[[0 1]
+ [0 1]
+ [0 1]]
+[[-1 -1]
+ [-2 -2]
+ [-3 -3]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Теперь можно заменить двойной цикл одним вызовом функции.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">xv</span><span class="p">,</span> <span class="n">yv</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.15852902 -0.30116868]
+ [ 0.09070257 -0.36899512]
+ [ 0.85887999  0.3991823 ]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id7">
+<h2>Агрегирующие функции<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h2>
+<p>Так же в <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> реализован ряд агрегирующих методов, таких как сумма элементов массива (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.sum.html#numpy.sum">ndarray.sum</a>), их произведение (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.prod.html#numpy.prod">ndarray.prod</a>), минимум (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.min.html">ndarray.min</a>), максимум (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.max.html">ndarray.max</a>) и т.п. Такого рода операции часто применяются в статистике и доступные в <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> функции такого рода перечисленны по <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.statistics.html#averages-and-variances">ссылке</a>.</p>
+<p>Продемонстрируем поведение таких функций на примере метода <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.sum.html">numpy.sum</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">]</span>
+<span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">matrix</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[  1   2   3]
+ [ 10  20  30]
+ [100 200 300]]
+666
+</pre></div>
+</div>
+</div>
+</div>
+<p>По умолчанию все агрегирующие функции игнорируют размерность и форму массива и агрегируют все данные из массива в одно число.</p>
+<figure class="align-default">
+<img alt="../../_images/sum_1.svg" src="../../_images/sum_1.svg" /></figure>
+<p>Каждая из них позволяет не только агрегировать по всему массиву целиком, но и вдоль обозначенной опциональным параметром <code class="docutils literal notranslate"><span class="pre">axis</span></code> оси. Например, чтобы просуммировать матрицу по столбцам, необходимо передать значение 0 в качестве параметра <code class="docutils literal notranslate"><span class="pre">axis</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">matrix</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[111 222 333]
+</pre></div>
+</div>
+</div>
+</div>
+<figure class="align-default">
+<img alt="../../_images/sum_2.svg" src="../../_images/sum_2.svg" /></figure>
+<p>А чтобы просуммировать по строкам — значение 1.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">matrix</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[  6  60 600]
+</pre></div>
+</div>
+</div>
+</div>
+<figure class="align-default">
+<img alt="../../_images/sum_3.svg" src="../../_images/sum_3.svg" /></figure>
 </section>
 </section>
 
