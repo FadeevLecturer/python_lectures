@@ -58,7 +58,7 @@ parts:
       - file: notebooks/python/iterators
       - file: notebooks/python/decorators
       - file: notebooks/python/generators
-      - file: notebooks/python/exercises1
+      - file: notebooks/homework/6
   - caption: "Лекция №7"
     chapters:
       - file: notebooks/scipy/scipy
