@@ -26,6 +26,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/my_css_rules.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -1359,8 +1360,8 @@ title="Print to PDF"
 <p>Макет сам распределяет пространство, которое будет занимать виджет исходя из геометрии окна, политики размера каждого из виджетов (<a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QSizePolicy.html">QSizePolicy</a>, который среди прочего определяем минимальный размер виджета) и коэффициента растяжения (<code class="docutils literal notranslate"><span class="pre">stretching</span></code>), который определяет насколько жадно этот виджет будет занимать пространство. По умолчанию под каждый виджет отводится одинаковое количество места, но если указать параметр <code class="docutils literal notranslate"><span class="pre">stretch</span></code> (его принимают все три вышеописанных метода), то виджета с большим значением будет занимать больше пространства.</p>
 <p>В качестве примера, создадим два виджета <code class="docutils literal notranslate"><span class="pre">QLabel</span></code>, положим в них картинку методом <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QLabel.html#PySide6.QtWidgets.PySide6.QtWidgets.QLabel.setPixmap">setPixmap</a>, который ожидает на вход объект <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtGui/QPixmap.html">QPixmap</a>, и добавим их в макет.</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="5507c225-6474-4a1e-ba40-630eeed50f97" name="59dbf3f3-9ef6-4b04-b085-782b604e5f3d" type="radio">
-</input><label class="sd-tab-label" data-sync-id="hbox" for="5507c225-6474-4a1e-ba40-630eeed50f97">
+<input checked="checked" id="7ba68fe3-1fcf-4a99-aa25-2fad1ade3b17" name="244cd681-86db-472a-a145-eab5cb9a2c60" type="radio">
+</input><label class="sd-tab-label" data-sync-id="hbox" for="7ba68fe3-1fcf-4a99-aa25-2fad1ade3b17">
 QHBoxLayout</label><div class="sd-tab-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">os</span>
@@ -1406,8 +1407,8 @@ QHBoxLayout</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="703a1e95-bdaa-4732-ac45-ffac2a258259" name="59dbf3f3-9ef6-4b04-b085-782b604e5f3d" type="radio">
-</input><label class="sd-tab-label" data-sync-id="vbox" for="703a1e95-bdaa-4732-ac45-ffac2a258259">
+<input id="11c175c0-7376-4e51-9d1b-e8e71891f69c" name="244cd681-86db-472a-a145-eab5cb9a2c60" type="radio">
+</input><label class="sd-tab-label" data-sync-id="vbox" for="11c175c0-7376-4e51-9d1b-e8e71891f69c">
 QVBoxLayout</label><div class="sd-tab-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">os</span>
@@ -1455,15 +1456,15 @@ QVBoxLayout</label><div class="sd-tab-content docutils">
 </div>
 </div>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="b4ef9c56-11c1-4565-883f-909f0c05a791" name="6ef8c4b7-98f4-4c3c-a8cb-6bbf40722ec9" type="radio">
-</input><label class="sd-tab-label" data-sync-id="hbox" for="b4ef9c56-11c1-4565-883f-909f0c05a791">
+<input checked="checked" id="126077bf-3bdd-47de-896f-60598afbbf48" name="b0483444-786d-456f-80fa-38031a6d2b9e" type="radio">
+</input><label class="sd-tab-label" data-sync-id="hbox" for="126077bf-3bdd-47de-896f-60598afbbf48">
 QHBoxLayout</label><div class="sd-tab-content docutils">
 <figure class="align-default">
 <img alt="../../_images/HBoxLayout.png" src="../../_images/HBoxLayout.png" />
 </figure>
 </div>
-<input id="f55b269c-4738-4d51-8bc1-4e9766efaf98" name="6ef8c4b7-98f4-4c3c-a8cb-6bbf40722ec9" type="radio">
-</input><label class="sd-tab-label" data-sync-id="vbox" for="f55b269c-4738-4d51-8bc1-4e9766efaf98">
+<input id="1c661189-410d-4770-a66b-4e08c9c3312e" name="b0483444-786d-456f-80fa-38031a6d2b9e" type="radio">
+</input><label class="sd-tab-label" data-sync-id="vbox" for="1c661189-410d-4770-a66b-4e08c9c3312e">
 QVBoxLayout</label><div class="sd-tab-content docutils">
 <figure class="align-default">
 <img alt="../../_images/VBoxLayout.png" src="../../_images/VBoxLayout.png" />
