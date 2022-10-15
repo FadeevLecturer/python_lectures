@@ -1086,7 +1086,7 @@ title="Print to PDF"
 </section>
 <section id="id3">
 <h2>Псевдослучайность<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
-<p>Итак, согласно современным физическим теориям можно получать поистине случайные числа, наблюдая, например, за квантовыми системами или за процессом радиоактивного распада. Однако получение случайных чисел таким образом оказывается очень трудоемким процессом. В связи с этим вместо случайных числе на практике используют <strong>псевдослучайные</strong>.</p>
+<p>Итак, согласно современным физическим теориям можно получать поистине случайные числа, наблюдая, например, за квантовыми системами или за процессом радиоактивного распада. Однако получение случайных чисел таким образом оказывается очень трудоемким процессом. В связи с этим вместо случайных чисел на практике используют <strong>псевдослучайные</strong>.</p>
 <p>Последовательность чисел называется <strong>псевдослучайной</strong>, если она является результатом <strong>детерминированных и воспроизводимых</strong> вычислений, но по её статистическим свойствам она <strong>похожа на случайную</strong>.</p>
 <p>В качестве примера сгенерируем три псевдослучайных числа. За генерацию псевдослучайных чисел в <code class="docutils literal notranslate"><span class="pre">python</span></code> отвечает модуль <a class="reference external" href="https://docs.python.org/3/library/random.html">random</a>. Вызов функции <a class="reference external" href="https://docs.python.org/3/library/random.html#random.random">random.random</a> генерирует одно действительное псевдослучайное число в полуинтервале <span class="math notranslate nohighlight">\([0, 1)\)</span>.</p>
 <div class="cell docutils container">
@@ -1187,7 +1187,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>После того, как этот объект создан, его методы используются для генерации псевдослучайных чисел.  Например, чтобы сгенерировать 5 случайных чисел из диапазона <span class="math notranslate nohighlight">\([0, 1)\)</span>, можно вызвать всё тот же метод <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.random.html">random</a>, но уже от объекта генератора.</p>
+<p>После того как этот объект создан, его методы используются для генерации псевдослучайных чисел.  Например, чтобы сгенерировать 5 случайных чисел из диапазона <span class="math notranslate nohighlight">\([0, 1)\)</span>, можно вызвать всё тот же метод <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.random.html">random</a>, но уже от объекта генератора.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
@@ -1240,7 +1240,7 @@ title="Print to PDF"
 </div>
 </div>
 <p>Видим, что по результатам 10000 подбрасываний игральной кости, все грани выпали приблизительно одинаковое количество раз.</p>
-<p>В каком-то смысле альтернативой является метод <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.choice.html#numpy.random.Generator.choice">choice</a>, который случайным образом несколько раз выбирает из коллекции один элемент. По умолчанию каждый элемент коллекции может попасть в итоговую выборку с одинаковой вероятностью и выбор осуществляется с повтором (один и тот же элемент исходной выборки может оказаться несколько раз в итоговой). Пример ниже моделирует подбрасывание монетки.</p>
+<p>В каком-то смысле альтернативой является метод <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.choice.html#numpy.random.Generator.choice">choice</a>, который случайным образом несколько раз выбирает из коллекции один элемент. По умолчанию каждый элемент коллекции может попасть в итоговую выборку с одинаковой вероятностью, и выбор осуществляется с повтором (один и тот же элемент исходной выборки может оказаться несколько раз в итоговой). Пример ниже моделирует подбрасывание монетки.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">possible_outcomes</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Орёл&quot;</span><span class="p">,</span> <span class="s2">&quot;Решка&quot;</span><span class="p">]</span>

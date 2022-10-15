@@ -1111,7 +1111,7 @@ title="Print to PDF"
 <span class="n">первая</span> <span class="n">инструкция</span> <span class="n">после</span> <span class="n">блока</span> <span class="k">with</span> <span class="c1"># здесь файл гарантировано закрыт</span>
 </pre></div>
 </div>
-<p>В заголовке блока <code class="docutils literal notranslate"><span class="pre">with</span></code> открывается файл и результирующий файловый объект связывается с именем <code class="docutils literal notranslate"><span class="pre">name</span></code>. Этот файл будет открыт до тех пор, пока программа не покинет следующий за заголовком блок кода. Как только программы этот блок покидает (естественным образом или в результате распространения исключения), файл автоматически закрывается и имя <code class="docutils literal notranslate"><span class="pre">name</span></code> освобождается.</p>
+<p>В заголовке блока <code class="docutils literal notranslate"><span class="pre">with</span></code> открывается файл, и результирующий файловый объект связывается с именем <code class="docutils literal notranslate"><span class="pre">name</span></code>. Этот файл будет открыт до тех пор, пока программа не покинет следующий за заголовком блок кода. Как только программы этот блок покидает (естественным образом или в результате распространения исключения), файл автоматически закрывается и имя <code class="docutils literal notranslate"><span class="pre">name</span></code> освобождается.</p>
 <p>Считаем содержимое созданного в предыдущем разделе файла с блоком <code class="docutils literal notranslate"><span class="pre">with</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1163,7 +1163,7 @@ title="Print to PDF"
 <p>За работу с <code class="docutils literal notranslate"><span class="pre">JSON</span></code> в <code class="docutils literal notranslate"><span class="pre">python</span></code> отвечает модуль стандартной библиотеки <a class="reference external" href="https://docs.python.org/3/library/json.html#module-json">json</a>. Основные методы этого модуля:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.python.org/3/library/json.html#json.dumps">json.dumps</a> сериализует объект в строку;</p></li>
-<li><p><a class="reference external" href="https://docs.python.org/3/library/json.html#json.dump">json.dump</a> тоже самое, но сразу записывает в файл;</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/json.html#json.dump">json.dump</a> — то же самое, но сразу записывает в файл;</p></li>
 <li><p><a class="reference external" href="https://docs.python.org/3/library/json.html#json.loads">json.loads</a> десериализует строку <code class="docutils literal notranslate"><span class="pre">json</span></code> и создаёт объект;</p></li>
 <li><p><a class="reference external" href="https://docs.python.org/3/library/json.html#json.load">json.load</a> десериализует содержимое файла <code class="docutils literal notranslate"><span class="pre">json</span></code>.</p></li>
 </ul>
@@ -1228,7 +1228,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>Если выполнить предыдущую ячейку, то в папке <code class="docutils literal notranslate"><span class="pre">tmp</span></code> должен создаться файл <code class="docutils literal notranslate"><span class="pre">course_description.json</span></code> с следующим содержимым (с точностью до порядка ключей).</p>
+<p>Если выполнить предыдущую ячейку, то в папке <code class="docutils literal notranslate"><span class="pre">tmp</span></code> должен создаться файл <code class="docutils literal notranslate"><span class="pre">course_description.json</span></code> со следующим содержимым (с точностью до порядка ключей).</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;lecturer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Fadeev Egor&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;course&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Computer technologies workshop&quot;</span><span class="p">,</span><span class="w"></span>

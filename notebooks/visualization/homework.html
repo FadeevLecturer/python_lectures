@@ -1061,7 +1061,7 @@ p_A = P(\{(x, y) \in A\}) = \dfrac{S_A}{S_R},
 </ol>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Генерировать выборку случайных чисел, распределенных по равномерному на отрезке <code class="docutils literal notranslate"><span class="pre">[low,</span> <span class="pre">high]</span></code> можно методом <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.uniform.html">numpy.random.uniform</a>.</p>
+<p>Генерировать выборку случайных чисел, равномерно распределенных на отрезке <code class="docutils literal notranslate"><span class="pre">[low,</span> <span class="pre">high]</span></code> можно методом <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.uniform.html">numpy.random.uniform</a>.</p>
 </div>
 <figure class="align-default">
 <img alt="../../_images/area.png" src="../../_images/area.png" />
@@ -1083,7 +1083,7 @@ p = P(\{\xi \in [a, b]\}) = \int_a^b f(x) \, dx.
 p = \dfrac{b-a}{b-a}\int_a^b f(x) \, dx = (b - a) \underbrace{\dfrac{1}{b-a}\int_a^b f(x) \, dx}_{\overline{f}_{[a, b]}} =  (b-a)\overline{f}_{[a, b]},
 \]</div>
 <p>где <span class="math notranslate nohighlight">\(\overline{f}_{[a, b]}\)</span> — среднее значение функции <span class="math notranslate nohighlight">\(f\)</span> на отрезке <span class="math notranslate nohighlight">\([a, b]\)</span>. Из этой формы видно, что вероятность <span class="math notranslate nohighlight">\(p\)</span> попадания <span class="math notranslate nohighlight">\(\xi\)</span> в отрезок <span class="math notranslate nohighlight">\([a, b]\)</span> пропорциональна среднему значению <span class="math notranslate nohighlight">\(f_{[a, b]}\)</span> и длине отрезка <span class="math notranslate nohighlight">\([a, b]\)</span>.</p>
-<p>Предположим теперь, что имеется <span class="math notranslate nohighlight">\(n\)</span> независимых реализаций случайной величины <span class="math notranslate nohighlight">\(\xi\)</span> и <span class="math notranslate nohighlight">\(\eta\)</span> — случайная величина, которая соответствует количеству реализаций, оказавшихся внутри внутри отрезка <span class="math notranslate nohighlight">\([a, b]\)</span>. Тогда</p>
+<p>Предположим теперь, что имеется <span class="math notranslate nohighlight">\(n\)</span> независимых реализаций случайной величины <span class="math notranslate nohighlight">\(\xi\)</span> и <span class="math notranslate nohighlight">\(\eta\)</span> — случайная величина, которая соответствует количеству реализаций, оказавшихся внутри отрезка <span class="math notranslate nohighlight">\([a, b]\)</span>. Тогда</p>
 <div class="math notranslate nohighlight">
 \[
 \mathbb{E}\eta = np = n(b-a)\overline{f}_{[a, b]},

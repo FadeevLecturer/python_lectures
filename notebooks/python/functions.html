@@ -1159,7 +1159,7 @@ add(x, y)
 <h2>Управление потоком управления и возвращение значений из функции<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
 <p>При вызове функции поток управления программой передаётся этой функции. Поток управления программой возвращается обратно вызывающему коду, когда исполнение функций завершается, что может произойти по трём причинам:</p>
 <ol class="simple">
-<li><p>встречено ключевое слов <code class="docutils literal notranslate"><span class="pre">return</span></code>;</p></li>
+<li><p>встречено ключевое слово <code class="docutils literal notranslate"><span class="pre">return</span></code>;</p></li>
 <li><p>достигнут конец функции;</p></li>
 <li><p>возникло необработанное исключение, которое начало распространяться по стеку вызовов.</p></li>
 </ol>
@@ -1265,7 +1265,7 @@ print_function_name
 </div>
 </div>
 </div>
-<p>На самом деле есть встроенная функция <a class="reference external" href="https://docs.python.org/3/library/functions.html#map">map</a>, которая делает тоже самое, только не на месте.</p>
+<p>На самом деле есть встроенная функция <a class="reference external" href="https://docs.python.org/3/library/functions.html#map">map</a>, которая делает то же самое, только не на месте.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">sin</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
@@ -1511,7 +1511,7 @@ Hi, Alex!
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="o">...</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="n">value</span> <span class="p">,</span><span class="o">...</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Это сильно увеличивает количество способов передать оди и те же аргументы в функцию. Например, в случае функции с двумя параметрами существует 4 равнозначных способа её вызвать, в том числе:</p>
+<p>Это сильно увеличивает количество способов передать одни и те же аргументы в функцию. Например, в случае функции с двумя параметрами существует 4 равнозначных способа её вызвать, в том числе:</p>
 <ol class="simple">
 <li><p>передав оба аргумента позиционно;</p></li>
 <li><p>передав первый аргумент позиционно, а второй аргумент по имени;</p></li>
@@ -1745,7 +1745,7 @@ x=0, args=(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 </div>
 </div>
 </div>
-<p>Тоже самое будет работать с любой последовательностью.</p>
+<p>Такое синтаксис будет работать с любой последовательностью.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;abc&quot;</span>
@@ -1768,7 +1768,7 @@ a, b, c
 </div>
 </div>
 </div>
-<p>Естественно это может работает и с пользовательскими функциями.</p>
+<p>Естественно это работает и с пользовательскими функциями.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
@@ -1791,7 +1791,7 @@ x=0, y=1, z=2
 </section>
 <section id="id13">
 <h2>Перехват произвольного количества переданных по имени аргументов<a class="headerlink" href="#id13" title="Permalink to this headline">#</a></h2>
-<p>Чтобы перехватить произвольное количество параметров переданных по имени используется схожий синтаксис, но вместо одного символа “<code class="docutils literal notranslate"><span class="pre">*</span></code>” перед перехватывающим параметром, ставится сразу два. Такому параметру обычно дают имя <code class="docutils literal notranslate"><span class="pre">**kwargs</span></code> (сокращение от <code class="docutils literal notranslate"><span class="pre">key</span> <span class="pre">words</span> <span class="pre">arguments</span></code>).</p>
+<p>Чтобы перехватить произвольное количество переданных по имени параметров, используется схожий синтаксис, но вместо одного символа “<code class="docutils literal notranslate"><span class="pre">*</span></code>” перед перехватывающим параметром, ставится сразу два. Такому параметру обычно дают имя <code class="docutils literal notranslate"><span class="pre">**kwargs</span></code> (сокращение от <code class="docutils literal notranslate"><span class="pre">key</span> <span class="pre">words</span> <span class="pre">arguments</span></code>).</p>
 <p>Ниже приведен пример такого объявления.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1847,7 +1847,7 @@ len(kwargs)=3, kwargs={&#39;first_name&#39;: &#39;Иван&#39;, &#39;surname&#3
 </section>
 <section id="id14">
 <h2>Распаковка словарей по аргументам функции<a class="headerlink" href="#id14" title="Permalink to this headline">#</a></h2>
-<p>Словари тоже допускают распаковку по параметрам функции, но при распаковке элементы распределяются не по позициям, а по именам: ключи словаря выступают в качестве имён параметров, а значения — в качестве аргументов. В этом случае при вызове функции перед распаковываемым словарем ставится два символ “<code class="docutils literal notranslate"><span class="pre">*</span></code>”. Если <code class="docutils literal notranslate"><span class="pre">f</span></code> — вызываемая функция, а <code class="docutils literal notranslate"><span class="pre">d</span></code> — распаковываемый словарь, то используется следующий синтаксис.</p>
+<p>Словари тоже допускают распаковку по параметрам функции, но при распаковке элементы распределяются не по позициям, а по именам: ключи словаря выступают в качестве имён параметров, а значения — в качестве аргументов. В этом случае при вызове функции перед распаковываемым словарем ставится два символа “<code class="docutils literal notranslate"><span class="pre">*</span></code>”. Если <code class="docutils literal notranslate"><span class="pre">f</span></code> — вызываемая функция, а <code class="docutils literal notranslate"><span class="pre">d</span></code> — распаковываемый словарь, то используется следующий синтаксис.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="o">**</span><span class="n">d</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1867,7 +1867,7 @@ len(kwargs)=3, kwargs={&#39;first_name&#39;: &#39;Иван&#39;, &#39;surname&#3
 </div>
 </div>
 </div>
-<p>Естественно можно совмещать одновременную распаковку нескольких нескольких последовательностей и нескольких словарей, если у функции хватает параметров.</p>
+<p>Естественно можно совмещать одновременную распаковку нескольких последовательностей и нескольких словарей, если у функции хватает параметров.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l1</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>

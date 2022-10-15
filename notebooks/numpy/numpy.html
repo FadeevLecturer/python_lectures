@@ -1115,8 +1115,8 @@ title="Print to PDF"
 <h2>Зачем нужен <code class="docutils literal notranslate"><span class="pre">NumPy</span></code><a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
 <p>Необходимость в специальной библиотеке для работы с большими массивами чисел возникает из-за скорости работы <code class="docutils literal notranslate"><span class="pre">python</span></code>. За гибкость, выразительность, динамическую типизацию и многие другие достоинства <code class="docutils literal notranslate"><span class="pre">python</span></code> приходится платить скоростью: код написанный на <code class="docutils literal notranslate"><span class="pre">python</span></code>, практически всегда будет работать медленнее, чем аналогичный код, написанный на <code class="docutils literal notranslate"><span class="pre">C/C++</span></code>. Проще всего продемонстрировать это на примере с громоздкими циклами.</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="7a5a006c-be49-4d95-b636-bc68ab73edbd" name="d30a483a-3644-47f3-8f34-ef2e9153a535" type="radio">
-</input><label class="sd-tab-label" data-sync-id="tabcode-c++" for="7a5a006c-be49-4d95-b636-bc68ab73edbd">
+<input checked="checked" id="433be3a4-cf05-4b5f-beab-cb12d0db0491" name="ab65e57d-e753-4db8-8082-c8de298c96ae" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-c++" for="433be3a4-cf05-4b5f-beab-cb12d0db0491">
 C++</label><div class="sd-tab-content docutils">
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;chrono&gt;</span><span class="cp"></span>
@@ -1151,8 +1151,8 @@ C++</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="7aae3beb-5d2b-43df-af34-118c56f4e625" name="d30a483a-3644-47f3-8f34-ef2e9153a535" type="radio">
-</input><label class="sd-tab-label" data-sync-id="tabcode-python" for="7aae3beb-5d2b-43df-af34-118c56f4e625">
+<input id="1e228919-f376-49e9-aeed-911584f9392b" name="ab65e57d-e753-4db8-8082-c8de298c96ae" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-python" for="1e228919-f376-49e9-aeed-911584f9392b">
 PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">perf_counter</span>
 <span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">uniform</span>
@@ -1322,7 +1322,7 @@ python loops.py
 </div>
 </div>
 <p>Все массивы должны быть выравненными, т.е. не может быть матрицы со строками разных длин, трехмерного массива из матриц разных размеров и т.п.</p>
-<p>Картинка ниже наглядно иллюстрирует смысл всех только-что введенных понятий.</p>
+<p>Картинка ниже наглядно иллюстрирует смысл всех только что введенных понятий.</p>
 <figure class="align-default">
 <img alt="../../_images/ndarrays.png" src="../../_images/ndarrays.png" />
 </figure>
@@ -1454,7 +1454,7 @@ a3D.shape=(2, 2, 2)
 </div>
 </div>
 </div>
-<p>Функция <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ones.html#numpy.ones">np.ones</a> делает тоже самое, но создаёт массив из единиц.</p>
+<p>Функция <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ones.html#numpy.ones">np.ones</a> делает то же самое, но создаёт массив из единиц.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ones</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
@@ -1552,7 +1552,7 @@ a3D.shape=(2, 2, 2)
 </div>
 <section id="id6">
 <h3>Массив и скаляр<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
-<p>Если в арифметическом выражении участвуют скаляр и массив, то результатом является массив значений поэлементного применения указанной арифметической операции с скаляром. Т.е., можно, например, умножить массив на число.</p>
+<p>Если в арифметическом выражении участвуют скаляр и массив, то результатом является массив значений поэлементного применения указанной арифметической операции со скаляром. Т.е., можно, например, умножить массив на число.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">x</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -1691,7 +1691,7 @@ x ** y = array([ 1914644777, -1692154371,       74088])
 </section>
 <section id="id8">
 <h2>Матричное умножение<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h2>
-<p>Оператор <code class="docutils literal notranslate"><span class="pre">*</span></code> совершает поэлементное умножение, в том числе и для для двухмерных массивов.</p>
+<p>Оператор <code class="docutils literal notranslate"><span class="pre">*</span></code> совершает поэлементное умножение, в том числе и для двухмерных массивов.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ones</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>

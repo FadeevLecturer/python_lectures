@@ -1492,7 +1492,7 @@ z_{ji} = f(x_i, y_j), \quad  i=1,\ldots,N, \quad j=1,\ldots,M.
 </div>
 </div>
 </div>
-<p>Если в функция <span class="math notranslate nohighlight">\(f\)</span> реализована исключительно средствами функций библиотеки <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>, как в ячейке выше, то можно легко его векторизовать. Для этого удобно применить метод <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.meshgrid.html">numpy.meshgrid</a>. Принцип его действия в случае двух массивов иллюстрируется формулой</p>
+<p>Если функция <span class="math notranslate nohighlight">\(f\)</span> реализована исключительно средствами функций библиотеки <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>, как в ячейке выше, то можно легко его векторизовать. Для этого удобно применить метод <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.meshgrid.html">numpy.meshgrid</a>. Принцип его действия в случае двух массивов иллюстрируется формулой</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \mathrm{np.meshgrid}\left(

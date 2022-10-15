@@ -51,6 +51,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -940,6 +942,16 @@ title="Print to PDF"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#functools-cache">
+   Декоратор
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     functools.cache
+    </span>
+   </code>
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -985,6 +997,16 @@ title="Print to PDF"
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#functools-cache">
+   Декоратор
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     functools.cache
+    </span>
+   </code>
+  </a>
  </li>
 </ul>
 
@@ -1140,12 +1162,12 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>square
-&lt;function announce.&lt;locals&gt;.wrap at 0x00000142CABAF8B0&gt;
+&lt;function announce.&lt;locals&gt;.wrap at 0x0000018B309F9AB0&gt;
 </pre></div>
 </div>
 </div>
 </div>
-<p>Но куда лучше будет воспользоваться декоратором <a class="reference external" href="https://docs.python.org/3/library/functools.html#functools.wraps">wraps</a> из модуля <a class="reference external" href="https://docs.python.org/3/library/functools.html">functools</a>, что позволит сохранить все метаданные исходной функции.</p>
+<p>Но гораздо лучше будет воспользоваться декоратором <a class="reference external" href="https://docs.python.org/3/library/functools.html#functools.wraps">wraps</a> из модуля <a class="reference external" href="https://docs.python.org/3/library/functools.html">functools</a>, что позволит сохранить все метаданные исходной функции.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
@@ -1211,11 +1233,12 @@ title="Print to PDF"
 <p>Рассмотрим вариант реализации декоратора, который при вызове декорируемой функции измеряет время, потребовавшееся на её выполнение и выводит его в стандартный поток вывода, прежде чем вернуть результат её вычисления.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">perf_counter</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">perf_counter</span>
 
 
 <span class="k">def</span> <span class="nf">timed</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">wrap</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="n">t1</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
         <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -1238,17 +1261,17 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Вызов countdown занял 0.0006335000000490254 секунд, (параметры (10000,), {})
-Вызов countdown занял 0.006403900000123031 секунд, (параметры (100000,), {})
-Вызов countdown занял 0.07007500000008804 секунд, (параметры (1000000,), {})
-Вызов countdown занял 0.6575270000000728 секунд, (параметры (10000000,), {})
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Вызов countdown занял 0.00041140004759654403 секунд, (параметры (10000,), {})
+Вызов countdown занял 0.003993600024841726 секунд, (параметры (100000,), {})
+Вызов countdown занял 0.03891709999879822 секунд, (параметры (1000000,), {})
+Вызов countdown занял 0.40471659996546805 секунд, (параметры (10000000,), {})
 </pre></div>
 </div>
 </div>
 </div>
 <section id="id6">
 <h3>Декораторы с аргументами<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
-<p>На примере декоратора <code class="docutils literal notranslate"><span class="pre">functools.wraps</span></code>, декораторы, принимающие аргументы, объявляются несколько сложнее. Дело в том, что в этом случае необходимо погрузится ещё на один уровень абстракции. Предположим, что вы хотите написать декоратор <code class="docutils literal notranslate"><span class="pre">my_decorator</span></code> с параметрами <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code> и <code class="docutils literal notranslate"><span class="pre">z</span></code>, а применять его в следующем виде:</p>
+<p>На примере декоратора <code class="docutils literal notranslate"><span class="pre">functools.wraps</span></code>, декораторы, принимающие аргументы, объявляются несколько сложнее. Дело в том, что в этом случае необходимо погрузиться ещё на один уровень абстракции. Предположим, что вы хотите написать декоратор <code class="docutils literal notranslate"><span class="pre">my_decorator</span></code> с параметрами <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code> и <code class="docutils literal notranslate"><span class="pre">z</span></code>, а применять его в следующем виде:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@my_decorator</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">some_function</span><span class="p">():</span>
     <span class="o">...</span>
@@ -1373,6 +1396,127 @@ Bye!
 <p>Объявление декораторов с необязательными аргументами и другие примеры можно найти в <span id="id7">[<a class="reference internal" href="../scipy/interpolation_approx.html#id15" title="Брайан К. Джонс Дэвид Бизли. Python. Книга рецептов. М. ДМК Пресс, 2019. ISBN 978-5-97060-751-0.">1</a>]</span>.</p>
 </div>
 </section>
+</section>
+<section id="functools-cache">
+<h2>Декоратор <code class="docutils literal notranslate"><span class="pre">functools.cache</span></code><a class="headerlink" href="#functools-cache" title="Permalink to this headline">#</a></h2>
+<p>В модуле <a class="reference external" href="https://docs.python.org/3/library/functools.html">functools</a> определен очень полезный декоратор <a class="reference external" href="https://docs.python.org/3/library/functools.html">cache</a>, который позволяет легко реализовать мемоизацию. Мемоизация направлена на предотвращение повторных вычислений при повторных вызовах функции с теми же самыми аргументами. Достигается это за счет сохранения истории (кэша) вызова функции: во время вызова функция записывает набор параметров и возвращаемое значение, если такой набор параметров встретился впервые. Если функция встречает набор параметров, который содержится в истории вызовов, то вместо повторных вычислений функция смотрит на значение в истории и сразу его возвращает. Декоратор <code class="docutils literal notranslate"><span class="pre">functools.cache</span></code> хранит историю вызовов в словаре, а значит поиск в истории вызовов очень быстрый, но накладывает ограничение на хешируемость параметров функции.</p>
+<p>В качестве примера определим рекурсивную версию функции вычисления чисел Фибоначчи. В целях отладки применим к нему объявленный выше декоратора <code class="docutils literal notranslate"><span class="pre">announce</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
+
+<span class="nd">@announce</span>
+<span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="mi">1</span>
+
+
+<span class="n">fib</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Функция fib вызвана с позиционными аргументами (5,) и именованными аргументами {}.
+Функция fib вызвана с позиционными аргументами (4,) и именованными аргументами {}.
+Функция fib вызвана с позиционными аргументами (3,) и именованными аргументами {}.
+Функция fib вызвана с позиционными аргументами (2,) и именованными аргументами {}.
+Функция fib вызвана с позиционными аргументами (1,) и именованными аргументами {}.
+Функция fib вызвана с позиционными аргументами (0,) и именованными аргументами {}.
+Функция fib вызвана с позиционными аргументами (1,) и именованными аргументами {}.
+Функция fib вызвана с позиционными аргументами (2,) и именованными аргументами {}.
+Функция fib вызвана с позиционными аргументами (1,) и именованными аргументами {}.
+Функция fib вызвана с позиционными аргументами (0,) и именованными аргументами {}.
+Функция fib вызвана с позиционными аргументами (3,) и именованными аргументами {}.
+Функция fib вызвана с позиционными аргументами (2,) и именованными аргументами {}.
+Функция fib вызвана с позиционными аргументами (1,) и именованными аргументами {}.
+Функция fib вызвана с позиционными аргументами (0,) и именованными аргументами {}.
+Функция fib вызвана с позиционными аргументами (1,) и именованными аргументами {}.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+</pre></div>
+</div>
+</div>
+</div>
+<p>Видим, что вызов функции <code class="docutils literal notranslate"><span class="pre">fib</span></code> при <span class="math notranslate nohighlight">\(n=5\)</span> привел ещё к 14 рекурсивным вызовам этой же самой функции, среди которых много повторов: только вызовов <code class="docutils literal notranslate"><span class="pre">fib(1)</span></code> было осуществлено 5 раз.</p>
+<p>Добавим к этой функции теперь ещё и декоратора <code class="docutils literal notranslate"><span class="pre">cache</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">cache</span>
+
+<span class="nd">@cache</span>
+<span class="nd">@announce</span>
+<span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="mi">1</span>
+
+<span class="n">fib</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Функция fib вызвана с позиционными аргументами (5,) и именованными аргументами {}.
+Функция fib вызвана с позиционными аргументами (4,) и именованными аргументами {}.
+Функция fib вызвана с позиционными аргументами (3,) и именованными аргументами {}.
+Функция fib вызвана с позиционными аргументами (2,) и именованными аргументами {}.
+Функция fib вызвана с позиционными аргументами (1,) и именованными аргументами {}.
+Функция fib вызвана с позиционными аргументами (0,) и именованными аргументами {}.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+</pre></div>
+</div>
+</div>
+</div>
+<p>Теперь количество вызовов сократилось до 6.</p>
+<p>Посмотрим, как это скажется на производительности. Для этого заново определим эту функцию без всех декораторов и функцию замеряющую время.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">perf_counter</span>
+
+<span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="mi">1</span>
+
+
+<span class="k">def</span> <span class="nf">measure_time</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">t1</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">t2</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">t2</span> <span class="o">-</span> <span class="n">t1</span><span class="si">:</span><span class="s2">7f</span><span class="si">}</span><span class="s2"> секунд. </span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(n) = </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2"> при </span><span class="si">{</span><span class="n">n</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">measure_time</span><span class="p">(</span><span class="n">fib</span><span class="p">,</span> <span class="mi">33</span><span class="p">)</span>
+<span class="n">measure_time</span><span class="p">(</span><span class="n">fib</span><span class="p">,</span> <span class="mi">34</span><span class="p">)</span>
+<span class="n">measure_time</span><span class="p">(</span><span class="n">fib</span><span class="p">,</span> <span class="mi">35</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.276110 секунд. fib(n) = 5702887 при n=33
+1.873235 секунд. fib(n) = 9227465 при n=34
+3.035318 секунд. fib(n) = 14930352 при n=35
+</pre></div>
+</div>
+</div>
+</div>
+<p>Видим, что вызов при <span class="math notranslate nohighlight">\(n=35\)</span> занимает порядка 3 секунд. Более того, вызов <span class="math notranslate nohighlight">\(\mathrm{fib}(n+1)\)</span> занимает чуть ли не в два раза больше времени, чем вызов  <span class="math notranslate nohighlight">\(\mathrm{fib}(n)\)</span>.</p>
+<p>Применим декоратор <code class="docutils literal notranslate"><span class="pre">cache</span></code> к функции <code class="docutils literal notranslate"><span class="pre">fib</span></code> и измерим время её вызовов.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fib</span> <span class="o">=</span> <span class="n">cache</span><span class="p">(</span><span class="n">fib</span><span class="p">)</span>
+
+<span class="n">measure_time</span><span class="p">(</span><span class="n">fib</span><span class="p">,</span> <span class="mi">35</span><span class="p">)</span>
+<span class="n">measure_time</span><span class="p">(</span><span class="n">fib</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">measure_time</span><span class="p">(</span><span class="n">fib</span><span class="p">,</span> <span class="mi">999</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.000026 секунд при n=35
+0.000930 секунд при n=1000
+0.000000 секунд при n=999
+</pre></div>
+</div>
+</div>
+</div>
+<p>Видим, что вызов даже при <span class="math notranslate nohighlight">\(n=1000\)</span> занимает меньше 1 миллисекунды. Кроме того можно заметить, что вызов <span class="math notranslate nohighlight">\(\mathrm{fib}(999)\)</span> был осуществлен почти мгновенно, т.к. было достаточно подсмотреть результат вычислений, произведенных при вызове <span class="math notranslate nohighlight">\(\mathrm{fib}(1000)\)</span>.</p>
 </section>
 </section>
 
