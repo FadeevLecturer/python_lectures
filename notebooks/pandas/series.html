@@ -1128,7 +1128,7 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="pandas">
 <h1>Столбцы в <code class="docutils literal notranslate"><span class="pre">pandas</span></code><a class="headerlink" href="#pandas" title="Permalink to this headline">#</a></h1>
-<p>Резюмируя содержание предыдущей страницы, столбцы таблиц в <code class="docutils literal notranslate"><span class="pre">pandas</span></code> представляются объектами <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series">pandas.Series</a>, у которых есть сходства и различия с одномерными массивами <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>: оба являются последовательностями данных (т.е. элементы столбца пронумерованы и по номеру можно получить доступ к соответствующему значению в столбце) одного типа, но в отличии от массивов <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> столбцы <code class="docutils literal notranslate"><span class="pre">pandas</span></code> поддерживают продвинутую индексацию.</p>
+<p>Резюмируя содержание предыдущей страницы, столбцы таблиц в <code class="docutils literal notranslate"><span class="pre">pandas</span></code> представляются объектами <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series">pandas.Series</a>, у которых есть сходства и различия с одномерными массивами <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>: оба являются последовательностями данных (т.е. элементы столбца пронумерованы и по номеру можно получить доступ к соответствующему значению в столбце) одного типа, но в отличие от массивов <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> столбцы <code class="docutils literal notranslate"><span class="pre">pandas</span></code> поддерживают продвинутую индексацию.</p>
 <p>Кроме этого важно помнить, что содержимое столбцов <code class="docutils literal notranslate"><span class="pre">pandas</span></code> изменяемо, а длина — нет.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1148,7 +1148,7 @@ title="Print to PDF"
 <p>Можно создать и пустой <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code>, но большого смысла в этом нет из-за невозможности наращивать длину столбца на месте.</p>
 <section id="id2">
 <h3>Скаляр<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
-<p>Если передать в качестве параметра скаляр, то создаётся столбец из одного элемента. При этом строка тоже считается скаляром, не смотря на то, что она формально является последовательностью.</p>
+<p>Если передать в качестве параметра скаляр, то создаётся столбец из одного элемента. При этом строка тоже считается скаляром, несмотря на то, что она формально является последовательностью.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -1352,7 +1352,7 @@ label=&#39;c&#39;: s.loc[label]=42
 </section>
 <section id="id6">
 <h4>Индексация с помощью <code class="docutils literal notranslate"><span class="pre">[]</span></code> и почему рекомендуется её избегать<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h4>
-<p>Вообще говоря, можно использовать для индексации и просто “<code class="docutils literal notranslate"><span class="pre">[]</span></code>”. Тогда способ индексации будет определятся по переданному значению. В нашем примере метки представляются строками, а значит если указать между пары квадратных скобок строку, то индексация будет произведена по метке.</p>
+<p>Вообще говоря, можно использовать для индексации и просто “<code class="docutils literal notranslate"><span class="pre">[]</span></code>”. Тогда способ индексации определятся по переданному значению. В нашем примере метки представляются строками, а значит если указать между пары квадратных скобок строку, то индексация будет произведена по метке.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
