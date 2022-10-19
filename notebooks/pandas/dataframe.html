@@ -55,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Дата и время" href="datetime.html" />
+    <link rel="next" title="Оперирование таблицами pandas" href="operations.html" />
     <link rel="prev" title="Столбцы в pandas" href="series.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -411,13 +411,31 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="operations.html">
+   Оперирование таблицами
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="datetime.html">
    Дата и время
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="covid19.html">
-   Обзор базовых возможностей pandas
+   Анализ данных о
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     covid
+    </span>
+    <span class="pre">
+     19
+    </span>
+   </code>
   </a>
  </li>
  <li class="toctree-l1">
@@ -988,11 +1006,6 @@ title="Print to PDF"
    Добавление столбцов
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id11">
-   Пропущенные значения
-  </a>
- </li>
 </ul>
 
     </nav>
@@ -1076,11 +1089,6 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id10">
    Добавление столбцов
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id11">
-   Пропущенные значения
   </a>
  </li>
 </ul>
@@ -2171,430 +2179,6 @@ Name: Масса, dtype: float64
 </div></div></div>
 </div>
 </section>
-<section id="id11">
-<h2>Пропущенные значения<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h2>
-<p>Большинство методов <code class="docutils literal notranslate"><span class="pre">pandas</span></code> разработаны таким образом, чтобы они работали с пропущенными значениями.</p>
-<p>Например, метод <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.mean.html">mean</a> вычисляет среднее всех столбцов с численными значениями. В том числе он сработает и для столбца <code class="docutils literal notranslate"><span class="pre">&quot;Экваториальный</span> <span class="pre">диаметр&quot;</span></code>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Параметр <code class="docutils literal notranslate"><span class="pre">numeric_only</span></code> необходим, так как в таблице есть не только столбцы с числами, но столбцы другого рода.</p>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">planets</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Количество спутников      17.375000
-Масса                     55.805937
-Экваториальный диаметр     2.945000
-dtype: float64
-</pre></div>
-</div>
-</div>
-</div>
-<p>Тем не менее иногда необходимо избавиться от строк или столбцов с пропущенными данными. Для этого удобно использовать метод <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.dropna.html">DataFrame.dropna</a>, который возвращает новую таблицу (иными словами работает <strong>не на месте</strong>, но параметром <code class="docutils literal notranslate"><span class="pre">inplace</span></code> можно заставить его отработать на месте), состоящую из не содержащих <code class="docutils literal notranslate"><span class="pre">np.nan</span></code> строк исходной таблицы.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">planets</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Количество спутников</th>
-      <th>Масса</th>
-      <th>Группа</th>
-      <th>Кольца</th>
-      <th>Экваториальный диаметр</th>
-    </tr>
-    <tr>
-      <th>Название</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Меркурий</th>
-      <td>0</td>
-      <td>0.0055</td>
-      <td>земная группа</td>
-      <td>Нет</td>
-      <td>0.382</td>
-    </tr>
-    <tr>
-      <th>Венера</th>
-      <td>0</td>
-      <td>0.8150</td>
-      <td>земная группа</td>
-      <td>Нет</td>
-      <td>0.949</td>
-    </tr>
-    <tr>
-      <th>Земля</th>
-      <td>1</td>
-      <td>1.0000</td>
-      <td>земная группа</td>
-      <td>Нет</td>
-      <td>1.000</td>
-    </tr>
-    <tr>
-      <th>Сатурн</th>
-      <td>34</td>
-      <td>95.2000</td>
-      <td>газовый гигант</td>
-      <td>Да</td>
-      <td>9.449</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<p>Параметром <code class="docutils literal notranslate"><span class="pre">axis</span></code> можно выбрать, отбрасывать ли строки или столбцы.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">planets</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;columns&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Количество спутников</th>
-      <th>Масса</th>
-      <th>Группа</th>
-      <th>Кольца</th>
-    </tr>
-    <tr>
-      <th>Название</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Меркурий</th>
-      <td>0</td>
-      <td>0.0055</td>
-      <td>земная группа</td>
-      <td>Нет</td>
-    </tr>
-    <tr>
-      <th>Венера</th>
-      <td>0</td>
-      <td>0.8150</td>
-      <td>земная группа</td>
-      <td>Нет</td>
-    </tr>
-    <tr>
-      <th>Земля</th>
-      <td>1</td>
-      <td>1.0000</td>
-      <td>земная группа</td>
-      <td>Нет</td>
-    </tr>
-    <tr>
-      <th>Марс</th>
-      <td>2</td>
-      <td>0.1070</td>
-      <td>земная группа</td>
-      <td>Нет</td>
-    </tr>
-    <tr>
-      <th>Юпитер</th>
-      <td>62</td>
-      <td>317.8000</td>
-      <td>газовый гигант</td>
-      <td>Да</td>
-    </tr>
-    <tr>
-      <th>Сатурн</th>
-      <td>34</td>
-      <td>95.2000</td>
-      <td>газовый гигант</td>
-      <td>Да</td>
-    </tr>
-    <tr>
-      <th>Уран</th>
-      <td>27</td>
-      <td>14.3700</td>
-      <td>ледяной гигант</td>
-      <td>Да</td>
-    </tr>
-    <tr>
-      <th>Нептун</th>
-      <td>13</td>
-      <td>17.1500</td>
-      <td>ледяной гигант</td>
-      <td>Да</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<p>Параметр <code class="docutils literal notranslate"><span class="pre">how</span></code> может быть равен или <code class="docutils literal notranslate"><span class="pre">all</span></code> или <code class="docutils literal notranslate"><span class="pre">any</span></code> (по умолчанию <code class="docutils literal notranslate"><span class="pre">any</span></code>) и в зависимости от этого отбрасываются те строки таблицы (столбцы), в которых пропущены все или хотя бы одно значения.</p>
-<p>Вместо того чтобы отбросить пропущенные значения, методом <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.fillna.html">df.fillna</a> можно их заполнить. В самом простом варианте он заполняет <code class="docutils literal notranslate"><span class="pre">NaN</span></code> во всех столбцах одним и тем же значением (по умолчанию <strong>не на месте</strong>, но тоже есть параметр <code class="docutils literal notranslate"><span class="pre">inplace</span></code>).</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">planets</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Количество спутников</th>
-      <th>Масса</th>
-      <th>Группа</th>
-      <th>Кольца</th>
-      <th>Экваториальный диаметр</th>
-    </tr>
-    <tr>
-      <th>Название</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Меркурий</th>
-      <td>0</td>
-      <td>0.0055</td>
-      <td>земная группа</td>
-      <td>Нет</td>
-      <td>0.382</td>
-    </tr>
-    <tr>
-      <th>Венера</th>
-      <td>0</td>
-      <td>0.8150</td>
-      <td>земная группа</td>
-      <td>Нет</td>
-      <td>0.949</td>
-    </tr>
-    <tr>
-      <th>Земля</th>
-      <td>1</td>
-      <td>1.0000</td>
-      <td>земная группа</td>
-      <td>Нет</td>
-      <td>1.000</td>
-    </tr>
-    <tr>
-      <th>Марс</th>
-      <td>2</td>
-      <td>0.1070</td>
-      <td>земная группа</td>
-      <td>Нет</td>
-      <td>0.000</td>
-    </tr>
-    <tr>
-      <th>Юпитер</th>
-      <td>62</td>
-      <td>317.8000</td>
-      <td>газовый гигант</td>
-      <td>Да</td>
-      <td>0.000</td>
-    </tr>
-    <tr>
-      <th>Сатурн</th>
-      <td>34</td>
-      <td>95.2000</td>
-      <td>газовый гигант</td>
-      <td>Да</td>
-      <td>9.449</td>
-    </tr>
-    <tr>
-      <th>Уран</th>
-      <td>27</td>
-      <td>14.3700</td>
-      <td>ледяной гигант</td>
-      <td>Да</td>
-      <td>0.000</td>
-    </tr>
-    <tr>
-      <th>Нептун</th>
-      <td>13</td>
-      <td>17.1500</td>
-      <td>ледяной гигант</td>
-      <td>Да</td>
-      <td>0.000</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<p>Можно настроить более гибкое заполнение. Например, передавая словарь, можно выбрать свой заполнитель для каждого столбца. А параметром <code class="docutils literal notranslate"><span class="pre">method</span></code> можно заполнять пропущенные значения ближайшим непропущенным в строчках выше или ниже.</p>
-<p>Методом <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.interpolate.html">DataFrame.interpolate</a> можно заполнить пропущенные значения интерполируя по непропущенным.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">planets</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Количество спутников</th>
-      <th>Масса</th>
-      <th>Группа</th>
-      <th>Кольца</th>
-      <th>Экваториальный диаметр</th>
-    </tr>
-    <tr>
-      <th>Название</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Меркурий</th>
-      <td>0</td>
-      <td>0.0055</td>
-      <td>земная группа</td>
-      <td>Нет</td>
-      <td>0.382000</td>
-    </tr>
-    <tr>
-      <th>Венера</th>
-      <td>0</td>
-      <td>0.8150</td>
-      <td>земная группа</td>
-      <td>Нет</td>
-      <td>0.949000</td>
-    </tr>
-    <tr>
-      <th>Земля</th>
-      <td>1</td>
-      <td>1.0000</td>
-      <td>земная группа</td>
-      <td>Нет</td>
-      <td>1.000000</td>
-    </tr>
-    <tr>
-      <th>Марс</th>
-      <td>2</td>
-      <td>0.1070</td>
-      <td>земная группа</td>
-      <td>Нет</td>
-      <td>3.816333</td>
-    </tr>
-    <tr>
-      <th>Юпитер</th>
-      <td>62</td>
-      <td>317.8000</td>
-      <td>газовый гигант</td>
-      <td>Да</td>
-      <td>6.632667</td>
-    </tr>
-    <tr>
-      <th>Сатурн</th>
-      <td>34</td>
-      <td>95.2000</td>
-      <td>газовый гигант</td>
-      <td>Да</td>
-      <td>9.449000</td>
-    </tr>
-    <tr>
-      <th>Уран</th>
-      <td>27</td>
-      <td>14.3700</td>
-      <td>ледяной гигант</td>
-      <td>Да</td>
-      <td>9.449000</td>
-    </tr>
-    <tr>
-      <th>Нептун</th>
-      <td>13</td>
-      <td>17.1500</td>
-      <td>ледяной гигант</td>
-      <td>Да</td>
-      <td>9.449000</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -2631,10 +2215,10 @@ dtype: float64
             <p class="prev-next-title">Столбцы в <code class="docutils literal notranslate"><span class="pre">pandas</span></code></p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="datetime.html" title="next page">
+    <a class='right-next' id="next-link" href="operations.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Дата и время</p>
+        <p class="prev-next-title">Оперирование таблицами <code class="docutils literal notranslate"><span class="pre">pandas</span></code></p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
