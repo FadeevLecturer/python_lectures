@@ -49,6 +49,7 @@ parts:
       - file: notebooks/pandas/pandas
       - file: notebooks/pandas/series
       - file: notebooks/pandas/dataframe
+      - file: notebooks/pandas/operations
       - file: notebooks/pandas/datetime
       - file: notebooks/pandas/covid19
       - file: notebooks/pandas/homework 
