@@ -11,6 +11,6 @@ b = uniform(-1, -1, size=N)
 
 # Измеряем время сложения этих списков
 t1 = perf_counter()
-c = a + b        
+c = a + b
 t2 = perf_counter()
-print(f"{(t2 - t1) * 1000} ms") # perf_counter() - время в секундах
+print(f"{(t2 - t1) * 1000} ms")  # perf_counter() - время в секундах
