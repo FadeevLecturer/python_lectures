@@ -69,8 +69,9 @@ parts:
       - file: notebooks/scipy/ODE
       - file: notebooks/scipy/optimization
       - file: notebooks/scipy/nonlinear_equations
+      - file: notebooks/scipy/signal
       - file: notebooks/scipy/cannonball
-      - file: notebooks/scipy/homework
+      # - file: notebooks/scipy/homework
   - caption: "Лекция №8"
     chapters:
       - file: notebooks/python/custom_classes
