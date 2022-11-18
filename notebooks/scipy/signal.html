@@ -57,7 +57,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Пример" href="cannonball.html" />
+    <link rel="next" title="Пользовательские классы" href="../python/custom_classes.html" />
     <link rel="prev" title="Решение нелинейных уравнений" href="nonlinear_equations.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -523,11 +523,6 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Обработка сигналов
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="cannonball.html">
-   Пример
   </a>
  </li>
 </ul>
@@ -998,6 +993,93 @@ title="Print to PDF"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id11">
+   Свертка и взаимокорреляция
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     Скользящее среднее
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vs">
+     Свертка
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       vs
+      </span>
+     </code>
+     взаимокорреляция
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id13">
+       Свёртка
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id14">
+       Взаимокорреляция
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#scipy-signal">
+     Реализация в
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       scipy.signal
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#valid">
+       Режим
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         valid
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#same">
+       Режим
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         same
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#full">
+       Режим
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         full
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id15">
+     Взаимная корреляция для локализации шаблона
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id16">
+     Теорема о свёртке
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
     </nav>
@@ -1072,6 +1154,93 @@ title="Print to PDF"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id10">
      Фильтрация низких частот
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id11">
+   Свертка и взаимокорреляция
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     Скользящее среднее
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vs">
+     Свертка
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       vs
+      </span>
+     </code>
+     взаимокорреляция
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id13">
+       Свёртка
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id14">
+       Взаимокорреляция
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#scipy-signal">
+     Реализация в
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       scipy.signal
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#valid">
+       Режим
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         valid
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#same">
+       Режим
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         same
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#full">
+       Режим
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         full
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id15">
+     Взаимная корреляция для локализации шаблона
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id16">
+     Теорема о свёртке
     </a>
    </li>
   </ul>
@@ -1177,7 +1346,7 @@ X = \mathcal{F}x,
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "ed2dad6234624ba482d53df3f9510734", "version_major": 2, "version_minor": 0}
+{"model_id": "8ca6cbde39444356bb4d2ce43a253864", "version_major": 2, "version_minor": 0}
 </script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.plot_basis_vector(length: int, index: int)&gt;
 </pre></div>
 </div>
@@ -1298,9 +1467,9 @@ x[n] = A_1\cos(\dfrac{2\pi}{N}\omega_1(n - b_1)) + A_2\cos(\dfrac{2\pi}{N}\omega
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "e63e7ad068e74d41b91b437e4de70156", "version_major": 2, "version_minor": 0}
+{"model_id": "04720de89e724c9381dd6735c6aad72e", "version_major": 2, "version_minor": 0}
 </script><script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "dbad5e03195d4abc8555dcd813da2ef6", "version_major": 2, "version_minor": 0}
+{"model_id": "1be9a156a22c49b1bb6de7e1cdcf3ee9", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
 </section>
@@ -1357,7 +1526,7 @@ T =  \dfrac{\text{number of years}}{\omega}.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x182420ed8a0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x25c65ccd510&gt;
 </pre></div>
 </div>
 <img alt="../../_images/signal_10_1.png" src="../../_images/signal_10_1.png" />
@@ -1445,7 +1614,7 @@ T =  \dfrac{\text{number of years}}{\omega}.
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "ef210232121241a8aa33b76857e7903c", "version_major": 2, "version_minor": 0}
+{"model_id": "9bf870a887424ff082cf5d37d8f722d7", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
 <p>На построенных графиках видно, что звук распределяется по определенным частотам спектра. Самая низкая из таких частот называется <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D0%BE%D0%B9_%D1%82%D0%BE%D0%BD">тоном</a>, и именно он определяет высоту звука. Так, например, ноте <strong>до</strong> из четвертый октавы соответствует частота 261.63 Гц (<a class="reference external" href="https://pages.mtu.edu/~suits/notefreqs.html">источник</a>). Остальные, кратные основному тону, частоты называют — <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%9E%D0%B1%D0%B5%D1%80%D1%82%D0%BE%D0%BD">обертонами</a>. Распределение звука по обертонам называют <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%A2%D0%B5%D0%BC%D0%B1%D1%80">тембром</a>, и именно по тембр меняется в зависимости от инструмента, на котором сыграна нота.</p>
@@ -1465,48 +1634,32 @@ T =  \dfrac{\text{number of years}}{\omega}.
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.fft</span> <span class="kn">import</span> <span class="n">rfft</span><span class="p">,</span> <span class="n">irfft</span>
 
-<span class="k">def</span> <span class="nf">plot_fourier_filter</span><span class="p">(</span><span class="n">treshold_frequency</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">plot_fourier_filter</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">noisy_signal</span><span class="p">,</span> <span class="n">treshold_frequency</span><span class="p">):</span>
     <span class="n">fourier</span> <span class="o">=</span> <span class="n">rfft</span><span class="p">(</span><span class="n">noisy_signal</span><span class="p">)</span>
     <span class="n">m</span> <span class="o">=</span> <span class="n">fourier</span><span class="o">.</span><span class="n">size</span>
     <span class="n">low_freq</span> <span class="o">=</span> <span class="n">irfft</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="o">&gt;</span><span class="n">treshold_frequency</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">fourier</span><span class="p">))</span>
     <span class="n">high_freq</span> <span class="o">=</span> <span class="n">irfft</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="o">&gt;</span><span class="n">treshold_frequency</span><span class="p">,</span> <span class="n">fourier</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Исходный сигнал&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">noisy_signal</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Исходный сигнал + шум&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">low_freq</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Низкие частоты&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">high_freq</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Высокие частоты&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+    <span class="n">titles</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Исходный сигнал&quot;</span><span class="p">,</span> <span class="s2">&quot;Исходный сигнал + шум&quot;</span><span class="p">,</span> <span class="s2">&quot;Низкие частоты&quot;</span><span class="p">,</span> <span class="s2">&quot;Высокие частоты&quot;</span><span class="p">]</span>
+    <span class="n">ys</span> <span class="o">=</span> <span class="p">[</span><span class="n">signal</span><span class="p">,</span> <span class="n">noisy_signal</span><span class="p">,</span> <span class="n">low_freq</span><span class="p">,</span> <span class="n">high_freq</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">title</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axs</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">ys</span><span class="p">,</span> <span class="n">titles</span><span class="p">):</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$k$&quot;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;$y$&quot;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">triangle</span><span class="p">(</span><span class="n">center</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-    <span class="n">half_width</span> <span class="o">=</span> <span class="n">width</span> <span class="o">/</span> <span class="mi">2</span>
-    <span class="n">k</span> <span class="o">=</span> <span class="n">height</span> <span class="o">/</span> <span class="n">half_width</span>
-    
-    <span class="k">def</span> <span class="nf">left_side</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-        <span class="n">root</span> <span class="o">=</span> <span class="n">center</span> <span class="o">-</span> <span class="n">half_width</span>
-        <span class="k">return</span> <span class="n">k</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">root</span><span class="p">)</span> 
-    
-    <span class="k">def</span> <span class="nf">right_side</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-        <span class="n">root</span> <span class="o">=</span> <span class="n">center</span> <span class="o">+</span> <span class="n">half_width</span>
-        <span class="k">return</span> <span class="o">-</span><span class="n">k</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">root</span><span class="p">)</span>
-    
-    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">left_side</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">center</span><span class="p">)</span> <span class="o">+</span> <span class="n">right_side</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="n">center</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">y</span> <span class="o">*</span> <span class="p">(</span><span class="n">y</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span>
-
-
-<span class="n">n</span> <span class="o">=</span> <span class="mi">128</span>
-<span class="n">signal</span> <span class="o">=</span> <span class="n">triangle</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">signal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">folder</span> <span class="o">/</span> <span class="s2">&quot;triangle.npy&quot;</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">size</span>
 <span class="n">noisy_signal</span> <span class="o">=</span> <span class="n">signal</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
 <span class="n">widgets</span><span class="o">.</span><span class="n">interact</span><span class="p">(</span>
     <span class="n">plot_fourier_filter</span><span class="p">,</span>
+    <span class="n">signal</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">fixed</span><span class="p">(</span><span class="n">signal</span><span class="p">),</span>
+    <span class="n">noisy_signal</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">fixed</span><span class="p">(</span><span class="n">noisy_signal</span><span class="p">),</span>
     <span class="n">treshold_frequency</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span class="p">)</span>
 </pre></div>
@@ -1514,8 +1667,268 @@ T =  \dfrac{\text{number of years}}{\omega}.
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "ea4f295fb7af4749b929cb1f945dc2b7", "version_major": 2, "version_minor": 0}
-</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.plot_fourier_filter(treshold_frequency)&gt;
+{"model_id": "780c6d46bb754c1bba0b40d984b5bb99", "version_major": 2, "version_minor": 0}
+</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.plot_fourier_filter(signal, noisy_signal, treshold_frequency)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id11">
+<h2>Свертка и взаимокорреляция<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h2>
+<section id="id12">
+<h3>Скользящее среднее<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h3>
+<p>Идея скользящего среднего очень хорошо иллюстрируется в названии операции: окно фиксированной ширины скользит вдоль по массиву и усредняет все попавшие в него значения.</p>
+<figure class="align-default">
+<img alt="../../_images/moving_average.gif" src="../../_images/moving_average.gif" />
+</figure>
+<p>Пусть <span class="math notranslate nohighlight">\(x[i], \, i=0,\ldots,n-1\)</span> — исходный сигнал, тогда результат скользящего среднего <span class="math notranslate nohighlight">\(y\)</span> с окном шириной <span class="math notranslate nohighlight">\(m\)</span> определяется выражением</p>
+<div class="math notranslate nohighlight">
+\[
+y[j] = \dfrac{1}{m}\sum_{i=0}^{m - 1} x[i + j], \quad j=0,\ldots,n-m.
+\]</div>
+<p>Анимация ниже иллюстрирует эту формулу при длине исходного сигнала <span class="math notranslate nohighlight">\(n=5\)</span> и ширине окна скользящего окна <span class="math notranslate nohighlight">\(m=3\)</span>.</p>
+<figure class="align-default">
+<img alt="../../_images/moving_average_discrete.gif" src="../../_images/moving_average_discrete.gif" />
+</figure>
+<p>Представим теперь операцию усреднения внутри окна в виде операции взвешенной суммы с коэффициентами <span class="math notranslate nohighlight">\(\dfrac{1}{m}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+y[j] = \sum_{i=0}^{m - 1} x[i + j] \cdot \dfrac{1}{m}, \quad j=0,\ldots,n-m.
+\]</div>
+<figure class="align-default">
+<img alt="../../_images/moving_average_convolve.gif" src="../../_images/moving_average_convolve.gif" />
+</figure>
+</section>
+<section id="vs">
+<h3>Свертка <code class="docutils literal notranslate"><span class="pre">vs</span></code> взаимокорреляция<a class="headerlink" href="#vs" title="Permalink to this headline">#</a></h3>
+<section id="id13">
+<h4>Свёртка<a class="headerlink" href="#id13" title="Permalink to this headline">#</a></h4>
+<p>Такую операцию можно рассмотреть в качестве частного случая <strong>свертки</strong> (англ. <code class="docutils literal notranslate"><span class="pre">convolution</span></code>), которая получится, если значения <span class="math notranslate nohighlight">\(\dfrac{1}{m}\)</span> заменить на набор произвольных коэффициентов <span class="math notranslate nohighlight">\(\omega = \{\omega[i], \, i=1,\ldots,m-1\}\)</span> следующим образом</p>
+<div class="math notranslate nohighlight">
+\[
+y[j] = \sum_{i=0}^{m - 1} x[i + j]\cdot\omega[m - i - 1], \quad j=0,\ldots,n-m.
+\]</div>
+<figure class="align-default">
+<img alt="../../_images/convolution.gif" src="../../_images/convolution.gif" />
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Обратите внимание, что в скользящем окне коэффициенты <span class="math notranslate nohighlight">\(\omega[i], \, i=1,\ldots,m-1\)</span> заполнены в обратном порядке.</p>
+</div>
+<p>Набор коэффициентов <span class="math notranslate nohighlight">\(\omega[i], \, i=1,\ldots,m-1\)</span> называют <strong>ядром</strong> (англ. <code class="docutils literal notranslate"><span class="pre">kernel</span></code>). Пусть <span class="math notranslate nohighlight">\(x\)</span> — исходный сигнал, <span class="math notranslate nohighlight">\(\omega\)</span> — ядро свертки, тогда результат действия <span class="math notranslate nohighlight">\(y\)</span> свертки с ядром <span class="math notranslate nohighlight">\(\omega\)</span> на сигнал <span class="math notranslate nohighlight">\(x\)</span> будем обозначать <span class="math notranslate nohighlight">\(y = x\circledast \omega\)</span>.</p>
+</section>
+<section id="id14">
+<h4>Взаимокорреляция<a class="headerlink" href="#id14" title="Permalink to this headline">#</a></h4>
+<p>Если же в скользящем окне заполнить коэффициенты <span class="math notranslate nohighlight">\(\omega[i], \, i=1,\ldots,m-1\)</span> в прямом порядке, то получится операция, которую называют <strong>взаимокорреляцией</strong> (англ. <code class="docutils literal notranslate"><span class="pre">convolution</span></code>). В данном случае речь обычно идёт о взаимной корреляции двух сигналов, хотя в определенных можно встретить термин “ядро” и по отношению к <span class="math notranslate nohighlight">\(\omega\)</span> тоже.</p>
+<div class="math notranslate nohighlight">
+\[
+y[j] = \sum_{i=0}^{m - 1} x[i + j]\cdot\omega[i], \quad j=0,\ldots,n-m.
+\]</div>
+<figure class="align-default">
+<img alt="../../_images/cross_correlation.gif" src="../../_images/cross_correlation.gif" />
+</figure>
+</section>
+</section>
+<section id="scipy-signal">
+<h3>Реализация в <code class="docutils literal notranslate"><span class="pre">scipy.signal</span></code><a class="headerlink" href="#scipy-signal" title="Permalink to this headline">#</a></h3>
+<p>Вычислить взаимокорреляцию двух сигналов можно методом <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.correlate.html#scipy.signal.correlate">signal.correlate</a>, а свёртку методом <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.convolve.html#scipy.signal.convolve">signal.convolve</a>. Оба метода в качестве первых двух параметров принимают два массива, которые представляют два сигнала или сигнал и ядро свёртки.</p>
+<p>Однако у обоих методов есть опциональный параметр <code class="docutils literal notranslate"><span class="pre">mode</span></code>, который отвечает за итоговый размер получившегося массива. Он может принимать один из трех возможных значений: <code class="docutils literal notranslate"><span class="pre">same</span></code>, <code class="docutils literal notranslate"><span class="pre">valid</span></code> или <code class="docutils literal notranslate"><span class="pre">full</span></code>.</p>
+<section id="valid">
+<h4>Режим <code class="docutils literal notranslate"><span class="pre">valid</span></code><a class="headerlink" href="#valid" title="Permalink to this headline">#</a></h4>
+<p>В режиме <code class="docutils literal notranslate"><span class="pre">valid</span></code> окно с ядром скользит только в тех пределах, где ядро полностью накладывается на исходных сигнал.</p>
+<figure class="align-default">
+<img alt="../../_images/valid.gif" src="../../_images/valid.gif" />
+</figure>
+<p>Итоговая длина сигнала получается <span class="math notranslate nohighlight">\(n - m + 1\)</span>, где <span class="math notranslate nohighlight">\(n\)</span> — длина исходного сигнала, а <span class="math notranslate nohighlight">\(m\)</span> — размер ядра.</p>
+</section>
+<section id="same">
+<h4>Режим <code class="docutils literal notranslate"><span class="pre">same</span></code><a class="headerlink" href="#same" title="Permalink to this headline">#</a></h4>
+<p>В режиме <code class="docutils literal notranslate"><span class="pre">same</span></code> исходный сигнал <span class="math notranslate nohighlight">\(x\)</span> дополняется необходимым количеством нулей с правой стороны (это количество равно <span class="math notranslate nohighlight">\(m-1\)</span>, если <span class="math notranslate nohighlight">\(m\)</span> — размер ядра), чтобы итоговый сигнал имел такую же длину.</p>
+<figure class="align-default">
+<img alt="../../_images/same.gif" src="../../_images/same.gif" />
+</figure>
+</section>
+<section id="full">
+<h4>Режим <code class="docutils literal notranslate"><span class="pre">full</span></code><a class="headerlink" href="#full" title="Permalink to this headline">#</a></h4>
+<p>В режиме <code class="docutils literal notranslate"><span class="pre">full</span></code> окно с ядром скользит в пределах, где ядро накладывается на исходный сигнал хотя бы одним элементом. Для этого приходится дополнять исходный массив с обеих сторон <span class="math notranslate nohighlight">\(m - 1\)</span> нулями.</p>
+<figure class="align-default">
+<img alt="../../_images/full.gif" src="../../_images/full.gif" />
+</figure>
+<p>Итоговая длина сигнала получается <span class="math notranslate nohighlight">\(n + m - 1\)</span>, где <span class="math notranslate nohighlight">\(n\)</span> — длина исходного сигнала, а <span class="math notranslate nohighlight">\(m\)</span> — размер ядра.</p>
+</section>
+</section>
+<section id="id15">
+<h3>Взаимная корреляция для локализации шаблона<a class="headerlink" href="#id15" title="Permalink to this headline">#</a></h3>
+<p>Операция вычисления взаимной корреляции сигнала <span class="math notranslate nohighlight">\(x\)</span> с шаблонным сигналом <span class="math notranslate nohighlight">\(y\)</span> может быть использована для локализации шаблона внутри этой последовательности, т.к. значение корреляции совпадает с мерой схожести <a class="reference external" href="https://en.wikipedia.org/wiki/Cosine_similarity">cosine similarity</a> для векторов <span class="math notranslate nohighlight">\(A\)</span> и <span class="math notranslate nohighlight">\(B\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+\cos\theta = \dfrac{A \cdot B}{\|A\|\|B\|}\in{[-1, 1]}. 
+\]</div>
+<p>Массив взаимной корреляции совпадает с числителем этой дроби для всех положений шаблона <span class="math notranslate nohighlight">\(y\)</span> внутри сигнала <span class="math notranslate nohighlight">\(x\)</span>, если принять, что <span class="math notranslate nohighlight">\(x=A\)</span> и <span class="math notranslate nohighlight">\(y=B\)</span>. Чтобы вычислить меру схожести для каждого из положений шаблона внутри сигнала, остаётся только поделить массив взаимной корреляции на соответствующие нормы. Норма массива <span class="math notranslate nohighlight">\(y\)</span> постоянна, а вот норма части массива <span class="math notranslate nohighlight">\(x\)</span>, попавшей под шаблон меняется, и для её вычисления требуется произвести оконную операцию.</p>
+<p>Внизу приводится функция <code class="docutils literal notranslate"><span class="pre">rolling_cosine_similarity</span></code>, вычисляющая косинусную меру схожести описанным выше способом, и функция <code class="docutils literal notranslate"><span class="pre">locate_template</span></code>, визуализирующая способ локализации шаблона на основе такого подхода.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">correlate</span>
+<span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">norm</span>
+<span class="kn">from</span> <span class="nn">numpy.lib.stride_tricks</span> <span class="kn">import</span> <span class="n">sliding_window_view</span>
+
+
+<span class="k">def</span> <span class="nf">rolling_cosine_similarity</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">template</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">):</span>
+    <span class="n">template_norm</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">template</span><span class="p">)</span>
+    <span class="n">signal_norm</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">sliding_window_view</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">template</span><span class="o">.</span><span class="n">size</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">correlate</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">template</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;valid&quot;</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">signal_norm</span> <span class="o">*</span> <span class="n">template_norm</span> <span class="o">+</span> <span class="n">eps</span><span class="p">)</span>
+     
+     
+<span class="k">def</span> <span class="nf">locate_template</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">template</span><span class="p">,</span> <span class="n">shift</span><span class="p">):</span>
+    <span class="n">template_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">size</span><span class="p">)</span> <span class="o">+</span> <span class="n">shift</span>
+    <span class="n">cross_correlation</span> <span class="o">=</span> <span class="n">rolling_cosine_similarity</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">template</span><span class="p">)</span>
+    <span class="n">correlation</span> <span class="o">=</span> <span class="n">cross_correlation</span><span class="p">[</span><span class="n">shift</span><span class="p">]</span>
+
+    <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;signal&quot;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">template_x</span><span class="p">,</span> <span class="n">template</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;template&quot;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$k$&quot;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;$y$&quot;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">28</span><span class="p">))</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    
+    <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cross_correlation</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;lag&quot;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;correlation&quot;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">28</span><span class="p">))</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">shift</span><span class="si">=}</span><span class="s2">, </span><span class="si">{</span><span class="n">correlation</span><span class="si">=:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">shift</span><span class="p">,</span> <span class="n">correlation</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">folder</span> <span class="o">/</span> <span class="s2">&quot;template.npy&quot;</span><span class="p">)</span>
+<span class="n">signal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">folder</span> <span class="o">/</span> <span class="s2">&quot;triangle_step.npy&quot;</span><span class="p">)</span>
+<span class="n">widgets</span><span class="o">.</span><span class="n">interact</span><span class="p">(</span>
+    <span class="n">locate_template</span><span class="p">,</span>
+    <span class="n">signal</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">fixed</span><span class="p">(</span><span class="n">signal</span><span class="p">),</span>
+    <span class="n">template</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">fixed</span><span class="p">(</span><span class="n">template</span><span class="p">),</span>
+    <span class="n">shift</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">signal</span><span class="o">.</span><span class="n">size</span> <span class="o">-</span> <span class="n">template</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "89e1050871d247d69e435859a655e513", "version_major": 2, "version_minor": 0}
+</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.locate_template(signal, template, shift)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id16">
+<h3>Теорема о свёртке<a class="headerlink" href="#id16" title="Permalink to this headline">#</a></h3>
+<p>Несмотря на то, что взаимная корреляция может показаться более естественной операцией, математики больше любят именно свёртку. Основная причина этому — свойства свёртки, например, теорема о свёртке.</p>
+<p><strong>Теорема о свёртке.</strong> Пусть <span class="math notranslate nohighlight">\(\mathcal{F}(x)\)</span> и <span class="math notranslate nohighlight">\(\mathcal{F}(y)\)</span> — Фурье образы сигналов одинаковой длины <span class="math notranslate nohighlight">\(x\)</span> и <span class="math notranslate nohighlight">\(y\)</span>. Тогда справедливо равенство</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{F}(x \circledast y) = \mathcal{F}(x) \cdot \mathcal{F}(y),
+\]</div>
+<p>где операция “<span class="math notranslate nohighlight">\(\cdot\)</span>” — операция поэлементного умножения массивов.</p>
+<p>Продемонстрируем это свойство на примере вычисления скользящего среднего. Скользящее среднее шириной <span class="math notranslate nohighlight">\(m\)</span> можно представить в качестве свёртки с ядром <span class="math notranslate nohighlight">\(\omega_i = \dfrac{1}{m}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">signal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">folder</span> <span class="o">/</span> <span class="s2">&quot;triangle_step.npy&quot;</span><span class="p">)</span>
+<span class="n">n</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="mi">30</span>
+<span class="nb">filter</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="nb">filter</span><span class="p">[:</span><span class="n">m</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">m</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Сигнал&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">filter</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Ядро скользящего среднего&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$k$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;$y$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x25c778a2470&gt;
+</pre></div>
+</div>
+<img alt="../../_images/signal_23_1.png" src="../../_images/signal_23_1.png" />
+</div>
+</div>
+<p>Теперь вычислим результат свёртки с этим ядром в явном виде и опираясь на теорему о свёртке, а затем сравним результаты.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">convolve</span>
+
+<span class="n">fourier_signal</span> <span class="o">=</span> <span class="n">rfft</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span>
+<span class="n">fourier_filter</span> <span class="o">=</span> <span class="n">rfft</span><span class="p">(</span><span class="nb">filter</span><span class="p">)</span>
+<span class="n">convolution_theorem</span> <span class="o">=</span> <span class="n">irfft</span><span class="p">(</span><span class="n">fourier_signal</span> <span class="o">*</span> <span class="n">fourier_filter</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">signal</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+
+<span class="n">straightforward</span> <span class="o">=</span> <span class="n">convolve</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="nb">filter</span><span class="p">,</span> <span class="s2">&quot;full&quot;</span><span class="p">)[:</span><span class="n">signal</span><span class="o">.</span><span class="n">size</span><span class="p">]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">straightforward</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Свёртка&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">convolution_theorem</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Теорема о свёртке&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$k$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;$y$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x25c7ccff910&gt;
+</pre></div>
+</div>
+<img alt="../../_images/signal_25_1.png" src="../../_images/signal_25_1.png" />
+</div>
+</div>
+<p>Как видим результаты совпадают. Это позволяет быстро вычислять свертку для длинных сигналов: библиотека <code class="docutils literal notranslate"><span class="pre">scipy</span></code> тоже использует такой трюк.
+Кроме того это позволяет анализировать, что делают те или иные фильтры.</p>
+<p>Например, ячейка ниже демонстрирует, что скользящее среднее можно считать (неидеальным) фильтром нижних частот.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.fft</span> <span class="kn">import</span> <span class="n">rfft</span><span class="p">,</span> <span class="n">irfft</span>
+
+<span class="k">def</span> <span class="nf">visualize_step_filter</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">m</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="nb">filter</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+    <span class="nb">filter</span><span class="p">[:</span><span class="n">m</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">m</span>
+
+    <span class="n">fourier_signal</span> <span class="o">=</span> <span class="n">rfft</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span>
+    <span class="n">fourier_filter</span> <span class="o">=</span> <span class="n">rfft</span><span class="p">(</span><span class="nb">filter</span><span class="p">)</span>
+    <span class="n">filtered_signal</span> <span class="o">=</span> <span class="n">irfft</span><span class="p">(</span><span class="n">fourier_signal</span> <span class="o">*</span> <span class="n">fourier_filter</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">signal</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">filtered_signal</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Сглаженный сигнал&quot;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$k$&quot;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;$y$&quot;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+    <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">fourier_filter</span><span class="p">))</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;frequency&quot;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;magnitude&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">signal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">folder</span> <span class="o">/</span> <span class="s2">&quot;triangle_step.npy&quot;</span><span class="p">)</span>
+<span class="n">widgets</span><span class="o">.</span><span class="n">interact</span><span class="p">(</span>
+    <span class="n">visualize_step_filter</span><span class="p">,</span>
+    <span class="n">signal</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">fixed</span><span class="p">(</span><span class="n">signal</span><span class="p">),</span>
+    <span class="n">m</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">signal</span><span class="o">.</span><span class="n">size</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "f451fbc35c2141e7a920770b5213cc7a", "version_major": 2, "version_minor": 0}
+</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.visualize_step_filter(signal, m: int)&gt;
 </pre></div>
 </div>
 </div>
@@ -1558,10 +1971,10 @@ T =  \dfrac{\text{number of years}}{\omega}.
             <p class="prev-next-title">Решение нелинейных уравнений</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="cannonball.html" title="next page">
+    <a class='right-next' id="next-link" href="../python/custom_classes.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Пример</p>
+        <p class="prev-next-title">Пользовательские классы</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
