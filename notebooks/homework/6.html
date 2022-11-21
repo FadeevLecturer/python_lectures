@@ -58,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="SciPy" href="../scipy/scipy.html" />
-    <link rel="prev" title="Генераторы" href="../python/generators.html" />
+    <link rel="prev" title="Декораторы" href="../python/decorators.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -460,13 +460,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../python/decorators.html">
-   Декораторы
+  <a class="reference internal" href="../python/generators.html">
+   Генераторы
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../python/generators.html">
-   Генераторы
+  <a class="reference internal" href="../python/decorators.html">
+   Декораторы
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -941,7 +941,7 @@ title="Print to PDF"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
-   2. Сумма элементов
+   2. Сумма нечетных элементов
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -971,7 +971,7 @@ title="Print to PDF"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id8">
-   8. Сумма по столбцам*
+   8. Сумма по столбцам
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -985,13 +985,22 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#l-p">
+   11.
+   <span class="math notranslate nohighlight">
+    \(l_p\)
+   </span>
+   норма
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id11">
-   11. Счет вверх и вниз
+   12. Счет вверх и вниз
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id12">
-   12. Итератор по соседним элементам
+   13. Итератор по соседним элементам
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -1047,7 +1056,7 @@ title="Print to PDF"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
-   2. Сумма элементов
+   2. Сумма нечетных элементов
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -1077,7 +1086,7 @@ title="Print to PDF"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id8">
-   8. Сумма по столбцам*
+   8. Сумма по столбцам
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -1091,13 +1100,22 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#l-p">
+   11.
+   <span class="math notranslate nohighlight">
+    \(l_p\)
+   </span>
+   норма
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id11">
-   11. Счет вверх и вниз
+   12. Счет вверх и вниз
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id12">
-   12. Итератор по соседним элементам
+   13. Итератор по соседним элементам
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -1139,7 +1157,11 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="o6">
 <h1>Домашнее задание №6<a class="headerlink" href="#o6" title="Permalink to this headline">#</a></h1>
-<p>В рамках домашнего задания №6 от вас требуется решить 12 задач</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Данное домашнее задание нацелено на закрепление темы списковых включений, генераторов и декораторов. Убедитесь, что в каждой задаче вы используете хотя бы один из перечисленных элементов.</p>
+</div>
+<p>В рамках домашнего задания №6 от вас требуется решить 13 задач</p>
 <ol class="simple">
 <li><p>Чет, нечет;</p></li>
 <li><p>Сумма элементов;</p></li>
@@ -1151,43 +1173,46 @@ title="Print to PDF"
 <li><p>Сумма по столбцам*;</p></li>
 <li><p>Диагонали матрицы;</p></li>
 <li><p>Скалярное произведение;</p></li>
+<li><p><span class="math notranslate nohighlight">\(l_p\)</span> норма;</p></li>
 <li><p>Счет вверх и вниз;</p></li>
 <li><p>Итератор по соседним элементам.</p></li>
 </ol>
 <p>На усмотрение студента предлагается решить ещё и задачи из необязательной части.</p>
 <section id="id1">
 <h2>1. Чет, нечет<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
-<p>Пусть дан список <code class="docutils literal notranslate"><span class="pre">L</span></code> положительных целых чисел. С помощью спискового включения сгенерируйте другой список, где каждое четное заменится на строку <code class="docutils literal notranslate"><span class="pre">&quot;even&quot;</span></code>, а не четное на строку <code class="docutils literal notranslate"><span class="pre">&quot;odd&quot;</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">odd_even</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
+<p>Пусть дан список <code class="docutils literal notranslate"><span class="pre">v</span></code> положительных целых чисел. С помощью спискового включения сгенерируйте другой список, где каждое четное заменится на строку <code class="docutils literal notranslate"><span class="pre">&quot;even&quot;</span></code>, а нечетное на строку <code class="docutils literal notranslate"><span class="pre">&quot;odd&quot;</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">odd_even</span><span class="p">(</span><span class="n">v</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
     <span class="k">return</span> <span class="p">[</span>
         <span class="c1"># ваш код</span>
     <span class="p">]</span>
 
 <span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-<span class="n">odd_even</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span> <span class="c1"># [&quot;odd&quot;, &quot;odd&quot;, &quot;even&quot;]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">odd_even</span><span class="p">(</span><span class="n">numbers</span><span class="p">))</span> <span class="c1"># [&quot;odd&quot;, &quot;odd&quot;, &quot;even&quot;]</span>
 </pre></div>
 </div>
-<p>Сделайте это без применения функций (в том числе и лямбда) внутри спискового включения.</p>
+<p>Сделайте это без применения функций (в том числе и анонимных) внутри спискового включения.</p>
 </section>
 <section id="id2">
-<h2>2. Сумма элементов<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
-<p>С помощью списковых включений вычислите сумму всех нечетных элементов списка.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sum_odds</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
+<h2>2. Сумма нечетных элементов<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<p>С помощью списковых включений вычислите сумму всех нечетных (по значению) элементов списка.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sum_odds</span><span class="p">(</span><span class="n">v</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
     <span class="k">pass</span>
 
-<span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span> 
-<span class="n">sum_odds</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="c1"># 4</span>
+<span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">sum_odds</span><span class="p">(</span><span class="n">L</span><span class="p">))</span> <span class="c1"># 15</span>
 </pre></div>
 </div>
 </section>
 <section id="id3">
 <h2>3. Числа с цифрой 6<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
-<p>Пусть дан список целых чисел <code class="docutils literal notranslate"><span class="pre">L</span></code>. С помощью спискового включения оставьте только те числа, в десятичной записи которых есть цифра 6.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">contains_digit_six</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
-    <span class="k">pass</span>
+<p>Пусть дан список целых чисел <code class="docutils literal notranslate"><span class="pre">v</span></code>. С помощью спискового включения оставьте только те числа, в десятичной записи которых есть цифра 6.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">contains_digit_six</span><span class="p">(</span><span class="n">v</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+    <span class="k">return</span> <span class="p">[</span>
+        <span class="c1"># ваш код</span>
+    <span class="p">]</span>
 
-<span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">]</span>
-<span class="n">contains_digit_six</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="c1"># [6, 16, 61, 66, -6]</span>
+<span class="n">v</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">contains_digit_six</span><span class="p">(</span><span class="n">v</span><span class="p">))</span> <span class="c1"># [6, 16, 61, 66, -6]</span>
 </pre></div>
 </div>
 </section>
@@ -1204,94 +1229,110 @@ title="Print to PDF"
 </section>
 <section id="id5">
 <h2>5. Попарные суммы элементов двух списков<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
-<p>Пусть есть два списка чисел <span class="math notranslate nohighlight">\(L_1\)</span> и <span class="math notranslate nohighlight">\(L_2\)</span>. Верните сумму <span class="math notranslate nohighlight">\(x_1 + x_2\)</span> для каждой возможной пары элементов <span class="math notranslate nohighlight">\((x_1, x_2)\)</span>, где <span class="math notranslate nohighlight">\(x_1\in L_1\)</span>,  а <span class="math notranslate nohighlight">\(x_2\in L_2\)</span>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">outer_sum</span><span class="p">(</span><span class="n">L1</span><span class="p">,</span> <span class="n">L2</span><span class="p">):</span>
+<p>Пусть есть два списка чисел <span class="math notranslate nohighlight">\(u\)</span> и <span class="math notranslate nohighlight">\(v\)</span>. Верните сумму <span class="math notranslate nohighlight">\(x_1 + x_2\)</span> для каждой возможной пары элементов <span class="math notranslate nohighlight">\((x_1, x_2)\)</span>, где <span class="math notranslate nohighlight">\(x_1\in u\)</span>,  а <span class="math notranslate nohighlight">\(x_2\in v\)</span>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">outer_sum</span><span class="p">(</span><span class="n">u</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span> <span class="n">v</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
     <span class="k">return</span> <span class="p">[</span>
         <span class="c1"># ваш код</span>
     <span class="p">]</span>
 
-<span class="n">L1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-<span class="n">L2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">]</span>
-<span class="n">outer_sum</span><span class="p">(</span><span class="n">L1</span><span class="p">,</span> <span class="n">L2</span><span class="p">)</span> <span class="c1"># [100, 200, 300, 101, 201, 301, 102, 202, 302]</span>
+<span class="n">u</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">v</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">outer_sum</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span> <span class="c1"># [100, 200, 300, 101, 201, 301, 102, 202, 302]</span>
 </pre></div>
 </div>
 </section>
 <section id="id6">
 <h2>6. Попарные суммы элементов одного списка<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h2>
-<p>Пусть дан список <span class="math notranslate nohighlight">\(L\)</span>. Найдите сумму <span class="math notranslate nohighlight">\(x_1 + x_2\)</span> для каждой возможной пары элементов <span class="math notranslate nohighlight">\((x_1, x_2)\)</span> из списка <span class="math notranslate nohighlight">\(L\)</span>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">choice2_sum</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
+<p>Пусть дан список чисел <span class="math notranslate nohighlight">\(v\)</span>. Найдите <span class="math notranslate nohighlight">\(\{x + y| x, y \in v\}\)</span>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">choice2_sum</span><span class="p">(</span><span class="n">v</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
     <span class="k">return</span> <span class="p">[</span>
         <span class="c1"># ваш код</span>
     <span class="p">]</span>
 
 <span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">42</span><span class="p">]</span>
-<span class="n">choice2_sum</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="c1"># [2, 8, 43, 8, 14, 49, 43, 49, 84]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">choice2_sum</span><span class="p">(</span><span class="n">L</span><span class="p">))</span> <span class="c1"># [2, 8, 43, 8, 14, 49, 43, 49, 84]</span>
 </pre></div>
 </div>
 </section>
 <section id="id7">
 <h2>7. Сумма по строкам<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h2>
-<p>Пусть дана прямоугольная матрица чисел <code class="docutils literal notranslate"><span class="pre">M</span></code> в виде списка списков. Верните список сумм каждой из строк этой матрицы (эквивалент <code class="docutils literal notranslate"><span class="pre">np.sum(M,</span> <span class="pre">axis=1)</span></code>).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">row_wise_sum</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
+<p>Пусть дана прямоугольная матрица чисел <code class="docutils literal notranslate"><span class="pre">matrix</span></code> в виде списка списков. Верните список сумм каждой из строк этой матрицы (эквивалент <code class="docutils literal notranslate"><span class="pre">np.sum(matrix,</span> <span class="pre">axis=1)</span></code>).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rowwise_sum</span><span class="p">(</span><span class="n">matrix</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
     <span class="k">return</span> <span class="p">[</span>
         <span class="c1"># ваш код</span>
     <span class="p">]</span>
 
 <span class="n">matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
-<span class="n">row_wise_sum</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span> <span class="c1"># [3, 7]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rowwise_sum</span><span class="p">(</span><span class="n">matrix</span><span class="p">))</span> <span class="c1"># [3, 7]</span>
 </pre></div>
 </div>
 </section>
 <section id="id8">
-<h2>8. Сумма по столбцам*<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h2>
-<p>Предыдущая задача, но сумма по столбцам.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">column_wise_sum</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
+<h2>8. Сумма по столбцам<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h2>
+<p>Пусть дана прямоугольная матрица чисел <code class="docutils literal notranslate"><span class="pre">matrix</span></code> в виде списка списков. Верните список сумм каждой из строк этой матрицы (эквивалент <code class="docutils literal notranslate"><span class="pre">np.sum(matrix,</span> <span class="pre">axis=0)</span></code>).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">columnwise_sum</span><span class="p">(</span><span class="n">matrix</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
     <span class="k">return</span> <span class="p">[</span>
         <span class="c1"># ваш код</span>
     <span class="p">]</span>
 
 <span class="n">matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
-<span class="n">column_wise_sum</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span> <span class="c1"># [4, 6]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">columnwise_sum</span><span class="p">(</span><span class="n">matrix</span><span class="p">))</span> <span class="c1"># [4, 6]</span>
 </pre></div>
 </div>
 </section>
 <section id="id9">
 <h2>9. Диагонали матрицы<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h2>
-<p>Пусть дана квадратная матрица чисел <code class="docutils literal notranslate"><span class="pre">M</span></code> в виде списка списков. Напишите два списковых включения, первое из которых возвращает главную диагональ матрицы, а второе побочную.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">major_diagonal</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
+<p>Пусть дана квадратная матрица чисел <code class="docutils literal notranslate"><span class="pre">matrix</span></code> в виде списка списков. Напишите два списковых включения, первое из которых возвращает главную диагональ матрицы, а второе побочную.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">major_diagonal</span><span class="p">(</span><span class="n">matrix</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
     <span class="k">return</span> <span class="p">[</span> 
         <span class="c1"># ваш код </span>
     <span class="p">]</span>
 
-<span class="k">def</span> <span class="nf">minor_diagonal</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">minor_diagonal</span><span class="p">(</span><span class="n">matrix</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
     <span class="k">return</span> <span class="p">[</span>
         <span class="c1"># ваш код</span>
     <span class="p">]</span>
 
 
 <span class="n">matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
-<span class="n">major_diagonal</span><span class="p">(</span><span class="n">M</span><span class="p">)</span> <span class="c1"># [1, 4]</span>
-<span class="n">minor_diagonal</span><span class="p">(</span><span class="n">M</span><span class="p">)</span> <span class="c1"># [2, 3]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">major_diagonal</span><span class="p">(</span><span class="n">matrix</span><span class="p">))</span> <span class="c1"># [1, 4]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">minor_diagonal</span><span class="p">(</span><span class="n">matrix</span><span class="p">))</span> <span class="c1"># [2, 3]</span>
 </pre></div>
 </div>
 </section>
 <section id="id10">
 <h2>10. Скалярное произведение<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h2>
-<p>Пусть есть два списка чисел <span class="math notranslate nohighlight">\(L_1\)</span> и <span class="math notranslate nohighlight">\(L_2\)</span>. Используя списковое включение, найдите их скалярное произведение.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dot_product</span><span class="p">(</span><span class="n">L1</span><span class="p">,</span> <span class="n">L2</span><span class="p">):</span>
+<p>Пусть даны два списка чисел <span class="math notranslate nohighlight">\(u\)</span> и <span class="math notranslate nohighlight">\(v\)</span>. Используя списковое включение, найдите их скалярное произведение.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dot_product</span><span class="p">(</span><span class="n">u</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span> <span class="n">v</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
     <span class="k">pass</span>
 
-<span class="n">L1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-<span class="n">L2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">u</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">v</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 
-<span class="n">dot_product</span><span class="p">(</span><span class="n">L1</span><span class="p">,</span> <span class="n">L2</span><span class="p">)</span> <span class="c1"># 11</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dot_product</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span> <span class="c1"># 11</span>
+</pre></div>
+</div>
+</section>
+<section id="l-p">
+<h2>11. <span class="math notranslate nohighlight">\(l_p\)</span> норма<a class="headerlink" href="#l-p" title="Permalink to this headline">#</a></h2>
+<p>В пространстве <span class="math notranslate nohighlight">\(l_p\)</span> (<span class="math notranslate nohighlight">\(p\geq1\)</span>) норма вектора <span class="math notranslate nohighlight">\(\vec{v}=\bigl(v_1, \ldots, v_n \bigr)\)</span> определяется формулой</p>
+<div class="math notranslate nohighlight">
+\[
+\|\vec{v}\| = \left(\sum_{i=1}^n |v_i|^p\right)^{\tfrac{1}{p}}.
+\]</div>
+<p>Определите функцию <code class="docutils literal notranslate"><span class="pre">norm</span></code> вычисляющую <span class="math notranslate nohighlight">\(l_p\)</span> норму.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">norm</span><span class="p">(</span><span class="n">v</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span> <span class="n">p</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+<span class="n">v</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> <span class="c1"># 5.0</span>
 </pre></div>
 </div>
 </section>
 <section id="id11">
-<h2>11. Счет вверх и вниз<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h2>
+<h2>12. Счет вверх и вниз<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h2>
 <p>Напишите генератор, который считает от 0 до <code class="docutils literal notranslate"><span class="pre">n</span></code>, а затем в обратном порядке.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">UpAndDown</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">UpAndDown</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
     <span class="c1"># ваш код здесь</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">UpAndDown</span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span> <span class="c1"># [0, 1, 2, 3, 2, 1, 0]</span>
@@ -1299,18 +1340,18 @@ title="Print to PDF"
 </div>
 </section>
 <section id="id12">
-<h2>12. Итератор по соседним элементам<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h2>
-<p>Реализуйте итератор/генератор, который позволит итерировать сразу парами соседних элементов, т.е. для списка <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4]</span></code>:</p>
+<h2>13. Итератор по соседним элементам<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h2>
+<p>Реализуйте итератор/генератор, который позволит итерировать сразу парами соседних элементов, т.е. для списка <code class="docutils literal notranslate"><span class="pre">[A,</span> <span class="pre">B,</span> <span class="pre">C,</span> <span class="pre">D]</span></code>:</p>
 <ol class="simple">
-<li><p>первая итерация <code class="docutils literal notranslate"><span class="pre">1</span></code> и <code class="docutils literal notranslate"><span class="pre">2</span></code>;</p></li>
-<li><p>вторая итерация <code class="docutils literal notranslate"><span class="pre">2</span></code> и <code class="docutils literal notranslate"><span class="pre">3</span></code>;</p></li>
-<li><p>третья и последняя итерация <code class="docutils literal notranslate"><span class="pre">3</span></code> и <code class="docutils literal notranslate"><span class="pre">4</span></code>.</p></li>
+<li><p>первая итерация <code class="docutils literal notranslate"><span class="pre">A</span></code> и <code class="docutils literal notranslate"><span class="pre">B</span></code> — первый и второй элементы списка;</p></li>
+<li><p>вторая итерация <code class="docutils literal notranslate"><span class="pre">B</span></code> и <code class="docutils literal notranslate"><span class="pre">C</span></code> — второй и третий элементы списка;</p></li>
+<li><p>третья и последняя итерация <code class="docutils literal notranslate"><span class="pre">C</span></code> и <code class="docutils literal notranslate"><span class="pre">D</span></code> — третий и четвертый элементы списка.</p></li>
 </ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">prev_next</span><span class="p">(</span><span class="n">iterable</span><span class="p">):</span>
     <span class="c1"># ваш код здесь</span>
 
-<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">prev_next</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span> <span class="c1"># [(1, 2), (2, 3), (3, 4)]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">prev_next</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span> <span class="c1"># [(&quot;A&quot;, &quot;B&quot;), (&quot;B&quot;, &quot;C&quot;), (&quot;C&quot;, &quot;D&quot;)]</span>
 </pre></div>
 </div>
 </section>
@@ -1435,11 +1476,11 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../python/generators.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../python/decorators.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Генераторы</p>
+            <p class="prev-next-title">Декораторы</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="../scipy/scipy.html" title="next page">

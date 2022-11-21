@@ -460,13 +460,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="decorators.html">
-   Декораторы
+  <a class="reference internal" href="generators.html">
+   Генераторы
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="generators.html">
-   Генераторы
+  <a class="reference internal" href="decorators.html">
+   Декораторы
   </a>
  </li>
  <li class="toctree-l1">
@@ -1059,7 +1059,7 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="listcomp">
 <span id="id1"></span><h1>Основы списковых включений<a class="headerlink" href="#listcomp" title="Permalink to this headline">#</a></h1>
-<p>Для создания списков есть очень мощный инструмент <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions">list comprehensions</a>, который на русском иногда называют списковыми включениями.</p>
+<p>Для создания списков есть очень мощный выразительный синтаксис <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions">list comprehensions</a>, который на русском иногда называют списковыми включениями.</p>
 <section id="id2">
 <h2>Создание списка копий и копирование списков<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
 <p>В самом простом своём варианте списковое включение позволяет копировать содержимое итерируемого объекта в новый список.</p>
@@ -1221,16 +1221,6 @@ title="Print to PDF"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
 
-<span class="k">def</span> <span class="nf">is_even</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>                     
-    <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span><span class="p">:</span>
-        <span class="k">return</span> <span class="kc">False</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="kc">True</span>
-    
-<span class="k">def</span> <span class="nf">is_even</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="kc">False</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="k">else</span> <span class="kc">True</span> <span class="c1"># Тернарный оператор</span>
-
-
 <span class="k">def</span> <span class="nf">is_even</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="ow">not</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span>
 
@@ -1243,8 +1233,8 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[69, 57, 81, 3, 0, 65, 57, 90, 34, 72, 94, 100, 68, 68, 39, 60, 21, 84, 45, 65]
-[0, 90, 34, 72, 94, 100, 68, 68, 60, 84]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[98, 97, 3, 70, 49, 10, 27, 70, 85, 95, 65, 46, 49, 21, 74, 82, 23, 60, 81, 2]
+[98, 70, 10, 70, 46, 74, 82, 60, 2]
 </pre></div>
 </div>
 </div>
@@ -1305,8 +1295,8 @@ title="Print to PDF"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">gcd</span>
 
 <span class="n">n</span> <span class="o">=</span> <span class="mi">42</span>
-<span class="n">Z42</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span>  <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span> <span class="k">if</span> <span class="n">gcd</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">42</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">Z42</span><span class="p">)</span>
+<span class="n">Zn</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span>  <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">if</span> <span class="n">gcd</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Zn</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

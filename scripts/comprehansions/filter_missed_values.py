@@ -14,7 +14,7 @@ class FilterMissingValuesTest(unittest.TestCase):
         self.assertEqual(filter_missed_values(x), y)
 
 
-def filter_missed_values(data):
+def filter_missed_values(data: list[float|None]):
     pass
     
 if __name__ == "__main__":

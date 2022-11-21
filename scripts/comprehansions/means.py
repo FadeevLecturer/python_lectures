@@ -29,13 +29,13 @@ class HarmonicMeanTest(unittest.TestCase):
         self.assertIsNone(harmonic_mean([]), None)
 
 
-def arithmetic_mean(data):
+def arithmetic_mean(data: list[float]):
     pass
     
-def geometric_mean(data):
+def geometric_mean(data: list[float]):
     pass
     
-def harmonic_mean(data):
+def harmonic_mean(data: list[float]):
     pass
 
 
