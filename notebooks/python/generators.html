@@ -1014,13 +1014,17 @@ title="Print to PDF"
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Начало функции.&quot;</span><span class="p">)</span>
     <span class="k">yield</span> <span class="mi">0</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">generator_function</span><span class="p">))</span>
+
+
 <span class="n">generator_object</span> <span class="o">=</span> <span class="n">generator_function</span><span class="p">()</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">generator_object</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">generator_object</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>generator
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;function&#39;&gt;
+&lt;class &#39;generator&#39;&gt;
 </pre></div>
 </div>
 </div>
@@ -1233,12 +1237,15 @@ title="Print to PDF"
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Список занимает </span><span class="si">{</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><span class="si">}</span><span class="s2"> байт&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Генератор занимает </span><span class="si">{</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">g</span><span class="p">)</span><span class="si">}</span><span class="s2"> байт&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">l</span><span class="p">),</span> <span class="nb">sum</span><span class="p">(</span><span class="n">g</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Список занимает 8697456 байт
-Генератор занимает 112 байт
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Список занимает 8448728 байт
+Генератор занимает 104 байт
+333332833333500000 333332833333500000
 </pre></div>
 </div>
 </div>
