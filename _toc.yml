@@ -64,11 +64,11 @@ parts:
     chapters:
       - file: notebooks/scipy/scipy
       - file: notebooks/scipy/linalg
-      - file: notebooks/scipy/interpolation_approx
       - file: notebooks/scipy/integration
-      - file: notebooks/scipy/ODE
       - file: notebooks/scipy/optimization
       - file: notebooks/scipy/nonlinear_equations
+      - file: notebooks/scipy/interpolation_approx
+      - file: notebooks/scipy/ODE
       - file: notebooks/scipy/signal
       # - file: notebooks/scipy/cannonball
       # - file: notebooks/scipy/homework
