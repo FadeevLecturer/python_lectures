@@ -1043,25 +1043,25 @@ title="Print to PDF"
 <p>В ячейке ниже импортируются необходимые библиотеки (<code class="docutils literal notranslate"><span class="pre">cv2</span></code> соответствует <code class="docutils literal notranslate"><span class="pre">openCV</span></code>), а также определяется функция для красивого вывода изображения в заданных осях, которая будет использоваться всюду далее.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import os
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 
-import numpy as np
-from matplotlib import pyplot as plt
-import PIL
-import cv2
-
-
-image_folder = os.path.join(&quot;..&quot;, &quot;..&quot;, &quot;_static&quot;, &quot;lecture_specific&quot;, &quot;cv&quot;)
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">PIL</span>
+<span class="kn">import</span> <span class="nn">cv2</span>
 
 
-def show_image(ax, image, title=None, cmap=None):
-    &quot;&quot;&quot;
-    Вывести изображение в указанных осях.
-    &quot;&quot;&quot;
-    ax.imshow(image, cmap=cmap)
-    ax.set_title(title)
-    ax.xaxis.set_visible(False)
-    ax.yaxis.set_visible(False)
+<span class="n">image_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;_static&quot;</span><span class="p">,</span> <span class="s2">&quot;lecture_specific&quot;</span><span class="p">,</span> <span class="s2">&quot;cv&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">show_image</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Вывести изображение в указанных осях.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1080,18 +1080,18 @@ def show_image(ax, image, title=None, cmap=None):
 <p>Ниже приводится пример того, как можно загрузить изображения, используя вышеперечисленные методы.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>path = os.path.join(image_folder, &quot;gray.jpg&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image_folder</span><span class="p">,</span> <span class="s2">&quot;gray.jpg&quot;</span><span class="p">)</span>
 
 
-images = {
-    &quot;openCV&quot;: cv2.imread(path, cv2.IMREAD_GRAYSCALE),
-    &quot;matplotlib&quot;: plt.imread(path),
-    &quot;Pillow&quot;: np.array(PIL.Image.open(path))
-}
+<span class="n">images</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;openCV&quot;</span><span class="p">:</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">IMREAD_GRAYSCALE</span><span class="p">),</span>
+    <span class="s2">&quot;matplotlib&quot;</span><span class="p">:</span> <span class="n">plt</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">path</span><span class="p">),</span>
+    <span class="s2">&quot;Pillow&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+<span class="p">}</span>
 
 
-for library, image in images.items():
-    print(f&quot;{library:10}: shape={image.shape}, dtype={image.dtype}&quot;)    
+<span class="k">for</span> <span class="n">library</span><span class="p">,</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">images</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">library</span><span class="si">:</span><span class="s2">10</span><span class="si">}</span><span class="s2">: shape=</span><span class="si">{</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">, dtype=</span><span class="si">{</span><span class="n">image</span><span class="o">.</span><span class="n">dtype</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>    
 </pre></div>
 </div>
 </div>
@@ -1115,18 +1115,18 @@ Pillow    : shape=(512, 512), dtype=uint8
 <p>Проверим, содержат ли массивы, считанные всеми библиотекам, одинаковые значения.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from itertools import combinations
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">combinations</span>
 
 
-def L1_distance(x, y):
-    return np.abs(x - y).sum()
+<span class="k">def</span> <span class="nf">L1_distance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 
 
-for (lib1, image1), (lib2, image2) in combinations(images.items(), 2):
-    diff = L1_distance(image1, image2)
-    print(f&quot;{lib1:10} and {lib2:10}: {diff}&quot;)
+<span class="k">for</span> <span class="p">(</span><span class="n">lib1</span><span class="p">,</span> <span class="n">image1</span><span class="p">),</span> <span class="p">(</span><span class="n">lib2</span><span class="p">,</span> <span class="n">image2</span><span class="p">)</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">(</span><span class="n">images</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="n">diff</span> <span class="o">=</span> <span class="n">L1_distance</span><span class="p">(</span><span class="n">image1</span><span class="p">,</span> <span class="n">image2</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">lib1</span><span class="si">:</span><span class="s2">10</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">lib2</span><span class="si">:</span><span class="s2">10</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">diff</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-image = images[&quot;openCV&quot;]
+<span class="n">image</span> <span class="o">=</span> <span class="n">images</span><span class="p">[</span><span class="s2">&quot;openCV&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1142,7 +1142,7 @@ matplotlib and Pillow    : 0
 <p>Выясним, в каком диапазоне элементы массива принимают значения.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;Элементы массива принимают значения в диапазоне от {image.min()} до {image.max()}.&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Элементы массива принимают значения в диапазоне от </span><span class="si">{</span><span class="n">image</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="si">}</span><span class="s2"> до </span><span class="si">{</span><span class="n">image</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1157,8 +1157,8 @@ matplotlib and Pillow    : 0
 <p>Выведем это изображение средствами <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fig, ax = plt.subplots(figsize=(5, 5), layout=&quot;tight&quot;)
-show_image(ax, image, title=&quot;matplotlib&quot;, cmap=&quot;gray&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;matplotlib&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1174,10 +1174,10 @@ show_image(ax, image, title=&quot;matplotlib&quot;, cmap=&quot;gray&quot;)
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>image = PIL.Image.open(path)
-array = np.array(image)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
 
-image
+<span class="n">image</span>
 </pre></div>
 </div>
 </div>
@@ -1192,12 +1192,12 @@ image
 <p>Прибавим к изображению константу, что выйдет.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>c = 40
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="mi">40</span>
 
-fig, axs = plt.subplots(figsize=(12, 4), ncols=3, layout=&quot;tight&quot;)
-show_image(axs[0], np.sin(array/255. * np.pi / 2), title=f&quot;image - {c}&quot;, cmap=&quot;gray&quot;)
-show_image(axs[1], array, title=&quot;image&quot;, cmap=&quot;gray&quot;)
-show_image(axs[2], array+c, title=f&quot;image + {c}&quot;, cmap=&quot;gray&quot;)
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">array</span><span class="o">/</span><span class="mf">255.</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;image - </span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">array</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;image&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">array</span><span class="o">+</span><span class="n">c</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;image + </span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1222,10 +1222,10 @@ show_image(axs[2], array+c, title=f&quot;image + {c}&quot;, cmap=&quot;gray&quot
 \end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>math_array = np.ones(shape=(1, 256), dtype=np.uint8) * np.arange(256, dtype=np.uint8).reshape(256, 1) 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">math_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> 
 
-fig, ax = plt.subplots(figsize=(4, 4), layout=&quot;tight&quot;)
-show_image(ax, math_array, cmap=&quot;gray&quot;)
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">math_array</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1236,9 +1236,9 @@ show_image(ax, math_array, cmap=&quot;gray&quot;)
 <p>Инвертировать изображение можно вычесть его из 255.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fig, axs = plt.subplots(figsize=(8, 4), ncols=2, layout=&quot;tight&quot;)
-show_image(axs[0], math_array, title=&quot;image&quot;, cmap=&quot;gray&quot;)
-show_image(axs[1], 255 - math_array, title=f&quot;255 - image&quot;, cmap=&quot;gray&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">math_array</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;image&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">255</span> <span class="o">-</span> <span class="n">math_array</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;255 - image&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1252,19 +1252,19 @@ show_image(axs[1], 255 - math_array, title=f&quot;255 - image&quot;, cmap=&quot;
 <p>Чтобы обрезать изображения, можно использовать срезы.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>H, W = array.shape
-h, w = H // 2, W // 2
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">H</span><span class="p">,</span> <span class="n">W</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">H</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">W</span> <span class="o">//</span> <span class="mi">2</span>
 
-top_left = array[:h, :w]
-top_right = array[:h, w:]
-bottom_left = array[h:, :w]
-bottom_right = array[h:, w:]
+<span class="n">top_left</span> <span class="o">=</span> <span class="n">array</span><span class="p">[:</span><span class="n">h</span><span class="p">,</span> <span class="p">:</span><span class="n">w</span><span class="p">]</span>
+<span class="n">top_right</span> <span class="o">=</span> <span class="n">array</span><span class="p">[:</span><span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">:]</span>
+<span class="n">bottom_left</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="n">h</span><span class="p">:,</span> <span class="p">:</span><span class="n">w</span><span class="p">]</span>
+<span class="n">bottom_right</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="n">h</span><span class="p">:,</span> <span class="n">w</span><span class="p">:]</span>
 
-fig, axs = plt.subplots(figsize=(10, 10), nrows=2, ncols=2, layout=&quot;tight&quot;)
-show_image(axs[0, 0], top_left, cmap=&quot;gray&quot;)
-show_image(axs[0, 1], top_right, cmap=&quot;gray&quot;)
-show_image(axs[1, 0], bottom_left, cmap=&quot;gray&quot;)
-show_image(axs[1, 1], bottom_right, cmap=&quot;gray&quot;)
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">top_left</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">top_right</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">bottom_left</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">bottom_right</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1275,16 +1275,16 @@ show_image(axs[1, 1], bottom_right, cmap=&quot;gray&quot;)
 <p>Аналогично, можно отразить изображение по вертикали, горизонтали и т.д.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>hor_flip = array[:, ::-1]
-vert_flip = array[::-1, :]
-both = array[::-1, ::-1]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hor_flip</span> <span class="o">=</span> <span class="n">array</span><span class="p">[:,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">vert_flip</span> <span class="o">=</span> <span class="n">array</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>
+<span class="n">both</span> <span class="o">=</span> <span class="n">array</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
 
-fig, axs = plt.subplots(figsize=(10, 10), nrows=2, ncols=2, layout=&quot;tight&quot;)
-show_image(axs[0, 0], array, cmap=&quot;gray&quot;)
-show_image(axs[0, 1], hor_flip, cmap=&quot;gray&quot;)
-show_image(axs[1, 0], vert_flip, cmap=&quot;gray&quot;)
-show_image(axs[1, 1], both, cmap=&quot;gray&quot;)
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">array</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">hor_flip</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">vert_flip</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">both</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1295,11 +1295,11 @@ show_image(axs[1, 1], both, cmap=&quot;gray&quot;)
 <p>Чтобы повернуть изображение на угол кратный <span class="math notranslate nohighlight">\(90^\circ\)</span>, можно использовать метод <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.rot90.html">np.rot90</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fig, axs = plt.subplots(figsize=(10, 10), nrows=2, ncols=2, layout=&quot;tight&quot;)
-show_image(axs[0, 0], array, cmap=&quot;gray&quot;)
-show_image(axs[0, 1], np.rot90(array, 1), cmap=&quot;gray&quot;)
-show_image(axs[1, 1], np.rot90(array, 2), cmap=&quot;gray&quot;)
-show_image(axs[1, 0], np.rot90(array, 3), cmap=&quot;gray&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">array</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">rot90</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">rot90</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">rot90</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1314,7 +1314,7 @@ show_image(axs[1, 0], np.rot90(array, 3), cmap=&quot;gray&quot;)
 <p><code class="docutils literal notranslate"><span class="pre">Pillow</span></code> позволяет вращать изображения методом <a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.rotate">rotate</a> класса <code class="docutils literal notranslate"><span class="pre">PIL.Image.Image</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>image.rotate(45, expand=False, fillcolor=PIL.Image.NEAREST)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="mi">45</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fillcolor</span><span class="o">=</span><span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">NEAREST</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1325,16 +1325,16 @@ show_image(axs[1, 0], np.rot90(array, 3), cmap=&quot;gray&quot;)
 <p><code class="docutils literal notranslate"><span class="pre">openCV</span></code> имеет чуть более общий интерфейс и позволяет применять аффинное преобразование к изображению, частным случаям которого является поворот изображения вокруг выбранной точки.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>rotation_center = (h, w)
-rotation_angle = 45
-scale = 1.0
-rotation_matrix = cv2.getRotationMatrix2D(rotation_center, rotation_angle, scale)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rotation_center</span> <span class="o">=</span> <span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+<span class="n">rotation_angle</span> <span class="o">=</span> <span class="mi">45</span>
+<span class="n">scale</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">rotation_matrix</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">getRotationMatrix2D</span><span class="p">(</span><span class="n">rotation_center</span><span class="p">,</span> <span class="n">rotation_angle</span><span class="p">,</span> <span class="n">scale</span><span class="p">)</span>
 
-rotated_image = cv2.warpAffine(array, rotation_matrix, dsize=(H, W))
+<span class="n">rotated_image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">warpAffine</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">rotation_matrix</span><span class="p">,</span> <span class="n">dsize</span><span class="o">=</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">W</span><span class="p">))</span>
 
-fig, axs = plt.subplots(figsize=(10, 10), ncols=2, layout=&quot;tight&quot;)
-show_image(axs[0], array, cmap=&quot;gray&quot;)
-show_image(axs[1], rotated_image, cmap=&quot;gray&quot;)
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">array</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">rotated_image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1350,17 +1350,17 @@ show_image(axs[1], rotated_image, cmap=&quot;gray&quot;)
 <p>Все перечисленные методы чтения изображений отработают и для цветных изображений.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>path = os.path.join(image_folder, &quot;lena.jpg&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image_folder</span><span class="p">,</span> <span class="s2">&quot;lena.jpg&quot;</span><span class="p">)</span>
 
-images = {
-    &quot;openCV&quot;: cv2.imread(path),
-    &quot;matplotlib&quot;: plt.imread(path),
-    &quot;Pillow&quot;: np.array(PIL.Image.open(path))
-}
+<span class="n">images</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;openCV&quot;</span><span class="p">:</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">path</span><span class="p">),</span>
+    <span class="s2">&quot;matplotlib&quot;</span><span class="p">:</span> <span class="n">plt</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">path</span><span class="p">),</span>
+    <span class="s2">&quot;Pillow&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+<span class="p">}</span>
 
 
-for library, image in images.items():
-    print(f&quot;{library:10}: shape={image.shape}, dtype={image.dtype}&quot;)
+<span class="k">for</span> <span class="n">library</span><span class="p">,</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">images</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">library</span><span class="si">:</span><span class="s2">10</span><span class="si">}</span><span class="s2">: shape=</span><span class="si">{</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">, dtype=</span><span class="si">{</span><span class="n">image</span><span class="o">.</span><span class="n">dtype</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1375,10 +1375,10 @@ Pillow    : shape=(512, 512, 3), dtype=uint8
 <p>Получаем массив формы <span class="math notranslate nohighlight">\(512\times512\times3\)</span>, где 3 соответствует трём каналам: красный, зеленый и голубой. Но даже здесь есть один подвох. Выведем три получившихся массива.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fig, axs = plt.subplots(figsize=(12, 4), ncols=3, layout=&quot;tight&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
 
-for i, lib in enumerate(images):
-    show_image(axs[i], images[lib], title=lib)
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">lib</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">images</span><span class="p">):</span>
+    <span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">images</span><span class="p">[</span><span class="n">lib</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="n">lib</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1398,15 +1398,15 @@ for i, lib in enumerate(images):
 </figure>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>path = os.path.join(image_folder, &quot;colors.png&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image_folder</span><span class="p">,</span> <span class="s2">&quot;colors.png&quot;</span><span class="p">)</span>
 
-cv2_image = cv2.imread(path)
-plt_image = plt.imread(path)
+<span class="n">cv2_image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="n">plt_image</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 
-fig, axs = plt.subplots(figsize=(10, 5), ncols=2, layout=&quot;tight&quot;)
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
 
-show_image(axs[0], plt_image, title=&quot;matplotlib&quot;)
-show_image(axs[1], cv2_image, title=&quot;openCV&quot;)
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">plt_image</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;matplotlib&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">cv2_image</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;openCV&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1422,24 +1422,24 @@ show_image(axs[1], cv2_image, title=&quot;openCV&quot;)
 <p>Ниже определяются функции, которые выводят само изображения и все его каналы по очереди.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def show_channel(ax, image, channel, color=True):
-    if color:
-        to_show = np.zeros_like(image)
-        to_show[..., channel] = image[..., channel]
-        show_image(ax, to_show, title=f&quot;channel:{channel}&quot;)
-    else:
-        to_show = image[..., channel]
-        show_image(ax, to_show, cmap=&quot;gray&quot;, title=f&quot;channel:{channel}&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">show_channel</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">channel</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">color</span><span class="p">:</span>
+        <span class="n">to_show</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+        <span class="n">to_show</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">channel</span><span class="p">]</span> <span class="o">=</span> <span class="n">image</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">channel</span><span class="p">]</span>
+        <span class="n">show_image</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">to_show</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;channel:</span><span class="si">{</span><span class="n">channel</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">to_show</span> <span class="o">=</span> <span class="n">image</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">channel</span><span class="p">]</span>
+        <span class="n">show_image</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">to_show</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;channel:</span><span class="si">{</span><span class="n">channel</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         
         
     
-def show_channels(image, title, color=True):
-    fig, axs = plt.subplots(figsize=(12, 3), ncols=4, layout=&quot;tight&quot;)
-    fig.suptitle(title)
+<span class="k">def</span> <span class="nf">show_channels</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
     
-    show_image(axs[0], image, title=&quot;all channels&quot;)
-    for i in range(3): 
-        show_channel(axs[i + 1], image, i, color=color)
+    <span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">image</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;all channels&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span> 
+        <span class="n">show_channel</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">image</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1447,8 +1447,8 @@ def show_channels(image, title, color=True):
 <p>Выведем каналы изображений. Т.к. один канал — это двухмерная матрица, то его можно считать изображением в оттенках серого: чем больше значение в этом канале, тем ярче белее пиксель.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>show_channels(cv2_image, &quot;openCV&quot;, False)
-show_channels(plt_image, &quot;matplotlib&quot;, False)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_channels</span><span class="p">(</span><span class="n">cv2_image</span><span class="p">,</span> <span class="s2">&quot;openCV&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">show_channels</span><span class="p">(</span><span class="n">plt_image</span><span class="p">,</span> <span class="s2">&quot;matplotlib&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1461,11 +1461,11 @@ show_channels(plt_image, &quot;matplotlib&quot;, False)
 <p>Библиотека <code class="docutils literal notranslate"><span class="pre">openCV</span></code> позволяет преобразовать изображение из одной цветовой схемы в другую методом <a class="reference external" href="https://docs.opencv.org/3.4/d8/d01/group__imgproc__color__conversions.html#ga397ae87e1288a81d2363b61574eb8cab">cv2.cvtColor</a>. В частности, этим методом можно из <code class="docutils literal notranslate"><span class="pre">GBR</span></code> перейти в <code class="docutils literal notranslate"><span class="pre">RGB</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>cv2_image = cv2.cvtColor(cv2_image, cv2.COLOR_BGR2RGB)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cv2_image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">cv2_image</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2RGB</span><span class="p">)</span>
 
-fig, axs = plt.subplots(figsize=(10, 5), ncols=2, layout=&quot;tight&quot;)
-show_image(axs[0], plt_image, title=&quot;matplotlib&quot;)
-show_image(axs[1], cv2_image, title=&quot;openCV&quot;)
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">plt_image</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;matplotlib&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">cv2_image</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;openCV&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1476,7 +1476,7 @@ show_image(axs[1], cv2_image, title=&quot;openCV&quot;)
 <p>Чтобы получше прочувствовать, то как комбинируются цвета из палитры <code class="docutils literal notranslate"><span class="pre">RGB</span></code>, выведем те же каналы, но в цвете.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>show_channels(plt_image, &quot;matplotlib&quot;, True)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_channels</span><span class="p">(</span><span class="n">plt_image</span><span class="p">,</span> <span class="s2">&quot;matplotlib&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1495,13 +1495,13 @@ show_image(axs[1], cv2_image, title=&quot;openCV&quot;)
 <p>Самый наивный способ: просто сложить все каналы. Сложим все каналы, но перед этим поделим массив на число с плавающей точкой 255, чтобы уйти от ограничений целочисленной арифметики. Все современные библиотеки работы с изображениями позволяют задавать яркость как целыми числом, так и действительным числом от 0 до 1.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>path = os.path.join(image_folder, &quot;drop.jpg&quot;)
-image = plt.imread(path) / 255. 
-grayscale = image.mean(axis=2)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image_folder</span><span class="p">,</span> <span class="s2">&quot;drop.jpg&quot;</span><span class="p">)</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="o">/</span> <span class="mf">255.</span> 
+<span class="n">grayscale</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
-fig, axs = plt.subplots(figsize=(10, 5), ncols=2, layout=&quot;tight&quot;)
-show_image(axs[0], image, title=&quot;color&quot;)
-show_image(axs[1], grayscale, cmap=&quot;gray&quot;, title=&quot;(R + G + B)/3&quot;)
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">image</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;color&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">grayscale</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;(R + G + B)/3&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1517,12 +1517,12 @@ show_image(axs[1], grayscale, cmap=&quot;gray&quot;, title=&quot;(R + G + B)/3&q
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>weights = (0.222, 0.666, 0.111)
-grayscale = sum(weights[i] * image[..., i] for i in range(3))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weights</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.222</span><span class="p">,</span> <span class="mf">0.666</span><span class="p">,</span> <span class="mf">0.111</span><span class="p">)</span>
+<span class="n">grayscale</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">weights</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">image</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
 
-fig, axs = plt.subplots(figsize=(10, 5), ncols=2, layout=&quot;tight&quot;)
-show_image(axs[0], image, title=&quot;color&quot;)
-show_image(axs[1], grayscale, cmap=&quot;gray&quot;, title=f&quot;{weights[0]}*R + {weights[1]}*G + {weights[2]}*B&quot;)
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">image</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;color&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">grayscale</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">weights</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">*R + </span><span class="si">{</span><span class="n">weights</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">*G + </span><span class="si">{</span><span class="n">weights</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">*B&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1534,12 +1534,12 @@ show_image(axs[1], grayscale, cmap=&quot;gray&quot;, title=f&quot;{weights[0]}*R
 <p>Преобразовать цветное изображение в черно-белом можно все тем же методом <code class="docutils literal notranslate"><span class="pre">cv2.cvtColor</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>image = plt.imread(path)
-grayscale = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="n">grayscale</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_RGB2GRAY</span><span class="p">)</span>
 
-fig, axs = plt.subplots(figsize=(10, 5), ncols=2, layout=&quot;tight&quot;)
-show_image(axs[0], image, title=&quot;color&quot;)
-show_image(axs[1], grayscale, cmap=&quot;gray&quot;, title=f&quot;cv2.COLOR_RGB2GRAY&quot;)
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">image</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;color&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">grayscale</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;cv2.COLOR_RGB2GRAY&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1551,12 +1551,12 @@ show_image(axs[1], grayscale, cmap=&quot;gray&quot;, title=f&quot;cv2.COLOR_RGB2
 <p>Рассмотрим палитру <a class="reference external" href="https://en.wikipedia.org/wiki/HSL_and_HSV">Hue-Saturation-Value</a>. В ней <code class="docutils literal notranslate"><span class="pre">Hue</span></code> отвечает за сам цвет, <code class="docutils literal notranslate"><span class="pre">Saturation</span></code> — за насыщенность этого цвета, а <code class="docutils literal notranslate"><span class="pre">Value</span></code> за яркость.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>path = os.path.join(image_folder, &quot;rose.jpg&quot;)
-image = plt.imread(path)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image_folder</span><span class="p">,</span> <span class="s2">&quot;rose.jpg&quot;</span><span class="p">)</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 
-hsv_image = cv2.cvtColor(image, cv2.COLOR_RGB2HSV)
-show_channels(image, &quot;Hue-Saturation-Value&quot;, False)
-show_channels(hsv_image, &quot;Hue-Saturation-Value&quot;, False)
+<span class="n">hsv_image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_RGB2HSV</span><span class="p">)</span>
+<span class="n">show_channels</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="s2">&quot;Hue-Saturation-Value&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">show_channels</span><span class="p">(</span><span class="n">hsv_image</span><span class="p">,</span> <span class="s2">&quot;Hue-Saturation-Value&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1572,17 +1572,17 @@ show_channels(hsv_image, &quot;Hue-Saturation-Value&quot;, False)
 <p>Например, оттенки красного цвета имеют <code class="docutils literal notranslate"><span class="pre">hue</span></code> в диапазоне приблизительно от 155 до 179. Найдем <a class="reference external" href="https://en.wikipedia.org/wiki/Mask_(computing)">маску</a>, соответствующую пикселям красного цвета.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>lower_red = 155
-upper_red = 179
-hue = hsv_image[..., 0]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lower_red</span> <span class="o">=</span> <span class="mi">155</span>
+<span class="n">upper_red</span> <span class="o">=</span> <span class="mi">179</span>
+<span class="n">hue</span> <span class="o">=</span> <span class="n">hsv_image</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
 
-hue_mask =  (lower_red &lt;= hue) &amp; (hue &lt;= upper_red) 
-hue_mask = np.expand_dims(hue_mask, axis=2)
-masked_image = hue_mask * image
+<span class="n">hue_mask</span> <span class="o">=</span>  <span class="p">(</span><span class="n">lower_red</span> <span class="o">&lt;=</span> <span class="n">hue</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">hue</span> <span class="o">&lt;=</span> <span class="n">upper_red</span><span class="p">)</span> 
+<span class="n">hue_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">hue_mask</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">masked_image</span> <span class="o">=</span> <span class="n">hue_mask</span> <span class="o">*</span> <span class="n">image</span>
 
-fig, axs = plt.subplots(figsize=(10, 5), ncols=2, layout=&quot;tight&quot;)
-show_image(axs[0], hue_mask, cmap=&quot;gray&quot;)
-show_image(axs[1], masked_image)
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">hue_mask</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">masked_image</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1593,17 +1593,17 @@ show_image(axs[1], masked_image)
 <p>Даже такой простой способ позволил неплохо выделить весь красный цвета на изображении, но зацепил и белый, т.к. белый цвет можно представить в качестве красного с очень низкой насыщенностью. Отфильтруем белый цвет ещё одной маской по каналу насыщенности.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>upper_white = 19
-saturation = hsv_image[..., 1]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">upper_white</span> <span class="o">=</span> <span class="mi">19</span>
+<span class="n">saturation</span> <span class="o">=</span> <span class="n">hsv_image</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
 
-saturation_mask = (saturation &gt;= upper_white)
-saturation_mask = np.expand_dims(saturation_mask, axis=2)
-mask = (hue_mask &amp; saturation_mask)
-masked_image = mask * image
+<span class="n">saturation_mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">saturation</span> <span class="o">&gt;=</span> <span class="n">upper_white</span><span class="p">)</span>
+<span class="n">saturation_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">saturation_mask</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">hue_mask</span> <span class="o">&amp;</span> <span class="n">saturation_mask</span><span class="p">)</span>
+<span class="n">masked_image</span> <span class="o">=</span> <span class="n">mask</span> <span class="o">*</span> <span class="n">image</span>
 
-fig, axs = plt.subplots(figsize=(10, 5), ncols=2, layout=&quot;tight&quot;)
-show_image(axs[0], mask, cmap=&quot;gray&quot;)
-show_image(axs[1], masked_image)
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">mask</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">masked_image</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1615,12 +1615,12 @@ show_image(axs[1], masked_image)
 <p>Сделаем на основе этой маски изображение цветное внутри маски и черно-белое снаружи.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>gray = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
-gray = cv2.cvtColor(gray, cv2.COLOR_GRAY2RGB)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gray</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_RGB2GRAY</span><span class="p">)</span>
+<span class="n">gray</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">gray</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_GRAY2RGB</span><span class="p">)</span>
 
-red_gray_image = mask * image + ~mask * gray 
-fig, ax = plt.subplots(figsize=(10, 5), layout=&quot;tight&quot;)
-show_image(ax, red_gray_image, cmap=&quot;gray&quot;)
+<span class="n">red_gray_image</span> <span class="o">=</span> <span class="n">mask</span> <span class="o">*</span> <span class="n">image</span> <span class="o">+</span> <span class="o">~</span><span class="n">mask</span> <span class="o">*</span> <span class="n">gray</span> 
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">red_gray_image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1631,33 +1631,33 @@ show_image(ax, red_gray_image, cmap=&quot;gray&quot;)
 <p>Код в ячейке ниже позволяет продемонстрировать влияние параметра <code class="docutils literal notranslate"><span class="pre">hue</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from IPython.display import display
-from ipywidgets import interact
-import ipywidgets as widgets
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
 
-image = red_gray_image 
-hsv_image = cv2.cvtColor(image, cv2.COLOR_RGB2HSV)
+<span class="n">image</span> <span class="o">=</span> <span class="n">red_gray_image</span> 
+<span class="n">hsv_image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_RGB2HSV</span><span class="p">)</span>
 
-def plot_histograms(ax, image):
-    colors = (&#39;b&#39;,&#39;g&#39;,&#39;r&#39;)
-    for i, color in enumerate(colors):
-        hist = cv2.calcHist([image], [i], None, [256], [0,256])
-        ax.plot(hist, color=color)
+<span class="k">def</span> <span class="nf">plot_histograms</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">image</span><span class="p">):</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">colors</span><span class="p">):</span>
+        <span class="n">hist</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">calcHist</span><span class="p">([</span><span class="n">image</span><span class="p">],</span> <span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="kc">None</span><span class="p">,</span> <span class="p">[</span><span class="mi">256</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">256</span><span class="p">])</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hist</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
     
 
-def interact_hsv(hue=0):
-    fig, axs = plt.subplots(figsize=(12, 5), ncols=2, layout=&quot;tight&quot;)
-    delta = np.array([[[hue, 0, 0]]], dtype=np.uint8)
-    image = cv2.cvtColor(hsv_image + delta, cv2.COLOR_HSV2RGB)
-    show_image(axs[0], image)
+<span class="k">def</span> <span class="nf">interact_hsv</span><span class="p">(</span><span class="n">hue</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+    <span class="n">delta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="n">hue</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">hsv_image</span> <span class="o">+</span> <span class="n">delta</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_HSV2RGB</span><span class="p">)</span>
+    <span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">image</span><span class="p">)</span>
     
-    axs[1].set_xlim([0, 255])
-    axs[1].set_ylim([0, 5000])
-    plot_histograms(axs[1], image)
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">])</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5000</span><span class="p">])</span>
+    <span class="n">plot_histograms</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">image</span><span class="p">)</span>
 
-_ = interact(interact_hsv,
-         hue=widgets.IntSlider(min=0, max=255, value=200, step=5),
-)
+<span class="n">_</span> <span class="o">=</span> <span class="n">interact</span><span class="p">(</span><span class="n">interact_hsv</span><span class="p">,</span>
+         <span class="n">hue</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>

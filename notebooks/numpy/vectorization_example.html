@@ -992,11 +992,11 @@ title="Print to PDF"
 <p>Для начала реализуем этот алгоритм так, как мы бы это делали в <code class="docutils literal notranslate"><span class="pre">C/C++</span></code>, т.е. используя циклы и не пользуясь векторизацией. Напишем отдельную функцию для вычисления среднего значения.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def mean1D(x):
-    s = 0 
-    for number in x:
-        s += number
-    return s / x.size
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mean1D</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span> 
+    <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="n">number</span>
+    <span class="k">return</span> <span class="n">s</span> <span class="o">/</span> <span class="n">x</span><span class="o">.</span><span class="n">size</span>
 </pre></div>
 </div>
 </div>
@@ -1005,14 +1005,14 @@ title="Print to PDF"
 <p>Реализуем функцию вычисления среднеквадратичного отклонения. В выражении для среднеквадратичного отклонения участвует среднее арифметическое. Чтобы не дублировать вычисления, будем передавать среднее значение вторым аргументов в функцию.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import math
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
 
 
-def std1D(x, mean):
-    s = 0
-    for number in x:
-        s += (number - mean) ** 2
-    return math.sqrt(s / x.size)
+<span class="k">def</span> <span class="nf">std1D</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mean</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="p">(</span><span class="n">number</span> <span class="o">-</span> <span class="n">mean</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">s</span> <span class="o">/</span> <span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1020,19 +1020,19 @@ def std1D(x, mean):
 <p>Приведенная функция накапливает сумму квадратов отклонений чисел массива от среднего значения и возвращает корень из этой суммы, деленной на количество элементов в массиве. В <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> есть методы <code class="docutils literal notranslate"><span class="pre">mean</span></code> и <code class="docutils literal notranslate"><span class="pre">std</span></code>. Проведем хотя бы один тест, чтобы убедиться, что приведенные выше функции работают.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-N = 100 # размер массива
-x = np.random.random(N)
+<span class="n">N</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1"># размер массива</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
 
-mean_1 = mean1D(x)
-mean_2 = x.mean()
-std_1 = std1D(x, mean_1)
-std_2 = x.std()
+<span class="n">mean_1</span> <span class="o">=</span> <span class="n">mean1D</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">mean_2</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">std_1</span> <span class="o">=</span> <span class="n">std1D</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mean_1</span><span class="p">)</span>
+<span class="n">std_2</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
 
 
-print(mean_1, mean_2)
-print(std_1, std_2)
+<span class="nb">print</span><span class="p">(</span><span class="n">mean_1</span><span class="p">,</span> <span class="n">mean_2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">std_1</span><span class="p">,</span> <span class="n">std_2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1049,8 +1049,8 @@ print(std_1, std_2)
 <p>Функции работают, теперь перепишем их, используя векторизацию.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def mean1D_vectorized(x):
-    return x.sum() / x.size
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mean1D_vectorized</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">x</span><span class="o">.</span><span class="n">size</span>
 </pre></div>
 </div>
 </div>
@@ -1058,11 +1058,11 @@ print(std_1, std_2)
 <p>Векторизованная версия функции <code class="docutils literal notranslate"><span class="pre">mean1D</span></code> примитивна. Цикл суммирования заменили на вызов метода <code class="docutils literal notranslate"><span class="pre">ndarrray.sum</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def std1D_vectorized(x, mean):
-    tmp_1 = x - mean
-    tmp_2 = tmp_1 ** 2
-    tmp_3 = tmp_2.sum()
-    return math.sqrt(tmp_3 / x.size)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">std1D_vectorized</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mean</span><span class="p">):</span>
+    <span class="n">tmp_1</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">mean</span>
+    <span class="n">tmp_2</span> <span class="o">=</span> <span class="n">tmp_1</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="n">tmp_3</span> <span class="o">=</span> <span class="n">tmp_2</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">tmp_3</span> <span class="o">/</span> <span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1098,10 +1098,10 @@ print(std_1, std_2)
 <p>Конечно, вводить переменные <code class="docutils literal notranslate"><span class="pre">tmp_1</span></code>, <code class="docutils literal notranslate"><span class="pre">tmp_2</span></code> и <code class="docutils literal notranslate"><span class="pre">tmp_3</span></code> вовсе не обязательно. Это сделано в этом примере, лишь для того, чтобы подробнее по этапам объяснить, что происходит под капотом функции ниже.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def std1D_vectorized(x, mean):
-    return np.sqrt(((x - mean) ** 2).sum() / x.size)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">std1D_vectorized</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mean</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(((</span><span class="n">x</span> <span class="o">-</span> <span class="n">mean</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
 
-print(x.std(), std1D_vectorized(x, x.mean()))
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">std</span><span class="p">(),</span> <span class="n">std1D_vectorized</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
 </pre></div>
 </div>
 </div>

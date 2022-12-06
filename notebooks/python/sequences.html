@@ -1265,9 +1265,9 @@ title="Print to PDF"
 <p>Код в ячейке ниже удостоверяет, что символ <code class="docutils literal notranslate"><span class="pre">&quot;a&quot;</span></code> присутствует в строке <code class="docutils literal notranslate"><span class="pre">&quot;abc&quot;</span></code>, а символ <code class="docutils literal notranslate"><span class="pre">&quot;x&quot;</span></code> — нет.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>s = &quot;abc&quot;
-print(&quot;a&quot; in s)
-print(&quot;z&quot; in s)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;abc&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a&quot;</span> <span class="ow">in</span> <span class="n">s</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;z&quot;</span> <span class="ow">in</span> <span class="n">s</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1281,8 +1281,8 @@ False
 <p>Для строк операция проверки на принадлежность работает несколько шире, чем для остальных контейнеров: можно проверять наличие сразу подстроки.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(&quot;ab&quot; in s)
-print(&quot;ac&quot; in s)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ab&quot;</span> <span class="ow">in</span> <span class="n">s</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ac&quot;</span> <span class="ow">in</span> <span class="n">s</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1296,7 +1296,7 @@ False
 <p>Вместо того, чтобы отрицать результат проверки на принадлежность, можно проверять на непринадлежность сразу.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(&quot;z&quot; not in s)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;z&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">s</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1309,9 +1309,9 @@ False
 <p>У последовательностей можно спрашивать более содержательные вопросы, чем просто факт наличия элемента в контейнере. Например, методом <code class="docutils literal notranslate"><span class="pre">index</span></code> можно узнать индекс первого вхождения элемента <code class="docutils literal notranslate"><span class="pre">x</span></code> в последовательность <code class="docutils literal notranslate"><span class="pre">s</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>s = &quot;Hello, World!&quot;
-i = s.index(&quot;o&quot;)
-print(i, s[i])
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Hello, World!&quot;</span>
+<span class="n">i</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;o&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1324,7 +1324,7 @@ print(i, s[i])
 <p>Методом <code class="docutils literal notranslate"><span class="pre">count</span></code> можно посчитать количество вхождений элемента <code class="docutils literal notranslate"><span class="pre">x</span></code> в последовательность <code class="docutils literal notranslate"><span class="pre">s</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(s.count(&quot;o&quot;))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;o&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1340,9 +1340,9 @@ print(i, s[i])
 <p>Последовательности одного вида (кроме <code class="docutils literal notranslate"><span class="pre">range</span></code>) можно конкатенировать знаком плюс.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from string import ascii_lowercase, ascii_uppercase
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">string</span> <span class="kn">import</span> <span class="n">ascii_lowercase</span><span class="p">,</span> <span class="n">ascii_uppercase</span>
 
-print(ascii_lowercase + ascii_uppercase)
+<span class="nb">print</span><span class="p">(</span><span class="n">ascii_lowercase</span> <span class="o">+</span> <span class="n">ascii_uppercase</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1355,8 +1355,8 @@ print(ascii_lowercase + ascii_uppercase)
 <p>Умножение последовательности <code class="docutils literal notranslate"><span class="pre">s</span></code> (кроме <code class="docutils literal notranslate"><span class="pre">range</span></code>) на целое число <code class="docutils literal notranslate"><span class="pre">n</span></code> эквивалентно конкатенации <code class="docutils literal notranslate"><span class="pre">s</span></code> с самой собой <code class="docutils literal notranslate"><span class="pre">n</span></code> раз.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = &quot;I will not waste chalk. &quot;
-print(x*5)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;I will not waste chalk. &quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1374,8 +1374,8 @@ print(x*5)
 <p>Например, строки в <code class="docutils literal notranslate"><span class="pre">python</span></code> упорядочиваются в <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%9B%D0%B5%D0%BA%D1%81%D0%B8%D0%BA%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9_%D0%BF%D0%BE%D1%80%D1%8F%D0%B4%D0%BE%D0%BA">лексикографическом порядке</a> (как в словаре).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(&quot;A&quot; &lt; &quot;Z&quot;)
-print(&quot;A&quot; &lt; &quot;a&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A&quot;</span> <span class="o">&lt;</span> <span class="s2">&quot;Z&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A&quot;</span> <span class="o">&lt;</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1390,8 +1390,8 @@ True
 <p>Код в ячейке удостоверяет, что буква <code class="docutils literal notranslate"><span class="pre">&quot;h&quot;</span></code> идет раньше всех в алфавите среди всех букв слова <code class="docutils literal notranslate"><span class="pre">&quot;python&quot;</span></code>, а буква <code class="docutils literal notranslate"><span class="pre">&quot;y&quot;</span></code> — последней.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = &quot;python&quot;
-print(min(x), max(x))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;python&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1404,7 +1404,7 @@ print(min(x), max(x))
 <p>Встроенная функция <a class="reference external" href="https://docs.python.org/3/library/functions.html#sorted">sorted</a> принимает на вход итерируемый объект и возвращает <strong>список</strong> его элементов в отсортированном порядке.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(sorted(x))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1417,7 +1417,7 @@ print(min(x), max(x))
 <p>Опциональный именованный параметр <code class="docutils literal notranslate"><span class="pre">reverse</span></code> позволяет сортировать в обратном порядке.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(sorted(x, reverse=True))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1433,10 +1433,10 @@ print(min(x), max(x))
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>chicken = chr(0x1f414)
-egg = chr(0x1f95a)
-print(chicken, egg)
-print(sorted([egg, chicken]))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chicken</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0x1f414</span><span class="p">)</span>
+<span class="n">egg</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0x1f95a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">chicken</span><span class="p">,</span> <span class="n">egg</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">([</span><span class="n">egg</span><span class="p">,</span> <span class="n">chicken</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div>
@@ -1456,8 +1456,8 @@ print(sorted([egg, chicken]))
 <p>Ниже создаётся список и схематично приводится его устройство устройство.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a_list = [42, 3.14, &quot;abc&quot;]
-print(a_list)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">42</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">,</span> <span class="s2">&quot;abc&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1475,8 +1475,8 @@ print(a_list)
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>empty_list = []
-print(empty_list)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">empty_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">empty_list</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1491,9 +1491,9 @@ print(empty_list)
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>singleton_list = [42]
-students = [&quot;Alex&quot;, &quot;Alice&quot;, &quot;John&quot;]
-print(singleton_list, students)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">singleton_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">42</span><span class="p">]</span>
+<span class="n">students</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Alex&quot;</span><span class="p">,</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;John&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">singleton_list</span><span class="p">,</span> <span class="n">students</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1508,8 +1508,8 @@ print(singleton_list, students)
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>letters = list(ascii_lowercase)
-print(letters)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">letters</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">ascii_lowercase</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">letters</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1524,8 +1524,8 @@ print(letters)
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>square = [x*x for x in range(5)]
-print(square)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">square</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">square</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1541,10 +1541,10 @@ print(square)
 <p>Выражение <code class="docutils literal notranslate"><span class="pre">[expression]</span> <span class="pre">*</span> <span class="pre">n</span></code> может быть использовано для того, чтобы создавать не пустой список, а список из <code class="docutils literal notranslate"><span class="pre">n</span></code> одинаковых элементов — результатов вычисления выражения <code class="docutils literal notranslate"><span class="pre">expression</span></code> внутри квадратных скобок. В качестве примера создадим нулевой <code class="docutils literal notranslate"><span class="pre">n</span></code> мерный вектор.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>v = [0] * 10
-print(v)
-v[0] = 1
-print(v)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+<span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1558,13 +1558,13 @@ print(v)
 <p>Но необходимо проявлять бдительность. Выражение <code class="docutils literal notranslate"><span class="pre">expression</span></code> вычисляется один раз, что может привести к неожиданному поведению, если <code class="docutils literal notranslate"><span class="pre">expression</span></code> изменяемого типа. Попробуем создать нулевую матрицу из <code class="docutils literal notranslate"><span class="pre">3</span></code> строк и <code class="docutils literal notranslate"><span class="pre">2</span></code> столбцов и поменять один элемент. Будем хранить матрицу в виде списка, элементами которого являются строки матрицы. Выражение <code class="docutils literal notranslate"><span class="pre">[0]</span> <span class="pre">*</span> <span class="pre">2</span></code> создаст одну нулевую строку матрицы. Может показаться, что выражение <code class="docutils literal notranslate"><span class="pre">[[0]</span> <span class="pre">*</span> <span class="pre">2]</span> <span class="pre">*</span> <span class="pre">3</span></code> создаст нулевую матрицу из трех таких строк.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def print_matrix(matrix):
-    for row in matrix:
-        print(row)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_matrix</span><span class="p">(</span><span class="n">matrix</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">matrix</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
 
 
-matrix = [[0] * 2] * 3
-print_matrix(matrix)
+<span class="n">matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span>
+<span class="n">print_matrix</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1579,8 +1579,8 @@ print_matrix(matrix)
 <p>Теперь изменим один элемент матрицы и снова напечатаем матрицу.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>matrix[0][0] = 1 
-print_matrix(matrix)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> 
+<span class="n">print_matrix</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1672,8 +1672,8 @@ print_matrix(matrix)
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>empty_tuple = ()
-print(empty_tuple)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">empty_tuple</span> <span class="o">=</span> <span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">empty_tuple</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1688,8 +1688,8 @@ print(empty_tuple)
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>singleton_tuple = 0,        # или singleton_tuple = (0, )
-an_int = (0)                # но не так, это int
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">singleton_tuple</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>        <span class="c1"># или singleton_tuple = (0, )</span>
+<span class="n">an_int</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>                <span class="c1"># но не так, это int</span>
 </pre></div>
 </div>
 </div>
@@ -1699,7 +1699,7 @@ an_int = (0)                # но не так, это int
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a_tuple = 1, 2, 3           # или a_tuple = (1, 2, 3)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_tuple</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>           <span class="c1"># или a_tuple = (1, 2, 3)</span>
 </pre></div>
 </div>
 </div>
@@ -1709,7 +1709,7 @@ an_int = (0)                # но не так, это int
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>letters = tuple(&quot;abc&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">letters</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1719,8 +1719,8 @@ an_int = (0)                # но не так, это int
 <p>Кортеж под капотом является константным массивом указателей на его элементы. В отличие от списка ни размер ни содержимое этого массива менять нельзя.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a_tuple = &quot;Earth&quot;, 3, 1.0
-a_tuple[0] = 42         # ошибка
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_tuple</span> <span class="o">=</span> <span class="s2">&quot;Earth&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">1.0</span>
+<span class="n">a_tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">42</span>         <span class="c1"># ошибка</span>
 </pre></div>
 </div>
 </div>
@@ -1739,11 +1739,11 @@ a_tuple[0] = 42         # ошибка
 <p>Попытка изменить содержимое кортежа вызвало ошибку. Более точно, попытка изменить ссылку, на которую ссылается кортеж вызвало ошибку. Если объект по этой ссылке изменяемый (<code class="docutils literal notranslate"><span class="pre">mutable</span></code>), то изменить этот объект можно.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a_list = []
-an_integer = 3
-a_tuple_with_list = a_list, an_integer 
-a_list.append(&quot;Работает!&quot;)
-print(a_tuple_with_list)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">an_integer</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">a_tuple_with_list</span> <span class="o">=</span> <span class="n">a_list</span><span class="p">,</span> <span class="n">an_integer</span> 
+<span class="n">a_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Работает!&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a_tuple_with_list</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1771,9 +1771,9 @@ print(a_tuple_with_list)
 <p>Очень часто кортежи используются для того, чтобы упаковать несколько объектов, передать их как единое целое и затем распаковать эти объекты обратно.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a_tuple = (42, 321.0, &quot;a string&quot;)
-first, second, third = a_tuple
-print(first, second, third)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="mf">321.0</span><span class="p">,</span> <span class="s2">&quot;a string&quot;</span><span class="p">)</span>
+<span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="n">third</span> <span class="o">=</span> <span class="n">a_tuple</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="n">third</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1797,19 +1797,19 @@ x_{1, 2} = \dfrac{-b \pm \sqrt{b^2 - 4c}}{2}.
 <p>Сравнительно наивная (численно не устойчивая) реализация этого алгоритма выглядит следующим образом.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from math import sqrt
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
 
-def quadratic_solve(b, c):
-    &quot;Solves an equation x^2 + bx + c = 0&quot;
-    # linear case
-    D = b * b - 4. * c
-    term1 = -b / 2.
-    term2 = sqrt(abs(D)) / 2. 
-    # real roots
-    if D &gt;= 0:
-        return  term1 - term2, term1 + term2
-    # complex roots
-    return complex(term1, -term2), complex(term1, term2)
+<span class="k">def</span> <span class="nf">quadratic_solve</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="s2">&quot;Solves an equation x^2 + bx + c = 0&quot;</span>
+    <span class="c1"># linear case</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">b</span> <span class="o">*</span> <span class="n">b</span> <span class="o">-</span> <span class="mf">4.</span> <span class="o">*</span> <span class="n">c</span>
+    <span class="n">term1</span> <span class="o">=</span> <span class="o">-</span><span class="n">b</span> <span class="o">/</span> <span class="mf">2.</span>
+    <span class="n">term2</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">D</span><span class="p">))</span> <span class="o">/</span> <span class="mf">2.</span> 
+    <span class="c1"># real roots</span>
+    <span class="k">if</span> <span class="n">D</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span>  <span class="n">term1</span> <span class="o">-</span> <span class="n">term2</span><span class="p">,</span> <span class="n">term1</span> <span class="o">+</span> <span class="n">term2</span>
+    <span class="c1"># complex roots</span>
+    <span class="k">return</span> <span class="nb">complex</span><span class="p">(</span><span class="n">term1</span><span class="p">,</span> <span class="o">-</span><span class="n">term2</span><span class="p">),</span> <span class="nb">complex</span><span class="p">(</span><span class="n">term1</span><span class="p">,</span> <span class="n">term2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1827,9 +1827,9 @@ def quadratic_solve(b, c):
 <p>В качестве примера решим уравнение этой функцией <span class="math notranslate nohighlight">\(x^2 - 5x + 6 = (x-2)(x-3) = 0\)</span> и сразу распакуем два корня по разным переменным.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x1, x2 = quadratic_solve(-5, 6)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span> <span class="o">=</span> <span class="n">quadratic_solve</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
 
-print(x1, x2)
+<span class="nb">print</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1842,9 +1842,9 @@ print(x1, x2)
 <p>Функция <a class="reference external" href="https://docs.python.org/3/library/functions.html#divmod">divmod</a> — пример встроенной возвращающей 2 значения функции.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>d, m = divmod(11, 3)
-print(d, m)
-print(11 // 3, 11 % 3)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="nb">divmod</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">11</span> <span class="o">//</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">11</span> <span class="o">%</span> <span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1866,16 +1866,16 @@ print(11 // 3, 11 % 3)
 <p>Например, если в рамках программы планеты описываются названиями, количество спутников и их массой относительно массы земли, то для их описания можно использовать кортежи из трех элементов.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>planets = [
-    (&quot;Меркурий&quot;, 0, 0.0055),
-    (&quot;Венера&quot;, 0, 0.815),
-    (&quot;Земля&quot;, 1, 1.),
-    (&quot;Марс&quot;, 2, 0.107),
-    (&quot;Юпитер&quot;, 62, 317.8),
-    (&quot;Сатурн&quot;, 34, 95.2),
-    (&quot;Уран&quot;, 27, 14.37),
-    (&quot;Нептун&quot;, 13, 17.15),
-]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">planets</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;Меркурий&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.0055</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Венера&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.815</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Земля&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1.</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Марс&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.107</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Юпитер&quot;</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mf">317.8</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Сатурн&quot;</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mf">95.2</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Уран&quot;</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mf">14.37</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Нептун&quot;</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mf">17.15</span><span class="p">),</span>
+<span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1884,12 +1884,12 @@ print(11 // 3, 11 % 3)
 <p>Элементы списка <code class="docutils literal notranslate"><span class="pre">planets</span></code> удобно обрабатывать одним и тем же кодом, так как все они имеют одинаковую структуру. Каждую запись о планете легко распаковать по переменным согласно полям этой записи.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def print_summary(planet):
-    name, n_moons, mass = planet
-    print(f&quot;Планета {name} имеет {n_moons} спутников. Её масса составляет {mass} земных масс.&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_summary</span><span class="p">(</span><span class="n">planet</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">,</span> <span class="n">n_moons</span><span class="p">,</span> <span class="n">mass</span> <span class="o">=</span> <span class="n">planet</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Планета </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> имеет </span><span class="si">{</span><span class="n">n_moons</span><span class="si">}</span><span class="s2"> спутников. Её масса составляет </span><span class="si">{</span><span class="n">mass</span><span class="si">}</span><span class="s2"> земных масс.&quot;</span><span class="p">)</span>
 
-for planet in planets:
-    print_summary(planet)
+<span class="k">for</span> <span class="n">planet</span> <span class="ow">in</span> <span class="n">planets</span><span class="p">:</span>
+    <span class="n">print_summary</span><span class="p">(</span><span class="n">planet</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1913,11 +1913,11 @@ for planet in planets:
 <p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#textseq">Строки</a> — неизменяемые последовательности (<code class="docutils literal notranslate"><span class="pre">immutable</span> <span class="pre">sequence</span> <span class="pre">type</span></code>), предназначенные для работы с текстовыми данными в кодировке <a class="reference external" href="https://home.unicode.org/">unicode</a>. То, что <code class="docutils literal notranslate"><span class="pre">python</span></code> из коробки поддерживает <code class="docutils literal notranslate"><span class="pre">unicode</span></code>, значительно упрощает работу с текстом в общем случае, и написание <code class="docutils literal notranslate"><span class="pre">web</span></code>-ориентированных приложений в частности. Кроме того, что в <code class="docutils literal notranslate"><span class="pre">unicode</span></code> помещается английский язык и все спецсимволы, в него также помещаются русский, китайский, арабский и многие другие языки. Ещё в него помещаются <a class="reference external" href="https://home.unicode.org/emoji/about-emoji/">emoji</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>hello_in_russia = &quot;Привет!&quot;
-hello_in_japanese = &quot;こんにちは&quot;
-snake_emoji = &quot;🐍&quot;
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hello_in_russia</span> <span class="o">=</span> <span class="s2">&quot;Привет!&quot;</span>
+<span class="n">hello_in_japanese</span> <span class="o">=</span> <span class="s2">&quot;こんにちは&quot;</span>
+<span class="n">snake_emoji</span> <span class="o">=</span> <span class="s2">&quot;🐍&quot;</span>
 
-print(hello_in_russia, hello_in_japanese, snake_emoji)
+<span class="nb">print</span><span class="p">(</span><span class="n">hello_in_russia</span><span class="p">,</span> <span class="n">hello_in_japanese</span><span class="p">,</span> <span class="n">snake_emoji</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1947,12 +1947,12 @@ print(hello_in_russia, hello_in_japanese, snake_emoji)
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>s = &#39;&#39;&#39;
-&quot;Modern programs must handle Unicode — 
-Python has excellent support for Unicode, 
-and will keep getting better&quot; - Guido van Rossum. 
-     &#39;&#39;&#39;
-print(s)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">&quot;Modern programs must handle Unicode — </span>
+<span class="s1">Python has excellent support for Unicode, </span>
+<span class="s1">and will keep getting better&quot; - Guido van Rossum. </span>
+<span class="s1">     &#39;&#39;&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1982,10 +1982,10 @@ and will keep getting better&quot; - Guido van Rossum.
 <p>Самый простой пример — конструктор класса <a class="reference external" href="https://docs.python.org/3/library/functions.html#func-str">str</a>. Она преобразует объект в читабельную строку (если объект допускает это) и всегда неявно вызывается, если объект подаётся на вход функции <code class="docutils literal notranslate"><span class="pre">print</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from math import pi
-s = str(pi)
-print(s, pi)
-print(type(s), type(pi))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span>
+<span class="n">s</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">pi</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">pi</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">pi</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -2002,9 +2002,9 @@ print(type(s), type(pi))
 <p>Метод <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.strip">strip</a> удаляет переданные ему в качестве параметра символы по обоим краям строки. По умолчанию удаляет пробелы. Существуют аналогичные методы <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.lstrip">lstrip</a> и <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.rstrip">rstrip</a>, которые делают тоже самое, но только с левого конца и с правого конца соответственно.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>s = &quot;   spacious   &quot;
-print(f&quot;|{s}|&quot;)
-print(f&quot;|{s.strip()}|&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;   spacious   &quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;|</span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s2">|&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;|</span><span class="si">{</span><span class="n">s</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="si">}</span><span class="s2">|&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2018,8 +2018,8 @@ print(f&quot;|{s.strip()}|&quot;)
 <p>Метод <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.replace">replace</a> принимает два обязательных параметра <code class="docutils literal notranslate"><span class="pre">old</span></code> и <code class="docutils literal notranslate"><span class="pre">new</span></code> и заменяет все вхождения <code class="docutils literal notranslate"><span class="pre">old</span></code> в строке на <code class="docutils literal notranslate"><span class="pre">new</span></code>. Передавая в качестве <code class="docutils literal notranslate"><span class="pre">new</span></code> пустую строку, можно использовать этот метод для удаления.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>s = &quot;Иван любит математику.&quot;
-print(s.replace(&quot;Иван&quot;, &quot;Александр&quot;))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Иван любит математику.&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;Иван&quot;</span><span class="p">,</span> <span class="s2">&quot;Александр&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -2037,14 +2037,14 @@ print(s.replace(&quot;Иван&quot;, &quot;Александр&quot;))
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>line_width = 80
-title = &quot;Knock&quot;
-text = &quot;The last man on Earth sat alone in a room. There was a knock at the door...&quot; 
-author = &quot;Fredric Brown&quot;
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">line_width</span> <span class="o">=</span> <span class="mi">80</span>
+<span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Knock&quot;</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;The last man on Earth sat alone in a room. There was a knock at the door...&quot;</span> 
+<span class="n">author</span> <span class="o">=</span> <span class="s2">&quot;Fredric Brown&quot;</span>
 
-print(title.center(line_width))
-print(text.ljust(line_width))
-print(author.rjust(line_width))
+<span class="nb">print</span><span class="p">(</span><span class="n">title</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="n">line_width</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="n">line_width</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">author</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="n">line_width</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -2059,9 +2059,9 @@ The last man on Earth sat alone in a room. There was a knock at the door...
 <p>Метод <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.split">split</a> режет строку на части, используя переданный в качестве параметра разделитель (по умолчанию пробел). Возвращает список строк.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = &quot;1,2,3&quot;
-values = x.split(&quot;,&quot;)
-print(values)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;1,2,3&quot;</span>
+<span class="n">values</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2074,7 +2074,7 @@ print(values)
 <p>Метод <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.join">join</a> является по сути дела обратным к методу <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.split">split</a>. Он объединяет список переданных ему строк в качестве обязательного параметру в одну, используя в качестве разделителя строку, от которой этот метод был вызван.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>&quot; &quot;.join(values)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2093,11 +2093,11 @@ print(values)
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>an_int = 42
-a_float = pi
-a_name = &quot;Иван&quot; 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">an_int</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="n">a_float</span> <span class="o">=</span> <span class="n">pi</span>
+<span class="n">a_name</span> <span class="o">=</span> <span class="s2">&quot;Иван&quot;</span> 
 
-print(a_name + &quot; больше всего любит два числа: &quot; + str(an_int) + &quot; &quot; + str(a_float) + &quot;.&quot;)
+<span class="nb">print</span><span class="p">(</span><span class="n">a_name</span> <span class="o">+</span> <span class="s2">&quot; больше всего любит два числа: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">an_int</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">a_float</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2112,7 +2112,7 @@ print(a_name + &quot; больше всего любит два числа: &quo
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(&quot;%s больше всего любит два числа: %i и %f.&quot; % (a_name, an_int, a_float))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> больше всего любит два числа: </span><span class="si">%i</span><span class="s2"> и </span><span class="si">%f</span><span class="s2">.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">a_name</span><span class="p">,</span> <span class="n">an_int</span><span class="p">,</span> <span class="n">a_float</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -2127,8 +2127,8 @@ print(a_name + &quot; больше всего любит два числа: &quo
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>template = &quot;{0} больше всего любит два числа: {1} и {2}.&quot;
-print(template.format(a_name, an_int, a_float))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{0}</span><span class="s2"> больше всего любит два числа: </span><span class="si">{1}</span><span class="s2"> и </span><span class="si">{2}</span><span class="s2">.&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a_name</span><span class="p">,</span> <span class="n">an_int</span><span class="p">,</span> <span class="n">a_float</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -2143,8 +2143,8 @@ print(template.format(a_name, an_int, a_float))
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>s = f&quot;{a_name} больше всего любит два числа: {an_int} и {a_float}.&quot;
-print(s) 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a_name</span><span class="si">}</span><span class="s2"> больше всего любит два числа: </span><span class="si">{</span><span class="n">an_int</span><span class="si">}</span><span class="s2"> и </span><span class="si">{</span><span class="n">a_float</span><span class="si">}</span><span class="s2">.&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> 
 </pre></div>
 </div>
 </div>
@@ -2166,7 +2166,7 @@ print(s)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;{2 + 2}&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2190,9 +2190,9 @@ print(s)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;{title:^80}&quot;)
-print(f&quot;{text:&lt;80}&quot;)
-print(f&quot;{author:&gt;80}&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">title</span><span class="si">:</span><span class="s2">^80</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">text</span><span class="si">:</span><span class="s2">&lt;80</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">author</span><span class="si">:</span><span class="s2">&gt;80</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2207,11 +2207,11 @@ The last man on Earth sat alone in a room. There was a knock at the door...
 <p>Подобные выражения могут быть использованы для выравнивания столбцов в тексте. В качестве примера рассмотрим следующий код и его вывод.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>years = [99, 100, 101]
-centuries = [&quot;I&quot;, &quot;II&quot;, &quot;II&quot;]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">years</span> <span class="o">=</span> <span class="p">[</span><span class="mi">99</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">101</span><span class="p">]</span>
+<span class="n">centuries</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;I&quot;</span><span class="p">,</span> <span class="s2">&quot;II&quot;</span><span class="p">,</span> <span class="s2">&quot;II&quot;</span><span class="p">]</span>
 
-for i in range(3):
-    print(f&quot;Год {years[i]} =&gt; {centuries[i]}-й век&quot;)
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Год </span><span class="si">{</span><span class="n">years</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s2"> =&gt; </span><span class="si">{</span><span class="n">centuries</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s2">-й век&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2226,8 +2226,8 @@ for i in range(3):
 <p>Эстетически может не понравится, что значения в первой строке “поехали” влево относительно значений в других строках. Чтобы исправить это, можно указать все значения с необходимой шириной и выравниванием.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for i in range(3):
-    print(f&quot;Год {years[i]:&gt;3} =&gt; {centuries[i]:&gt;3}-й век&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Год </span><span class="si">{</span><span class="n">years</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">&gt;3</span><span class="si">}</span><span class="s2"> =&gt; </span><span class="si">{</span><span class="n">centuries</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">&gt;3</span><span class="si">}</span><span class="s2">-й век&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2245,8 +2245,8 @@ for i in range(3):
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for power in range(10):
-    print(f&quot;{10 ** power:0&gt;10}&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">power</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="mi">10</span> <span class="o">**</span> <span class="n">power</span><span class="si">:</span><span class="s2">0&gt;10</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2271,11 +2271,11 @@ for i in range(3):
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from math import pi
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span>
 
-print(f&quot;{pi:&gt;16.2}&quot;)
-print(f&quot;{pi:&gt;16.5}&quot;)
-print(f&quot;{pi:&gt;16.15}&quot;)
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pi</span><span class="si">:</span><span class="s2">&gt;16.2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pi</span><span class="si">:</span><span class="s2">&gt;16.5</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pi</span><span class="si">:</span><span class="s2">&gt;16.15</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2300,12 +2300,12 @@ print(f&quot;{pi:&gt;16.15}&quot;)
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = 5 / 13
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">/</span> <span class="mi">13</span>
 
-print(f&quot;{x:.5}&quot;)
-print(f&quot;{x:&gt;.5f}&quot;)
-print(f&quot;{x:&gt;.5e}&quot;)
-print(f&quot;{x:&gt;.5%}&quot;)
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.5</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">&gt;.5f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">&gt;.5e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">&gt;.5%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

@@ -1017,29 +1017,29 @@ title="Print to PDF"
 <h2>Поддержка GPU<a class="headerlink" href="#gpu" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
-import torch
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">torch</span>
 
 
-cpu = torch.device(&quot;cpu&quot;)
-gpu = torch.device(&quot;cuda:0&quot;)
+<span class="n">cpu</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+<span class="n">gpu</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda:0&quot;</span><span class="p">)</span>
 
-A = np.random.rand(10000, 10000)
-B = np.random.rand(10000, 10000)
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
 
-A_cpu = torch.Tensor(A)
-B_cpu = torch.Tensor(B)
+<span class="n">A_cpu</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">B_cpu</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
 
-A_gpu = A_cpu.to(gpu)
-B_gpu = B_cpu.to(gpu)
+<span class="n">A_gpu</span> <span class="o">=</span> <span class="n">A_cpu</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">gpu</span><span class="p">)</span>
+<span class="n">B_gpu</span> <span class="o">=</span> <span class="n">B_cpu</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">gpu</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%time
-C = A @ B
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">A</span> <span class="o">@</span> <span class="n">B</span>
 </pre></div>
 </div>
 </div>
@@ -1052,8 +1052,8 @@ Wall time: 4.59 s
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%time
-C_cpu = A_cpu @ B_cpu
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<span class="n">C_cpu</span> <span class="o">=</span> <span class="n">A_cpu</span> <span class="o">@</span> <span class="n">B_cpu</span>
 </pre></div>
 </div>
 </div>
@@ -1066,8 +1066,8 @@ Wall time: 2.35 s
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%time
-C_gpu = A_gpu @ B_gpu
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<span class="n">C_gpu</span> <span class="o">=</span> <span class="n">A_gpu</span> <span class="o">@</span> <span class="n">B_gpu</span>
 </pre></div>
 </div>
 </div>
@@ -1083,23 +1083,23 @@ Wall time: 2.17 ms
 <h2>Граф вычислений<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from matplotlib import pyplot as plt
-plt.rcParams.update({&quot;font.size&quot;: 16})
-from torchviz import make_dot
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;font.size&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">})</span>
+<span class="kn">from</span> <span class="nn">torchviz</span> <span class="kn">import</span> <span class="n">make_dot</span>
 
-def x_plus_one(x):
-    sinx = torch.sin(x)
-    cosx = torch.cos(x)
-    one = torch.sqrt(sinx*sinx + cosx*cosx)
+<span class="k">def</span> <span class="nf">x_plus_one</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">sinx</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">cosx</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">one</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sinx</span><span class="o">*</span><span class="n">sinx</span> <span class="o">+</span> <span class="n">cosx</span><span class="o">*</span><span class="n">cosx</span><span class="p">)</span>
 
-    expx = torch.exp(x)
-    x = torch.log(expx)
-    return x + one
+    <span class="n">expx</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">expx</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">one</span>
 
-x = torch.tensor(0., requires_grad=True)
-y = x_plus_one(x)
+<span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x_plus_one</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-make_dot(y)
+<span class="n">make_dot</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1108,21 +1108,21 @@ make_dot(y)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>X = np.linspace(-1, 1, 100)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 
-def compute_derivative(f, x):
-    x = torch.tensor(x, requires_grad=True)
-    y = f(x)
-    y.backward()
-    return y.item(), x.grad.item()
+<span class="k">def</span> <span class="nf">compute_derivative</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">y</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">y</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span> <span class="n">x</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
 
-dfdx = [compute_derivative(x_plus_one, x) for x in X]
+<span class="n">dfdx</span> <span class="o">=</span> <span class="p">[</span><span class="n">compute_derivative</span><span class="p">(</span><span class="n">x_plus_one</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span><span class="p">]</span>
 
-fig, ax = plt.subplots(figsize=(10, 7))
-ax.plot(X, dfdx)
-ax.legend([&quot;$f(x)$&quot;, r&quot;$\dfrac{d f(x)}{dx}$&quot;])
-ax.set_xlabel(&quot;$x$&quot;)
-ax.set_ylabel(&quot;$y$&quot;)
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">dfdx</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;$f(x)$&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$\dfrac{d f(x)}</span><span class="si">{dx}</span><span class="s2">$&quot;</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$x$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;$y$&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1138,34 +1138,34 @@ ax.set_ylabel(&quot;$y$&quot;)
 <h2>Оптимизация<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def rosen(x, y):
-    return (1 - x)**2 + 100*(y - x**2)**2
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rosen</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
 
 
 
-# initial value
-x = torch.tensor(0., requires_grad=True)
-y = torch.tensor(3., requires_grad=True)
+<span class="c1"># initial value</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="mf">3.</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-# optimizer
-optimizer = torch.optim.AdamW([x, y], lr=0.1)
-trace = {&quot;x&quot;: [], &quot;y&quot;: [], &quot;z&quot;: []}
+<span class="c1"># optimizer</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">AdamW</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">trace</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&quot;z&quot;</span><span class="p">:</span> <span class="p">[]}</span>
 
 
-# optimizing loop
-for i in range(100):
-    # compute value
-    z = rosen(x, y)
+<span class="c1"># optimizing loop</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="c1"># compute value</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">rosen</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
     
-    # store for later
-    trace[&quot;x&quot;].append(x.item())
-    trace[&quot;y&quot;].append(y.item())
-    trace[&quot;z&quot;].append(z.item())
+    <span class="c1"># store for later</span>
+    <span class="n">trace</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+    <span class="n">trace</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+    <span class="n">trace</span><span class="p">[</span><span class="s2">&quot;z&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
     
-    # gradient descent step
-    optimizer.zero_grad()
-    z.backward()
-    optimizer.step()
+    <span class="c1"># gradient descent step</span>
+    <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+    <span class="n">z</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+    <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
     
 </pre></div>
 </div>
@@ -1173,28 +1173,28 @@ for i in range(100):
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>n_points = 100
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_points</span> <span class="o">=</span> <span class="mi">100</span>
 
-# surface
-xh = np.linspace(-1.5, 2.0, n_points)
-yh = np.linspace(-0.3, 3, n_points)
-xv, yv = np.meshgrid(xh, yh)
-zv = rosen(xv.reshape(-1), yv.reshape(-1)).reshape(n_points, n_points)
-surface = {&quot;x&quot;: xv, &quot;y&quot;: yv, &quot;z&quot;: zv}
+<span class="c1"># surface</span>
+<span class="n">xh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">n_points</span><span class="p">)</span>
+<span class="n">yh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">0.3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">n_points</span><span class="p">)</span>
+<span class="n">xv</span><span class="p">,</span> <span class="n">yv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">xh</span><span class="p">,</span> <span class="n">yh</span><span class="p">)</span>
+<span class="n">zv</span> <span class="o">=</span> <span class="n">rosen</span><span class="p">(</span><span class="n">xv</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">yv</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">n_points</span><span class="p">,</span> <span class="n">n_points</span><span class="p">)</span>
+<span class="n">surface</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="n">xv</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="n">yv</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="p">:</span> <span class="n">zv</span><span class="p">}</span>
 
 
-levels = np.hstack([np.linspace(0, 200, 25), np.linspace(250, 2000, 25)])
-fig, ax = plt.subplots(figsize=(11, 10))
-cf = ax.contourf(surface[&quot;x&quot;], surface[&quot;y&quot;], surface[&quot;z&quot;], levels=levels, cmap=&quot;coolwarm&quot;)
-ax.plot(trace[&quot;x&quot;], trace[&quot;y&quot;], &quot;r&quot;, label=&quot;path&quot;)
-ax.scatter(trace[&quot;x&quot;][0], trace[&quot;y&quot;][0], marker=&quot;s&quot;, s=200, color=&quot;violet&quot;, label=&quot;start&quot;)
-ax.scatter([1], [1], marker=&quot;*&quot;, s=200, color=&quot;violet&quot;, label=&quot;minimum&quot;)
-cbar = fig.colorbar(cf)
+<span class="n">levels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">25</span><span class="p">)])</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">cf</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">surface</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">],</span> <span class="n">surface</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">],</span> <span class="n">surface</span><span class="p">[</span><span class="s2">&quot;z&quot;</span><span class="p">],</span> <span class="n">levels</span><span class="o">=</span><span class="n">levels</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;coolwarm&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">trace</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">],</span> <span class="n">trace</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">],</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;path&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">trace</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">trace</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;violet&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;start&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;violet&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;minimum&quot;</span><span class="p">)</span>
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cf</span><span class="p">)</span>
 
-ax.set_xlabel(&quot;$x$&quot;)
-ax.set_ylabel(&quot;$y$&quot;)
-cbar.set_label(&quot;$z$&quot;)
-ax.legend()
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$x$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;$y$&quot;</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;$z$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1207,14 +1207,14 @@ ax.legend()
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def show_image(ax, image, title=None, cmap=None):
-    &quot;&quot;&quot;
-    Вывести изображение в указанных осях.
-    &quot;&quot;&quot;
-    ax.imshow(image, cmap=cmap)
-    ax.set_title(title)
-    ax.xaxis.set_visible(False)
-    ax.yaxis.set_visible(False)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">show_image</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Вывести изображение в указанных осях.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1224,17 +1224,17 @@ ax.legend()
 <h2>MNIST<a class="headerlink" href="#mnist" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from torchvision.datasets import MNIST
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">torchvision.datasets</span> <span class="kn">import</span> <span class="n">MNIST</span>
 
-train_dataset = MNIST(&quot;./datasets&quot;, download=True, train=True)
-test_dataset = MNIST(&quot;./datasets&quot;, download=True, train=False)
+<span class="n">train_dataset</span> <span class="o">=</span> <span class="n">MNIST</span><span class="p">(</span><span class="s2">&quot;./datasets&quot;</span><span class="p">,</span> <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">test_dataset</span> <span class="o">=</span> <span class="n">MNIST</span><span class="p">(</span><span class="s2">&quot;./datasets&quot;</span><span class="p">,</span> <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-fig, axs = plt.subplots(figsize=(20, 20), nrows=10, ncols=10, layout=&quot;tight&quot;)
-for i, ax in enumerate(axs.flatten()):
-    image = train_dataset.data[i].numpy()
-    label = train_dataset.targets[i].item()
-    digit = train_dataset.classes[label]
-    show_image(ax, image, title=digit, cmap=&quot;gray&quot;)
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">axs</span><span class="o">.</span><span class="n">flatten</span><span class="p">()):</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">train_dataset</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+    <span class="n">label</span> <span class="o">=</span> <span class="n">train_dataset</span><span class="o">.</span><span class="n">targets</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+    <span class="n">digit</span> <span class="o">=</span> <span class="n">train_dataset</span><span class="o">.</span><span class="n">classes</span><span class="p">[</span><span class="n">label</span><span class="p">]</span>
+    <span class="n">show_image</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">digit</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1244,17 +1244,17 @@ for i, ax in enumerate(axs.flatten()):
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from sklearn.neighbors import KNeighborsClassifier
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
 
-X_train = train_dataset.data.flatten(start_dim=1).numpy()
-Y_train = train_dataset.targets.numpy()
-X_test = test_dataset.data.flatten(start_dim=1).numpy()
-Y_test = test_dataset.targets.numpy()
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">train_dataset</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">start_dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+<span class="n">Y_train</span> <span class="o">=</span> <span class="n">train_dataset</span><span class="o">.</span><span class="n">targets</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">test_dataset</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">start_dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+<span class="n">Y_test</span> <span class="o">=</span> <span class="n">test_dataset</span><span class="o">.</span><span class="n">targets</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
 
-classifier = KNeighborsClassifier()
-classifier.fit(X_train, Y_train)
-accuracy = classifier.score(X_test, Y_test)
-print(f&quot;k nearest neighboors accuracy: {accuracy}&quot;)
+<span class="n">classifier</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">()</span>
+<span class="n">classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">)</span>
+<span class="n">accuracy</span> <span class="o">=</span> <span class="n">classifier</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">Y_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;k nearest neighboors accuracy: </span><span class="si">{</span><span class="n">accuracy</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1266,134 +1266,134 @@ print(f&quot;k nearest neighboors accuracy: {accuracy}&quot;)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from torchvision.transforms import Compose, ToTensor, Normalize
-from torch.utils.data import DataLoader
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">torchvision.transforms</span> <span class="kn">import</span> <span class="n">Compose</span><span class="p">,</span> <span class="n">ToTensor</span><span class="p">,</span> <span class="n">Normalize</span>
+<span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">DataLoader</span>
 
-data = train_dataset.data / 255.
-mean = data.mean()
-std = data.std()
+<span class="n">data</span> <span class="o">=</span> <span class="n">train_dataset</span><span class="o">.</span><span class="n">data</span> <span class="o">/</span> <span class="mf">255.</span>
+<span class="n">mean</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">std</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
 
-transform = Compose([
-    ToTensor(),
-    Normalize((mean,), (std,))
-])
+<span class="n">transform</span> <span class="o">=</span> <span class="n">Compose</span><span class="p">([</span>
+    <span class="n">ToTensor</span><span class="p">(),</span>
+    <span class="n">Normalize</span><span class="p">((</span><span class="n">mean</span><span class="p">,),</span> <span class="p">(</span><span class="n">std</span><span class="p">,))</span>
+<span class="p">])</span>
 
 
-train_dataset.transform = transform
-test_dataset.transform = transform
+<span class="n">train_dataset</span><span class="o">.</span><span class="n">transform</span> <span class="o">=</span> <span class="n">transform</span>
+<span class="n">test_dataset</span><span class="o">.</span><span class="n">transform</span> <span class="o">=</span> <span class="n">transform</span>
 
-train_dataloader = DataLoader(train_dataset, batch_size=1024, shuffle=True, pin_memory=True)
-test_dataloader = DataLoader(test_dataset, batch_size=1024, shuffle=False, pin_memory=True)
+<span class="n">train_dataloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">pin_memory</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">test_dataloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">pin_memory</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from torch.nn import CrossEntropyLoss
-from sklearn.metrics import accuracy_score
-from tqdm.notebook import trange
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">torch.nn</span> <span class="kn">import</span> <span class="n">CrossEntropyLoss</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+<span class="kn">from</span> <span class="nn">tqdm.notebook</span> <span class="kn">import</span> <span class="n">trange</span>
 
-device = gpu if torch.cuda.is_available() else cpu
-optimizer_type = torch.optim.Adam
+<span class="n">device</span> <span class="o">=</span> <span class="n">gpu</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="n">cpu</span>
+<span class="n">optimizer_type</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span>
 
-def train_one_epoch(model, dataloader, optimizer):
-    CSE = CrossEntropyLoss()
-    for x, y_true in dataloader:
-        # Compute prediction and loss
-        x, y_true = x.to(device), y_true.to(device)
-        y_pred = model(x)
-        loss = CSE(y_pred, y_true)
+<span class="k">def</span> <span class="nf">train_one_epoch</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">dataloader</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">):</span>
+    <span class="n">CSE</span> <span class="o">=</span> <span class="n">CrossEntropyLoss</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y_true</span> <span class="ow">in</span> <span class="n">dataloader</span><span class="p">:</span>
+        <span class="c1"># Compute prediction and loss</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y_true</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">y_true</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">CSE</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">y_true</span><span class="p">)</span>
 
-        # Backpropagation
-        optimizer.zero_grad()
-        loss.backward()
-        optimizer.step()
+        <span class="c1"># Backpropagation</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+        <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
         
-def train(model, train_loader, test_loader, n_epochs, writer, lr=0.001):
-    optimizer = optimizer_type(model.parameters(), lr=lr)
-    model = model.to(device)
+<span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">train_loader</span><span class="p">,</span> <span class="n">test_loader</span><span class="p">,</span> <span class="n">n_epochs</span><span class="p">,</span> <span class="n">writer</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.001</span><span class="p">):</span>
+    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">optimizer_type</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">)</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
     
-    # validate
-    model.eval()
-    train_loss, train_acc = compute_metrics(model, train_loader)
-    test_loss, test_acc = compute_metrics(model, test_loader)
-    write_logs(writer, train_loss, test_loss, train_acc, test_acc, 0)
+    <span class="c1"># validate</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+    <span class="n">train_loss</span><span class="p">,</span> <span class="n">train_acc</span> <span class="o">=</span> <span class="n">compute_metrics</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">train_loader</span><span class="p">)</span>
+    <span class="n">test_loss</span><span class="p">,</span> <span class="n">test_acc</span> <span class="o">=</span> <span class="n">compute_metrics</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">test_loader</span><span class="p">)</span>
+    <span class="n">write_logs</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">train_loss</span><span class="p">,</span> <span class="n">test_loss</span><span class="p">,</span> <span class="n">train_acc</span><span class="p">,</span> <span class="n">test_acc</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
         
-    # train loop
-    for epoch in trange(1, n_epochs + 1):
-        # train
-        model.train()
-        train_one_epoch(model, train_loader, optimizer)
+    <span class="c1"># train loop</span>
+    <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="n">trange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_epochs</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="c1"># train</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+        <span class="n">train_one_epoch</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">train_loader</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">)</span>
         
-        # validate
-        model.eval()
-        train_loss, train_acc = compute_metrics(model, train_loader)
-        test_loss, test_acc = compute_metrics(model, test_loader)
+        <span class="c1"># validate</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+        <span class="n">train_loss</span><span class="p">,</span> <span class="n">train_acc</span> <span class="o">=</span> <span class="n">compute_metrics</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">train_loader</span><span class="p">)</span>
+        <span class="n">test_loss</span><span class="p">,</span> <span class="n">test_acc</span> <span class="o">=</span> <span class="n">compute_metrics</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">test_loader</span><span class="p">)</span>
         
-        # write to tensorboard logs
-        write_logs(writer, train_loss, test_loss, train_acc, test_acc, epoch)
-    return test_acc
+        <span class="c1"># write to tensorboard logs</span>
+        <span class="n">write_logs</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">train_loss</span><span class="p">,</span> <span class="n">test_loss</span><span class="p">,</span> <span class="n">train_acc</span><span class="p">,</span> <span class="n">test_acc</span><span class="p">,</span> <span class="n">epoch</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">test_acc</span>
         
         
-def write_logs(writer, train_loss, test_loss, train_acc, test_acc, epoch):
-    writer.add_scalars(
-            &quot;accuracy&quot;, 
-            {
-                &quot;train&quot;: train_acc,
-                &quot;test&quot;: test_acc
-            },
-            epoch
-        )
-    writer.add_scalars(
-        &quot;loss&quot;, 
-        {
-            &quot;train&quot;: train_loss,
-            &quot;test&quot;: test_loss
-        },
-        epoch
-    )
+<span class="k">def</span> <span class="nf">write_logs</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">train_loss</span><span class="p">,</span> <span class="n">test_loss</span><span class="p">,</span> <span class="n">train_acc</span><span class="p">,</span> <span class="n">test_acc</span><span class="p">,</span> <span class="n">epoch</span><span class="p">):</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">add_scalars</span><span class="p">(</span>
+            <span class="s2">&quot;accuracy&quot;</span><span class="p">,</span> 
+            <span class="p">{</span>
+                <span class="s2">&quot;train&quot;</span><span class="p">:</span> <span class="n">train_acc</span><span class="p">,</span>
+                <span class="s2">&quot;test&quot;</span><span class="p">:</span> <span class="n">test_acc</span>
+            <span class="p">},</span>
+            <span class="n">epoch</span>
+        <span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">add_scalars</span><span class="p">(</span>
+        <span class="s2">&quot;loss&quot;</span><span class="p">,</span> 
+        <span class="p">{</span>
+            <span class="s2">&quot;train&quot;</span><span class="p">:</span> <span class="n">train_loss</span><span class="p">,</span>
+            <span class="s2">&quot;test&quot;</span><span class="p">:</span> <span class="n">test_loss</span>
+        <span class="p">},</span>
+        <span class="n">epoch</span>
+    <span class="p">)</span>
 
         
-def compute_metrics(model, dataloader):
-    CSE = CrossEntropyLoss(reduction=&quot;sum&quot;)  
-    n = len(dataloader.dataset)
+<span class="k">def</span> <span class="nf">compute_metrics</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">dataloader</span><span class="p">):</span>
+    <span class="n">CSE</span> <span class="o">=</span> <span class="n">CrossEntropyLoss</span><span class="p">(</span><span class="n">reduction</span><span class="o">=</span><span class="s2">&quot;sum&quot;</span><span class="p">)</span>  
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataloader</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span>
     
-    loss = 0.
-    correct = 0.
-    with torch.no_grad():
-        for x, y_true in dataloader:
-            x, y_true = x.to(device), y_true.to(device)
-            y_pred = model(x)
-            loss += CSE(y_pred, y_true)
-            correct += accuracy_score(y_true.cpu().numpy(), y_pred.argmax(1).cpu().numpy(), normalize=False)
+    <span class="n">loss</span> <span class="o">=</span> <span class="mf">0.</span>
+    <span class="n">correct</span> <span class="o">=</span> <span class="mf">0.</span>
+    <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y_true</span> <span class="ow">in</span> <span class="n">dataloader</span><span class="p">:</span>
+            <span class="n">x</span><span class="p">,</span> <span class="n">y_true</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">y_true</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+            <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="n">loss</span> <span class="o">+=</span> <span class="n">CSE</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">y_true</span><span class="p">)</span>
+            <span class="n">correct</span> <span class="o">+=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_true</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="n">y_pred</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     
-    return loss/n, correct/n
+    <span class="k">return</span> <span class="n">loss</span><span class="o">/</span><span class="n">n</span><span class="p">,</span> <span class="n">correct</span><span class="o">/</span><span class="n">n</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import os
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 
-from torch.nn import Sequential, Flatten, Linear
-from torch.utils.tensorboard import SummaryWriter
+<span class="kn">from</span> <span class="nn">torch.nn</span> <span class="kn">import</span> <span class="n">Sequential</span><span class="p">,</span> <span class="n">Flatten</span><span class="p">,</span> <span class="n">Linear</span>
+<span class="kn">from</span> <span class="nn">torch.utils.tensorboard</span> <span class="kn">import</span> <span class="n">SummaryWriter</span>
 
-h, w = 28, 28
-n_pixels = h * w
-n_classes = 10
-learning_rate = 0.03
-n_epochs = 20
+<span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">28</span>
+<span class="n">n_pixels</span> <span class="o">=</span> <span class="n">h</span> <span class="o">*</span> <span class="n">w</span>
+<span class="n">n_classes</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.03</span>
+<span class="n">n_epochs</span> <span class="o">=</span> <span class="mi">20</span>
 
 
-linear = Sequential(
-    Flatten(),
-    Linear(in_features=n_pixels, out_features=n_classes, bias=True)
-)
+<span class="n">linear</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">(</span>
+    <span class="n">Flatten</span><span class="p">(),</span>
+    <span class="n">Linear</span><span class="p">(</span><span class="n">in_features</span><span class="o">=</span><span class="n">n_pixels</span><span class="p">,</span> <span class="n">out_features</span><span class="o">=</span><span class="n">n_classes</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="p">)</span>
 
-folder = os.path.join(&quot;runs&quot;, &quot;MNIST&quot;, &quot;linear&quot;)
-train(linear, train_dataloader, test_dataloader, n_epochs, SummaryWriter(folder), learning_rate)
+<span class="n">folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;runs&quot;</span><span class="p">,</span> <span class="s2">&quot;MNIST&quot;</span><span class="p">,</span> <span class="s2">&quot;linear&quot;</span><span class="p">)</span>
+<span class="n">train</span><span class="p">(</span><span class="n">linear</span><span class="p">,</span> <span class="n">train_dataloader</span><span class="p">,</span> <span class="n">test_dataloader</span><span class="p">,</span> <span class="n">n_epochs</span><span class="p">,</span> <span class="n">SummaryWriter</span><span class="p">(</span><span class="n">folder</span><span class="p">),</span> <span class="n">learning_rate</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1407,12 +1407,12 @@ train(linear, train_dataloader, test_dataloader, n_epochs, SummaryWriter(folder)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>weights = list(linear.parameters())[0].to(cpu).detach().numpy()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weights</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">linear</span><span class="o">.</span><span class="n">parameters</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">cpu</span><span class="p">)</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
 
-fig, axs = plt.subplots(figsize=(20, 20), ncols=10, layout=&quot;tight&quot;)
-for row, ax, title in zip(weights, axs, train_dataset.classes):
-    image = row.reshape(h, w)
-    show_image(ax, image, title=title, cmap=&quot;gray&quot;)
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">row</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">title</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">axs</span><span class="p">,</span> <span class="n">train_dataset</span><span class="o">.</span><span class="n">classes</span><span class="p">):</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+    <span class="n">show_image</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1422,17 +1422,17 @@ for row, ax, title in zip(weights, axs, train_dataset.classes):
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from torch.nn import ReLU
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">torch.nn</span> <span class="kn">import</span> <span class="n">ReLU</span>
 
-two_layers = Sequential(
-    Flatten(),
-    Linear(in_features=n_pixels, out_features=40, bias=True),
-    ReLU(),
-    Linear(in_features=40, out_features=n_classes, bias=True)
-)
+<span class="n">two_layers</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">(</span>
+    <span class="n">Flatten</span><span class="p">(),</span>
+    <span class="n">Linear</span><span class="p">(</span><span class="n">in_features</span><span class="o">=</span><span class="n">n_pixels</span><span class="p">,</span> <span class="n">out_features</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+    <span class="n">ReLU</span><span class="p">(),</span>
+    <span class="n">Linear</span><span class="p">(</span><span class="n">in_features</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">out_features</span><span class="o">=</span><span class="n">n_classes</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="p">)</span>
 
-folder = os.path.join(&quot;runs&quot;, &quot;MNIST&quot;, &quot;two_layers&quot;)
-train(two_layers, train_dataloader, test_dataloader, n_epochs, SummaryWriter(folder), learning_rate)
+<span class="n">folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;runs&quot;</span><span class="p">,</span> <span class="s2">&quot;MNIST&quot;</span><span class="p">,</span> <span class="s2">&quot;two_layers&quot;</span><span class="p">)</span>
+<span class="n">train</span><span class="p">(</span><span class="n">two_layers</span><span class="p">,</span> <span class="n">train_dataloader</span><span class="p">,</span> <span class="n">test_dataloader</span><span class="p">,</span> <span class="n">n_epochs</span><span class="p">,</span> <span class="n">SummaryWriter</span><span class="p">(</span><span class="n">folder</span><span class="p">),</span> <span class="n">learning_rate</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1446,12 +1446,12 @@ train(two_layers, train_dataloader, test_dataloader, n_epochs, SummaryWriter(fol
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>weights = list(two_layers.parameters())[0].to(cpu).detach().numpy()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weights</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">two_layers</span><span class="o">.</span><span class="n">parameters</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">cpu</span><span class="p">)</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
 
-fig, axs = plt.subplots(figsize=(20, 8), ncols=10, nrows=4, layout=&quot;tight&quot;)
-for row, ax in zip(weights, axs.flatten()):
-    image = row.reshape(h, w)
-    show_image(ax, image, cmap=&quot;gray&quot;)
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">row</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">axs</span><span class="o">.</span><span class="n">flatten</span><span class="p">()):</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+    <span class="n">show_image</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1461,26 +1461,26 @@ for row, ax in zip(weights, axs.flatten()):
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from torch.nn import Conv2d, MaxPool2d
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">torch.nn</span> <span class="kn">import</span> <span class="n">Conv2d</span><span class="p">,</span> <span class="n">MaxPool2d</span>
 
-lenet = Sequential(
-    Conv2d(in_channels=1, out_channels=6, kernel_size=(5, 5), padding=2),
-    ReLU(),
-    MaxPool2d(kernel_size=(2, 2), stride=(2, 2)),
-    Conv2d(in_channels=6, out_channels=16, kernel_size=(5, 5)),
-    ReLU(),
-    MaxPool2d(kernel_size=(2, 2), stride=(2, 2)),
-    Flatten(),
-    Linear(in_features=400, out_features=120),
-    ReLU(),
-    Linear(in_features=120, out_features=84),
-    ReLU(),
-    Linear(in_features=84, out_features=10)
-)
+<span class="n">lenet</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">(</span>
+    <span class="n">Conv2d</span><span class="p">(</span><span class="n">in_channels</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">out_channels</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">padding</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
+    <span class="n">ReLU</span><span class="p">(),</span>
+    <span class="n">MaxPool2d</span><span class="p">(</span><span class="n">kernel_size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">stride</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span>
+    <span class="n">Conv2d</span><span class="p">(</span><span class="n">in_channels</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">out_channels</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)),</span>
+    <span class="n">ReLU</span><span class="p">(),</span>
+    <span class="n">MaxPool2d</span><span class="p">(</span><span class="n">kernel_size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">stride</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span>
+    <span class="n">Flatten</span><span class="p">(),</span>
+    <span class="n">Linear</span><span class="p">(</span><span class="n">in_features</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">out_features</span><span class="o">=</span><span class="mi">120</span><span class="p">),</span>
+    <span class="n">ReLU</span><span class="p">(),</span>
+    <span class="n">Linear</span><span class="p">(</span><span class="n">in_features</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span> <span class="n">out_features</span><span class="o">=</span><span class="mi">84</span><span class="p">),</span>
+    <span class="n">ReLU</span><span class="p">(),</span>
+    <span class="n">Linear</span><span class="p">(</span><span class="n">in_features</span><span class="o">=</span><span class="mi">84</span><span class="p">,</span> <span class="n">out_features</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="p">)</span>
 
 
-folder = os.path.join(&quot;runs&quot;, &quot;MNIST&quot;, &quot;Convolutional&quot;)
-train(lenet, train_dataloader, test_dataloader, n_epochs, SummaryWriter(folder), lr=0.003)
+<span class="n">folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;runs&quot;</span><span class="p">,</span> <span class="s2">&quot;MNIST&quot;</span><span class="p">,</span> <span class="s2">&quot;Convolutional&quot;</span><span class="p">)</span>
+<span class="n">train</span><span class="p">(</span><span class="n">lenet</span><span class="p">,</span> <span class="n">train_dataloader</span><span class="p">,</span> <span class="n">test_dataloader</span><span class="p">,</span> <span class="n">n_epochs</span><span class="p">,</span> <span class="n">SummaryWriter</span><span class="p">(</span><span class="n">folder</span><span class="p">),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.003</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1494,12 +1494,12 @@ train(lenet, train_dataloader, test_dataloader, n_epochs, SummaryWriter(folder),
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>weights = next(lenet.parameters()).to(cpu).detach().numpy()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weights</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">lenet</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">cpu</span><span class="p">)</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
 
-fig, axs = plt.subplots(figsize=(20, 6), ncols=6, layout=&quot;tight&quot;)
-for row, ax in zip(weights, axs.flatten()):
-    image = row.reshape(5, 5)
-    show_image(ax, image, cmap=&quot;gray&quot;)
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">row</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">axs</span><span class="o">.</span><span class="n">flatten</span><span class="p">()):</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+    <span class="n">show_image</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1512,17 +1512,17 @@ for row, ax in zip(weights, axs.flatten()):
 <h2>CIFAR10<a class="headerlink" href="#cifar10" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from torchvision.datasets import CIFAR10
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">torchvision.datasets</span> <span class="kn">import</span> <span class="n">CIFAR10</span>
 
-train_dataset = CIFAR10(&quot;./datasets&quot;, download=True, train=True)
-test_dataset = CIFAR10(&quot;./datasets&quot;, download=True, train=False)
+<span class="n">train_dataset</span> <span class="o">=</span> <span class="n">CIFAR10</span><span class="p">(</span><span class="s2">&quot;./datasets&quot;</span><span class="p">,</span> <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">test_dataset</span> <span class="o">=</span> <span class="n">CIFAR10</span><span class="p">(</span><span class="s2">&quot;./datasets&quot;</span><span class="p">,</span> <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-fig, axs = plt.subplots(figsize=(20, 20), nrows=6, ncols=6, layout=&quot;tight&quot;)
-for i, ax in enumerate(axs.flatten()):
-    image = train_dataset.data[i]
-    label = train_dataset.targets[i]
-    digit = train_dataset.classes[label]
-    show_image(ax, image, title=digit)
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">axs</span><span class="o">.</span><span class="n">flatten</span><span class="p">()):</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">train_dataset</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">label</span> <span class="o">=</span> <span class="n">train_dataset</span><span class="o">.</span><span class="n">targets</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">digit</span> <span class="o">=</span> <span class="n">train_dataset</span><span class="o">.</span><span class="n">classes</span><span class="p">[</span><span class="n">label</span><span class="p">]</span>
+    <span class="n">show_image</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">digit</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1536,20 +1536,20 @@ Files already downloaded and verified
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>h, w, c = 32, 32, 3
-n_pixels = h * w * c
-n_classes = 10
-n_epochs = 20
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">3</span>
+<span class="n">n_pixels</span> <span class="o">=</span> <span class="n">h</span> <span class="o">*</span> <span class="n">w</span> <span class="o">*</span> <span class="n">c</span>
+<span class="n">n_classes</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">n_epochs</span> <span class="o">=</span> <span class="mi">20</span>
 
-X_train = train_dataset.data.reshape(-1, n_pixels)
-Y_train = train_dataset.targets
-X_test = test_dataset.data.reshape(-1, n_pixels)
-Y_test = test_dataset.targets
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">train_dataset</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_pixels</span><span class="p">)</span>
+<span class="n">Y_train</span> <span class="o">=</span> <span class="n">train_dataset</span><span class="o">.</span><span class="n">targets</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">test_dataset</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_pixels</span><span class="p">)</span>
+<span class="n">Y_test</span> <span class="o">=</span> <span class="n">test_dataset</span><span class="o">.</span><span class="n">targets</span>
 
-classifier = KNeighborsClassifier()
-classifier.fit(X_train, Y_train)
-accuracy = classifier.score(X_test, Y_test)
-print(f&quot;k nearest neighboors accuracy: {accuracy}&quot;)
+<span class="n">classifier</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">()</span>
+<span class="n">classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">)</span>
+<span class="n">accuracy</span> <span class="o">=</span> <span class="n">classifier</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">Y_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;k nearest neighboors accuracy: </span><span class="si">{</span><span class="n">accuracy</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1561,21 +1561,21 @@ print(f&quot;k nearest neighboors accuracy: {accuracy}&quot;)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>data = train_dataset.data / 255.
-mean = data.mean(axis=(0, 1, 2))
-std = data.std(axis=(0, 1, 2))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">train_dataset</span><span class="o">.</span><span class="n">data</span> <span class="o">/</span> <span class="mf">255.</span>
+<span class="n">mean</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">std</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 
-transform = Compose([
-    ToTensor(),
-    Normalize(tuple(mean), tuple(std))
-])
+<span class="n">transform</span> <span class="o">=</span> <span class="n">Compose</span><span class="p">([</span>
+    <span class="n">ToTensor</span><span class="p">(),</span>
+    <span class="n">Normalize</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">mean</span><span class="p">),</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">std</span><span class="p">))</span>
+<span class="p">])</span>
 
 
-train_dataset = CIFAR10(&quot;./datasets&quot;, download=True, train=True, transform=transform)
-test_dataset = CIFAR10(&quot;./datasets&quot;, download=True, train=False, transform=transform)
+<span class="n">train_dataset</span> <span class="o">=</span> <span class="n">CIFAR10</span><span class="p">(</span><span class="s2">&quot;./datasets&quot;</span><span class="p">,</span> <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">transform</span><span class="p">)</span>
+<span class="n">test_dataset</span> <span class="o">=</span> <span class="n">CIFAR10</span><span class="p">(</span><span class="s2">&quot;./datasets&quot;</span><span class="p">,</span> <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">transform</span><span class="p">)</span>
 
-train_dataloader = DataLoader(train_dataset, batch_size=256, shuffle=True, pin_memory=True)
-test_dataloader = DataLoader(test_dataset, batch_size=256, shuffle=False, pin_memory=True)
+<span class="n">train_dataloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">pin_memory</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">test_dataloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">pin_memory</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1588,17 +1588,17 @@ Files already downloaded and verified
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>optimizer_type = torch.optim.SGD
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">optimizer_type</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">SGD</span>
 
-linear = Sequential(
-    Flatten(),
-    Linear(in_features=n_pixels, out_features=n_classes)
-)
+<span class="n">linear</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">(</span>
+    <span class="n">Flatten</span><span class="p">(),</span>
+    <span class="n">Linear</span><span class="p">(</span><span class="n">in_features</span><span class="o">=</span><span class="n">n_pixels</span><span class="p">,</span> <span class="n">out_features</span><span class="o">=</span><span class="n">n_classes</span><span class="p">)</span>
+<span class="p">)</span>
 
-learning_rate = 0.1
-folder = os.path.join(&quot;runs&quot;, &quot;CIFAR10&quot;, &quot;linear&quot;)
-accuracy = train(linear, train_dataloader, test_dataloader, n_epochs, SummaryWriter(folder), learning_rate)
-print(f&quot;accuracy of logistic regression: {accuracy}&quot;)
+<span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;runs&quot;</span><span class="p">,</span> <span class="s2">&quot;CIFAR10&quot;</span><span class="p">,</span> <span class="s2">&quot;linear&quot;</span><span class="p">)</span>
+<span class="n">accuracy</span> <span class="o">=</span> <span class="n">train</span><span class="p">(</span><span class="n">linear</span><span class="p">,</span> <span class="n">train_dataloader</span><span class="p">,</span> <span class="n">test_dataloader</span><span class="p">,</span> <span class="n">n_epochs</span><span class="p">,</span> <span class="n">SummaryWriter</span><span class="p">(</span><span class="n">folder</span><span class="p">),</span> <span class="n">learning_rate</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;accuracy of logistic regression: </span><span class="si">{</span><span class="n">accuracy</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1612,18 +1612,18 @@ print(f&quot;accuracy of logistic regression: {accuracy}&quot;)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>three_layers = Sequential(
-    Flatten(),
-    Linear(in_features=n_pixels, out_features=120),
-    ReLU(),
-    Linear(in_features=120, out_features=86),
-    ReLU(),
-    Linear(in_features=86, out_features=n_classes)
-)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">three_layers</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">(</span>
+    <span class="n">Flatten</span><span class="p">(),</span>
+    <span class="n">Linear</span><span class="p">(</span><span class="n">in_features</span><span class="o">=</span><span class="n">n_pixels</span><span class="p">,</span> <span class="n">out_features</span><span class="o">=</span><span class="mi">120</span><span class="p">),</span>
+    <span class="n">ReLU</span><span class="p">(),</span>
+    <span class="n">Linear</span><span class="p">(</span><span class="n">in_features</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span> <span class="n">out_features</span><span class="o">=</span><span class="mi">86</span><span class="p">),</span>
+    <span class="n">ReLU</span><span class="p">(),</span>
+    <span class="n">Linear</span><span class="p">(</span><span class="n">in_features</span><span class="o">=</span><span class="mi">86</span><span class="p">,</span> <span class="n">out_features</span><span class="o">=</span><span class="n">n_classes</span><span class="p">)</span>
+<span class="p">)</span>
 
-folder = os.path.join(&quot;runs&quot;, &quot;CIFAR10&quot;, &quot;three_layers&quot;)
-accuracy = train(three_layers, train_dataloader, test_dataloader, n_epochs, SummaryWriter(folder), learning_rate)
-print(f&quot;accuracy of three layered model: {accuracy}&quot;)
+<span class="n">folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;runs&quot;</span><span class="p">,</span> <span class="s2">&quot;CIFAR10&quot;</span><span class="p">,</span> <span class="s2">&quot;three_layers&quot;</span><span class="p">)</span>
+<span class="n">accuracy</span> <span class="o">=</span> <span class="n">train</span><span class="p">(</span><span class="n">three_layers</span><span class="p">,</span> <span class="n">train_dataloader</span><span class="p">,</span> <span class="n">test_dataloader</span><span class="p">,</span> <span class="n">n_epochs</span><span class="p">,</span> <span class="n">SummaryWriter</span><span class="p">(</span><span class="n">folder</span><span class="p">),</span> <span class="n">learning_rate</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;accuracy of three layered model: </span><span class="si">{</span><span class="n">accuracy</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1637,27 +1637,27 @@ print(f&quot;accuracy of three layered model: {accuracy}&quot;)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from torch.nn import Conv2d, MaxPool2d
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">torch.nn</span> <span class="kn">import</span> <span class="n">Conv2d</span><span class="p">,</span> <span class="n">MaxPool2d</span>
 
-lenet = Sequential(
-    Conv2d(in_channels=3, out_channels=6, kernel_size=(5, 5)),
-    ReLU(),
-    MaxPool2d(kernel_size=(2, 2), stride=(2, 2)),
-    Conv2d(in_channels=6, out_channels=16, kernel_size=(5, 5)),
-    ReLU(),
-    MaxPool2d(kernel_size=(2, 2), stride=(2, 2)),
-    Flatten(),
-    Linear(in_features=400, out_features=120),
-    ReLU(),
-    Linear(in_features=120, out_features=84),
-    ReLU(),
-    Linear(in_features=84, out_features=10)
-)
+<span class="n">lenet</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">(</span>
+    <span class="n">Conv2d</span><span class="p">(</span><span class="n">in_channels</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">out_channels</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)),</span>
+    <span class="n">ReLU</span><span class="p">(),</span>
+    <span class="n">MaxPool2d</span><span class="p">(</span><span class="n">kernel_size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">stride</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span>
+    <span class="n">Conv2d</span><span class="p">(</span><span class="n">in_channels</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">out_channels</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)),</span>
+    <span class="n">ReLU</span><span class="p">(),</span>
+    <span class="n">MaxPool2d</span><span class="p">(</span><span class="n">kernel_size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">stride</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span>
+    <span class="n">Flatten</span><span class="p">(),</span>
+    <span class="n">Linear</span><span class="p">(</span><span class="n">in_features</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">out_features</span><span class="o">=</span><span class="mi">120</span><span class="p">),</span>
+    <span class="n">ReLU</span><span class="p">(),</span>
+    <span class="n">Linear</span><span class="p">(</span><span class="n">in_features</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span> <span class="n">out_features</span><span class="o">=</span><span class="mi">84</span><span class="p">),</span>
+    <span class="n">ReLU</span><span class="p">(),</span>
+    <span class="n">Linear</span><span class="p">(</span><span class="n">in_features</span><span class="o">=</span><span class="mi">84</span><span class="p">,</span> <span class="n">out_features</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="p">)</span>
 
 
-folder = os.path.join(&quot;runs&quot;, &quot;CIFAR10&quot;, &quot;Convolutional&quot;)
-accuracy = train(lenet, train_dataloader, test_dataloader, n_epochs, SummaryWriter(folder), lr=0.1)
-print(f&quot;accuracy of convolutional model: {accuracy}&quot;)
+<span class="n">folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;runs&quot;</span><span class="p">,</span> <span class="s2">&quot;CIFAR10&quot;</span><span class="p">,</span> <span class="s2">&quot;Convolutional&quot;</span><span class="p">)</span>
+<span class="n">accuracy</span> <span class="o">=</span> <span class="n">train</span><span class="p">(</span><span class="n">lenet</span><span class="p">,</span> <span class="n">train_dataloader</span><span class="p">,</span> <span class="n">test_dataloader</span><span class="p">,</span> <span class="n">n_epochs</span><span class="p">,</span> <span class="n">SummaryWriter</span><span class="p">(</span><span class="n">folder</span><span class="p">),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;accuracy of convolutional model: </span><span class="si">{</span><span class="n">accuracy</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1671,18 +1671,18 @@ print(f&quot;accuracy of convolutional model: {accuracy}&quot;)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def compute_number_of_paramets(model):
-    return sum(parameters.cpu().detach().numpy().size   for parameters in model.parameters())
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compute_number_of_paramets</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">parameters</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">size</span>   <span class="k">for</span> <span class="n">parameters</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span>
 
-models = {
-    &quot;linear&quot;: linear,
-    &quot;three layers&quot;: three_layers,
-    &quot;convolutional&quot;: lenet
-}
+<span class="n">models</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;linear&quot;</span><span class="p">:</span> <span class="n">linear</span><span class="p">,</span>
+    <span class="s2">&quot;three layers&quot;</span><span class="p">:</span> <span class="n">three_layers</span><span class="p">,</span>
+    <span class="s2">&quot;convolutional&quot;</span><span class="p">:</span> <span class="n">lenet</span>
+<span class="p">}</span>
 
-for model_name, model in models.items():
-    n = compute_number_of_paramets(model)
-    print(f&quot;{model_name}: {n}&quot;)
+<span class="k">for</span> <span class="n">model_name</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">models</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">compute_number_of_paramets</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

@@ -1075,18 +1075,18 @@ title="Print to PDF"
 <p>Модуль стандартной библиотеки <a class="reference external" href="https://docs.python.org/3/library/csv.html">csv</a> позволяет считывать табличные данные из файла в формате <code class="docutils literal notranslate"><span class="pre">CSV</span></code>. Про возможности этого модуля полезно знать, но на практике вы гораздо чаще будете пользоваться продвинутыми библиотеками для работы с таблицами, поэтому здесь ограничимся лишь примером, в котором содержимое таблицы считывается в список списков.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import os
-import csv
-from tabulate import tabulate
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">csv</span>
+<span class="kn">from</span> <span class="nn">tabulate</span> <span class="kn">import</span> <span class="n">tabulate</span>
 
-path = os.path.join(&quot;..&quot;, &quot;..&quot;, &quot;assets&quot;, &quot;data&quot;, &quot;tables&quot;, &quot;planets.csv&quot;)
+<span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;assets&quot;</span><span class="p">,</span> <span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="s2">&quot;tables&quot;</span><span class="p">,</span> <span class="s2">&quot;planets.csv&quot;</span><span class="p">)</span>
 
-table = []
-with open(path, encoding=&quot;utf-8&quot;) as csvfile:
-    for row in csv.reader(csvfile, delimiter=&quot;,&quot;):
-        table.append(row)
+<span class="n">table</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">csvfile</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">):</span>
+        <span class="n">table</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
 
-print(tabulate(table, headers=&quot;firstrow&quot;, tablefmt=&quot;grid&quot;))
+<span class="nb">print</span><span class="p">(</span><span class="n">tabulate</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="s2">&quot;firstrow&quot;</span><span class="p">,</span> <span class="n">tablefmt</span><span class="o">=</span><span class="s2">&quot;grid&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1124,10 +1124,10 @@ print(tabulate(table, headers=&quot;firstrow&quot;, tablefmt=&quot;grid&quot;))
 <p>Библиотека <a class="reference external" href="https://pandas.pydata.org/">pandas</a> — с большим запасом самая распространенная библиотека для работы с таблицами в <code class="docutils literal notranslate"><span class="pre">python</span></code>. Именно эта библиотека считается стандартом индустрии и многие другие инструменты  (такие, как библиотеки по анализу данных и машинному обучению) хорошо дружат с этой библиотекой. Именно поэтому в рамках этого курса этой библиотеке и будет уделено основное внимание. Ниже приводится исходный код, необходимый для чтения того же самого <code class="docutils literal notranslate"><span class="pre">CSV</span></code> файла.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import pandas as pd
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-df = pd.read_csv(path)
-df
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="n">df</span>
 </pre></div>
 </div>
 </div>
@@ -1238,10 +1238,10 @@ df
 <p>Ниже приводится пример, который демонстрирует, что считать <code class="docutils literal notranslate"><span class="pre">CSV</span></code> файл средствами этой библиотеки также легко, как и средствами <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import polars as pl
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">polars</span> <span class="k">as</span> <span class="nn">pl</span>
 
-df = pl.read_csv(path)
-df
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="n">df</span>
 </pre></div>
 </div>
 </div>

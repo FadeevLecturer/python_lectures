@@ -1122,12 +1122,12 @@ title="Print to PDF"
 <p>Когда интерпретатор встречает определение функции, он создаёт вызываемый объект-функцию и связывает этот объект с указанным при объявлении именем. Это имя также функции сохраняется в атрибут <code class="docutils literal notranslate"><span class="pre">__name__</span></code> объекта-функции.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def add(x, y):
-    &quot;&quot;&quot;Return the sum of its arguments&quot;&quot;&quot;
-    return x + y
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return the sum of its arguments&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
 
-print(type(add))
-print(add.__name__)
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">add</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">add</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1150,9 +1150,9 @@ add
 <p>Документирующая строка сохраняется в атрибут <code class="docutils literal notranslate"><span class="pre">__doc__</span></code> объекта функции и также выводится в справке по функции, которую можно сгенерировать встроенной функцией <a class="reference external" href="https://docs.python.org/3/library/functions.html#help">help</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(add.__doc__)
-print(&quot;-&quot; * 40)
-help(add)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">add</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">40</span><span class="p">)</span>
+<span class="n">help</span><span class="p">(</span><span class="n">add</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1228,9 +1228,9 @@ add(x, y)
 <p>Присвоение переменной в <code class="docutils literal notranslate"><span class="pre">python</span></code> — связывание с именем. В качестве демонстрации этой возможности свяжем встроенную функцию <a class="reference external" href="https://docs.python.org/3/library/functions.html#print">print</a> с именем <code class="docutils literal notranslate"><span class="pre">p</span></code> и вызовем её от этого имени.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>p = print
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="nb">print</span>
 
-p(&quot;Теперь я могу вызывать функцию print от имени p&quot;)
+<span class="n">p</span><span class="p">(</span><span class="s2">&quot;Теперь я могу вызывать функцию print от имени p&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1246,11 +1246,11 @@ p(&quot;Теперь я могу вызывать функцию print от им
 <p>Передачу функции в качестве аргумента другой функции мы уже встречали на примере получения справки функцией <code class="docutils literal notranslate"><span class="pre">help</span></code>. Разберем пример того, как пользовательская функция может принимать в качестве параметра объект-функцию.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def print_function_name(f):
-    print(f.__name__)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_function_name</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
 
-print_function_name(add)
-print_function_name(print_function_name)
+<span class="n">print_function_name</span><span class="p">(</span><span class="n">add</span><span class="p">)</span>
+<span class="n">print_function_name</span><span class="p">(</span><span class="n">print_function_name</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1265,16 +1265,16 @@ print_function_name
 <p>Напишем чуть более содержательную функцию <code class="docutils literal notranslate"><span class="pre">apply</span></code>, которая принимает на вход функцию <code class="docutils literal notranslate"><span class="pre">f</span></code> и список <code class="docutils literal notranslate"><span class="pre">l</span></code> и подменяет каждый элемент <code class="docutils literal notranslate"><span class="pre">l[i]</span></code> значением <code class="docutils literal notranslate"><span class="pre">f(l[i])</span></code>, т.к. применяет функцию <code class="docutils literal notranslate"><span class="pre">f</span></code> к элементам списка <code class="docutils literal notranslate"><span class="pre">l</span></code> на месте.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from math import sin, pi
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">pi</span>
 
-def apply(f, l):
-    for i in range(len(l)):
-        l[i] = f(l[i])
-    return 
+<span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">l</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)):</span>
+        <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="k">return</span> 
 
-x = [0, pi/6., pi/4., pi/3., pi/2.]
-apply(sin, x)
-print(x)
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">pi</span><span class="o">/</span><span class="mf">6.</span><span class="p">,</span> <span class="n">pi</span><span class="o">/</span><span class="mf">4.</span><span class="p">,</span> <span class="n">pi</span><span class="o">/</span><span class="mf">3.</span><span class="p">,</span> <span class="n">pi</span><span class="o">/</span><span class="mf">2.</span><span class="p">]</span>
+<span class="n">apply</span><span class="p">(</span><span class="n">sin</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1287,8 +1287,8 @@ print(x)
 <p>На самом деле есть встроенная функция <a class="reference external" href="https://docs.python.org/3/library/functions.html#map">map</a>, которая делает то же самое, только не на месте.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>y = list(map(sin, x))
-print(y)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">sin</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1305,21 +1305,21 @@ print(y)
 <p>Рассмотрим самый простой пример. Реализуем функцию, которая генерирует функцию, запоминающую момент своего создания.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from datetime import datetime
-from time import sleep
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
 
-def make_remembering_function():
-    time_of_creation = datetime.now()
-    def remembering_function():
-        print(f&quot;I was created at {time_of_creation}&quot;)
-    return remembering_function
+<span class="k">def</span> <span class="nf">make_remembering_function</span><span class="p">():</span>
+    <span class="n">time_of_creation</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">remembering_function</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;I was created at </span><span class="si">{</span><span class="n">time_of_creation</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">remembering_function</span>
 
-f1 = make_remembering_function()
-sleep(1)
-f2 = make_remembering_function()
+<span class="n">f1</span> <span class="o">=</span> <span class="n">make_remembering_function</span><span class="p">()</span>
+<span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">f2</span> <span class="o">=</span> <span class="n">make_remembering_function</span><span class="p">()</span>
 
-for f in (f1, f2):
-    f()
+<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">):</span>
+    <span class="n">f</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1350,7 +1350,7 @@ I was created at 2022-10-04 15:15:35.372219
 <p>Такие переменные считаются свободными переменными и к списку таковых даже можно получить доступ напрямую.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>f1.__code__.co_freevars
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f1</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_freevars</span>
 </pre></div>
 </div>
 </div>
@@ -1369,10 +1369,10 @@ I was created at 2022-10-04 15:15:35.372219
 <p>Искусственно произвести процесс разрешения можно средствами модуля <a class="reference external" href="https://docs.python.org/3/library/inspect.html">inspect</a>, который предназначен для инспекции <code class="docutils literal notranslate"><span class="pre">python</span></code> объектов. Метод <a class="reference external" href="https://docs.python.org/3/library/inspect.html#inspect.getclosurevars">inspect.getclosurevars</a> разрешает все имена, которые используются в функции, но не объявлены в самой функции, с объектами.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import inspect
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">inspect</span>
 
-print(inspect.getclosurevars(f1))
-print(inspect.getclosurevars(f2))
+<span class="nb">print</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getclosurevars</span><span class="p">(</span><span class="n">f1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getclosurevars</span><span class="p">(</span><span class="n">f2</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1387,17 +1387,17 @@ ClosureVars(nonlocals={&#39;time_of_creation&#39;: datetime.datetime(2022, 10, 4
 <p>Рассмотрим несколько другой пример.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def make_greeter_function(name):
-    def greet():
-        print(f&quot;Hi, {name}!&quot;)
-    return greet
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_greeter_function</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">greet</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hi, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">greet</span>
 
 
-ivan = make_greeter_function(&quot;Ivan&quot;)
-alex = make_greeter_function(&quot;Alex&quot;)
+<span class="n">ivan</span> <span class="o">=</span> <span class="n">make_greeter_function</span><span class="p">(</span><span class="s2">&quot;Ivan&quot;</span><span class="p">)</span>
+<span class="n">alex</span> <span class="o">=</span> <span class="n">make_greeter_function</span><span class="p">(</span><span class="s2">&quot;Alex&quot;</span><span class="p">)</span>
 
-for f in (ivan, alex):
-    f()
+<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="p">(</span><span class="n">ivan</span><span class="p">,</span> <span class="n">alex</span><span class="p">):</span>
+    <span class="n">f</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1416,9 +1416,9 @@ Hi, Alex!
 <p>Как и в <code class="docutils literal notranslate"><span class="pre">C/C++</span></code>, у параметров функции могут быть значения по умолчанию (<code class="docutils literal notranslate"><span class="pre">default</span> <span class="pre">value</span></code>). Такие параметры ещё называют <strong>опциональными</strong> (<code class="docutils literal notranslate"><span class="pre">optional</span> <span class="pre">parameter</span></code>), т.к. при вызове функции их можно не указывать, а параметры без значений по умолчаний называют <strong>обязательными</strong> (<code class="docutils literal notranslate"><span class="pre">required</span> <span class="pre">parameter</span></code>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def say_hi_n_times(name, n=1):
-    for _ in range(n):
-        print(f&quot;Привет, {name}!&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">say_hi_n_times</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Привет, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1430,7 +1430,7 @@ Hi, Alex!
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>say_hi_n_times(&quot;Иван&quot;, 3)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">say_hi_n_times</span><span class="p">(</span><span class="s2">&quot;Иван&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1447,7 +1447,7 @@ Hi, Alex!
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>say_hi_n_times(&quot;Иван&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">say_hi_n_times</span><span class="p">(</span><span class="s2">&quot;Иван&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1465,8 +1465,8 @@ Hi, Alex!
 <p>Нарушение этого требования — синтаксическая ошибка.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def f(x=0, y):
-    pass
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">pass</span>
 </pre></div>
 </div>
 </div>
@@ -1483,13 +1483,13 @@ Hi, Alex!
 <p>Во-первых, значение по умолчанию вычисляется при объявлении функции.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = &quot;before&quot;
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;before&quot;</span>
 
-def f(arg=x):
-    print(arg)
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">arg</span><span class="o">=</span><span class="n">x</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
 
-x = &quot;after&quot;
-f()
+<span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;after&quot;</span>
+<span class="n">f</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1503,13 +1503,13 @@ f()
 <p>Во-вторых, это значение вычисляется всего один раз. Это играет роль, если значение по умолчанию — изменяемый объект.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def f(a, L=[]):
-    L.append(a)
-    return L
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">L</span><span class="o">=</span><span class="p">[]):</span>
+    <span class="n">L</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">L</span>
 
-print(f(1))
-print(f(2))
-print(f(3))
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1539,13 +1539,13 @@ print(f(3))
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def f(param1, param2):
-    print(f&quot;First parameter: {param1}. Second parameter: {param2}&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">param1</span><span class="p">,</span> <span class="n">param2</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;First parameter: </span><span class="si">{</span><span class="n">param1</span><span class="si">}</span><span class="s2">. Second parameter: </span><span class="si">{</span><span class="n">param2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-f(0, 1)                 # 1
-f(0, param2=1)          # 2
-f(param1=0, param2=1)   # 3
-f(param2=1, param1=0)   # 4
+<span class="n">f</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>                 <span class="c1"># 1</span>
+<span class="n">f</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">param2</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>          <span class="c1"># 2</span>
+<span class="n">f</span><span class="p">(</span><span class="n">param1</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">param2</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>   <span class="c1"># 3</span>
+<span class="n">f</span><span class="p">(</span><span class="n">param2</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">param1</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>   <span class="c1"># 4</span>
 </pre></div>
 </div>
 </div>
@@ -1565,7 +1565,7 @@ First parameter: 0. Second parameter: 1
 <p>Нарушение этого правила — синтаксическая ошибка.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>f(param1=0, 1)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="n">param1</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1596,15 +1596,15 @@ First parameter: 0. Second parameter: 1
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def f(pos1, pos2, /, pos_or_kwd, *, kwd1, kwd2):
-    print(f&quot;Только по позиции: {pos1} и {pos2}&quot;)
-    print(f&quot;По позиции или по имени: {pos_or_kwd}&quot;)
-    print(f&quot;Только по имени: {kwd1} и {kwd2}&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">pos1</span><span class="p">,</span> <span class="n">pos2</span><span class="p">,</span> <span class="o">/</span><span class="p">,</span> <span class="n">pos_or_kwd</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">kwd1</span><span class="p">,</span> <span class="n">kwd2</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Только по позиции: </span><span class="si">{</span><span class="n">pos1</span><span class="si">}</span><span class="s2"> и </span><span class="si">{</span><span class="n">pos2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;По позиции или по имени: </span><span class="si">{</span><span class="n">pos_or_kwd</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Только по имени: </span><span class="si">{</span><span class="n">kwd1</span><span class="si">}</span><span class="s2"> и </span><span class="si">{</span><span class="n">kwd2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 
-f(0, 1, 2, kwd1=3, kwd2=4) 
-print(&quot;-&quot;*30)
-f(0, 1, pos_or_kwd=2, kwd1=3, kwd2=4)   
+<span class="n">f</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">kwd1</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">kwd2</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">f</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">pos_or_kwd</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">kwd1</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">kwd2</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>   
 </pre></div>
 </div>
 </div>
@@ -1636,8 +1636,8 @@ f(0, 1, pos_or_kwd=2, kwd1=3, kwd2=4)
 <p><code class="docutils literal notranslate"><span class="pre">Python</span></code> допускает синтаксис, которые позволяет перехватывать произвольное количество позиционно переданных аргументов. Для этого при объявлении функции указывается параметр с символом “<code class="docutils literal notranslate"><span class="pre">*</span></code>” перед ним. Обычно такому параметру дают имя <code class="docutils literal notranslate"><span class="pre">*args</span></code> (сокращение от <code class="docutils literal notranslate"><span class="pre">arguments</span></code>). Ниже приведен пример такого объявления.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def f(*args):
-    print(f&quot;{len(args)=}, {args=}&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span><span class="si">=}</span><span class="s2">, </span><span class="si">{</span><span class="n">args</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1645,10 +1645,10 @@ f(0, 1, pos_or_kwd=2, kwd1=3, kwd2=4)
 <p>Вызывать такую функцию можно передавая произвольное количество параметров.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>f()
-f(0)
-f(0, 1)
-f(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">()</span>
+<span class="n">f</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">f</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">f</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1664,12 +1664,12 @@ len(args)=11, args=(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 <p>Все переданные в функцию значения попадают в кортеж, который связывается с именем <code class="docutils literal notranslate"><span class="pre">args</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def g(*args):
-    print(type(args))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
 
-g()
-g(0)
-g(0, 1)
+<span class="n">g</span><span class="p">()</span>
+<span class="n">g</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">g</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1689,12 +1689,12 @@ g(0, 1)
 <p>Тогда в перехватывающий параметр попадают все оставшиеся аргументы.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def f(x, *args):
-    print(f&quot;{x=}, {args=}&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">=}</span><span class="s2">, </span><span class="si">{</span><span class="n">args</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-f(0)
-f(0, 1)
-f(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+<span class="n">f</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">f</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">f</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1709,10 +1709,10 @@ x=0, args=(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 <p>Функция <a class="reference external" href="https://docs.python.org/3/library/functions.html#print">print</a> — пример функции, объявленной таким образом. Действительно, мы можем напечатать произвольное количество объектов за один вызов функции <code class="docutils literal notranslate"><span class="pre">print</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(0)
-print()
-print(0, 1)
-print(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1728,8 +1728,8 @@ print(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 <p>Функции <a class="reference external" href="https://docs.python.org/3/library/functions.html#min">min</a> и <a class="reference external" href="https://docs.python.org/3/library/functions.html#print">max</a> — ещё два примера таких функций. Если в любую из них передать два и более аргумента, то результатом будет минимальное или максимальное значение из всех аргументов.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(min(0, 1, 3, -1, 2))
-print(max(0, 1, 3, -1, 2))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1750,10 +1750,10 @@ print(max(0, 1, 3, -1, 2))
 <p>Сравните следующие два вызова функции <code class="docutils literal notranslate"><span class="pre">print</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>r = range(3)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 
-print(r)
-print(*r)
+<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">r</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1767,14 +1767,14 @@ print(*r)
 <p>Такое синтаксис будет работать с любой последовательностью.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>s = &quot;abc&quot;
-l = [0, 1, 2]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;abc&quot;</span>
+<span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 
-print(s, sep=&quot;, &quot;)
-print(*s, sep=&quot;, &quot;)
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;, &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">s</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;, &quot;</span><span class="p">)</span>
 
-print(l)
-print(*l)
+<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">l</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1790,13 +1790,13 @@ a, b, c
 <p>Естественно это работает и с пользовательскими функциями.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def f(x, y, z):
-    print(f&quot;{x=}, {y=}, {z=}&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">=}</span><span class="s2">, </span><span class="si">{</span><span class="n">y</span><span class="si">=}</span><span class="s2">, </span><span class="si">{</span><span class="n">z</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-x, y, z = range(3)
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 
-f(x, y, z)
-f(*range(3))
+<span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+<span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1814,12 +1814,12 @@ x=0, y=1, z=2
 <p>Ниже приведен пример такого объявления.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def f(**kwargs):
-    print(f&quot;{len(kwargs)=}, {kwargs=}&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span><span class="si">=}</span><span class="s2">, </span><span class="si">{</span><span class="n">kwargs</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-f()
-f(x=1, y=2)
-f(first_name=&quot;Иван&quot;, surname=&quot;Иванов&quot;, age=18)
+<span class="n">f</span><span class="p">()</span>
+<span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">f</span><span class="p">(</span><span class="n">first_name</span><span class="o">=</span><span class="s2">&quot;Иван&quot;</span><span class="p">,</span> <span class="n">surname</span><span class="o">=</span><span class="s2">&quot;Иванов&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1834,10 +1834,10 @@ len(kwargs)=3, kwargs={&#39;first_name&#39;: &#39;Иван&#39;, &#39;surname&#3
 <p>В этом случае все переданные аргументы группируются в словаре. В качестве ключей выступают имена параметров, в качестве значений — переданные аргументы.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def g(**kwargs):
-    print(type(kwargs))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">kwargs</span><span class="p">))</span>
 
-g()
+<span class="n">g</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1850,10 +1850,10 @@ g()
 <p>Естественно можно комбинировать перехват позиционных и именованных параметров.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def f(*args, **kwargs):
-    print(f&quot;{args=}, {kwargs=}&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">args</span><span class="si">=}</span><span class="s2">, </span><span class="si">{</span><span class="n">kwargs</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-f(&quot;a&quot;, 1, letter=&quot;b&quot;, digit=2)
+<span class="n">f</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">letter</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">digit</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1872,11 +1872,11 @@ f(&quot;a&quot;, 1, letter=&quot;b&quot;, digit=2)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def f(x, y):
-    print(f&quot;{x=}, {y=}&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">=}</span><span class="s2">, </span><span class="si">{</span><span class="n">y</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-d = {&quot;x&quot;: 1, &quot;y&quot;: 2}
-f(**d)
+<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<span class="n">f</span><span class="p">(</span><span class="o">**</span><span class="n">d</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1889,11 +1889,11 @@ f(**d)
 <p>Естественно можно совмещать одновременную распаковку нескольких последовательностей и нескольких словарей, если у функции хватает параметров.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>l1 = range(3)
-l2 = [3, 4, 5]
-d1 = {&quot;sep&quot;: &quot;-&gt;&quot;}
-d2 = {&quot;end&quot;: &quot; =)&quot;}
-print(*l1, *l2, **d1, **d2)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l1</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">l2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">d1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;sep&quot;</span><span class="p">:</span> <span class="s2">&quot;-&gt;&quot;</span><span class="p">}</span>
+<span class="n">d2</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;end&quot;</span><span class="p">:</span> <span class="s2">&quot; =)&quot;</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">l1</span><span class="p">,</span> <span class="o">*</span><span class="n">l2</span><span class="p">,</span> <span class="o">**</span><span class="n">d1</span><span class="p">,</span> <span class="o">**</span><span class="n">d2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

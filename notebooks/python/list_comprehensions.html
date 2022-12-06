@@ -1065,9 +1065,9 @@ title="Print to PDF"
 <p>В самом простом своём варианте списковое включение позволяет копировать содержимое итерируемого объекта в новый список.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a_list = [1, 2, 3]
-a_copy = [x for x in a_list]
-print(a_copy)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">a_copy</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">a_list</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a_copy</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1088,8 +1088,8 @@ print(a_copy)
 <p>То, что попадёт в список необязательно должно зависеть от <code class="docutils literal notranslate"><span class="pre">iterable</span></code>. Например, можно создать список одинаковых элементов.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>zeros = [0 for i in range(5)]
-print(zeros)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zeros</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">zeros</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1102,9 +1102,9 @@ print(zeros)
 <p>Результат очень похож на выражение <code class="docutils literal notranslate"><span class="pre">[0]</span> <span class="pre">*</span> <span class="pre">5</span></code>, но в данном случае выражение вычисляется заново на каждой итерации цикла. Т.е. можно действительно создать список разных списков.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>many_empty_lists = [[] for i in range(5)]
-many_empty_lists[0].append(&quot;Много разных списков&quot;)
-print(many_empty_lists)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">many_empty_lists</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+<span class="n">many_empty_lists</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Много разных списков&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">many_empty_lists</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1116,9 +1116,9 @@ print(many_empty_lists)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>one_empty_list = [[]] * 5 
-one_empty_list[0].append(&quot;Один список&quot;)
-print(one_empty_list)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one_empty_list</span> <span class="o">=</span> <span class="p">[[]]</span> <span class="o">*</span> <span class="mi">5</span> 
+<span class="n">one_empty_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Один список&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">one_empty_list</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1131,10 +1131,10 @@ print(one_empty_list)
 <p>Ещё это можно проиллюстрировать на примере с генерацией случайных чисел.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from random import random
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">random</span>
 
-print([random()] * 3) 
-print([random() for _ in range(3)])
+<span class="nb">print</span><span class="p">([</span><span class="n">random</span><span class="p">()]</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">([</span><span class="n">random</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)])</span>
 </pre></div>
 </div>
 </div>
@@ -1156,17 +1156,17 @@ print([random() for _ in range(3)])
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import math
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
 
-array = [1, 4, 9, 16]
-array_1 = list(map(math.sqrt, array))
-print(array_1)
+<span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">]</span>
+<span class="n">array_1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">,</span> <span class="n">array</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">array_1</span><span class="p">)</span>
 
-def my_square(x):
-    return x * x
+<span class="k">def</span> <span class="nf">my_square</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
 
-array_2 = list(map(my_square, array_1))
-print(array_2)
+<span class="n">array_2</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">my_square</span><span class="p">,</span> <span class="n">array_1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">array_2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1180,10 +1180,10 @@ print(array_2)
 <p>Можно имитировать функцию <code class="docutils literal notranslate"><span class="pre">map</span></code> с помощью списковых включений.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>array_1 = [math.sqrt(x) for x in array]
-array_2 = [my_square(x) for x in array_1]
-print(array_1)
-print(array_2)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array_1</span> <span class="o">=</span> <span class="p">[</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">array</span><span class="p">]</span>
+<span class="n">array_2</span> <span class="o">=</span> <span class="p">[</span><span class="n">my_square</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">array_1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">array_1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">array_2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1197,8 +1197,8 @@ print(array_2)
 <p>При этом необязательно применять функцию. Допустимо любое выражение.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>array_2 = [x * x for x in array_1]
-print(array_2)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array_2</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">array_1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">array_2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1219,16 +1219,16 @@ print(array_2)
 <p>В качестве примера отсеем только четные элементы списка этой функцией. Для Этого</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from random import randint
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
 
-def is_even(x):
-    return not x % 2
+<span class="k">def</span> <span class="nf">is_even</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="ow">not</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span>
 
-array = [randint(0, 100) for _ in range(20)]
-only_even = list(filter(is_even, array))
+<span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">)]</span>
+<span class="n">only_even</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="n">is_even</span><span class="p">,</span> <span class="n">array</span><span class="p">))</span>
 
-print(array)
-print(only_even)
+<span class="nb">print</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">only_even</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1242,8 +1242,8 @@ print(only_even)
 <p>Схожего эффекта можно добиться с помощью списковых включений.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>only_even = [x for x in array if not x % 2]
-print(only_even)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">only_even</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">array</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">only_even</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1256,11 +1256,11 @@ print(only_even)
 <p>При этом разумеется можно комбинировать вычисление выражения с фильтрацией одновременно.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>only_even_squared = list(map(my_square, filter(is_even, array)))
-print(only_even_squared)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">only_even_squared</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">my_square</span><span class="p">,</span> <span class="nb">filter</span><span class="p">(</span><span class="n">is_even</span><span class="p">,</span> <span class="n">array</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">only_even_squared</span><span class="p">)</span>
 
-only_even_squared = [x * x for x in array if not x % 2]
-print(only_even_squared)
+<span class="n">only_even_squared</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">array</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">only_even_squared</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1292,11 +1292,11 @@ print(only_even_squared)
 <p>В этом примере множество <span class="math notranslate nohighlight">\(\mathbb{Z}_{42}\)</span> задаётся как множество элементов другого множества (множества <span class="math notranslate nohighlight">\(\{1, \ldots, 41\}\)</span>), которые удовлетворяют условию взаимной простоты с числом 9. Такая логическая конструкция легко выражается списковым включением.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from math import gcd
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">gcd</span>
 
-n = 42
-Zn = [x  for x in range(n) if gcd(x, n) == 1]
-print(Zn)
+<span class="n">n</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="n">Zn</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span>  <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">if</span> <span class="n">gcd</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Zn</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1313,8 +1313,8 @@ R = \Big\{x^2 \mid x\in\{-2, -1, 0, 1, 2\}\Big\} = \{0, 1, 4\}.
 \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>R = [x ** 2 for x in range(-2, 3)]
-print(R)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1327,8 +1327,8 @@ print(R)
 <p>Однако есть встроенный контейнер <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#sets">set</a>, который ведет себя как математическое множество и тоже поддерживает синтаксис включений.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>R = {x ** 2 for x in range(-2, 3)}
-print(R)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1348,10 +1348,10 @@ print(R)
 <p>Словари тоже поддерживают похожий синтаксис. Например, словарь, отображающий строчные буквы английского алфавита на прописные, можно записать следующим образом.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from string import ascii_lowercase
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">string</span> <span class="kn">import</span> <span class="n">ascii_lowercase</span>
 
-d = {symbol: symbol.upper() for symbol in ascii_lowercase}
-print(d)
+<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="n">symbol</span><span class="p">:</span> <span class="n">symbol</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">symbol</span> <span class="ow">in</span> <span class="n">ascii_lowercase</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1364,11 +1364,11 @@ print(d)
 <p>Все остальные элементы из списковых включений поддерживаются и словарными включениями. Сделаем отображение только согласных букв.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from string import ascii_lowercase, ascii_uppercase
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">string</span> <span class="kn">import</span> <span class="n">ascii_lowercase</span><span class="p">,</span> <span class="n">ascii_uppercase</span>
 
-vowels = {&quot;a&quot;, &quot;e&quot;, &quot;i&quot;, &quot;o&quot;, &quot;u&quot;, &quot;y&quot;} 
-d = {s:S for s, S in zip(ascii_lowercase, ascii_uppercase) if s not in vowels}
-print(d)
+<span class="n">vowels</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="p">,</span> <span class="s2">&quot;i&quot;</span><span class="p">,</span> <span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="s2">&quot;u&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">}</span> 
+<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="n">s</span><span class="p">:</span><span class="n">S</span> <span class="k">for</span> <span class="n">s</span><span class="p">,</span> <span class="n">S</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ascii_lowercase</span><span class="p">,</span> <span class="n">ascii_uppercase</span><span class="p">)</span> <span class="k">if</span> <span class="n">s</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">vowels</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1384,8 +1384,8 @@ print(d)
 <p>В качестве аналога фильтрации, можно рассмотреть здесь применение множеств из <code class="docutils literal notranslate"><span class="pre">python</span></code>: оператор “<code class="docutils literal notranslate"><span class="pre">-</span></code>” для двух множеств возвращает их разницу. Мы можем получить согласные буквы, вычтя из всех букв гласные.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>consonants = set(ascii_lowercase) - set(vowels)
-print(consonants)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">consonants</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">ascii_lowercase</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">vowels</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">consonants</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1401,8 +1401,8 @@ print(consonants)
 <p>В одном списковом включении может быть несколько циклов.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>array = [symbol * n for symbol in &quot;abc&quot; for n in [1, 2, 3]]
-print(array)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="n">symbol</span> <span class="o">*</span> <span class="n">n</span> <span class="k">for</span> <span class="n">symbol</span> <span class="ow">in</span> <span class="s2">&quot;abc&quot;</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1415,8 +1415,8 @@ print(array)
 <p>Списковые включения могут быть вложенными друг в друга.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>array = [[symbol * n for symbol in &quot;abc&quot;] for n in [1, 2, 3]]
-print(array)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array</span> <span class="o">=</span> <span class="p">[[</span><span class="n">symbol</span> <span class="o">*</span> <span class="n">n</span> <span class="k">for</span> <span class="n">symbol</span> <span class="ow">in</span> <span class="s2">&quot;abc&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1430,10 +1430,10 @@ print(array)
 <h3>Пример с матрицей<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from pprint import pprint
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
 
-matrix = [[10 * j + i for i in range(10)] for j in range(10)]
-pprint(matrix)
+<span class="n">matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">10</span> <span class="o">*</span> <span class="n">j</span> <span class="o">+</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

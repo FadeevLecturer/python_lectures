@@ -1050,8 +1050,8 @@ title="Print to PDF"
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
-from scipy import linalg
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">linalg</span>
 </pre></div>
 </div>
 </div>
@@ -1068,9 +1068,9 @@ from scipy import linalg
 \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = np.array([3, 4])
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
 
-print(f&quot;Евклидова норма вектора x равняется {linalg.norm(x)}&quot;)
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Евклидова норма вектора x равняется </span><span class="si">{</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1092,7 +1092,7 @@ print(f&quot;Евклидова норма вектора x равняется {
 \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;Абсолютная норма вектора x равняется {linalg.norm(x, ord=1)}&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Абсолютная норма вектора x равняется </span><span class="si">{</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">ord</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1110,7 +1110,7 @@ print(f&quot;Евклидова норма вектора x равняется {
 <p>Чтобы её вычислить, необходимо передать в качестве параметра <code class="docutils literal notranslate"><span class="pre">ord</span></code> значение <a class="reference external" href="https://numpy.org/devdocs/reference/constants.html#numpy.inf">numpy.inf</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;Равномерная норма вектора x равняется {linalg.norm(x, ord=np.inf)}&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Равномерная норма вектора x равняется </span><span class="si">{</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">ord</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1134,12 +1134,12 @@ print(f&quot;Евклидова норма вектора x равняется {
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>A = np.array([
-    [1, 2],
-    [3, 4]
-])
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="p">])</span>
 
-print(f&quot;Норма матрицы A равняется {linalg.norm(A)}&quot;)
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Норма матрицы A равняется </span><span class="si">{</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1153,10 +1153,10 @@ print(f&quot;Норма матрицы A равняется {linalg.norm(A)}&quo
 <p>Так, например, норма евклидово векторное пространство <span class="math notranslate nohighlight">\(l_2\)</span> порождает в матричном пространстве спектральную норму, которая равняется максимальному сингулярному числу этого оператора. Чтобы вычислить спектральную норму матрицы, необходимо передать 2 в качестве параметра <code class="docutils literal notranslate"><span class="pre">ord</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>singular_values = linalg.svdvals(A)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">singular_values</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">svdvals</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 
-print(f&quot;Максимальное спектральное число матрицы A равняется {singular_values.max()}&quot;)
-print(f&quot;Спектральная норма матрицы m равняется {linalg.norm(A, ord=2)}&quot;)
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Максимальное спектральное число матрицы A равняется </span><span class="si">{</span><span class="n">singular_values</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Спектральная норма матрицы m равняется </span><span class="si">{</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="nb">ord</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1175,13 +1175,13 @@ print(f&quot;Спектральная норма матрицы m равняет
 <p>Функция <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/reference/generated/scipy.linalg.inv.html#scipy.linalg.inv">linalg.inv</a> отвечает за обращение матрицы, т.е. за поиск такой матрицы <span class="math notranslate nohighlight">\(A^{-1}\)</span>, что <span class="math notranslate nohighlight">\(A A^{-1} = A^{-1} A = I\)</span>, где <span class="math notranslate nohighlight">\(I\)</span> — единичная матрица того же размера.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
-from scipy import linalg
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">linalg</span>
 
-A = np.array([[1., 2.], [3., 4.]])
-A_inv = linalg.inv(A)
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">]])</span>
+<span class="n">A_inv</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 
-print(A, A_inv, sep=&quot;\n&quot;)
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">A_inv</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1197,8 +1197,8 @@ print(A, A_inv, sep=&quot;\n&quot;)
 <p>Чтобы убедиться, что она возвращает обратную матрицу, проверим выполнение равенства <span class="math notranslate nohighlight">\(A A^{-1} = A^{-1} A = I\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(A @ A_inv)
-print(A_inv @ A)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">A</span> <span class="o">@</span> <span class="n">A_inv</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A_inv</span> <span class="o">@</span> <span class="n">A</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1224,9 +1224,9 @@ R_2 = \| A^{-1} A - I \|.
 \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>R_1 = linalg.norm(A @ A_inv - np.eye(2))
-R_2 = linalg.norm(A_inv @ A - np.eye(2))
-print(f&quot;{R_1=}, {R_2=}&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R_1</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">A</span> <span class="o">@</span> <span class="n">A_inv</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">R_2</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">A_inv</span> <span class="o">@</span> <span class="n">A</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">R_1</span><span class="si">=}</span><span class="s2">, </span><span class="si">{</span><span class="n">R_2</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1243,13 +1243,13 @@ print(f&quot;{R_1=}, {R_2=}&quot;)
 <p>Для иллюстрации создадим матрицу <code class="docutils literal notranslate"><span class="pre">A</span></code> и вектор <code class="docutils literal notranslate"><span class="pre">x</span></code>. Сгенерируем вектор правой части <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">A</span> <span class="pre">&#64;</span> <span class="pre">x</span></code> и попробуем восстановить значение <code class="docutils literal notranslate"><span class="pre">x</span></code>, решив СЛАУ <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">b</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>A = np.array([[1., 2.], [3., 4.]])
-x = np.array([1., 1.])
-b = A @ x
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">]])</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">A</span> <span class="o">@</span> <span class="n">x</span>
 
-x_approx = linalg.solve(A, b)
-error = linalg.norm(x_approx - x)
-print(f&quot;{x_approx=}. Погрешность: {error}&quot;)
+<span class="n">x_approx</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="n">error</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x_approx</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x_approx</span><span class="si">=}</span><span class="s2">. Погрешность: </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1263,7 +1263,7 @@ print(f&quot;{x_approx=}. Погрешность: {error}&quot;)
 <p>Определитель квадратной матрицы вычисляется методом <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.det.html#scipy.linalg.det">det</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;Определитель матрицы A равен {linalg.det(A)}&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Определитель матрицы A равен </span><span class="si">{</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1298,13 +1298,13 @@ A =
 <p>имеет два действительных решения <span class="math notranslate nohighlight">\(\lambda_1=3\)</span> и <span class="math notranslate nohighlight">\(\lambda_2=1\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>A = np.array([
-    [2, 1],
-    [1., 2]
-])
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="p">])</span>
 
-eigen_values = linalg.eigvals(A)
-print(f&quot;Собственные значения матрицы A: {eigen_values}&quot;)
+<span class="n">eigen_values</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">eigvals</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Собственные значения матрицы A: </span><span class="si">{</span><span class="n">eigen_values</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1317,11 +1317,11 @@ print(f&quot;Собственные значения матрицы A: {eigen_va
 <p>Метод <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.eig.html">eig</a> вычисляет сразу и собственные числа и собственные векторы. При этом собственные вектора возвращаются как столбцы матрицы второго возвращаемого значения.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>eigen_values, eigen_vectors = linalg.eig(A)
-print(f&quot;Собственные значения матрицы A: {eigen_values}&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eigen_values</span><span class="p">,</span> <span class="n">eigen_vectors</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Собственные значения матрицы A: </span><span class="si">{</span><span class="n">eigen_values</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-for vector in eigen_vectors.T:
-    print(f&quot;{vector} --- собственный вектор матрицы A&quot;)
+<span class="k">for</span> <span class="n">vector</span> <span class="ow">in</span> <span class="n">eigen_vectors</span><span class="o">.</span><span class="n">T</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">vector</span><span class="si">}</span><span class="s2"> --- собственный вектор матрицы A&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1341,9 +1341,9 @@ R_i = \| Av_i - \lambda_i v_i \|, \, i=1,2,
 <p>где <span class="math notranslate nohighlight">\(v_1\)</span> и <span class="math notranslate nohighlight">\(v_2\)</span> — собственные вектора соответствующие собственным числам <span class="math notranslate nohighlight">\(\lambda_1\)</span> и <span class="math notranslate nohighlight">\(\lambda_2\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for l, v in zip(eigen_values, eigen_vectors.T):
-    R = linalg.norm(A@v - l*v)
-    print(f&quot;{R=}&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">l</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">eigen_values</span><span class="p">,</span> <span class="n">eigen_vectors</span><span class="o">.</span><span class="n">T</span><span class="p">):</span>
+    <span class="n">R</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">A</span><span class="nd">@v</span> <span class="o">-</span> <span class="n">l</span><span class="o">*</span><span class="n">v</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">R</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1364,15 +1364,15 @@ R=0.0
 <p>За поиск сингулярных чисел отвечает функция <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.svdvals.html#scipy.linalg.svdvals">svdvalues</a>. Функция <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.svd.html#scipy.linalg.svd">svd</a> (<strong>S</strong>ingular <strong>V</strong>alue <strong>D</strong>ecomposition) вычисляет сингулярное разложение матрицы, которое определено и для прямоугольных матриц.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>A = np.array([
-    [1, 2, 3],
-    [4, 5, 6],
-])
-left_vectors, singular_values, right_vectors = linalg.svd(A)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+<span class="p">])</span>
+<span class="n">left_vectors</span><span class="p">,</span> <span class="n">singular_values</span><span class="p">,</span> <span class="n">right_vectors</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 
-for v, s, u in zip(left_vectors.T, singular_values, right_vectors):
-    R = linalg.norm(A.T @ v - s * u)
-    print(f&quot;{R=}&quot;)
+<span class="k">for</span> <span class="n">v</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">u</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">left_vectors</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">singular_values</span><span class="p">,</span> <span class="n">right_vectors</span><span class="p">):</span>
+    <span class="n">R</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">v</span> <span class="o">-</span> <span class="n">s</span> <span class="o">*</span> <span class="n">u</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">R</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

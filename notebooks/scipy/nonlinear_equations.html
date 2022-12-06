@@ -988,22 +988,22 @@ title="Print to PDF"
 <p>Подмодуль <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/optimize.html#module-scipy.optimize">scipy.optimize</a> также содержит в себе методы для поиска корней нелинейных уравнений и их систем.</p>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from matplotlib import pyplot as plt
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 
 
-def configure_matplotlib():
-    plt.rc(&#39;text&#39;, usetex=True)
-    plt.rcParams[&quot;axes.titlesize&quot;] = 28
-    plt.rcParams[&quot;axes.labelsize&quot;] = 24
-    plt.rcParams[&quot;legend.fontsize&quot;] = 24
-    plt.rcParams[&quot;xtick.labelsize&quot;] = plt.rcParams[&quot;ytick.labelsize&quot;] = 18
-    plt.rcParams[&quot;text.latex.preamble&quot;] = r&quot;&quot;&quot;
-    \usepackage[utf8]{inputenc}
-    \usepackage[english,russian]{babel}
-    \usepackage{amsmath}
-    &quot;&quot;&quot;
+<span class="k">def</span> <span class="nf">configure_matplotlib</span><span class="p">():</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="n">usetex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;axes.titlesize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">28</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;axes.labelsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">24</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;legend.fontsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">24</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;xtick.labelsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;ytick.labelsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">18</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;text.latex.preamble&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    \usepackage[utf8]</span><span class="si">{inputenc}</span><span class="s2"></span>
+<span class="s2">    \usepackage[english,russian]</span><span class="si">{babel}</span><span class="s2"></span>
+<span class="s2">    \usepackage</span><span class="si">{amsmath}</span><span class="s2"></span>
+<span class="s2">    &quot;&quot;&quot;</span>
 
-configure_matplotlib()
+<span class="n">configure_matplotlib</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1018,28 +1018,28 @@ f(x) = 0.
 <p>Функция <code class="docutils literal notranslate"><span class="pre">root_scalar</span></code> предоставляет доступ к разным методам поиска корней, таким как <code class="docutils literal notranslate"><span class="pre">newton</span></code>, <code class="docutils literal notranslate"><span class="pre">bisect</span></code>, <code class="docutils literal notranslate"><span class="pre">secant</span></code> и многим другим. Какие-то из этих методов ищут корень внутри отрезка <code class="docutils literal notranslate"><span class="pre">bracket</span></code>, а другие ищут корень, начиная с какого-то начального приближения <code class="docutils literal notranslate"><span class="pre">x0</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
-from scipy import optimize
-from matplotlib import pyplot as plt
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">optimize</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 
 
-def f(x):
-    return x**3 - 1
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">1</span>
 
-solution = optimize.root_scalar(f, bracket=[-10, 10], method=&quot;bisect&quot;)
-print(solution)
+<span class="n">solution</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">root_scalar</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">bracket</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;bisect&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">solution</span><span class="p">)</span>
 
-x = np.linspace(-3, 3, 100)
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 
 
-fig, ax = plt.subplots(figsize=(8, 8), layout=&quot;tight&quot;)
-ax.plot(x, f(x), label=&quot;$f(x)$&quot;)
-ax.scatter(solution.root, f(solution.root) , color=&quot;red&quot;, label=&quot;найденный корень&quot;)
-ax.axvline(solution.root, color=&quot;black&quot;)
-ax.axhline(0, color=&quot;black&quot;)
-ax.set_xlabel(&quot;$x$&quot;)
-ax.set_ylabel(&quot;$y$&quot;)
-ax.legend()
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;$f(x)$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">solution</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">solution</span><span class="o">.</span><span class="n">root</span><span class="p">)</span> <span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;найденный корень&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">solution</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$x$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;$y$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1060,21 +1060,21 @@ ax.legend()
 <p>Метод бисекции сошелся за 44 итерации. Проверим метод Ньютона.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def fprime(x):
-    return 3 * x**2
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fprime</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
 
-solution = optimize.root_scalar(f, fprime=fprime, x0=-2, method=&quot;newton&quot;)
-print(solution)
+<span class="n">solution</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">root_scalar</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">fprime</span><span class="o">=</span><span class="n">fprime</span><span class="p">,</span> <span class="n">x0</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;newton&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">solution</span><span class="p">)</span>
 
 
-fig, ax = plt.subplots(figsize=(8, 8), layout=&quot;tight&quot;)
-ax.plot(x, f(x), label=&quot;$f(x)$&quot;)
-ax.scatter(solution.root, f(solution.root) , color=&quot;red&quot;, label=&quot;найденный корень&quot;)
-ax.axvline(solution.root, color=&quot;black&quot;)
-ax.axhline(0, color=&quot;black&quot;)
-ax.set_xlabel(&quot;$x$&quot;)
-ax.set_ylabel(&quot;$y$&quot;)
-ax.legend()
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;$f(x)$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">solution</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">solution</span><span class="o">.</span><span class="n">root</span><span class="p">)</span> <span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;найденный корень&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">solution</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$x$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;$y$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1137,20 +1137,20 @@ x_2 = 1.
 <p>В самом простом варианте достаточно передать методу <code class="docutils literal notranslate"><span class="pre">optimize.root</span></code> функцию левой части уравнения <span class="math notranslate nohighlight">\(F\)</span> и начальное приближение к корню.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
-from scipy import optimize
-from matplotlib import pyplot as plt
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">optimize</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 
 
-def f(x):
-    x = np.array(x)
-    return np.array([
-        x[0]  + 0.5 * (x[0] - x[1])**3 - 1.0,
-        0.5 * (x[1] - x[0])**3 + x[1] - 1.0
-        ])
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">,</span>
+        <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mf">1.0</span>
+        <span class="p">])</span>
 
-solution = optimize.root(f, x0 = [0, 0])  
-print(solution)  
+<span class="n">solution</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">root</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>  
+<span class="nb">print</span><span class="p">(</span><span class="n">solution</span><span class="p">)</span>  
 </pre></div>
 </div>
 </div>
@@ -1172,15 +1172,15 @@ print(solution)
 <p>Если известно аналитическое выражение для производно, то лучше задействовать его и передать по параметру <code class="docutils literal notranslate"><span class="pre">jac</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def jac(x):
-    return np.array([
-        [1 + 1.5 * (x[0] - x[1])**2, -1.5 * (x[0] - x[1])**2],
-        [-1.5 * (x[1] - x[0])**2, 1 + 1.5 * (x[1] - x[0])**2]
-        ])
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">jac</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="p">[</span><span class="mi">1</span> <span class="o">+</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">],</span>
+        <span class="p">[</span><span class="o">-</span><span class="mf">1.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">]</span>
+        <span class="p">])</span>
 
 
-solution = optimize.root(f, jac=jac, x0 = [0, 0], method=&quot;hybr&quot;)  
-print(solution)  
+<span class="n">solution</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">root</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">jac</span><span class="o">=</span><span class="n">jac</span><span class="p">,</span> <span class="n">x0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;hybr&quot;</span><span class="p">)</span>  
+<span class="nb">print</span><span class="p">(</span><span class="n">solution</span><span class="p">)</span>  
 </pre></div>
 </div>
 </div>

@@ -1078,10 +1078,10 @@ title="Print to PDF"
 <p>Списки, строки, кортежи и другие последовательности <code class="docutils literal notranslate"><span class="pre">python</span></code> кроме обычной индексации поддерживают индексацию срезами (<a class="reference external" href="https://docs.python.org/3/library/functions.html#slice">slices</a>). Рассмотрим на примере строк.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import string
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">string</span>
 
-s = string.ascii_lowercase
-print(s)
+<span class="n">s</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">ascii_lowercase</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1099,7 +1099,7 @@ print(s)
 <p>Например, если нас часть строки с 1-го по 5-ый символ (нумерация с нуля), мы запишем</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(s[1:5])
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1116,8 +1116,8 @@ print(s)
 <p>Следующие два среза синонимичны и оба возвращают первые три символа.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(s[0:3])
-print(s[:3])
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1135,8 +1135,8 @@ abc
 <p>Следующие два среза синонимичны и оба возвращают символы с 23-го по конце.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(s[23:len(s)])
-print(s[23:])
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">23</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">23</span><span class="p">:])</span>
 </pre></div>
 </div>
 </div>
@@ -1150,7 +1150,7 @@ xyz
 <p>Допускается даже опустить оба параметра. Тогда возвращается копия строки.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(s[:])
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[:])</span>
 </pre></div>
 </div>
 </div>
@@ -1163,10 +1163,10 @@ xyz
 <p>Если один или оба параметра выходят за пределы последовательности, то это <strong>не</strong> является формальной ошибкой. Результатом будет та часть строки, что пересекается с выбранным срезом, которая может оказаться пустой, если индексы среза не пересекаются с допустимыми индексами строки.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># символы &#39;|&#39; по бокам, чтобы наглядно показать края строки
-print(f&quot;|{s[-100:100]}|&quot;)
-print(f&quot;|{s[90:100]}|&quot;)
-print(f&quot;|{s[5:2]}|&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># символы &#39;|&#39; по бокам, чтобы наглядно показать края строки</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;|</span><span class="si">{</span><span class="n">s</span><span class="p">[</span><span class="o">-</span><span class="mi">100</span><span class="p">:</span><span class="mi">100</span><span class="p">]</span><span class="si">}</span><span class="s2">|&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;|</span><span class="si">{</span><span class="n">s</span><span class="p">[</span><span class="mi">90</span><span class="p">:</span><span class="mi">100</span><span class="p">]</span><span class="si">}</span><span class="s2">|&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;|</span><span class="si">{</span><span class="n">s</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">|&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1184,8 +1184,8 @@ print(f&quot;|{s[5:2]}|&quot;)
 <p>Для разнообразия теперь будем брать срезы от списков.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>L = list(range(10))
-print(L)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1203,7 +1203,7 @@ print(L)
 <p>Например, чтобы вырезать каждый второй элемент списка <code class="docutils literal notranslate"><span class="pre">L</span></code>, начиная с 1-го и заканчивая 8-м (не включая), необходимо записать.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(L[1:8:2])
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">8</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1217,7 +1217,7 @@ print(L)
 <p>Ниже берется каждый второй элемент всего списка.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(L[::2])
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">[::</span><span class="mi">2</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1230,7 +1230,7 @@ print(L)
 <p>Шаг может быть отрицательным, но тогда <code class="docutils literal notranslate"><span class="pre">start</span></code> должен быть больше <code class="docutils literal notranslate"><span class="pre">step</span></code>, чтобы вернулась не пустая подпоследовательность. При этом, как и до этого, <code class="docutils literal notranslate"><span class="pre">start</span></code> попадает в срез, а <code class="docutils literal notranslate"><span class="pre">stop</span></code> нет.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(L[8:1:-1])
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="mi">8</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1246,8 +1246,8 @@ print(L)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(s[::-1])
-print(L[::-1])
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1265,7 +1265,7 @@ print(L[::-1])
 <p>Если шаг не указан, то можно заменить элементы среза в списке элементами коллекции справа от оператора “<code class="docutils literal notranslate"><span class="pre">=</span></code>” вне зависимости от того, совпадает ли количество элементов в коллекции справа от оператора “<code class="docutils literal notranslate"><span class="pre">=</span></code>” с размером среза слева от оператора “<code class="docutils literal notranslate"><span class="pre">=</span></code>”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(L)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1278,8 +1278,8 @@ print(L[::-1])
 <p>Например, код в ячейке ниже заменяет первые два элемента списка <code class="docutils literal notranslate"><span class="pre">L</span></code> на новые два элемента (0 заменяется на 3.14, 1 заменяется на 42).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>L[:2] = [3.14, 42]
-print(L)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">3.14</span><span class="p">,</span> <span class="mi">42</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1292,8 +1292,8 @@ print(L)
 <p>Код в ячейке ниже заменяет первые два элемента (3.14 и 42 после предыдущей замены) на сразу три новых элемента, тем самым расширяя список.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>L[:2] = [0, 3.14, 42]
-print(L)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">,</span> <span class="mi">42</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1306,8 +1306,8 @@ print(L)
 <p>Следующим синтаксисом можно удалить первых два элемента.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>L[:2] = []
-print(L)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1324,15 +1324,15 @@ print(L)
 <p>Если шаг указан, то количество элементов в коллекции справа от “<code class="docutils literal notranslate"><span class="pre">=</span></code>: должно совпадать с количеством элементов в срезе</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>L = list(range(10))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 
-# Oк
-print(L[::2])
-L[::2] = L[1::2]
+<span class="c1"># Oк</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">[::</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">L</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">L</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
 
-# Ошибка
-print(L)
-L[::2] = []
+<span class="c1"># Ошибка</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+<span class="n">L</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 </pre></div>
 </div>
 </div>
@@ -1367,9 +1367,9 @@ L[::2] = []
 <p>Если массив одномерный, то роль играет только первое отличие.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
-array = np.arange(10)
-print(array)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1381,7 +1381,7 @@ print(array)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(array[::2])
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">array</span><span class="p">[::</span><span class="mi">2</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1393,8 +1393,8 @@ print(array)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>array[::2] = [9, 7, 5, 3, 1]
-print(array)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1410,8 +1410,8 @@ print(array)
 <p>Но если массив многомерный, то можно делать срезы сразу вдоль нескольких осей. Рассмотрим на примере двухмерных массивов.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>matrix = np.arange(1, 26).reshape(5, 5)
-print(matrix)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">26</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1428,7 +1428,7 @@ print(matrix)
 <p>Обратим внимание, что выражением <code class="docutils literal notranslate"><span class="pre">matrix[i,</span> <span class="pre">j]</span></code> мы получаем элемент массива <code class="docutils literal notranslate"><span class="pre">matrix</span></code> на пересечении <code class="docutils literal notranslate"><span class="pre">i</span></code>-й строки и <code class="docutils literal notranslate"><span class="pre">j</span></code>-й строки.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(matrix[2, 2])
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1447,7 +1447,7 @@ print(matrix)
 <p>То есть указать вдоль первой оси (<code class="docutils literal notranslate"><span class="pre">axis=0</span></code>) указывается полный срез (все строки), а вдоль второй оси (<code class="docutils literal notranslate"><span class="pre">axis=1</span></code>) указывается число <code class="docutils literal notranslate"><span class="pre">j</span></code> (только <code class="docutils literal notranslate"><span class="pre">j</span></code>-й столбец). Получим таким образом нулевой столбец.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(matrix[:, 0])
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">matrix</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1469,7 +1469,7 @@ print(matrix)
 <p>Так, например, чтобы получить элементы на пересечении первых двух строк и столбцов с первого (включая) по четвертый (не включая), необходимо применить следующий срез.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>matrix[:2, 1:4]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matrix</span><span class="p">[:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1485,7 +1485,7 @@ print(matrix)
 <p>Если требуется получить каждый второй столбец, то вдоль первой оси (<code class="docutils literal notranslate"><span class="pre">axis=0</span></code>) указывается полный срез (все строки), а вдоль второй оси (<code class="docutils literal notranslate"><span class="pre">axis=1</span></code>) указывается полный срез с шагом 2 (каждый второй столбец).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>matrix[:, ::2]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matrix</span><span class="p">[:,</span> <span class="p">::</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1504,7 +1504,7 @@ print(matrix)
 <p>В качестве последнего примера рассмотрим получение срезом элементов из каждой второй строки и каждого второго столбца.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>matrix[::2, ::2]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matrix</span><span class="p">[::</span><span class="mi">2</span><span class="p">,</span> <span class="p">::</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1526,8 +1526,8 @@ print(matrix)
 Например, можно целиком заменить столбец матрицы.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>matrix[:, 0] = np.arange(-5, 0)
-print(matrix)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matrix</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1544,9 +1544,9 @@ print(matrix)
 <p>В примере выше формы среза слева от “<code class="docutils literal notranslate"><span class="pre">=</span></code>” и массива справа от “<code class="docutils literal notranslate"><span class="pre">=</span></code>” совпадают. Это необязательное условие: работают правила <em>броадкастинга</em>, т.е. массив справа от оператора “<code class="docutils literal notranslate"><span class="pre">=</span></code>” может быть расширен до размера среза слева от оператора “<code class="docutils literal notranslate"><span class="pre">=</span></code>”, если их формы совместимы и срез сможет поместить в себе массив по всем измерениям. Например, прибавим к всем элемента первой строки 100, а каждый второй элемент последней строки сделаем равными 42.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>matrix[0, :] += 100
-matrix[-1, ::2] = 42
-print(matrix)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> <span class="o">+=</span> <span class="mi">100</span>
+<span class="n">matrix</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">::</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

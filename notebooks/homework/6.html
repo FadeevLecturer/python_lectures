@@ -1377,7 +1377,7 @@ title="Print to PDF"
 <p>Если эта функция вызывается со строковым аргументом, то при печати в консоль результат должен отображаться красным цветом.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(paint_red(&quot;Текст красным цветом&quot;))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">paint_red</span><span class="p">(</span><span class="s2">&quot;Текст красным цветом&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1394,10 +1394,10 @@ title="Print to PDF"
 <p>А вызов этой функции с аргументом другого типа, должен приводить к ошибке.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>try:
-    paint_red(42)
-except TypeError as msg:
-    print(msg)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">paint_red</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">msg</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

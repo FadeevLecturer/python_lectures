@@ -992,20 +992,20 @@ title="Print to PDF"
 <p>Данные по количеству запросов в поисковой системе <code class="docutils literal notranslate"><span class="pre">google</span></code> выявляют, что <code class="docutils literal notranslate"><span class="pre">python</span></code> уверенно лидирует последние 4 года.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import os
-import pandas as pd
-import plotly.express as px
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
 
-data_folder = os.path.join(&quot;..&quot;, &quot;..&quot;, &quot;assets&quot;, &quot;data&quot;, &quot;language_trends&quot;)
-path = os.path.join(data_folder, &quot;google.csv&quot;)
-df = pd.read_csv(path, index_col=&quot;date&quot;)
+<span class="n">data_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;assets&quot;</span><span class="p">,</span> <span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="s2">&quot;language_trends&quot;</span><span class="p">)</span>
+<span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_folder</span><span class="p">,</span> <span class="s2">&quot;google.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="p">)</span>
 
-fig = px.line(df, title=&quot;Google&quot;, labels={
-    &quot;value&quot;: &quot;Количество запросов в google&quot;,
-    &quot;variable&quot;: &quot;Язык программирования&quot;,
-    &quot;date&quot;: &quot;Дата&quot;
-})
-fig
+<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Google&quot;</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">{</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Количество запросов в google&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;variable&quot;</span><span class="p">:</span> <span class="s2">&quot;Язык программирования&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;Дата&quot;</span>
+<span class="p">})</span>
+<span class="n">fig</span>
 </pre></div>
 </div>
 </div>
@@ -1116,16 +1116,16 @@ if (outputEl) {{
 <p>Данные от <a class="reference external" href="https://stackoverflow.com/">StackOverflow</a> показывают, что начиная с примерно 2014 года доля вопросов по <code class="docutils literal notranslate"><span class="pre">python</span></code> уверенно растёт.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>path = os.path.join(data_folder, &quot;stackoverflow.csv&quot;)
-df = pd.read_csv(path, index_col=&quot;date&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_folder</span><span class="p">,</span> <span class="s2">&quot;stackoverflow.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="p">)</span>
 
 
-fig = px.line(df, title=&quot;StackOverflow&quot;, labels={
-    &quot;value&quot;: &quot;:Доля вопросов на StackOverflow, %&quot;,
-    &quot;variable&quot;: &quot;Язык программирования&quot;,
-    &quot;date&quot;: &quot;Дата&quot;
-})
-fig
+<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;StackOverflow&quot;</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">{</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;:Доля вопросов на StackOverflow, %&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;variable&quot;</span><span class="p">:</span> <span class="s2">&quot;Язык программирования&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;Дата&quot;</span>
+<span class="p">})</span>
+<span class="n">fig</span>
 </pre></div>
 </div>
 </div>
@@ -1159,15 +1159,15 @@ if (outputEl) {{
 <p>Данные от <a class="reference external" href="https://github.com/">github</a> показывают, что активность в репозиториях с <code class="docutils literal notranslate"><span class="pre">python</span></code> значительно превосходит любой другой популярный в науке язык программирования.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>path = os.path.join(data_folder, &quot;github.csv&quot;)
-df = pd.read_csv(path, index_col=&quot;date&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_folder</span><span class="p">,</span> <span class="s2">&quot;github.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="p">)</span>
 
-fig = px.line(df, title=&quot;GitHub&quot;, labels={
-    &quot;value&quot;: &quot;Активность на GitHub&quot;,
-    &quot;variable&quot;: &quot;Язык программирования&quot;,
-    &quot;date&quot;: &quot;Дата&quot;
-})
-fig
+<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;GitHub&quot;</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">{</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Активность на GitHub&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;variable&quot;</span><span class="p">:</span> <span class="s2">&quot;Язык программирования&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;Дата&quot;</span>
+<span class="p">})</span>
+<span class="n">fig</span>
 </pre></div>
 </div>
 </div>

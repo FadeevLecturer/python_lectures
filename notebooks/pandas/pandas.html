@@ -1074,21 +1074,21 @@ title="Print to PDF"
 <p>Больше всего <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> напоминает лист (<code class="docutils literal notranslate"><span class="pre">SpreadSheet</span></code>) из <code class="docutils literal notranslate"><span class="pre">Excel</span></code> таблицы или <code class="docutils literal notranslate"><span class="pre">SQL</span></code> таблицу. Объекты <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> изменяемы, но с некоторыми ограничениями. Можно изменять значения в ячейках таблицы, добавлять новые столбцы на месте, но для добавления строк придется создать новый объект. Ниже приведен пример таблицы <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, созданной из <code class="docutils literal notranslate"><span class="pre">python</span></code> словаря.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import pandas as pd
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 
-# Создание таблицы из словаря. 
-# Ключи словаря используются в качестве названий столбцов
-# Значения используются в качестве содержимого таблицы
-df = pd.DataFrame(
-    {
-        &quot;Name&quot;: [&quot;Ivan&quot;,&quot;Alex&quot;,&quot;Jane&quot;],
-        &quot;Age&quot;: [22, 35, 58],
-        &quot;Sex&quot;: [&quot;male&quot;, &quot;male&quot;, &quot;female&quot;],
-    }
-)
+<span class="c1"># Создание таблицы из словаря. </span>
+<span class="c1"># Ключи словаря используются в качестве названий столбцов</span>
+<span class="c1"># Значения используются в качестве содержимого таблицы</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Ivan&quot;</span><span class="p">,</span><span class="s2">&quot;Alex&quot;</span><span class="p">,</span><span class="s2">&quot;Jane&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;Age&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">22</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">58</span><span class="p">],</span>
+        <span class="s2">&quot;Sex&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;male&quot;</span><span class="p">,</span> <span class="s2">&quot;male&quot;</span><span class="p">,</span> <span class="s2">&quot;female&quot;</span><span class="p">],</span>
+    <span class="p">}</span>
+<span class="p">)</span>
 
-df
+<span class="n">df</span>
 </pre></div>
 </div>
 </div>
@@ -1148,10 +1148,10 @@ df
 <p>Код в ячейке ниже демонстрирует, что созданный ранее <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> состоит из трех <code class="docutils literal notranslate"><span class="pre">Series</span></code>, каждый из которых соответствует одному из столбцов таблицы.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for column_name in df:
-    print(f&quot;{column_name=}: {type(df[column_name])}&quot;)
-    print(df[column_name])
-    print(&quot;-&quot; * 80)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">column_name</span> <span class="ow">in</span> <span class="n">df</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">column_name</span><span class="si">=}</span><span class="s2">: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1182,14 +1182,14 @@ Name: Sex, dtype: object
 <p>Объект <code class="docutils literal notranslate"><span class="pre">pandas.Series</span></code> может существовать и вне таблицы (<code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>). В целом он похож на одномерный <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>, но имеет расширенный индекс. Ниже приводится пример создания <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code> из списка целых чисел, которому в качестве индекса присваиваются строки.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Создание pd.Series из списка
-# В качестве индекса указывается массив строк
-age = pd.Series(
-    [22, 35, 58], 
-    index=[&quot;Ivan&quot;, &quot;Alex&quot;, &quot;Jane&quot;]
-)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Создание pd.Series из списка</span>
+<span class="c1"># В качестве индекса указывается массив строк</span>
+<span class="n">age</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span>
+    <span class="p">[</span><span class="mi">22</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">58</span><span class="p">],</span> 
+    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Ivan&quot;</span><span class="p">,</span> <span class="s2">&quot;Alex&quot;</span><span class="p">,</span> <span class="s2">&quot;Jane&quot;</span><span class="p">]</span>
+<span class="p">)</span>
 
-age
+<span class="n">age</span>
 </pre></div>
 </div>
 </div>
@@ -1208,8 +1208,8 @@ dtype: int64
 <p>Главным отличием от массивов <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> заключается в том, что объекты в <code class="docutils literal notranslate"><span class="pre">pandas</span></code> индексированы специальным объектом <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Index.html">pd.index</a>. Благодаря этому таблицы и столбцы  можно удобно и эффективно индексировать не только целочисленным смещением, как в <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>, но и строковыми значениями, датами, временными рядами и любыми другими хэшируемыми объектами. В ячейке ниже приводится пример такого индексирования: первое значение 22 столбца <code class="docutils literal notranslate"><span class="pre">age</span></code> имеет нулевое смещение от начала и записано под меткой <code class="docutils literal notranslate"><span class="pre">&quot;Ivan&quot;</span></code>, что позволяет получить это значение и по метке <code class="docutils literal notranslate"><span class="pre">&quot;Ivan&quot;</span></code> и по 0 индексу.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;{age.iloc[0]=}&quot;) 
-print(f&quot;{age.loc[&#39;Ivan&#39;]=}&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">age</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">age</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Ivan&#39;</span><span class="p">]</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1228,28 +1228,28 @@ age.loc[&#39;Ivan&#39;]=22
 <p>Кроме этого такая индексация позволяет без особых усилий со стороны программиста выравнивать данные из разных источников. Чтобы проиллюстрировать это, создадим несколько столбцов, иллюстрирующих оценки группы студентов по разным дисциплинам.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>math = pd.Series({
-    &quot;Иванов&quot;: 5,
-    &quot;Петров&quot;: 3,
-    &quot;Сидоров&quot;: 4,
-    &quot;Фадеев&quot;: 2
-}, name=&quot;Математика&quot;, dtype=pd.Int8Dtype)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">math</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span>
+    <span class="s2">&quot;Иванов&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s2">&quot;Петров&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="s2">&quot;Сидоров&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="s2">&quot;Фадеев&quot;</span><span class="p">:</span> <span class="mi">2</span>
+<span class="p">},</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Математика&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Int8Dtype</span><span class="p">)</span>
 
-physics = pd.Series({
-    &quot;Сидоров&quot;: 5,
-    &quot;Иванов&quot;: 3,
-    &quot;Петров&quot;: 4
-}, name=&quot;Физика&quot;, dtype=pd.Int8Dtype)
+<span class="n">physics</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span>
+    <span class="s2">&quot;Сидоров&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s2">&quot;Иванов&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="s2">&quot;Петров&quot;</span><span class="p">:</span> <span class="mi">4</span>
+<span class="p">},</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Физика&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Int8Dtype</span><span class="p">)</span>
 
-chemistry = pd.Series({
-    &quot;Петров&quot;: 5,
-    &quot;Сидоров&quot;: 3,
-    &quot;Иванов&quot;: 4
-}, name=&quot;Химия&quot;, dtype=pd.Int8Dtype)
+<span class="n">chemistry</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span>
+    <span class="s2">&quot;Петров&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s2">&quot;Сидоров&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="s2">&quot;Иванов&quot;</span><span class="p">:</span> <span class="mi">4</span>
+<span class="p">},</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Химия&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Int8Dtype</span><span class="p">)</span>
 
-for discipline in (math, physics, chemistry):
-    print(discipline)
-    print(&quot;_&quot;*80)
+<span class="k">for</span> <span class="n">discipline</span> <span class="ow">in</span> <span class="p">(</span><span class="n">math</span><span class="p">,</span> <span class="n">physics</span><span class="p">,</span> <span class="n">chemistry</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">discipline</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="o">*</span><span class="mi">80</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1277,13 +1277,13 @@ ________________________________________________________________________________
 <p>Заметьте, что в каждом из столбцов студенты перечислены в разном порядке, а также студент “Фадеев” явился только на первый экзамен по математике, а остальные пропустил. Свести все эти столбцы в единую таблицу <code class="docutils literal notranslate"><span class="pre">pandas</span></code> очень легко именно из-за индекса.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>grades = pd.DataFrame({
-    &quot;Математика&quot;: math, 
-    &quot;Физика&quot;: physics, 
-    &quot;Химия&quot;: chemistry
-})
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grades</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;Математика&quot;</span><span class="p">:</span> <span class="n">math</span><span class="p">,</span> 
+    <span class="s2">&quot;Физика&quot;</span><span class="p">:</span> <span class="n">physics</span><span class="p">,</span> 
+    <span class="s2">&quot;Химия&quot;</span><span class="p">:</span> <span class="n">chemistry</span>
+<span class="p">})</span>
 
-grades
+<span class="n">grades</span>
 </pre></div>
 </div>
 </div>
@@ -1344,20 +1344,20 @@ grades
 <p>Ещё индексы могут быть многоуровневыми, что позволяет в ряде случаев элегантно представлять в табличном виде многомерные данные.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from itertools import product
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
 
-grades = pd.DataFrame({
-    &quot;Математика&quot;: [5, 4, 5, 5, 4, 4],
-    &quot;Физика&quot;: [4, 5, 4, 4, 5, 5],
-    &quot;Химия&quot;: [5, 5, 5, 5, 5, 5]
-    },
-    index=pd.MultiIndex.from_tuples(
-        list(product([&quot;Иванов&quot;, &quot;Петров&quot;, &quot;Сидоров&quot;], [&quot;Осень&quot;, &quot;Весна&quot;])),
-        names=(&quot;Фамилия&quot;, &quot;Семестр&quot;)
-    )
-)
+<span class="n">grades</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;Математика&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+    <span class="s2">&quot;Физика&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+    <span class="s2">&quot;Химия&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+    <span class="p">},</span>
+    <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">(</span>
+        <span class="nb">list</span><span class="p">(</span><span class="n">product</span><span class="p">([</span><span class="s2">&quot;Иванов&quot;</span><span class="p">,</span> <span class="s2">&quot;Петров&quot;</span><span class="p">,</span> <span class="s2">&quot;Сидоров&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Осень&quot;</span><span class="p">,</span> <span class="s2">&quot;Весна&quot;</span><span class="p">])),</span>
+        <span class="n">names</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Фамилия&quot;</span><span class="p">,</span> <span class="s2">&quot;Семестр&quot;</span><span class="p">)</span>
+    <span class="p">)</span>
+<span class="p">)</span>
 
-grades
+<span class="n">grades</span>
 </pre></div>
 </div>
 </div>
@@ -1441,7 +1441,7 @@ grades
 <p>Индекс таблицы сгенерировался автоматически, т.к. не был явно указан при создании. В таком случае всегда генерируется <code class="docutils literal notranslate"><span class="pre">RangeIndex</span></code>, который в точности соответствует обычному индексу смещения относительно начала.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.index
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">index</span>
 </pre></div>
 </div>
 </div>
@@ -1454,7 +1454,7 @@ grades
 <p>Индекс столбца <code class="docutils literal notranslate"><span class="pre">Age</span></code> соответствует переданному при создании списку имён.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>age.index
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">age</span><span class="o">.</span><span class="n">index</span>
 </pre></div>
 </div>
 </div>

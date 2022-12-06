@@ -1059,10 +1059,10 @@ title="Print to PDF"
 <p>Программисту <code class="docutils literal notranslate"><span class="pre">C/C++</span></code> может показаться, что во второй строке увеличивается на <code class="docutils literal notranslate"><span class="pre">1</span></code> значение, хранящееся в созданном на первой строке целочисленном объекте. На самом деле это не так: создаётся новый объект, хранящий результат вычисления выражения <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">1</span></code>, а затем имя <code class="docutils literal notranslate"><span class="pre">a</span></code> связывается с этим новым объектом. Чтобы продемонстрировать это, напечатаем идентификатор объекта до и после увеличения на 1.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a = 0
-print(a, id(a))   
-a += 1
-print(a, id(a))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>   
+<span class="n">a</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1083,10 +1083,10 @@ print(a, id(a))
 <p>Оператор “<code class="docutils literal notranslate"><span class="pre">+=</span></code>” определен и для списков, только с другим эффектом: он расширяет список слева от него, элементами итерируемого объекта справа.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>l = [42]
-print(l, id(l))
-l += &quot;abc&quot;
-print(l, id(l))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">42</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">l</span><span class="p">))</span>
+<span class="n">l</span> <span class="o">+=</span> <span class="s2">&quot;abc&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">l</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1109,8 +1109,8 @@ print(l, id(l))
 <p>Создадим две ссылки <code class="docutils literal notranslate"><span class="pre">a</span></code> и <code class="docutils literal notranslate"><span class="pre">b</span></code> на один и тот же объект целочисленного типа.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a = 0
-b = a
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
 </pre></div>
 </div>
 </div>
@@ -1122,7 +1122,7 @@ b = a
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(a is b)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="ow">is</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1142,9 +1142,9 @@ b = a
 <p>Увеличим значение <code class="docutils literal notranslate"><span class="pre">a</span></code> на 42.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a += 42
-print(f&quot;{a is b = }&quot;)   
-print(f&quot;{a=}, {b=}&quot;)  
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">+=</span> <span class="mi">42</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a</span> <span class="ow">is</span> <span class="n">b</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>   
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a</span><span class="si">=}</span><span class="s2">, </span><span class="si">{</span><span class="n">b</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>  
 </pre></div>
 </div>
 </div>
@@ -1166,9 +1166,9 @@ a=42, b=0
 <p>Предыдущее утверждение не распространяется на изменяемые объекты. Создадим список и две ссылки на него.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>L1 = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
-L2 = L1
-print(L1 is L2)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L1</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">]</span>
+<span class="n">L2</span> <span class="o">=</span> <span class="n">L1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">L1</span> <span class="ow">is</span> <span class="n">L2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1184,8 +1184,8 @@ print(L1 is L2)
 <p>Изменим список <code class="docutils literal notranslate"><span class="pre">L1</span></code>, добавив в него какой-нибудь элемент.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>L1 += [1, 2, 3]
-print(L1)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L1</span> <span class="o">+=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">L1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1198,8 +1198,8 @@ print(L1)
 <p>Что произошло с списком <code class="docutils literal notranslate"><span class="pre">L2</span></code>?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(L2)       
-print(L1 is L2)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">L2</span><span class="p">)</span>       
+<span class="nb">print</span><span class="p">(</span><span class="n">L1</span> <span class="ow">is</span> <span class="n">L2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1217,11 +1217,11 @@ True
 <p>Оба имени <code class="docutils literal notranslate"><span class="pre">L1</span></code> и <code class="docutils literal notranslate"><span class="pre">L2</span></code> ссылаются на один и тот же изменяемый объект. Изменяемые объекты могут менять своё содержимое на месте. Тем не менее оператор присваивания “<code class="docutils literal notranslate"><span class="pre">=</span></code>” сохраняет смысл связывания имени и объекта.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>L1 = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
-L2 = L1
-print(L1 is L2)
-L1 = [1, 2, 3]      
-print(L1 is L2)   
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L1</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">]</span>
+<span class="n">L2</span> <span class="o">=</span> <span class="n">L1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">L1</span> <span class="ow">is</span> <span class="n">L2</span><span class="p">)</span>
+<span class="n">L1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>      
+<span class="nb">print</span><span class="p">(</span><span class="n">L1</span> <span class="ow">is</span> <span class="n">L2</span><span class="p">)</span>   
 </pre></div>
 </div>
 </div>
@@ -1271,9 +1271,9 @@ False
 <p>Чтобы это продемонстрировать, рассмотрим следующую функцию.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def f(a, b):
-    a += b
-    return a 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">a</span> <span class="o">+=</span> <span class="n">b</span>
+    <span class="k">return</span> <span class="n">a</span> 
 </pre></div>
 </div>
 </div>
@@ -1282,10 +1282,10 @@ False
 <p>Передадим в неё целочисленные объекты, в качестве примера неизменяемых типов.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = 0
-y = f(x, 42)
-print(f&quot;{x=}, {y=}&quot;)
-print(x is y)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">42</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">=}</span><span class="s2">, </span><span class="si">{</span><span class="n">y</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="ow">is</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1300,10 +1300,10 @@ False
 <p>Теперь повторим это со списками.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>l1 = [42]
-l2 = f(l1, &quot;abc&quot;)
-print(f&quot;{l1=}, {l2=}&quot;)
-print(l1 is l2)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">42</span><span class="p">]</span>
+<span class="n">l2</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span> <span class="s2">&quot;abc&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">l1</span><span class="si">=}</span><span class="s2">, </span><span class="si">{</span><span class="n">l2</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l1</span> <span class="ow">is</span> <span class="n">l2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1327,17 +1327,17 @@ True
 <p>Предположим, что нас не устраивает, что функция изменила список <code class="docutils literal notranslate"><span class="pre">l1</span></code> в предыдущем примере.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from copy import copy       # &lt;-----
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">copy</span>       <span class="c1"># &lt;-----</span>
 
-def f(a, b):
-    a = copy(a)             # &lt;-----
-    a += b
-    return a 
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>             <span class="c1"># &lt;-----</span>
+    <span class="n">a</span> <span class="o">+=</span> <span class="n">b</span>
+    <span class="k">return</span> <span class="n">a</span> 
 
-l1 = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
-l2 = f(l1, [1, 2, 3])
-print(f&quot;{l1=}, {l2=}&quot;)
-print(l1 is l2)
+<span class="n">l1</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">]</span>
+<span class="n">l2</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">l1</span><span class="si">=}</span><span class="s2">, </span><span class="si">{</span><span class="n">l2</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l1</span> <span class="ow">is</span> <span class="n">l2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

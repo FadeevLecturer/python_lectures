@@ -1123,7 +1123,7 @@ title="Print to PDF"
 <h1><code class="docutils literal notranslate"><span class="pre">NumPy</span></code><a class="headerlink" href="#numpy" title="Permalink to this headline">#</a></h1>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>horizontal_line = &quot;_&quot; * 80
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">horizontal_line</span> <span class="o">=</span> <span class="s2">&quot;_&quot;</span> <span class="o">*</span> <span class="mi">80</span>
 </pre></div>
 </div>
 </div>
@@ -1134,8 +1134,8 @@ title="Print to PDF"
 <h2>Зачем нужен <code class="docutils literal notranslate"><span class="pre">NumPy</span></code><a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
 <p>Необходимость в специальной библиотеке для работы с большими массивами чисел возникает из-за скорости работы <code class="docutils literal notranslate"><span class="pre">python</span></code>. За гибкость, выразительность, динамическую типизацию и многие другие достоинства <code class="docutils literal notranslate"><span class="pre">python</span></code> приходится платить скоростью: код написанный на <code class="docutils literal notranslate"><span class="pre">python</span></code>, практически всегда будет работать медленнее, чем аналогичный код, написанный на <code class="docutils literal notranslate"><span class="pre">C/C++</span></code>. Проще всего продемонстрировать это на примере с громоздкими циклами.</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="75a1e236-d330-4a85-8215-2b7730c99929" name="2ea81233-0470-4dfe-8243-85da405515bb" type="radio">
-</input><label class="sd-tab-label" data-sync-id="tabcode-c++" for="75a1e236-d330-4a85-8215-2b7730c99929">
+<input checked="checked" id="6ba76393-c7b3-4d4c-bfd2-ac5308caeb88" name="23856abb-f007-4d29-a7d9-5d954b6d5c54" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-c++" for="6ba76393-c7b3-4d4c-bfd2-ac5308caeb88">
 C++</label><div class="sd-tab-content docutils">
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;chrono&gt;</span><span class="cp"></span>
@@ -1170,8 +1170,8 @@ C++</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="db1aa5e3-d077-4e7e-97fb-366f4dce6744" name="2ea81233-0470-4dfe-8243-85da405515bb" type="radio">
-</input><label class="sd-tab-label" data-sync-id="tabcode-python" for="db1aa5e3-d077-4e7e-97fb-366f4dce6744">
+<input id="7a8fd319-5b32-436b-84a0-eae8374ce304" name="23856abb-f007-4d29-a7d9-5d954b6d5c54" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-python" for="7a8fd319-5b32-436b-84a0-eae8374ce304">
 PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">perf_counter</span>
 <span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">uniform</span>
@@ -1240,7 +1240,7 @@ python loops.py
 <p>Установив <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>, чтобы пользоваться им в программе, необходимо его импортировать.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
 </div>
@@ -1252,8 +1252,8 @@ python loops.py
 <p>В ячейке ниже создаётся массив <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> из случайных чисел. Можете пока не вникать, как конкретно он создаётся. Важно лишь понять, что имя <code class="docutils literal notranslate"><span class="pre">array</span></code> связывается с каким-то массивом <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>array = np.random.random(size=(2, 3))
-print(array)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1267,7 +1267,7 @@ print(array)
 <p>Массивы в библиотеке представляются типом <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html">numpy.ndarray</a> (<strong>n</strong> <strong>d</strong>imensional <strong>array</strong>, n-мерный массив).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;{type(array)=}&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">array</span><span class="p">)</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1288,7 +1288,7 @@ print(array)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;{array.dtype=}&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">array</span><span class="o">.</span><span class="n">dtype</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1302,7 +1302,7 @@ print(array)
 <p>Ещё <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> массивы хранят количество своих измерений в атрибуте <code class="docutils literal notranslate"><span class="pre">ndim</span></code> (<strong>n</strong>umber of <strong>dim</strong>ensions). Массивы <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> могут быть любой размерности: одномерные массивы часто используются для представления векторов, двумерные — для представления матриц и таблиц, массивы более высоких размерностей — для представления тензоров, массивы любых размерностей часто используются для представления значений некоторой функции векторного аргумента на сетке в многомерном пространстве.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;{array.ndim=}&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">array</span><span class="o">.</span><span class="n">ndim</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1316,7 +1316,7 @@ print(array)
 <p>Ещё обязательный атрибут массивов <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> — форма (<code class="docutils literal notranslate"><span class="pre">shape</span></code>) — размеры массива вдоль каждого измерения. Эти измерения называются осями (<code class="docutils literal notranslate"><span class="pre">axis</span></code> в ед. числе и <code class="docutils literal notranslate"><span class="pre">axes</span></code> в мн. числе).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;{array.shape=}&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1330,7 +1330,7 @@ print(array)
 <p>Общее количество элементов в массиве (произведение количеств элементов вдоль каждой из осей) хранится в атрибуте <code class="docutils literal notranslate"><span class="pre">size</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;{array.size=}&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">array</span><span class="o">.</span><span class="n">size</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1353,11 +1353,11 @@ print(array)
 <p>Ниже создаётся одномерный массив из списка четырёх чисел. При этом тип данных явно не указывается и в итоге получается массив чисел с плавающей точкой (<code class="docutils literal notranslate"><span class="pre">float64</span></code>), т.к. в исходном списке были числа типа <code class="docutils literal notranslate"><span class="pre">int</span></code> и <code class="docutils literal notranslate"><span class="pre">float</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a1D = np.array([1., 2, 3, 4]) 
-print(repr(a1D)) 
-print(f&quot;{a1D.dtype=}&quot;)
-print(f&quot;{a1D.ndim=}&quot;)
-print(f&quot;{a1D.shape=}&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a1D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span> 
+<span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">a1D</span><span class="p">))</span> 
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a1D</span><span class="o">.</span><span class="n">dtype</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a1D</span><span class="o">.</span><span class="n">ndim</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a1D</span><span class="o">.</span><span class="n">shape</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1373,11 +1373,11 @@ a1D.shape=(4,)
 <p>В ячейке ниже демонстрируется, как создаются двухмерные массивы. Для этого ей на вход передаются списки списков, где каждый вложенный список — строка будущей таблицы. Т.к. внутри всех этих списков находятся только целые числа, то итоговый тип массива тоже целочисленный.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a2D = np.array([[1, 2], [3, 4]]) 
-print(repr(a2D)) 
-print(f&quot;{a2D.dtype=}&quot;)
-print(f&quot;{a2D.ndim=}&quot;)
-print(f&quot;{a2D.shape=}&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a2D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span> 
+<span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">a2D</span><span class="p">))</span> 
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a2D</span><span class="o">.</span><span class="n">dtype</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a2D</span><span class="o">.</span><span class="n">ndim</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a2D</span><span class="o">.</span><span class="n">shape</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1394,11 +1394,11 @@ a2D.shape=(2, 2)
 <p>Трехмерные массивы создаются по аналогии. В ячейке ниже приводится пример. Обратите внимание, что все числа в передаваемом списке списков списков целочисленного типа, но результирующий массив получается типа <code class="docutils literal notranslate"><span class="pre">float32</span></code>, т.к. этот тип явно указан при создании массива.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a3D = np.array([[[1, 2], [3, 4]], [[5, 6], [7, 8]]], dtype=np.float32) 
-print(repr(a3D)) 
-print(f&quot;{a3D.dtype=}&quot;)
-print(f&quot;{a3D.ndim=}&quot;)
-print(f&quot;{a3D.shape=}&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a3D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">a3D</span><span class="p">))</span> 
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a3D</span><span class="o">.</span><span class="n">dtype</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a3D</span><span class="o">.</span><span class="n">ndim</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a3D</span><span class="o">.</span><span class="n">shape</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1461,8 +1461,8 @@ a3D.shape=(2, 2, 2)
 <p>Продемонстрируем ключевые из них. Массив из нулей создаётся методом <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.zeros.html#numpy.zeros">np.zeros</a>, который на вход принимает форму массива.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>zeros = np.zeros(shape=(2, 2))
-print(zeros)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zeros</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">zeros</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1476,8 +1476,8 @@ print(zeros)
 <p>Функция <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ones.html#numpy.ones">np.ones</a> делает то же самое, но создаёт массив из единиц.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ones = np.ones(shape=(2, 2))
-print(ones)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ones</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ones</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1491,8 +1491,8 @@ print(ones)
 <p>Функция <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.eye.html#numpy.eye">np.eye</a> часто создаётся для создания единичных матриц.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>eye = np.eye(2)
-print(eye)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eye</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">eye</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1506,8 +1506,8 @@ print(eye)
 <p>Функция <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.diag.html#numpy.diag">np.diag</a> конструирует диагональную матрицу, используя для заполнения диагонали элементы из переданного ей массива.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>diag = np.diag([3.14, 42])
-print(diag)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">([</span><span class="mf">3.14</span><span class="p">,</span> <span class="mi">42</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">diag</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1543,7 +1543,7 @@ print(diag)
 <p>Продемонстрируем метод <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.hstack.html#numpy.block">np.block</a>, который позволяет создавать массивы из блоков, в качестве которых могут выступать другие массивы.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(np.block([[zeros, ones], [eye, diag]]))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">block</span><span class="p">([[</span><span class="n">zeros</span><span class="p">,</span> <span class="n">ones</span><span class="p">],</span> <span class="p">[</span><span class="n">eye</span><span class="p">,</span> <span class="n">diag</span><span class="p">]]))</span>
 </pre></div>
 </div>
 </div>
@@ -1563,8 +1563,8 @@ print(diag)
 <p>Все основные арифметические операторы (<code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>, <code class="docutils literal notranslate"><span class="pre">//</span></code>, <code class="docutils literal notranslate"><span class="pre">%</span></code>, <code class="docutils literal notranslate"><span class="pre">**</span></code>) перегружены для работы с массивами. Определим скаляр и вектор, чтобы разобраться, какие действия они позволяют выполнять.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = np.array([3, 13, 42])
-alpha = 7
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">42</span><span class="p">])</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mi">7</span>
 </pre></div>
 </div>
 </div>
@@ -1574,8 +1574,8 @@ alpha = 7
 <p>Если в арифметическом выражении участвуют скаляр и массив, то результатом является массив значений поэлементного применения указанной арифметической операции со скаляром. Т.е., можно, например, умножить массив на число.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;{alpha * x = }&quot;)
-print(f&quot;{x * alpha = }&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">x</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span> <span class="o">*</span> <span class="n">alpha</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1589,13 +1589,13 @@ x * alpha = array([ 21,  91, 294])
 <p>Или сложить вектор с числом поэлементно.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;{alpha + x = }&quot;)
-print(f&quot;{x + alpha = }&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">alpha</span> <span class="o">+</span> <span class="n">x</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span> <span class="o">+</span> <span class="n">alpha</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
 
-print(horizontal_line)
+<span class="nb">print</span><span class="p">(</span><span class="n">horizontal_line</span><span class="p">)</span>
 
-print(f&quot;{alpha - x = }&quot;)
-print(f&quot;{x - alpha = }&quot;)
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">alpha</span> <span class="o">-</span> <span class="n">x</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span> <span class="o">-</span> <span class="n">alpha</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1612,8 +1612,8 @@ x - alpha = array([-4,  6, 35])
 <p>Можно поделить и вектор на число и число на вектор.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;{alpha / x = }&quot;)
-print(f&quot;{x / alpha = }&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">alpha</span> <span class="o">/</span> <span class="n">x</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span> <span class="o">/</span> <span class="n">alpha</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1627,18 +1627,18 @@ x / alpha = array([0.42857143, 1.85714286, 6.        ])
 <p>Естественно можно делать и все остальные арифметические операции.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;{alpha // x = }&quot;)
-print(f&quot;{x // alpha = }&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">alpha</span> <span class="o">//</span> <span class="n">x</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span> <span class="o">//</span> <span class="n">alpha</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
 
-print(horizontal_line)
+<span class="nb">print</span><span class="p">(</span><span class="n">horizontal_line</span><span class="p">)</span>
 
-print(f&quot;{alpha % x = }&quot;)
-print(f&quot;{x % alpha = }&quot;)
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">alpha</span> <span class="o">%</span> <span class="n">x</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span> <span class="o">%</span> <span class="n">alpha</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
 
-print(horizontal_line)
+<span class="nb">print</span><span class="p">(</span><span class="n">horizontal_line</span><span class="p">)</span>
 
-print(f&quot;{alpha ** x = }&quot;)
-print(f&quot;{x ** alpha = }&quot;)
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">alpha</span> <span class="o">**</span> <span class="n">x</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span> <span class="o">**</span> <span class="n">alpha</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1669,25 +1669,25 @@ x ** alpha = array([       2187,    62748517, -1388900736], dtype=int32)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = np.array([3, 13, 42])
-y = np.array([42, 13, 3])
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">42</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">42</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 
-print(f&quot;{x + y = }&quot;)
-print(f&quot;{x + y = }&quot;)
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
 
-print(horizontal_line)
+<span class="nb">print</span><span class="p">(</span><span class="n">horizontal_line</span><span class="p">)</span>
 
-print(f&quot;{x * y = }&quot;)
-print(f&quot;{x / y = }&quot;)
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span> <span class="o">*</span> <span class="n">y</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span> <span class="o">/</span> <span class="n">y</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
 
-print(horizontal_line)
+<span class="nb">print</span><span class="p">(</span><span class="n">horizontal_line</span><span class="p">)</span>
 
-print(f&quot;{x // y = }&quot;)
-print(f&quot;{x % y = }&quot;)
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span> <span class="o">//</span> <span class="n">y</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span> <span class="o">%</span> <span class="n">y</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
 
-print(horizontal_line)
+<span class="nb">print</span><span class="p">(</span><span class="n">horizontal_line</span><span class="p">)</span>
 
-print(f&quot;{x ** y = }&quot;)
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span> <span class="o">**</span> <span class="n">y</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1713,10 +1713,10 @@ x ** y = array([ 1914644777, -1692154371,       74088])
 <p>Оператор <code class="docutils literal notranslate"><span class="pre">*</span></code> совершает поэлементное умножение, в том числе и для двухмерных массивов.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ones = np.ones(shape=(2, 2))
-eye = np.eye(2)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ones</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">eye</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 
-print(f&quot;{ones}\n*\n{eye}\n=\n{ones * eye} &quot;)
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ones</span><span class="si">}</span><span class="se">\n</span><span class="s2">*</span><span class="se">\n</span><span class="si">{</span><span class="n">eye</span><span class="si">}</span><span class="se">\n</span><span class="s2">=</span><span class="se">\n</span><span class="si">{</span><span class="n">ones</span> <span class="o">*</span> <span class="n">eye</span><span class="si">}</span><span class="s2"> &quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1736,7 +1736,7 @@ print(f&quot;{ones}\n*\n{eye}\n=\n{ones * eye} &quot;)
 <p>Чтобы произвести матричное умножение, используется оператор <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;{ones}\n@\n{eye}\n=\n{ones @ eye} &quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ones</span><span class="si">}</span><span class="se">\n</span><span class="s2">@</span><span class="se">\n</span><span class="si">{</span><span class="n">eye</span><span class="si">}</span><span class="se">\n</span><span class="s2">=</span><span class="se">\n</span><span class="si">{</span><span class="n">ones</span> <span class="o">@</span> <span class="n">eye</span><span class="si">}</span><span class="s2"> &quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1763,8 +1763,8 @@ print(f&quot;{ones}\n*\n{eye}\n=\n{ones * eye} &quot;)
 <p>Индексация одномерных массивов <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> осуществляется очень похоже на индексацию последовательностей <code class="docutils literal notranslate"><span class="pre">python</span></code> (списков, например).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(a1D)
-print(f&quot;{a1D[0] = }, {a1D[-1] = }&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a1D</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a1D</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="si">= }</span><span class="s2">, </span><span class="si">{</span><span class="n">a1D</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1781,11 +1781,11 @@ a1D[0] = 1.0, a1D[-1] = 4.0
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;{a2D = }&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a2D</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
 
-print(horizontal_line)
+<span class="nb">print</span><span class="p">(</span><span class="n">horizontal_line</span><span class="p">)</span>
 
-print(f&quot;{a2D[1, 0] = }, {a2D[-1][-1] = }&quot;)
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a2D</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="si">= }</span><span class="s2">, </span><span class="si">{</span><span class="n">a2D</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1801,7 +1801,7 @@ a2D[1, 0] = 3, a2D[-1][-1] = 4
 <p>Если к двухмерному массиву применить индексацию одним числом <code class="docutils literal notranslate"><span class="pre">i</span></code>, то получится <code class="docutils literal notranslate"><span class="pre">i</span></code>-я строка.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;{a2D[0] = }, {a2D[-1] = }&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a2D</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="si">= }</span><span class="s2">, </span><span class="si">{</span><span class="n">a2D</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1821,8 +1821,8 @@ a2D[1, 0] = 3, a2D[-1][-1] = 4
 <p>Можно изменять размерность и форму массива, сохраняя данные исходного массива, но с условием, что общее количество элементов остается (<code class="docutils literal notranslate"><span class="pre">size</span></code>) неизменным.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>A = np.arange(12)
-print(A)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1835,8 +1835,8 @@ print(A)
 <p>Метод <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.reshape.html#numpy.reshape">np.ndarray.reshape</a> возвращает новый объект с теми же данными, но в массиве новой формой.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>B = A.reshape(4, 3)
-print(B)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1852,8 +1852,8 @@ print(B)
 <p>Метод <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.resize.html#numpy.ndarray.resize">np.ndarray.resize</a> изменяет форму массива на месте.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>A.resize(2, 3, 2)
-print(A)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1872,8 +1872,8 @@ print(A)
 <p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ravel.html#numpy.ravel">np.ndarray.ravel</a> вытягивает массив произвольной размерности в одномерный.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>A = A.ravel()
-print(A)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1895,9 +1895,9 @@ print(A)
 <p>Рассмотрим пример. Создадим массив <code class="docutils literal notranslate"><span class="pre">A</span></code> и убедимся, что он владеет своими данными.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>A = np.arange(6)
-print(A)
-print(&quot;Флаги массива A: \n&quot;, A.flags)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Флаги массива A: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A</span><span class="o">.</span><span class="n">flags</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1921,10 +1921,10 @@ print(&quot;Флаги массива A: \n&quot;, A.flags)
 <p>Теперь создадим новый массив <code class="docutils literal notranslate"><span class="pre">B</span></code> путем изменения формы массива <code class="docutils literal notranslate"><span class="pre">A</span></code> методом <code class="docutils literal notranslate"><span class="pre">reshape</span></code>. Убедимся, что он использует те же данные.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>B = A.reshape(2, 3)
-print(B)
-print(&quot;Массив B пользуется данными массива A?&quot;, B.base is A)
-print(&quot;Флаги массива B: \n&quot;, B.flags)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Массив B пользуется данными массива A?&quot;</span><span class="p">,</span> <span class="n">B</span><span class="o">.</span><span class="n">base</span> <span class="ow">is</span> <span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Флаги массива B: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">B</span><span class="o">.</span><span class="n">flags</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1951,9 +1951,9 @@ print(&quot;Флаги массива B: \n&quot;, B.flags)
 <p>Создадим транспонированную матрицу методом <code class="docutils literal notranslate"><span class="pre">transpose</span></code> и убедимся, что она тоже использует данные исходного массива <code class="docutils literal notranslate"><span class="pre">A</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>C = B.transpose()
-print(C)
-print(&quot;Массив C пользуется данными массива A?&quot;, C.base is A)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">B</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Массив C пользуется данными массива A?&quot;</span><span class="p">,</span> <span class="n">C</span><span class="o">.</span><span class="n">base</span> <span class="ow">is</span> <span class="n">A</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1973,12 +1973,12 @@ print(&quot;Массив C пользуется данными массива A?
 <p>Продемонстрируем, что изменение элементов любого из этих массивов повлияет на остальные.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>C[2, 1] = 42
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">42</span>
 
 
-print(f&quot;{A=}&quot;)
-print(f&quot;{B=}&quot;)
-print(f&quot;{C=}&quot;)
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">A</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">B</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">C</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

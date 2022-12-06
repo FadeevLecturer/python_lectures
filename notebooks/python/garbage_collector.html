@@ -1031,7 +1031,7 @@ title="Print to PDF"
 <p>Создаются объекты в результате вычисления выражений <code class="docutils literal notranslate"><span class="pre">python</span></code>. Рассмотрим следующую строку кода.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = 1001 + int(&quot;1002&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1001</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;1002&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1053,7 +1053,7 @@ title="Print to PDF"
 <p>Затем интерпретатор применяет операцию сложения к объектам целочисленного типа, что приводит к созданию ещё одного целочисленного объекта с значением 2003.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(x)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1080,10 +1080,10 @@ title="Print to PDF"
 <p>Так как <code class="docutils literal notranslate"><span class="pre">python</span></code> проводит ряд оптимизация при работе с неизменяемыми объектами (таких, как <a class="reference external" href="https://en.wikipedia.org/wiki/String_interning">интернирование строк</a> и малых целых чисел), то для чистоты эксперимента создадим изменяемый объект — пустой список, свяжем его с именем <code class="docutils literal notranslate"><span class="pre">a</span></code> и выведем количество ссылок на него.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from sys import getrefcount
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">getrefcount</span>
 
-a = []
-print(getrefcount(a))
+<span class="n">a</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">getrefcount</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1100,10 +1100,10 @@ print(getrefcount(a))
 <p>Создадим ещё пару ссылок на этот объект и снова напечатаем количество ссылок на список.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>b = a
-print(getrefcount(a))
-c = a
-print(getrefcount(a))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">getrefcount</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">getrefcount</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1121,8 +1121,8 @@ print(getrefcount(a))
 <p>Кроме имен программы на объект могут ссылаться другие объект (или даже тот же самый в предельном случае). Например, список хранит в себе ссылки на свои элементы.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>L = [a, a, a]
-print(getrefcount(a))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">getrefcount</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1144,8 +1144,8 @@ print(getrefcount(a))
 <p>Чтобы счетчик ссылок обнулился, необходимо чтобы пропали все ссылки на этот объект. Такое может происходить по разным причинам. Например, если связать какое-то существующее в программе имя с новым объектом, то пропадёт одна ссылка на объект, на которое это имя ссылалось прежде.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>b = 0
-print(getrefcount(a))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">getrefcount</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1166,8 +1166,8 @@ print(getrefcount(a))
 <p>Удалим имя <code class="docutils literal notranslate"><span class="pre">c</span></code> и убедимся, что количество ссылок упадёт ещё на 1.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>del c
-print(getrefcount(a))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">c</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">getrefcount</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1184,8 +1184,8 @@ print(getrefcount(a))
 <p>Если удаляется объект, то удаляются все его ссылки на другие объект. Чтобы продемонстрировать этот эффект, удалим список <code class="docutils literal notranslate"><span class="pre">L</span></code> и убедимся, что количество ссылок на <code class="docutils literal notranslate"><span class="pre">a</span></code> упадёт на 3.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>del L
-print(getrefcount(a))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">L</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">getrefcount</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1205,13 +1205,13 @@ print(getrefcount(a))
 <p>Воспроизведем такую ситуацию на примере двух списков.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>L1 = []
-L2 = []
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L1</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">L2</span> <span class="o">=</span> <span class="p">[]</span>
 
-L1.append(L2)
-L2.append(L1)
+<span class="n">L1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">L2</span><span class="p">)</span>
+<span class="n">L2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">L1</span><span class="p">)</span>
 
-print(L1, L2)
+<span class="nb">print</span><span class="p">(</span><span class="n">L1</span><span class="p">,</span> <span class="n">L2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1228,7 +1228,7 @@ print(L1, L2)
 <p>Удалим изначальные ссылки <code class="docutils literal notranslate"><span class="pre">L1</span></code> и <code class="docutils literal notranslate"><span class="pre">L2</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>del L1, L2
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">L1</span><span class="p">,</span> <span class="n">L2</span>
 </pre></div>
 </div>
 </div>

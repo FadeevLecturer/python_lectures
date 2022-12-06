@@ -1049,7 +1049,7 @@ title="Print to PDF"
 <h1>Векторизация<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>horizontal_line = &quot;_&quot; * 80
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">horizontal_line</span> <span class="o">=</span> <span class="s2">&quot;_&quot;</span> <span class="o">*</span> <span class="mi">80</span>
 </pre></div>
 </div>
 </div>
@@ -1060,11 +1060,11 @@ title="Print to PDF"
 <p>Продемонстрируем это на примере вычисления суммы элементов массива <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>. Ниже создаётся массив из <span class="math notranslate nohighlight">\(10^7\)</span> случайных чисел.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-N = 10 ** 7
+<span class="n">N</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">**</span> <span class="mi">7</span>
 
-x = np.random.random(N)
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1076,10 +1076,10 @@ x = np.random.random(N)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%time
-s1 = 0
-for i in range(N):
-    s1 += x[i]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">s1</span> <span class="o">+=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1097,8 +1097,8 @@ Wall time: 3.12 s
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%timeit
-s2 = x.sum()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
+<span class="n">s2</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1122,8 +1122,8 @@ s2 = x.sum()
 <p>Заведем два массива длинной <span class="math notranslate nohighlight">\(10^7\)</span> каждый.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = np.zeros(N)
-y = np.ones(N)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1131,10 +1131,10 @@ y = np.ones(N)
 <p>Измерим, сколько времени займет вычисление суммы двух этих циклов поэлементно в цикле.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%time
-z = np.zeros(N)
-for i in range(N):
-    z[i] = x[i] + y[i]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1148,8 +1148,8 @@ Wall time: 4.75 s
 <p>Теперь сравним это с векторизованной версией.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%timeit
-z = x + y
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
+<span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
 </pre></div>
 </div>
 </div>
@@ -1171,10 +1171,10 @@ z = x + y
 <p>На картинке выше массив <code class="docutils literal notranslate"><span class="pre">a</span></code> из трех элементов умножается на скаляр <code class="docutils literal notranslate"><span class="pre">b</span></code> (который можно представить в виде массива из одного элемента).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a = np.array([1, 2, 3])
-b = np.array([2])
-result = a * b
-print(f&quot;{a} * {b} = {result}&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2"> * </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1253,11 +1253,11 @@ print(f&quot;{a} * {b} = {result}&quot;)
 <p>В примере выше складываются массивы с формами <code class="docutils literal notranslate"><span class="pre">(4,</span> <span class="pre">3)</span></code> и <code class="docutils literal notranslate"><span class="pre">(3,</span> <span class="pre">)</span></code>, что эквивалентно записи <code class="docutils literal notranslate"><span class="pre">(4,</span> <span class="pre">3)</span></code> и <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">3)</span></code>. Формы совместимы и результат выходит такой, будто одномерный массив расширяется до двумерного массива с формой <code class="docutils literal notranslate"><span class="pre">(4,</span> <span class="pre">3)</span></code> “по столбцам”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a = np.array([[0, 0, 0], [10, 10, 10], [20, 20, 20], [30, 30, 30]])
-b = np.array([0, 1, 2])
-result = a + b
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">]])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 
-print(f&quot;{a} \n + \n {b} \n = \n {result} &quot;)
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2"> + </span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2"> = </span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2"> &quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1282,9 +1282,9 @@ print(f&quot;{a} \n + \n {b} \n = \n {result} &quot;)
 <p>А в этом примере формы не совместимы.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a = np.array([[0, 0, 0], [10, 10, 10], [20, 20, 20], [30, 30, 30]])
-b = np.array([1, 2, 3, 4])
-a + b
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">]])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 </pre></div>
 </div>
 </div>
@@ -1306,7 +1306,7 @@ a + b
 <p>К сожалению, <code class="docutils literal notranslate"><span class="pre">ndarray.T</span></code> (<code class="docutils literal notranslate"><span class="pre">np.transpose</span></code>) не приведёт к желаемому результату, если массив одномерный.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(b, b.T)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1319,10 +1319,10 @@ a + b
 <p>Сделать это можно изменив форму или “вставив ось”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>n = b.shape[0]
-print(b.reshape((n, 1)))
-print()
-print(b[:, np.newaxis])
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1343,8 +1343,8 @@ print(b[:, np.newaxis])
 <p>Теперь можно сложить матрицу со столбцом.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>result = a + b[:, np.newaxis]
-print(result)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1363,10 +1363,10 @@ print(result)
 <img alt="../../_images/broadcasting_4.svg" src="../../_images/broadcasting_4.svg" /></figure>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a = np.array([0, 10, 20, 30])[:, np.newaxis]
-b = np.array([1, 2, 3])
-result = a + b
-print(f&quot;{a} \n + \n {b} \n  = \n {result}&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">])[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2"> + </span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">  = </span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1408,8 +1408,8 @@ x_{n1} &amp; \ldots &amp; x_{nm}
 <p>Все циклы выполнятся в <code class="docutils literal notranslate"><span class="pre">C</span></code> коде, а значит быстро.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = np.random.random(N)
-y = np.zeros(N)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1417,9 +1417,9 @@ y = np.zeros(N)
 <p>Применение функции в цикле поэлементно.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%time
-for i in range(N):
-    y[i] = np.sin(x[i])
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1433,8 +1433,8 @@ Wall time: 20.2 s
 <p>Применение функции сразу ко всему массиву.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%timeit
-y = np.sin(x)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1449,10 +1449,10 @@ y = np.sin(x)
 <p>Для табуляции функции <span class="math notranslate nohighlight">\(f\colon \mathbb{R} \to \mathbb{R}\)</span> на узлах сетки <span class="math notranslate nohighlight">\(\{x_i, \, i=1,\ldots,N\}\)</span> достаточно просто реализовать функцию <span class="math notranslate nohighlight">\(f\)</span> средствами функций из библиотеки <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> и передать этой функции массив узлов сетки.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = np.array([0, np.pi/6, np.pi/2])
-y = np.sin(x)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-print(y)
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1465,7 +1465,7 @@ print(y)
 <p>Часто очень полезной в таких ситуациях оказывается полезной метод <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linspace.html">numpy.linspace</a>, который генерирует равномерную на отрезке сетку. Например, чтобы задать равномерную на отрезке <span class="math notranslate nohighlight">\([-1, 1]\)</span> сетку из 11 точек, достаточно вызывать этот метод в следующей форме.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>np.linspace(-1, 1, 11)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1486,20 +1486,20 @@ z_{ji} = f(x_i, y_j), \quad  i=1,\ldots,N, \quad j=1,\ldots,M.
 <p>Не векторизованный код может выглядеть как-то так.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>N, M = 2, 3
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>
 
-def f(x, y):
-    return np.cos(x) + np.sin(y)
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 
-x = np.array([0, 1])
-y = np.array([-1, -2, -3])
-z = np.zeros((M, N))
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">M</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
 
-for i in range(N):
-    for j in range(M):
-        z[j, i] = f(x[i], y[j])
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
+        <span class="n">z</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
 
-print(z)
+<span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1569,14 +1569,14 @@ y_3 &amp; y_3
 \end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;{x=}&quot;)
-print(f&quot;{y=}&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">y</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-print(horizontal_line)
+<span class="nb">print</span><span class="p">(</span><span class="n">horizontal_line</span><span class="p">)</span>
 
-xv, yv = np.meshgrid(x, y)
-print(f&quot;{xv}&quot;)
-print(f&quot;{yv}&quot;)
+<span class="n">xv</span><span class="p">,</span> <span class="n">yv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">xv</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">yv</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1597,8 +1597,8 @@ y=array([-1, -2, -3])
 <p>Теперь можно заменить двойной цикл одним вызовом функции.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>z = f(xv, yv)
-print(z)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">xv</span><span class="p">,</span> <span class="n">yv</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1618,14 +1618,14 @@ print(z)
 <p>Продемонстрируем поведение таких функций на примере метода <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.sum.html">numpy.sum</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>matrix = np.array([
-    [1, 2, 3],
-    [10, 20, 30],
-    [100, 200, 300]
-])
-print(matrix)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">]</span>
+<span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
 
-print(matrix.sum())
+<span class="nb">print</span><span class="p">(</span><span class="n">matrix</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -1644,7 +1644,7 @@ print(matrix.sum())
 <p>Каждая из них позволяет не только агрегировать по всему массиву целиком, но и вдоль обозначенной опциональным параметром <code class="docutils literal notranslate"><span class="pre">axis</span></code> оси. Например, чтобы просуммировать матрицу по столбцам, необходимо передать значение 0 в качестве параметра <code class="docutils literal notranslate"><span class="pre">axis</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(matrix.sum(axis=0))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">matrix</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1659,7 +1659,7 @@ print(matrix.sum())
 <p>А чтобы просуммировать по строкам — значение 1.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(matrix.sum(axis=1))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">matrix</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>

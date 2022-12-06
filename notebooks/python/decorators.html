@@ -1045,13 +1045,13 @@ title="Print to PDF"
 <p>Предположим, что в целях отладки мы хотим печатать логирующее сообщение при каждом вызове функции <code class="docutils literal notranslate"><span class="pre">sin</span></code>.  Мы можем прийти примерно к такому решению.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import math 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span> 
 
-def sin(x):
-    print(f&quot;Функция sin вызвана с аргументом {x}&quot;)
-    return math.sin(x)
+<span class="k">def</span> <span class="nf">sin</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Функция sin вызвана с аргументом </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-print(sin(0))
+<span class="nb">print</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1067,11 +1067,11 @@ print(sin(0))
 <p>Реализация этой функции может выглядеть как-то так.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def announce(func):
-    def wrap(x):
-        print(f&quot;Функция {func.__name__} вызвана с аргументом {x}&quot;)
-        return func(x)
-    return wrap
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">announce</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">wrap</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Функция </span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> вызвана с аргументом </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">wrap</span>
 </pre></div>
 </div>
 </div>
@@ -1080,14 +1080,14 @@ print(sin(0))
 <p>Проверим работоспособность это функции. Для этого обернем функции синуса и косинуса.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from math import sin, cos
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span>
 
-print(sin(0), cos(0))
+<span class="nb">print</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">cos</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
 
-sin = announce(sin)
-cos = announce(cos)
+<span class="n">sin</span> <span class="o">=</span> <span class="n">announce</span><span class="p">(</span><span class="n">sin</span><span class="p">)</span>
+<span class="n">cos</span> <span class="o">=</span> <span class="n">announce</span><span class="p">(</span><span class="n">cos</span><span class="p">)</span>
 
-print(sin(0), cos(0))
+<span class="nb">print</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">cos</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1119,11 +1119,11 @@ print(sin(0), cos(0))
 <p>Но у второго подхода есть ряд преимуществ, самый главный из которых, наверное, следующий. При первом подходе читатель анализирует тело функции, ещё не зная, что она потом будет задекорирована, т.е. модифицирована. При втором подходе декоратор встречается ещё до ключевого слова <code class="docutils literal notranslate"><span class="pre">def</span></code> и явно указывает на модификацию функции.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>@announce
-def square(x):
-    return x * x
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@announce</span>
+<span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
 
-print(square(2))
+<span class="nb">print</span><span class="p">(</span><span class="n">square</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1140,7 +1140,7 @@ print(square(2))
 <p>Попробуем получить имя декорированной функции <code class="docutils literal notranslate"><span class="pre">square</span></code> из предыдущего примера.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>square.__name__
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">square</span><span class="o">.</span><span class="vm">__name__</span>
 </pre></div>
 </div>
 </div>
@@ -1163,19 +1163,19 @@ print(square(2))
 <p>Можно попробовать решить эту проблему задавав необходимое имя функции <code class="docutils literal notranslate"><span class="pre">wrap</span></code> перед её возвращением из функции <code class="docutils literal notranslate"><span class="pre">announce</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def announce(func):
-    def wrap(x):
-        print(f&quot;Функция {func.__name__} вызвана с аргументом {x}&quot;)
-        return func(x)
-    wrap.__name__ = func.__name__
-    return wrap
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">announce</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">wrap</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Функция </span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> вызвана с аргументом </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">wrap</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">=</span> <span class="n">func</span><span class="o">.</span><span class="vm">__name__</span>
+    <span class="k">return</span> <span class="n">wrap</span>
 
-@announce
-def square(x):
-    return x * x
+<span class="nd">@announce</span>
+<span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
 
-print(square.__name__)
-print(square)
+<span class="nb">print</span><span class="p">(</span><span class="n">square</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">square</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1189,21 +1189,21 @@ print(square)
 <p>Но гораздо лучше будет воспользоваться декоратором <a class="reference external" href="https://docs.python.org/3/library/functools.html#functools.wraps">wraps</a> из модуля <a class="reference external" href="https://docs.python.org/3/library/functools.html">functools</a>, что позволит сохранить все метаданные исходной функции.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from functools import wraps
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
 
-def announce(func):
-    @wraps(func)
-    def wrap(x):
-        print(f&quot;Функция {func.__name__} вызвана с аргументом {x}&quot;)
-        return func(x)
-    return wrap
+<span class="k">def</span> <span class="nf">announce</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">wrap</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Функция </span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> вызвана с аргументом </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">wrap</span>
 
-@announce
-def square(x):
-    return x * x
+<span class="nd">@announce</span>
+<span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
 
-print(square.__name__)
-print(square)
+<span class="nb">print</span><span class="p">(</span><span class="n">square</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">square</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1221,19 +1221,19 @@ print(square)
 <p>Переопределим декоратор <code class="docutils literal notranslate"><span class="pre">announce</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def announce(func):
-    def wrap(*args, **kwargs):
-        print(f&quot;Функция {func.__name__} вызвана с позиционными аргументами {args}&quot;, end=&quot;&quot;)
-        print(f&quot; и именованными аргументами {kwargs}.&quot;)
-        return func(*args, **kwargs)
-    return wrap
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">announce</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">wrap</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Функция </span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> вызвана с позиционными аргументами </span><span class="si">{</span><span class="n">args</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; и именованными аргументами </span><span class="si">{</span><span class="n">kwargs</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">wrap</span>
 
-@announce
-def add(x, y):
-    return x + y
+<span class="nd">@announce</span>
+<span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
 
-print(add(42, 3.14))
-print(add(7, y=2.71))
+<span class="nb">print</span><span class="p">(</span><span class="n">add</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">add</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">2.71</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1252,30 +1252,30 @@ print(add(7, y=2.71))
 <p>Рассмотрим вариант реализации декоратора, который при вызове декорируемой функции измеряет время, потребовавшееся на её выполнение и выводит его в стандартный поток вывода, прежде чем вернуть результат её вычисления.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from functools import wraps
-from time import perf_counter
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">perf_counter</span>
 
 
-def timed(func):
-    @wraps(func)
-    def wrap(*args, **kwargs):
-        t1 = perf_counter()
-        result = func(*args, **kwargs)
-        t2 = perf_counter()
-        print(f&quot;Вызов {func.__name__} занял {t2- t1} секунд, &quot;, end=&quot;&quot;)
-        print(f&quot;(параметры {args}, {kwargs})&quot;)
-        return result
-    return wrap
+<span class="k">def</span> <span class="nf">timed</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">wrap</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">t1</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">t2</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Вызов </span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> занял </span><span class="si">{</span><span class="n">t2</span><span class="o">-</span> <span class="n">t1</span><span class="si">}</span><span class="s2"> секунд, &quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;(параметры </span><span class="si">{</span><span class="n">args</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">kwargs</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
+    <span class="k">return</span> <span class="n">wrap</span>
 
 
-@timed
-def countdown(n):
-    while n &gt; 0:
-        n -= 1
+<span class="nd">@timed</span>
+<span class="k">def</span> <span class="nf">countdown</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">while</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span>
 
 
-for n in [10_000, 100_000, 1_000_000, 10_000_000]:
-    countdown(n)
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">10_000</span><span class="p">,</span> <span class="mi">100_000</span><span class="p">,</span> <span class="mi">1_000_000</span><span class="p">,</span> <span class="mi">10_000_000</span><span class="p">]:</span>
+    <span class="n">countdown</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1329,26 +1329,26 @@ for n in [10_000, 100_000, 1_000_000, 10_000_000]:
 <p>В качестве примера, рассмотрим два декоратора. Первый декорирует функцию таким образом, чтобы печаталось заданное сообщение перед вызовом функции, а второй — после вызова функции.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from functools import wraps
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
 
-def print_before(msg=&quot;&quot;):
-    def decorate(func):
-        @wraps(func)
-        def wrap(*args, **kwargs):
-            print(msg)
-            return func(*args, **kwargs)
-        return wrap
-    return decorate
+<span class="k">def</span> <span class="nf">print_before</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">decorate</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+        <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+        <span class="k">def</span> <span class="nf">wrap</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">wrap</span>
+    <span class="k">return</span> <span class="n">decorate</span>
 
-def print_after(msg):
-    def decorate(func):
-        @wraps(func)
-        def wrap(*args, **kwargs):
-            result = func(*args, **kwargs)
-            print(msg)
-            return result
-        return wrap
-    return decorate
+<span class="k">def</span> <span class="nf">print_after</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">decorate</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+        <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+        <span class="k">def</span> <span class="nf">wrap</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">return</span> <span class="n">wrap</span>
+    <span class="k">return</span> <span class="n">decorate</span>
 </pre></div>
 </div>
 </div>
@@ -1357,11 +1357,11 @@ def print_after(msg):
 <p>Проверим работоспособность первого из них.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>@print_before(msg=&quot;Hello!&quot;)
-def f():
-    print(&quot;Функция f.&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@print_before</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Hello!&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Функция f.&quot;</span><span class="p">)</span>
 
-f()
+<span class="n">f</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1375,11 +1375,11 @@ f()
 <p>Проверим работоспособность второго из них.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>@print_after(msg=&quot;Good bye!&quot;)
-def g():
-    print(&quot;Функция g.&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@print_after</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Good bye!&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">g</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Функция g.&quot;</span><span class="p">)</span>
 
-g()
+<span class="n">g</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1393,12 +1393,12 @@ Good bye!
 <p>Теперь убедимся, что мы можем передать декоратору и другое значение, а заодно продемонстрируем возможность цепного применения декораторов.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>@print_before(msg=&quot;Hi!&quot;)
-@print_after(msg=&quot;Bye!&quot;)
-def h():
-    print(&quot;Функция h.&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@print_before</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Hi!&quot;</span><span class="p">)</span>
+<span class="nd">@print_after</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Bye!&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">h</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Функция h.&quot;</span><span class="p">)</span>
 
-h()
+<span class="n">h</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1422,14 +1422,14 @@ Bye!
 <p>В качестве примера определим рекурсивную версию функции вычисления чисел Фибоначчи. В целях отладки применим к нему объявленный выше декоратора <code class="docutils literal notranslate"><span class="pre">announce</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from functools import wraps
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
 
-@announce
-def fib(n: int) -&gt; int:
-    return fib(n - 1) + fib(n - 2) if n &gt; 1 else 1
+<span class="nd">@announce</span>
+<span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="mi">1</span>
 
 
-fib(5)
+<span class="n">fib</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1460,14 +1460,14 @@ fib(5)
 <p>Добавим к этой функции теперь ещё и декоратора <code class="docutils literal notranslate"><span class="pre">cache</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from functools import cache
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">cache</span>
 
-@cache
-@announce
-def fib(n: int) -&gt; int:
-    return fib(n - 1) + fib(n - 2) if n &gt; 1 else 1
+<span class="nd">@cache</span>
+<span class="nd">@announce</span>
+<span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="mi">1</span>
 
-fib(5)
+<span class="n">fib</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1489,21 +1489,21 @@ fib(5)
 <p>Посмотрим, как это скажется на производительности. Для этого заново определим эту функцию без всех декораторов и функцию замеряющую время.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from time import perf_counter
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">perf_counter</span>
 
-def fib(n: int) -&gt; int:
-    return fib(n - 1) + fib(n - 2) if n &gt; 1 else 1
+<span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="mi">1</span>
 
 
-def measure_time(f, n):
-    t1 = perf_counter()
-    y = f(n)
-    t2 = perf_counter()
-    print(f&quot;{t2 - t1:7f} секунд. {f.__name__}(n) = {y} при {n=}&quot;)
+<span class="k">def</span> <span class="nf">measure_time</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">t1</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">t2</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">t2</span> <span class="o">-</span> <span class="n">t1</span><span class="si">:</span><span class="s2">7f</span><span class="si">}</span><span class="s2"> секунд. </span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(n) = </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2"> при </span><span class="si">{</span><span class="n">n</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-measure_time(fib, 33)
-measure_time(fib, 34)
-measure_time(fib, 35)
+<span class="n">measure_time</span><span class="p">(</span><span class="n">fib</span><span class="p">,</span> <span class="mi">33</span><span class="p">)</span>
+<span class="n">measure_time</span><span class="p">(</span><span class="n">fib</span><span class="p">,</span> <span class="mi">34</span><span class="p">)</span>
+<span class="n">measure_time</span><span class="p">(</span><span class="n">fib</span><span class="p">,</span> <span class="mi">35</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1519,11 +1519,11 @@ measure_time(fib, 35)
 <p>Применим декоратор <code class="docutils literal notranslate"><span class="pre">cache</span></code> к функции <code class="docutils literal notranslate"><span class="pre">fib</span></code> и измерим время её вызовов.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fib = cache(fib)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fib</span> <span class="o">=</span> <span class="n">cache</span><span class="p">(</span><span class="n">fib</span><span class="p">)</span>
 
-measure_time(fib, 35)
-measure_time(fib, 1000)
-measure_time(fib, 999)
+<span class="n">measure_time</span><span class="p">(</span><span class="n">fib</span><span class="p">,</span> <span class="mi">35</span><span class="p">)</span>
+<span class="n">measure_time</span><span class="p">(</span><span class="n">fib</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">measure_time</span><span class="p">(</span><span class="n">fib</span><span class="p">,</span> <span class="mi">999</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

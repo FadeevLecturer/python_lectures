@@ -1098,51 +1098,50 @@ title="Print to PDF"
 <p>Пока не будем уточнять, какой смысл вкладывается в “хорошо классифицировать”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import os
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 
-import numpy as np
-import pandas as pd
-from matplotlib import pyplot as plt
-import seaborn as sns
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 
-folder = os.path.join(&quot;..&quot;, &quot;_static&quot;, &quot;lecture_specific&quot;, &quot;ml&quot;)
-plt.rcParams.update({&quot;font.size&quot;: 16})
+<span class="n">folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;_static&quot;</span><span class="p">,</span> <span class="s2">&quot;lecture_specific&quot;</span><span class="p">,</span> <span class="s2">&quot;ml&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;font.size&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">})</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
-def plot_decision_boundary(classifier, data, ax, title=None, n_points=300):
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_decision_boundary</span><span class="p">(</span><span class="n">classifier</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_points</span><span class="o">=</span><span class="mi">300</span><span class="p">):</span>
     
-    x_min, x_max = data[&quot;x1&quot;].min(), data[&quot;x1&quot;].max()
-    y_min, y_max = data[&quot;x2&quot;].min(), data[&quot;x2&quot;].max()
-    delta_x = (x_max - x_min) / 10
-    delta_y = (x_max - x_min) / 10
+    <span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;x1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;x1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;x2&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;x2&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="n">delta_x</span> <span class="o">=</span> <span class="p">(</span><span class="n">x_max</span> <span class="o">-</span> <span class="n">x_min</span><span class="p">)</span> <span class="o">/</span> <span class="mi">10</span>
+    <span class="n">delta_y</span> <span class="o">=</span> <span class="p">(</span><span class="n">x_max</span> <span class="o">-</span> <span class="n">x_min</span><span class="p">)</span> <span class="o">/</span> <span class="mi">10</span>
     
-    x = np.linspace(x_min - delta_x, x_max + delta_x, n_points)
-    y = np.linspace(y_min - delta_y, y_max + delta_y, n_points)
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x_min</span> <span class="o">-</span> <span class="n">delta_x</span><span class="p">,</span> <span class="n">x_max</span> <span class="o">+</span> <span class="n">delta_x</span><span class="p">,</span> <span class="n">n_points</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">y_min</span> <span class="o">-</span> <span class="n">delta_y</span><span class="p">,</span> <span class="n">y_max</span> <span class="o">+</span> <span class="n">delta_y</span><span class="p">,</span> <span class="n">n_points</span><span class="p">)</span>
 
-    xx, yy = np.meshgrid(x, y)
-    df = pd.DataFrame({
-        &quot;x1&quot;: xx.reshape(-1),
-        &quot;x2&quot;: yy.reshape(-1)
-    })
+    <span class="n">xx</span><span class="p">,</span> <span class="n">yy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+        <span class="s2">&quot;x1&quot;</span><span class="p">:</span> <span class="n">xx</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span>
+        <span class="s2">&quot;x2&quot;</span><span class="p">:</span> <span class="n">yy</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="p">})</span>
     
-    zz = classifier.predict(df)
-    ax.contourf(xx, yy, zz.reshape(n_points, n_points), levels=1, cmap=&quot;Set2&quot;)
-    sns.scatterplot(
-        data=data, 
-        x=&#39;x1&#39;, 
-        y=&#39;x2&#39;, 
-        hue=&#39;y&#39;, 
-        s=100, 
-        palette=&quot;bwr&quot;, 
-        hue_norm=(-1, 1), 
-        ax=ax
-    )
-    ax.set_title(title)
+    <span class="n">zz</span> <span class="o">=</span> <span class="n">classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">zz</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">n_points</span><span class="p">,</span> <span class="n">n_points</span><span class="p">),</span> <span class="n">levels</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Set2&quot;</span><span class="p">)</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span>
+        <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> 
+        <span class="n">x</span><span class="o">=</span><span class="s1">&#39;x1&#39;</span><span class="p">,</span> 
+        <span class="n">y</span><span class="o">=</span><span class="s1">&#39;x2&#39;</span><span class="p">,</span> 
+        <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> 
+        <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> 
+        <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;bwr&quot;</span><span class="p">,</span> 
+        <span class="n">hue_norm</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> 
+        <span class="n">ax</span><span class="o">=</span><span class="n">ax</span>
+    <span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
     
 </pre></div>
 </div>
@@ -1154,21 +1153,21 @@ def plot_decision_boundary(classifier, data, ax, title=None, n_points=300):
 <p>Ниже приводится пример такой выборки.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>path = os.path.join(folder, &quot;linearly_separable.csv&quot;)
-data = pd.read_csv(path)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="s2">&quot;linearly_separable.csv&quot;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 
-fig, ax = plt.subplots(figsize=(10, 7))
-sns.scatterplot(
-        data=data, 
-        x=&#39;x1&#39;, 
-        y=&#39;x2&#39;, 
-        hue=&#39;y&#39;, 
-        s=100, 
-        palette=&quot;bwr&quot;, 
-        hue_norm=(-1, 1), 
-        ax=ax
-    )
-data.head()
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span>
+        <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> 
+        <span class="n">x</span><span class="o">=</span><span class="s1">&#39;x1&#39;</span><span class="p">,</span> 
+        <span class="n">y</span><span class="o">=</span><span class="s1">&#39;x2&#39;</span><span class="p">,</span> 
+        <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> 
+        <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> 
+        <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;bwr&quot;</span><span class="p">,</span> 
+        <span class="n">hue_norm</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> 
+        <span class="n">ax</span><span class="o">=</span><span class="n">ax</span>
+    <span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1248,20 +1247,20 @@ y_\mathrm{pred}(x_1, x_2) = \mathrm{sgn}\,(a(x_1, x_2)),
 <p>Чисто теоретически можно подобрать коэффициенты <span class="math notranslate nohighlight">\(\vec{\omega} = (\omega_1, \omega_2)\)</span> и <span class="math notranslate nohighlight">\(b\)</span> в ручную. В ячейке ниже демонстрируется такой классификатор с <span class="math notranslate nohighlight">\(\omega_1=-1\)</span>, <span class="math notranslate nohighlight">\(\omega_2=1\)</span> и <span class="math notranslate nohighlight">\(b=0.3\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class ManualLinearClassifier:
-    def __init__(self, weights, bias):
-        self.weights = np.array(weights)
-        self.bias = bias
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ManualLinearClassifier</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">bias</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bias</span> <span class="o">=</span> <span class="n">bias</span>
         
-    def predict(self, x):
-        y = (self.weights @ x.T + self.bias).to_numpy()
-        return np.sign(y)
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">weights</span> <span class="o">@</span> <span class="n">x</span><span class="o">.</span><span class="n">T</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">bias</span><span class="p">)</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
     
 
-classifier = ManualLinearClassifier([-1, 1], 0.3)
+<span class="n">classifier</span> <span class="o">=</span> <span class="n">ManualLinearClassifier</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="mf">0.3</span><span class="p">)</span>
 
-fig, ax = plt.subplots(figsize=(10, 7))
-plot_decision_boundary(classifier, data, ax)
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">plot_decision_boundary</span><span class="p">(</span><span class="n">classifier</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">ax</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1277,19 +1276,19 @@ L(X_\mathrm{train}, \vec\omega, b) = \dfrac{1}{n}\sum_{i=1}^{n}(\omega_1 x_1^i +
 <p>Код в ячейке ниже расширяет класс <code class="docutils literal notranslate"><span class="pre">LinearRegression</span></code> таким образом, чтобы метод <code class="docutils literal notranslate"><span class="pre">predict</span></code> возвращал не действительное число из <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>, а только его знак.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from sklearn.linear_model import LinearRegression
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
 
-class RegressionClassifier(LinearRegression):
-    def predict(self, x):
-        y = super().predict(x)
-        return np.sign(y)
+<span class="k">class</span> <span class="nc">RegressionClassifier</span><span class="p">(</span><span class="n">LinearRegression</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 
 
-regressor = RegressionClassifier()
-regressor.fit(data[[&quot;x1&quot;, &quot;x2&quot;]], data[&quot;y&quot;])
+<span class="n">regressor</span> <span class="o">=</span> <span class="n">RegressionClassifier</span><span class="p">()</span>
+<span class="n">regressor</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">[[</span><span class="s2">&quot;x1&quot;</span><span class="p">,</span> <span class="s2">&quot;x2&quot;</span><span class="p">]],</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">])</span>
 
-fig, ax = plt.subplots(figsize=(10, 7))
-plot_decision_boundary(regressor, data, ax)
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">plot_decision_boundary</span><span class="p">(</span><span class="n">regressor</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">ax</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1319,40 +1318,40 @@ L(p, y) = - (y \ln p + (1-y)\ln(1-p)).
 <p>Код в ячейке ниже строит графики сигмоиды, перекрестной энтропии и среднеквадратичной функции потерь.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from scipy.special import expit as sigmoid
-from sklearn.metrics import log_loss as cross_entropy_loss
-from sklearn.metrics import mean_squared_error
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">expit</span> <span class="k">as</span> <span class="n">sigmoid</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">log_loss</span> <span class="k">as</span> <span class="n">cross_entropy_loss</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
 
-fig, axs = plt.subplots(figsize=(15, 5), ncols=3)
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 
-# sigmoid
-x = np.linspace(-5, 5)
-y = sigmoid(x)
-axs[0].plot(x, y)
-axs[0].set_title(&quot;Sigmoid&quot;)
-axs[0].set_xlabel(&quot;$x$&quot;)
-axs[0].set_ylabel(r&quot;$\sigma(x)$&quot;)
+<span class="c1"># sigmoid</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Sigmoid&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$x$&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\sigma(x)$&quot;</span><span class="p">)</span>
 
-# cross entropy loss
-probabilities = np.linspace(0.01, 0.99)
-l0 = [cross_entropy_loss([0], [p], labels=[0, 1]) for p in probabilities]
-l1 = [cross_entropy_loss([1], [p], labels=[0, 1]) for p in probabilities]
-axs[1].plot(probabilities, l0, probabilities, l1)
-axs[1].set_title(&quot;Cross entropy loss&quot;)
-axs[1].set_xlabel(&quot;$p$&quot;)
-axs[1].set_ylabel(r&quot;$L(y, p)$&quot;)
-axs[1].legend([&quot;$y=0$&quot;, &quot;$y=1$&quot;])
+<span class="c1"># cross entropy loss</span>
+<span class="n">probabilities</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">)</span>
+<span class="n">l0</span> <span class="o">=</span> <span class="p">[</span><span class="n">cross_entropy_loss</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="n">p</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">probabilities</span><span class="p">]</span>
+<span class="n">l1</span> <span class="o">=</span> <span class="p">[</span><span class="n">cross_entropy_loss</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="n">p</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">probabilities</span><span class="p">]</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">probabilities</span><span class="p">,</span> <span class="n">l0</span><span class="p">,</span> <span class="n">probabilities</span><span class="p">,</span> <span class="n">l1</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Cross entropy loss&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$p$&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$L(y, p)$&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;$y=0$&quot;</span><span class="p">,</span> <span class="s2">&quot;$y=1$&quot;</span><span class="p">])</span>
 
-# mean squared error
-y_predictions = np.linspace(-3, 3)
-l1 = [mean_squared_error([-1], [y_p]) for y_p in y_predictions]
-l2 = [mean_squared_error([1], [y_p]) for y_p in y_predictions]
-axs[2].plot(y_predictions, l1, y_predictions, l2)
-axs[2].set_title(&quot;Mean squared error&quot;)
-axs[2].set_xlabel(r&quot;$y_\mathrm{pred}$&quot;)
-axs[2].set_ylabel(r&quot;$L(y_\mathrm{true}, y_\mathrm{pred})$&quot;)
-axs[2].legend([r&quot;$y_\mathrm{true}=-1$&quot;, r&quot;$y_\mathrm{true}=+1$&quot;])
-_ = axs[2].set_xticks([-1, 1])
+<span class="c1"># mean squared error</span>
+<span class="n">y_predictions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">l1</span> <span class="o">=</span> <span class="p">[</span><span class="n">mean_squared_error</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="n">y_p</span><span class="p">])</span> <span class="k">for</span> <span class="n">y_p</span> <span class="ow">in</span> <span class="n">y_predictions</span><span class="p">]</span>
+<span class="n">l2</span> <span class="o">=</span> <span class="p">[</span><span class="n">mean_squared_error</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="n">y_p</span><span class="p">])</span> <span class="k">for</span> <span class="n">y_p</span> <span class="ow">in</span> <span class="n">y_predictions</span><span class="p">]</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_predictions</span><span class="p">,</span> <span class="n">l1</span><span class="p">,</span> <span class="n">y_predictions</span><span class="p">,</span> <span class="n">l2</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Mean squared error&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$y_\mathrm</span><span class="si">{pred}</span><span class="s2">$&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$L(y_\mathrm</span><span class="si">{true}</span><span class="s2">, y_\mathrm</span><span class="si">{pred}</span><span class="s2">)$&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="sa">r</span><span class="s2">&quot;$y_\mathrm</span><span class="si">{true}</span><span class="s2">=-1$&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$y_\mathrm</span><span class="si">{true}</span><span class="s2">=+1$&quot;</span><span class="p">])</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1365,13 +1364,13 @@ _ = axs[2].set_xticks([-1, 1])
 <p>Саму модель, использующую такую функцию потерь, называют <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%9B%D0%BE%D0%B3%D0%B8%D1%81%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F_%D1%80%D0%B5%D0%B3%D1%80%D0%B5%D1%81%D1%81%D0%B8%D1%8F">логистической регрессией</a>, а метод <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html">linear_model.LogisticRegression</a> из библиотеки <code class="docutils literal notranslate"><span class="pre">scikit</span> <span class="pre">learn</span></code> её реализует.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from sklearn.linear_model import LogisticRegression
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
 
-log_classifier = LogisticRegression()
-log_classifier.fit(data[[&quot;x1&quot;, &quot;x2&quot;]], data[&quot;y&quot;])
+<span class="n">log_classifier</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+<span class="n">log_classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">[[</span><span class="s2">&quot;x1&quot;</span><span class="p">,</span> <span class="s2">&quot;x2&quot;</span><span class="p">]],</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">])</span>
 
-fig, ax = plt.subplots(figsize=(10, 7))
-plot_decision_boundary(log_classifier, data, ax)
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">plot_decision_boundary</span><span class="p">(</span><span class="n">log_classifier</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">ax</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1383,23 +1382,23 @@ plot_decision_boundary(log_classifier, data, ax)
 <p>Тем не менее продемонстрируем недостаток функции потерь <code class="docutils literal notranslate"><span class="pre">MSE</span></code> на чуть более сложных данных. Добавим к данным ещё одну точку положительного класса в глубину этого класса и посмотрим, как отреагирует классификаторы с разными функциями потерь.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>outlier = pd.DataFrame({&quot;x1&quot;: -3, &quot;x2&quot;: 7, &quot;y&quot;: 1}, index=[100])
-data_with_outlier = pd.concat([data, outlier])
-X = data_with_outlier[[&quot;x1&quot;, &quot;x2&quot;]]
-y = data_with_outlier[&quot;y&quot;]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">outlier</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;x1&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;x2&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">100</span><span class="p">])</span>
+<span class="n">data_with_outlier</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">data</span><span class="p">,</span> <span class="n">outlier</span><span class="p">])</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">data_with_outlier</span><span class="p">[[</span><span class="s2">&quot;x1&quot;</span><span class="p">,</span> <span class="s2">&quot;x2&quot;</span><span class="p">]]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">data_with_outlier</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span>
 
-log_classifier.fit(X, y)
-regressor.fit(X, y)
+<span class="n">log_classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">regressor</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 
-fig, axs = plt.subplots(figsize=(15, 7), ncols=2)
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
 
-plot_decision_boundary(regressor, data_with_outlier, axs[0], title=&quot;MSE loss&quot;)
-plot_decision_boundary(log_classifier, data_with_outlier, axs[1], title=&quot;Cross entropy loss&quot;)
+<span class="n">plot_decision_boundary</span><span class="p">(</span><span class="n">regressor</span><span class="p">,</span> <span class="n">data_with_outlier</span><span class="p">,</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;MSE loss&quot;</span><span class="p">)</span>
+<span class="n">plot_decision_boundary</span><span class="p">(</span><span class="n">log_classifier</span><span class="p">,</span> <span class="n">data_with_outlier</span><span class="p">,</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Cross entropy loss&quot;</span><span class="p">)</span>
 
-for ax in axs: 
-    ax.scatter(outlier.x1, outlier.x2, s=200, c=&quot;r&quot;, label=&quot;outlier&quot;, marker=&quot;*&quot;)
-    ax.legend()
+<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axs</span><span class="p">:</span> 
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">outlier</span><span class="o">.</span><span class="n">x1</span><span class="p">,</span> <span class="n">outlier</span><span class="o">.</span><span class="n">x2</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;outlier&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;*&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1421,15 +1420,15 @@ for ax in axs:
 <p>Назовем зазором классификатора расстояние от разделяющей поверхности до ближайшей точки из выборки <span class="math notranslate nohighlight">\(\min\limits_{i=1}^n M(x_1^i, x_2^i, y^i)\)</span>. <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%9C%D0%B5%D1%82%D0%BE%D0%B4_%D0%BE%D0%BF%D0%BE%D1%80%D0%BD%D1%8B%D1%85_%D0%B2%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%BE%D0%B2">Метод опорных векторов</a> ищет классификатор с максимальным зазором. Функция <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVC.html">sklearn.svm.LinearSVC</a> позволяет найти такой линейный классификатор.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from sklearn.svm import LinearSVC
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">LinearSVC</span>
 
 
-svm_classifier = LinearSVC()
-svm_classifier.fit(data[[&quot;x1&quot;, &quot;x2&quot;]], data[&quot;y&quot;])
+<span class="n">svm_classifier</span> <span class="o">=</span> <span class="n">LinearSVC</span><span class="p">()</span>
+<span class="n">svm_classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">[[</span><span class="s2">&quot;x1&quot;</span><span class="p">,</span> <span class="s2">&quot;x2&quot;</span><span class="p">]],</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">])</span>
 
-fig, axs = plt.subplots(figsize=(15, 7), ncols=2)
-plot_decision_boundary(svm_classifier, data, axs[0], title=&quot;Support Vector Machine&quot;)
-plot_decision_boundary(log_classifier, data, axs[1], title=&quot;Logistic Regression&quot;)
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plot_decision_boundary</span><span class="p">(</span><span class="n">svm_classifier</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Support Vector Machine&quot;</span><span class="p">)</span>
+<span class="n">plot_decision_boundary</span><span class="p">(</span><span class="n">log_classifier</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Logistic Regression&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1443,20 +1442,20 @@ plot_decision_boundary(log_classifier, data, axs[1], title=&quot;Logistic Regres
 <p>Рассмотрим другую выборку, которую линейно разделить не выйдет.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>path = os.path.join(folder, &quot;circles.csv&quot;)
-data = pd.read_csv(path)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="s2">&quot;circles.csv&quot;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 
-fig, ax = plt.subplots(figsize=(10, 7))
-sns.scatterplot(
-        data=data, 
-        x=&#39;x1&#39;, 
-        y=&#39;x2&#39;, 
-        hue=&#39;y&#39;, 
-        s=100, 
-        palette=&quot;bwr&quot;, 
-        hue_norm=(-1, 1), 
-        ax=ax
-    )
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span>
+        <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> 
+        <span class="n">x</span><span class="o">=</span><span class="s1">&#39;x1&#39;</span><span class="p">,</span> 
+        <span class="n">y</span><span class="o">=</span><span class="s1">&#39;x2&#39;</span><span class="p">,</span> 
+        <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> 
+        <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> 
+        <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;bwr&quot;</span><span class="p">,</span> 
+        <span class="n">hue_norm</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> 
+        <span class="n">ax</span><span class="o">=</span><span class="n">ax</span>
+    <span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1474,28 +1473,28 @@ sns.scatterplot(
 <p>В ячейке ниже определяется классификатор <code class="docutils literal notranslate"><span class="pre">RadiusLogisticClassifier</span></code>, который при обучении и оценивании класса вместо исходных признаков <code class="docutils literal notranslate"><span class="pre">x1</span></code> и <code class="docutils literal notranslate"><span class="pre">x2</span></code> использует признак радиуса <code class="docutils literal notranslate"><span class="pre">r</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class RadiusLogisticClassifier(LogisticRegression):
-    def get_radii(self, data):
-        new_data = pd.DataFrame({
-            &quot;r&quot;: np.sqrt(data[&quot;x1&quot;] ** 2 + data[&quot;x2&quot;] ** 2)
-        })
-        return new_data
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">RadiusLogisticClassifier</span><span class="p">(</span><span class="n">LogisticRegression</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_radii</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="n">new_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+            <span class="s2">&quot;r&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;x1&quot;</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;x2&quot;</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="p">})</span>
+        <span class="k">return</span> <span class="n">new_data</span>
     
-    def fit(self, data, targets):
-        new_data = self.get_radii(data)
-        super().fit(new_data, targets)
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">targets</span><span class="p">):</span>
+        <span class="n">new_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_radii</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">new_data</span><span class="p">,</span> <span class="n">targets</span><span class="p">)</span>
         
-    def predict(self, data):
-        new_data = self.get_radii(data)
-        return super().predict(new_data)
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="n">new_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_radii</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">new_data</span><span class="p">)</span>
         
-classifier = RadiusLogisticClassifier()
-classifier.fit(data[[&quot;x1&quot;, &quot;x2&quot;]], data[&quot;y&quot;])
+<span class="n">classifier</span> <span class="o">=</span> <span class="n">RadiusLogisticClassifier</span><span class="p">()</span>
+<span class="n">classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">[[</span><span class="s2">&quot;x1&quot;</span><span class="p">,</span> <span class="s2">&quot;x2&quot;</span><span class="p">]],</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">])</span>
 
-fig, ax = plt.subplots(figsize=(10, 7))
-plot_decision_boundary(classifier, data, ax)
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">plot_decision_boundary</span><span class="p">(</span><span class="n">classifier</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">ax</span><span class="p">)</span>
 
-classifier.coef_
+<span class="n">classifier</span><span class="o">.</span><span class="n">coef_</span>
 </pre></div>
 </div>
 </div>
@@ -1519,36 +1518,36 @@ classifier.coef_
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from sklearn.neighbors import KNeighborsClassifier 
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.svm import SVC
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span> 
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span>
 
-datasets = [
-    pd.read_csv(os.path.join(folder, &quot;linearly_separable.csv&quot;)),
-    pd.read_csv(os.path.join(folder, &quot;circles.csv&quot;)),
-    pd.read_csv(os.path.join(folder, &quot;moons.csv&quot;)),
-    pd.read_csv(os.path.join(folder, &quot;spirals.csv&quot;)),
-    pd.read_csv(os.path.join(folder, &quot;quadrant.csv&quot;))
-]
+<span class="n">datasets</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="s2">&quot;linearly_separable.csv&quot;</span><span class="p">)),</span>
+    <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="s2">&quot;circles.csv&quot;</span><span class="p">)),</span>
+    <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="s2">&quot;moons.csv&quot;</span><span class="p">)),</span>
+    <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="s2">&quot;spirals.csv&quot;</span><span class="p">)),</span>
+    <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="s2">&quot;quadrant.csv&quot;</span><span class="p">))</span>
+<span class="p">]</span>
 
-models = {
-    &quot;K nearest neighbors&quot;: KNeighborsClassifier(),
-    &quot;Decision tree&quot;: DecisionTreeClassifier(),
-    &quot;Support vector machine&quot;: SVC()
-}
+<span class="n">models</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;K nearest neighbors&quot;</span><span class="p">:</span> <span class="n">KNeighborsClassifier</span><span class="p">(),</span>
+    <span class="s2">&quot;Decision tree&quot;</span><span class="p">:</span> <span class="n">DecisionTreeClassifier</span><span class="p">(),</span>
+    <span class="s2">&quot;Support vector machine&quot;</span><span class="p">:</span> <span class="n">SVC</span><span class="p">()</span>
+<span class="p">}</span>
 
-n_models = len(models)
-n_datasets = len(datasets)
-fig, axs = plt.subplots(figsize=(16, 16), nrows=n_datasets, ncols=n_models, layout=&quot;tight&quot;)
+<span class="n">n_models</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">models</span><span class="p">)</span>
+<span class="n">n_datasets</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">datasets</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span> <span class="n">nrows</span><span class="o">=</span><span class="n">n_datasets</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="n">n_models</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
 
-for i, (model_name, classifier) in enumerate(models.items()):
-    for j, data in enumerate(datasets):
-        classifier.fit(data[[&quot;x1&quot;, &quot;x2&quot;]], data[&quot;y&quot;])
-        plot_decision_boundary(classifier, data, axs[j, i])
-        axs[j, i].xaxis.set_visible(False)
-        axs[j, i].yaxis.set_visible(False)
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">model_name</span><span class="p">,</span> <span class="n">classifier</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">datasets</span><span class="p">):</span>
+        <span class="n">classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">[[</span><span class="s2">&quot;x1&quot;</span><span class="p">,</span> <span class="s2">&quot;x2&quot;</span><span class="p">]],</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">])</span>
+        <span class="n">plot_decision_boundary</span><span class="p">(</span><span class="n">classifier</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">axs</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">])</span>
+        <span class="n">axs</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">axs</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 
-    axs[0, i].set_title(model_name)
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">model_name</span><span class="p">)</span>
         
 </pre></div>
 </div>
@@ -1565,10 +1564,10 @@ for i, (model_name, classifier) in enumerate(models.items()):
 <p>До сих пор мы обучали модели на всей выборке, а оценивали качество обученной модели визуально. В реальных ситуациях количество признаков обычно превышает два и визуально оценить качество модели невозможно.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>path = os.path.join(folder, &quot;balanced.csv&quot;)
-data = pd.read_csv(path)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="s2">&quot;balanced.csv&quot;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 
-print(data.info())
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -1601,11 +1600,11 @@ None
 <p>Затем каждая из этих таблиц делится на тренировочную и валидационную части.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from sklearn.model_selection import train_test_split
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
 
-Y = data[&quot;y&quot;]
-X = data.drop(&quot;y&quot;, axis=1)
-X_train, X_test, Y_train, Y_test = train_test_split(X, Y, train_size=0.7)
+<span class="n">Y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">,</span> <span class="n">Y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">train_size</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1618,54 +1617,54 @@ X_train, X_test, Y_train, Y_test = train_test_split(X, Y, train_size=0.7)
 <p>Далее качество этих классификаторов будет оценивать с помощью разных метрик.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from abc import ABC, abstractmethod
-from sklearn.ensemble import RandomForestClassifier
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
 
-rng = np.random.default_rng()
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
 
-class CustomClassifier:
-    &quot;&quot;&quot;
-    abc for custom classifiers
+<span class="k">class</span> <span class="nc">CustomClassifier</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    abc for custom classifiers</span>
 
-    all of them should have methods fit and predict 
-    so they can be used in the same context as sklearn classifiers
-    &quot;&quot;&quot;
-    def fit(self, *args, **kwargs):
-        pass
+<span class="sd">    all of them should have methods fit and predict </span>
+<span class="sd">    so they can be used in the same context as sklearn classifiers</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">pass</span>
 
-    @abstractmethod
-    def predict(self, x):
-        raise NotImplementedError()
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 
 
-class ConstantClassifier(CustomClassifier):
-    def __init__(self, constant=0):
-        self.constant = constant
+<span class="k">class</span> <span class="nc">ConstantClassifier</span><span class="p">(</span><span class="n">CustomClassifier</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">constant</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">constant</span> <span class="o">=</span> <span class="n">constant</span>
     
-    def predict(self, x):
-        return self.constant * np.ones(shape=len(x))
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">constant</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 
 
-class RandomClassifier(CustomClassifier):
-    def predict(self, x):
-        return rng.choice([0, 1], size=len(x), replace=True)
+<span class="k">class</span> <span class="nc">RandomClassifier</span><span class="p">(</span><span class="n">CustomClassifier</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 
-classifiers = {
-    &quot;always 0&quot;: ConstantClassifier(0),
-    &quot;always 1&quot;: ConstantClassifier(1),
-    &quot;random&quot;: RandomClassifier(),
-    &quot;logistic regression&quot;: LogisticRegression(),
-    &quot;linear SVM&quot;: LinearSVC(max_iter=10000),
-    &quot;nonlinear SVM&quot;: SVC(),
-    &quot;kNN&quot;: KNeighborsClassifier(), 
-    &quot;tree&quot;: DecisionTreeClassifier(),
-    &quot;random forest&quot;: RandomForestClassifier(),
+<span class="n">classifiers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;always 0&quot;</span><span class="p">:</span> <span class="n">ConstantClassifier</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+    <span class="s2">&quot;always 1&quot;</span><span class="p">:</span> <span class="n">ConstantClassifier</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+    <span class="s2">&quot;random&quot;</span><span class="p">:</span> <span class="n">RandomClassifier</span><span class="p">(),</span>
+    <span class="s2">&quot;logistic regression&quot;</span><span class="p">:</span> <span class="n">LogisticRegression</span><span class="p">(),</span>
+    <span class="s2">&quot;linear SVM&quot;</span><span class="p">:</span> <span class="n">LinearSVC</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">10000</span><span class="p">),</span>
+    <span class="s2">&quot;nonlinear SVM&quot;</span><span class="p">:</span> <span class="n">SVC</span><span class="p">(),</span>
+    <span class="s2">&quot;kNN&quot;</span><span class="p">:</span> <span class="n">KNeighborsClassifier</span><span class="p">(),</span> 
+    <span class="s2">&quot;tree&quot;</span><span class="p">:</span> <span class="n">DecisionTreeClassifier</span><span class="p">(),</span>
+    <span class="s2">&quot;random forest&quot;</span><span class="p">:</span> <span class="n">RandomForestClassifier</span><span class="p">(),</span>
 
-}
+<span class="p">}</span>
 
-for classifier in classifiers.values():
-    classifier.fit(X_train, Y_train)
+<span class="k">for</span> <span class="n">classifier</span> <span class="ow">in</span> <span class="n">classifiers</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+    <span class="n">classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1701,19 +1700,19 @@ for classifier in classifiers.values():
 <p>Метод <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html">sklearn.metric.confusion_matrix</a> принимает на вход массивы истинных классов и выхода классификатора, а возвращает матрицу, схожую с приведенной таблицей. Методом <a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.heatmap.html">seaborn.heatmap</a> удобно эти данные визуализировать.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from sklearn.metrics import confusion_matrix
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
 
-def plot_confusion_matrix(ax, y_true, y_pred, title):
-    matrix = confusion_matrix(y_true, y_pred)
-    sns.heatmap(matrix, annot=True, ax=ax, cbar=False, cmap=&quot;coolwarm&quot;, fmt=&quot;d&quot;)
-    ax.set_xlabel(r&quot;$y_\mathrm{pred}$&quot;)
-    ax.set_ylabel(r&quot;$y_\mathrm{true}$&quot;)
-    ax.set_title(title)
+<span class="k">def</span> <span class="nf">plot_confusion_matrix</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
+    <span class="n">matrix</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;coolwarm&quot;</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;d&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$y_\mathrm</span><span class="si">{pred}</span><span class="s2">$&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$y_\mathrm</span><span class="si">{true}</span><span class="s2">$&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
 
-fig, axs = plt.subplots(figsize=(12, 12), nrows=3, ncols=3, layout=&quot;tight&quot;)
-for ax, (name, clf) in zip(axs.flat, classifiers.items()):
-    y_pred = clf.predict(X_test)
-    plot_confusion_matrix(ax, Y_test, y_pred, name)
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">clf</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axs</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span> <span class="n">classifiers</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+    <span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">Y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1734,25 +1733,25 @@ $<span class="math notranslate nohighlight">\(
 <p>Её преимущество относительно предыдущих таблиц заключается в том, что это одно всего одно число. Вычислить точность можно методом <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html">sklearn.metrics.accuracy_score</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from sklearn.metrics import accuracy_score 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span> 
 
-def evaluate_accuracy(classifier, X, Y_true):
-    Y_pred = classifier.predict(X)
-    return accuracy_score(Y_true, Y_pred)
+<span class="k">def</span> <span class="nf">evaluate_accuracy</span><span class="p">(</span><span class="n">classifier</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y_true</span><span class="p">):</span>
+    <span class="n">Y_pred</span> <span class="o">=</span> <span class="n">classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">Y_true</span><span class="p">,</span> <span class="n">Y_pred</span><span class="p">)</span>
 
 
-train_accuracies = {}
-test_accuracies = {}
-for model_name, classifier in classifiers.items():
-    train_accuracies[model_name] = evaluate_accuracy(classifier, X_train, Y_train)
-    test_accuracies[model_name] = evaluate_accuracy(classifier, X_test, Y_test)
+<span class="n">train_accuracies</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">test_accuracies</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">model_name</span><span class="p">,</span> <span class="n">classifier</span> <span class="ow">in</span> <span class="n">classifiers</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">train_accuracies</span><span class="p">[</span><span class="n">model_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">evaluate_accuracy</span><span class="p">(</span><span class="n">classifier</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">)</span>
+    <span class="n">test_accuracies</span><span class="p">[</span><span class="n">model_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">evaluate_accuracy</span><span class="p">(</span><span class="n">classifier</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">Y_test</span><span class="p">)</span>
 
-metrics = pd.DataFrame({
-    &quot;train accuracy&quot;: pd.Series(train_accuracies), 
-    &quot;test accuracy&quot;: pd.Series(test_accuracies)
-})
+<span class="n">metrics</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;train accuracy&quot;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">train_accuracies</span><span class="p">),</span> 
+    <span class="s2">&quot;test accuracy&quot;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">test_accuracies</span><span class="p">)</span>
+<span class="p">})</span>
 
-metrics
+<span class="n">metrics</span>
 </pre></div>
 </div>
 </div>
@@ -1851,18 +1850,18 @@ metrics
 <p>В ячейке ниже загружается выборка, в которой соотношение положительного класса к отрицательному 1:9.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>path = os.path.join(folder, &quot;unbalanced.csv&quot;)
-data = pd.read_csv(path)
-classes_representation = data[&quot;y&quot;].value_counts()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="s2">&quot;unbalanced.csv&quot;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="n">classes_representation</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 
 
-fig, ax = plt.subplots(figsize=(5, 5))
-labels = [&quot;Negative&quot;, &quot;Positive&quot;]
-ax.pie(classes_representation, labels=labels, autopct=&quot;%.0f%%&quot;)
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Negative&quot;</span><span class="p">,</span> <span class="s2">&quot;Positive&quot;</span><span class="p">]</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">classes_representation</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">autopct</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%.0f%%</span><span class="s2">&quot;</span><span class="p">)</span>
 
-Y = data[&quot;y&quot;]
-X = data.drop(&quot;y&quot;, axis=1)
-X_train, X_test, Y_train, Y_test = train_test_split(X, Y, train_size=0.7)
+<span class="n">Y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">,</span> <span class="n">Y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">train_size</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1877,33 +1876,33 @@ X_train, X_test, Y_train, Y_test = train_test_split(X, Y, train_size=0.7)
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from sklearn.metrics import precision_score, recall_score
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">precision_score</span><span class="p">,</span> <span class="n">recall_score</span>
 
-def evaluate_precision(classifier, X, Y_true):
-    Y_pred = classifier.predict(X)
-    return precision_score(Y_true, Y_pred, zero_division=1)
+<span class="k">def</span> <span class="nf">evaluate_precision</span><span class="p">(</span><span class="n">classifier</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y_true</span><span class="p">):</span>
+    <span class="n">Y_pred</span> <span class="o">=</span> <span class="n">classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">precision_score</span><span class="p">(</span><span class="n">Y_true</span><span class="p">,</span> <span class="n">Y_pred</span><span class="p">,</span> <span class="n">zero_division</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-def evaluate_recall(classifier, X, Y_true):
-    Y_pred = classifier.predict(X)
-    return recall_score(Y_true, Y_pred)
+<span class="k">def</span> <span class="nf">evaluate_recall</span><span class="p">(</span><span class="n">classifier</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y_true</span><span class="p">):</span>
+    <span class="n">Y_pred</span> <span class="o">=</span> <span class="n">classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">recall_score</span><span class="p">(</span><span class="n">Y_true</span><span class="p">,</span> <span class="n">Y_pred</span><span class="p">)</span>
 
-accuracies = {}
-precisions = {}
-recalls = {}
-for model_name, classifier in classifiers.items():
-    classifier.fit(X_train, Y_train)
-    accuracies[model_name] = evaluate_accuracy(classifier, X_test, Y_test)
-    precisions[model_name] = evaluate_precision(classifier, X_test, Y_test)
-    recalls[model_name] = evaluate_recall(classifier, X_test, Y_test)
+<span class="n">accuracies</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">precisions</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">recalls</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">model_name</span><span class="p">,</span> <span class="n">classifier</span> <span class="ow">in</span> <span class="n">classifiers</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">)</span>
+    <span class="n">accuracies</span><span class="p">[</span><span class="n">model_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">evaluate_accuracy</span><span class="p">(</span><span class="n">classifier</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">Y_test</span><span class="p">)</span>
+    <span class="n">precisions</span><span class="p">[</span><span class="n">model_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">evaluate_precision</span><span class="p">(</span><span class="n">classifier</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">Y_test</span><span class="p">)</span>
+    <span class="n">recalls</span><span class="p">[</span><span class="n">model_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">evaluate_recall</span><span class="p">(</span><span class="n">classifier</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">Y_test</span><span class="p">)</span>
 
 
-metrics = pd.DataFrame({
-    &quot;accuracy&quot;: pd.Series(accuracies),
-    &quot;precision&quot;: pd.Series(precisions),
-    &quot;recall&quot;: pd.Series(recalls),
-})
+<span class="n">metrics</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;accuracy&quot;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">accuracies</span><span class="p">),</span>
+    <span class="s2">&quot;precision&quot;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">precisions</span><span class="p">),</span>
+    <span class="s2">&quot;recall&quot;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">recalls</span><span class="p">),</span>
+<span class="p">})</span>
 
-metrics
+<span class="n">metrics</span>
 </pre></div>
 </div>
 </div>
@@ -1993,10 +1992,10 @@ metrics
 <p>Из этой таблицы видно, что выдающий всегда отрицательный класс классификатор <code class="docutils literal notranslate"><span class="pre">always</span> <span class="pre">0</span></code> имеет <code class="docutils literal notranslate"><span class="pre">accuracy</span></code> равную 89.5%, но нулевую полноту. Построим диаграмму рассеивания для показателей <code class="docutils literal notranslate"><span class="pre">precision</span></code> и <code class="docutils literal notranslate"><span class="pre">recall</span></code> по типам моделей.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>metrics[&quot;model&quot;] = metrics.index
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">metrics</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">index</span>
 
-fig, ax = plt.subplots(figsize=(10, 10))
-sns.scatterplot(data=metrics, x=&quot;precision&quot;, y=&quot;recall&quot;, hue=&quot;model&quot;, style=&quot;model&quot;, s=200, ax=ax)
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">metrics</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;precision&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;recall&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;model&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;model&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
