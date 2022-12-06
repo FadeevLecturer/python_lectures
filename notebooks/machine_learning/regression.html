@@ -997,47 +997,47 @@ title="Print to PDF"
 <h1>Регрессия<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import os
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;font.size&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">})</span>
+import numpy as np
+import pandas as pd
+from matplotlib import pyplot as plt
+import seaborn as sns
+plt.rcParams.update({&quot;font.size&quot;: 16})
 
 
-<span class="k">def</span> <span class="nf">generate_problem</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">randomize_x</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>               
-    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="n">a</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="n">b</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span> <span class="k">if</span> <span class="n">randomize_x</span> <span class="k">else</span>  <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">noise</span><span class="p">:</span>
-        <span class="n">y</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">noise</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-        <span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span>
-        <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="n">y</span>
-    <span class="p">})</span>
+def generate_problem(function, a, b, randomize_x=False, noise=None, n=50):               
+    x = np.random.uniform(low=a, high=b, size=n) if randomize_x else  np.linspace(a, b, n)
+    y = function(x)
+    if noise:
+        y += np.random.normal(loc=0., scale=noise, size=n)
+    return pd.DataFrame({
+        &quot;x&quot;: x,
+        &quot;y&quot;: y
+    })
 
-<span class="k">def</span> <span class="nf">plot_regression_problem</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">regressor</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">test_data</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="c1"># dataset column</span>
-    <span class="k">if</span> <span class="n">test_data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-        <span class="n">data</span><span class="p">[</span><span class="s2">&quot;dataset&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;train&quot;</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">data</span><span class="p">,</span> <span class="n">test_data</span><span class="p">],</span> <span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">])</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;level_0&quot;</span><span class="p">:</span> <span class="s2">&quot;dataset&quot;</span><span class="p">})</span>
+def plot_regression_problem(ax, data, regressor=None, test_data=None):
+    # dataset column
+    if test_data is None:
+        data = data.copy()
+        data[&quot;dataset&quot;] = &quot;train&quot;
+    else:
+        data = pd.concat([data, test_data], keys=[&quot;train&quot;, &quot;test&quot;])
+        data = data.reset_index(level=0).rename(columns={&quot;level_0&quot;: &quot;dataset&quot;})
     
-    <span class="c1"># scatter</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span>
-        <span class="n">data</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">,</span>
-        <span class="n">data</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mf">0.1</span>
-    <span class="p">])</span>
-    <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;dataset&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+    # scatter
+    ax.set_ylim([
+        data[&quot;y&quot;].min() - 0.1,
+        data[&quot;y&quot;].max() + 0.1
+    ])
+    sns.scatterplot(data=data, x=&quot;x&quot;, y=&quot;y&quot;, hue=&quot;dataset&quot;, ax=ax)
     
-    <span class="c1"># regressor</span>
-    <span class="k">if</span> <span class="n">regressor</span><span class="p">:</span> 
-        <span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">regressor</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-        <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+    # regressor
+    if regressor: 
+        x_min, x_max = data[&quot;x&quot;].min(), data[&quot;x&quot;].max()
+        x = np.linspace(x_min, x_max, 100)
+        y = regressor(x)
+        sns.lineplot(x=x, y=y, color=&quot;green&quot;, ax=ax)
 </pre></div>
 </div>
 </div>
@@ -1056,23 +1056,23 @@ title="Print to PDF"
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">factorial</span>
-<span class="kn">from</span> <span class="nn">numpy.polynomial.polynomial</span> <span class="kn">import</span> <span class="n">Polynomial</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from math import factorial
+from numpy.polynomial.polynomial import Polynomial
 
-<span class="n">coef</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="mi">1</span><span class="p">,</span>                  <span class="c1"># 1 </span>
-    <span class="mi">0</span><span class="p">,</span>                  <span class="c1"># x</span>
-    <span class="o">-</span><span class="mf">1.</span><span class="o">/</span><span class="n">factorial</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>   <span class="c1"># x^2</span>
-    <span class="mi">0</span><span class="p">,</span>                  <span class="c1"># x^3</span>
-    <span class="mf">1.</span><span class="o">/</span><span class="n">factorial</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>     <span class="c1"># x^4</span>
-<span class="p">]</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">Polynomial</span><span class="p">(</span><span class="n">coef</span><span class="p">)</span>
+coef = [
+    1,                  # 1 
+    0,                  # x
+    -1./factorial(2),   # x^2
+    0,                  # x^3
+    1./factorial(4)     # x^4
+]
+f = Polynomial(coef)
 
-<span class="n">data</span> <span class="o">=</span> <span class="n">generate_problem</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-<span class="n">plot_regression_problem</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+data = generate_problem(f, 0, 4)
+fig, ax = plt.subplots(figsize=(10, 8))
+plot_regression_problem(ax, data)
 
-<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+data.head()
 </pre></div>
 </div>
 </div>
@@ -1149,17 +1149,17 @@ P_n(a, x) = a_0 + a_1 x + \ldots + a_n x^n,
 <p>Функция <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.polyfit.html">numpy.polyfit</a> позволяет решить именно эту задачу. В ячейке ниже с помощью этого метода удаётся найти хорошую аппроксимацию для этих точек.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">polynomial_regression</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">degree</span><span class="p">):</span>
-    <span class="n">coefficients</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">],</span> <span class="n">degree</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">Polynomial</span><span class="p">(</span><span class="n">coef</span><span class="o">=</span><span class="n">coefficients</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def polynomial_regression(data, degree):
+    coefficients = np.polyfit(data[&quot;x&quot;], data[&quot;y&quot;], degree)
+    return Polynomial(coef=coefficients[::-1])
 
-<span class="n">polynomial</span> <span class="o">=</span> <span class="n">polynomial_regression</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+polynomial = polynomial_regression(data, 4)
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-<span class="n">plot_regression_problem</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">polynomial</span><span class="p">)</span>
+fig, ax = plt.subplots(figsize=(10, 8))
+plot_regression_problem(ax, data, polynomial)
 
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">c_</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">coef</span><span class="p">,</span> <span class="n">polynomial</span><span class="o">.</span><span class="n">coef</span><span class="p">)):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x^</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">:</span><span class="se">\t</span><span class="si">{</span><span class="n">c</span><span class="si">:</span><span class="s2">+.4f</span><span class="si">}</span><span class="s2"> </span><span class="se">\t</span><span class="s2"> </span><span class="si">{</span><span class="n">c_</span><span class="si">:</span><span class="s2">+.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+for i, (c, c_) in enumerate(zip(coef, polynomial.coef)):
+    print(f&quot;x^{i}:\t{c:+.4f} \t {c_:+.4f}&quot;)
 </pre></div>
 </div>
 </div>
@@ -1226,23 +1226,23 @@ a_0 + a_1 x_N + \ldots + a_n x_N^n = y_N,
 <p>В ячейке ниже переопределяется функция <code class="docutils literal notranslate"><span class="pre">polynomial</span></code> на основе этого класса. В данном случае приходится явно генерировать матрицу Вандермонда, чтобы задать матрицу признаков.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from sklearn.linear_model import LinearRegression
 
-<span class="k">def</span> <span class="nf">polynomial_regression</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">degree</span><span class="p">):</span>
-    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vander</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">],</span> <span class="n">N</span><span class="o">=</span><span class="n">degree</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">increasing</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span>
+def polynomial_regression(data, degree):
+    X = np.vander(data[&quot;x&quot;], N=degree + 1, increasing=True)
+    y = data[&quot;y&quot;]
 
-    <span class="n">regressor</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">(</span><span class="n">fit_intercept</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-    <span class="n">regressor</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">Polynomial</span><span class="p">(</span><span class="n">regressor</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+    regressor = LinearRegression(fit_intercept=False)
+    regressor.fit(X, y)
+    return Polynomial(regressor.coef_)
 
-<span class="n">polynomial</span> <span class="o">=</span> <span class="n">polynomial_regression</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+polynomial = polynomial_regression(data, 4)
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-<span class="n">plot_regression_problem</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">polynomial</span><span class="p">)</span>
+fig, ax = plt.subplots(figsize=(10, 8))
+plot_regression_problem(ax, data, polynomial)
 
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">c_</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">coef</span><span class="p">,</span> <span class="n">polynomial</span><span class="o">.</span><span class="n">coef</span><span class="p">)):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x^</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">:</span><span class="se">\t</span><span class="si">{</span><span class="n">c</span><span class="si">:</span><span class="s2">+.4f</span><span class="si">}</span><span class="s2"> </span><span class="se">\t</span><span class="s2"> </span><span class="si">{</span><span class="n">c_</span><span class="si">:</span><span class="s2">+.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+for i, (c, c_) in enumerate(zip(coef, polynomial.coef)):
+    print(f&quot;x^{i}:\t{c:+.4f} \t {c_:+.4f}&quot;)
 </pre></div>
 </div>
 </div>
@@ -1260,22 +1260,22 @@ x^4:	+0.0417 	 +0.0417
 <p>Получили тоже самое решение. Посмотрим влияние степени полинома.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">degrees</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>degrees = [0, 1, 2, 3, 4, 5, 6, 20, 40]
 
-<span class="n">coefficients</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Without noise&quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">degree</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axs</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">degrees</span><span class="p">):</span>
-    <span class="n">regressor</span> <span class="o">=</span> <span class="n">polynomial_regression</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">degree</span><span class="p">)</span>
-    <span class="n">coefficients</span><span class="p">[</span><span class="n">degree</span><span class="p">]</span> <span class="o">=</span> <span class="n">regressor</span><span class="o">.</span><span class="n">coef</span><span class="p">[:</span><span class="mi">6</span><span class="p">]</span> 
-    <span class="n">plot_regression_problem</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">regressor</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;n=</span><span class="si">{</span><span class="n">degree</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+coefficients = {}
+fig, axs = plt.subplots(figsize=(20, 15), ncols=3, nrows=3, layout=&quot;tight&quot;)
+fig.suptitle(&quot;Without noise&quot;)
+for ax, degree in zip(axs.flatten(), degrees):
+    regressor = polynomial_regression(data, degree)
+    coefficients[degree] = regressor.coef[:6] 
+    plot_regression_problem(ax, data, regressor)
+    ax.set_title(f&quot;n={degree}&quot;)
 
-<span class="n">coefficients</span><span class="p">[</span><span class="s2">&quot;true&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">coef</span>
+coefficients[&quot;true&quot;] = coef
 
-<span class="k">with</span> <span class="n">pd</span><span class="o">.</span><span class="n">option_context</span><span class="p">(</span><span class="s1">&#39;display.float_format&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{:0.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">):</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">coefficients</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;x^</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)])</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+with pd.option_context(&#39;display.float_format&#39;, &#39;{:0.4f}&#39;.format):
+    df = pd.DataFrame.from_dict(coefficients, orient=&quot;index&quot;, columns=[f&quot;x^{i}&quot; for i in range(6)])
+    print(df)
 </pre></div>
 </div>
 </div>
@@ -1307,25 +1307,25 @@ true 1.0000  0.0000 -0.5000  0.0000 0.0417     NaN
 <p>Добавим шум к данным и посмотрим, как это повлияет на качество аппроксимации.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">generate_problem</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">randomize_x</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">degrees</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>data = generate_problem(f, 0, 4, noise=0.2, randomize_x=True)
+degrees = [2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 
-<span class="n">coefficients</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;With noise&quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">degree</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axs</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">degrees</span><span class="p">):</span>
-    <span class="n">regressor</span> <span class="o">=</span> <span class="n">polynomial_regression</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">degree</span><span class="p">)</span>
-    <span class="n">coefficients</span><span class="p">[</span><span class="n">degree</span><span class="p">]</span> <span class="o">=</span> <span class="n">regressor</span><span class="o">.</span><span class="n">coef</span><span class="p">[:</span><span class="mi">6</span><span class="p">]</span>
+coefficients = {}
+fig, axs = plt.subplots(figsize=(20, 15), ncols=3, nrows=3, layout=&quot;tight&quot;)
+fig.suptitle(&quot;With noise&quot;)
+for ax, degree in zip(axs.flatten(), degrees):
+    regressor = polynomial_regression(data, degree)
+    coefficients[degree] = regressor.coef[:6]
     
-    <span class="n">plot_regression_problem</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">regressor</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;n=</span><span class="si">{</span><span class="n">degree</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    plot_regression_problem(ax, data, regressor)
+    ax.set_title(f&quot;n={degree}&quot;)
     
-<span class="n">coefficients</span><span class="p">[</span><span class="s2">&quot;true&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">coef</span>
+coefficients[&quot;true&quot;] = coef
 
-<span class="k">with</span> <span class="n">pd</span><span class="o">.</span><span class="n">option_context</span><span class="p">(</span><span class="s1">&#39;display.float_format&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{:0.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">):</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">coefficients</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;x^</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)])</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+with pd.option_context(&#39;display.float_format&#39;, &#39;{:0.2f}&#39;.format):
+    df = pd.DataFrame.from_dict(coefficients, orient=&quot;index&quot;, columns=[f&quot;x^{i}&quot; for i in range(6)])
+    print(df)
 </pre></div>
 </div>
 </div>
@@ -1354,20 +1354,20 @@ f(x) = \dfrac{1}{1 + x^2}.
 \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="mf">1.</span><span class="o">/</span><span class="p">(</span><span class="mf">1.</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def f(x):
+    return 1./(1. + x**2)
 
-<span class="n">data</span> <span class="o">=</span> <span class="n">generate_problem</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+data = generate_problem(f, -5, 5, n=25)
 
-<span class="n">degrees</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">)</span>
+degrees = (5, 10, 15, 16, 17, 18, 19, 20, 21)
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;With noise&quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">degree</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axs</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">degrees</span><span class="p">):</span>
-    <span class="n">regressor</span> <span class="o">=</span> <span class="n">polynomial_regression</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">degree</span><span class="p">)</span>
+fig, axs = plt.subplots(figsize=(20, 15), ncols=3, nrows=3, layout=&quot;tight&quot;)
+fig.suptitle(&quot;With noise&quot;)
+for ax, degree in zip(axs.flatten(), degrees):
+    regressor = polynomial_regression(data, degree)
     
-    <span class="n">plot_regression_problem</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">regressor</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;N=</span><span class="si">{</span><span class="n">degree</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    plot_regression_problem(ax, data, regressor)
+    ax.set_title(f&quot;N={degree}&quot;)
 </pre></div>
 </div>
 </div>
@@ -1384,15 +1384,15 @@ f(x) = \dfrac{1}{1 + x^2}.
 <p>В ячейке эта схема применяется к тому же набору точек. На половине точек подбираются коэффициенты полиномов, но на графике выводятся оба половины выборки.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">generate_problem</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-<span class="n">train_data</span><span class="p">,</span> <span class="n">test_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[::</span><span class="mi">2</span><span class="p">],</span> <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>data = generate_problem(f, -5, 5, n=50)
+train_data, test_data = data.iloc[::2], data.iloc[1::2]
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;With noise&quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">degree</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axs</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">degrees</span><span class="p">):</span>
-    <span class="n">regressor</span> <span class="o">=</span> <span class="n">polynomial_regression</span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">degree</span><span class="p">)</span>
-    <span class="n">plot_regression_problem</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">train_data</span><span class="p">,</span> <span class="n">regressor</span><span class="p">,</span> <span class="n">test_data</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;n=</span><span class="si">{</span><span class="n">degree</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+fig, axs = plt.subplots(figsize=(20, 15), ncols=3, nrows=3, layout=&quot;tight&quot;)
+fig.suptitle(&quot;With noise&quot;)
+for ax, degree in zip(axs.flatten(), degrees):
+    regressor = polynomial_regression(train_data, degree)
+    plot_regression_problem(ax, train_data, regressor, test_data)
+    ax.set_title(f&quot;n={degree}&quot;)
 </pre></div>
 </div>
 </div>
@@ -1403,11 +1403,11 @@ f(x) = \dfrac{1}{1 + x^2}.
 <p>Заметим, что при больших <span class="math notranslate nohighlight">\(N\)</span> кривая проходит близко к точкам обучающей выборки, но далеко от точек валидационной.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
-<span class="n">regressor</span> <span class="o">=</span> <span class="n">polynomial_regression</span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="mi">21</span><span class="p">)</span>
-<span class="n">plot_regression_problem</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">train_data</span><span class="p">,</span> <span class="n">regressor</span><span class="p">,</span> <span class="n">test_data</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fig, ax = plt.subplots(figsize=(10, 7))
+regressor = polynomial_regression(train_data, degree=21)
+plot_regression_problem(ax, train_data, regressor, test_data)
+ax.set_xlim(2, 5)
+ax.set_ylim(0, 0.4)
 </pre></div>
 </div>
 </div>
@@ -1427,31 +1427,31 @@ f(x) = \dfrac{1}{1 + x^2}.
 <p>Построим график зависимости среднеквадратичной ошибки в зависимости на обучающей и тестовой выборках в зависимости от степени полинома.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error
 
-<span class="k">def</span> <span class="nf">evaluate_mse</span><span class="p">(</span><span class="n">regressor</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">regressor</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">])</span>
-    <span class="n">y_true</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span>
-    <span class="k">return</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-
-
-
-<span class="n">train_mse</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">test_mse</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">degree</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">22</span><span class="p">):</span>
-    <span class="n">regressor</span> <span class="o">=</span> <span class="n">polynomial_regression</span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">degree</span><span class="p">)</span>
-    <span class="n">train_mse</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">evaluate_mse</span><span class="p">(</span><span class="n">regressor</span><span class="p">,</span> <span class="n">train_data</span><span class="p">))</span>
-    <span class="n">test_mse</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">evaluate_mse</span><span class="p">(</span><span class="n">regressor</span><span class="p">,</span> <span class="n">test_data</span><span class="p">))</span>
+def evaluate_mse(regressor, data):
+    y_pred = regressor(data[&quot;x&quot;])
+    y_true = data[&quot;y&quot;]
+    return mean_squared_error(y_true, y_pred)
 
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">train_mse</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;train&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">test_mse</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;MSE&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+train_mse = []
+test_mse = []
+for degree in range(22):
+    regressor = polynomial_regression(train_data, degree)
+    train_mse.append(evaluate_mse(regressor, train_data))
+    test_mse.append(evaluate_mse(regressor, test_data))
+
+
+fig, ax = plt.subplots(figsize=(15, 7))
+ax.plot(train_mse, label=&quot;train&quot;)
+ax.set_yscale(&quot;log&quot;)
+ax.plot(test_mse, label=&quot;test&quot;)
+ax.set_xlabel(&quot;n&quot;)
+ax.set_ylabel(&quot;MSE&quot;)
+ax.legend()
 </pre></div>
 </div>
 </div>

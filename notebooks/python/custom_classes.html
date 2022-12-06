@@ -1109,13 +1109,13 @@ title="Print to PDF"
 <p>Этого знания уже хватает, чтобы объявить примитивный класс с пустым телом. Объявим класс <code class="docutils literal notranslate"><span class="pre">EmptyClass</span></code> с только документирующей строкой и убедимся, что создался объект объявления этого класса и связался с именем <code class="docutils literal notranslate"><span class="pre">EmptyClass</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">EmptyClass</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Пустой класс без атрибутов и методов.&quot;&quot;&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class EmptyClass:
+    &quot;&quot;&quot;Пустой класс без атрибутов и методов.&quot;&quot;&quot;
 
-<span class="nb">print</span><span class="p">(</span><span class="n">EmptyClass</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">EmptyClass</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">EmptyClass</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="nb">int</span><span class="p">))</span>
+print(EmptyClass)
+print(type(EmptyClass))
+print(EmptyClass.__doc__)
+print(type(int))
 </pre></div>
 </div>
 </div>
@@ -1131,12 +1131,12 @@ title="Print to PDF"
 <p>Важно понимать, что все инструкции внутри тела класса выполняются в тот момент, когда интерпретатор читает объявление класса, а не когда создаются экземпляры этого класса. В примере ниже объявляется класс, но не создаётся ни один его экземпляр. Инструкция <code class="docutils literal notranslate"><span class="pre">print</span></code> все равно выполняется.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;До создания класса MyClass&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;До создания класса MyClass&quot;)
 
-<span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Создаётся класс MyClass&quot;</span><span class="p">)</span>
+class MyClass:
+    print(f&quot;Создаётся класс MyClass&quot;)
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Класс </span><span class="si">{</span><span class="n">MyClass</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> создан&quot;</span><span class="p">)</span>
+print(f&quot;Класс {MyClass.__name__} создан&quot;)
 </pre></div>
 </div>
 </div>
@@ -1158,8 +1158,8 @@ title="Print to PDF"
 <p>Несмотря на то, что <code class="docutils literal notranslate"><span class="pre">EmptyClass</span></code> не содержит описания того, какими должны быть его экземпляры (кроме документирующей строки), уже можно создавать экземпляры. Чтобы создать экземпляр класса, необходимо вызвать имя класса, как если бы оно было функцией. В данном случае при вызове имени класса передавать аргументов не надо, но в более содержательных случаях это может потребоваться (смотри <a class="reference internal" href="#initialization"><span class="std std-ref">Инициализация объекта</span></a>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">e</span> <span class="o">=</span> <span class="n">EmptyClass</span><span class="p">()</span>
-<span class="nb">isinstance</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">EmptyClass</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>e = EmptyClass()
+isinstance(e, EmptyClass)
 </pre></div>
 </div>
 </div>
@@ -1173,7 +1173,7 @@ title="Print to PDF"
 <p>Команда <code class="docutils literal notranslate"><span class="pre">isinstance(e,</span> <span class="pre">EmptyClass)</span></code> демонстрирует, что созданный объект — экземпляр искомого класса. Это возможно сделать в runtime, т.к. несмотря на то, что тело класса <code class="docutils literal notranslate"><span class="pre">EmptyClass</span></code> по сути дела пустое, у созданного объекта всегда создаётся специальный атрибут <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#instance.__class__">__class__</a>, который ссылается на класс, к которому относится экземпляр.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">e</span><span class="o">.</span><span class="vm">__class__</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>e.__class__
 </pre></div>
 </div>
 </div>
@@ -1202,8 +1202,8 @@ title="Print to PDF"
 <p>Здесь объявляется атрибут <code class="docutils literal notranslate"><span class="pre">x</span></code> целочисленного типа, который инициализируется при создании объекта. Но в <code class="docutils literal notranslate"><span class="pre">python</span></code> нельзя объявить переменную и не инициализировать её: каждое имя должно ссылаться на какой-то объект. Попробуем построить аналогичное объявление, инициализировав атрибут числом <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class A:
+    x = 0
 </pre></div>
 </div>
 </div>
@@ -1211,7 +1211,7 @@ title="Print to PDF"
 <p>Теперь вспомним, что инструкции в теле класса выполняются не в момент создания экземпляра, а в момент чтения объявления класса интерпретатором. Т.е. атрибут <code class="docutils literal notranslate"><span class="pre">x</span></code> должен уже существовать, несмотря на то, что не было создано ни одного экземпляра. Чтобы убедиться в этом, проверим наличие атрибута <code class="docutils literal notranslate"><span class="pre">x</span></code> у объекта объявления класса <code class="docutils literal notranslate"><span class="pre">A</span></code>, используя точечную нотацию.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(A.x)
 </pre></div>
 </div>
 </div>
@@ -1225,16 +1225,16 @@ title="Print to PDF"
 <p>Чтобы продемонстрировать это, создадим два экземпляра этого класса.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a1</span> <span class="o">=</span> <span class="n">A</span><span class="p">()</span>
-<span class="n">a2</span> <span class="o">=</span> <span class="n">A</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a1 = A()
+a2 = A()
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;До изменения атрибута&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">a1</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">a2</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+print(&quot;До изменения атрибута&quot;)
+print(A.x, a1.x, a2.x)
 
-<span class="n">A</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+A.x = 1
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;После изменения атрибута&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">a1</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">a2</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+print(&quot;После изменения атрибута&quot;)
+print(A.x, a1.x, a2.x)
 </pre></div>
 </div>
 </div>
@@ -1292,7 +1292,7 @@ title="Print to PDF"
 <p>Чтобы создать атрибут у самого объекта, достаточно просто присвоить к желаемому атрибуту какое-нибудь значение.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a1</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">42</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a1.y = 42
 </pre></div>
 </div>
 </div>
@@ -1300,8 +1300,8 @@ title="Print to PDF"
 <p>В большинстве случаев, объекты пользовательских классов хранят свои атрибуты в словаре, доступ к которым можно получить по полю <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#object.__dict__">__dict__</a>. Встроенная функция <a class="reference external" href="https://docs.python.org/3/library/functions.html#vars">vars</a> возвращает этот словарь. Воспользуемся этой функцией, чтобы проверить, какие атрибуты есть у экземпляров <code class="docutils literal notranslate"><span class="pre">a1</span></code> и <code class="docutils literal notranslate"><span class="pre">a2</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">vars</span><span class="p">(</span><span class="n">a1</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">vars</span><span class="p">(</span><span class="n">a2</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(vars(a1))
+print(vars(a2))
 </pre></div>
 </div>
 </div>
@@ -1327,11 +1327,11 @@ title="Print to PDF"
 <p>Методы класса объявляются в теле класса как обычные функции в модуле.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Метод f класса A&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class A:
+    def f():
+        print(&quot;Метод f класса A&quot;)
 
-<span class="n">A</span><span class="o">.</span><span class="n">f</span><span class="p">()</span>
+A.f()
 </pre></div>
 </div>
 </div>
@@ -1345,12 +1345,12 @@ title="Print to PDF"
 <p>Попробуем создать экземпляр этого класса и вызвать эту функцию через него.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">A</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a = A()
 
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">a</span><span class="o">.</span><span class="n">f</span><span class="p">()</span>
-<span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">msg</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+try:
+    a.f()
+except TypeError as msg:
+    print(msg)
 </pre></div>
 </div>
 </div>
@@ -1377,17 +1377,17 @@ title="Print to PDF"
 <p>Приведем пример, того как обычно объявляются методы класса.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Метод f класса A&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class A:
+    def f(self):
+        print(&quot;Метод f класса A&quot;)
     
-    <span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Метод g класса A вызван с параметром </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    def g(self, x):
+        print(f&quot;Метод g класса A вызван с параметром {x}&quot;)
 
-<span class="n">a</span> <span class="o">=</span> <span class="n">A</span><span class="p">()</span>
+a = A()
 
-<span class="n">a</span><span class="o">.</span><span class="n">f</span><span class="p">()</span>
-<span class="n">a</span><span class="o">.</span><span class="n">g</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+a.f()
+a.g(42)
 </pre></div>
 </div>
 </div>
@@ -1419,28 +1419,28 @@ title="Print to PDF"
 <p>Для таких целей есть встроенная декорирующая функция <a class="reference external" href="https://docs.python.org/3/library/functions.html#staticmethod">staticmethod</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">my_instance_method</span><span class="p">():</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Обычный метод.&quot;</span><span class="p">)</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class A:
+    def my_instance_method():
+        print(&quot;Обычный метод.&quot;) 
 
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">my_static_method</span><span class="p">():</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Статический метод.&quot;</span><span class="p">)</span>
+    @staticmethod
+    def my_static_method():
+        print(&quot;Статический метод.&quot;)
 
 
-<span class="n">a</span> <span class="o">=</span> <span class="n">A</span><span class="p">()</span>
+a = A()
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">my_instance_method</span><span class="p">)</span>
-<span class="n">A</span><span class="o">.</span><span class="n">my_instance_method</span><span class="p">()</span>
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">a</span><span class="o">.</span><span class="n">my_instance_method</span><span class="p">()</span>
-<span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">msg</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(a.my_instance_method)
+A.my_instance_method()
+try:
+    a.my_instance_method()
+except TypeError as msg:
+    print(msg)
 </pre></div>
 </div>
 </div>
@@ -1454,9 +1454,9 @@ my_instance_method() takes 0 positional arguments but 1 was given
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">my_static_method</span><span class="p">)</span>
-<span class="n">A</span><span class="o">.</span><span class="n">my_static_method</span><span class="p">()</span>
-<span class="n">a</span><span class="o">.</span><span class="n">my_static_method</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(a.my_static_method)
+A.my_static_method()
+a.my_static_method()
 </pre></div>
 </div>
 </div>
@@ -1528,10 +1528,10 @@ my_instance_method() takes 0 positional arguments but 1 was given
 <p>Объявим такой класс <code class="docutils literal notranslate"><span class="pre">A</span></code> с дополнительной инструкцией <code class="docutils literal notranslate"><span class="pre">print</span></code> в методе <code class="docutils literal notranslate"><span class="pre">__init__</span></code>, чтобы явно видеть, когда и с какими параметрами он вызывается.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Инициализируется экземпляр класса A с атрибутом x = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class A:
+    def __init__(self, x):
+        print(f&quot;Инициализируется экземпляр класса A с атрибутом x = {x}&quot;)
+        self.x = x
 </pre></div>
 </div>
 </div>
@@ -1540,9 +1540,9 @@ my_instance_method() takes 0 positional arguments but 1 was given
 <p>Т.к. метод <code class="docutils literal notranslate"><span class="pre">__init__</span></code> теперь принимает дополнительный параметр <code class="docutils literal notranslate"><span class="pre">x</span></code>, то необходимо передать какое-нибудь значение при вызове объекта объявления класса для создания экземпляра.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a1</span> <span class="o">=</span> <span class="n">A</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">a2</span> <span class="o">=</span> <span class="n">A</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;a1.x = </span><span class="si">{</span><span class="n">a1</span><span class="o">.</span><span class="n">x</span><span class="si">}</span><span class="se">\n</span><span class="s2">a2.x = </span><span class="si">{</span><span class="n">a2</span><span class="o">.</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a1 = A(3)
+a2 = A(42)
+print(f&quot;a1.x = {a1.x}\na2.x = {a2.x}&quot;)
 </pre></div>
 </div>
 </div>
@@ -1559,9 +1559,9 @@ a2.x = 42
 <p>Ещё раз явно подметим, что метод <code class="docutils literal notranslate"><span class="pre">__init__</span></code> вызывается, когда объект уже создан метод <code class="docutils literal notranslate"><span class="pre">__new__</span></code>. Вызовем метод <code class="docutils literal notranslate"><span class="pre">__new__</span></code> у типа <code class="docutils literal notranslate"><span class="pre">object</span></code>, указав какого типа объект необходимо создать.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a3</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="c1"># то же самое, что и object.__new__(A) </span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">a3</span><span class="p">,</span> <span class="n">A</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">vars</span><span class="p">(</span><span class="n">a3</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a3 = A.__new__(A) # то же самое, что и object.__new__(A) 
+print(isinstance(a3, A))
+print(vars(a3))
 </pre></div>
 </div>
 </div>
@@ -1576,8 +1576,8 @@ a2.x = 42
 <p>Инициализируем <code class="docutils literal notranslate"><span class="pre">a3</span></code> явно вызвав метод <code class="docutils literal notranslate"><span class="pre">__init__</span></code> у экземпляра.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a3</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a3</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a3.__init__(13)
+print(a3.x)
 </pre></div>
 </div>
 </div>
@@ -1591,8 +1591,8 @@ a2.x = 42
 <p>Инициализация объекта <code class="docutils literal notranslate"><span class="pre">a3</span></code> произошла успешно. Но ничто не мешает вызвать метод <code class="docutils literal notranslate"><span class="pre">__init__</span></code> повторно, но в данном случае атрибут <code class="docutils literal notranslate"><span class="pre">x</span></code> не создаётся, а перезаписывается, т.к. он уже существует после первой инициализации.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a3</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s2">&quot;new value&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a3</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a3.__init__(&quot;new value&quot;)
+print(a3.x)
 </pre></div>
 </div>
 </div>
@@ -1614,13 +1614,13 @@ new value
 <p>Так, метод <code class="docutils literal notranslate"><span class="pre">public_method</span></code> в примере ниже считается публичным, а <code class="docutils literal notranslate"><span class="pre">_private_method</span></code> нет.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
-    <span class="s2">&quot;docstring of class&quot;</span>
-    <span class="k">def</span> <span class="nf">public_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="s2">&quot;docstring of method&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class A:
+    &quot;docstring of class&quot;
+    def public_method(self):
+        &quot;docstring of method&quot;
 
-    <span class="k">def</span> <span class="nf">_private_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">pass</span>
+    def _private_method(self):
+        pass
 </pre></div>
 </div>
 </div>
@@ -1630,7 +1630,7 @@ new value
 <p>В частности, встроенная функция справки <code class="docutils literal notranslate"><span class="pre">help</span></code> не перечисляет непубличные методы.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>help(A)
 </pre></div>
 </div>
 </div>
@@ -1667,82 +1667,82 @@ class A(builtins.object)
 <p>Предположим, вы пишите программу, которая должна работать с треугольниками, вычислять их площадь и периметр. В результате у вас может получиться что-то следующее.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">asin</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">,</span> <span class="n">cos</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">pi</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from math import asin, sqrt, cos, sin, pi
 
 
-<span class="k">def</span> <span class="nf">degree_to_radian</span><span class="p">(</span><span class="n">angle</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">angle</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span>
+def degree_to_radian(angle):
+    return angle * pi / 180
 
-<span class="k">class</span> <span class="nc">Triangle</span><span class="p">:</span>
-    <span class="s2">&quot;Класс для работы с треугольниками. &quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">AB</span><span class="p">,</span> <span class="n">BC</span><span class="p">,</span> <span class="n">CA</span><span class="p">):</span>
-        <span class="s2">&quot;Конструктор. В качестве параметров принимает длины 3 сторон.&quot;</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">Triangle</span><span class="o">.</span><span class="n">is_valid</span><span class="p">(</span><span class="n">AB</span><span class="p">,</span> <span class="n">BC</span><span class="p">,</span> <span class="n">CA</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Нарушено неравенство треугольника.&quot;</span><span class="p">)</span>
+class Triangle:
+    &quot;Класс для работы с треугольниками. &quot;
+    def __init__(self, AB, BC, CA):
+        &quot;Конструктор. В качестве параметров принимает длины 3 сторон.&quot;
+        if not Triangle.is_valid(AB, BC, CA):
+            raise ValueError(&quot;Нарушено неравенство треугольника.&quot;)
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_AB</span> <span class="o">=</span> <span class="n">AB</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_BC</span> <span class="o">=</span> <span class="n">BC</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_CA</span> <span class="o">=</span> <span class="n">CA</span>
+        self._AB = AB
+        self._BC = BC
+        self._CA = CA
 
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">is_valid</span><span class="p">(</span><span class="n">AB</span><span class="p">,</span> <span class="n">BC</span><span class="p">,</span> <span class="n">CA</span><span class="p">):</span>
-        <span class="s2">&quot;Проверяет выполнение неравенства треугольника.&quot;</span>
-        <span class="k">if</span> <span class="n">AB</span> <span class="o">+</span> <span class="n">BC</span> <span class="o">&lt;</span> <span class="n">CA</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">False</span>
-        <span class="k">if</span> <span class="n">BC</span> <span class="o">+</span> <span class="n">CA</span> <span class="o">&lt;</span> <span class="n">AB</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">False</span>
-        <span class="k">if</span> <span class="n">CA</span> <span class="o">+</span> <span class="n">AB</span> <span class="o">&lt;</span> <span class="n">BC</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">False</span>
-        <span class="k">return</span> <span class="kc">True</span>
+    @staticmethod
+    def is_valid(AB, BC, CA):
+        &quot;Проверяет выполнение неравенства треугольника.&quot;
+        if AB + BC &lt; CA:
+            return False
+        if BC + CA &lt; AB:
+            return False
+        if CA + AB &lt; BC:
+            return False
+        return True
 
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">_is_valid_angle</span><span class="p">(</span><span class="n">angle</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">angle</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">False</span>
-        <span class="k">if</span> <span class="n">angle</span> <span class="o">&gt;=</span> <span class="n">pi</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">False</span>
-        <span class="k">return</span> <span class="kc">True</span> 
+    @staticmethod
+    def _is_valid_angle(angle):
+        if angle &lt;= 0:
+            return False
+        if angle &gt;= pi:
+            return False
+        return True 
 
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">from_2_edges_and_1_angle</span><span class="p">(</span><span class="n">AB</span><span class="p">,</span> <span class="n">CA</span><span class="p">,</span>  <span class="n">CAB</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="s2">&quot;Конструктор. В качестве параметров принимает 2 стороны и угол между ними.&quot;</span>
-        <span class="k">if</span> <span class="n">degree</span><span class="p">:</span>
-            <span class="n">CAB</span> <span class="o">=</span> <span class="n">degree_to_radian</span><span class="p">(</span><span class="n">CAB</span><span class="p">)</span>
+    @staticmethod
+    def from_2_edges_and_1_angle(AB, CA,  CAB, degree=False):
+        &quot;Конструктор. В качестве параметров принимает 2 стороны и угол между ними.&quot;
+        if degree:
+            CAB = degree_to_radian(CAB)
 
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">Triangle</span><span class="o">.</span><span class="n">_is_valid_angle</span><span class="p">(</span><span class="n">CAB</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Угол должен быть в интервале от 0 до Pi.&quot;</span><span class="p">)</span>
+        if not Triangle._is_valid_angle(CAB):
+            raise ValueError(&quot;Угол должен быть в интервале от 0 до Pi.&quot;)
         
-        <span class="n">BC</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">CA</span><span class="o">*</span><span class="n">CA</span> <span class="o">+</span> <span class="n">AB</span><span class="o">*</span><span class="n">AB</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">AB</span><span class="o">*</span><span class="n">CA</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">CAB</span><span class="p">))</span>
-        <span class="k">return</span> <span class="n">Triangle</span><span class="p">(</span><span class="n">AB</span><span class="p">,</span> <span class="n">BC</span><span class="p">,</span> <span class="n">CA</span><span class="p">)</span>
+        BC = sqrt(CA*CA + AB*AB - 2*AB*CA*cos(CAB))
+        return Triangle(AB, BC, CA)
 
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">from_1_edge_and_2_angles</span><span class="p">(</span><span class="n">AB</span><span class="p">,</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">CAB</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="s2">&quot;Конструктор. В качестве параметров принимает сторону и прилежащие углы.&quot;</span>
-        <span class="k">if</span> <span class="n">degree</span><span class="p">:</span>
-            <span class="n">ABC</span> <span class="o">=</span> <span class="n">degree_to_radian</span><span class="p">(</span><span class="n">ABC</span><span class="p">)</span>
-            <span class="n">CAB</span> <span class="o">=</span> <span class="n">degree_to_radian</span><span class="p">(</span><span class="n">CAB</span><span class="p">)</span>
+    @staticmethod
+    def from_1_edge_and_2_angles(AB, ABC, CAB, degree=False):
+        &quot;Конструктор. В качестве параметров принимает сторону и прилежащие углы.&quot;
+        if degree:
+            ABC = degree_to_radian(ABC)
+            CAB = degree_to_radian(CAB)
 
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">Triangle</span><span class="o">.</span><span class="n">_is_valid_angle</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Угол должен быть в интервале от 0 до Pi.&quot;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">Triangle</span><span class="o">.</span><span class="n">_is_valid_angle</span><span class="p">(</span><span class="n">CAB</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Угол должен быть в интервале от 0 до Pi.&quot;</span><span class="p">)</span>
+        if not Triangle._is_valid_angle(ABC):
+            raise ValueError(&quot;Угол должен быть в интервале от 0 до Pi.&quot;)
+        if not Triangle._is_valid_angle(CAB):
+            raise ValueError(&quot;Угол должен быть в интервале от 0 до Pi.&quot;)
         
-        <span class="n">BCA</span> <span class="o">=</span> <span class="n">pi</span> <span class="o">-</span> <span class="n">ABC</span> <span class="o">-</span> <span class="n">CAB</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">Triangle</span><span class="o">.</span><span class="n">_is_valid_angle</span><span class="p">(</span><span class="n">BCA</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Сумма углов должна быть меньше Pi.&quot;</span><span class="p">)</span>
+        BCA = pi - ABC - CAB
+        if not Triangle._is_valid_angle(BCA):
+            raise ValueError(&quot;Сумма углов должна быть меньше Pi.&quot;)
 
-        <span class="n">CA</span> <span class="o">=</span> <span class="n">AB</span> <span class="o">/</span> <span class="n">sin</span><span class="p">(</span><span class="n">BCA</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">ABC</span><span class="p">)</span>
-        <span class="n">BC</span> <span class="o">=</span> <span class="n">AB</span> <span class="o">/</span> <span class="n">sin</span><span class="p">(</span><span class="n">BCA</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">CAB</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">Triangle</span><span class="p">(</span><span class="n">AB</span><span class="p">,</span> <span class="n">BC</span><span class="p">,</span> <span class="n">CA</span><span class="p">)</span>
+        CA = AB / sin(BCA) * sin(ABC)
+        BC = AB / sin(BCA) * sin(CAB)
+        return Triangle(AB, BC, CA)
 
-    <span class="k">def</span> <span class="nf">perimeter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="s2">&quot;Возвращает периметр треугольника.&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_AB</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_BC</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_CA</span>
+    def perimeter(self):
+        &quot;Возвращает периметр треугольника.&quot;
+        return self._AB + self._BC + self._CA
     
-    <span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="s2">&quot;Возвращает площадь треугольника.&quot;</span>
-        <span class="n">p</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">perimeter</span><span class="p">()</span> <span class="o">/</span> <span class="mf">2.</span>
-        <span class="k">return</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">p</span><span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_AB</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_BC</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_CA</span><span class="p">))</span>
+    def area(self):
+        &quot;Возвращает площадь треугольника.&quot;
+        p = self.perimeter() / 2.
+        return sqrt(p*(p - self._AB)*(p - self._BC)*(p - self._CA))
 </pre></div>
 </div>
 </div>
@@ -1759,14 +1759,14 @@ class A(builtins.object)
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t1</span> <span class="o">=</span> <span class="n">Triangle</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="n">t2</span> <span class="o">=</span> <span class="n">Triangle</span><span class="o">.</span><span class="n">from_2_edges_and_1_angle</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>t1 = Triangle(3, 4, 5)
+t2 = Triangle.from_2_edges_and_1_angle(3, 4, 90, degree=True)
 
-<span class="n">alpha</span> <span class="o">=</span> <span class="n">asin</span><span class="p">(</span><span class="mi">3</span> <span class="o">/</span> <span class="mi">5</span><span class="p">)</span>
-<span class="n">beta</span> <span class="o">=</span> <span class="n">asin</span><span class="p">(</span><span class="mi">4</span> <span class="o">/</span> <span class="mi">5</span><span class="p">)</span>
-<span class="n">t3</span> <span class="o">=</span> <span class="n">Triangle</span><span class="o">.</span><span class="n">from_1_edge_and_2_angles</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="p">)</span>
+alpha = asin(3 / 5)
+beta = asin(4 / 5)
+t3 = Triangle.from_1_edge_and_2_angles(5, alpha, beta)
 
-<span class="nb">print</span><span class="p">(</span><span class="n">t1</span><span class="o">.</span><span class="n">area</span><span class="p">(),</span> <span class="n">t2</span><span class="o">.</span><span class="n">area</span><span class="p">(),</span> <span class="n">t3</span><span class="o">.</span><span class="n">area</span><span class="p">())</span>
+print(t1.area(), t2.area(), t3.area())
 </pre></div>
 </div>
 </div>
@@ -1778,7 +1778,7 @@ class A(builtins.object)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">Triangle</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>help(Triangle)
 </pre></div>
 </div>
 </div>

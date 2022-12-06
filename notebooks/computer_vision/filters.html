@@ -1008,34 +1008,34 @@ title="Print to PDF"
 <p id="cv-filters"><a class="reference external" href="https://en.wikipedia.org/wiki/Kernel_(image_processing)">Свёрточные операции</a> позволяют делать много полезных преобразований над изображениями.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import os
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="kn">import</span> <span class="nn">cv2</span>
+import numpy as np
+from matplotlib import pyplot as plt
+import cv2
 
-<span class="n">image_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;_static&quot;</span><span class="p">,</span> <span class="s2">&quot;lecture_specific&quot;</span><span class="p">,</span> <span class="s2">&quot;cv&quot;</span><span class="p">)</span>
+image_folder = os.path.join(&quot;..&quot;, &quot;..&quot;, &quot;_static&quot;, &quot;lecture_specific&quot;, &quot;cv&quot;)
 
-<span class="k">def</span> <span class="nf">show_image</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Вывести изображение в указанных осях.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+def show_image(ax, image, title=None, cmap=None):
+    &quot;&quot;&quot;
+    Вывести изображение в указанных осях.
+    &quot;&quot;&quot;
+    ax.imshow(image, cmap=cmap)
+    ax.set_title(title)
+    ax.xaxis.set_visible(False)
+    ax.yaxis.set_visible(False)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image_folder</span><span class="p">,</span> <span class="s2">&quot;coins.jpg&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>path = os.path.join(image_folder, &quot;coins.jpg&quot;)
 
-<span class="n">image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">IMREAD_GRAYSCALE</span><span class="p">)</span>
+image = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
-<span class="n">show_image</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+fig, ax = plt.subplots(figsize=(5, 5), layout=&quot;tight&quot;)
+show_image(ax, image, cmap=&quot;gray&quot;)
 </pre></div>
 </div>
 </div>
@@ -1065,11 +1065,11 @@ title="Print to PDF"
 <p>Ниже приводится результат размытия при <span class="math notranslate nohighlight">\(n\)</span> и <span class="math notranslate nohighlight">\(m\)</span> равным 5 пикселям.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">blurred_5</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">blur</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>blurred_5 = cv2.blur(image, (5, 5))
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
-<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">image</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;image&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
-<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">blurred_5</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;blur&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+fig, axs = plt.subplots(figsize=(10, 5), ncols=2, layout=&quot;tight&quot;)
+show_image(axs[0], image, title=&quot;image&quot;, cmap=&quot;gray&quot;)
+show_image(axs[1], blurred_5, title=&quot;blur&quot;, cmap=&quot;gray&quot;)
 </pre></div>
 </div>
 </div>
@@ -1080,11 +1080,11 @@ title="Print to PDF"
 <p>Чем больше ядро, тем сильнее размытие.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">blurred_10</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">blur</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>blurred_10 = cv2.blur(image, (10, 10))
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
-<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">blurred_5</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;5x5&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
-<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">blurred_10</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;10x10&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+fig, axs = plt.subplots(figsize=(10, 5), ncols=2, layout=&quot;tight&quot;)
+show_image(axs[0], blurred_5, title=&quot;5x5&quot;, cmap=&quot;gray&quot;)
+show_image(axs[1], blurred_10, title=&quot;10x10&quot;, cmap=&quot;gray&quot;)
 </pre></div>
 </div>
 </div>
@@ -1101,13 +1101,13 @@ title="Print to PDF"
 <p>Получить одномерное ядро Гаусса можно методом <a class="reference external" href="https://docs.opencv.org/4.x/d4/d86/group__imgproc__filter.html#gac05a120c1ae92a6060dd0db190a61afa">cv2.getGaussianKernel</a>. Двумерное ядро можно получить внешним произведением одномерных из-за свойств свертки. Отобразим как выглядят ядра Гаусса при разных значениях дисперсии <span class="math notranslate nohighlight">\(\sigma\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kernels</span> <span class="o">=</span> <span class="p">[</span><span class="n">cv2</span><span class="o">.</span><span class="n">getGaussianKernel</span><span class="p">(</span><span class="mi">21</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CV_32F</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span>
-<span class="n">kernels2D</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">kernel</span><span class="p">,</span> <span class="n">kernel</span><span class="p">)</span> <span class="k">for</span> <span class="n">kernel</span> <span class="ow">in</span> <span class="n">kernels</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>kernels = [cv2.getGaussianKernel(21, i, cv2.CV_32F) for i in range(1, 21, 3)]
+kernels2D = [np.outer(kernel, kernel) for kernel in kernels]
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">kernels2D</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+fig, axs = plt.subplots(figsize=(10, 5), ncols=len(kernels2D), layout=&quot;tight&quot;)
 
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">kernel</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">kernels2D</span><span class="p">):</span>
-    <span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;$\sigma=</span><span class="si">{</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">i</span><span class="si">}</span><span class="s2">$&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+for i, kernel in enumerate(kernels2D):
+    show_image(axs[i], kernel, title=f&quot;$\sigma={1 + 3*i}$&quot;, cmap=&quot;gray&quot;)
 </pre></div>
 </div>
 </div>
@@ -1118,13 +1118,13 @@ title="Print to PDF"
 <p>Нет необходимости в явном виде создавать ядро Гаусса, чтобы применить размытие. Достаточно применить функцию <a class="reference external" href="https://docs.opencv.org/4.x/d4/d86/group__imgproc__filter.html#gaabe8c836e97159a9193fb0b11ac52cf1">cv2.GaussianBlur</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gauss_blurred_1</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">GaussianBlur</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="p">(</span><span class="mi">21</span><span class="p">,</span> <span class="mi">21</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">gauss_blurred_19</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">GaussianBlur</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="p">(</span><span class="mi">21</span><span class="p">,</span> <span class="mi">21</span><span class="p">),</span> <span class="mi">19</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>gauss_blurred_1 = cv2.GaussianBlur(image, (21, 21), 1)
+gauss_blurred_19 = cv2.GaussianBlur(image, (21, 21), 19)
 
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
-<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">gauss_blurred_1</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;$\sigma=1$&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
-<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">gauss_blurred_19</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;$\sigma=19$&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+fig, axs = plt.subplots(figsize=(10, 5), ncols=2, layout=&quot;tight&quot;)
+show_image(axs[0], gauss_blurred_1, title=&quot;$\sigma=1$&quot;, cmap=&quot;gray&quot;)
+show_image(axs[1], gauss_blurred_19, title=&quot;$\sigma=19$&quot;, cmap=&quot;gray&quot;)
 </pre></div>
 </div>
 </div>
@@ -1135,15 +1135,15 @@ title="Print to PDF"
 <p>Размытие Гаусса часто применяют для подавления шумов.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image_folder</span><span class="p">,</span> <span class="s2">&quot;OpenCV.png&quot;</span><span class="p">)</span>
-<span class="n">openCV</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="o">/</span> <span class="mf">255.</span>
-<span class="n">noised</span> <span class="o">=</span> <span class="n">openCV</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span> <span class="n">openCV</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="n">blurred</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">GaussianBlur</span><span class="p">(</span><span class="n">noised</span><span class="p">,</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>path = os.path.join(image_folder, &quot;OpenCV.png&quot;)
+openCV = cv2.imread(path) / 255.
+noised = openCV + np.random.normal(0, 0.1, size= openCV.shape)
+blurred = cv2.GaussianBlur(noised, (5, 5), 2)
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
-<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">openCV</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;$\sigma=1$&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
-<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">noised</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;$\sigma=19$&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
-<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">blurred</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;$\sigma=19$&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+fig, axs = plt.subplots(figsize=(15, 5), ncols=3, layout=&quot;tight&quot;)
+show_image(axs[0], openCV, title=&quot;$\sigma=1$&quot;, cmap=&quot;gray&quot;)
+show_image(axs[1], noised, title=&quot;$\sigma=19$&quot;, cmap=&quot;gray&quot;)
+show_image(axs[2], blurred, title=&quot;$\sigma=19$&quot;, cmap=&quot;gray&quot;)
 </pre></div>
 </div>
 </div>
@@ -1171,16 +1171,16 @@ Clipping input data to the valid range for imshow with RGB data ([0..1] for floa
 <p>Метод <a class="reference external" href="https://docs.opencv.org/3.4/d4/d86/group__imgproc__filter.html#ga27c049795ce870216ddfb366086b5a04">cv2.filter2D</a> позволяет применять произвольный фильтр к изображению.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kernel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
-    <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> 
-    <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> 
-    <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="p">])</span>
-<span class="n">sharpened_image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">filter2D</span><span class="p">(</span><span class="n">gauss_blurred_1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">kernel</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>kernel = np.array([
+    [-1,-1,-1], 
+    [-1, 9,-1], 
+    [-1,-1,-1]
+])
+sharpened_image = cv2.filter2D(gauss_blurred_1, -1, kernel)
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
-<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">gauss_blurred_1</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;$\sigma=1$&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
-<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">sharpened_image</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;$\sigma=19$&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+fig, axs = plt.subplots(figsize=(10, 5), ncols=2, layout=&quot;tight&quot;)
+show_image(axs[0], gauss_blurred_1, title=&quot;$\sigma=1$&quot;, cmap=&quot;gray&quot;)
+show_image(axs[1], sharpened_image, title=&quot;$\sigma=19$&quot;, cmap=&quot;gray&quot;)
 </pre></div>
 </div>
 </div>
@@ -1205,16 +1205,16 @@ Clipping input data to the valid range for imshow with RGB data ([0..1] for floa
 <p>За применение фильтра Собеля в <code class="docutils literal notranslate"><span class="pre">openCV</span></code> отвечает метод <a class="reference external" href="https://docs.opencv.org/4.x/d4/d86/group__imgproc__filter.html#gacea54f142e81b6758cb6f375ce782c8d">cv2.Sobel</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image_folder</span><span class="p">,</span> <span class="s2">&quot;brickwall.jpg&quot;</span><span class="p">)</span>
-<span class="n">brickwall</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">IMREAD_GRAYSCALE</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>path = os.path.join(image_folder, &quot;brickwall.jpg&quot;)
+brickwall = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
 
-<span class="n">dimage_dx</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">Sobel</span><span class="p">(</span><span class="n">brickwall</span><span class="p">,</span> <span class="n">ddepth</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">dy</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ksize</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">dimage_dy</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">Sobel</span><span class="p">(</span><span class="n">brickwall</span><span class="p">,</span> <span class="n">ddepth</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">dy</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ksize</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+dimage_dx = cv2.Sobel(brickwall, ddepth=-1, dx=1, dy=0, ksize=3)
+dimage_dy = cv2.Sobel(brickwall, ddepth=-1, dx=0, dy=1, ksize=3)
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
-<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">brickwall</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;image&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
-<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">dimage_dx</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\frac</span><span class="si">{d}{dx}</span><span class="s2">$&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
-<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">dimage_dy</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\frac</span><span class="si">{d}{dy}</span><span class="s2">$&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+fig, axs = plt.subplots(figsize=(11, 5), ncols=3, layout=&quot;tight&quot;)
+show_image(axs[0], brickwall, title=&quot;image&quot;, cmap=&quot;gray&quot;)
+show_image(axs[1], dimage_dx, title=r&quot;$\frac{d}{dx}$&quot;, cmap=&quot;gray&quot;)
+show_image(axs[2], dimage_dy, title=r&quot;$\frac{d}{dy}$&quot;, cmap=&quot;gray&quot;)
 </pre></div>
 </div>
 </div>
@@ -1225,14 +1225,14 @@ Clipping input data to the valid range for imshow with RGB data ([0..1] for floa
 <p>Редко бывает так, что все контуры вертикальны и горизонтальны. Чтобы искать контуры с произвольным наклоном, можно взять сумму квадратов горизонтальной и вертикальной производных, что соответствует квадрату нормы градиента изображения.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dimage_dx</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">Sobel</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">ddepth</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">dy</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ksize</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">dimage_dy</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">Sobel</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">ddepth</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">dy</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ksize</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">norm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(((</span><span class="n">dimage_dx</span><span class="o">/</span><span class="mf">255.</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">dimage_dy</span><span class="o">/</span><span class="mf">255.</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dimage_dx = cv2.Sobel(image, ddepth=-1, dx=1, dy=0, ksize=3)
+dimage_dy = cv2.Sobel(image, ddepth=-1, dx=0, dy=1, ksize=3)
+norm = np.sqrt(((dimage_dx/255.)**2 + (dimage_dy/255.)**2))
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
-<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dimage_dx</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\frac</span><span class="si">{d}{dx}</span><span class="s2">$&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
-<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">dimage_dy</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\frac</span><span class="si">{d}{dy}</span><span class="s2">$&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
-<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">norm</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\sqrt{(\frac</span><span class="si">{d}{dx}</span><span class="s2"> + \frac</span><span class="si">{d}{dy}</span><span class="s2">)^2}$&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+fig, axs = plt.subplots(figsize=(15, 5), ncols=3, layout=&quot;tight&quot;)
+show_image(axs[0], dimage_dx, title=r&quot;$\frac{d}{dx}$&quot;, cmap=&quot;gray&quot;)
+show_image(axs[1], dimage_dy, title=r&quot;$\frac{d}{dy}$&quot;, cmap=&quot;gray&quot;)
+show_image(axs[2], norm, title=r&quot;$\sqrt{(\frac{d}{dx} + \frac{d}{dy})^2}$&quot;, cmap=&quot;gray&quot;)
 </pre></div>
 </div>
 </div>
@@ -1243,15 +1243,15 @@ Clipping input data to the valid range for imshow with RGB data ([0..1] for floa
 <p>Т.к. взятие производной — операция очень чувствительная к шуму, то обычно изображение предварительно сглаживают размытием Гаусса, а затем только берут производную.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">blurred</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">GaussianBlur</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">dimage_dx</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">Sobel</span><span class="p">(</span><span class="n">blurred</span><span class="p">,</span> <span class="n">ddepth</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">dy</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ksize</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">dimage_dy</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">Sobel</span><span class="p">(</span><span class="n">blurred</span><span class="p">,</span> <span class="n">ddepth</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">dy</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ksize</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">norm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(((</span><span class="n">dimage_dx</span><span class="o">/</span><span class="mf">255.</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">dimage_dy</span><span class="o">/</span><span class="mf">255.</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>blurred = cv2.GaussianBlur(image, (3, 3), 0)
+dimage_dx = cv2.Sobel(blurred, ddepth=-1, dx=1, dy=0, ksize=3)
+dimage_dy = cv2.Sobel(blurred, ddepth=-1, dx=0, dy=1, ksize=3)
+norm = np.sqrt(((dimage_dx/255.)**2 + (dimage_dy/255.)**2))
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
-<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dimage_dx</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\frac</span><span class="si">{d}{dx}</span><span class="s2">$&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
-<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">dimage_dy</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\frac</span><span class="si">{d}{dy}</span><span class="s2">$&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
-<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">norm</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\sqrt{(\frac</span><span class="si">{d}{dx}</span><span class="s2">)^2 + (\frac</span><span class="si">{d}{dy}</span><span class="s2">)^2}$&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+fig, axs = plt.subplots(figsize=(15, 5), ncols=3, layout=&quot;tight&quot;)
+show_image(axs[0], dimage_dx, title=r&quot;$\frac{d}{dx}$&quot;, cmap=&quot;gray&quot;)
+show_image(axs[1], dimage_dy, title=r&quot;$\frac{d}{dy}$&quot;, cmap=&quot;gray&quot;)
+show_image(axs[2], norm, title=r&quot;$\sqrt{(\frac{d}{dx})^2 + (\frac{d}{dy})^2}$&quot;, cmap=&quot;gray&quot;)
 </pre></div>
 </div>
 </div>
@@ -1271,12 +1271,12 @@ Clipping input data to the valid range for imshow with RGB data ([0..1] for floa
 <p>соответствует второй производной, что в каком-то смысле облегчает поиск контура: в случае первой производной необходимо искать и минимумы и максимумы, в случае второй производной только нули. Метод <a class="reference external" href="https://docs.opencv.org/4.x/d4/d86/group__imgproc__filter.html#gad78703e4c8fe703d479c1860d76429e6">cv2.Laplacian</a> позволяет применить этот фильтр к изображению.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">laplacian</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">Laplacian</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="n">blurred_laplacian</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">Laplacian</span><span class="p">(</span><span class="n">blurred</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>laplacian = cv2.Laplacian(image, 5)
+blurred_laplacian = cv2.Laplacian(blurred, 5)
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
-<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">laplacian</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;image -&gt; laplacian&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
-<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">blurred_laplacian</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;image -&gt; blur -&gt; laplacian&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+fig, axs = plt.subplots(figsize=(10, 5), ncols=2, layout=&quot;tight&quot;)
+show_image(axs[0], laplacian, title=&quot;image -&gt; laplacian&quot;, cmap=&quot;gray&quot;)
+show_image(axs[1], blurred_laplacian, title=&quot;image -&gt; blur -&gt; laplacian&quot;, cmap=&quot;gray&quot;)
 </pre></div>
 </div>
 </div>
@@ -1290,13 +1290,13 @@ Clipping input data to the valid range for imshow with RGB data ([0..1] for floa
 <p>Нелинейный <a class="reference external" href="https://docs.opencv.org/3.4/dd/d1a/group__imgproc__feature.html#ga04723e007ed888ddf11d9ba04e2232de">cv2.Canny</a> предназначен специально для поиска контуров.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">canny</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">Canny</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="mi">180</span><span class="p">)</span>
-<span class="n">blured</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">GaussianBlur</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">blurred_canny</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">Canny</span><span class="p">(</span><span class="n">blured</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">180</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>canny = cv2.Canny(image, 130, 180)
+blured = cv2.GaussianBlur(image, (3, 3), 0)
+blurred_canny = cv2.Canny(blured, 100, 180)
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
-<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">canny</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;image -&gt; canny&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
-<span class="n">show_image</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">blurred_canny</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;image -&gt; blur -&gt; canny&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+fig, axs = plt.subplots(figsize=(10, 5), ncols=2, layout=&quot;tight&quot;)
+show_image(axs[0], canny, title=&quot;image -&gt; canny&quot;, cmap=&quot;gray&quot;)
+show_image(axs[1], blurred_canny, title=&quot;image -&gt; blur -&gt; canny&quot;, cmap=&quot;gray&quot;)
 </pre></div>
 </div>
 </div>

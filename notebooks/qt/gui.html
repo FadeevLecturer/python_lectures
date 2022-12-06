@@ -1041,42 +1041,42 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display_html</span> <span class="k">as</span> <span class="n">display</span>
-<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span>
-<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from IPython.display import display_html as display
+from ipywidgets import interact
+import ipywidgets as widgets
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+import numpy as np
+from matplotlib import pyplot as plt
 
-<span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">omega</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="n">fontsize</span><span class="p">):</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;font.size&quot;</span><span class="p">:</span><span class="n">fontsize</span><span class="p">})</span>
+def plot(fname, omega, color, title, grid, fontsize):
+    plt.rcParams.update({&quot;font.size&quot;:fontsize})
     
-    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
-    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$x$&quot;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;$y$&quot;</span><span class="p">)</span>
+    x = np.linspace(0, 2 * np.pi, 200)
+    fig, ax = plt.subplots(figsize=(10, 9))
+    ax.set_ylim(-1, 1)
+    ax.set_xlabel(&quot;$x$&quot;)
+    ax.set_ylabel(&quot;$y$&quot;)
     
-    <span class="n">f</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">np</span><span class="p">,</span> <span class="n">fname</span><span class="p">)</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">omega</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">fname</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    f = getattr(np, fname)
+    y = f(omega * x)
+    ax.plot(x, y, label=fname, color=color)
 
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">grid</span><span class="p">:</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+    ax.set_title(title)
+    if grid:
+        ax.grid()
 
-<span class="n">interactive_plot</span> <span class="o">=</span> <span class="n">interact</span><span class="p">(</span>
-    <span class="n">plot</span><span class="p">,</span>
-    <span class="n">fname</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;sin&quot;</span><span class="p">,</span> <span class="s2">&quot;cos&quot;</span><span class="p">],</span>
-    <span class="n">omega</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">FloatSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mf">4.</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">1.</span><span class="p">),</span> 
-    <span class="n">color</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">ColorPicker</span><span class="p">(</span><span class="n">concise</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;pick a color&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">),</span>
-    <span class="n">title</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">&quot;Interactive plot&quot;</span><span class="p">,</span> <span class="n">placeholder</span><span class="o">=</span><span class="s2">&quot;type the title&quot;</span><span class="p">,</span>
-    <span class="n">disription</span><span class="o">=</span><span class="s2">&quot;String:&quot;</span><span class="p">),</span>
-    <span class="n">grid</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">Checkbox</span><span class="p">(),</span>
-    <span class="n">fontsize</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">36</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
-<span class="p">)</span>
+interactive_plot = interact(
+    plot,
+    fname=[&quot;sin&quot;, &quot;cos&quot;],
+    omega=widgets.FloatSlider(min=1., max=4., value=1.), 
+    color=widgets.ColorPicker(concise=False, description=&#39;pick a color&#39;, value=&#39;blue&#39;),
+    title=widgets.Text(value=&quot;Interactive plot&quot;, placeholder=&quot;type the title&quot;,
+    disription=&quot;String:&quot;),
+    grid=widgets.Checkbox(),
+    fontsize=widgets.IntSlider(min=12, max=36, step=2, value=18)
+)
 
-<span class="n">interactive_plot</span>
+interactive_plot
 </pre></div>
 </div>
 </div>

@@ -1010,15 +1010,15 @@ title="Print to PDF"
 <p>Если тело функции содержит хотя бы одно ключевое слово <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#yield">yield</a>, то это так называемая <a class="reference external" href="https://docs.python.org/3/glossary.html#term-generator">функция-генератор</a>. Вызов функции генератора не приводит к исполнению тела функции. Вместо этого функция-генератор возвращает <a class="reference external" href="https://docs.python.org/3/glossary.html#term-generator-iterator">объект генератора</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generator_function</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Начало функции.&quot;</span><span class="p">)</span>
-    <span class="k">yield</span> <span class="mi">0</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def generator_function():
+    print(&quot;Начало функции.&quot;)
+    yield 0
 
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">generator_function</span><span class="p">))</span>
+print(type(generator_function))
 
 
-<span class="n">generator_object</span> <span class="o">=</span> <span class="n">generator_function</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">generator_object</span><span class="p">))</span>
+generator_object = generator_function()
+print(type(generator_object))
 </pre></div>
 </div>
 </div>
@@ -1039,15 +1039,15 @@ title="Print to PDF"
 <p>Продемонстрируем особенность объекта генератора на примере. Для этого напишем функцию-генератор обратного отсчета с 2.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">countdown_from_2</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Начинаю обратный отсчет с двух.&quot;</span><span class="p">)</span>
-    <span class="k">yield</span> <span class="mi">2</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Продолжаю обратный отсчет. Следующее значение 1.&quot;</span><span class="p">)</span>
-    <span class="k">yield</span> <span class="mi">1</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Обратный отсчет закончен.&quot;</span><span class="p">)</span>
-    <span class="k">return</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def countdown_from_2():
+    print(f&quot;Начинаю обратный отсчет с двух.&quot;)
+    yield 2
+    print(&quot;Продолжаю обратный отсчет. Следующее значение 1.&quot;)
+    yield 1
+    print(&quot;Обратный отсчет закончен.&quot;)
+    return 
 
-<span class="n">g</span> <span class="o">=</span> <span class="n">countdown_from_2</span><span class="p">()</span>
+g = countdown_from_2()
 </pre></div>
 </div>
 </div>
@@ -1056,7 +1056,7 @@ title="Print to PDF"
 <p>Применим функцию <code class="docutils literal notranslate"><span class="pre">next</span></code> к объекту генератора.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Функция next вернула значение </span><span class="si">{</span><span class="nb">next</span><span class="p">(</span><span class="n">g</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;Функция next вернула значение {next(g)}.&quot;)
 </pre></div>
 </div>
 </div>
@@ -1080,7 +1080,7 @@ title="Print to PDF"
 <p>Применим функцию <code class="docutils literal notranslate"><span class="pre">next</span></code> ещё раз.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Функция next вернула значение </span><span class="si">{</span><span class="nb">next</span><span class="p">(</span><span class="n">g</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;Функция next вернула значение {next(g)}.&quot;)
 </pre></div>
 </div>
 </div>
@@ -1114,10 +1114,10 @@ title="Print to PDF"
 <p>Ключевое слово <code class="docutils literal notranslate"><span class="pre">return</span></code> в генераторе возбуждает исключение <code class="docutils literal notranslate"><span class="pre">StopIteration</span></code>, что приводит к выходу из тела функции генератора.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="nb">next</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
-<span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Генератор исчерпан.&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>try:
+    next(g)
+except StopIteration:
+    print(&quot;Генератор исчерпан.&quot;)
 </pre></div>
 </div>
 </div>
@@ -1135,13 +1135,13 @@ title="Print to PDF"
 <p>В качестве примера рассмотрим наивную реализацию альтернативы <code class="docutils literal notranslate"><span class="pre">range</span></code>, но для действительных чисел.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">frange</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
-    <span class="k">while</span> <span class="n">start</span> <span class="o">&lt;</span> <span class="n">stop</span><span class="p">:</span>
-        <span class="k">yield</span> <span class="n">start</span>
-        <span class="n">start</span> <span class="o">+=</span> <span class="n">step</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def frange(start, stop, step=1.0):
+    while start &lt; stop:
+        yield start
+        start += step
 
-<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">frange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+for x in frange(0, 1, 0.1):
+    print(x, end=&quot; &quot;)
 </pre></div>
 </div>
 </div>
@@ -1159,26 +1159,26 @@ title="Print to PDF"
 \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from math import sqrt
 
-<span class="k">def</span> <span class="nf">list_of_terms</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">[</span><span class="mf">1.</span><span class="o">/</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">)]</span>
-
-
-<span class="k">def</span> <span class="nf">generator_of_terms</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
-        <span class="k">yield</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">n</span><span class="p">)</span>
+def list_of_terms(N):
+    return [1./(n * n) for n in range(1, N)]
 
 
-<span class="k">def</span> <span class="nf">pi_from_sum</span><span class="p">(</span><span class="n">S</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="n">S</span><span class="p">)</span>
+def generator_of_terms(N):
+    for n in range(1, N):
+        yield 1/(n * n)
 
 
-<span class="n">N</span> <span class="o">=</span> <span class="mi">1_000_000</span>
-<span class="n">S1</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">list_of_terms</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
-<span class="n">S2</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">generator_of_terms</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
+def pi_from_sum(S):
+    return sqrt(6*S)
 
-<span class="nb">print</span><span class="p">(</span><span class="n">pi_from_sum</span><span class="p">(</span><span class="n">S1</span><span class="p">),</span> <span class="n">pi_from_sum</span><span class="p">(</span><span class="n">S2</span><span class="p">))</span>
+
+N = 1_000_000
+S1 = sum(list_of_terms(N))
+S2 = sum(generator_of_terms(N))
+
+print(pi_from_sum(S1), pi_from_sum(S2))
 </pre></div>
 </div>
 </div>
@@ -1192,7 +1192,7 @@ title="Print to PDF"
 <p>Т.к. генератор поддерживает протокол итерации, то при необходимости можно получить список из генератора.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">frange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(list(frange(0, 1, 0.1)))
 </pre></div>
 </div>
 </div>
@@ -1209,11 +1209,11 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">count</span><span class="p">():</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="k">yield</span> <span class="n">x</span>
-        <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def count():
+    x = 1
+    while True:
+        yield x
+        x += 1
 </pre></div>
 </div>
 </div>
@@ -1230,15 +1230,15 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">getsizeof</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from sys import getsizeof
 
-<span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1_000_000</span><span class="p">)]</span>
-<span class="n">g</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1_000_000</span><span class="p">))</span>
+l = [x * x for x in range(1_000_000)]
+g = (x * x for x in range(1_000_000))
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Список занимает </span><span class="si">{</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><span class="si">}</span><span class="s2"> байт&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Генератор занимает </span><span class="si">{</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">g</span><span class="p">)</span><span class="si">}</span><span class="s2"> байт&quot;</span><span class="p">)</span>
+print(f&quot;Список занимает {getsizeof(l)} байт&quot;)
+print(f&quot;Генератор занимает {getsizeof(g)} байт&quot;)
 
-<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">l</span><span class="p">),</span> <span class="nb">sum</span><span class="p">(</span><span class="n">g</span><span class="p">))</span>
+print(sum(l), sum(g))
 </pre></div>
 </div>
 </div>

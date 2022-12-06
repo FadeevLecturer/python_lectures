@@ -943,6 +943,23 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#id3">
    Минимизация функции многих переменных
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Общий случай
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Известна первая производная
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Известны первая и вторая производные
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -972,6 +989,23 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#id3">
    Минимизация функции многих переменных
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Общий случай
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Известна первая производная
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Известны первая и вторая производные
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -988,56 +1022,61 @@ title="Print to PDF"
 <p>Подмодуль <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/optimize.html#module-scipy.optimize">scipy.optimize</a> содержит в себе множество методов для решения задач оптимизации (минимизация, максимизация).</p>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from matplotlib import pyplot as plt
 
 
-<span class="k">def</span> <span class="nf">configure_matplotlib</span><span class="p">():</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="n">usetex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;axes.titlesize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">28</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;axes.labelsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">24</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;legend.fontsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">24</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;xtick.labelsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;ytick.labelsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">18</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;text.latex.preamble&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">    \usepackage[utf8]</span><span class="si">{inputenc}</span><span class="s2"></span>
-<span class="s2">    \usepackage[english,russian]</span><span class="si">{babel}</span><span class="s2"></span>
-<span class="s2">    \usepackage</span><span class="si">{amsmath}</span><span class="s2"></span>
-<span class="s2">    &quot;&quot;&quot;</span>
+def configure_matplotlib():
+    plt.rc(&#39;text&#39;, usetex=True)
+    plt.rcParams[&quot;axes.titlesize&quot;] = 28
+    plt.rcParams[&quot;axes.labelsize&quot;] = 24
+    plt.rcParams[&quot;legend.fontsize&quot;] = 24
+    plt.rcParams[&quot;xtick.labelsize&quot;] = plt.rcParams[&quot;ytick.labelsize&quot;] = 18
+    plt.rcParams[&quot;text.latex.preamble&quot;] = r&quot;&quot;&quot;
+    \usepackage[utf8]{inputenc}
+    \usepackage[english,russian]{babel}
+    \usepackage{amsmath}
+    &quot;&quot;&quot;
 
-<span class="n">configure_matplotlib</span><span class="p">()</span>
+configure_matplotlib()
 </pre></div>
 </div>
 </div>
 </div>
 <section id="id2">
 <h2>Минимизация скалярной функции одного аргумента<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
-<p>Функция <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize_scalar.html#scipy.optimize.minimize_scalar">scipy.optimize.minimize_scalar</a> ищет минимум функции <span class="math notranslate nohighlight">\(f\colon \mathbb{R} \to \mathbb{R}\)</span>, т.е. решает задачу</p>
+<p>Функция <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize_scalar.html#scipy.optimize.minimize_scalar">scipy.optimize.minimize_scalar</a> ищет минимум функции <span class="math notranslate nohighlight">\(f\colon \mathbb{R} \to \mathbb{R}\)</span> при независимой переменной в области <span class="math notranslate nohighlight">\(D\subset\mathbb{R}\)</span>, т.е. решает задачу</p>
 <div class="math notranslate nohighlight">
 \[
-f(x) \sim \min_{x \in D}.
+f(x) \sim \min_{x \in D},
+\]</div>
+<p>иными словами задачу поиска <span class="math notranslate nohighlight">\(x^*\in\mathbb{R}\)</span>, такого что</p>
+<div class="math notranslate nohighlight">
+\[
+f(x^*) = \min\limits_{x\in D} f(x).
 \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">optimize</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
+from scipy import optimize
+from matplotlib import pyplot as plt
 
 
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+def f(x):
+    return (x - 2) * x * (x + 2)**2
 
 
-<span class="n">solution</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">minimize_scalar</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">solution</span><span class="p">)</span>
+solution = optimize.minimize_scalar(f)
+print(solution)
 
 
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+x = np.linspace(-4, 3, 100)
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$f(x)$&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">solution</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">solution</span><span class="o">.</span><span class="n">fun</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;найденный минимум&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$x$&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;$y$&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+fig, ax = plt.subplots(figsize=(8, 6), layout=&quot;tight&quot;)
+ax.plot(x, f(x), label=r&quot;$f(x)$&quot;)
+ax.scatter(solution.x, solution.fun, color=&quot;red&quot;, label=&quot;найденный минимум&quot;)
+ax.set_xlabel(&quot;$x$&quot;)
+ax.set_ylabel(&quot;$y$&quot;)
+ax.legend()
 </pre></div>
 </div>
 </div>
@@ -1050,7 +1089,7 @@ f(x) \sim \min_{x \in D}.
        x: 1.2807764040333458
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1fcbc7a4cd0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x2a85390ec50&gt;
 </pre></div>
 </div>
 <img alt="../../_images/optimization_3_2.png" src="../../_images/optimization_3_2.png" />
@@ -1059,16 +1098,16 @@ f(x) \sim \min_{x \in D}.
 <p>У функции <span class="math notranslate nohighlight">\(f(x) = (x - 1)x(x + 2)^2\)</span> два локальных минимума и функция <code class="docutils literal notranslate"><span class="pre">minimize_scalar</span></code> вернула из них глобальный. Можно сузить поиск область поиска минимума используя метод <code class="docutils literal notranslate"><span class="pre">bounded</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span>
-<span class="n">solution</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">minimize_scalar</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;bounded&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a, b = -3, 1
+solution = optimize.minimize_scalar(f, bounds=(a, b), method=&quot;bounded&quot;)
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;$f(x)$&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">solution</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">solution</span><span class="o">.</span><span class="n">fun</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;найденный минимум&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$x$&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;$y$&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;зона поиска&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+fig, ax = plt.subplots(figsize=(8, 6), layout=&quot;tight&quot;)
+ax.plot(x, f(x), label=&quot;$f(x)$&quot;)
+ax.scatter(solution.x, solution.fun, color=&quot;red&quot;, label=&quot;найденный минимум&quot;)
+ax.set_xlabel(&quot;$x$&quot;)
+ax.set_ylabel(&quot;$y$&quot;)
+ax.axvspan(a, b, color=&quot;green&quot;, alpha=0.3, label=&quot;зона поиска&quot;)
+ax.legend()
 </pre></div>
 </div>
 </div>
@@ -1082,42 +1121,55 @@ f(x) \sim \min_{x \in D}.
 </section>
 <section id="id3">
 <h2>Минимизация функции многих переменных<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
-<p>Функция <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html">scipy.optimize.minimize</a> предназначена для минимизации функции многих переменных. Рассмотрим её на примере <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%A4%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F_%D0%A0%D0%BE%D0%B7%D0%B5%D0%BD%D0%B1%D1%80%D0%BE%D0%BA%D0%B0">функции Розенброка</a></p>
+<section id="id4">
+<h3>Общий случай<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<p>Функция <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html">scipy.optimize.minimize</a> предназначена для минимизации функции многих переменных <span class="math notranslate nohighlight">\(f\colon\mathbb{R}^n\to\mathbb{R}\)</span> при независимой переменной в области <span class="math notranslate nohighlight">\(D\subset\mathbb{R}^n\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
-f(x, y) = (1 - x)^2 + 100(y - x^2)^2.
+f(\vec{x}) \sim \min_{\vec{x}\in D}.
 \]</div>
-<p>Её минимум равен 0, который достигается при <span class="math notranslate nohighlight">\(x = y = 1\)</span>. Построим её график. Эта функция и две первые её производные определены в <code class="docutils literal notranslate"><span class="pre">SciPy</span></code>: <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.rosen.html">rosen</a>, <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.rosen_der.html">rosen_der</a> и <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.rosen_hess.html">rosen_hess</a>.</p>
-<div class="cell docutils container">
+<p>При этом важно определить минимизируемую функцию именно принимающей один векторный аргумент, а не <span class="math notranslate nohighlight">\(n\)</span> скалярных.</p>
+<p>В качестве примера рассмотрим поиск минимума <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%A4%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F_%D0%A0%D0%BE%D0%B7%D0%B5%D0%BD%D0%B1%D1%80%D0%BE%D0%BA%D0%B0">функции Розенброка</a></p>
+<div class="math notranslate nohighlight">
+\[
+f(\alpha, \beta) = (1 - \alpha)^2 + 100(\beta - \alpha^2)^2.
+\]</div>
+<p>Её минимум равен 0, который достигается при <span class="math notranslate nohighlight">\(\alpha = \beta = 1\)</span>. Для минимизации функции средствами <code class="docutils literal notranslate"><span class="pre">SciPy</span></code> необходимо определить её в виде функции одного векторного аргумента. Например, если положить, что <span class="math notranslate nohighlight">\(\vec{x}=\begin{pmatrix}x_1 \\ x_2\end{pmatrix}=\begin{pmatrix}\alpha \\ \beta\end{pmatrix}\)</span>, то функцию Розенброка можно записать в виде</p>
+<div class="math notranslate nohighlight">
+\[
+f(\vec{x}) = (1 - x_1)^2 + 100(x_2 - x_1^2)^2.
+\]</div>
+<p>Именно в таком виде она уже определена в <code class="docutils literal notranslate"><span class="pre">SciPy</span></code>: <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.rosen.html">rosen</a>. Кроме того в <code class="docutils literal notranslate"><span class="pre">SciPy</span></code> доступны её градиент <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.rosen_der.html">rosen_der</a> и матрица Гессе <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.rosen_hess.html">rosen_hess</a>. В ячейке ниже строится график этой функции.</p>
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">optimize</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
+from scipy import optimize
+from matplotlib import pyplot as plt
 
 
-<span class="n">f</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">rosen</span>
+f = optimize.rosen
 
 
-<span class="k">def</span> <span class="nf">plot_surface</span><span class="p">():</span>
-    <span class="n">n_points</span> <span class="o">=</span> <span class="mi">100</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">n_points</span><span class="p">)</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">0.3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">n_points</span><span class="p">)</span>
-    <span class="n">xx</span><span class="p">,</span> <span class="n">yy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">xx</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">yy</span><span class="o">.</span><span class="n">flatten</span><span class="p">()])</span>
-    <span class="n">zz</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">n_points</span><span class="p">,</span> <span class="n">n_points</span><span class="p">)</span>
+def plot_surface():
+    n_points = 100
+    x = np.linspace(-1.5, 2.0, n_points)
+    y = np.linspace(-0.3, 3, n_points)
+    xx, yy = np.meshgrid(x, y)
+    X = np.vstack([xx.flatten(), yy.flatten()])
+    zz = f(X).reshape(n_points, n_points)
     
-    <span class="n">levels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">25</span><span class="p">)])</span>
+    levels = np.hstack([np.linspace(0, 200, 25), np.linspace(250, 2000, 25)])
     
-    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
-    <span class="n">cf</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">zz</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="n">levels</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;coolwarm&quot;</span><span class="p">)</span>
-    <span class="n">cbar</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cf</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$x$&quot;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;$y$&quot;</span><span class="p">)</span>
-    <span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;$z$&quot;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;violet&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;глобальный минимум&quot;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">ax</span>
+    fig, ax = plt.subplots(figsize=(11, 10), layout=&quot;tight&quot;)
+    cf = ax.contourf(xx, yy, zz, levels=levels, cmap=&quot;coolwarm&quot;)
+    cbar = fig.colorbar(cf)
+    ax.set_xlabel(&quot;$x$&quot;)
+    ax.set_ylabel(&quot;$y$&quot;)
+    cbar.set_label(&quot;$z$&quot;)
+    ax.scatter([1], [1], marker=&quot;*&quot;, s=200, color=&quot;violet&quot;, label=&quot;глобальный минимум&quot;)
+    return ax
 
-<span class="n">plot_surface</span><span class="p">()</span>
+plot_surface()
 </pre></div>
 </div>
 </div>
@@ -1131,12 +1183,12 @@ f(x, y) = (1 - x)^2 + 100(y - x^2)^2.
 <p>В самой простой своей форме достаточно передать методу <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html">optimize.minimize</a> минимизируемую функцию <span class="math notranslate nohighlight">\(f\)</span> и начальное приближение <span class="math notranslate nohighlight">\(x_0\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">solution</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">solution</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>solution = optimize.minimize(f, x0=[3, 0])
+print(solution)
 
-<span class="n">ax</span> <span class="o">=</span> <span class="n">plot_surface</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">solution</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">solution</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;найденный минимум&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+ax = plot_surface()
+ax.scatter(solution.x[0], solution.x[1], color=&quot;red&quot;, label=&quot;найденный минимум&quot;)
+ax.legend()
 </pre></div>
 </div>
 </div>
@@ -1160,17 +1212,21 @@ f(x, y) = (1 - x)^2 + 100(y - x^2)^2.
 <img alt="../../_images/optimization_9_2.png" src="../../_images/optimization_9_2.png" />
 </div>
 </div>
-<p>Из возвращаемого значения видно, что метод успешно сошелся и алгоритму потребовалось 42 итерации и 168 вызовов функции <code class="docutils literal notranslate"><span class="pre">f</span></code>, чтобы сойтись. Передадим этому методу функцию, вычисляющую матрицу градиент искомой функции. Для этого необходимо использовать параметр <code class="docutils literal notranslate"><span class="pre">jac</span></code> этой функции.</p>
+<p>Из возвращаемого значения видно, что метод успешно сошелся и алгоритму потребовалось 42 итерации и 168 вызовов функции <code class="docutils literal notranslate"><span class="pre">f</span></code>, чтобы сойтись.</p>
+</section>
+<section id="id5">
+<h3>Известна первая производная<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
+<p>Передадим этому методу функцию, вычисляющую матрицу градиент искомой функции. Для этого необходимо использовать параметр <code class="docutils literal notranslate"><span class="pre">jac</span></code> этой функции.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jacobian</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">rosen_der</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>jacobian = optimize.rosen_der
 
-<span class="n">solution</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">jac</span><span class="o">=</span><span class="n">jacobian</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">solution</span><span class="p">)</span>
+solution = optimize.minimize(f, x0=[3, 0], jac=jacobian)
+print(solution)
 
-<span class="n">ax</span> <span class="o">=</span> <span class="n">plot_surface</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">solution</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">solution</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;найденный минимум&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+ax = plot_surface()
+ax.scatter(solution.x[0], solution.x[1], color=&quot;red&quot;, label=&quot;найденный минимум&quot;)
+ax.legend()
 </pre></div>
 </div>
 </div>
@@ -1195,17 +1251,20 @@ f(x, y) = (1 - x)^2 + 100(y - x^2)^2.
 </div>
 </div>
 <p>Количество итераций осталось прежним, а количество вызовов функции <code class="docutils literal notranslate"><span class="pre">f</span></code> снизилось до 35. Это достигается за счет того, что метод минимизации вычисляет производную, вызывая переданную функцию <code class="docutils literal notranslate"><span class="pre">jac</span></code>, а до этого он её оценивал численно, что требовало дополнительных вызовов <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p>
+</section>
+<section id="id6">
+<h3>Известны первая и вторая производные<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
 <p>Передадим ещё информацию о второй производной функции <code class="docutils literal notranslate"><span class="pre">f</span></code>, т.е. матрицу Гессе. Метод минимизации по умолчанию (<code class="docutils literal notranslate"><span class="pre">BFGS</span></code>) — метод первого порядка, чтобы задействовать матрицу Гессе, необходимо использовать метод второго порядка, например, <code class="docutils literal notranslate"><span class="pre">dogleg</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hessian</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">rosen_hess</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>hessian = optimize.rosen_hess
 
-<span class="n">solution</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;dogleg&quot;</span><span class="p">,</span> <span class="n">jac</span><span class="o">=</span><span class="n">jacobian</span><span class="p">,</span> <span class="n">hess</span><span class="o">=</span><span class="n">hessian</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">solution</span><span class="p">)</span>
+solution = optimize.minimize(f, [3, 0], method=&quot;dogleg&quot;, jac=jacobian, hess=hessian)
+print(solution)
 
-<span class="n">ax</span> <span class="o">=</span> <span class="n">plot_surface</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">solution</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">solution</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;найденный минимум&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+ax = plot_surface()
+ax.scatter(solution.x[0], solution.x[1], color=&quot;red&quot;, label=&quot;найденный минимум&quot;)
+ax.legend()
 </pre></div>
 </div>
 </div>
@@ -1231,6 +1290,7 @@ f(x, y) = (1 - x)^2 + 100(y - x^2)^2.
 </div>
 </div>
 <p>Методу второго порядка потребовалось всего 17 итераций и 18 вызовов функции <code class="docutils literal notranslate"><span class="pre">f</span></code>, чтобы сойтись.</p>
+</section>
 </section>
 </section>
 

@@ -1082,8 +1082,8 @@ A[h(k)] = (k, v).
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_first_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;language&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="mf">3.8</span><span class="p">,</span> <span class="s2">&quot;room&quot;</span><span class="p">:</span> <span class="mi">542</span><span class="p">}</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">my_first_dict</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>my_first_dict = {&quot;language&quot;: &quot;python&quot;, &quot;version&quot;: 3.8, &quot;room&quot;: 542}
+print(my_first_dict)
 </pre></div>
 </div>
 </div>
@@ -1098,9 +1098,9 @@ A[h(k)] = (k, v).
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_dict_from_iterable</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="mi">200</span><span class="p">)])</span> <span class="c1"># словарь из списка пар (key, value)</span>
-<span class="n">a_dict_from_kwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">foo</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">bar</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>               <span class="c1"># используя именованные аргументы</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a_dict_from_iterable</span><span class="p">,</span> <span class="n">a_dict_from_kwargs</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a_dict_from_iterable = dict([(&#39;foo&#39;, 100), (&#39;bar&#39;, 200)]) # словарь из списка пар (key, value)
+a_dict_from_kwargs = dict(foo=100, bar=200)               # используя именованные аргументы
+print(a_dict_from_iterable, a_dict_from_kwargs)
 </pre></div>
 </div>
 </div>
@@ -1115,9 +1115,9 @@ A[h(k)] = (k, v).
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">an_empty_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>                               
-<span class="n">another_empty_dict</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">an_empty_dict</span><span class="p">,</span> <span class="n">another_empty_dict</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>an_empty_dict = dict()                               
+another_empty_dict = {}
+print(an_empty_dict, another_empty_dict)
 </pre></div>
 </div>
 </div>
@@ -1132,8 +1132,8 @@ A[h(k)] = (k, v).
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">squares</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)}</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">squares</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>squares = {x: x ** 2 for x in range(10)}
+print(squares)
 </pre></div>
 </div>
 </div>
@@ -1149,18 +1149,18 @@ A[h(k)] = (k, v).
 <p>Добавление, удаление и поиск значений по ключу разберем реализовав словарем … англо-русский словарь названий цифр. Ниже создаётся такой словарь.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eng_to_ru</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;one&quot;</span><span class="p">:</span> <span class="s2">&quot;один&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;two&quot;</span><span class="p">:</span> <span class="s2">&quot;два&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;three&quot;</span><span class="p">:</span> <span class="s2">&quot;три&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;fou&quot;</span><span class="p">:</span> <span class="s2">&quot;четыре&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;five&quot;</span><span class="p">:</span> <span class="s2">&quot;пят&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;six&quot;</span><span class="p">:</span> <span class="s2">&quot;шесть&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;seven&quot;</span><span class="p">:</span> <span class="s2">&quot;семь&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;eight&quot;</span><span class="p">:</span> <span class="s2">&quot;восемь&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;nine&quot;</span><span class="p">:</span> <span class="s2">&quot;девять&quot;</span><span class="p">,</span>
-    <span class="p">}</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">eng_to_ru</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>eng_to_ru = {
+    &quot;one&quot;: &quot;один&quot;,
+    &quot;two&quot;: &quot;два&quot;,
+    &quot;three&quot;: &quot;три&quot;,
+    &quot;fou&quot;: &quot;четыре&quot;,
+    &quot;five&quot;: &quot;пят&quot;,
+    &quot;six&quot;: &quot;шесть&quot;,
+    &quot;seven&quot;: &quot;семь&quot;,
+    &quot;eight&quot;: &quot;восемь&quot;,
+    &quot;nine&quot;: &quot;девять&quot;,
+    }
+print(eng_to_ru)
 </pre></div>
 </div>
 </div>
@@ -1177,8 +1177,8 @@ A[h(k)] = (k, v).
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">eng_to_ru</span><span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">eng_to_ru</span><span class="p">[</span><span class="s2">&quot;seven&quot;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(eng_to_ru[&quot;one&quot;])
+print(eng_to_ru[&quot;seven&quot;])
 </pre></div>
 </div>
 </div>
@@ -1193,7 +1193,7 @@ A[h(k)] = (k, v).
 <p>Искать таким синтаксисом можно только по существующим ключам. Например, попробуем спросить у словаря перевод слова “four”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">eng_to_ru</span><span class="p">[</span><span class="s2">&quot;four&quot;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(eng_to_ru[&quot;four&quot;])
 </pre></div>
 </div>
 </div>
@@ -1218,7 +1218,7 @@ A[h(k)] = (k, v).
 <p>Используем эти возможности для исправления опечаток в словаре. Для начала обратим внимание, что по ключу “five” находится значение “пят”, а не “пять”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">eng_to_ru</span><span class="p">[</span><span class="s2">&quot;five&quot;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(eng_to_ru[&quot;five&quot;])
 </pre></div>
 </div>
 </div>
@@ -1235,8 +1235,8 @@ A[h(k)] = (k, v).
 <p>Воспользуемся этим синтаксисом, чтобы исправить опечатку по ключу “five”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eng_to_ru</span><span class="p">[</span><span class="s2">&quot;five&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;пять&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">eng_to_ru</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>eng_to_ru[&quot;five&quot;] = &quot;пять&quot;
+print(eng_to_ru)
 </pre></div>
 </div>
 </div>
@@ -1263,10 +1263,10 @@ A[h(k)] = (k, v).
 <p>Применим этот синтаксис для того, чтобы удалить ключ <code class="docutils literal notranslate"><span class="pre">fou</span></code> из словаря. Здесь удобно также продемонстрировать, что хоть словари и не являются последовательностью, но их длину, т.е. количество ключей (или количество значение) можно спросить функцией <code class="docutils literal notranslate"><span class="pre">len</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">eng_to_ru</span><span class="p">))</span>
-<span class="k">del</span> <span class="n">eng_to_ru</span><span class="p">[</span><span class="s2">&quot;fou&quot;</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">((</span><span class="n">eng_to_ru</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">eng_to_ru</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(len(eng_to_ru))
+del eng_to_ru[&quot;fou&quot;]
+print(len((eng_to_ru)))
+print(eng_to_ru)
 </pre></div>
 </div>
 </div>
@@ -1286,8 +1286,8 @@ A[h(k)] = (k, v).
 <p>И теперь добавим значение <code class="docutils literal notranslate"><span class="pre">&quot;четыре&quot;</span></code> по верному ключу <code class="docutils literal notranslate"><span class="pre">&quot;four&quot;</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eng_to_ru</span><span class="p">[</span><span class="s2">&quot;four&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;четыре&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">eng_to_ru</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>eng_to_ru[&quot;four&quot;] = &quot;четыре&quot;
+print(eng_to_ru)
 </pre></div>
 </div>
 </div>
@@ -1304,16 +1304,16 @@ A[h(k)] = (k, v).
 <p>В разделе “<a class="reference internal" href="sequences.html#tuples-as-records"><span class="std std-ref">Кортежи в качестве записей</span></a>” кортежи использовались для представления данных о планетах.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">planets_tuples</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">(</span><span class="s2">&quot;Меркурий&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.0055</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;Венера&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.815</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;Земля&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1.</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;Марс&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.107</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;Юпитер&quot;</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mf">317.8</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;Сатурн&quot;</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mf">95.2</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;Уран&quot;</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mf">14.37</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;Нептун&quot;</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mf">17.15</span><span class="p">),</span>
-<span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>planets_tuples = [
+    (&quot;Меркурий&quot;, 0, 0.0055),
+    (&quot;Венера&quot;, 0, 0.815),
+    (&quot;Земля&quot;, 1, 1.),
+    (&quot;Марс&quot;, 2, 0.107),
+    (&quot;Юпитер&quot;, 62, 317.8),
+    (&quot;Сатурн&quot;, 34, 95.2),
+    (&quot;Уран&quot;, 27, 14.37),
+    (&quot;Нептун&quot;, 13, 17.15),
+]
 </pre></div>
 </div>
 </div>
@@ -1321,19 +1321,19 @@ A[h(k)] = (k, v).
 <p>Трансформируем эти кортежи в словари.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">planet_tuple_to_dictionary</span><span class="p">(</span><span class="n">planet</span><span class="p">):</span>
-    <span class="n">name</span><span class="p">,</span> <span class="n">n_moons</span><span class="p">,</span> <span class="n">mass</span> <span class="o">=</span> <span class="n">planet</span>
-    <span class="k">return</span> <span class="p">{</span>
-        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
-        <span class="s2">&quot;number of moons&quot;</span><span class="p">:</span> <span class="n">n_moons</span><span class="p">,</span>
-        <span class="s2">&quot;mass&quot;</span><span class="p">:</span> <span class="n">mass</span> 
-    <span class="p">}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def planet_tuple_to_dictionary(planet):
+    name, n_moons, mass = planet
+    return {
+        &quot;name&quot;: name,
+        &quot;number of moons&quot;: n_moons,
+        &quot;mass&quot;: mass 
+    }
 
-<span class="n">planets_dicts</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">planet</span> <span class="ow">in</span> <span class="n">planets_tuples</span><span class="p">:</span>
-    <span class="n">planets_dicts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">planet_tuple_to_dictionary</span><span class="p">(</span><span class="n">planet</span><span class="p">))</span>
+planets_dicts = []
+for planet in planets_tuples:
+    planets_dicts.append(planet_tuple_to_dictionary(planet))
 
-<span class="nb">print</span><span class="p">(</span><span class="n">planets_dicts</span><span class="p">)</span>
+print(planets_dicts)
 </pre></div>
 </div>
 </div>
@@ -1346,11 +1346,11 @@ A[h(k)] = (k, v).
 <p>Теперь обработка каждой отдельный планеты стала чуть нагляднее, так как каждая характеристика планеты хранится по осмысленному имени и нет необходимости запоминать, в каком порядке эти характеристики находятся в кортеже.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_planet</span><span class="p">(</span><span class="n">planet</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Планета </span><span class="si">{</span><span class="n">planet</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1"> имеет </span><span class="si">{</span><span class="n">planet</span><span class="p">[</span><span class="s2">&quot;number of moons&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1"> спутников. Её масса составляет </span><span class="si">{</span><span class="n">planet</span><span class="p">[</span><span class="s2">&quot;mass&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1"> земных масс.&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def print_planet(planet):
+    print(f&#39;Планета {planet[&quot;name&quot;]} имеет {planet[&quot;number of moons&quot;]} спутников. Её масса составляет {planet[&quot;mass&quot;]} земных масс.&#39;)
 
-<span class="k">for</span> <span class="n">planet</span> <span class="ow">in</span> <span class="n">planets_dicts</span><span class="p">:</span>
-    <span class="n">print_planet</span><span class="p">(</span><span class="n">planet</span><span class="p">)</span>
+for planet in planets_dicts:
+    print_planet(planet)
 </pre></div>
 </div>
 </div>
@@ -1377,7 +1377,7 @@ A[h(k)] = (k, v).
 <p>вернет <code class="docutils literal notranslate"><span class="pre">True</span></code>, если в словаре <code class="docutils literal notranslate"><span class="pre">d</span></code> есть ключ <code class="docutils literal notranslate"><span class="pre">key</span></code>, и значение <code class="docutils literal notranslate"><span class="pre">False</span></code> иначе.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;one&quot;</span> <span class="ow">in</span> <span class="n">eng_to_ru</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(&quot;one&quot; in eng_to_ru)
 </pre></div>
 </div>
 </div>
@@ -1390,8 +1390,8 @@ A[h(k)] = (k, v).
 <p>Однако если вам хочется проверить наличие ключа, только потому что вы не уверены, что такой ключ будет присутствовать в словаре и избегаете возбуждение исключения <code class="docutils literal notranslate"><span class="pre">KeyError</span></code>, то лучше использовать метод <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict.get">get</a>, который возвращает значение по ключу, если таковой присутствует и возвращает заданное значение по умолчанию, если ключ отсутствует.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">eng_to_ru</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="s2">&quot;Перевод не известен!&quot;</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">eng_to_ru</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;eleven&quot;</span><span class="p">,</span> <span class="s2">&quot;Перевод не известен!&quot;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(eng_to_ru.get(&quot;one&quot;, &quot;Перевод не известен!&quot;))
+print(eng_to_ru.get(&quot;eleven&quot;, &quot;Перевод не известен!&quot;))
 </pre></div>
 </div>
 </div>
@@ -1405,10 +1405,10 @@ A[h(k)] = (k, v).
 <p>Есть очень похожий метод <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict.pop">pop</a>, который работает точно также, но если ключ в словаре присутствует, то пара извлекается из словаря и вызывающему коду возвращается значение из этой пары.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eng_to_ru</span><span class="p">[</span><span class="s2">&quot;zero&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;ноль&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">eng_to_ru</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">eng_to_ru</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;zero&quot;</span><span class="p">,</span> <span class="s2">&quot;Перевод не известен!&quot;</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">eng_to_ru</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>eng_to_ru[&quot;zero&quot;] = &quot;ноль&quot;
+print(eng_to_ru)
+print(eng_to_ru.pop(&quot;zero&quot;, &quot;Перевод не известен!&quot;))
+print(eng_to_ru)
 </pre></div>
 </div>
 </div>
@@ -1425,8 +1425,8 @@ A[h(k)] = (k, v).
 <p>По словарю можно итерироваться разными способами. Если указать в цикле <code class="docutils literal notranslate"><span class="pre">for</span></code> сам словарь, то итерация будет производиться по его ключам.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">eng_to_ru</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for key in eng_to_ru:
+    print(key, end=&quot; &quot;)
 </pre></div>
 </div>
 </div>
@@ -1439,8 +1439,8 @@ A[h(k)] = (k, v).
 <p>Если требуются не ключи, а только значения, то удобно использовать метод <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict.values">values</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">eng_to_ru</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for value in eng_to_ru.values():
+    print(value, end=&quot; &quot;) 
 </pre></div>
 </div>
 </div>
@@ -1453,8 +1453,8 @@ A[h(k)] = (k, v).
 <p>Если требуются и ключи и значения, то оптимальнее всего воспользоваться методом <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict.values">items</a>, который итерируется сразу по парам (<code class="docutils literal notranslate"><span class="pre">ключ</span></code>, <code class="docutils literal notranslate"><span class="pre">значение</span></code>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">eng_to_ru</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">:</span><span class="s2">6</span><span class="si">}</span><span class="s2"> =&gt; </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for key, value in eng_to_ru.items():
+    print(f&quot;{key:6} =&gt; {value}&quot;)
 </pre></div>
 </div>
 </div>

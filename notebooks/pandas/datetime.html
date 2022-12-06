@@ -1125,21 +1125,21 @@ title="Print to PDF"
 <p>Директивы <code class="docutils literal notranslate"><span class="pre">%a</span></code>, <code class="docutils literal notranslate"><span class="pre">%A</span></code>, <code class="docutils literal notranslate"><span class="pre">%b</span></code>, <code class="docutils literal notranslate"><span class="pre">%B</span></code>, <code class="docutils literal notranslate"><span class="pre">%p</span></code> вставляют строковые представления в соответствии с переменными среды. Хотя в стандартной библиотеке есть модуль <a class="reference external" href="https://docs.python.org/3/library/locale.html#module-locale">locale</a>, который позволяет локализовать вывод таких значений методом <a class="reference external" href="https://docs.python.org/3/library/locale.html#locale.setlocale">locale.setlocale</a> (<code class="docutils literal notranslate"><span class="pre">locale.setlocale(locale.LC_ALL,</span> <span class="pre">&quot;ru_RU&quot;)</span></code> для русского), рекомендуется использовать для таких целей библиотеку <a class="reference external" href="http://babel.pocoo.org/en/latest/index.html">babel</a> (подробнее <a class="reference external" href="http://babel.pocoo.org/en/latest/dates.html">здесь</a>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import time
 
 
-<span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span> <span class="c1"># in seconds</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">t0</span><span class="p">)</span>
+t0 = time.time()
+time.sleep(1.0) # in seconds
+print(t0)
 
-<span class="nb">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">(</span><span class="n">t0</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">())</span>
+print(time.ctime(t0))
+print(time.ctime())
 
-<span class="nb">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">t0</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">())</span>
+print(time.localtime(t0))
+print(time.localtime())
 
-<span class="nb">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">.%m.%Y %H:%M:%S&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">t0</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">.%m.%Y %H:%M:%S&quot;</span><span class="p">))</span>
+print(time.strftime(r&quot;%d.%m.%Y %H:%M:%S&quot;, time.localtime(t0)))
+print(time.strftime(r&quot;%d.%m.%Y %H:%M:%S&quot;))
 </pre></div>
 </div>
 </div>
@@ -1178,7 +1178,7 @@ time.struct_time(tm_year=2021, tm_mon=12, tm_mday=1, tm_hour=21, tm_min=7, tm_se
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import datetime
 </pre></div>
 </div>
 </div>
@@ -1195,9 +1195,9 @@ time.struct_time(tm_year=2021, tm_mon=12, tm_mday=1, tm_hour=21, tm_min=7, tm_se
 <p>Например, явно вызвав конструктор.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">the_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">1963</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-<span class="n">the_date_formatted</span> <span class="o">=</span> <span class="n">the_date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%m/</span><span class="si">%d</span><span class="s2">/%Y&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Первый полёт в космос: </span><span class="si">{</span><span class="n">the_date_formatted</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>the_date = datetime.date(year=1963, month=4, day=12)
+the_date_formatted = the_date.strftime(&quot;%m/%d/%Y&quot;)
+print(f&quot;Первый полёт в космос: {the_date_formatted}&quot;)
 </pre></div>
 </div>
 </div>
@@ -1210,8 +1210,8 @@ time.struct_time(tm_year=2021, tm_mon=12, tm_mday=1, tm_hour=21, tm_min=7, tm_se
 <p>Из <code class="docutils literal notranslate"><span class="pre">Unix-времени</span></code> методом <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.date.fromtimestamp">datetime.date.fromtimestamp</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">unix_epoch</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unix-epoch соответствует дате </span><span class="si">{</span><span class="n">unix_epoch</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>unix_epoch = datetime.date.fromtimestamp(0)
+print(f&quot;Unix-epoch соответствует дате {unix_epoch}.&quot;)
 </pre></div>
 </div>
 </div>
@@ -1228,10 +1228,11 @@ time.struct_time(tm_year=2021, tm_mon=12, tm_mday=1, tm_hour=21, tm_min=7, tm_se
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">today</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;День: </span><span class="si">{</span><span class="n">today</span><span class="o">.</span><span class="n">day</span><span class="si">}</span><span class="s2">, месяц: </span><span class="si">{</span><span class="n">today</span><span class="o">.</span><span class="n">month</span><span class="si">}</span><span class="s2">, год </span><span class="si">{</span><span class="n">today</span><span class="o">.</span><span class="n">year</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">today</span><span class="o">.</span><span class="n">weekday</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}</span><span class="s2"> день недели: </span><span class="si">{</span><span class="n">today</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%A&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+today = datetime.date.today()
+print(today)
+print(f&quot;День: {today.day}, месяц: {today.month}, год {today.year}&quot;)
+print(f&quot;{today.weekday() + 1} день недели: {today.strftime(&#39;%A&#39;)}&quot;)
 </pre></div>
 </div>
 </div>
@@ -1256,9 +1257,9 @@ time.struct_time(tm_year=2021, tm_mon=12, tm_mday=1, tm_hour=21, tm_min=7, tm_se
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">the_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">time</span><span class="p">(</span><span class="n">hour</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">minute</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span> 
-<span class="n">the_time_formatted</span> <span class="o">=</span> <span class="n">the_time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%H:%M&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Старт корабля Восток 1 состоялся в </span><span class="si">{</span><span class="n">the_time_formatted</span><span class="si">}</span><span class="s2"> по Московскому времени.&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>the_time = datetime.time(hour=9, minute=7) 
+the_time_formatted = the_time.strftime(&quot;%H:%M&quot;)
+print(f&quot;Старт корабля Восток 1 состоялся в {the_time_formatted} по Московскому времени.&quot;)
 </pre></div>
 </div>
 </div>
@@ -1286,11 +1287,11 @@ time.struct_time(tm_year=2021, tm_mon=12, tm_mday=1, tm_hour=21, tm_min=7, tm_se
 <p>Конструктор <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code> в качестве входных параметров принимает параметры обоих классов <code class="docutils literal notranslate"><span class="pre">datetime.date</span></code> и <code class="docutils literal notranslate"><span class="pre">datetime.time</span></code>. Также, можно предварительно создать объекты <code class="docutils literal notranslate"><span class="pre">datetime.date</span></code> и <code class="docutils literal notranslate"><span class="pre">datetime.time</span></code> и объединить их в <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code> методом <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime.combine">combine</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">olympics</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">1980</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">19</span><span class="p">,</span> <span class="n">hour</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">olympics</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;Церемония открытия московской олимпиады началась </span><span class="si">%d</span><span class="s2">.%m.%Y в %H:%M.&quot;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>olympics = datetime.datetime(year=1980, month=7, day=19, hour=16)
+print(olympics.strftime(&quot;Церемония открытия московской олимпиады началась %d.%m.%Y в %H:%M.&quot;))
 
-<span class="n">the_date_the_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="n">the_date</span><span class="p">,</span> <span class="n">the_time</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">the_date_the_time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;Старт корабля Восток 1 состоялся </span><span class="si">%d</span><span class="s2">/%m/%y в %H:%M по Московскому времени.&quot;</span><span class="p">))</span>
+the_date_the_time = datetime.datetime.combine(the_date, the_time)
+print(the_date_the_time.strftime(&quot;Старт корабля Восток 1 состоялся %d/%m/%y в %H:%M по Московскому времени.&quot;))
 </pre></div>
 </div>
 </div>
@@ -1304,11 +1305,11 @@ time.struct_time(tm_year=2021, tm_mon=12, tm_mday=1, tm_hour=21, tm_min=7, tm_se
 <p>Также есть и метод <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime.fromtimestamp">fromtimestamp</a>, который в данном случае учитывает часовой пояс системы, т.е. по количеству секунд, прошедших с полуночи по Гринвичу 1 января 1970 года, он возвращает дату и время, которые были в это время в этом часовом поясе. Метод <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime.utcfromtimestamp">utcfromtimestamp</a> делает то же самое, но не учитывая часовой пояс.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">unix_epoch_moscow</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">unix_epoch_moscow</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;Мировое Unix-время отсчитывается с %H:%M по московскому времени&quot;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>unix_epoch_moscow = datetime.datetime.fromtimestamp(0)
+print(unix_epoch_moscow.strftime(&quot;Мировое Unix-время отсчитывается с %H:%M по московскому времени&quot;))
 
-<span class="n">unix_epoch_UTC</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcfromtimestamp</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">unix_epoch_UTC</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;Мировое Unix-время отсчитывается с %H:%M UTC&quot;</span><span class="p">))</span>
+unix_epoch_UTC = datetime.datetime.utcfromtimestamp(0)
+print(unix_epoch_UTC.strftime(&quot;Мировое Unix-время отсчитывается с %H:%M UTC&quot;))
 </pre></div>
 </div>
 </div>
@@ -1322,14 +1323,14 @@ time.struct_time(tm_year=2021, tm_mon=12, tm_mday=1, tm_hour=21, tm_min=7, tm_se
 <p>Но чаще всего <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code> образуются методом <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime.strptime">datetime.datetime.strptime</a> из текстового представления. Формат текстового представления для времени отличается для разных стран/учреждений/организаций и т.д. Например, где-то 26 января записывается в виде “26.01”, а где-то в “01/26”. Чтобы модуль <code class="docutils literal notranslate"><span class="pre">datetime</span></code> смог разобраться, где в строке расположены значения, соответствующие номеру месяца, а где номеру дня, году, времени и т.п., необходимо передать в метод <code class="docutils literal notranslate"><span class="pre">strptime</span></code> форматирующую строку в качестве второго аргумента.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t1</span> <span class="o">=</span> <span class="s2">&quot;14 March 1879&quot;</span>
-<span class="n">t2</span> <span class="o">=</span> <span class="s2">&quot;2019-05-18T15:17:08.132263&quot;</span>
-<span class="n">t3</span> <span class="o">=</span> <span class="s2">&quot;11/12/63&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>t1 = &quot;14 March 1879&quot;
+t2 = &quot;2019-05-18T15:17:08.132263&quot;
+t3 = &quot;11/12/63&quot;
 
 
-<span class="nb">print</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2"> %B %Y&quot;</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">T%H:%M:%S.</span><span class="si">%f</span><span class="s2">&quot;</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">t3</span><span class="p">,</span> <span class="s2">&quot;%m/</span><span class="si">%d</span><span class="s2">/%y&quot;</span><span class="p">))</span>
+print(datetime.datetime.strptime(t1, &quot;%d %B %Y&quot;))
+print(datetime.datetime.strptime(t2, &quot;%Y-%m-%dT%H:%M:%S.%f&quot;))
+print(datetime.datetime.strptime(t3, &quot;%m/%d/%y&quot;))
 </pre></div>
 </div>
 </div>
@@ -1359,7 +1360,7 @@ time.struct_time(tm_year=2021, tm_mon=12, tm_mday=1, tm_hour=21, tm_min=7, tm_se
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">today</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>today - datetime.date(2000, 1, 1)
 </pre></div>
 </div>
 </div>
@@ -1372,11 +1373,11 @@ time.struct_time(tm_year=2021, tm_mon=12, tm_mday=1, tm_hour=21, tm_min=7, tm_se
 <p>Между сегодня и началом века прошло 8005 дней.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_day</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">yesterday</span> <span class="o">=</span> <span class="n">today</span> <span class="o">-</span> <span class="n">a_day</span>
-<span class="n">tomorrow</span> <span class="o">=</span> <span class="n">today</span> <span class="o">+</span> <span class="n">a_day</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Вчера: </span><span class="si">{</span><span class="n">yesterday</span><span class="si">}</span><span class="s2">,</span><span class="se">\n</span><span class="s2">Сегодня: </span><span class="si">{</span><span class="n">today</span><span class="si">}</span><span class="s2">,</span><span class="se">\n</span><span class="s2">Завтра: </span><span class="si">{</span><span class="n">tomorrow</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">yesterday</span> <span class="o">&lt;</span> <span class="n">today</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a_day = datetime.timedelta(days=1)
+yesterday = today - a_day
+tomorrow = today + a_day
+print(f&quot;Вчера: {yesterday},\nСегодня: {today},\nЗавтра: {tomorrow}&quot;)
+print(yesterday &lt; today)
 </pre></div>
 </div>
 </div>
@@ -1391,8 +1392,8 @@ True
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">t0</span><span class="p">)</span>
-<span class="n">dt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dt = datetime.datetime.now() - datetime.datetime.fromtimestamp(t0)
+dt
 </pre></div>
 </div>
 </div>
@@ -1409,11 +1410,11 @@ True
 <p>Для работы со временем <code class="docutils literal notranslate"><span class="pre">pandas</span></code> опирается на типы данных <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.datetime.html#datetime-units">np.datetime64 и np.timedelta64</a> из библиотеки <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>. Например, сделать <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code> типа <code class="docutils literal notranslate"><span class="pre">datetime64[ns]</span></code> можно методом <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.to_datetime.html">pd.to_datetime</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import pandas as pd
 
-<span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;2022-1-1&quot;</span><span class="p">,</span> <span class="s2">&quot;2022-1-2&quot;</span><span class="p">]</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-<span class="n">t</span>
+t = [&quot;2022-1-1&quot;, &quot;2022-1-2&quot;]
+t = pd.to_datetime(t)
+t
 </pre></div>
 </div>
 </div>
@@ -1427,9 +1428,9 @@ True
 <p>По умолчанию <code class="docutils literal notranslate"><span class="pre">pandas</span></code> парсит в формате <code class="docutils literal notranslate"><span class="pre">&quot;%Y-%m-%d&quot;</span></code>, но если данные представлены в другом формате, то можно его указать параметром format.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s2">&quot;12:00 1.1.22&quot;</span><span class="p">,</span> <span class="s2">&quot;11:00 2.1.22&quot;</span><span class="p">])</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;%H:%M </span><span class="si">%d</span><span class="s2">.%m.%y&quot;</span><span class="p">)</span>
-<span class="n">t</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>t = pd.Series([&quot;12:00 1.1.22&quot;, &quot;11:00 2.1.22&quot;])
+t = pd.to_datetime(t, format=&quot;%H:%M %d.%m.%y&quot;)
+t
 </pre></div>
 </div>
 </div>
@@ -1444,8 +1445,8 @@ dtype: datetime64[ns]
 <p>Иногда необходимо задавать точки времени с определенной периодичностью. Для это удобно использовать функцию <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.date_range.html">pd.date_range</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datetimerange</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">freq</span><span class="o">=</span><span class="s2">&quot;H&quot;</span><span class="p">)</span>
-<span class="n">datetimerange</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>datetimerange = pd.date_range(start=t.iloc[0], end=t.iloc[1], freq=&quot;H&quot;)
+datetimerange
 </pre></div>
 </div>
 </div>

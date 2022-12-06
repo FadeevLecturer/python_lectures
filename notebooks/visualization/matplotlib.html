@@ -1102,15 +1102,15 @@ title="Print to PDF"
 <p>Построение графиков в минималистичном варианте в <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code> осуществляется довольно просто: чтобы построить самый простой график, достаточно нескольких строк кода. Ниже приводится <a class="reference external" href="https://matplotlib.org/stable/users/getting_started/index.html#draw-a-first-plot">пример минимального исходного кода</a> из документации и генерируемый ей график. При этом первые 4 из 7 строк этого кода импортируют библиотеки и генерируют данные для построения графиков и лишь три последние строки кода отвечают за построение графика.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import matplotlib.pyplot as plt
+import numpy as np
 
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+x = np.linspace(0, 2 * np.pi, 200)
+y = np.sin(x)
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+fig, ax = plt.subplots()
+ax.plot(x, y)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -1148,56 +1148,56 @@ title="Print to PDF"
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
+from matplotlib import pyplot as plt
 
-<span class="c1"># генерация данных</span>
-<span class="n">omega</span> <span class="o">=</span> <span class="mi">8</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">t</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">omega</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">t</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">omega</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
-<span class="n">z</span> <span class="o">=</span> <span class="n">t</span>
+# генерация данных
+omega = 8 * np.pi
+t = np.linspace(0, 1, 300)
+x = t * np.cos(omega * t)
+y = t * np.sin(omega * t)
+z = t
 
-<span class="c1"># параметры</span>
-<span class="n">small_fontsize</span> <span class="o">=</span> <span class="mi">18</span>
-<span class="n">medium_fontsize</span> <span class="o">=</span> <span class="mi">20</span>
-<span class="n">large_fontsize</span> <span class="o">=</span> <span class="mi">22</span>
+# параметры
+small_fontsize = 18
+medium_fontsize = 20
+large_fontsize = 22
 
 
-<span class="c1"># создание `figure`</span>
-<span class="n">fig</span> <span class="o">=</span>  <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+# создание `figure`
+fig =  plt.figure(figsize=(14, 7))
 
-<span class="c1"># настройка `figure`</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Структура графиков в Matplotlib&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">large_fontsize</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">set_tight_layout</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+# настройка `figure`
+fig.suptitle(&quot;Структура графиков в Matplotlib&quot;, size=large_fontsize)
+fig.set_tight_layout(True)
 
-<span class="c1"># создание `axes` на левой половине  и правой половине `figure`</span>
-<span class="n">left_axes</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">right_axes</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s2">&quot;3d&quot;</span><span class="p">)</span>
+# создание `axes` на левой половине  и правой половине `figure`
+left_axes = fig.add_subplot(1, 2, 1)
+right_axes = fig.add_subplot(1, 2, 2, projection=&quot;3d&quot;)
 
-<span class="c1"># построение и настройка графика в `axes` на левой половине `figure`</span>
-<span class="n">line_2D</span><span class="p">,</span>  <span class="o">=</span> <span class="n">left_axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">line_2D</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;Спираль, вид сверху&quot;</span><span class="p">)</span>
-<span class="n">line_2D</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+# построение и настройка графика в `axes` на левой половине `figure`
+line_2D,  = left_axes.plot(x, y)
+line_2D.set_label(&quot;Спираль, вид сверху&quot;)
+line_2D.set_color(&quot;red&quot;)
 
-<span class="c1"># настройка `axes` в левой половине `figure`</span>
-<span class="n">left_axes</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_label_text</span><span class="p">(</span><span class="s2">&quot;$x$&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">small_fontsize</span><span class="p">)</span>
-<span class="n">left_axes</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_label_text</span><span class="p">(</span><span class="s2">&quot;$y$&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">small_fontsize</span><span class="p">)</span>
-<span class="n">left_axes</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;2D&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">medium_fontsize</span><span class="p">)</span>
-<span class="n">left_axes</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="n">small_fontsize</span><span class="p">)</span>
-<span class="n">left_axes</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+# настройка `axes` в левой половине `figure`
+left_axes.xaxis.set_label_text(&quot;$x$&quot;, size=small_fontsize)
+left_axes.yaxis.set_label_text(&quot;$y$&quot;, size=small_fontsize)
+left_axes.set_title(&quot;2D&quot;, size=medium_fontsize)
+left_axes.legend(fontsize=small_fontsize)
+left_axes.grid()
 
-<span class="c1"># построение и настройка графика в `axes` на правой половине `figure`</span>
-<span class="n">line_3D</span><span class="p">,</span> <span class="o">=</span> <span class="n">right_axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
-<span class="n">line_3D</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;Спираль&quot;</span><span class="p">)</span>
-<span class="n">line_3D</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+# построение и настройка графика в `axes` на правой половине `figure`
+line_3D, = right_axes.plot(x, y, z)
+line_3D.set_label(&quot;Спираль&quot;)
+line_3D.set_color(&quot;red&quot;)
 
-<span class="c1"># настройка `axes` в левой половине `figure`</span>
-<span class="n">right_axes</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_label_text</span><span class="p">(</span><span class="s2">&quot;$x$&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">small_fontsize</span><span class="p">)</span>
-<span class="n">right_axes</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_label_text</span><span class="p">(</span><span class="s2">&quot;$y$&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">small_fontsize</span><span class="p">)</span>
-<span class="n">right_axes</span><span class="o">.</span><span class="n">zaxis</span><span class="o">.</span><span class="n">set_label_text</span><span class="p">(</span><span class="s2">&quot;$z$&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">small_fontsize</span><span class="p">)</span>
-<span class="n">right_axes</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;3D&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">medium_fontsize</span><span class="p">)</span>
-<span class="n">right_axes</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="n">small_fontsize</span><span class="p">)</span>
+# настройка `axes` в левой половине `figure`
+right_axes.xaxis.set_label_text(&quot;$x$&quot;, size=small_fontsize)
+right_axes.yaxis.set_label_text(&quot;$y$&quot;, size=small_fontsize)
+right_axes.zaxis.set_label_text(&quot;$z$&quot;, size=small_fontsize)
+right_axes.set_title(&quot;3D&quot;, size=medium_fontsize)
+right_axes.legend(fontsize=small_fontsize)
 </pre></div>
 </div>
 </div>
@@ -1218,19 +1218,19 @@ title="Print to PDF"
 <p>Ниже приводится создания графика в таком стиле. Обратите внимание, что все методы при таком подходе вызываются напрямую от <code class="docutils literal notranslate"><span class="pre">plt</span></code>, а библиотека <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code> сама следит за тем, какая фигура и какие оси были созданы (или активированы в общем случае) последними.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
+from matplotlib import pyplot as plt
 
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>  <span class="c1"># Sample data.</span>
+x = np.linspace(0, 2, 100)  # Sample data.
 
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s1">&#39;constrained&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>  <span class="c1"># Plot some data on the (implicit) axes.</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;quadratic&#39;</span><span class="p">)</span>  <span class="c1"># etc.</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;cubic&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x label&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y label&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Simple Plot&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+plt.figure(figsize=(5, 2.7), layout=&#39;constrained&#39;)
+plt.plot(x, x, label=&#39;linear&#39;)  # Plot some data on the (implicit) axes.
+plt.plot(x, x**2, label=&#39;quadratic&#39;)  # etc.
+plt.plot(x, x**3, label=&#39;cubic&#39;)
+plt.xlabel(&#39;x label&#39;)
+plt.ylabel(&#39;y label&#39;)
+plt.title(&quot;Simple Plot&quot;)
+plt.legend()
 </pre></div>
 </div>
 </div>
@@ -1245,17 +1245,17 @@ title="Print to PDF"
 <p>В ячейке ниже находится исходных код из примера выше, но переделанный под объектно-ориентированный стиль. Обратите внимание, что почти все методы вызываются не от <code class="docutils literal notranslate"><span class="pre">plt</span></code>, а объекта <code class="docutils literal notranslate"><span class="pre">ax</span></code>, который соответствует конкретным заранее созданным осям.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>  <span class="c1"># Sample data.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = np.linspace(0, 2, 100)  # Sample data.
 
-<span class="c1"># Note that even in the OO-style, we use `.pyplot.figure` to create the Figure.</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s1">&#39;constrained&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>  <span class="c1"># Plot some data on the axes.</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;quadratic&#39;</span><span class="p">)</span>  <span class="c1"># Plot more data on the axes...</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;cubic&#39;</span><span class="p">)</span>  <span class="c1"># ... and some more.</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x label&#39;</span><span class="p">)</span>  <span class="c1"># Add an x-label to the axes.</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y label&#39;</span><span class="p">)</span>  <span class="c1"># Add a y-label to the axes.</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Simple Plot&quot;</span><span class="p">)</span>  <span class="c1"># Add a title to the axes.</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>  <span class="c1"># Add a legend.</span>
+# Note that even in the OO-style, we use `.pyplot.figure` to create the Figure.
+fig, ax = plt.subplots(figsize=(5, 2.7), layout=&#39;constrained&#39;)
+ax.plot(x, x, label=&#39;linear&#39;)  # Plot some data on the axes.
+ax.plot(x, x**2, label=&#39;quadratic&#39;)  # Plot more data on the axes...
+ax.plot(x, x**3, label=&#39;cubic&#39;)  # ... and some more.
+ax.set_xlabel(&#39;x label&#39;)  # Add an x-label to the axes.
+ax.set_ylabel(&#39;y label&#39;)  # Add a y-label to the axes.
+ax.set_title(&quot;Simple Plot&quot;)  # Add a title to the axes.
+ax.legend();  # Add a legend.
 </pre></div>
 </div>
 </div>
@@ -1275,8 +1275,8 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">fig</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">ax</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fig, ax = plt.subplots(figsize=(5, 5), layout=&quot;tight&quot;)
+print(type(fig), type(ax))
 </pre></div>
 </div>
 </div>
@@ -1312,12 +1312,12 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig1</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;projection&quot;</span><span class="p">:</span> <span class="s2">&quot;rectilinear&quot;</span><span class="p">})</span>
-<span class="n">fig2</span><span class="p">,</span> <span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;projection&quot;</span><span class="p">:</span> <span class="s2">&quot;polar&quot;</span><span class="p">})</span>
-<span class="n">fig3</span><span class="p">,</span> <span class="n">ax3</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;projection&quot;</span><span class="p">:</span> <span class="s2">&quot;3d&quot;</span><span class="p">})</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fig1, ax1 = plt.subplots(figsize=(5, 5), layout=&quot;tight&quot;, subplot_kw={&quot;projection&quot;: &quot;rectilinear&quot;})
+fig2, ax2 = plt.subplots(figsize=(5, 5), layout=&quot;tight&quot;, subplot_kw={&quot;projection&quot;: &quot;polar&quot;})
+fig3, ax3 = plt.subplots(figsize=(5, 5), layout=&quot;tight&quot;, subplot_kw={&quot;projection&quot;: &quot;3d&quot;})
 
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">ax1</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">ax2</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">ax3</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">plt</span><span class="o">.</span><span class="n">Axes</span><span class="p">),</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ax2</span><span class="p">,</span> <span class="n">plt</span><span class="o">.</span><span class="n">Axes</span><span class="p">),</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ax3</span><span class="p">,</span> <span class="n">plt</span><span class="o">.</span><span class="n">Axes</span><span class="p">))</span>
+print(type(ax1), type(ax2), type(ax3))
+print(isinstance(ax1, plt.Axes), isinstance(ax2, plt.Axes), isinstance(ax3, plt.Axes))
 </pre></div>
 </div>
 </div>
@@ -1334,11 +1334,11 @@ True True True
 <p>Когда оси созданы, можно на них рисовать. Тип доступных графиков определяется типом осей, т.е. на плоских осях не выйдет рисовать трехмерные графики и т.п. Чтобы построить график в нужных осях, необходимо просто вызывать правильный метод от объекта этих осей.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = np.linspace(0, 2*np.pi, 100)
+y = np.sin(x)
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+fig, ax = plt.subplots(figsize=(5, 5), layout=&quot;tight&quot;)
+ax.plot(x, y)
 </pre></div>
 </div>
 </div>
@@ -1356,15 +1356,15 @@ True True True
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">y1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">y2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = np.linspace(0, 2*np.pi, 100)
+y1 = np.sin(x)
+y2 = np.cos(x)
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
-<span class="n">sinusoid</span><span class="p">,</span> <span class="n">cosinusoid</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>
-<span class="n">sinusoid</span><span class="o">.</span><span class="n">set_ydata</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="n">sinusoid</span><span class="o">.</span><span class="n">get_ydata</span><span class="p">())</span>
+fig, ax = plt.subplots(figsize=(5, 5), layout=&quot;tight&quot;)
+sinusoid, cosinusoid = ax.plot(x, y1, x, y2)
+sinusoid.set_ydata(0.5*sinusoid.get_ydata())
 
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">sinusoid</span><span class="p">),</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">sinusoid</span><span class="p">,</span> <span class="n">plt</span><span class="o">.</span><span class="n">Artist</span><span class="p">))</span>
+print(type(sinusoid), isinstance(sinusoid, plt.Artist))
 </pre></div>
 </div>
 </div>
@@ -1383,7 +1383,7 @@ True True True
 <p>Метод <code class="docutils literal notranslate"><span class="pre">subplots</span></code> позволяет создавать фигуры с как бы таблицей из осей. За количество строк и столбцов таблицы отвечают параметры <code class="docutils literal notranslate"><span class="pre">nrows</span></code> (<strong>n</strong>umber of <strong>rows</strong>) и <code class="docutils literal notranslate"><span class="pre">ncols</span></code> (<strong>n</strong>umber of <strong>col</strong>umn<strong>s</strong>) соответственно. В ячейке ниже создаётся фигура с 6 осями внутри неё в виде таблицы из двух строк и трех столбцов.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fig, axs = plt.subplots(figsize=(9, 6), nrows=2, ncols=3, layout=&quot;tight&quot;)
 </pre></div>
 </div>
 </div>
@@ -1394,8 +1394,8 @@ True True True
 <p>Если создаётся больше одних осей, то вторым значением <code class="docutils literal notranslate"><span class="pre">subplots</span></code> возвращает сразу <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> массив объектов <code class="docutils literal notranslate"><span class="pre">Axes</span></code> формы, совпадающей с формой таблицы.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">axs</span><span class="p">)</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">axs</span><span class="o">.</span><span class="n">shape</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;{type(axs)=}&quot;)
+print(f&quot;{axs.shape=}&quot;)
 </pre></div>
 </div>
 </div>
@@ -1409,18 +1409,18 @@ axs.shape=(2, 3)
 <p>Элементы этого массива далее и используется для построения графика в нужных осях.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">ncols</span> <span class="o">=</span> <span class="mi">5</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = np.linspace(0, 2*np.pi, 100)
+ncols = 5
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">ncols</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="n">ncols</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Синусоиды с разными частотами&quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ncols</span><span class="p">):</span>
-    <span class="n">k</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">k</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">fr</span><span class="s2">&quot;$\sin(</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">x)$&quot;</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$x$&quot;</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$y$&quot;</span><span class="p">)</span>
+fig, axs = plt.subplots(figsize=(3*ncols, 3), ncols=ncols, layout=&quot;tight&quot;)
+fig.suptitle(&quot;Синусоиды с разными частотами&quot;)
+for i in range(ncols):
+    k = i + 1
+    y = np.sin(k * x)
+    axs[i].plot(x, y)
+    axs[i].set_title(fr&quot;$\sin({k}x)$&quot;)
+    axs[i].set_xlabel(r&quot;$x$&quot;)
+    axs[i].set_ylabel(r&quot;$y$&quot;)
 </pre></div>
 </div>
 </div>

@@ -1021,22 +1021,22 @@ title="Print to PDF"
 <h1>Решение ОДУ<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from matplotlib import pyplot as plt
 
 
-<span class="k">def</span> <span class="nf">configure_matplotlib</span><span class="p">():</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="n">usetex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;axes.titlesize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">28</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;axes.labelsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">24</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;legend.fontsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">24</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;xtick.labelsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;ytick.labelsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">18</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;text.latex.preamble&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">    \usepackage[utf8]</span><span class="si">{inputenc}</span><span class="s2"></span>
-<span class="s2">    \usepackage[english,russian]</span><span class="si">{babel}</span><span class="s2"></span>
-<span class="s2">    \usepackage</span><span class="si">{amsmath}</span><span class="s2"></span>
-<span class="s2">    &quot;&quot;&quot;</span>
+def configure_matplotlib():
+    plt.rc(&#39;text&#39;, usetex=True)
+    plt.rcParams[&quot;axes.titlesize&quot;] = 28
+    plt.rcParams[&quot;axes.labelsize&quot;] = 24
+    plt.rcParams[&quot;legend.fontsize&quot;] = 24
+    plt.rcParams[&quot;xtick.labelsize&quot;] = plt.rcParams[&quot;ytick.labelsize&quot;] = 18
+    plt.rcParams[&quot;text.latex.preamble&quot;] = r&quot;&quot;&quot;
+    \usepackage[utf8]{inputenc}
+    \usepackage[english,russian]{babel}
+    \usepackage{amsmath}
+    &quot;&quot;&quot;
 
-<span class="n">configure_matplotlib</span><span class="p">()</span>
+configure_matplotlib()
 </pre></div>
 </div>
 </div>
@@ -1045,15 +1045,15 @@ title="Print to PDF"
 <p>Т.к. везде ниже будут строиться графики полученного и точного решений уравнения, определим функцию для построения графиков этих решений.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from matplotlib import pyplot as plt
 
 
-<span class="k">def</span> <span class="nf">plot_solution</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">exact_sol</span><span class="p">,</span> <span class="n">sol_x</span><span class="p">,</span> <span class="n">sol_y</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;$t$&quot;</span><span class="p">):</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">exact_sol</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Точное решение&quot;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">sol_x</span><span class="p">,</span> <span class="n">sol_y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Приближенное решение&quot;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">xlabel</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;$y$&quot;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+def plot_solution(ax, x, exact_sol, sol_x, sol_y, xlabel=&quot;$t$&quot;):
+    ax.plot(x, exact_sol(x), color=&quot;green&quot;, label=&quot;Точное решение&quot;)
+    ax.scatter(sol_x, sol_y, color=&quot;red&quot;, marker=&quot;.&quot;, label=&quot;Приближенное решение&quot;)
+    ax.set_xlabel(xlabel)
+    ax.set_ylabel(&quot;$y$&quot;)
+    ax.legend()
 </pre></div>
 </div>
 </div>
@@ -1082,22 +1082,22 @@ y(0) = 1,
 <p>Чтобы численно решить это уравнение средствами <code class="docutils literal notranslate"><span class="pre">SciPy</span></code>, необходимо определить функцию правой части (<code class="docutils literal notranslate"><span class="pre">f(t,</span> <span class="pre">y)</span></code> в ячейке ниже), задать начальное значение <span class="math notranslate nohighlight">\(y(0)\)</span> в виде списка из одного элемента (<code class="docutils literal notranslate"><span class="pre">y_0</span></code> в ячейке ниже), а также задать интервал независимой переменной, на которой необходимо решить дифференциальное уравнение.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">integrate</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
+from scipy import integrate
+from matplotlib import pyplot as plt
 
 
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">y</span>
+def f(t, y):
+    return y
 
-<span class="k">def</span> <span class="nf">exact_solution</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+def exact_solution(t):
+    return np.exp(t)
 
-<span class="n">y_0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">t_0</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">t_final</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="n">solution</span> <span class="o">=</span> <span class="n">integrate</span><span class="o">.</span><span class="n">solve_ivp</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">t_0</span><span class="p">,</span> <span class="n">t_final</span><span class="p">),</span> <span class="n">y_0</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">solution</span><span class="p">)</span>
+y_0 = [1]
+t_0 = 0
+t_final = 3
+solution = integrate.solve_ivp(f, (t_0, t_final), y_0)
+print(solution)
 </pre></div>
 </div>
 </div>
@@ -1120,9 +1120,9 @@ y(0) = 1,
 <p>Метод возвращает структуру со сравнительно большим количеством полей, из которых можно получить отладочную информацию о сходимости алгоритма, а также получить приближенную оценку <span class="math notranslate nohighlight">\(\tilde{y}(t)\)</span> в наборе точек <span class="math notranslate nohighlight">\(\{t_i,\,i=1,\ldots,n\}\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">t_0</span><span class="p">,</span> <span class="n">t_final</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">plot_solution</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">exact_solution</span><span class="p">,</span> <span class="n">solution</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">solution</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fig, ax = plt.subplots(figsize=(8, 8), layout=&quot;tight&quot;)
+x = np.linspace(t_0, t_final, 100)
+plot_solution(ax, x, exact_solution, solution.t, solution.y[0])
 </pre></div>
 </div>
 </div>
@@ -1137,10 +1137,10 @@ y(0) = 1,
 <p>Для данного уравнения функция <code class="docutils literal notranslate"><span class="pre">scipy.integrate.solve_ivp</span></code> выдала решение, содержащее совсем небольшое количество точек, так как метод быстро сошелся. Параметром <code class="docutils literal notranslate"><span class="pre">t_eval</span></code> можно в явно виде задать сетку, в узлах которой требуется получить оценку точного решения.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">solution</span> <span class="o">=</span> <span class="n">integrate</span><span class="o">.</span><span class="n">solve_ivp</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">t_0</span><span class="p">,</span> <span class="n">t_final</span><span class="p">),</span> <span class="n">y_0</span><span class="p">,</span> <span class="n">t_eval</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">t_0</span><span class="p">,</span> <span class="n">t_final</span><span class="p">,</span> <span class="mi">50</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>solution = integrate.solve_ivp(f, (t_0, t_final), y_0, t_eval=np.linspace(t_0, t_final, 50))
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
-<span class="n">plot_solution</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">exact_solution</span><span class="p">,</span> <span class="n">solution</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">solution</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+fig, ax = plt.subplots(figsize=(8, 8), layout=&quot;tight&quot;)
+plot_solution(ax, x, exact_solution, solution.t, solution.y[0])
 </pre></div>
 </div>
 </div>
@@ -1191,22 +1191,22 @@ y_2(0) = 1.
 <p>В таком случае функция правой части уравнения должна принимать на вход вектор <span class="math notranslate nohighlight">\(y\)</span> и возвращать вектор производны <span class="math notranslate nohighlight">\(y'=f(t, y)\)</span> в виде списка или массива <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">exact_solution</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def exact_solution(t):
+    return np.sin(t)
 
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">[</span>
-        <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> 
-        <span class="o">-</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="p">]</span>
+def f(t, y):
+    return [
+        y[1], 
+        -y[0]
+        ]
 
-<span class="n">y_0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-<span class="n">t_0</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">t_final</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
-<span class="n">t_eval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+y_0 = [0, 1]
+t_0 = 0
+t_final = np.pi
+t_eval = np.linspace(0, np.pi, 10)
 
-<span class="n">solution</span> <span class="o">=</span> <span class="n">integrate</span><span class="o">.</span><span class="n">solve_ivp</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">t_0</span><span class="p">,</span> <span class="n">t_final</span><span class="p">),</span> <span class="n">y_0</span><span class="p">,</span> <span class="n">t_eval</span><span class="o">=</span><span class="n">t_eval</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">solution</span><span class="p">)</span>
+solution = integrate.solve_ivp(f, (t_0, t_final), y_0, t_eval=t_eval)
+print(solution)
 </pre></div>
 </div>
 </div>
@@ -1237,9 +1237,9 @@ y_2(0) = 1.
 <p>В решении <span class="math notranslate nohighlight">\(y\)</span> тоже возвращается в виде массива из <span class="math notranslate nohighlight">\(n\)</span> строк и <span class="math notranslate nohighlight">\(m\)</span> столбцов, где <span class="math notranslate nohighlight">\(n\)</span> — порядок системы уравнений, а <span class="math notranslate nohighlight">\(m\)</span> — количество точек, в которых построена оценка решения. В данном примере первая строка массива соответствует искомой зависимости <span class="math notranslate nohighlight">\(y_1(t)=z(t)\)</span>, а вторая строка — <span class="math notranslate nohighlight">\(y_2(t)\)</span>, которая соответствует производной решения <span class="math notranslate nohighlight">\(z'(t)\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
-<span class="n">plot_solution</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">exact_solution</span><span class="p">,</span> <span class="n">solution</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">solution</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = np.linspace(0, np.pi, 50)
+fig, ax = plt.subplots(figsize=(8, 8), layout=&quot;tight&quot;)
+plot_solution(ax, x, exact_solution, solution.t, solution.y[0])
 </pre></div>
 </div>
 </div>
@@ -1299,27 +1299,27 @@ y_1(\dfrac{\pi}{2}) = 1.
 \end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">integrate</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
+from scipy import integrate
+from matplotlib import pyplot as plt
 
 
-<span class="k">def</span> <span class="nf">boundary_residual</span><span class="p">(</span><span class="n">ya</span><span class="p">,</span> <span class="n">yb</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
-        <span class="n">ya</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="p">,</span> 
-        <span class="n">yb</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span>
-        <span class="p">])</span> 
+def boundary_residual(ya, yb):
+    return np.array([
+        ya[0] - 0, 
+        yb[0] - 1
+        ]) 
 
 
-<span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span>
-<span class="n">N</span> <span class="o">=</span> <span class="mi">30</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
-<span class="n">y_guess</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="n">N</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+a, b = 0, np.pi/2
+N = 30
+x = np.linspace(a, b, N)
+y_guess = np.zeros((2, N), dtype=float)
 
-<span class="n">sol</span> <span class="o">=</span> <span class="n">integrate</span><span class="o">.</span><span class="n">solve_bvp</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">boundary_residual</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y_guess</span><span class="p">)</span>
+sol = integrate.solve_bvp(f, boundary_residual, x, y_guess)
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
-<span class="n">plot_solution</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">exact_solution</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+fig, ax = plt.subplots(figsize=(8, 8), layout=&quot;tight&quot;)
+plot_solution(ax, x, exact_solution, sol.x, sol.y[0])
 </pre></div>
 </div>
 </div>

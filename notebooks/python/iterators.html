@@ -1159,9 +1159,9 @@ title="Print to PDF"
 <p>Получить стандартный итератор по коллекции можно встроенной функцией <a class="reference external" href="https://docs.python.org/3/library/functions.html#iter">iter</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
-<span class="n">iterator</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">iterator</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a_list = list(range(3))
+iterator = iter(a_list)
+print(iterator)
 </pre></div>
 </div>
 </div>
@@ -1174,8 +1174,8 @@ title="Print to PDF"
 <p>В ячейке выше объявлен список <code class="docutils literal notranslate"><span class="pre">a_list</span> <span class="pre">=</span> <span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2]</span></code>, а далее с помощью вызова функции <a class="reference external" href="https://docs.python.org/3/library/functions.html#iter">iter</a> создан стандартный итератор <code class="docutils literal notranslate"><span class="pre">iterator</span></code> по нему. Теперь у этого итератора можно спросить следующий элемент списка функцией <a class="reference external" href="https://docs.python.org/3/library/functions.html#next">next</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">iterator</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a = next(iterator)
+print(a)
 </pre></div>
 </div>
 </div>
@@ -1188,8 +1188,8 @@ title="Print to PDF"
 <p>Первый вызов функции <code class="docutils literal notranslate"><span class="pre">next</span></code> возвращает первый элемент контейнера, от которого создан контейнер.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">iterator</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>b = next(iterator)
+print(b)
 </pre></div>
 </div>
 </div>
@@ -1202,8 +1202,8 @@ title="Print to PDF"
 <p>Второй вызов функции <code class="docutils literal notranslate"><span class="pre">next</span></code> — второй элемент списка.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">iterator</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>c = next(iterator)
+print(c)
 </pre></div>
 </div>
 </div>
@@ -1216,8 +1216,8 @@ title="Print to PDF"
 <p>Третий вызов — третий элемент списка.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">iterator</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>d = next(iterator)
+print(d)
 </pre></div>
 </div>
 </div>
@@ -1237,14 +1237,14 @@ title="Print to PDF"
 <p>Вообще говоря, можно изменить список при итерации по нему, но желательно по возможности избегать этого.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iterator</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>
-<span class="n">a</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">iterator</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>iterator = iter(a_list)
+a = next(iterator)
 
-<span class="n">a_list</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">42</span><span class="p">)</span>
-<span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">iterator</span><span class="p">),</span> <span class="nb">next</span><span class="p">(</span><span class="n">iterator</span><span class="p">),</span> <span class="nb">next</span><span class="p">(</span><span class="n">iterator</span><span class="p">)</span>
+a_list.insert(0, 42)
+b, c, d = next(iterator), next(iterator), next(iterator)
 
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>
+print(a, b, c, d)
+print(a_list)
 </pre></div>
 </div>
 </div>
@@ -1272,10 +1272,10 @@ title="Print to PDF"
 <p>Встроенная функция <a class="reference external" href="https://docs.python.org/3/library/functions.html#reversed">reversed</a> создаёт итератор, который пробегает по коллекции в обратном порядке относительно стандартного итератора <code class="docutils literal notranslate"><span class="pre">iter</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="n">reversed_iterator</span> <span class="o">=</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">reversed_iterator</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">reversed_iterator</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = [1, 2, 3]
+reversed_iterator = reversed(x)
+print(reversed_iterator)
+print(list(reversed_iterator))
 </pre></div>
 </div>
 </div>
@@ -1292,12 +1292,12 @@ title="Print to PDF"
 <p>Встроенная функция <a class="reference external" href="https://docs.python.org/3/library/functions.html#enumerate">enumerate</a> возвращает “нумерующий итератор”, т.е. итератор, который помимо следующего элемента контейнера возвращает ещё и его номер.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span>
-<span class="n">enumerated_iterator</span> <span class="o">=</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>L = list(&quot;abc&quot;)
+enumerated_iterator = enumerate(L)
 
-<span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">enumerated_iterator</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">enumerated_iterator</span><span class="p">))</span>
+print(L)
+print(enumerated_iterator)
+print(list(enumerated_iterator))
 </pre></div>
 </div>
 </div>
@@ -1321,8 +1321,8 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for i, x in enumerate(L):
+    print(i, x)
 </pre></div>
 </div>
 </div>
@@ -1337,8 +1337,8 @@ title="Print to PDF"
 <p>Конечно, эти итераторы можно комбинировать.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">L</span><span class="p">)):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for i, x in enumerate(reversed(L)):
+    print(i, x)
 </pre></div>
 </div>
 </div>
@@ -1359,12 +1359,12 @@ title="Print to PDF"
 <img alt="../../_images/zip.svg" src="../../_images/zip.svg" /></figure>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="s2">&quot;ABC&quot;</span>
-<span class="n">Y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>X = &quot;ABC&quot;
+Y = [1, 2, 3]
 
-<span class="n">zip_XY</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">zip_XY</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">zip_XY</span><span class="p">))</span>
+zip_XY = zip(X, Y)
+print(zip_XY)
+print(list(zip_XY))
 </pre></div>
 </div>
 </div>
@@ -1382,8 +1382,8 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)),</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">x</span><span class="si">=}</span><span class="s2">, </span><span class="si">{</span><span class="n">y</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for i, x, y in zip(range(len(X)), X, Y):
+    print(f&quot;{i}: {x=}, {y=}&quot;)
 </pre></div>
 </div>
 </div>
@@ -1398,8 +1398,8 @@ title="Print to PDF"
 <p>Предыдущий цикл можно заменить конструкцией вида.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">x</span><span class="si">=}</span><span class="s2">, </span><span class="si">{</span><span class="n">y</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for i, (x, y) in enumerate(zip(X, Y)):
+    print(f&quot;{i}: {x=}, {y=}&quot;)
 </pre></div>
 </div>
 </div>
@@ -1414,18 +1414,18 @@ title="Print to PDF"
 <p>Функция <code class="docutils literal notranslate"><span class="pre">zip</span></code> может быть использована для того, чтобы пробежаться по столбцам матрицы, т.е. как бы транспонировать её.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span> 
-    <span class="p">[</span><span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">],</span>
-<span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>m = [
+    [11, 12, 13], 
+    [21, 22, 23],
+]
 
-<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">m</span><span class="p">:</span> 
-    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+for row in m: 
+    print(row)
 
-<span class="nb">print</span><span class="p">()</span>
+print()
 
-<span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">m</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+for column in zip(*m):
+    print(column)
 </pre></div>
 </div>
 </div>
@@ -1451,17 +1451,17 @@ title="Print to PDF"
 <p>Если коллекции внутри <code class="docutils literal notranslate"><span class="pre">zip</span></code> содержат разное количество элементов, то итерация прекратится, как только закончится элементы в самом коротком из них, а функция <a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.zip_longest">zip_longest</a> из модуля <code class="docutils literal notranslate"><span class="pre">itertools</span></code> позволяет итерировать до упора, пока хотя бы в одной последовательности остались элементы.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">string</span> <span class="kn">import</span> <span class="n">ascii_letters</span><span class="p">,</span> <span class="n">digits</span>
-<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">zip_longest</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from string import ascii_letters, digits
+from itertools import zip_longest
 
 
-<span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">digits</span><span class="p">,</span> <span class="n">ascii_letters</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">-&gt;</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">, &quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+for x, y in zip(digits, ascii_letters):
+    print(f&quot;{x}-&gt;{y}, &quot;, end=&quot;&quot;)
 
-<span class="nb">print</span><span class="p">()</span>
+print()
 
-<span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">zip_longest</span><span class="p">(</span><span class="n">digits</span><span class="p">,</span> <span class="n">ascii_letters</span><span class="p">,</span> <span class="n">fillvalue</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="s2">&quot;NaN&quot;</span><span class="p">)):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">-&gt;</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">, &quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+for x, y in zip_longest(digits, ascii_letters, fillvalue=float(&quot;NaN&quot;)):
+    print(f&quot;{x}-&gt;{y}, &quot;, end=&quot;&quot;)
 </pre></div>
 </div>
 </div>
@@ -1478,13 +1478,13 @@ title="Print to PDF"
 <p>Итератор <a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.product">product</a> позволяет итерировать по декартову (или внешнему) произведению других итерируемых объектов. В некоторых ситуациях позволяет упростить конструкции из вложенных циклов.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from itertools import product
 
-<span class="n">X</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-<span class="n">Y</span> <span class="o">=</span> <span class="s2">&quot;abc&quot;</span>
+X = [0, 1, 2]
+Y = &quot;abc&quot;
 
-<span class="nb">print</span><span class="p">([(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">Y</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">product</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)))</span>
+print([(x, y) for x in X for y in Y])
+print(list(product(X, Y)))
 </pre></div>
 </div>
 </div>
@@ -1501,9 +1501,9 @@ title="Print to PDF"
 <p>Итератор <a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.permutations">permutations</a> пробегается по списку всех возможных перестановок итерируемого аргумента.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">permutations</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from itertools import permutations
 
-<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">permutations</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">)))</span>
+print(list(permutations(&quot;abc&quot;)))
 </pre></div>
 </div>
 </div>
@@ -1523,10 +1523,10 @@ title="Print to PDF"
 <p>Метод <a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.combinations">combinations</a> возвращает все возможные способы выбрать <code class="docutils literal notranslate"><span class="pre">r</span></code> элементов итерируемого объекта без повторов.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">combinations</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from itertools import combinations
 
-<span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="mi">2</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> 
+for x, y in combinations(range(3), 2):
+    print(f&quot;{x} and {y}&quot;) 
 </pre></div>
 </div>
 </div>
@@ -1541,10 +1541,10 @@ title="Print to PDF"
 <p>Метод <a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.combinations_with_replacement">combinations_with_replacements</a> делает то же самое, но допускает повторы.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">combinations_with_replacement</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from itertools import combinations_with_replacement
 
-<span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">combinations_with_replacement</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="mi">2</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> 
+for x, y in combinations_with_replacement(range(3), 2):
+    print(f&quot;{x} and {y}&quot;) 
 </pre></div>
 </div>
 </div>

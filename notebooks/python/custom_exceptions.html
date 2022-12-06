@@ -998,10 +998,10 @@ title="Print to PDF"
 <p>Чтобы создать пользовательское исключение, необходимо всего лишь унаследовать от класса <code class="docutils literal notranslate"><span class="pre">Exception</span></code>. Для большинства целей этого достаточно и тело класса оставляют пустым.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
-    <span class="k">pass</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class MyException(Exception):
+    pass
 
-<span class="k">raise</span> <span class="n">MyException</span><span class="p">(</span><span class="s2">&quot;Моё первое пользовательское исключение.&quot;</span><span class="p">)</span>
+raise MyException(&quot;Моё первое пользовательское исключение.&quot;)
 </pre></div>
 </div>
 </div>
@@ -1022,10 +1022,10 @@ title="Print to PDF"
 Обрабатывать исключения типа <code class="docutils literal notranslate"><span class="pre">MyException</span></code> можно, как и любые другие.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="k">raise</span> <span class="n">MyException</span><span class="p">(</span><span class="s2">&quot;Моё пользовательское исключение!&quot;</span><span class="p">)</span>
-<span class="k">except</span> <span class="n">MyException</span> <span class="k">as</span> <span class="n">msg</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>try:
+    raise MyException(&quot;Моё пользовательское исключение!&quot;)
+except MyException as msg:
+    print(msg)
 </pre></div>
 </div>
 </div>
@@ -1038,10 +1038,10 @@ title="Print to PDF"
 <p>Т.к. <code class="docutils literal notranslate"><span class="pre">MyException</span></code> наследует от <code class="docutils literal notranslate"><span class="pre">Exception</span></code>, то проверка на него тоже будет проходить.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="k">raise</span> <span class="n">MyException</span><span class="p">(</span><span class="s2">&quot;Моё пользовательское исключение!&quot;</span><span class="p">)</span>
-<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">msg</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Перехвачено какое-то исключение со следующим сообщением:</span><span class="se">\n</span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>try:
+    raise MyException(&quot;Моё пользовательское исключение!&quot;)
+except Exception as msg:
+    print(f&quot;Перехвачено какое-то исключение со следующим сообщением:\n{msg}&quot;)
 </pre></div>
 </div>
 </div>
@@ -1059,12 +1059,12 @@ title="Print to PDF"
 <p>В качестве примера создадим исключение, которое запоминает время, когда оно было возбужденно.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">ctime</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from time import ctime
 
-<span class="k">class</span> <span class="nc">MyException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">ctime</span><span class="p">()</span>
+class MyException(Exception):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.time = ctime()
 </pre></div>
 </div>
 </div>
@@ -1072,11 +1072,11 @@ title="Print to PDF"
 <p>Теперь в обработчике событий можно получить доступ к атрибуту <code class="docutils literal notranslate"><span class="pre">time</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="k">raise</span> <span class="n">MyException</span><span class="p">(</span><span class="s2">&quot;Какое-то сообщение!&quot;</span><span class="p">)</span>
-<span class="k">except</span> <span class="n">MyException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Перехвачено исключение типа MyException со следующим сообщением:</span><span class="se">\n</span><span class="s1">&quot;</span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Время возбуждения исключения: </span><span class="si">{</span><span class="n">e</span><span class="o">.</span><span class="n">time</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>try:
+    raise MyException(&quot;Какое-то сообщение!&quot;)
+except MyException as e:
+    print(f&#39;Перехвачено исключение типа MyException со следующим сообщением:\n&quot;{e}&quot;&#39;)
+    print(f&quot;Время возбуждения исключения: {e.time}.&quot;)
 </pre></div>
 </div>
 </div>
@@ -1084,19 +1084,19 @@ title="Print to PDF"
 <p>В качестве второго примера приведем класс исключений, который подсчитывает количество раз, в программе возбуждались исключения данного типа.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CountingException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
-    <span class="n">times_raised</span> <span class="o">=</span> <span class="mi">0</span> 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="n">CountingException</span><span class="o">.</span><span class="n">times_raised</span> <span class="o">+=</span> <span class="mi">1</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class CountingException(Exception):
+    times_raised = 0 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        CountingException.times_raised += 1
 
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="n">CountingException</span><span class="p">(</span><span class="s2">&quot;Подсчитывающее исключение возбужденно.&quot;</span><span class="p">)</span>
-    <span class="k">except</span> <span class="n">CountingException</span> <span class="k">as</span> <span class="n">msg</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+for i in range(3):
+    try:
+        raise CountingException(&quot;Подсчитывающее исключение возбужденно.&quot;)
+    except CountingException as msg:
+        print(msg)
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Подсчитывающее исключение было возбужденно </span><span class="si">{</span><span class="n">CountingException</span><span class="o">.</span><span class="n">times_raised</span><span class="si">}</span><span class="s2"> раз!&quot;</span><span class="p">)</span>
+print(f&quot;Подсчитывающее исключение было возбужденно {CountingException.times_raised} раз!&quot;)
 </pre></div>
 </div>
 </div>
@@ -1116,15 +1116,15 @@ title="Print to PDF"
 <p>Для этого определим два пользовательских типа исключений <code class="docutils literal notranslate"><span class="pre">LowIndexError</span></code> и <code class="docutils literal notranslate"><span class="pre">HighIndexError</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">LowIndexError</span><span class="p">(</span><span class="ne">IndexError</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
-        <span class="n">message</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Lowest acceptable index is </span><span class="si">{</span><span class="o">-</span><span class="n">size</span><span class="si">}</span><span class="s2">, but </span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s2"> was given.&quot;</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class LowIndexError(IndexError):
+    def __init__(self, index, size):
+        message = f&quot;Lowest acceptable index is {-size}, but {index} was given.&quot;
+        super().__init__(message)
 
-<span class="k">class</span> <span class="nc">HighIndexError</span><span class="p">(</span><span class="ne">IndexError</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
-        <span class="n">message</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Highest acceptable index is </span><span class="si">{</span><span class="n">size</span> <span class="o">-</span> <span class="mi">1</span><span class="si">}</span><span class="s2">, but </span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s2"> was given.&quot;</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+class HighIndexError(IndexError):
+    def __init__(self, index, size):
+        message = f&quot;Highest acceptable index is {size - 1}, but {index} was given.&quot;
+        super().__init__(message)
 </pre></div>
 </div>
 </div>
@@ -1137,23 +1137,23 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyList</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">elements</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_elements</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">elements</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class MyList:
+    def __init__(self, *elements):
+        self._elements = list(elements)
 
-    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
-        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_elements</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="o">-</span><span class="n">n</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="n">LowIndexError</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_elements</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="n">HighIndexError</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    def __getitem__(self, k):
+        n = len(self._elements)
+        if k &lt; -n:
+            raise LowIndexError(k, n)
+        elif k &lt; n:
+            return self._elements[k]
+        else:
+            raise HighIndexError(k, n)
     
-    <span class="k">def</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_elements</span><span class="p">,</span> <span class="n">attr</span><span class="p">)</span>
+    def __getattr__(self, attr):
+        return getattr(self._elements, attr)
 
-<span class="n">l</span> <span class="o">=</span> <span class="n">MyList</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+l = MyList(1, 2, 3)
 </pre></div>
 </div>
 </div>
@@ -1161,7 +1161,7 @@ title="Print to PDF"
 <p>Теперь обращение к элементу со слишком низким индексом вызовет одну ошибку.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>l[-4]
 </pre></div>
 </div>
 </div>
@@ -1186,7 +1186,7 @@ title="Print to PDF"
 <p>А обращение к элементу со слишком высоким индексом  — другую.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>l[3]
 </pre></div>
 </div>
 </div>
@@ -1211,10 +1211,10 @@ title="Print to PDF"
 <p>Обе из них можно обработать через <code class="docutils literal notranslate"><span class="pre">IndexError</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="n">l</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span>
-<span class="k">except</span> <span class="ne">IndexError</span> <span class="k">as</span> <span class="n">msg</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>try:
+    l[-4]
+except IndexError as msg:
+    print(msg) 
 </pre></div>
 </div>
 </div>

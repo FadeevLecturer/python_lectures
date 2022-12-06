@@ -1000,15 +1000,15 @@ title="Print to PDF"
 <p>Операторы сравнения “<code class="docutils literal notranslate"><span class="pre">&lt;</span></code>”, “<code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>”, “<code class="docutils literal notranslate"><span class="pre">&gt;</span></code>”, “<code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>”, “<code class="docutils literal notranslate"><span class="pre">==</span></code>” и “<code class="docutils literal notranslate"><span class="pre">!=</span></code>” перегружены для массивов <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> и работают аналогичные правила, как и для арифметических операторов. Результатом операции сравнения является <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> массив булевых значений <code class="docutils literal notranslate"><span class="pre">True</span></code> и <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
 
-<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
-    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-    <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span>
-    <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-<span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+a = np.array([
+    [1, 1],
+    [-1, -1],
+    [1, -1],
+    [-1, 1]
+])
+print(a)
 </pre></div>
 </div>
 </div>
@@ -1024,7 +1024,7 @@ title="Print to PDF"
 <p>Например, можно в следующей ячейке демонстрируется, как можно одной строкой кода узнать, какие элемента массива неотрицательны.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(a &gt;= 0)
 </pre></div>
 </div>
 </div>
@@ -1042,9 +1042,9 @@ title="Print to PDF"
 <p>В примере ниже тот же самый массив <code class="docutils literal notranslate"><span class="pre">a</span></code> сравнивается с массивом строкой <code class="docutils literal notranslate"><span class="pre">[-1,</span> <span class="pre">1]</span></code>. В итоге все элементы первого столбца массива <code class="docutils literal notranslate"><span class="pre">a</span></code> сравниваются с числом <code class="docutils literal notranslate"><span class="pre">-1</span></code>, а все элементы второго — с числом <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>b = np.array([1, -1])
 
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span>
+print(a == b)
 </pre></div>
 </div>
 </div>
@@ -1065,11 +1065,11 @@ title="Print to PDF"
 <p>Логическое  “<strong>И</strong>” — оператор “<code class="docutils literal notranslate"><span class="pre">&amp;</span></code>”. В качестве примера найдем числа в диапазоне от 3 до 6.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = np.arange(0, 10)
 
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">between_3_and_6</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">6</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">between_3_and_6</span><span class="p">)</span>
+print(x)
+between_3_and_6 = (x &gt;= 3) &amp; (x &lt;= 6)
+print(between_3_and_6)
 </pre></div>
 </div>
 </div>
@@ -1083,8 +1083,8 @@ title="Print to PDF"
 <p>Логическое “<strong>ИЛИ</strong>” — оператор “<code class="docutils literal notranslate"><span class="pre">|</span></code>”. В качестве примера найдем числа снаружи предыдущего диапазона.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">outside_of_3_and_6</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">6</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">outside_of_3_and_6</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>outside_of_3_and_6 = (x &lt; 3) | (x &gt; 6)
+print(outside_of_3_and_6)
 </pre></div>
 </div>
 </div>
@@ -1097,7 +1097,7 @@ title="Print to PDF"
 <p>Логическое “<strong>НЕ</strong>” — оператор “<code class="docutils literal notranslate"><span class="pre">~</span></code>”. В качестве примера найдем числа снаружи диапазона <span class="math notranslate nohighlight">\([3, 6]\)</span> как отрицание чисел внутри диапазона.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="o">~</span><span class="n">between_3_and_6</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(~between_3_and_6)
 </pre></div>
 </div>
 </div>
@@ -1115,19 +1115,19 @@ title="Print to PDF"
 <img alt="../../_images/masks.svg" src="../../_images/masks.svg" /></figure>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
-    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
-<span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>array = np.array([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+])
 
-<span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
-    <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span>
-    <span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">],</span>
-    <span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span>
-<span class="p">])</span>
+mask = np.array([
+    [True, False, False],
+    [False, False, True],
+    [False, True, True]
+])
 
-<span class="n">array</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+array[mask]
 </pre></div>
 </div>
 </div>
@@ -1140,9 +1140,9 @@ title="Print to PDF"
 <p>Так как результаты логических операций над массивами <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> приводят к как раз булевым маскам, то можно очень легко фильтровать значения массива.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>rng = np.random.default_rng()
+x = rng.normal(size=8)
+print(x)
 </pre></div>
 </div>
 </div>
@@ -1156,7 +1156,7 @@ title="Print to PDF"
 <p>Например, в ячейке выше генерируется массив из 20 случайных чисел из нормального распределения. Извлечь только положительные из него можно инструкцией.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(x[x &gt; 0])
 </pre></div>
 </div>
 </div>
@@ -1170,8 +1170,8 @@ title="Print to PDF"
 <p>Сгенерируем выборку побольше и эмпирически проверим правило трех сигм, согласно которому с вероятностью <span class="math notranslate nohighlight">\(\approx99.73\%\)</span> нормально распределенная случайная величина располагается в интервале <span class="math notranslate nohighlight">\((\mu - 3\sigma, \mu + 3\sigma)\)</span>, где <span class="math notranslate nohighlight">\(\mu\)</span> — математическое ожидание, <span class="math notranslate nohighlight">\(\sigma\)</span> — среднеквадратичное отклонение. Это значит, что при <span class="math notranslate nohighlight">\(\mu=0\)</span> и <span class="math notranslate nohighlight">\(\sigma=1\)</span> ожидается, что чуть меньше 3 чисел из выборки размером 10000 окажутся за пределами интервала <span class="math notranslate nohighlight">\((-3, 3)\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
-<span class="n">x</span><span class="p">[(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">3</span><span class="p">)]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = rng.normal(size=1000)
+x[(x &gt; 3) | (x &lt; -3)]
 </pre></div>
 </div>
 </div>
@@ -1185,8 +1185,8 @@ title="Print to PDF"
 <p>Можно индексировать булевыми масками вдоль осей.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>array = rng.integers(0, 10, size=(4, 4))
+print(array)
 </pre></div>
 </div>
 </div>
@@ -1202,8 +1202,8 @@ title="Print to PDF"
 <p>Например, оставить только строки, напротив которых стоит <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">mask</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>mask = np.array([True, False, True, True])
+print(array[mask])
 </pre></div>
 </div>
 </div>
@@ -1218,7 +1218,7 @@ title="Print to PDF"
 <p>Или аналогично со столбцами.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">[:,</span> <span class="n">mask</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>array[:, mask]
 </pre></div>
 </div>
 </div>
@@ -1242,9 +1242,9 @@ title="Print to PDF"
 <p>По поведению эти функции похожи на функции на функции <code class="docutils literal notranslate"><span class="pre">np.sum</span></code> и <code class="docutils literal notranslate"><span class="pre">np.prod</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;any: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;all: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(mask)
+print(f&quot;any: {np.any(mask)}&quot;)
+print(f&quot;all: {np.all(mask)}&quot;)
 </pre></div>
 </div>
 </div>
@@ -1259,7 +1259,7 @@ all: False
 <p>Они также принимают опциональный аргумент <code class="docutils literal notranslate"><span class="pre">axis</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>np.all(mask, axis=1)
 </pre></div>
 </div>
 </div>
@@ -1273,9 +1273,9 @@ all: False
 <p>В целях демонстрации вернемся к примеру с правилом трех сигм. Сгенерируем массив из миллиона распределенных по нормальному закону случайных чисел, составим маску тех значений, которые находятся внутри интервала <span class="math notranslate nohighlight">\((-3\sigma, 3\sigma)\)</span>, и подсчитаем их долю во всём массиве.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">)</span>
-<span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">mask</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = rng.normal(size=1_000_000)
+mask = (x &gt; 3) | (x &lt; -3)
+print(mask.mean())
 </pre></div>
 </div>
 </div>

@@ -1151,7 +1151,7 @@ title="Print to PDF"
 <p>Кроме этого важно помнить, что содержимое столбцов <code class="docutils literal notranslate"><span class="pre">pandas</span></code> изменяемо, а длина — нет.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">horizontal_line</span> <span class="o">=</span> <span class="s2">&quot;_&quot;</span> <span class="o">*</span> <span class="mi">80</span>  
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>horizontal_line = &quot;_&quot; * 80  
 </pre></div>
 </div>
 </div>
@@ -1170,11 +1170,11 @@ title="Print to PDF"
 <p>Если передать в качестве параметра скаляр, то создаётся столбец из одного элемента. При этом строка тоже считается скаляром, несмотря на то, что она формально является последовательностью.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import pandas as pd
+import numpy as np
 
-<span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span>
-<span class="n">s</span>
+s = pd.Series(&quot;abc&quot;)
+s
 </pre></div>
 </div>
 </div>
@@ -1192,8 +1192,8 @@ dtype: object
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">42</span><span class="p">])</span>
-<span class="n">s</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>s = pd.Series(&quot;abc&quot;, dtype=&quot;string&quot;, index=[42])
+s
 </pre></div>
 </div>
 </div>
@@ -1210,9 +1210,9 @@ dtype: string
 <p>Более содержательный пример — создание <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code> из списка или массива <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">42</span><span class="p">]</span>
-<span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="n">s</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>data = [7, 12, 42]
+s = pd.Series(data)
+s
 </pre></div>
 </div>
 </div>
@@ -1228,9 +1228,9 @@ dtype: int64
 <p>По умолчанию генерируется <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.RangeIndex.html">RangeIndex</a>, который соответствует смещению. При необходимости можно в явном виде указать необходимый индекс в виде последовательности той же длинны: за это отвечает параметр <code class="docutils literal notranslate"><span class="pre">index</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">]</span>
-<span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">)</span>
-<span class="n">s</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>index = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
+s = pd.Series(data, index=index)
+s
 </pre></div>
 </div>
 </div>
@@ -1246,9 +1246,9 @@ dtype: int64
 <p>На самом деле данные столбца хранятся в массиве <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>, к которому можно получить доступ по атрибуту <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.values.html#pandas.Series.values">values</a> столбца.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">values</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">values</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">values</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">values</span><span class="p">)</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>values = s.values
+print(f&quot;{values=}&quot;)
+print(f&quot;{type(values)=}&quot;)
 </pre></div>
 </div>
 </div>
@@ -1262,11 +1262,11 @@ type(values)=&lt;class &#39;numpy.ndarray&#39;&gt;
 <p>Код в ячейке ниже демонстрирует, что изменение в возвращенном массиве отражаются на исходном столбце.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">horizontal_line</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(s)
+print(horizontal_line)
 
-<span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+values[0] = 0
+print(s)
 </pre></div>
 </div>
 </div>
@@ -1291,9 +1291,9 @@ dtype: int64
 <p>При создании <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code> из словаря, ключи попадают в индекс столбца, а значения попадают в данные столбца.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">}</span>
-<span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-<span class="n">s</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>d = {&quot;a&quot;: 7, &quot;b&quot;: 12, &quot;c&quot;: 42}
+s = pd.Series(d)
+s
 </pre></div>
 </div>
 </div>
@@ -1323,7 +1323,7 @@ dtype: int64
 <p>Продемонстрируем разницу между “<code class="docutils literal notranslate"><span class="pre">.loc[]</span></code>” и “<code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code>” на примере столбца из предыдущего раздела.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(s)
 </pre></div>
 </div>
 </div>
@@ -1339,8 +1339,8 @@ dtype: int64
 <p>Индексирование с помощью “<code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code>” эквивалентно индексированию лежащему под капотом массиву <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>, т.е. это индексирование по смещению.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">=}</span><span class="s2">: </span><span class="si">{</span><span class="n">s</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for i in range(3):
+    print(f&quot;{i=}: {s.iloc[i]=}&quot;)
 </pre></div>
 </div>
 </div>
@@ -1355,8 +1355,8 @@ i=2: s.iloc[i]=42
 <p>Индексирование с помощью “<code class="docutils literal notranslate"><span class="pre">.loc[]</span></code>” подразумевает использование индекса столбца, т.е. доступ осуществляется по метке.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="s2">&quot;abc&quot;</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">label</span><span class="si">=}</span><span class="s2">: </span><span class="si">{</span><span class="n">s</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">label</span><span class="p">]</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for label in &quot;abc&quot;:
+    print(f&quot;{label=}: {s.loc[label]=}&quot;)
 </pre></div>
 </div>
 </div>
@@ -1374,13 +1374,13 @@ label=&#39;c&#39;: s.loc[label]=42
 <p>Вообще говоря, можно использовать для индексации и просто “<code class="docutils literal notranslate"><span class="pre">[]</span></code>”. Тогда способ индексации определятся по переданному значению. В нашем примере метки представляются строками, а значит если указать между пары квадратных скобок строку, то индексация будет произведена по метке.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">=}</span><span class="s2">: </span><span class="si">{</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for i in range(3):
+    print(f&quot;{i=}: {s[i]=}&quot;)
 
-<span class="nb">print</span><span class="p">(</span><span class="n">horizontal_line</span><span class="p">)</span>
+print(horizontal_line)
 
-<span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="s2">&quot;abc&quot;</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">label</span><span class="si">=}</span><span class="s2">: </span><span class="si">{</span><span class="n">s</span><span class="p">[</span><span class="n">label</span><span class="p">]</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+for label in &quot;abc&quot;:
+    print(f&quot;{label=}: {s[label]=}&quot;)
 </pre></div>
 </div>
 </div>
@@ -1399,20 +1399,20 @@ label=&#39;c&#39;: s[label]=42
 <p>Если индекс столбца сам по себе является целочисленным (например, создаваемый по умолчанию <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.RangeIndex.html">RangeIndex</a>), то при использовании “<code class="docutils literal notranslate"><span class="pre">[]</span></code>” <code class="docutils literal notranslate"><span class="pre">pandas</span></code> попытается индексировать именно по метке.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">42</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">42</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>s = pd.Series(data=[7, 13, 42], index=[7, 13, 42])
+print(s)
 
-<span class="nb">print</span><span class="p">(</span><span class="n">horizontal_line</span><span class="p">)</span>
+print(horizontal_line)
 
-<span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">42</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">label</span><span class="si">=}</span><span class="s2">: </span><span class="si">{</span><span class="n">s</span><span class="p">[</span><span class="n">label</span><span class="p">]</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+for label in (7, 13, 42):
+    print(f&quot;{label=}: {s[label]=}&quot;)
 
-<span class="nb">print</span><span class="p">(</span><span class="n">horizontal_line</span><span class="p">)</span>
+print(horizontal_line)
 
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ошибка при обращении по метке &#39;0&#39;.&quot;</span><span class="p">)</span> <span class="c1"># Только в случае ошибки</span>
+try:
+    s[0]
+except KeyError:
+    print(&quot;Ошибка при обращении по метке &#39;0&#39;.&quot;) # Только в случае ошибки
 </pre></div>
 </div>
 </div>
@@ -1435,13 +1435,13 @@ ________________________________________________________________________________
 <p>Для демонстрации создадим новый столбец <code class="docutils literal notranslate"><span class="pre">s</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>s = pd.Series([1, 2, 3])
+print(s)
 
-<span class="nb">print</span><span class="p">(</span><span class="n">horizontal_line</span><span class="p">)</span>
+print(horizontal_line)
 
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">=}</span><span class="s2">: </span><span class="si">{</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">=}</span><span class="s2">, </span><span class="si">{</span><span class="n">s</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">=}</span><span class="s2">, </span><span class="si">{</span><span class="n">s</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+for i in range(3):
+    print(f&quot;{i=}: {s[i]=}, {s.iloc[i]=}, {s.loc[i]=}&quot;)
 </pre></div>
 </div>
 </div>
@@ -1462,8 +1462,8 @@ i=2: s[i]=3, s.iloc[i]=3, s.loc[i]=3
 <p>Теперь извлечем последние два элемента этого столбца простым срезом.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tail</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">tail</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tail = s.iloc[-2:]
+print(tail)
 </pre></div>
 </div>
 </div>
@@ -1478,13 +1478,13 @@ dtype: int64
 <p>Обратите внимание, что в итоговом столбце метки начинаются с 1, а значит теперь индексация “<code class="docutils literal notranslate"><span class="pre">.loc[]</span></code>” и “<code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code>” приведет к разным результатам.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">=}</span><span class="s2">: </span><span class="si">{</span><span class="n">tail</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for i in (0, 1):
+    print(f&quot;{i=}: {tail.iloc[i]=}&quot;)
 
-<span class="nb">print</span><span class="p">(</span><span class="n">horizontal_line</span><span class="p">)</span>
+print(horizontal_line)
 
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">=}</span><span class="s2">: </span><span class="si">{</span><span class="n">tail</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+for i in (1, 2):
+    print(f&quot;{i=}: {tail.loc[i]=}&quot;)
 </pre></div>
 </div>
 </div>
@@ -1511,12 +1511,12 @@ i=2: tail.loc[i]=3
 <p>Во-первых, в метках могут содержаться дубликаты. Если индексировать по метке, которая встречается в индексе не единожды, то в качестве результата вы получите новый столбец.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">duplicates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">duplicates</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>duplicates = pd.Series([1, 2, 3], index=[&quot;a&quot;, &quot;b&quot;, &quot;b&quot;])
+print(duplicates)
 
-<span class="nb">print</span><span class="p">(</span><span class="n">horizontal_line</span><span class="p">)</span>
+print(horizontal_line)
 
-<span class="n">duplicates</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">]</span>
+duplicates.loc[&quot;b&quot;]
 </pre></div>
 </div>
 </div>
@@ -1538,10 +1538,10 @@ dtype: int64
 <p>Во-вторых, можно за один раз извлекать сразу несколько элементов. Чтобы продемонстрировать, создадим новый столбец.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">values</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
-<span class="n">index</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;aecdbf&quot;</span><span class="p">)</span>
-<span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>values = range(6)
+index = list(&quot;aecdbf&quot;)
+s = pd.Series(values, index)
+print(s)
 </pre></div>
 </div>
 </div>
@@ -1560,7 +1560,7 @@ dtype: int64
 <p>Можно передать в “<code class="docutils literal notranslate"><span class="pre">.loc[]</span></code>” список меток и получить столбец с теми же значениями.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;f&quot;</span><span class="p">]]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>s.loc[[&quot;b&quot;, &quot;c&quot;, &quot;f&quot;]]
 </pre></div>
 </div>
 </div>
@@ -1576,7 +1576,7 @@ dtype: int64
 <p>Если метки не содержат дубликатов, то можно применять срезы.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;e&quot;</span><span class="p">:</span><span class="s2">&quot;b&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>s.loc[&quot;e&quot;:&quot;b&quot;]
 </pre></div>
 </div>
 </div>
@@ -1596,8 +1596,8 @@ dtype: int64
 <p>Как и массивы <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> столбцы <code class="docutils literal notranslate"><span class="pre">pandas</span></code> можно индексировать булевыми масками. в случае булевой маски <code class="docutils literal notranslate"><span class="pre">mask</span></code>, выражения “<code class="docutils literal notranslate"><span class="pre">.loc[mask]</span></code>” и “<code class="docutils literal notranslate"><span class="pre">.iloc[mask]</span></code>” делают одно и тоже, поэтому тут оправданно применение простых квадратных скобок “<code class="docutils literal notranslate"><span class="pre">[]</span></code>”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span>
-<span class="n">s</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>mask = [False, False, True, False, True, True]
+s[mask]
 </pre></div>
 </div>
 </div>
@@ -1613,7 +1613,7 @@ dtype: int64
 <p>По аналогии это позволяет применять логические операции к столбцам <code class="docutils literal notranslate"><span class="pre">pandas</span></code> и сразу же элегантно фильтровать значений.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">[(</span><span class="n">s</span> <span class="o">&gt;=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">s</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">)]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>s[(s &gt;= 5) | (s &lt;= 2)]
 </pre></div>
 </div>
 </div>
@@ -1635,12 +1635,12 @@ dtype: int64
 <p>Например, изменить содержимое ячейки по метке <code class="docutils literal notranslate"><span class="pre">&quot;a&quot;</span></code> можно изменить следующим образом.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(s)
 
-<span class="nb">print</span><span class="p">(</span><span class="n">horizontal_line</span><span class="p">)</span>
+print(horizontal_line)
 
-<span class="n">s</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">42</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+s.loc[&#39;a&#39;] = 42
+print(s)
 </pre></div>
 </div>
 </div>
@@ -1667,12 +1667,12 @@ dtype: int64
 <p>С изменением размера следует быть аккуратным. Следующая операция как бы увеличит размер столбца <code class="docutils literal notranslate"><span class="pre">s</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(s)
 
-<span class="nb">print</span><span class="p">(</span><span class="n">horizontal_line</span><span class="p">)</span>
+print(horizontal_line)
 
-<span class="n">s</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">42</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+s.loc[&#39;z&#39;] = 42
+print(s)
 </pre></div>
 </div>
 </div>
@@ -1705,16 +1705,16 @@ dtype: int64
 <p>При выполнении операций над столбцами метки играют важную роль. Например, при сложении двух столбцов складываются значения с одинаковыми метками. Индекс результирующего столбца — объединение индексов столбцов слагаемых, а напротив тех меток, которые присутствуют в индексе только одного столбца записывается значение <code class="docutils literal notranslate"><span class="pre">np.nan</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;int64&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">horizontal_line</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>s1 = pd.Series([1, 2, 3], index=[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;], dtype=&quot;int64&quot;)
+print(s1)
+print(horizontal_line)
 
-<span class="n">s2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;int64&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">horizontal_line</span><span class="p">)</span>
+s2 = pd.Series([10, 20, 30], index=[&quot;c&quot;, &quot;b&quot;, &quot;d&quot;], dtype=&quot;int64&quot;)
+print(s2)
+print(horizontal_line)
 
-<span class="n">s</span> <span class="o">=</span> <span class="n">s1</span> <span class="o">+</span> <span class="n">s2</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+s = s1 + s2
+print(s)
 </pre></div>
 </div>
 </div>
@@ -1745,15 +1745,15 @@ dtype: float64
 <p>Также можно заметить, что данные результирующего столбца имеют тип <code class="docutils literal notranslate"><span class="pre">float64</span></code>, несмотря на то, что исходные столбцы целочисленного типа. Это объясняется тем, что появившееся значения <code class="docutils literal notranslate"><span class="pre">NaN</span></code> не могут быть представлены стандартным числовым типом, что вынуждает приведение к <code class="docutils literal notranslate"><span class="pre">float</span></code>. Избежать такого поведения можно используя расширенные целочисленные типы, для использования которых указывается тип с заглавной буквы “<code class="docutils literal notranslate"><span class="pre">I</span></code>”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;Int64&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">horizontal_line</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>s1 = pd.Series([1, 2, 3], index=[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;], dtype=&quot;Int64&quot;)
+print(s1)
+print(horizontal_line)
 
-<span class="n">s2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;Int64&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">horizontal_line</span><span class="p">)</span>
+s2 = pd.Series([10, 20, 30], index=[&quot;c&quot;, &quot;b&quot;, &quot;d&quot;], dtype=&quot;Int64&quot;)
+print(s2)
+print(horizontal_line)
 
-<span class="nb">print</span><span class="p">(</span><span class="n">s1</span> <span class="o">+</span> <span class="n">s2</span><span class="p">)</span>
+print(s1 + s2)
 </pre></div>
 </div>
 </div>
@@ -1780,10 +1780,10 @@ dtype: Int64
 <p>Большинство методов массивов <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> переопределены в <code class="docutils literal notranslate"><span class="pre">pandas</span></code> для <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code> таким образом, чтобы обрабатывать пропущенные значения.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pandas_mean</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">numpy_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>pandas_mean = s.mean()
+numpy_mean = np.mean(s.values)
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pandas_mean</span><span class="si">=}</span><span class="s2">, </span><span class="si">{</span><span class="n">numpy_mean</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+print(f&quot;{pandas_mean=}, {numpy_mean=}&quot;)
 </pre></div>
 </div>
 </div>

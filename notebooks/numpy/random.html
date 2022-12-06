@@ -1110,16 +1110,16 @@ title="Print to PDF"
 <p>В качестве примера сгенерируем три псевдослучайных числа. За генерацию псевдослучайных чисел в <code class="docutils literal notranslate"><span class="pre">python</span></code> отвечает модуль <a class="reference external" href="https://docs.python.org/3/library/random.html">random</a>. Вызов функции <a class="reference external" href="https://docs.python.org/3/library/random.html#random.random">random.random</a> генерирует одно действительное псевдослучайное число в полуинтервале <span class="math notranslate nohighlight">\([0, 1)\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import random
 
-<span class="k">def</span> <span class="nf">random_numbers</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">())</span>
-    <span class="k">return</span> <span class="n">result</span>
+def random_numbers(n):
+    result = []
+    for i in range(n):
+        result.append(random.random())
+    return result
 
-<span class="n">x</span> <span class="o">=</span> <span class="n">random_numbers</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+x = random_numbers(5)
+print(x)
 </pre></div>
 </div>
 </div>
@@ -1138,13 +1138,13 @@ title="Print to PDF"
 <p>Теперь проиллюстрируем, что псевдослучайные числа все же отличаются от случайных тем, что они являются результатом детерминированных и воспроизводимых вычислений. Это значит, что мы можем запомнить состояние генератора псевдослучайных чисел, сгенерировать последовательность чисел, вернуться к запомненному состоянию, сгенерировать ещё одну последовательность, и в итоге две сгенерированные последовательности в точности совпадут. Код в ячейке ниже иллюстрирует этот факт.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">state</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">getstate</span><span class="p">()</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">random_numbers</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>state = random.getstate()
+y = random_numbers(5)
+print(y)
 
-<span class="n">random</span><span class="o">.</span><span class="n">setstate</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
-<span class="n">z</span> <span class="o">=</span> <span class="n">random_numbers</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+random.setstate(state)
+z = random_numbers(5)
+print(z)
 </pre></div>
 </div>
 </div>
@@ -1166,10 +1166,10 @@ title="Print to PDF"
 <p>Если вы и так уже работаете с <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>, то для генерации псевдослучайных чисел практичнее воспользоваться средствами модуля <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code> библиотеки <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>. Все методы генерации псевдослучайных чисел в <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> по умолчанию генерируют одно число, но каждый из них имеет опциональный параметр <code class="docutils literal notranslate"><span class="pre">size</span></code>, который позволяет сгенерировать сразу массив случайных чисел. Например, следующий код генерирует сразу 5 случайных чисел в диапазоне от 0 до 1 однократным вызовом метода <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.random.html">random</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
 
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+x = np.random.random(size=5)
+print(x)
 </pre></div>
 </div>
 </div>
@@ -1201,7 +1201,7 @@ title="Print to PDF"
 <p>Самый естественный способ создания объекта генератора случайных чисел — метод <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generator.html#numpy.random.default_rng">numpy.random.default_rng</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>rng = np.random.default_rng()
 </pre></div>
 </div>
 </div>
@@ -1209,8 +1209,8 @@ title="Print to PDF"
 <p>После того как этот объект создан, его методы используются для генерации псевдослучайных чисел.  Например, чтобы сгенерировать 5 случайных чисел из диапазона <span class="math notranslate nohighlight">\([0, 1)\)</span>, можно вызвать всё тот же метод <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.random.html">random</a>, но уже от объекта генератора.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = rng.random(size=5)
+print(x)
 </pre></div>
 </div>
 </div>
@@ -1232,25 +1232,25 @@ title="Print to PDF"
 <p>Метод <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.integers.html#numpy.random.Generator.integers">integers</a> позволяет моделировать, как раз такие случайные величины. Ниже демонстрируется, как можно применить этот метод, чтобы смоделировать подбрасывание игральной кости.</p>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from matplotlib import pyplot as plt
+import numpy as np
 
-<span class="k">def</span> <span class="nf">plot_discrete</span><span class="p">(</span><span class="n">generated</span><span class="p">,</span> <span class="n">xlabel</span><span class="p">,</span> <span class="n">ylabel</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
-    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
-    <span class="n">values</span><span class="p">,</span> <span class="n">appearances</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">generated</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">appearances</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">xlabel</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">ylabel</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+def plot_discrete(generated, xlabel, ylabel, title):
+    fig, ax = plt.subplots(figsize=(10, 6), layout=&quot;tight&quot;)
+    values, appearances = np.unique(generated, return_counts=True)
+    ax.tick_params(labelsize=14)
+    ax.bar(values, appearances)
+    ax.set_xlabel(xlabel, size=18)
+    ax.set_ylabel(ylabel, size=18)
+    ax.set_title(title, size=18)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">faces</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
-<span class="n">plot_discrete</span><span class="p">(</span><span class="n">faces</span><span class="p">,</span> <span class="s2">&quot;Грань&quot;</span><span class="p">,</span> <span class="s2">&quot;Кол-во выпадений грани&quot;</span><span class="p">,</span> <span class="s2">&quot;Подбрасывание игрального кубика&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>faces = rng.integers(low=1, high=6, endpoint=True, size=10000)
+plot_discrete(faces, &quot;Грань&quot;, &quot;Кол-во выпадений грани&quot;, &quot;Подбрасывание игрального кубика&quot;)
 </pre></div>
 </div>
 </div>
@@ -1262,9 +1262,9 @@ title="Print to PDF"
 <p>В каком-то смысле альтернативой является метод <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.choice.html#numpy.random.Generator.choice">choice</a>, который случайным образом несколько раз выбирает из коллекции один элемент. По умолчанию каждый элемент коллекции может попасть в итоговую выборку с одинаковой вероятностью, и выбор осуществляется с повтором (один и тот же элемент исходной выборки может оказаться несколько раз в итоговой). Пример ниже моделирует подбрасывание монетки.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">possible_outcomes</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Орёл&quot;</span><span class="p">,</span> <span class="s2">&quot;Решка&quot;</span><span class="p">]</span>
-<span class="n">faces</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">possible_outcomes</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
-<span class="n">plot_discrete</span><span class="p">(</span><span class="n">faces</span><span class="p">,</span> <span class="s2">&quot;Грань&quot;</span><span class="p">,</span> <span class="s2">&quot;Кол-во выпадений грани&quot;</span><span class="p">,</span> <span class="s2">&quot;Подбрасывание монетки&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>possible_outcomes = [&quot;Орёл&quot;, &quot;Решка&quot;]
+faces = rng.choice(possible_outcomes, size=1000)
+plot_discrete(faces, &quot;Грань&quot;, &quot;Кол-во выпадений грани&quot;, &quot;Подбрасывание монетки&quot;)
 </pre></div>
 </div>
 </div>
@@ -1276,10 +1276,10 @@ title="Print to PDF"
 <p>Ниже демонстрируется, как можно моделировать такой случайный эксперимент средствами метода <code class="docutils literal notranslate"><span class="pre">choice</span></code>. Обратите внимание, на использование опционального параметра <code class="docutils literal notranslate"><span class="pre">p</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">possible_outcomes</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Азот&quot;</span><span class="p">,</span> <span class="s2">&quot;Кислород&quot;</span><span class="p">,</span> <span class="s2">&quot;Остальное&quot;</span><span class="p">]</span>
-<span class="n">probabilities</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.78</span><span class="p">,</span> <span class="mf">0.21</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">])</span>
-<span class="n">gases</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">possible_outcomes</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">probabilities</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
-<span class="n">plot_discrete</span><span class="p">(</span><span class="n">gases</span><span class="p">,</span> <span class="s2">&quot;Газ&quot;</span><span class="p">,</span> <span class="s2">&quot;Кол-во частиц&quot;</span><span class="p">,</span> <span class="s2">&quot;Случайный выбор частицы&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>possible_outcomes = [&quot;Азот&quot;, &quot;Кислород&quot;, &quot;Остальное&quot;]
+probabilities = np.array([0.78, 0.21, 0.01])
+gases = rng.choice(possible_outcomes, p=probabilities, size=1000)
+plot_discrete(gases, &quot;Газ&quot;, &quot;Кол-во частиц&quot;, &quot;Случайный выбор частицы&quot;)
 </pre></div>
 </div>
 </div>
@@ -1301,21 +1301,21 @@ title="Print to PDF"
 <p>Абсолютное непрерывные случайные величины — второй распространенный класс случайных величин. Отличие непрерывной случайной величины от дискретных заключается в том, что они могут принимать значение в непрерывном диапазоне чисел. Мы уже рассматривали метод <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.random.html">random</a>, который генерирует случайные числа из диапазона <span class="math notranslate nohighlight">\([0, 1)\)</span>.</p>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_continuous</span><span class="p">(</span><span class="n">generated</span><span class="p">,</span> <span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="n">nbins</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
-    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">generated</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="n">nbins</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$x$&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;$y$&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def plot_continuous(generated, x_min, x_max, nbins, title):
+    fig, ax = plt.subplots(figsize=(10, 6), layout=&quot;tight&quot;)
+    ax.hist(generated, range=(x_min, x_max), bins=nbins)
+    ax.tick_params(labelsize=18)
+    ax.set_xlabel(&quot;$x$&quot;, size=18)
+    ax.set_ylabel(&quot;$y$&quot;, size=18)
+    ax.set_title(title, size=18)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">100_000</span><span class="p">)</span>
-<span class="n">plot_continuous</span><span class="p">(</span><span class="n">numbers</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;Равномерное на $[0, 1)$ распределение&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>numbers = rng.random(size=100_000)
+plot_continuous(numbers, 0, 1, 30, &quot;Равномерное на $[0, 1)$ распределение&quot;)
 </pre></div>
 </div>
 </div>
@@ -1326,8 +1326,8 @@ title="Print to PDF"
 <p>На самом деле такое распределение является частным случаем <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%9D%D0%B5%D0%BF%D1%80%D0%B5%D1%80%D1%8B%D0%B2%D0%BD%D0%BE%D0%B5_%D1%80%D0%B0%D0%B2%D0%BD%D0%BE%D0%BC%D0%B5%D1%80%D0%BD%D0%BE%D0%B5_%D1%80%D0%B0%D1%81%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5">равномерного распределения</a>, с нижней границей равной нулю и верхней — единице. Метод <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.uniform.html">uniform</a> позволяет генерировать случайную величину, равномерно распределенную на отрезке <span class="math notranslate nohighlight">\([\mathrm{low}, \mathrm{high})\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">100_000</span><span class="p">,</span> <span class="n">low</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plot_continuous</span><span class="p">(</span><span class="n">numbers</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="s2">&quot;Равномерное на $[-1, 1)$ распределение&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>numbers = rng.uniform(size=100_000, low=-1, high=1)
+plot_continuous(numbers, -1, 1, 60, &quot;Равномерное на $[-1, 1)$ распределение&quot;)
 </pre></div>
 </div>
 </div>
@@ -1339,8 +1339,8 @@ title="Print to PDF"
 <p>Метод <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.normal.html">normal</a> позволяет генерировать числа согласно нормальному распределению.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">)</span>
-<span class="n">plot_continuous</span><span class="p">(</span><span class="n">numbers</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;Нормальное распределение $\mathcal</span><span class="si">{N}</span><span class="s2">(0, 1)$&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>numbers = rng.normal(size=1_000_000)
+plot_continuous(numbers, -5, 5, 100, r&quot;Нормальное распределение $\mathcal{N}(0, 1)$&quot;)
 </pre></div>
 </div>
 </div>
@@ -1352,8 +1352,8 @@ title="Print to PDF"
 <p><a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%AD%D0%BA%D1%81%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%86%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5_%D1%80%D0%B0%D1%81%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5">Экспоненциальное распределение</a> определяет случайные величины, которые могут принимать значения на луче <span class="math notranslate nohighlight">\([0, \infty)\)</span>. В <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> за него отвечает метод <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.exponential.html">exponential</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">)</span>
-<span class="n">plot_continuous</span><span class="p">(</span><span class="n">numbers</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;Экспоненциальное распределение $\mathrm</span><span class="si">{Exp}</span><span class="s2">(1)$&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>numbers = rng.exponential(size=1_000_000)
+plot_continuous(numbers, 0, 10, 100, r&quot;Экспоненциальное распределение $\mathrm{Exp}(1)$&quot;)
 </pre></div>
 </div>
 </div>

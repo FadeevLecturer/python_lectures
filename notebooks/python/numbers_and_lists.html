@@ -1158,8 +1158,8 @@ title="Print to PDF"
 <p>В <code class="docutils literal notranslate"><span class="pre">python</span></code> всё — от булевых значений и чисел до функций, классов и файлов — представляется в виде объекта в смысле ООП. Это значит, что даже такие простые данные как целые числа хранятся упакованными в объект, у которого могут быть атрибуты и методы.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">42</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">bit_length</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = 42
+print(x.bit_length())
 </pre></div>
 </div>
 </div>
@@ -1179,10 +1179,10 @@ title="Print to PDF"
 <p>Целые числа представляются типом <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">42</span> 
-<span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a = </span><span class="si">{}</span><span class="s2">, b = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>  <span class="c1"># форматирование строки методом format</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a = 42 
+b = 5
+print(&quot;a = {}, b = {}&quot;.format(a, b))  # форматирование строки методом format
+print(type(a))
 </pre></div>
 </div>
 </div>
@@ -1196,7 +1196,7 @@ title="Print to PDF"
 <p>Напомним, что в <code class="docutils literal notranslate"><span class="pre">C/C++</span></code> 32-битные целые числа принимают значения в диапазоне от <span class="math notranslate nohighlight">\(-2^{32} = -2,147,483,648\)</span> до <span class="math notranslate nohighlight">\(2^{32} - 1 = 2,147,483,647\)</span>. В <code class="docutils literal notranslate"><span class="pre">python</span></code> целые числа могут принимать произвольные значения, ограниченные только объемом оперативной памяти машины, на которой запускается код. Это очень удобно, так как не нужно заботиться о переполнении и нет необходимости определять пользовательские типы для обработки больших значений.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">1000</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(2 ** 1000)
 </pre></div>
 </div>
 </div>
@@ -1212,8 +1212,8 @@ title="Print to PDF"
 <p>Числа с плавающей точкой реализованы по тому же стандарту, что и в <code class="docutils literal notranslate"><span class="pre">C/C++</span></code> (<a class="reference external" href="https://en.wikipedia.org/wiki/IEEE_754">IEEE 754</a>), представлены 64-х битным типом <code class="docutils literal notranslate"><span class="pre">float</span></code> (соответствует <code class="docutils literal notranslate"><span class="pre">double</span></code> в <code class="docutils literal notranslate"><span class="pre">C/C++</span></code>), а значит и ведут себя абсолютно точно также.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;a / b = </span><span class="si">{</span><span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;a / b = {a / b}&quot;)
+print(type(a / b))
 </pre></div>
 </div>
 </div>
@@ -1226,10 +1226,10 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="mf">3.1415</span>
-<span class="n">d</span> <span class="o">=</span> <span class="n">c</span> <span class="o">**</span> <span class="mf">.5</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;c = </span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">, d = </span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;d = </span><span class="si">{</span><span class="n">d</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>                         <span class="c1"># форматирование вывода f-строкой               </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>c = 3.1415
+d = c ** .5
+print(f&quot;c = {c}, d = {d}&quot;)
+print(f&quot;d = {d:.2f}&quot;)                         # форматирование вывода f-строкой               
 </pre></div>
 </div>
 </div>
@@ -1246,8 +1246,8 @@ d = 1.77
 <p>Также в <code class="docutils literal notranslate"><span class="pre">python</span></code> встроены комплексные числа, представленные типом <code class="docutils literal notranslate"><span class="pre">complex</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">e</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>e = complex(42, 13)
+print(type(e))
 </pre></div>
 </div>
 </div>
@@ -1260,9 +1260,9 @@ d = 1.77
 <p>Для их записи в качестве мнимой единицы можно использовать строчную или прописную букву “<code class="docutils literal notranslate"><span class="pre">j</span></code>”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="mi">42</span> <span class="o">+</span> <span class="mi">13</span><span class="n">j</span>
-<span class="n">g</span> <span class="o">=</span> <span class="mi">42</span> <span class="o">+</span> <span class="mi">13</span><span class="n">J</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">e</span> <span class="o">==</span> <span class="n">f</span> <span class="o">==</span> <span class="n">g</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>f = 42 + 13j
+g = 42 + 13J
+print(e == f == g)
 </pre></div>
 </div>
 </div>
@@ -1275,8 +1275,8 @@ d = 1.77
 <p>Все арифметические операторы работаю с комплексными числами корректно.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">imaginary_unit</span> <span class="o">=</span> <span class="mi">1</span><span class="n">j</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">imaginary_unit</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>imaginary_unit = 1j
+print(imaginary_unit**2)
 </pre></div>
 </div>
 </div>
@@ -1289,7 +1289,7 @@ d = 1.77
 <p>Действительную и мнимую части комплексного числа можно узнать атрибутами <code class="docutils literal notranslate"><span class="pre">imag</span></code> и <code class="docutils literal notranslate"><span class="pre">real</span></code> соответственно.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="n">real</span><span class="si">=}</span><span class="s2">, </span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="n">imag</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;{f.real=}, {f.imag=}&quot;)
 </pre></div>
 </div>
 </div>
@@ -1305,8 +1305,8 @@ d = 1.77
 <p>Булевые значения <code class="docutils literal notranslate"><span class="pre">True</span></code> и <code class="docutils literal notranslate"><span class="pre">False</span></code> представляются типом данных <code class="docutils literal notranslate"><span class="pre">bool</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flag</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">flag</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>flag = True
+print(type(flag))
 </pre></div>
 </div>
 </div>
@@ -1319,9 +1319,9 @@ d = 1.77
 <p>На самом деле <code class="docutils literal notranslate"><span class="pre">False</span></code> соответствует целочисленный нуль, а <code class="docutils literal notranslate"><span class="pre">True</span></code> — единица.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;True = </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;False = </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">flag</span><span class="p">,</span> <span class="nb">int</span><span class="p">))</span>                <span class="c1"># True, т.е. булевые значения реализованы как целые числа</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;True = {int(True)}&quot;)
+print(f&quot;False = {int(False)}&quot;)
+print(isinstance(flag, int))                # True, т.е. булевые значения реализованы как целые числа
 </pre></div>
 </div>
 </div>
@@ -1346,7 +1346,7 @@ True
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">13</span> <span class="o">&lt;</span> <span class="mi">42</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(13 &lt; 42)
 </pre></div>
 </div>
 </div>
@@ -1363,10 +1363,10 @@ True
 <p>Так, например, логическое “<strong>И</strong>” представлено бинарным <code class="docutils literal notranslate"><span class="pre">and</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="kc">False</span> <span class="ow">and</span> <span class="kc">False</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="kc">False</span> <span class="ow">and</span> <span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="kc">True</span> <span class="ow">and</span> <span class="kc">False</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="kc">True</span> <span class="ow">and</span> <span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(False and False)
+print(False and True)
+print(True and False)
+print(True and True)
 </pre></div>
 </div>
 </div>
@@ -1382,10 +1382,10 @@ True
 <p>Логическое “ИЛИ” — бинарным оператором <code class="docutils literal notranslate"><span class="pre">or</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="kc">False</span> <span class="ow">or</span> <span class="kc">False</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="kc">False</span> <span class="ow">or</span> <span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="kc">True</span> <span class="ow">or</span> <span class="kc">False</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="kc">True</span> <span class="ow">or</span> <span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(False or False)
+print(False or True)
+print(True or False)
+print(True or True)
 </pre></div>
 </div>
 </div>
@@ -1401,8 +1401,8 @@ True
 <p>Логическое “НЕ” — унарным оператором <code class="docutils literal notranslate"><span class="pre">not</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="ow">not</span> <span class="kc">False</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="ow">not</span> <span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(not False)
+print(not True)
 </pre></div>
 </div>
 </div>
@@ -1419,10 +1419,10 @@ False
 <p>Ноль приводятся к <code class="docutils literal notranslate"><span class="pre">False</span></code>, а числа отличные от нуля к <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Нули: &quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="nb">bool</span><span class="p">(</span><span class="mf">0.</span><span class="p">),</span> <span class="nb">bool</span><span class="p">(</span><span class="nb">complex</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)),</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;, &quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Не нули: &quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="nb">bool</span><span class="p">(</span><span class="mf">1.</span><span class="p">),</span> <span class="nb">bool</span><span class="p">(</span><span class="nb">complex</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;, &quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(&quot;Нули: &quot;, end=&quot;\t\t&quot;)
+print(bool(0), bool(0.), bool(complex(0, 0)), sep=&quot;, &quot;)
+print(&quot;Не нули: &quot;, end=&quot;\t&quot;)
+print(bool(1), bool(1.), bool(complex(0, 1)), sep=&quot;, &quot;)
 </pre></div>
 </div>
 </div>
@@ -1440,8 +1440,8 @@ False
 <p>В <code class="docutils literal notranslate"><span class="pre">python</span></code> есть специальный тип данных <code class="docutils literal notranslate"><span class="pre">NoneType</span></code>, который может принимать единственно возможное значение <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">null_variable</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>null_variable = None
+print(type(None))
 </pre></div>
 </div>
 </div>
@@ -1454,7 +1454,7 @@ False
 <p><code class="docutils literal notranslate"><span class="pre">None</span></code> всегда приводится к <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>bool(None)
 </pre></div>
 </div>
 </div>
@@ -1479,10 +1479,10 @@ False
 <p>Создать список можно, например, перечислив его элементы внутри квадратных скобок и разделив их запятыми.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>l = [1, 3, 7]
 
-<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">l</span><span class="p">))</span>
+print(l)
+print(type(l))
 </pre></div>
 </div>
 </div>
@@ -1496,7 +1496,7 @@ False
 <p>Встроенная функция <code class="docutils literal notranslate"><span class="pre">len</span></code> позволяет узнать длину списка.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(len(l))
 </pre></div>
 </div>
 </div>
@@ -1509,8 +1509,8 @@ False
 <p>Синтаксис получения элемента списка по его индексу напоминает <code class="docutils literal notranslate"><span class="pre">C/C++</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>                     <span class="c1"># Обращение к элементу списка по смещению</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">l</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>             
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(l[1])                     # Обращение к элементу списка по смещению
+print(l[0], l[-1])             
 </pre></div>
 </div>
 </div>
@@ -1524,10 +1524,10 @@ False
 <p>У списка есть встроенный метод сортировки <code class="docutils literal notranslate"><span class="pre">list.sort()</span></code>, который сортирует его <strong>на месте</strong> (<em>in-place</em>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">42</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">123</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>l = [42, 7, 13, -1, 123]
 
-<span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">l</span><span class="p">))</span>               <span class="c1"># Функция sorted конструирует новый список</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> 
+print(sorted(l))               # Функция sorted конструирует новый список
+print(l) 
 </pre></div>
 </div>
 </div>
@@ -1541,8 +1541,8 @@ False
 <p>Также есть функция <code class="docutils literal notranslate"><span class="pre">sorted()</span></code>, которая конструирует новый отсортированный список на основе своего аргумента (список или любой другой итерируемый объект).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>l.sort()
+print(l)
 </pre></div>
 </div>
 </div>
@@ -1555,10 +1555,10 @@ False
 <p>В списки класть объекты абсолютного любого типа, при этом в одном и том же списке одновременно могут располагаться объекты разных типов. В том числе список может содержать в себе списки и/или другие контейнеры, которые в свою очередь тоже могут содержать в себе очередные контейнеры: глубина таких вложений ничем не ограничена.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;a string&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
-<span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s2">&quot;строка внутри списка внутри списка&quot;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>l.append(&quot;a string&quot;)
+print(l)
+l.append([&quot;строка внутри списка внутри списка&quot;])
+print(l)
 </pre></div>
 </div>
 </div>
@@ -1572,7 +1572,7 @@ False
 <p>Пустой список приводится к <code class="docutils literal notranslate"><span class="pre">False</span></code>. Любой не пустой список приводится к <code class="docutils literal notranslate"><span class="pre">True</span></code>. Иногда это используется для проверки на пустоту списка.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">([]),</span> <span class="nb">bool</span><span class="p">([</span><span class="mi">0</span><span class="p">]))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(bool([]), bool([0]))
 </pre></div>
 </div>
 </div>

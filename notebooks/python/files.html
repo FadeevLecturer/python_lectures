@@ -1069,13 +1069,13 @@ title="Print to PDF"
 <p>По умолчанию функцию <code class="docutils literal notranslate"><span class="pre">open</span></code> открывает файл как текстовый для чтения. В качестве примера создадим файл <code class="docutils literal notranslate"><span class="pre">&quot;first_file.txt&quot;</span></code> в папке <code class="docutils literal notranslate"><span class="pre">&quot;tmp&quot;</span></code>. Для этого сначала убедимся в том, что папка существует и создадим строку <code class="docutils literal notranslate"><span class="pre">path</span></code>, представляющую путь до будущего файла.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import os
 
-<span class="n">folder</span> <span class="o">=</span> <span class="s2">&quot;tmp&quot;</span>
-<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;first_file.txt&quot;</span>
-<span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+folder = &quot;tmp&quot;
+filename = &quot;first_file.txt&quot;
+path = os.path.join(folder, filename)
 
-<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+os.makedirs(folder, exist_ok=True)
 </pre></div>
 </div>
 </div>
@@ -1083,15 +1083,15 @@ title="Print to PDF"
 <p>Теперь создадим файловый объект, запишем в него текст. Для этого необходимо открыть файл в режиме на запись в текстовом режиме (флаг <code class="docutils literal notranslate"><span class="pre">&quot;wt&quot;</span></code> или <code class="docutils literal notranslate"><span class="pre">&quot;w&quot;</span></code>, т.к. текстовый режим подразумевается по умолчанию), записать строки текста в него методом <a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOBase.write">write</a>, а в конце обязательно закрыть файл методом <a class="reference external" href="https://docs.python.org/3/library/io.html#io.IOBase.close">close</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>f = open(path, &quot;w&quot;)
 
-<span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
-<span class="sd">&quot;&quot;&quot;Первая строка.</span>
-<span class="sd">Вторая строка.</span>
-<span class="sd">Последняя строка.&quot;&quot;&quot;</span>
-<span class="p">)</span>
+f.write(
+&quot;&quot;&quot;Первая строка.
+Вторая строка.
+Последняя строка.&quot;&quot;&quot;
+)
 
-<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+f.close()
 </pre></div>
 </div>
 </div>
@@ -1099,12 +1099,12 @@ title="Print to PDF"
 <p>Теперь, чтобы убедиться в успешном создании файла, можно повторить эти операции, но на чтение. Как и прежде, в начале создаётся файловый объект встроенной функцией <a class="reference external" href="https://docs.python.org/3/library/functions.html#open">open</a> и в конце закрыть его методом <a class="reference external" href="https://docs.python.org/3/library/io.html#io.IOBase.close">close</a>, но в этот раз режим открытия на чтение, а значит в качестве параметра можно передать <code class="docutils literal notranslate"><span class="pre">&quot;rt&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;r&quot;</span></code> или не передать ничего, так как по умолчанию подразумевается открытие на чтение в текстовом режиме. Считывать содержимое из файла можно несколькими методами, но для начала рассмотрим самый простой — чтение сразу всего содержимого методом <a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOBase.read">read</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>f = open(path)
 
-<span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+content = f.read()
+print(content)
 
-<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+f.close()
 </pre></div>
 </div>
 </div>
@@ -1134,8 +1134,8 @@ title="Print to PDF"
 <p>Считаем содержимое созданного в предыдущем разделе файла с блоком <code class="docutils literal notranslate"><span class="pre">with</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>with open(filename) as f:
+    print(f.read())
 </pre></div>
 </div>
 </div>
@@ -1154,9 +1154,9 @@ title="Print to PDF"
 <p>Читать содержимое текстового файла можно несколько способами, кроме уже упомянутого метода <a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOBase.read">read</a>, есть также методы <a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOBase.readline">readline</a> (чтение одной строки) и <a class="reference external" href="https://docs.python.org/3/library/io.html#io.IOBase.readlines">readlines</a> (возвращает список всех строк файла). Но в подавляющем большинстве случаев содержимое файла считывают построчно, просто итерируясь по файловому объекту.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>with open(filename) as f:
+    for line in f:
+        print(line)
 </pre></div>
 </div>
 </div>
@@ -1189,19 +1189,19 @@ title="Print to PDF"
 <p>Рассмотрим самый простой пример с ними: создадим список и словарь и сериализуем их в строки.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import json
 
-<span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">]</span>
-<span class="n">json_list</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>
+a_list = [1, 1., &quot;a&quot;]
+json_list = json.dumps(a_list)
 
-<span class="n">a_dict</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;key1&quot;</span><span class="p">:</span> <span class="s2">&quot;value1&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;key2&quot;</span><span class="p">:</span> <span class="s2">&quot;value2&quot;</span>
-    <span class="p">}</span>
-<span class="n">json_dict</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">a_dict</span><span class="p">)</span>
+a_dict = {
+    &quot;key1&quot;: &quot;value1&quot;,
+    &quot;key2&quot;: &quot;value2&quot;
+    }
+json_dict = json.dumps(a_dict)
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;json представление для списка: </span><span class="si">{</span><span class="n">json_list</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;json представление для словаря: </span><span class="si">{</span><span class="n">json_dict</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+print(f&quot;json представление для списка: {json_list}&quot;)
+print(f&quot;json представление для словаря: {json_dict}&quot;)
 </pre></div>
 </div>
 </div>
@@ -1209,11 +1209,11 @@ title="Print to PDF"
 <p>Теперь исходные объекты можно восстановить обратным методом <a class="reference external" href="https://docs.python.org/3/library/json.html#json.loads">json.loads</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_list_recovery</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_list</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a_list_recovery</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">a_list_recovery</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a_list_recovery = json.loads(json_list)
+print(a_list_recovery, type(a_list_recovery))
 
-<span class="n">a_dict_recovery</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_dict</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a_dict_recovery</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">a_dict_recovery</span><span class="p">))</span>
+a_dict_recovery = json.loads(json_dict)
+print(a_dict_recovery, type(a_dict_recovery))
 </pre></div>
 </div>
 </div>
@@ -1222,27 +1222,27 @@ title="Print to PDF"
 <p>Коллекции в <code class="docutils literal notranslate"><span class="pre">python</span></code> могут быть вложенными друг в друга и <code class="docutils literal notranslate"><span class="pre">json</span></code> без проблем справляется с представлением таких вложенных структур.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import json
+import os
 
-<span class="n">course_description</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;lecturer&quot;</span><span class="p">:</span> <span class="s2">&quot;Fadeev Egor&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;course&quot;</span><span class="p">:</span> <span class="s2">&quot;Computer technologies workshop&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;topics&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;python3&quot;</span><span class="p">,</span> <span class="s2">&quot;scientific libraries&quot;</span><span class="p">,</span> <span class="s2">&quot;mathematical modeling&quot;</span><span class="p">],</span>
-    <span class="s2">&quot;where&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;Faculty&quot;</span><span class="p">:</span> <span class="s2">&quot;Faculty of physics&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;room&quot;</span><span class="p">:</span> <span class="s2">&quot;5-42&quot;</span>
-    <span class="p">},</span>
-    <span class="s2">&quot;when&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;day of week&quot;</span><span class="p">:</span> <span class="s2">&quot;Thursday&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="s2">&quot;5:05 pm&quot;</span>
-    <span class="p">},</span>
-    <span class="s2">&quot;number of students&quot;</span><span class="p">:</span> <span class="mi">25</span>
-<span class="p">}</span>
+course_description = {
+    &quot;lecturer&quot;: &quot;Fadeev Egor&quot;,
+    &quot;course&quot;: &quot;Computer technologies workshop&quot;,
+    &quot;topics&quot;: [&quot;python3&quot;, &quot;scientific libraries&quot;, &quot;mathematical modeling&quot;],
+    &quot;where&quot;: {
+        &quot;Faculty&quot;: &quot;Faculty of physics&quot;,
+        &quot;room&quot;: &quot;5-42&quot;
+    },
+    &quot;when&quot;: {
+        &quot;day of week&quot;: &quot;Thursday&quot;,
+        &quot;time&quot;: &quot;5:05 pm&quot;
+    },
+    &quot;number of students&quot;: 25
+}
 
-<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s2">&quot;tmp&quot;</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;tmp&quot;</span><span class="p">,</span> <span class="s2">&quot;course_description.json&quot;</span><span class="p">),</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">course_description</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+os.makedirs(&quot;tmp&quot;, exist_ok=True)
+with open(os.path.join(&quot;tmp&quot;, &quot;course_description.json&quot;), &quot;w&quot;) as f:
+    json.dump(course_description, f, indent=4)
 </pre></div>
 </div>
 </div>

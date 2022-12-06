@@ -1074,9 +1074,9 @@ title="Print to PDF"
 <p>Как было отмечено выше, в <code class="docutils literal notranslate"><span class="pre">Windows</span></code> в качестве разделителя используется символ обратного слеша (backslash) “<code class="docutils literal notranslate"><span class="pre">\</span></code>”. Это может привести к небольшой путанице у неопытных программистов. Дело в том, что во многих языка программирования (и в <code class="docutils literal notranslate"><span class="pre">python</span></code>, в том числе) символ “<code class="docutils literal notranslate"><span class="pre">\</span></code>” внутри строк зарезервирован для экранирования, т.е. если внутри строки встречается “<code class="docutils literal notranslate"> </code>“, то он интерпретируется не буквально как символ обратного слеша, а изменяет смысл следующего за ним символом. Так, например, последовательность <code class="docutils literal notranslate"><span class="pre">&quot;\n&quot;</span></code> представляет собой один <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D1%8F%D1%8E%D1%89%D0%B8%D0%B5_%D1%81%D0%B8%D0%BC%D0%B2%D0%BE%D0%BB%D1%8B">управляющий символ</a> перевода строки.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_line</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>new_line = &quot;\n&quot;
 
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">new_line</span><span class="p">))</span>
+print(len(new_line))
 </pre></div>
 </div>
 </div>
@@ -1089,7 +1089,7 @@ title="Print to PDF"
 <p>Это значит, что если вы попробуете записать <code class="docutils literal notranslate"><span class="pre">Windows</span></code> путь не учитывая эту особенность, то высока вероятность получить не тот результат, который вы ожидали. Например, строка <code class="docutils literal notranslate"><span class="pre">&quot;C:\Users&quot;</span></code> вообще не корректна с точки зрения синтаксиса <code class="docutils literal notranslate"><span class="pre">python</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">users_folder</span> <span class="o">=</span> <span class="s2">&quot;C:\Users&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>users_folder = &quot;C:\Users&quot;
 </pre></div>
 </div>
 </div>
@@ -1105,8 +1105,8 @@ title="Print to PDF"
 <p>Это объясняется тем, что последовательность <code class="docutils literal notranslate"><span class="pre">&quot;\U&quot;</span></code> используется для экранирования <code class="docutils literal notranslate"><span class="pre">unicode</span></code> последовательностей, а набор символов <code class="docutils literal notranslate"><span class="pre">&quot;sers&quot;</span></code> не является корректным <code class="docutils literal notranslate"><span class="pre">unicode</span></code> кодом. Ниже приводится пример корректного <code class="docutils literal notranslate"><span class="pre">unicode</span></code> кода.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">snake_emoji</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\U0001F40D</span><span class="s2">&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">snake_emoji</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>snake_emoji = &quot;\U0001F40D&quot;
+print(snake_emoji)
 </pre></div>
 </div>
 </div>
@@ -1120,11 +1120,11 @@ title="Print to PDF"
 <p>Первый из них опирается на удвоение количества символов “<code class="docutils literal notranslate"><span class="pre">\</span></code>”. Дело в том, что в последовательности символов “<code class="docutils literal notranslate"><span class="pre">\\</span></code>” — первый обратный слеш экранирует второй, т.е. итоговый результат эквивалентен одному настоящему символу обратного слеша.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">users_folder</span> <span class="o">=</span> <span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">Users&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">users_folder</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>users_folder = &quot;C:\\Users&quot;
+print(users_folder)
 
-<span class="n">new_line</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">n&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">new_line</span><span class="p">))</span>
+new_line = &quot;\\n&quot;
+print(len(new_line))
 </pre></div>
 </div>
 </div>
@@ -1138,11 +1138,11 @@ title="Print to PDF"
 <p>Второй способ опирается на использование так называемых сырых (raw) строк: если перед началом литерала строки поставить символ “<code class="docutils literal notranslate"><span class="pre">r</span></code>”, то символ обратного слеша теряет свою особую роль внутри неё.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">users_folder</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\Users&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">users_folder</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>users_folder = r&quot;C:\Users&quot;
+print(users_folder)
 
-<span class="n">new_line</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\n&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">new_line</span><span class="p">))</span>
+new_line = r&quot;\n&quot;
+print(len(new_line))
 </pre></div>
 </div>
 </div>
@@ -1161,8 +1161,8 @@ title="Print to PDF"
 <p>Рассмотрим конкретный пример. Пусть у нас имеется строка <code class="docutils literal notranslate"><span class="pre">folder</span></code>, представляющая путь к каталогу, и строка <code class="docutils literal notranslate"><span class="pre">filename</span></code>, представляющее имя некоего файла внутри этого каталога.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">folder</span> <span class="o">=</span> <span class="s2">&quot;directory&quot;</span>
-<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;file.txt&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>folder = &quot;directory&quot;
+filename = &quot;file.txt&quot;
 </pre></div>
 </div>
 </div>
@@ -1171,10 +1171,10 @@ title="Print to PDF"
 <p>Конечно, можно вспомнить, что путь — строка, а значит их можно конкатенировать. Но, что если кто-то захочет запустить ваш код на машине с другой операционной системой? Гораздо целесообразнее воспользоваться для этих целей специальными средствами. Самый надежный способ — метод <a class="reference external" href="https://docs.python.org/3/library/os.path.html#os.path.join">os.path.join</a>, который на вход принимает произвольное количество имен файлов и соединяет их тем символом, который используется в качестве разделителя на той конкретной машине, на которой скрипт запущен сейчас.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import os
 
-<span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+path = os.path.join(folder, filename)
+print(path)
 </pre></div>
 </div>
 </div>
@@ -1188,10 +1188,10 @@ title="Print to PDF"
 <p>Для создания такого объекта обычно используют класс <a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path">Path</a>, при создании экземпляра которого учитывается операционная система, на которой запущен данный скрипт.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from pathlib import Path
 
-<span class="n">folder</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">folder</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">folder</span><span class="si">=}</span><span class="s2">, </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">folder</span><span class="p">)</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+folder = Path(folder)
+print(f&quot;{folder=}, {str(folder)=}&quot;)
 </pre></div>
 </div>
 </div>
@@ -1205,8 +1205,8 @@ title="Print to PDF"
 <p>Чтобы присоединить имя файла к объекту <code class="docutils literal notranslate"><span class="pre">folder</span></code>, можно использовать оператор “<code class="docutils literal notranslate"><span class="pre">/</span></code>” вне зависимости от операционной системы.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="n">folder</span> <span class="o">/</span> <span class="n">filename</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path</span><span class="si">=}</span><span class="s2">, </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>path = folder / filename
+print(f&quot;{path=}, {str(path)=}&quot;)
 </pre></div>
 </div>
 </div>
@@ -1224,7 +1224,7 @@ title="Print to PDF"
 <p>Иногда может стоять обратная задача: дан путь, а из него надо что-то извлечь.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\Users\fadeev\folder\file.txt&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>path = r&quot;C:\Users\fadeev\folder\file.txt&quot;
 </pre></div>
 </div>
 </div>
@@ -1232,10 +1232,10 @@ title="Print to PDF"
 <p>Метод <a class="reference external" href="https://docs.python.org/3/library/os.path.html#os.path.splitdrive">os.path.splitdrive</a> разбивает строку на логический раздел и остальное (актуально в основном на <code class="docutils literal notranslate"><span class="pre">OS</span> <span class="pre">Windows</span></code>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="n">drive</span><span class="p">,</span> <span class="n">tail</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitdrive</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;{path=}&quot;)
+drive, tail = os.path.splitdrive(path)
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">drive</span><span class="si">=}</span><span class="s2">, </span><span class="si">{</span><span class="n">tail</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+print(f&quot;{drive=}, {tail=}&quot;)
 </pre></div>
 </div>
 </div>
@@ -1249,9 +1249,9 @@ drive=&#39;C:&#39;, tail=&#39;\\Users\\fadeev\\folder\\file.txt&#39;
 <p>Метод <a class="reference external" href="https://docs.python.org/3/library/os.path.html#os.path.dirname">os.path.dirname</a> выделяет из пути родительский каталог.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parent_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>parent_folder = os.path.dirname(path)
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">parent_folder</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+print(f&quot;{parent_folder=}&quot;)
 </pre></div>
 </div>
 </div>
@@ -1264,8 +1264,8 @@ drive=&#39;C:&#39;, tail=&#39;\\Users\\fadeev\\folder\\file.txt&#39;
 <p>Метод <a class="reference external" href="https://docs.python.org/3/library/os.path.html#os.path.basename">os.path.basename</a> наоборот извлекает имя файла или папки, на которую данный путь указывает без учета родительского каталога.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">filename</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>filename = os.path.basename(path)
+print(f&quot;{filename=}&quot;)
 </pre></div>
 </div>
 </div>
@@ -1282,7 +1282,7 @@ drive=&#39;C:&#39;, tail=&#39;\\Users\\fadeev\\folder\\file.txt&#39;
 <p>Самый фундаментальный вопрос, который можно задать — существует ли вообще что-нибудь по указанному пути? Метод <a class="reference external" href="https://docs.python.org/3/library/os.path.html#os.path.exists">os.path.exists</a> отвечает как раз на этот вопрос.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="si">=}</span><span class="s2">, </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;filesystem.ipynb&#39;</span><span class="p">)</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;{os.path.exists(path)=}, {os.path.exists(&#39;filesystem.ipynb&#39;)=}&quot;)
 </pre></div>
 </div>
 </div>
@@ -1295,7 +1295,7 @@ drive=&#39;C:&#39;, tail=&#39;\\Users\\fadeev\\folder\\file.txt&#39;
 <p>Методы <a class="reference external" href="https://docs.python.org/3/library/os.path.html#os.path.isdir">os.path.isdir</a> и <a class="reference external" href="https://docs.python.org/3/library/os.path.html#os.path.isfile">os.path.isfile</a> позволяют определить располагает ли по этому пути каталог или файл соответственно. Оба метода возвращают <code class="docutils literal notranslate"><span class="pre">False</span></code>, если по переданному пути ничего не располагается.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">folder</span><span class="p">)</span><span class="si">=}</span><span class="s2">, </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="s1">&#39;filesystem.ipynb&#39;</span><span class="p">)</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;{os.path.isdir(folder)=}, {os.path.isfile(&#39;filesystem.ipynb&#39;)=}&quot;)
 </pre></div>
 </div>
 </div>
@@ -1312,8 +1312,8 @@ drive=&#39;C:&#39;, tail=&#39;\\Users\\fadeev\\folder\\file.txt&#39;
 <p>В ряде задач может потребоваться узнать содержимое определенного каталога, например, чтобы потом в цикле обработать каждый элемент каталога. В самых простых случаях достаточно метода <a class="reference external" href="https://docs.python.org/3/library/os.html#os.listdir">os.listdir</a>, который возвращает список файлов/каталогов в указанной директории. По умолчанию — текущая директория.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for filename in os.listdir():
+    print(filename, end=&quot; &quot;)
 </pre></div>
 </div>
 </div>
@@ -1327,9 +1327,9 @@ drive=&#39;C:&#39;, tail=&#39;\\Users\\fadeev\\folder\\file.txt&#39;
 <p>Метод <a class="reference external" href="https://docs.python.org/3/library/glob.html#glob.glob">glob.glob</a> модуля стандартной библиотеки <a class="reference external" href="https://docs.python.org/3/library/glob.html#module-glob">glob</a> позволяет фильтровать содержимое каталога на основе шаблона. В ячейке ниже демонстрируется, как можно найти все файлы в каталоге, которые начинаются с символа “<code class="docutils literal notranslate"><span class="pre">a</span></code>”, а завершаются расширением “<code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">glob</span>
-<span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;a*.ipynb&quot;</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import glob
+for filename in glob.glob(&quot;a*.ipynb&quot;):
+    print(filename)
 </pre></div>
 </div>
 </div>

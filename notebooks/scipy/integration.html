@@ -938,19 +938,31 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#id2">
    Дифференцирование функций
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Разностная производная
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Аналитическое дифференцирование
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
+  <a class="reference internal nav-link" href="#id5">
    Интегрирование функций
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
+    <a class="reference internal nav-link" href="#id6">
      Однократные интегралы
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
+    <a class="reference internal nav-link" href="#id7">
      Интегралы большей кратности
     </a>
    </li>
@@ -979,19 +991,31 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#id2">
    Дифференцирование функций
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Разностная производная
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Аналитическое дифференцирование
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
+  <a class="reference internal nav-link" href="#id5">
    Интегрирование функций
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
+    <a class="reference internal nav-link" href="#id6">
      Однократные интегралы
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
+    <a class="reference internal nav-link" href="#id7">
      Интегралы большей кратности
     </a>
    </li>
@@ -1011,48 +1035,69 @@ title="Print to PDF"
 <h1>Дифференцирование и интегрирование функций<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from matplotlib import pyplot as plt
 
 
-<span class="k">def</span> <span class="nf">configure_matplotlib</span><span class="p">():</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="n">usetex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;axes.titlesize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">28</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;axes.labelsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">24</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;legend.fontsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">24</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;xtick.labelsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;ytick.labelsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">18</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;text.latex.preamble&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">    \usepackage[utf8]</span><span class="si">{inputenc}</span><span class="s2"></span>
-<span class="s2">    \usepackage[english,russian]</span><span class="si">{babel}</span><span class="s2"></span>
-<span class="s2">    \usepackage</span><span class="si">{amsmath}</span><span class="s2"></span>
-<span class="s2">    &quot;&quot;&quot;</span>
+def configure_matplotlib():
+    plt.rc(&#39;text&#39;, usetex=True)
+    plt.rcParams[&quot;axes.titlesize&quot;] = 28
+    plt.rcParams[&quot;axes.labelsize&quot;] = 24
+    plt.rcParams[&quot;legend.fontsize&quot;] = 24
+    plt.rcParams[&quot;xtick.labelsize&quot;] = plt.rcParams[&quot;ytick.labelsize&quot;] = 18
+    plt.rcParams[&quot;text.latex.preamble&quot;] = r&quot;&quot;&quot;
+    \usepackage[utf8]{inputenc}
+    \usepackage[english,russian]{babel}
+    \usepackage{amsmath}
+    &quot;&quot;&quot;
 
-<span class="n">configure_matplotlib</span><span class="p">()</span>
+configure_matplotlib()
 </pre></div>
 </div>
 </div>
 </div>
 <section id="id2">
 <h2>Дифференцирование функций<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
-<p>Числено взять производную от любой функции можно методом <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.misc.derivative.html#scipy.misc.derivative">scipy.misc.derivative</a>.</p>
-<p>Продемонстрируем его применение на примере функции <span class="math notranslate nohighlight">\(f(x) = x^2\)</span>, первая производная которой <span class="math notranslate nohighlight">\(f'(x)=2x\)</span>, а вторая <span class="math notranslate nohighlight">\(f''(x) = 2\)</span>.</p>
+<section id="id3">
+<h3>Разностная производная<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<p>Одно из возможных определений первой производной дифференцируемой функции <span class="math notranslate nohighlight">\(f(x)\)</span> имеет вид</p>
+<div class="math notranslate nohighlight">
+\[
+\dfrac{\mathrm{d} f(x)}{\mathrm{d}x} = \lim_{h \to 0} \dfrac{f(x + h) - f(x)}{h}.
+\]</div>
+<p>В рамказ компьютерной арифметики предельный переход осуществить невозможно, поэтому в целях аппроксимации производной нередко вместо предела при <span class="math notranslate nohighlight">\(h \to 0\)</span> подставляют очень малое <span class="math notranslate nohighlight">\(h\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\dfrac{\mathrm{d} f(x)}{\mathrm{d}x} \approx \dfrac{f(x + h) - f(x)}{h}.
+\]</div>
+<p>Такая аппроксимация производной называется правой разностной производной. Можно показать, что асимптотическая погрешность вычисления производной таким способом имеет вид <span class="math notranslate nohighlight">\(o(h)\)</span>, т.е. уменьшая шаг <span class="math notranslate nohighlight">\(h\)</span> можно добиться любой точности вычисления производной. Более распространенна центральная разнастная производная, определяемая выражением</p>
+<div class="math notranslate nohighlight">
+\[
+\dfrac{\mathrm{d} f(x)}{\mathrm{d}x} \approx \dfrac{f(x + h) - f(x - h)}{2h}.
+\]</div>
+<p>Её асимптотическая погрешность имеет вид <span class="math notranslate nohighlight">\(o(h^2)\)</span>, а значит уменьшая шаг <span class="math notranslate nohighlight">\(h\)</span> в 2 раза, можно ожидать уменьшение погрешности вычисления производной в 4 раза.</p>
+<p>Аналогичным образом можно определить аппроксимацию производной любого порядка. Метод <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.misc.derivative.html#scipy.misc.derivative">scipy.misc.derivative</a> в <code class="docutils literal notranslate"><span class="pre">SciPy</span></code> вычисляет разностную производную произвольного порядка (опциональный параметр <code class="docutils literal notranslate"><span class="pre">n</span></code>).</p>
+<p>Продемонстрируем его применение на примере функции <span class="math notranslate nohighlight">\(f(x) = e^{2x}\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.misc</span> <span class="kn">import</span> <span class="n">derivative</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from scipy.misc import derivative
+import numpy as np
 
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
+def f(x):
+    return np.exp(2. * x)
 
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+fig, ax = plt.subplots(figsize=(6, 6), layout=&quot;tight&quot;)
+x = np.linspace(-1, 0, 100)
+labels = (&quot;$f(x)$&quot;, &quot;$f&#39;(x)$&quot;, &quot;$f&#39;&#39;(x)$&quot;)
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">axs</span><span class="o">.</span><span class="n">flatten</span><span class="p">()):</span>
-    <span class="n">order</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">derivative</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">order</span><span class="p">))</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$x$&quot;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;$y$&quot;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Производная порядка: </span><span class="si">{</span><span class="n">order</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+for n, label in enumerate(labels):
+    y = derivative(f, x, n=n, dx=1e-3, order=2*n+1) if order &gt; 0 else f(x)
+    ax.plot(x, y, label=label)
     
+ax.set_xlabel(&quot;$x$&quot;)
+ax.set_ylabel(&quot;$y$&quot;)
+ax.legend()
+ax.grid()   
 </pre></div>
 </div>
 </div>
@@ -1061,11 +1106,44 @@ title="Print to PDF"
 </div>
 </div>
 </section>
-<section id="id3">
-<h2>Интегрирование функций<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
-<p>Подмодуль <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/integrate.html#module-scipy.integrate">scipy.integrate</a> позволяет приближенно вычислять значение определенных интегралов.</p>
 <section id="id4">
-<h3>Однократные интегралы<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<h3>Аналитическое дифференцирование<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<p>Ряд современных библиотек умеет вычислять производные от своих методов. Например, библиотека <a class="reference external" href="https://github.com/HIPS/autograd">autograd</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Обратите внимание, что для аналитического вычисления производной средствами библиотеки <code class="docutils literal notranslate"><span class="pre">autograd</span></code>, необходимо вместо библиотеки <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> использовать модуль <code class="docutils literal notranslate"><span class="pre">autograd.numpy</span></code>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from autograd import numpy as np
+from autograd import elementwise_grad 
+
+fig, ax = plt.subplots(figsize=(6, 6), layout=&quot;tight&quot;)
+x = np.linspace(-1, 0, 100)
+labels = (&quot;$f(x)$&quot;, &quot;$f&#39;(x)$&quot;, &quot;$f&#39;&#39;(x)$&quot;)
+funcs = (f, elementwise_grad(f), elementwise_grad(elementwise_grad(f)))
+
+for order, (label, func) in enumerate(zip(labels, funcs)):
+    ax.plot(x, func(x), label=label)
+    
+ax.set_xlabel(&quot;$x$&quot;)
+ax.set_ylabel(&quot;$y$&quot;)
+ax.legend()
+ax.grid()   
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/integration_5_0.png" src="../../_images/integration_5_0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="id5">
+<h2>Интегрирование функций<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
+<p>Подмодуль <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/integrate.html#module-scipy.integrate">scipy.integrate</a> позволяет приближенно вычислять значение определенных интегралов.</p>
+<section id="id6">
+<h3>Однократные интегралы<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
 <p>Функция <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/reference/generated/scipy.integrate.quad.html#scipy.integrate.quad">scipy.integrate.quad</a> позволяет проинтегрировать функцию <span class="math notranslate nohighlight">\(f\colon \mathbb{R} \to \mathbb{R}\)</span>. Вызов функции <code class="docutils literal notranslate"><span class="pre">quad(f,</span> <span class="pre">a,</span> <span class="pre">b)</span></code> приближенно находит значение интеграла</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1078,32 +1156,32 @@ I = \int\limits_0^\pi \sin x \, dx = -\cos x\Big|_0^\pi = 2.
 \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">integrate</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
+from scipy import integrate
+from matplotlib import pyplot as plt
 
 
-<span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span>
-<span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
-<span class="n">I</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">integrate</span><span class="o">.</span><span class="n">quad</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+f = np.sin
+a, b = 0, np.pi
+I, _ = integrate.quad(f, 0, np.pi)
+x = np.linspace(0, np.pi, 100)
+y = f(x)
 
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$f(x)=\sin x$&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$x$&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;$y$&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">y</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="p">(</span><span class="n">y</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">),</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.30</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="sa">fr</span><span class="s2">&quot;$S = </span><span class="si">{</span><span class="n">I</span><span class="si">}</span><span class="s2">$&quot;</span><span class="p">,</span> <span class="n">fontdict</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span> <span class="s2">&quot;ha&quot;</span><span class="p">:</span> <span class="s2">&quot;center&quot;</span><span class="p">})</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+fig, ax = plt.subplots(figsize=(10, 6), layout=&quot;tight&quot;)
+ax.plot(x, y, label=r&quot;$f(x)=\sin x$&quot;)
+ax.set_xlabel(&quot;$x$&quot;)
+ax.set_ylabel(&quot;$y$&quot;)
+ax.fill_between(x, np.zeros_like(x), y, where=(y&gt;0), facecolor=&#39;green&#39;, alpha=0.30)
+ax.set_xticks(np.linspace(0, np.pi, 7))
+ax.text(np.pi/2, 0.5, fr&quot;$S = {I}$&quot;, fontdict={&quot;size&quot;: 24, &quot;ha&quot;: &quot;center&quot;})
+ax.legend()
+ax.grid()
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/integration_5_0.png" src="../../_images/integration_5_0.png" />
+<img alt="../../_images/integration_7_0.png" src="../../_images/integration_7_0.png" />
 </div>
 </div>
 <p>Параметры <span class="math notranslate nohighlight">\(a\)</span> и <span class="math notranslate nohighlight">\(b\)</span> могут принимать значения <code class="docutils literal notranslate"><span class="pre">-inf</span></code> и <code class="docutils literal notranslate"><span class="pre">+inf</span></code>, чтобы брать несобственные интегралы. Продемонстрируем это на примере интеграла</p>
@@ -1113,31 +1191,32 @@ I = \int\limits_1^\infty \dfrac{1}{x^2}\,dx = 1.
 \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="mf">1.</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def f(x):
+    return 1. / np.square(x)
 
 
-<span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
-<span class="n">I</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">integrate</span><span class="o">.</span><span class="n">quad</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+a, b = 1, np.inf
+I, _ = integrate.quad(f, a, b)
 
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+x = np.linspace(a, 7, 100)
+y = f(x)
 
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$f(x)=\dfrac</span><span class="si">{1}</span><span class="s2">{x^2}$&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$x$&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;$y$&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">y</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="p">(</span><span class="n">y</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">),</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.30</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="sa">fr</span><span class="s2">&quot;$S = </span><span class="si">{</span><span class="n">I</span><span class="si">}</span><span class="s2">$&quot;</span><span class="p">,</span> <span class="n">fontdict</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span> <span class="s2">&quot;ha&quot;</span><span class="p">:</span> <span class="s2">&quot;center&quot;</span><span class="p">})</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+fig, ax = plt.subplots(figsize=(10, 6), layout=&quot;tight&quot;)
+ax.plot(x, y, label=r&quot;$f(x)=\dfrac{1}{x^2}$&quot;)
+ax.set_xlabel(&quot;$x$&quot;)
+ax.set_ylabel(&quot;$y$&quot;)
+ax.fill_between(x, np.zeros_like(x), y, where=(y&gt;0), facecolor=&#39;green&#39;, alpha=0.30)
+ax.set_xticks(np.linspace(1, 7, 7))
+ax.text(1.5, 0.1, fr&quot;$S = {I}$&quot;, fontdict={&quot;size&quot;: 24, &quot;ha&quot;: &quot;center&quot;})
+ax.legend()
+ax.grid()
+
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/integration_7_0.png" src="../../_images/integration_7_0.png" />
+<img alt="../../_images/integration_9_0.png" src="../../_images/integration_9_0.png" />
 </div>
 </div>
 <p>Однако численное взятие несобственных интегралов отнюдь не тривиальная задача. Например, интеграл Френеля
@@ -1147,11 +1226,11 @@ $<span class="math notranslate nohighlight">\(
 <p>просто так вычислить не удастся.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def f(t):
+    return np.sin(t**2)
 
-<span class="n">I</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">integrate</span><span class="o">.</span><span class="n">quad</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
+I, _ = integrate.quad(f, 0, np.inf)
+print(I)
 </pre></div>
 </div>
 </div>
@@ -1166,8 +1245,8 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 </section>
-<section id="id5">
-<h3>Интегралы большей кратности<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
+<section id="id7">
+<h3>Интегралы большей кратности<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
 <p>Функция <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/reference/generated/scipy.integrate.dblquad.html#scipy.integrate.dblquad">scipy.integrate.dblquad</a> позволяет вычислять интегралы вида</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1180,41 +1259,41 @@ $<span class="math notranslate nohighlight">\(
 \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">integrate</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
+from scipy import integrate
+from matplotlib import pyplot as plt
 
 
-<span class="k">def</span> <span class="nf">h</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+def h(x):
+    return np.sqrt(1 - x**2)
 
-<span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="o">-</span><span class="n">h</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+def g(x):
+    return -h(x)
 
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+def f(x, y):
+    return np.sqrt(x**2 + y**2)
 
-<span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span>
-<span class="n">I</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">integrate</span><span class="o">.</span><span class="n">dblquad</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+a, b = -1, 1
+I, _ = integrate.dblquad(f, -1, 1, g, h)
 
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">z</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+x = np.linspace(a, b, 100)
+y = np.linspace(a, b, 100)
+x, y = np.meshgrid(x, y)
+z = f(x, y)
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;projection&quot;</span><span class="p">:</span> <span class="s2">&quot;3d&quot;</span><span class="p">})</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;coolwarm&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$x$&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;$y$&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s2">&quot;$z$&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_zticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\sqrt{x^2 + y^2}$&quot;</span><span class="p">)</span>
+fig, ax = plt.subplots(figsize=(8, 8), layout=&quot;tight&quot;, subplot_kw={&quot;projection&quot;: &quot;3d&quot;})
+ax.plot_surface(x, y, z, cmap=&quot;coolwarm&quot;)
+ax.set_xlabel(&quot;$x$&quot;)
+ax.set_ylabel(&quot;$y$&quot;)
+ax.set_zlabel(&quot;$z$&quot;)
+ax.set_xticks([-1, 0, 1])
+ax.set_yticks([-1, 0, 1])
+ax.set_zticks([0, 1])
+ax.set_title(r&quot;$\sqrt{x^2 + y^2}$&quot;)
 
 
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Вычисленное значение интеграла: </span><span class="si">{</span><span class="n">I</span><span class="si">}</span><span class="s2">, точное значение: </span><span class="si">{</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">3</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+print(f&quot;Вычисленное значение интеграла: {I}, точное значение: {2*np.pi/3}.&quot;)
 </pre></div>
 </div>
 </div>
@@ -1222,7 +1301,7 @@ $<span class="math notranslate nohighlight">\(
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Вычисленное значение интеграла: 2.0943951023924106, точное значение: 2.0943951023931953.
 </pre></div>
 </div>
-<img alt="../../_images/integration_11_1.png" src="../../_images/integration_11_1.png" />
+<img alt="../../_images/integration_13_1.png" src="../../_images/integration_13_1.png" />
 </div>
 </div>
 <p>Трехкратные интегралы вида</p>

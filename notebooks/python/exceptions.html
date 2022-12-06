@@ -1089,7 +1089,7 @@ title="Print to PDF"
 <p>Тем не менее большинство ошибок программой не обрабатывается и их возникновение приводит к выводу сообщения об ошибке. В качестве примера попробуем поделить на ноль.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>1/0
 </pre></div>
 </div>
 </div>
@@ -1112,13 +1112,13 @@ title="Print to PDF"
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
-    <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def f():
+    1/0
 
-<span class="k">def</span> <span class="nf">g</span><span class="p">():</span>
-    <span class="n">f</span><span class="p">()</span>
+def g():
+    f()
 
-<span class="n">g</span><span class="p">()</span>
+g()
 </pre></div>
 </div>
 </div>
@@ -1163,7 +1163,7 @@ title="Print to PDF"
 <p>Многие исключения бросаются интерпретатором <code class="docutils literal notranslate"><span class="pre">python</span></code> при обнаружении ошибки или в служебных целях. Для этого используется ключевое слово <code class="docutils literal notranslate"><span class="pre">raise</span></code> справа от которого указывается экземпляр исключения.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Моё первое исключение!&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>raise Exception(&quot;Моё первое исключение!&quot;)
 </pre></div>
 </div>
 </div>
@@ -1181,12 +1181,12 @@ title="Print to PDF"
 <p>Когда исключение возбужденно, оно начинает распространяться, т.е. нормальное исполнение программы прекращается. Так, например, покинуть функцию можно не только используя ключевое слово <code class="docutils literal notranslate"><span class="pre">return</span></code>, но и ключевым словом <code class="docutils literal notranslate"><span class="pre">raise</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;До исключения!&quot;</span><span class="p">)</span>
-    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Исключение!&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;После исключения!&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def f():
+    print(&quot;До исключения!&quot;)
+    raise Exception(&quot;Исключение!&quot;)
+    print(&quot;После исключения!&quot;)
 
-<span class="n">f</span><span class="p">()</span>
+f()
 </pre></div>
 </div>
 </div>
@@ -1236,11 +1236,11 @@ title="Print to PDF"
 <p>В качестве примера опять поделим на ноль, но в этот раз поместим это деление в блок <code class="docutils literal notranslate"><span class="pre">try/except</span></code> и обработаем исключение типа <code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;После попытки деления.&quot;</span><span class="p">)</span>
-<span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Перехвачена ошибка деления на ноль!&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>try:
+    1/0
+    print(&quot;После попытки деления.&quot;)
+except ZeroDivisionError:
+    print(&quot;Перехвачена ошибка деления на ноль!&quot;)
 </pre></div>
 </div>
 </div>
@@ -1261,15 +1261,15 @@ title="Print to PDF"
 <p>Следующий пример демонстрирует, что исключение продолжает распространяться, пока не встретит правильный блок <code class="docutils literal notranslate"><span class="pre">except</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
-    <span class="k">except</span> <span class="ne">NameError</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ошибка перехвачена внутренним блоком try/except.&quot;</span><span class="p">)</span>
-<span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ошибка перехвачена внешним блоком try/except.&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>try:
+    try:
+        1/0
+    except NameError:
+        print(&quot;Ошибка перехвачена внутренним блоком try/except.&quot;)
+except ZeroDivisionError:
+    print(&quot;Ошибка перехвачена внешним блоком try/except.&quot;)
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Инструкция после обработки исключения.&quot;</span><span class="p">)</span>
+print(&quot;Инструкция после обработки исключения.&quot;)
 </pre></div>
 </div>
 </div>
@@ -1284,15 +1284,15 @@ title="Print to PDF"
 <p>Следующий пример демонстрирует, что исключение прекращает распространяться, как только встретит правильный блок <code class="docutils literal notranslate"><span class="pre">except</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
-    <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ошибка перехвачена внутренним блоком except.&quot;</span><span class="p">)</span>
-<span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ошибка перехвачена внешним блоком except.&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>try:
+    try:
+        1/0
+    except ZeroDivisionError:
+        print(&quot;Ошибка перехвачена внутренним блоком except.&quot;)
+except ZeroDivisionError:
+    print(&quot;Ошибка перехвачена внешним блоком except.&quot;)
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Инструкция после обработки исключения.&quot;</span><span class="p">)</span>
+print(&quot;Инструкция после обработки исключения.&quot;)
 </pre></div>
 </div>
 </div>
@@ -1307,12 +1307,12 @@ title="Print to PDF"
 <p>Блоков <code class="docutils literal notranslate"><span class="pre">except</span></code> может быть несколько в одном блоке <code class="docutils literal notranslate"><span class="pre">try/except</span></code>, что позволяет по-разному реагировать на ошибки разных типов.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
-<span class="k">except</span> <span class="ne">NameError</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Перехвачена ошибка NameError&quot;</span><span class="p">)</span>
-<span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Перехвачена ошибка ZeroDivisionError&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>try:
+    1/0
+except NameError:
+    print(&quot;Перехвачена ошибка NameError&quot;)
+except ZeroDivisionError:
+    print(&quot;Перехвачена ошибка ZeroDivisionError&quot;)
 </pre></div>
 </div>
 </div>
@@ -1330,12 +1330,12 @@ title="Print to PDF"
 <p>Если не придерживаться этого правила, то специфичные блоки <code class="docutils literal notranslate"><span class="pre">except</span></code> будут недостижимы. Продемонстрируем это на примере, воспользовавшись тем, что <code class="docutils literal notranslate"><span class="pre">Exception</span></code> является базовым классом почти для всех остальных встроенных исключений, а значит исключения этого типа являются чуть ли не самыми общими.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
-<span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Перехвачено неожиданное исключение!&quot;</span><span class="p">)</span>
-<span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Перехвачено исключение ZeroDivisionError!&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>try:
+    1/0
+except Exception:
+    print(&quot;Перехвачено неожиданное исключение!&quot;)
+except ZeroDivisionError:
+    print(&quot;Перехвачено исключение ZeroDivisionError!&quot;)
 </pre></div>
 </div>
 </div>
@@ -1349,12 +1349,12 @@ title="Print to PDF"
 <p>Правильнее в данном случае было бы поменять эти блоки местами.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
-<span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Перехвачено исключение ZeroDivisionError!&quot;</span><span class="p">)</span>
-<span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Перехвачено неожиданное исключение!&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>try:
+    1/0
+except ZeroDivisionError:
+    print(&quot;Перехвачено исключение ZeroDivisionError!&quot;)
+except Exception:
+    print(&quot;Перехвачено неожиданное исключение!&quot;)
 </pre></div>
 </div>
 </div>
@@ -1375,10 +1375,10 @@ title="Print to PDF"
 <p>Из некоторых объектов исключений можно получить дополнительную информацию об контексте, при которым они возбудились. У всех стандартных исключений преобразование к строке определенно таким образом, чтобы выводить сообщение, указанное при создании.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Сообщение исключения!&quot;</span><span class="p">)</span>
-<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>try:
+    raise Exception(&quot;Сообщение исключения!&quot;)
+except Exception as e:
+    print(e)
 </pre></div>
 </div>
 </div>
@@ -1391,10 +1391,10 @@ title="Print to PDF"
 <p>После ключевого слова <code class="docutils literal notranslate"><span class="pre">except</span></code> необязательно должен быть указан только один тип исключения: можно указать кортеж.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
-<span class="k">except</span> <span class="p">(</span><span class="ne">ZeroDivisionError</span><span class="p">,</span> <span class="ne">NameError</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Возникло исключение ZeroDivisionError или NameError!&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>try:
+    1/0
+except (ZeroDivisionError, NameError):
+    print(&quot;Возникло исключение ZeroDivisionError или NameError!&quot;)
 </pre></div>
 </div>
 </div>
@@ -1407,15 +1407,15 @@ title="Print to PDF"
 <p>Так же, в самом конце блока <code class="docutils literal notranslate"><span class="pre">try/except</span></code> можно добавить блок <code class="docutils literal notranslate"><span class="pre">else</span></code>, инструкции в котором исполняться, только если блок <code class="docutils literal notranslate"><span class="pre">try</span></code> завершится без ошибок. Чтобы продемонстрировать это, определим функцию <code class="docutils literal notranslate"><span class="pre">divide</span></code>, которая будет пытаться делить первый аргумент на второй и возвращать результат деления, если деление произошло успешно, и возвращать бесконечность, если второй параметр равен нулю.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">divide</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
-    <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Попытка деления на ноль.&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;inf&quot;</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Деление произошло успешно.&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">result</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def divide(a, b):
+    try:
+        result = a / b
+    except ZeroDivisionError:
+        print(&quot;Попытка деления на ноль.&quot;)
+        return float(&quot;inf&quot;)
+    else:
+        print(&quot;Деление произошло успешно.&quot;)
+        return result
 </pre></div>
 </div>
 </div>
@@ -1423,8 +1423,8 @@ title="Print to PDF"
 <p>Блок <code class="docutils literal notranslate"><span class="pre">else</span></code> в этой функции исполнится, только если в блоке <code class="docutils literal notranslate"><span class="pre">try</span></code> деление произойдет успешно, т.е. если не возникнет ошибки деления на ноль.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">divide</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="mi">14</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">divide</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(divide(42, 14))
+print(divide(42, 0))
 </pre></div>
 </div>
 </div>
@@ -1502,15 +1502,15 @@ inf
 <p>Для демонстрации работы блока такого вида приведем пример из документации.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">divide</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="n">y</span>
-    <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Попытка деления на ноль!&quot;</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Результат деления </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="k">finally</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Выполнение блока &#39;finally&#39;.&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def divide(x, y):
+    try:
+        result = x / y
+    except ZeroDivisionError:
+        print(&quot;Попытка деления на ноль!&quot;)
+    else:
+        print(f&quot;Результат деления {result}&quot;)
+    finally:
+        print(&quot;Выполнение блока &#39;finally&#39;.&quot;)
 </pre></div>
 </div>
 </div>
@@ -1519,7 +1519,7 @@ inf
 <p>Если деление происходит успешно (<code class="docutils literal notranslate"><span class="pre">else</span></code>), то выводится результат.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">divide</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>divide(2, 1)
 </pre></div>
 </div>
 </div>
@@ -1533,7 +1533,7 @@ inf
 <p>Если возникает ошибка деления на ноль, то она перехватывается и выводится соответствующее сообщение.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">divide</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>divide(2, 0)
 </pre></div>
 </div>
 </div>
@@ -1547,7 +1547,7 @@ inf
 <p>Если возникает ошибка другого рода, то её распространение продолжается.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">divide</span><span class="p">(</span><span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>divide(&quot;2&quot;, &quot;1&quot;)
 </pre></div>
 </div>
 </div>

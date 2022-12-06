@@ -1097,53 +1097,53 @@ title="Print to PDF"
 <p>Тем не менее знание этой библиотеки для ученого — <code class="docutils literal notranslate"><span class="pre">must</span> <span class="pre">have</span></code>. После освоения её на среднем уровне, можно быстро строить необходимые графики и приводить их к надлежащему виду, например, для публикации в научной статье или для иллюстрации доклада на конференции. Именно ей и будет уделено основное внимание в курсе.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
+import matplotlib.pyplot as plt
 
-<span class="c1"># Fixing random state for reproducibility</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">19680801</span><span class="p">)</span>
+# Fixing random state for reproducibility
+np.random.seed(19680801)
 
-<span class="c1"># some random data</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">scatter_hist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">ax_histx</span><span class="p">,</span> <span class="n">ax_histy</span><span class="p">):</span>
-    <span class="c1"># no labels</span>
-    <span class="n">ax_histx</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">labelbottom</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-    <span class="n">ax_histy</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">labelleft</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-    <span class="c1"># the scatter plot:</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-
-    <span class="c1"># now determine nice limits by hand:</span>
-    <span class="n">binwidth</span> <span class="o">=</span> <span class="mf">0.25</span>
-    <span class="n">xymax</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">y</span><span class="p">)))</span>
-    <span class="n">lim</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">xymax</span><span class="o">/</span><span class="n">binwidth</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">binwidth</span>
-
-    <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">lim</span><span class="p">,</span> <span class="n">lim</span> <span class="o">+</span> <span class="n">binwidth</span><span class="p">,</span> <span class="n">binwidth</span><span class="p">)</span>
-    <span class="n">ax_histx</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">)</span>
-    <span class="n">ax_histy</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">)</span>
+# some random data
+x = np.random.randn(1000)
+y = np.random.randn(1000)
 
 
-<span class="c1"># start with a square Figure</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+def scatter_hist(x, y, ax, ax_histx, ax_histy):
+    # no labels
+    ax_histx.tick_params(axis=&quot;x&quot;, labelbottom=False)
+    ax_histy.tick_params(axis=&quot;y&quot;, labelleft=False)
 
-<span class="c1"># Add a gridspec with two rows and two columns and a ratio of 2 to 7 between</span>
-<span class="c1"># the size of the marginal axes and the main axes in both directions.</span>
-<span class="c1"># Also adjust the subplot parameters for a square plot.</span>
-<span class="n">gs</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_gridspec</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span>  <span class="n">width_ratios</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">height_ratios</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>
-                      <span class="n">left</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
-                      <span class="n">wspace</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">hspace</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+    # the scatter plot:
+    ax.scatter(x, y)
 
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
-<span class="n">ax_histx</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">sharex</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="n">ax_histy</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">sharey</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+    # now determine nice limits by hand:
+    binwidth = 0.25
+    xymax = max(np.max(np.abs(x)), np.max(np.abs(y)))
+    lim = (int(xymax/binwidth) + 1) * binwidth
 
-<span class="c1"># use the previously defined function</span>
-<span class="n">scatter_hist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">ax_histx</span><span class="p">,</span> <span class="n">ax_histy</span><span class="p">)</span>
+    bins = np.arange(-lim, lim + binwidth, binwidth)
+    ax_histx.hist(x, bins=bins)
+    ax_histy.hist(y, bins=bins, orientation=&#39;horizontal&#39;)
 
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+# start with a square Figure
+fig = plt.figure(figsize=(10, 10))
+
+# Add a gridspec with two rows and two columns and a ratio of 2 to 7 between
+# the size of the marginal axes and the main axes in both directions.
+# Also adjust the subplot parameters for a square plot.
+gs = fig.add_gridspec(2, 2,  width_ratios=(7, 2), height_ratios=(2, 7),
+                      left=0.1, right=0.9, bottom=0.1, top=0.9,
+                      wspace=0.05, hspace=0.05)
+
+ax = fig.add_subplot(gs[1, 0])
+ax_histx = fig.add_subplot(gs[0, 0], sharex=ax)
+ax_histy = fig.add_subplot(gs[1, 1], sharey=ax)
+
+# use the previously defined function
+scatter_hist(x, y, ax, ax_histx, ax_histy)
+
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -1163,24 +1163,24 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import seaborn as sns
+from matplotlib import pyplot as plt
 
 
-<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;darkgrid&quot;</span><span class="p">)</span>
+sns.set_theme(style=&quot;darkgrid&quot;)
 
-<span class="c1"># Load an example dataset</span>
-<span class="n">penguins</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;penguins&quot;</span><span class="p">)</span>
+# Load an example dataset
+penguins = sns.load_dataset(&quot;penguins&quot;)
 
-<span class="c1"># Plot the responses for different events and regions</span>
-<span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span>
-    <span class="n">data</span><span class="o">=</span><span class="n">penguins</span><span class="p">,</span> 
-    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;flipper_length_mm&quot;</span><span class="p">,</span> 
-    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;bill_length_mm&quot;</span><span class="p">,</span> 
-    <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">,</span>
-    <span class="p">)</span>
+# Plot the responses for different events and regions
+g = sns.jointplot(
+    data=penguins, 
+    x=&quot;flipper_length_mm&quot;, 
+    y=&quot;bill_length_mm&quot;, 
+    hue=&quot;species&quot;,
+    )
 
-<span class="n">g</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+g.figure.set_size_inches((10, 10))
 </pre></div>
 </div>
 </div>
@@ -1195,17 +1195,17 @@ title="Print to PDF"
 <p><code class="docutils literal notranslate"><span class="pre">Plotly</span></code> изначально заточена для отображения графиков в браузере и для встраивания их на интернет страницы, но может успешно использоваться и в блокнотах <code class="docutils literal notranslate"><span class="pre">jupyter</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import plotly.express as px
 
-<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
-    <span class="n">penguins</span><span class="p">,</span> 
-    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;flipper_length_mm&quot;</span><span class="p">,</span> 
-    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;bill_length_mm&quot;</span><span class="p">,</span> 
-    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">,</span> 
-    <span class="n">marginal_x</span><span class="o">=</span><span class="s2">&quot;histogram&quot;</span><span class="p">,</span> 
-    <span class="n">marginal_y</span><span class="o">=</span><span class="s2">&quot;histogram&quot;</span>
-<span class="p">)</span>
-<span class="n">fig</span>
+fig = px.scatter(
+    penguins, 
+    x=&quot;flipper_length_mm&quot;, 
+    y=&quot;bill_length_mm&quot;, 
+    color=&quot;species&quot;, 
+    marginal_x=&quot;histogram&quot;, 
+    marginal_y=&quot;histogram&quot;
+)
+fig
 </pre></div>
 </div>
 </div>
@@ -1319,13 +1319,13 @@ if (outputEl) {{
 <p><a class="reference external" href="https://altair-viz.github.io/">Altair</a> — нацеленная на статистику и анализ данных библиотека. По целевой аудитории конкурент <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>, но отличается декларативным стилем построения графиков, что обеспечивает ей свою нишу. Автор курса с ней практически не знаком, но упоминает её здесь на всякий случай.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import altair as alt
 
-<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">penguins</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;flipper_length_mm&quot;</span><span class="p">,</span> 
-    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;bill_length_mm&quot;</span><span class="p">,</span> 
-    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">,</span> 
-<span class="p">)</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span>
+alt.Chart(penguins).mark_circle(size=60).encode(
+    x=&quot;flipper_length_mm&quot;, 
+    y=&quot;bill_length_mm&quot;, 
+    color=&quot;species&quot;, 
+).interactive()
 </pre></div>
 </div>
 </div>
@@ -1392,28 +1392,28 @@ if (outputEl) {{
 <p><a class="reference external" href="https://docs.bokeh.org/en/latest/">Bokeh</a> — ещё одна библиотека для построения интерактивных графиков, с которой автор практически не знаком, но упоминает её здесь на всякий случай.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">figure</span><span class="p">,</span> <span class="n">show</span>
-<span class="kn">from</span> <span class="nn">bokeh.sampledata.penguins</span> <span class="kn">import</span> <span class="n">data</span>
-<span class="kn">from</span> <span class="nn">bokeh.transform</span> <span class="kn">import</span> <span class="n">factor_cmap</span><span class="p">,</span> <span class="n">factor_mark</span>
-<span class="kn">from</span> <span class="nn">bokeh.io</span> <span class="kn">import</span> <span class="n">output_notebook</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from bokeh.plotting import figure, show
+from bokeh.sampledata.penguins import data
+from bokeh.transform import factor_cmap, factor_mark
+from bokeh.io import output_notebook
 
-<span class="n">SPECIES</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">species</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
-<span class="n">MARKERS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hex&#39;</span><span class="p">,</span> <span class="s1">&#39;circle_x&#39;</span><span class="p">,</span> <span class="s1">&#39;triangle&#39;</span><span class="p">]</span>
+SPECIES = sorted(data.species.unique())
+MARKERS = [&#39;hex&#39;, &#39;circle_x&#39;, &#39;triangle&#39;]
 
-<span class="n">p</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Penguin size&quot;</span><span class="p">,</span> <span class="n">background_fill_color</span><span class="o">=</span><span class="s2">&quot;#fafafa&quot;</span><span class="p">)</span>
-<span class="n">p</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">&#39;Flipper Length (mm)&#39;</span>
-<span class="n">p</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">&#39;Bill Length (mm)&#39;</span>
+p = figure(title = &quot;Penguin size&quot;, background_fill_color=&quot;#fafafa&quot;)
+p.xaxis.axis_label = &#39;Flipper Length (mm)&#39;
+p.yaxis.axis_label = &#39;Bill Length (mm)&#39;
 
-<span class="n">p</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s2">&quot;flipper_length_mm&quot;</span><span class="p">,</span> <span class="s2">&quot;bill_length_mm&quot;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
-          <span class="n">legend_group</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">,</span> <span class="n">fill_alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
-          <span class="n">marker</span><span class="o">=</span><span class="n">factor_mark</span><span class="p">(</span><span class="s1">&#39;species&#39;</span><span class="p">,</span> <span class="n">MARKERS</span><span class="p">,</span> <span class="n">SPECIES</span><span class="p">),</span>
-          <span class="n">color</span><span class="o">=</span><span class="n">factor_cmap</span><span class="p">(</span><span class="s1">&#39;species&#39;</span><span class="p">,</span> <span class="s1">&#39;Category10_3&#39;</span><span class="p">,</span> <span class="n">SPECIES</span><span class="p">))</span>
+p.scatter(&quot;flipper_length_mm&quot;, &quot;bill_length_mm&quot;, source=data,
+          legend_group=&quot;species&quot;, fill_alpha=0.4, size=12,
+          marker=factor_mark(&#39;species&#39;, MARKERS, SPECIES),
+          color=factor_cmap(&#39;species&#39;, &#39;Category10_3&#39;, SPECIES))
 
-<span class="n">p</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">location</span> <span class="o">=</span> <span class="s2">&quot;top_left&quot;</span>
-<span class="n">p</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Species&quot;</span>
+p.legend.location = &quot;top_left&quot;
+p.legend.title = &quot;Species&quot;
 
-<span class="n">output_notebook</span><span class="p">()</span> <span class="c1"># необходимо, для вывода графика в ноутбуке, а не в браузере</span>
-<span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+output_notebook() # необходимо, для вывода графика в ноутбуке, а не в браузере
+show(p)
 </pre></div>
 </div>
 </div>

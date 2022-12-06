@@ -1037,11 +1037,11 @@ title="Print to PDF"
 <p>В частности, следующее объявление класса неявно расширяет <code class="docutils literal notranslate"><span class="pre">object</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
-    <span class="k">pass</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class MyClass:
+    pass
 
-<span class="nb">print</span><span class="p">(</span><span class="n">MyClass</span><span class="o">.</span><span class="vm">__bases__</span><span class="p">)</span>
-<span class="nb">issubclass</span><span class="p">(</span><span class="n">MyClass</span><span class="p">,</span> <span class="nb">object</span><span class="p">)</span>
+print(MyClass.__bases__)
+issubclass(MyClass, object)
 </pre></div>
 </div>
 </div>
@@ -1060,13 +1060,13 @@ title="Print to PDF"
 <p>Допустим, у нас есть базовый класс <code class="docutils literal notranslate"><span class="pre">BaseClass</span></code> и мы хотим объявить класс <code class="docutils literal notranslate"><span class="pre">DerivedClass</span></code>, который будет расширять его. Тогда необходимо указать базовый класс в заголовочной строке производного класса в круглых скобках после имени базового класса.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">BaseClass</span><span class="p">:</span>
-    <span class="k">pass</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class BaseClass:
+    pass
 
-<span class="k">class</span> <span class="nc">DerivedClass</span><span class="p">(</span><span class="n">BaseClass</span><span class="p">):</span>
-    <span class="k">pass</span>
+class DerivedClass(BaseClass):
+    pass
 
-<span class="n">DerivedClass</span><span class="o">.</span><span class="vm">__bases__</span>
+DerivedClass.__bases__
 </pre></div>
 </div>
 </div>
@@ -1083,9 +1083,9 @@ title="Print to PDF"
 <p>При проверке принадлежности экземпляра производного класса к базовому классу метод <a class="reference external" href="https://docs.python.org/3/library/functions.html#isinstance">isinstance</a> вернет <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">DerivedClass</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">BaseClass</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="o">==</span> <span class="n">BaseClass</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>d = DerivedClass()
+print(isinstance(d, BaseClass))
+print(type(d) == BaseClass)
 </pre></div>
 </div>
 </div>
@@ -1104,18 +1104,18 @@ False
 <p>Определим базовый класс с атрибутом <code class="docutils literal notranslate"><span class="pre">attr</span></code> и со статическим (для удобства вызова) методом <code class="docutils literal notranslate"><span class="pre">method</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">BaseClass</span><span class="p">:</span>
-    <span class="n">attr</span> <span class="o">=</span> <span class="s2">&quot;Атрибут класса BaseClass&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class BaseClass:
+    attr = &quot;Атрибут класса BaseClass&quot;
 
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">method</span><span class="p">():</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Метод класса BaseClass&quot;</span><span class="p">)</span>
+    @staticmethod
+    def method():
+        print(&quot;Метод класса BaseClass&quot;)
 
-<span class="k">class</span> <span class="nc">DerivedClass</span><span class="p">(</span><span class="n">BaseClass</span><span class="p">):</span>
-    <span class="k">pass</span>
+class DerivedClass(BaseClass):
+    pass
 
-<span class="n">DerivedClass</span><span class="o">.</span><span class="n">method</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">DerivedClass</span><span class="o">.</span><span class="n">attr</span><span class="p">)</span>
+DerivedClass.method()
+print(DerivedClass.attr)
 </pre></div>
 </div>
 </div>
@@ -1148,22 +1148,22 @@ False
 <p>Расширим определение производного класса <code class="docutils literal notranslate"><span class="pre">DerivedClass</span></code> из предыдущего примера его собственными атрибутами <code class="docutils literal notranslate"><span class="pre">attr</span></code> и <code class="docutils literal notranslate"><span class="pre">method</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">BaseClass</span><span class="p">:</span>
-    <span class="n">attr</span> <span class="o">=</span> <span class="s2">&quot;Атрибут класса BaseClass&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class BaseClass:
+    attr = &quot;Атрибут класса BaseClass&quot;
 
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">method</span><span class="p">():</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Метод класса BaseClass&quot;</span><span class="p">)</span>
+    @staticmethod
+    def method():
+        print(&quot;Метод класса BaseClass&quot;)
 
-<span class="k">class</span> <span class="nc">DerivedClass</span><span class="p">(</span><span class="n">BaseClass</span><span class="p">):</span>
-    <span class="n">attr</span> <span class="o">=</span> <span class="s2">&quot;Атрибут класса DerivedClass&quot;</span>
+class DerivedClass(BaseClass):
+    attr = &quot;Атрибут класса DerivedClass&quot;
 
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">method</span><span class="p">():</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Метод класса DerivedClass&quot;</span><span class="p">)</span>
+    @staticmethod
+    def method():
+        print(&quot;Метод класса DerivedClass&quot;)
 
-<span class="n">DerivedClass</span><span class="o">.</span><span class="n">method</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">DerivedClass</span><span class="o">.</span><span class="n">attr</span><span class="p">)</span>
+DerivedClass.method()
+print(DerivedClass.attr)
 </pre></div>
 </div>
 </div>
@@ -1184,21 +1184,21 @@ False
 <p>Можно наследовать сразу от нескольких базовых классов. Для этого необходимо указать их через запятую.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">LeftBase</span><span class="p">:</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;a left&quot;</span>
-    <span class="n">b</span> <span class="o">=</span> <span class="s2">&quot;b left&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class LeftBase:
+    a = &quot;a left&quot;
+    b = &quot;b left&quot;
 
-<span class="k">class</span> <span class="nc">MiddleBase</span><span class="p">:</span>
-    <span class="n">b</span> <span class="o">=</span> <span class="s2">&quot;b middle&quot;</span>
-    <span class="n">c</span> <span class="o">=</span> <span class="s2">&quot;c middle&quot;</span>
+class MiddleBase:
+    b = &quot;b middle&quot;
+    c = &quot;c middle&quot;
 
-<span class="k">class</span> <span class="nc">RightBase</span><span class="p">:</span>
-    <span class="n">c</span> <span class="o">=</span> <span class="s2">&quot;c right&quot;</span>
-    <span class="n">d</span> <span class="o">=</span> <span class="s2">&quot;d right&quot;</span>
+class RightBase:
+    c = &quot;c right&quot;
+    d = &quot;d right&quot;
 
 
-<span class="k">class</span> <span class="nc">DerivedClass</span><span class="p">(</span><span class="n">LeftBase</span><span class="p">,</span> <span class="n">MiddleBase</span><span class="p">,</span> <span class="n">RightBase</span><span class="p">):</span>
-    <span class="k">pass</span>
+class DerivedClass(LeftBase, MiddleBase, RightBase):
+    pass
 </pre></div>
 </div>
 </div>
@@ -1210,8 +1210,8 @@ False
 <p>Атрибуты в базовых классах пересекаются: атрибут <code class="docutils literal notranslate"><span class="pre">b</span></code> есть и у <code class="docutils literal notranslate"><span class="pre">LeftBase</span></code> и у <code class="docutils literal notranslate"><span class="pre">MiddleBase</span></code>, атрибут <code class="docutils literal notranslate"><span class="pre">c</span></code> есть и у <code class="docutils literal notranslate"><span class="pre">MiddleBase</span></code> и у <code class="docutils literal notranslate"><span class="pre">RightBase</span></code>. Возникает вопрос, если обратиться от производного класса к этим атрибутам, то значение атрибута какого из базовых классов вернется в качестве результата? Распечатаем атрибуты <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">c</span></code> и <code class="docutils literal notranslate"><span class="pre">d</span></code> класса <code class="docutils literal notranslate"><span class="pre">DerivedClass</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="s2">&quot;abcd&quot;</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">attr</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">getattr</span><span class="p">(</span><span class="n">DerivedClass</span><span class="p">,</span> <span class="n">attr</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for attr in &quot;abcd&quot;:
+    print(f&quot;{attr}: {getattr(DerivedClass, attr)}&quot;)
 </pre></div>
 </div>
 </div>
@@ -1266,20 +1266,20 @@ d: d right
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Инициализация в A&quot;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class A:
+    def __init__(self, x):
+        print(&quot;Инициализация в A&quot;)
+        self.x = x
 
-<span class="k">class</span> <span class="nc">B</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Инициализация в B&quot;</span><span class="p">)</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+class B(A):
+    def __init__(self, x, y):
+        print(&quot;Инициализация в B&quot;)
+        super().__init__(x)
+        self.y = y
 
 
-<span class="n">b</span> <span class="o">=</span> <span class="n">B</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+b = B(42, 3.14)
+print(b.x, b.y)
 </pre></div>
 </div>
 </div>
@@ -1298,27 +1298,27 @@ d: d right
 <p>Рассмотрим следующую иерархию наследования: <code class="docutils literal notranslate"><span class="pre">South</span></code> наследует от <code class="docutils literal notranslate"><span class="pre">West</span></code> и <code class="docutils literal notranslate"><span class="pre">East</span></code>, каждый из которых в свою очередь расширяют класс <code class="docutils literal notranslate"><span class="pre">North</span></code>. Хочется, чтобы при инициализации экземпляра класса <code class="docutils literal notranslate"><span class="pre">South</span></code> вызывались и методы инициализации всех базовых классов. Попробуем реализовать эту схему, указывая все базовые классы явно.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">North</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;North&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class North:
+    def __init__(self):
+        print(&quot;North&quot;)
 
-<span class="k">class</span> <span class="nc">West</span><span class="p">(</span><span class="n">North</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;West&quot;</span><span class="p">)</span>
-        <span class="n">North</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+class West(North):
+    def __init__(self):
+        print(&quot;West&quot;)
+        North.__init__(self)
         
-<span class="k">class</span> <span class="nc">East</span><span class="p">(</span><span class="n">North</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;East&quot;</span><span class="p">)</span>
-        <span class="n">North</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+class East(North):
+    def __init__(self):
+        print(&quot;East&quot;)
+        North.__init__(self)
         
-<span class="k">class</span> <span class="nc">South</span><span class="p">(</span><span class="n">West</span><span class="p">,</span> <span class="n">East</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;South&quot;</span><span class="p">)</span>
-        <span class="n">West</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="n">East</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+class South(West, East):
+    def __init__(self):
+        print(&quot;South&quot;)
+        West.__init__(self)
+        East.__init__(self)
         
-<span class="n">s</span> <span class="o">=</span> <span class="n">South</span><span class="p">()</span>
+s = South()
 </pre></div>
 </div>
 </div>
@@ -1336,27 +1336,27 @@ North
 Теперь заменим все явные упоминания классов через функцию <code class="docutils literal notranslate"><span class="pre">super</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">North</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Up&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class North:
+    def __init__(self):
+        print(&quot;Up&quot;)
 
-<span class="k">class</span> <span class="nc">West</span><span class="p">(</span><span class="n">North</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;West&quot;</span><span class="p">)</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+class West(North):
+    def __init__(self):
+        print(&quot;West&quot;)
+        super().__init__()
         
-<span class="k">class</span> <span class="nc">East</span><span class="p">(</span><span class="n">North</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;East&quot;</span><span class="p">)</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+class East(North):
+    def __init__(self):
+        print(&quot;East&quot;)
+        super().__init__()
         
-<span class="k">class</span> <span class="nc">South</span><span class="p">(</span><span class="n">West</span><span class="p">,</span> <span class="n">East</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;South&quot;</span><span class="p">)</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+class South(West, East):
+    def __init__(self):
+        print(&quot;South&quot;)
+        super().__init__()
         
 
-<span class="n">s</span> <span class="o">=</span> <span class="n">South</span><span class="p">()</span>
+s = South()
 </pre></div>
 </div>
 </div>
@@ -1377,22 +1377,22 @@ Up
 <p>В качестве примера реализуем абстрактный базовый класс <code class="docutils literal notranslate"><span class="pre">Shape</span></code> для геометрической фигуры. Как и в примере с треугольником, будем считать, что каждая фигура должна уметь считать свой периметр и площадь.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from abc import ABC, abstractmethod
 
-<span class="k">class</span> <span class="nc">Shape</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
-    <span class="nd">@abstractmethod</span>
-    <span class="k">def</span> <span class="nf">perimeter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+class Shape(ABC):
+    @abstractmethod
+    def perimeter(self):
+        raise NotImplementedError
     
-    <span class="nd">@abstractmethod</span>
-    <span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+    @abstractmethod
+    def area(self):
+        raise NotImplementedError
     
 
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">Shape</span><span class="p">()</span>
-<span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">msg</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+try:
+    Shape()
+except TypeError as msg:
+    print(msg)
 </pre></div>
 </div>
 </div>
@@ -1405,19 +1405,19 @@ Up
 <p>Видим, что экземпляр класса <code class="docutils literal notranslate"><span class="pre">Shape</span></code> создать не удаётся — у него есть абстрактные методы.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from math import pi
 
-<span class="k">class</span> <span class="nc">Circle</span><span class="p">(</span><span class="n">Shape</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">radius</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="n">radius</span>
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
 
-    <span class="k">def</span> <span class="nf">perimeter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span>
+    def perimeter(self):
+        return 2 * pi * self.radius
 
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">Circle</span><span class="p">()</span>
-<span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">msg</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+try:
+    Circle()
+except TypeError as msg:
+    print(msg)
 </pre></div>
 </div>
 </div>
@@ -1430,20 +1430,20 @@ Up
 <p>Переопределение лишь одного метода не меняет ситуацию. Из сообщения ошибки можно понять, какие методы мы забыли доопределить.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from math import pi
 
-<span class="k">class</span> <span class="nc">Circle</span><span class="p">(</span><span class="n">Shape</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">radius</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="n">radius</span>
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
 
-    <span class="k">def</span> <span class="nf">perimeter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span>
+    def perimeter(self):
+        return 2 * pi * self.radius
 
-    <span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span>
+    def area(self):
+        return pi * self.radius * self.radius
 
-<span class="n">c</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">area</span><span class="p">(),</span> <span class="n">c</span><span class="o">.</span><span class="n">perimeter</span><span class="p">())</span>
+c = Circle(1)
+print(c.area(), c.perimeter())
 </pre></div>
 </div>
 </div>

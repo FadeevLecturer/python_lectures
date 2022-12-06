@@ -1098,23 +1098,23 @@ title="Print to PDF"
 <p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html">pandas.DataFrame</a> — по сути дела таблица, на которую можно смотреть как на объединение столбцов <code class="docutils literal notranslate"><span class="pre">pandas.Series</span></code> с выравниванием по общему индексу.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import pandas as pd
 
-<span class="n">s1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span>
-    <span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span>
-<span class="p">},</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;Int8&quot;</span><span class="p">)</span>
-<span class="n">s2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span>
-    <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="s2">&quot;two&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="s2">&quot;three&quot;</span>
-<span class="p">})</span>
+s1 = pd.Series({
+    &quot;a&quot;: 1,
+    &quot;b&quot;: 2
+}, dtype=&quot;Int8&quot;)
+s2 = pd.Series({
+    &quot;b&quot;: &quot;two&quot;,
+    &quot;c&quot;: &quot;three&quot;
+})
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s2">&quot;s1&quot;</span><span class="p">:</span> <span class="n">s1</span><span class="p">,</span>
-    <span class="s2">&quot;s2&quot;</span><span class="p">:</span> <span class="n">s2</span>
-<span class="p">})</span>
+df = pd.DataFrame({
+    &quot;s1&quot;: s1,
+    &quot;s2&quot;: s2
+})
 
-<span class="n">df</span>
+df
 </pre></div>
 </div>
 </div>
@@ -1170,13 +1170,13 @@ title="Print to PDF"
 <p>Если ваши данные хранятся в виде списка списков, то на выходе каждый вложенный список будет соответствовать строке таблице.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">[</span><span class="s2">&quot;a11&quot;</span><span class="p">,</span> <span class="s2">&quot;a12&quot;</span><span class="p">,</span> <span class="s2">&quot;a13&quot;</span><span class="p">],</span>
-    <span class="p">[</span><span class="s2">&quot;a21&quot;</span><span class="p">,</span> <span class="s2">&quot;a22&quot;</span><span class="p">,</span> <span class="s2">&quot;a23&quot;</span><span class="p">]</span>
-    <span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>data = [
+    [&quot;a11&quot;, &quot;a12&quot;, &quot;a13&quot;],
+    [&quot;a21&quot;, &quot;a22&quot;, &quot;a23&quot;]
+    ]
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="n">df</span>
+df = pd.DataFrame(data)
+df
 </pre></div>
 </div>
 </div>
@@ -1224,7 +1224,7 @@ title="Print to PDF"
 <p>По умолчанию генерируется <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.RangeIndex.html">RangeIndex</a> и для строк и для столбцов таблицы.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="si">=}</span><span class="s2">, </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;{df.index=}, {df.columns=}&quot;)
 </pre></div>
 </div>
 </div>
@@ -1237,8 +1237,8 @@ title="Print to PDF"
 <p>Опциональными параметрами конструктора <code class="docutils literal notranslate"><span class="pre">columns</span></code> и <code class="docutils literal notranslate"><span class="pre">index</span></code> можно указать пользовательские значения.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;column 1&quot;</span><span class="p">,</span> <span class="s2">&quot;column 2&quot;</span><span class="p">,</span> <span class="s2">&quot;column 3&quot;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;row 1&quot;</span><span class="p">,</span> <span class="s2">&quot;row 2&quot;</span><span class="p">])</span>
-<span class="n">df</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df = pd.DataFrame(data, columns=[&quot;column 1&quot;, &quot;column 2&quot;, &quot;column 3&quot;], index=[&quot;row 1&quot;, &quot;row 2&quot;])
+df
 </pre></div>
 </div>
 </div>
@@ -1286,11 +1286,11 @@ title="Print to PDF"
 <p>Если вместо списка списков передавать двухмерный массив <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>, то все будет работать точно также, кроме возможной потери типов.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
 
-<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;column 1&quot;</span><span class="p">,</span> <span class="s2">&quot;column 2&quot;</span><span class="p">,</span> <span class="s2">&quot;column 3&quot;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;row 1&quot;</span><span class="p">,</span> <span class="s2">&quot;row 2&quot;</span><span class="p">])</span>
-<span class="n">df</span>
+data = np.array(data)
+df = pd.DataFrame(data, columns=[&quot;column 1&quot;, &quot;column 2&quot;, &quot;column 3&quot;], index=[&quot;row 1&quot;, &quot;row 2&quot;])
+df
 </pre></div>
 </div>
 </div>
@@ -1350,18 +1350,18 @@ title="Print to PDF"
 <p>Будущие столбцы в словари могут быть представлены списком, массивом <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>, а также столбцом <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. При этом в случае списков и массивов <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> накладывается требование на одинаковую длину всех столбцов, а также автоматически генерируется <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.RangeIndex.html">RangeIndex</a>, если он не указан в явном виде опциональным параметром <code class="docutils literal notranslate"><span class="pre">index</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">col1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s2">&quot;a11&quot;</span><span class="p">,</span> <span class="s2">&quot;a21&quot;</span><span class="p">])</span>
-<span class="n">col2</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a21&quot;</span><span class="p">,</span> <span class="s2">&quot;a22&quot;</span><span class="p">]</span>
-<span class="n">col3</span> <span class="o">=</span> <span class="s2">&quot;a31&quot;</span><span class="p">,</span> <span class="s2">&quot;a32&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>col1 = np.array([&quot;a11&quot;, &quot;a21&quot;])
+col2 = [&quot;a21&quot;, &quot;a22&quot;]
+col3 = &quot;a31&quot;, &quot;a32&quot;
 
-<span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;column 1&quot;</span><span class="p">:</span> <span class="n">col1</span><span class="p">,</span>
-    <span class="s2">&quot;column 2&quot;</span><span class="p">:</span> <span class="n">col2</span><span class="p">,</span>
-    <span class="s2">&quot;column 3&quot;</span><span class="p">:</span> <span class="n">col3</span>
-<span class="p">}</span>
+d = {
+    &quot;column 1&quot;: col1,
+    &quot;column 2&quot;: col2,
+    &quot;column 3&quot;: col3
+}
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">])</span>
-<span class="n">df</span>
+df = pd.DataFrame(d, index=[&quot;a&quot;, &quot;b&quot;])
+df
 </pre></div>
 </div>
 </div>
@@ -1409,21 +1409,21 @@ title="Print to PDF"
 <p>Если же содержимое будущих столбцов представлено в виде столбцов <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, то индекс таблицы генерируется из индексов этих столбцов, а ограничение на одинаковую длину столбцов снимается: строки таблицы выравниваются по индексу.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import pandas as pd
+import numpy as np
 
-<span class="n">col1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">])</span>
-<span class="n">col2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;Int64&quot;</span><span class="p">)</span>
-<span class="n">col3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">])</span>
+col1 = pd.Series([1, 2], index=[&quot;a&quot;, &quot;b&quot;])
+col2 = pd.Series([3, 4], index=[&quot;b&quot;, &quot;a&quot;], dtype=&quot;Int64&quot;)
+col3 = pd.Series([5, 6, 7], index=[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;])
 
-<span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;column 1&#39;</span><span class="p">:</span> <span class="n">col1</span><span class="p">,</span> 
-    <span class="s1">&#39;column 2&#39;</span><span class="p">:</span> <span class="n">col2</span><span class="p">,</span>
-    <span class="s1">&#39;column 3&#39;</span><span class="p">:</span> <span class="n">col3</span><span class="p">,</span>
-<span class="p">}</span>
+d = {
+    &#39;column 1&#39;: col1, 
+    &#39;column 2&#39;: col2,
+    &#39;column 3&#39;: col3,
+}
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-<span class="n">df</span>
+df = pd.DataFrame(d)
+df
 </pre></div>
 </div>
 </div>
@@ -1481,15 +1481,15 @@ title="Print to PDF"
 <p>Если указать в качестве <code class="docutils literal notranslate"><span class="pre">orient</span></code> строку <code class="docutils literal notranslate"><span class="pre">index</span></code>, то ключи словаря будут восприниматься в качестве меток строк, а значение по ключу — содержимое строки с соответствующей меткой. Все остальное продолжает работать также, но с заменой меток и названий столбцов местами.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">row1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;column 1&quot;</span><span class="p">,</span> <span class="s2">&quot;column 2&quot;</span><span class="p">])</span>
-<span class="n">row2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;column 2&quot;</span><span class="p">,</span> <span class="s2">&quot;column 1&quot;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>row1 = pd.Series([1, 2], index=[&quot;column 1&quot;, &quot;column 2&quot;])
+row2 = pd.Series([3, 4], index=[&quot;column 2&quot;, &quot;column 1&quot;])
 
-<span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;row1&quot;</span><span class="p">:</span> <span class="n">row1</span><span class="p">,</span>
-    <span class="s2">&quot;row2&quot;</span><span class="p">:</span> <span class="n">row2</span><span class="p">,</span>
-<span class="p">}</span>
+d = {
+    &quot;row1&quot;: row1,
+    &quot;row2&quot;: row2,
+}
 
-<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">)</span>
+pd.DataFrame.from_dict(d, orient=&quot;index&quot;)
 </pre></div>
 </div>
 </div>
@@ -1556,12 +1556,12 @@ title="Print to PDF"
 <p>Для чтения такой таблицы используется метод <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html">read_csv</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;assets&quot;</span><span class="p">,</span> <span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="s2">&quot;tables&quot;</span><span class="p">,</span> <span class="s2">&quot;planets.csv&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import os
+path = os.path.join(&quot;..&quot;, &quot;..&quot;, &quot;assets&quot;, &quot;data&quot;, &quot;tables&quot;, &quot;planets.csv&quot;)
 
-<span class="n">planets</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">planets</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
-<span class="n">planets</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+planets = pd.read_csv(path)
+print(planets.info())
+planets.head()
 </pre></div>
 </div>
 </div>
@@ -1667,8 +1667,8 @@ None
 <p>Считаем эту таблицу ещё раз, указав в этот раз в качестве индекса столбец <code class="docutils literal notranslate"><span class="pre">&quot;Название&quot;</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">planets</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s2">&quot;Название&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
-<span class="n">planets</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>planets = pd.read_csv(path, index_col=&quot;Название&quot;, sep=&quot;,&quot;)
+planets
 </pre></div>
 </div>
 </div>
@@ -1775,9 +1775,9 @@ None
 <p>Для получения строк таблицы используются те же самые <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html">.loc</a> и <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html">iloc</a> (метки и порядковый номер соответственно).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">planets</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;Марс&quot;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;_&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">planets</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(planets.loc[&quot;Марс&quot;])
+print(&quot;_&quot; * 80)
+print(planets.iloc[2])
 </pre></div>
 </div>
 </div>
@@ -1808,7 +1808,7 @@ Name: Земля, dtype: object
 <p>Для получения столбца используется оператор “<code class="docutils literal notranslate"><span class="pre">[]</span></code>”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">planets</span><span class="p">[</span><span class="s2">&quot;Количество спутников&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>planets[&quot;Количество спутников&quot;]
 </pre></div>
 </div>
 </div>
@@ -1830,7 +1830,7 @@ Name: Количество спутников, dtype: int64
 <p>Если в названии столбца нет пробелов и оно не совпадает ни с одним методом класса <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code>, то можно использовать точечную нотацию. Хотя, конечно, в случае кириллицы это выглядит странно.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">planets</span><span class="o">.</span><span class="n">Масса</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>planets.Масса
 </pre></div>
 </div>
 </div>
@@ -1852,7 +1852,7 @@ Name: Масса, dtype: float64
 <p>Можно указывать список названий столбцов, чтобы извлечь сразу подтаблицу целиком.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">planets</span><span class="p">[[</span><span class="s2">&quot;Группа&quot;</span><span class="p">,</span> <span class="s2">&quot;Кольца&quot;</span><span class="p">,</span> <span class="s2">&quot;Масса&quot;</span><span class="p">]]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>planets[[&quot;Группа&quot;, &quot;Кольца&quot;, &quot;Масса&quot;]]
 </pre></div>
 </div>
 </div>
@@ -1949,7 +1949,7 @@ Name: Масса, dtype: float64
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">planets</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="s1">&#39;Меркурий&#39;</span><span class="p">,</span> <span class="s1">&#39;Количество спутников&#39;</span><span class="p">]</span><span class="si">=}</span><span class="s2">, </span><span class="si">{</span><span class="n">planets</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;{planets.at[&#39;Меркурий&#39;, &#39;Количество спутников&#39;]=}, {planets.iat[0, 0]=}&quot;)
 </pre></div>
 </div>
 </div>
@@ -1962,8 +1962,8 @@ Name: Масса, dtype: float64
 <p>Однако, если метки строк и названия столбцов повторяются, то методом “<code class="docutils literal notranslate"><span class="pre">.at</span></code>” вместо значения одной ячейки вы можете получить или сразу <code class="docutils literal notranslate"><span class="pre">pandas.Series</span></code> или <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">duplicated_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">])</span>
-<span class="n">duplicated_df</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>duplicated_df = pd.DataFrame(data=[[1, 1], [1, 1]], index=[&quot;a&quot;, &quot;a&quot;], columns=[&quot;b&quot;, &quot;b&quot;])
+duplicated_df
 </pre></div>
 </div>
 </div>
@@ -2007,7 +2007,7 @@ Name: Масса, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">duplicated_df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>duplicated_df.at[&quot;a&quot;, &quot;b&quot;]
 </pre></div>
 </div>
 </div>
@@ -2056,14 +2056,14 @@ Name: Масса, dtype: float64
 <p>Добавление и изменение столбцов в таблицу похоже на добавление элементов в словарь. При этом данные автоматически выравниваются по индексу. В качестве примера добавим к таблице про планет столбец с данными про экваториальный диаметр. Обратите внимание, что планеты перечислены в порядке отличном от порядка таблицы, и далеко не все планеты есть в новом столбце. В итоговой таблицы все присутствующие значения выравниваются, а недостающие заменяются на <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">planets</span><span class="p">[</span><span class="s2">&quot;Экваториальный диаметр&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span>
-    <span class="s2">&quot;Венера&quot;</span><span class="p">:</span> <span class="mf">0.949</span><span class="p">,</span>
-    <span class="s2">&quot;Сатурн&quot;</span><span class="p">:</span> <span class="mf">9.449</span><span class="p">,</span>
-    <span class="s2">&quot;Земля&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
-    <span class="s2">&quot;Меркурий&quot;</span><span class="p">:</span> <span class="mf">0.382</span><span class="p">,</span>
-<span class="p">})</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>planets[&quot;Экваториальный диаметр&quot;] = pd.Series({
+    &quot;Венера&quot;: 0.949,
+    &quot;Сатурн&quot;: 9.449,
+    &quot;Земля&quot;: 1.0,
+    &quot;Меркурий&quot;: 0.382,
+})
 
-<span class="n">planets</span>
+planets
 </pre></div>
 </div>
 </div>

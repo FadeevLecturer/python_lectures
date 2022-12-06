@@ -1314,23 +1314,23 @@ title="Print to PDF"
 <p>Если вычисление выражения после ключевого слова <code class="docutils literal notranslate"><span class="pre">if</span></code> или <code class="docutils literal notranslate"><span class="pre">elif</span></code> даёт <code class="docutils literal notranslate"><span class="pre">True</span></code>, то соответствующий блок инструкций выполняется, если <code class="docutils literal notranslate"><span class="pre">False</span></code>, то этот блок инструкций игнорируется и выполняется блок инструкций <code class="docutils literal notranslate"><span class="pre">else</span></code>, если таковой указан. Если вычисление этого выражение даёт небулевое значение, то <code class="docutils literal notranslate"><span class="pre">python</span></code> пытается его к таковому привести. Так, например, нулевые числа любого типа приводятся к <code class="docutils literal notranslate"><span class="pre">False</span></code>, а все остальные к <code class="docutils literal notranslate"><span class="pre">True</span></code>, что позволяет проверять на нулевое значение следующим образом.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from random import randint
 
 
-<span class="n">random_value</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>                    <span class="c1"># 0 или 1</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Результат генерации: </span><span class="si">{</span><span class="n">random_value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+random_value = randint(0, 1)                    # 0 или 1
+print(f&quot;Результат генерации: {random_value}&quot;)
 
-<span class="k">if</span> <span class="n">random_value</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Орёл&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Решка&quot;</span><span class="p">)</span>
+if random_value == 1:
+    print(&quot;Орёл&quot;)
+else:
+    print(&quot;Решка&quot;)
 
-<span class="c1"># или так</span>
+# или так
 
-<span class="k">if</span> <span class="n">random_value</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Орёл&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Решка&quot;</span><span class="p">)</span>
+if random_value:
+    print(&quot;Орёл&quot;)
+else:
+    print(&quot;Решка&quot;)
 </pre></div>
 </div>
 </div>
@@ -1346,11 +1346,11 @@ title="Print to PDF"
 <p>Пустые коллекции приводятся к <code class="docutils literal notranslate"><span class="pre">False</span></code>, а все непустые к <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">if</span> <span class="n">l</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Список не пуст&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Список пуст&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>l = []
+if l:
+    print(&quot;Список не пуст&quot;)
+else:
+    print(&quot;Список пуст&quot;)
 </pre></div>
 </div>
 </div>
@@ -1415,18 +1415,18 @@ title="Print to PDF"
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>i = 0
+while True:
+    i += 1
     
-    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;skip&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;, &quot;</span><span class="p">)</span>
-        <span class="k">continue</span>
-    <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">8</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;end&quot;</span><span class="p">)</span>
-        <span class="k">break</span>
+    if i == 4:
+        print(&quot;skip&quot;, end=&quot;, &quot;)
+        continue
+    elif i == 8:
+        print(&quot;end&quot;)
+        break
 
-    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;, &quot;</span><span class="p">)</span>
+    print(i, end=&quot;, &quot;)
 </pre></div>
 </div>
 </div>
@@ -1450,9 +1450,9 @@ title="Print to PDF"
 <p>и аналогичный код на python:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">v</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>v = [0, 1, 2, 3, 4, 5]
+for i in v:
+    print(i, end=&quot; &quot;)
 </pre></div>
 </div>
 </div>
@@ -1481,8 +1481,8 @@ title="Print to PDF"
 <p><code class="docutils literal notranslate"><span class="pre">range(n)</span></code> создаёт последовательность целых чисел от 0 включая до <code class="docutils literal notranslate"><span class="pre">n</span></code> не включая.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span> 
-    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for i in range(5): 
+    print(i, end=&quot; &quot;)
 </pre></div>
 </div>
 </div>
@@ -1509,8 +1509,8 @@ title="Print to PDF"
 <p><code class="docutils literal notranslate"><span class="pre">range(start,</span> <span class="pre">stop)</span></code> - диапазон целых чисел от <code class="docutils literal notranslate"><span class="pre">start</span></code> включая до <code class="docutils literal notranslate"><span class="pre">stop</span></code> не включая.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for i in range(-4, 5):
+    print(i, end=&quot; &quot;)
 </pre></div>
 </div>
 </div>
@@ -1537,8 +1537,8 @@ title="Print to PDF"
 <p><code class="docutils literal notranslate"><span class="pre">range(start,</span> <span class="pre">stop,</span> <span class="pre">step)</span></code> - то же, что и <code class="docutils literal notranslate"><span class="pre">range(start,</span> <span class="pre">stop)</span></code>, но с шагом в <code class="docutils literal notranslate"><span class="pre">step</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for i in range(0, 10, 2):
+    print(i, end=&quot; &quot;)
 </pre></div>
 </div>
 </div>
@@ -1577,10 +1577,10 @@ title="Print to PDF"
 <p>Рассмотрим пример простой функции, считающий сумму квадратов её двух аргументов.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sum_of_squares</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="n">square_x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
-    <span class="n">square_y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">**</span> <span class="mi">2</span>
-    <span class="k">return</span> <span class="n">square_x</span> <span class="o">+</span> <span class="n">square_y</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def sum_of_squares(x, y):
+    square_x = x ** 2
+    square_y = y ** 2
+    return square_x + square_y
 </pre></div>
 </div>
 </div>
@@ -1594,7 +1594,7 @@ title="Print to PDF"
 <p>При вызове функции результат вычисления выражения справа от <code class="docutils literal notranslate"><span class="pre">return</span></code> возвращается наружу. Если ключевого слова <code class="docutils literal notranslate"><span class="pre">return</span></code> не встречается, то возвращается значение <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sum_of_squares</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(sum_of_squares(3, 4))
 </pre></div>
 </div>
 </div>
