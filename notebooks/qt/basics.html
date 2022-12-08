@@ -496,18 +496,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../scipy/interpolation_approx.html">
-   Интерполяция и аппроксимация
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="../scipy/integration.html">
    Дифференцирование и интегрирование функций
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../scipy/ODE.html">
-   Решение ОДУ
   </a>
  </li>
  <li class="toctree-l1">
@@ -518,6 +508,16 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../scipy/nonlinear_equations.html">
    Решение нелинейных уравнений
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/interpolation_approx.html">
+   Интерполяция и аппроксимация
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/ODE.html">
+   Решение ОДУ
   </a>
  </li>
  <li class="toctree-l1">
@@ -1370,8 +1370,8 @@ title="Print to PDF"
 <p>Макет сам распределяет пространство, которое будет занимать виджет исходя из геометрии окна, политики размера каждого из виджетов (<a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QSizePolicy.html">QSizePolicy</a>, который среди прочего определяем минимальный размер виджета) и коэффициента растяжения (<code class="docutils literal notranslate"><span class="pre">stretching</span></code>), который определяет насколько жадно этот виджет будет занимать пространство. По умолчанию под каждый виджет отводится одинаковое количество места, но если указать параметр <code class="docutils literal notranslate"><span class="pre">stretch</span></code> (его принимают все три вышеописанных метода), то виджета с большим значением будет занимать больше пространства.</p>
 <p>В качестве примера, создадим два виджета <code class="docutils literal notranslate"><span class="pre">QLabel</span></code>, положим в них картинку методом <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QLabel.html#PySide6.QtWidgets.PySide6.QtWidgets.QLabel.setPixmap">setPixmap</a>, который ожидает на вход объект <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtGui/QPixmap.html">QPixmap</a>, и добавим их в макет.</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="edea15e3-06a2-4895-82fd-876be59d29b1" name="7e71afd6-48dc-46ab-92b2-387e3a83ca5f" type="radio">
-</input><label class="sd-tab-label" data-sync-id="hbox" for="edea15e3-06a2-4895-82fd-876be59d29b1">
+<input checked="checked" id="76cad463-4ef1-4e85-afec-337c3673613a" name="85307874-0c7d-4b04-8c70-bc6fb5e8162e" type="radio">
+</input><label class="sd-tab-label" data-sync-id="hbox" for="76cad463-4ef1-4e85-afec-337c3673613a">
 QHBoxLayout</label><div class="sd-tab-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">os</span>
@@ -1417,8 +1417,8 @@ QHBoxLayout</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="4399d189-deec-4a59-afc3-466cbe9eba1a" name="7e71afd6-48dc-46ab-92b2-387e3a83ca5f" type="radio">
-</input><label class="sd-tab-label" data-sync-id="vbox" for="4399d189-deec-4a59-afc3-466cbe9eba1a">
+<input id="7a13dbe7-8d5e-4873-a763-ae7b40fab167" name="85307874-0c7d-4b04-8c70-bc6fb5e8162e" type="radio">
+</input><label class="sd-tab-label" data-sync-id="vbox" for="7a13dbe7-8d5e-4873-a763-ae7b40fab167">
 QVBoxLayout</label><div class="sd-tab-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">os</span>
@@ -1466,15 +1466,15 @@ QVBoxLayout</label><div class="sd-tab-content docutils">
 </div>
 </div>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="ed0bb794-0145-41e9-ab78-612e634f2db9" name="f94f27ed-d024-42cf-b9b4-2369cadad4be" type="radio">
-</input><label class="sd-tab-label" data-sync-id="hbox" for="ed0bb794-0145-41e9-ab78-612e634f2db9">
+<input checked="checked" id="1195611d-1975-427a-bbe5-3a1278482094" name="b5dfe629-ed34-4ac8-9696-6b0ae7e0615f" type="radio">
+</input><label class="sd-tab-label" data-sync-id="hbox" for="1195611d-1975-427a-bbe5-3a1278482094">
 QHBoxLayout</label><div class="sd-tab-content docutils">
 <figure class="align-default">
 <img alt="../../_images/HBoxLayout.png" src="../../_images/HBoxLayout.png" />
 </figure>
 </div>
-<input id="9951386f-d409-48d7-8c8f-4d97ee2f7eb1" name="f94f27ed-d024-42cf-b9b4-2369cadad4be" type="radio">
-</input><label class="sd-tab-label" data-sync-id="vbox" for="9951386f-d409-48d7-8c8f-4d97ee2f7eb1">
+<input id="37f6c8ea-ce9e-4b37-80f3-9aced2da1c5e" name="b5dfe629-ed34-4ac8-9696-6b0ae7e0615f" type="radio">
+</input><label class="sd-tab-label" data-sync-id="vbox" for="37f6c8ea-ce9e-4b37-80f3-9aced2da1c5e">
 QVBoxLayout</label><div class="sd-tab-content docutils">
 <figure class="align-default">
 <img alt="../../_images/VBoxLayout.png" src="../../_images/VBoxLayout.png" />

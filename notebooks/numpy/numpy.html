@@ -496,18 +496,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../scipy/interpolation_approx.html">
-   Интерполяция и аппроксимация
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="../scipy/integration.html">
    Дифференцирование и интегрирование функций
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../scipy/ODE.html">
-   Решение ОДУ
   </a>
  </li>
  <li class="toctree-l1">
@@ -518,6 +508,16 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../scipy/nonlinear_equations.html">
    Решение нелинейных уравнений
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/interpolation_approx.html">
+   Интерполяция и аппроксимация
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/ODE.html">
+   Решение ОДУ
   </a>
  </li>
  <li class="toctree-l1">
@@ -1134,8 +1134,8 @@ title="Print to PDF"
 <h2>Зачем нужен <code class="docutils literal notranslate"><span class="pre">NumPy</span></code><a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
 <p>Необходимость в специальной библиотеке для работы с большими массивами чисел возникает из-за скорости работы <code class="docutils literal notranslate"><span class="pre">python</span></code>. За гибкость, выразительность, динамическую типизацию и многие другие достоинства <code class="docutils literal notranslate"><span class="pre">python</span></code> приходится платить скоростью: код написанный на <code class="docutils literal notranslate"><span class="pre">python</span></code>, практически всегда будет работать медленнее, чем аналогичный код, написанный на <code class="docutils literal notranslate"><span class="pre">C/C++</span></code>. Проще всего продемонстрировать это на примере с громоздкими циклами.</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="6ba76393-c7b3-4d4c-bfd2-ac5308caeb88" name="23856abb-f007-4d29-a7d9-5d954b6d5c54" type="radio">
-</input><label class="sd-tab-label" data-sync-id="tabcode-c++" for="6ba76393-c7b3-4d4c-bfd2-ac5308caeb88">
+<input checked="checked" id="610ed7d7-3a85-4b4f-83e8-ef31754387ee" name="72d09377-f094-4419-adb9-a49387355dbd" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-c++" for="610ed7d7-3a85-4b4f-83e8-ef31754387ee">
 C++</label><div class="sd-tab-content docutils">
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;chrono&gt;</span><span class="cp"></span>
@@ -1170,8 +1170,8 @@ C++</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="7a8fd319-5b32-436b-84a0-eae8374ce304" name="23856abb-f007-4d29-a7d9-5d954b6d5c54" type="radio">
-</input><label class="sd-tab-label" data-sync-id="tabcode-python" for="7a8fd319-5b32-436b-84a0-eae8374ce304">
+<input id="4ab4114f-bef9-4540-aae9-2fb747824168" name="72d09377-f094-4419-adb9-a49387355dbd" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-python" for="4ab4114f-bef9-4540-aae9-2fb747824168">
 PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">perf_counter</span>
 <span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">uniform</span>
