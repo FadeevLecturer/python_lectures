@@ -207,7 +207,13 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../docs/interpretability.html">
-   Компилируемость vs Интерпретируемость
+   Компилируемость
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     vs
+    </span>
+   </code>
+   Интерпретируемость
   </a>
  </li>
  <li class="toctree-l1">
@@ -955,12 +961,12 @@ title="Print to PDF"
 </pre></div>
 </div>
 <p>Если эти файлы лежат в одной папке, то запуск <a class="reference external" href="http://myscript.py">myscript.py</a> приведет к следующему результату.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; python myscript.py
-Начало импортирования модуля mymodule.py
-Конец импортирования модуля mymodule.py
-&lt;class <span class="s1">&#39;module&#39;</span>&gt;
-Вызов функции f из модуля mymodule.py
-&gt;&gt;&gt; 
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt;<span class="w"> </span>python<span class="w"> </span>myscript.py
+Начало<span class="w"> </span>импортирования<span class="w"> </span>модуля<span class="w"> </span>mymodule.py
+Конец<span class="w"> </span>импортирования<span class="w"> </span>модуля<span class="w"> </span>mymodule.py
+&lt;class<span class="w"> </span><span class="s1">&#39;module&#39;</span>&gt;
+Вызов<span class="w"> </span>функции<span class="w"> </span>f<span class="w"> </span>из<span class="w"> </span>модуля<span class="w"> </span>mymodule.py
+&gt;&gt;&gt;<span class="w"> </span>
 </pre></div>
 </div>
 <p>Разберем, что здесь происходит.</p>
@@ -992,13 +998,13 @@ title="Print to PDF"
 </pre></div>
 </div>
 <p>Тогда запуск файла <code class="docutils literal notranslate"><span class="pre">myscript.py</span></code> привет к чему-то похожему</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; python myscript.py
-Начало импортирования модуля mymodule.py 
-dict_keys<span class="o">([</span><span class="s1">&#39;__name__&#39;</span>, <span class="s1">&#39;__doc__&#39;</span>, <span class="s1">&#39;__package__&#39;</span>, <span class="s1">&#39;__loader__&#39;</span>, <span class="s1">&#39;__spec__&#39;</span>, <span class="s1">&#39;__file__&#39;</span>, <span class="s1">&#39;__cached__&#39;</span>, <span class="s1">&#39;__builtins__&#39;</span>, <span class="s1">&#39;x&#39;</span><span class="o">])</span>
-Конец импортирования модуля mymodule.py 
-dict_keys<span class="o">([</span><span class="s1">&#39;__name__&#39;</span>, <span class="s1">&#39;__doc__&#39;</span>, <span class="s1">&#39;__package__&#39;</span>, <span class="s1">&#39;__loader__&#39;</span>, <span class="s1">&#39;__spec__&#39;</span>, <span class="s1">&#39;__annotations__&#39;</span>, <span class="s1">&#39;__builtins__&#39;</span>, <span class="s1">&#39;__file__&#39;</span>, <span class="s1">&#39;__cached__&#39;</span>, <span class="s1">&#39;mymodule&#39;</span>, <span class="s1">&#39;y&#39;</span><span class="o">])</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt;<span class="w"> </span>python<span class="w"> </span>myscript.py
+Начало<span class="w"> </span>импортирования<span class="w"> </span>модуля<span class="w"> </span>mymodule.py<span class="w"> </span>
+dict_keys<span class="o">([</span><span class="s1">&#39;__name__&#39;</span>,<span class="w"> </span><span class="s1">&#39;__doc__&#39;</span>,<span class="w"> </span><span class="s1">&#39;__package__&#39;</span>,<span class="w"> </span><span class="s1">&#39;__loader__&#39;</span>,<span class="w"> </span><span class="s1">&#39;__spec__&#39;</span>,<span class="w"> </span><span class="s1">&#39;__file__&#39;</span>,<span class="w"> </span><span class="s1">&#39;__cached__&#39;</span>,<span class="w"> </span><span class="s1">&#39;__builtins__&#39;</span>,<span class="w"> </span><span class="s1">&#39;x&#39;</span><span class="o">])</span>
+Конец<span class="w"> </span>импортирования<span class="w"> </span>модуля<span class="w"> </span>mymodule.py<span class="w"> </span>
+dict_keys<span class="o">([</span><span class="s1">&#39;__name__&#39;</span>,<span class="w"> </span><span class="s1">&#39;__doc__&#39;</span>,<span class="w"> </span><span class="s1">&#39;__package__&#39;</span>,<span class="w"> </span><span class="s1">&#39;__loader__&#39;</span>,<span class="w"> </span><span class="s1">&#39;__spec__&#39;</span>,<span class="w"> </span><span class="s1">&#39;__annotations__&#39;</span>,<span class="w"> </span><span class="s1">&#39;__builtins__&#39;</span>,<span class="w"> </span><span class="s1">&#39;__file__&#39;</span>,<span class="w"> </span><span class="s1">&#39;__cached__&#39;</span>,<span class="w"> </span><span class="s1">&#39;mymodule&#39;</span>,<span class="w"> </span><span class="s1">&#39;y&#39;</span><span class="o">])</span>
 
-&gt;&gt;&gt; 
+&gt;&gt;&gt;<span class="w"> </span>
 </pre></div>
 </div>
 <p>Можно заметить, что глобальные пространства имён не только имёют уникальные друг для друга переменные <code class="docutils literal notranslate"><span class="pre">x</span></code> и <code class="docutils literal notranslate"><span class="pre">y</span></code>, но имеются и некоторые другие отличия, связанные с тем, что <code class="docutils literal notranslate"><span class="pre">myscript.py</span></code> запущен непосредственно, а <code class="docutils literal notranslate"><span class="pre">mymodyle.py</span></code> загружается при импортировании.</p>
@@ -1028,13 +1034,13 @@ dict_keys<span class="o">([</span><span class="s1">&#39;__name__&#39;</span>, <s
 </pre></div>
 </div>
 <p>Тогда запуск файла <code class="docutils literal notranslate"><span class="pre">myscript.py</span></code> привет к чему-то похожему</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; python myscript.py
-Начало импортирования модуля mymodule.py
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt;<span class="w"> </span>python<span class="w"> </span>myscript.py
+Начало<span class="w"> </span>импортирования<span class="w"> </span>модуля<span class="w"> </span>mymodule.py
 mymodule
-Конец импортирования модуля mymodule.py
-__main__                                                                                                                                                 Я был непосредственно запущен
+Конец<span class="w"> </span>импортирования<span class="w"> </span>модуля<span class="w"> </span>mymodule.py
+__main__<span class="w">                                                                                                                                                 </span>Я<span class="w"> </span>был<span class="w"> </span>непосредственно<span class="w"> </span>запущен
 
-&gt;&gt;&gt; 
+&gt;&gt;&gt;<span class="w"> </span>
 </pre></div>
 </div>
 </section>

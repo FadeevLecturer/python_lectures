@@ -209,7 +209,13 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../docs/interpretability.html">
-   Компилируемость vs Интерпретируемость
+   Компилируемость
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     vs
+    </span>
+   </code>
+   Интерпретируемость
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -1001,6 +1007,11 @@ title="Print to PDF"
      # 4
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     Итого
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -1089,6 +1100,11 @@ title="Print to PDF"
      # 4
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     Итого
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -1126,7 +1142,7 @@ zero &lt;class &#39;str&#39;&gt;
 </div>
 </div>
 </div>
-<p>Кажется, что переменная <code class="docutils literal notranslate"><span class="pre">a</span></code> меняет свой тип 3 раза. Как это возможно? Прежде чем ответить на этот вопрос, вспомним, как это устроенно в <code class="docutils literal notranslate"><span class="pre">C/C++</span></code>.</p>
+<p>Кажется, что переменная <code class="docutils literal notranslate"><span class="pre">a</span></code> меняет свой тип 3 раза. Как это возможно? Прежде чем ответить на этот вопрос, освежим в памяти, как устроена типизация в <code class="docutils literal notranslate"><span class="pre">C/C++</span></code>, и разберемся, почему это изначально может смущать.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Функция <a class="reference external" href="https://docs.python.org/3/library/functions.html#type">type</a> спрашивает у объекта его тип.</p>
@@ -1134,7 +1150,7 @@ zero &lt;class &#39;str&#39;&gt;
 <section id="c">
 <h2>Статическая типизация в <code class="docutils literal notranslate"><span class="pre">C++</span></code><a class="headerlink" href="#c" title="Permalink to this headline">#</a></h2>
 <p>Чтобы разобрать, как устроена типизация в <code class="docutils literal notranslate"><span class="pre">C/C++</span></code>, рассмотрим следующий код на языке <code class="docutils literal notranslate"><span class="pre">C/C++</span></code>.</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span>
 
 <span class="cp">#define FIRSTBYTE   1</span>
 <span class="cp">#define SECONDBYTE  256</span>
@@ -1142,24 +1158,24 @@ zero &lt;class &#39;str&#39;&gt;
 <span class="cp">#define FOURTHBYTE  256*256*256</span>
 
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
 <span class="w">	</span><span class="c1">// 1</span>
-<span class="w">	</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">65</span><span class="o">*</span><span class="n">FIRSTBYTE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">66</span><span class="o">*</span><span class="n">SECONDBYTE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">67</span><span class="o">*</span><span class="n">THIRDBYTE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">68</span><span class="o">*</span><span class="n">FOURTHBYTE</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">65</span><span class="o">*</span><span class="n">FIRSTBYTE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">66</span><span class="o">*</span><span class="n">SECONDBYTE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">67</span><span class="o">*</span><span class="n">THIRDBYTE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">68</span><span class="o">*</span><span class="n">FOURTHBYTE</span><span class="p">;</span>
 <span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w">                </span><span class="c1">// 1145258561</span>
 
 <span class="w">	</span><span class="c1">// 2</span>
-<span class="w">	</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">*&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">a</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">*&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
 <span class="w">	</span><span class="c1">// 3</span>
-<span class="w">	</span><span class="k">for</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">	</span><span class="k">for</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
 <span class="w">		</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w">                      </span><span class="c1">// ABCD</span>
-<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 
 <span class="w">	</span><span class="c1">// 4</span>
-<span class="w">	</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="p">;</span>
 <span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w">                             </span><span class="c1">// 65</span>
 
-<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>Если его скомпилировать и запустить, то вы должны получить следующее в стандартном потоке вывода.</p>
@@ -1170,47 +1186,47 @@ ABCD
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Вообще говоря, код опирается на предположение, что в системе целочисленный тип <code class="docutils literal notranslate"><span class="pre">int</span></code> занимает 4 байта, что не гарантируется стандартами <code class="docutils literal notranslate"><span class="pre">C++</span></code>.</p>
+<p>Приведенный выше код опирается на предположение, что в системе целочисленный тип <code class="docutils literal notranslate"><span class="pre">int</span></code> занимает 4 байта, что не гарантируется стандартами <code class="docutils literal notranslate"><span class="pre">C++</span></code>.</p>
 </div>
 <p>Разберем по шагам, что происходит в этой программе.</p>
 <section id="id2">
 <h3>// 1<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
 <p>В начале объявляется целочисленная переменная <code class="docutils literal notranslate"><span class="pre">a</span></code> типа <code class="docutils literal notranslate"><span class="pre">int</span></code>, которая инициализируется значением <span class="math notranslate nohighlight">\(65 \cdot 256^0 + 66 \cdot 256^1 + 67 \cdot 256^{2} + 68 \cdot 256^{3} = 1145258561\)</span>.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// 1</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">65</span><span class="o">*</span><span class="n">FIRSTBYTE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">66</span><span class="o">*</span><span class="n">SECONDBYTE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">67</span><span class="o">*</span><span class="n">THIRDBYTE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">68</span><span class="o">*</span><span class="n">FOURTHBYTE</span><span class="p">;</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">65</span><span class="o">*</span><span class="n">FIRSTBYTE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">66</span><span class="o">*</span><span class="n">SECONDBYTE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">67</span><span class="o">*</span><span class="n">THIRDBYTE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">68</span><span class="o">*</span><span class="n">FOURTHBYTE</span><span class="p">;</span>
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w">                </span><span class="c1">// 1145258561</span>
 </pre></div>
 </div>
-<p>В момент объявления выделяется достаточная для хранения переменной типа <code class="docutils literal notranslate"><span class="pre">int</span></code> (4 байта на большинстве платформ) область оперативной памяти, которая связывается с переменной <code class="docutils literal notranslate"><span class="pre">a</span></code>. Во момент инициализации в эту область памяти записывается число 1145258561. Это число намерено задано в разложении по степеням числа <span class="math notranslate nohighlight">\(256\)</span>, чтобы явно выделить байты этого числа: 65, 66, 67 и 68 (см. <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%9F%D0%BE%D1%80%D1%8F%D0%B4%D0%BE%D0%BA_%D0%B1%D0%B0%D0%B9%D1%82%D0%BE%D0%B2">статью в википедии</a>).</p>
+<p>В момент объявления выделяется достаточная для хранения переменной типа <code class="docutils literal notranslate"><span class="pre">int</span></code> (4 байта на большинстве платформ) область оперативной памяти, и переменная <code class="docutils literal notranslate"><span class="pre">a</span></code>  связывается с этой областью памяти. Во момент инициализации в эту область памяти записывается число 1145258561. Это число намерено задано в разложении по степеням числа <span class="math notranslate nohighlight">\(256\)</span>, чтобы явно выделить байты этого числа: 65, 66, 67 и 68 (см. <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%9F%D0%BE%D1%80%D1%8F%D0%B4%D0%BE%D0%BA_%D0%B1%D0%B0%D0%B9%D1%82%D0%BE%D0%B2">статью в википедии</a> про порядок байтов, если не понятно о чем идёт речь).</p>
 </section>
 <section id="id3">
 <h3>// 2<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
 <p>Далее объявляется указатель <code class="docutils literal notranslate"><span class="pre">b</span></code> на символьную переменную типа <code class="docutils literal notranslate"><span class="pre">char</span></code>, который инициализируется адресом памяти переменной <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// 2</span>
-<span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">*&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">a</span><span class="p">);</span><span class="w"></span>
+<span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">*&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Чтобы провернуть такой трюк, необходимо сначала поменять тип указателя, для чего используется <a class="reference external" href="https://en.cppreference.com/w/cpp/language/reinterpret_cast">reinterpret_cast</a>, т.к. <code class="docutils literal notranslate"><span class="pre">C++</span></code> — статически типизированный язык программирования и компилятор бы ругался на несоответствие типов.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Такие возможности языка <code class="docutils literal notranslate"><span class="pre">C/C++</span></code> приводятся здесь только с целью продемонстрировать механизм работы переменных в <code class="docutils literal notranslate"><span class="pre">C/C++</span></code>. В настоящих программах рекомендуется избегать таких приёмов.</p>
+<p>Чтобы провернуть такой трюк, необходимо сначала поменять тип указателя, т.к. переменная <code class="docutils literal notranslate"><span class="pre">a</span></code> имеет 32-битный целочисленный тип <code class="docutils literal notranslate"><span class="pre">int</span></code>, а переменная <code class="docutils literal notranslate"><span class="pre">b</span></code> является указателем 8-битного типа <code class="docutils literal notranslate"><span class="pre">char</span></code> (который формально тоже является целочисленным). Компилятор запретил бы такую операцию из-за несоответствия типов (и невозможности их приведения друг к другу безопасным образом), поэтому в коде используется <a class="reference external" href="https://en.cppreference.com/w/cpp/language/reinterpret_cast">reinterpret_cast</a>, который вынуждает компилятор привести тип указателя.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Такие возможности языка <code class="docutils literal notranslate"><span class="pre">C/C++</span></code> приводятся здесь только с целью демонстрации механизма работы переменных в <code class="docutils literal notranslate"><span class="pre">C/C++</span></code>. В настоящих программах рекомендуется избегать таких приёмов.</p>
 </div>
 </section>
 <section id="id4">
 <h3>// 3<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
 <p>Далее в цикле выводятся значения <code class="docutils literal notranslate"><span class="pre">b[0]</span></code>, <code class="docutils literal notranslate"><span class="pre">b[1]</span></code>, <code class="docutils literal notranslate"><span class="pre">b[2]</span></code> и <code class="docutils literal notranslate"><span class="pre">b[3]</span></code>.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// 3</span>
-<span class="k">for</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
-<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="k">for</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
+<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>В результате видим строку <code class="docutils literal notranslate"><span class="pre">ABCD</span></code>. Чтобы это понять, необходимо учесть</p>
+<p>В результате видим строку <code class="docutils literal notranslate"><span class="pre">ABCD</span></code>. Чтобы разобраться с тем, как это произошло, необходимо учесть</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">b</span></code> — указатель, который хранит в себе адрес переменной <code class="docutils literal notranslate"><span class="pre">a</span></code>;</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">b[0]</span></code> эквивалентно <code class="docutils literal notranslate"><span class="pre">*b</span></code> — интерпретированная в качестве символьного типа <code class="docutils literal notranslate"><span class="pre">char</span></code> область памяти от указателя <code class="docutils literal notranslate"><span class="pre">b</span></code> размером 1 байт.</p></li>
+<li><p>однако <code class="docutils literal notranslate"><span class="pre">b</span></code> — указатель 8-битного типа, а значит при его разыменовании (<code class="docutils literal notranslate"><span class="pre">b[0]</span></code>, что тоже самое, что и <code class="docutils literal notranslate"><span class="pre">*b</span></code>) захватывается область размером всего в 1 байт.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">b[i]</span></code> эквивалентно <code class="docutils literal notranslate"><span class="pre">*(b</span> <span class="pre">+</span> <span class="pre">i)</span> </code>, т.е. тоже самое, что и <code class="docutils literal notranslate"><span class="pre">b[0]</span></code>, но на <code class="docutils literal notranslate"><span class="pre">i</span></code> байт правее.</p></li>
-<li><p>т.к. в и тоге выводится символьная переменная, то она выводится согласно таблице <a class="reference external" href="https://ru.wikipedia.org/wiki/ASCII">ASCII</a>, в которой 65 соответствует символу <code class="docutils literal notranslate"><span class="pre">A</span></code>, 66 — символу <code class="docutils literal notranslate"><span class="pre">B</span></code>, 67 — символу <code class="docutils literal notranslate"><span class="pre">C</span></code>, 68 — символу <code class="docutils literal notranslate"><span class="pre">D</span></code>.</p></li>
+<li><p>т.к. в и тоге выводится символьная переменная, то она выводится согласно таблице <a class="reference external" href="https://ru.wikipedia.org/wiki/ASCII">ASCII</a>, в которой 65 соответствует символу “<code class="docutils literal notranslate"><span class="pre">A</span></code>”, 66 — символу “<code class="docutils literal notranslate"><span class="pre">B</span></code>”, 67 — символу “<code class="docutils literal notranslate"><span class="pre">C</span></code>”, 68 — символу “<code class="docutils literal notranslate"><span class="pre">D</span></code>”.</p></li>
 </ul>
 <p>Следующий рисунок иллюстрирует примерное устройство памяти в этой программе на этот момент времени.</p>
 <figure class="align-default">
@@ -1221,19 +1237,22 @@ ABCD
 <h3>// 4<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
 <p>Далее в переменную <code class="docutils literal notranslate"><span class="pre">a</span></code> записывается записывается значение “<code class="docutils literal notranslate"><span class="pre">'A'</span></code>”;</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// 4</span>
-<span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="p">;</span>
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"> </span>
 </pre></div>
 </div>
-<p>Из-за того, что <code class="docutils literal notranslate"><span class="pre">C/C++</span></code> — статически типизированный язык, то компилятор знает, что <code class="docutils literal notranslate"><span class="pre">a</span></code> — переменная типа <code class="docutils literal notranslate"><span class="pre">int</span></code> и <code class="docutils literal notranslate"><span class="pre">A</span></code> — значение типа <code class="docutils literal notranslate"><span class="pre">char</span></code>, которое может быть без потерь приведено к <code class="docutils literal notranslate"><span class="pre">int</span></code>. Исходя из этой информации он допускает эту операцию, неявно приводя символьное значение <code class="docutils literal notranslate"><span class="pre">'A'</span></code> к целочисленному значению 65 и записывая в соответствующую переменной <code class="docutils literal notranslate"><span class="pre">a</span></code> область памяти это значение.</p>
+<p>Из-за того, что <code class="docutils literal notranslate"><span class="pre">C/C++</span></code> — статически типизированный язык, то компилятор знает, что <code class="docutils literal notranslate"><span class="pre">a</span></code> — переменная типа <code class="docutils literal notranslate"><span class="pre">int</span></code> (с таким типом она была объявлена), и <code class="docutils literal notranslate"><span class="pre">A</span></code> — значение типа <code class="docutils literal notranslate"><span class="pre">char</span></code>, которое может быть без потерь приведено к <code class="docutils literal notranslate"><span class="pre">int</span></code> (8 бит меньше 32 бит). Исходя из этой информации, компилятор допускает эту операцию, неявно приводя символьное значение <code class="docutils literal notranslate"><span class="pre">'A'</span></code> к целочисленному значению <code class="docutils literal notranslate"><span class="pre">65</span></code> и записывая в соответствующую переменной <code class="docutils literal notranslate"><span class="pre">a</span></code> область памяти это значение.</p>
 </section>
 <section id="id6">
 <h3>Итого<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
 <p>Итого, опуская технические подробности:</p>
 <ul class="simple">
 <li><p>переменная соответствует области в памяти;</p></li>
-<li><p>то, как область памяти будет интерпретирована, определяется типом переменной, по которой к этой области памяти обращаются.</p></li>
-<li><p>оператор присвоения “<code class="docutils literal notranslate"><span class="pre">=</span></code>” записывает значение справа от него в область памяти, именованную переменной слева от него.</p></li>
+<li><p>у переменной всегда есть определенный тип, он указывается при объявлении переменной и известен на этапе компиляции;</p></li>
+<li><p>в самой области памяти нет информации о том, как правильно прочитать последовательность бит, которую она содержит;</p></li>
+<li><p>при обращении к переменной, её значение получается в результате интерпретации последовательности бит в соответствующей области памяти на основании типа этой переменной;</p></li>
+<li><p>технически возможно прочитать одну и ту же область памяти по-разному, обращаясь к ней переменными разных типов;</p></li>
+<li><p>оператор присвоения “<code class="docutils literal notranslate"><span class="pre">=</span></code>” записывает значение справа от него в область памяти, именованную переменной слева от него с предварительной проверкой совместимости типов.</p></li>
 </ul>
 </section>
 </section>
@@ -1248,7 +1267,7 @@ ABCD
 <p class="admonition-title">Note</p>
 <p>В <code class="docutils literal notranslate"><span class="pre">python</span></code> работать с адресами памяти напрямую невозможно. Единственное исключение составляет функция <code class="docutils literal notranslate"><span class="pre">id</span></code>, которая в некоторых реализациях возвращает адрес памяти (целое число), где хранится объект. Эта функция нужна только для того, чтобы всегда можно было выяснить, ссылаются ли два имени на один и тот же объект. Обратится по этому адресу средствами <code class="docutils literal notranslate"><span class="pre">python</span></code> невозможно.</p>
 </div>
-<p>Рассмотрим следующий код в <code class="docutils literal notranslate"><span class="pre">python</span></code>.</p>
+<p>Ввернемся к примеру из начала раздела и объясним, как он работает.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>               <span class="c1"># a - переменная типа int</span>
@@ -1301,6 +1320,11 @@ ABCD
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0 &lt;class &#39;float&#39;&gt;
+</pre></div>
+</div>
+</div>
 </div>
 <figure class="align-default">
 <img alt="../../_images/a_float.png" src="../../_images/a_float.png" />
@@ -1320,6 +1344,11 @@ ABCD
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>zero &lt;class &#39;str&#39;&gt;
+</pre></div>
+</div>
+</div>
 </div>
 <figure class="align-default">
 <img alt="../../_images/a_str.png" src="../../_images/a_str.png" />
@@ -1328,11 +1357,6 @@ ABCD
 <section id="id10">
 <h3># 4<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h3>
 <p>Четвертая инструкция <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">[0,</span> <span class="pre">0.0,</span> <span class="pre">&quot;zero&quot;]</span></code>.</p>
-<ol class="simple">
-<li><p>Создаётся три объекта: целочисленный объект <code class="docutils literal notranslate"><span class="pre">0</span></code>, действительнозначный объект <code class="docutils literal notranslate"><span class="pre">0.0</span></code> и строковый объект <code class="docutils literal notranslate"><span class="pre">&quot;zero&quot;</span></code>.</p></li>
-<li><p>Создаётся объект спискового объект длинны 3, ячейки которого связываются с объектами, созданными на предыдущем этапе.</p></li>
-<li><p>Существующее имя <code class="docutils literal notranslate"><span class="pre">a</span></code> связывается связывается с новым объектом, который имеет другой тип.</p></li>
-</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">&quot;zero&quot;</span><span class="p">]</span> <span class="c1"># теперь a - переменная типа list</span>
@@ -1340,14 +1364,37 @@ ABCD
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 0.0, &#39;zero&#39;] &lt;class &#39;list&#39;&gt;
+</pre></div>
 </div>
+</div>
+</div>
+<p>Попытайтесь сами объяснить, что происходит при её выполнении, а затем сверьтесь со спойлером ниже.</p>
+<div class="toggle docutils container">
+<ol class="simple">
+<li><p>Создаётся три объекта: целочисленный объект <code class="docutils literal notranslate"><span class="pre">0</span></code>, действительнозначный объект <code class="docutils literal notranslate"><span class="pre">0.0</span></code> и строковый объект <code class="docutils literal notranslate"><span class="pre">&quot;zero&quot;</span></code>.</p></li>
+<li><p>Создаётся объект спискового объект длинны 3, ячейки которого связываются с объектами, созданными на предыдущем этапе.</p></li>
+<li><p>Существующее имя <code class="docutils literal notranslate"><span class="pre">a</span></code> связывается связывается с новым объектом, который имеет другой тип.</p></li>
+</ol>
 <figure class="align-default">
 <img alt="../../_images/a_list.png" src="../../_images/a_list.png" />
 </figure>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Иногда говорят, что тип объекта “живёт” в самом объекте, а не в “переменной”.</p>
 </div>
+</section>
+<section id="id11">
+<h3>Итого<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h3>
+<p>Итого, опуская технические подробности:</p>
+<ul class="simple">
+<li><p>вместо переменных в <code class="docutils literal notranslate"><span class="pre">python</span></code> имена;</p></li>
+<li><p>у имени нет типа;</p></li>
+<li><p>имя всегда ссылается на какой-то объект (не бывает неинициализированных имён), внутри которого кроме полезных данных хранится служебная информация о типе объекта и т.п.;</p></li>
+<li><p>оператор присвоения “<code class="docutils literal notranslate"><span class="pre">=</span></code>” связывает имя слева от него с объектом с права от него: если такого имени ещё нет, то оно создаётся, если такое имя уже существует (связанно с каким-то объектом), то ссылка перекидывается на новый объект.</p></li>
+</ul>
 </section>
 </section>
 </section>
@@ -1383,7 +1430,7 @@ ABCD
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Компилируемость vs Интерпретируемость</p>
+            <p class="prev-next-title">Компилируемость <code class="docutils literal notranslate"><span class="pre">vs</span></code> Интерпретируемость</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="type_annotations.html" title="next page">

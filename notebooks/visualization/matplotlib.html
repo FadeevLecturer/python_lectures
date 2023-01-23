@@ -209,7 +209,13 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../docs/interpretability.html">
-   Компилируемость vs Интерпретируемость
+   Компилируемость
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     vs
+    </span>
+   </code>
+   Интерпретируемость
   </a>
  </li>
  <li class="toctree-l1">
@@ -1096,7 +1102,7 @@ title="Print to PDF"
 <section id="id1">
 <h2>О библиотеке <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code><a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code> является сторонней библиотекой для <code class="docutils literal notranslate"><span class="pre">python</span></code>, но, как и <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>, входит в дистрибутив <code class="docutils literal notranslate"><span class="pre">Anaconda</span></code>. Установить его с помощью <code class="docutils literal notranslate"><span class="pre">PyPI</span></code> можно следующей командой.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python -m pip install matplotlib
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>matplotlib
 </pre></div>
 </div>
 <p>Построение графиков в минималистичном варианте в <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code> осуществляется довольно просто: чтобы построить самый простой график, достаточно нескольких строк кода. Ниже приводится <a class="reference external" href="https://matplotlib.org/stable/users/getting_started/index.html#draw-a-first-plot">пример минимального исходного кода</a> из документации и генерируемый ей график. При этом первые 4 из 7 строк этого кода импортируют библиотеки и генерируют данные для построения графиков и лишь три последние строки кода отвечают за построение графика.</p>

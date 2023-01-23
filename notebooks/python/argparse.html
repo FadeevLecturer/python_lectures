@@ -206,7 +206,13 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../docs/interpretability.html">
-   Компилируемость vs Интерпретируемость
+   Компилируемость
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     vs
+    </span>
+   </code>
+   Интерпретируемость
   </a>
  </li>
  <li class="toctree-l1">
@@ -945,15 +951,15 @@ title="Print to PDF"
 </pre></div>
 </div>
 <p>Обычный запуск скрипта будет выглядеть как-то так</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; python myscript.py
-<span class="o">[</span><span class="s1">&#39;myscript.py&#39;</span><span class="o">]</span> 
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt;<span class="w"> </span>python<span class="w"> </span>myscript.py
+<span class="o">[</span><span class="s1">&#39;myscript.py&#39;</span><span class="o">]</span><span class="w"> </span>
 
 &gt;&gt;&gt;
 </pre></div>
 </div>
 <p>Но можно передать аргументы скрипту при его запуске, указывая их после имени скрипта</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; python python myscript.py arg1 arg2 arg3
-<span class="o">[</span><span class="s1">&#39;myscript.py&#39;</span>, <span class="s1">&#39;arg1&#39;</span>, <span class="s1">&#39;arg2&#39;</span>, <span class="s1">&#39;arg3&#39;</span><span class="o">]</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt;<span class="w"> </span>python<span class="w"> </span>python<span class="w"> </span>myscript.py<span class="w"> </span>arg1<span class="w"> </span>arg2<span class="w"> </span>arg3
+<span class="o">[</span><span class="s1">&#39;myscript.py&#39;</span>,<span class="w"> </span><span class="s1">&#39;arg1&#39;</span>,<span class="w"> </span><span class="s1">&#39;arg2&#39;</span>,<span class="w"> </span><span class="s1">&#39;arg3&#39;</span><span class="o">]</span>
 
 &gt;&gt;&gt;
 </pre></div>
@@ -982,27 +988,27 @@ title="Print to PDF"
 <li><p>количество разбиений по оси <code class="docutils literal notranslate"><span class="pre">t</span></code>, которое необходимо использовать для расчетов. Явно укажем здесь, что ожидается целое число.</p></li>
 </ul>
 <p>Для каждого параметра указана справочная информация, которую можно теперь получить следующим образом.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; python myscript.py --help
-usage: myscript.py <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>--config CONFIG<span class="o">]</span> -o O <span class="o">[</span>-n N<span class="o">]</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt;<span class="w"> </span>python<span class="w"> </span>myscript.py<span class="w"> </span>--help
+usage:<span class="w"> </span>myscript.py<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--config<span class="w"> </span>CONFIG<span class="o">]</span><span class="w"> </span>-o<span class="w"> </span>O<span class="w"> </span><span class="o">[</span>-n<span class="w"> </span>N<span class="o">]</span>
 
-optional arguments:
-  -h, --help       show this <span class="nb">help</span> message and <span class="nb">exit</span>
-  --config CONFIG  Путь к конфигурационному файлу
-  -o O             Папка для записи результатов вычисления
-  -n N             Количество разбиений по времени
-  
+optional<span class="w"> </span>arguments:
+<span class="w">  </span>-h,<span class="w"> </span>--help<span class="w">       </span>show<span class="w"> </span>this<span class="w"> </span><span class="nb">help</span><span class="w"> </span>message<span class="w"> </span>and<span class="w"> </span><span class="nb">exit</span>
+<span class="w">  </span>--config<span class="w"> </span>CONFIG<span class="w">  </span>Путь<span class="w"> </span>к<span class="w"> </span>конфигурационному<span class="w"> </span>файлу
+<span class="w">  </span>-o<span class="w"> </span>O<span class="w">             </span>Папка<span class="w"> </span>для<span class="w"> </span>записи<span class="w"> </span>результатов<span class="w"> </span>вычисления
+<span class="w">  </span>-n<span class="w"> </span>N<span class="w">             </span>Количество<span class="w"> </span>разбиений<span class="w"> </span>по<span class="w"> </span>времени
+<span class="w">  </span>
 </pre></div>
 </div>
 <p>А запустить скрипт можно, передавая ему разные значения.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; python myscript.py --config config.json -o somefolder -n <span class="m">300</span>
-Namespace<span class="o">(</span><span class="nv">config</span><span class="o">=</span><span class="s1">&#39;config.json&#39;</span>, <span class="nv">n</span><span class="o">=</span><span class="m">300</span>, <span class="nv">o</span><span class="o">=</span><span class="s1">&#39;somefolder&#39;</span><span class="o">)</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt;<span class="w"> </span>python<span class="w"> </span>myscript.py<span class="w"> </span>--config<span class="w"> </span>config.json<span class="w"> </span>-o<span class="w"> </span>somefolder<span class="w"> </span>-n<span class="w"> </span><span class="m">300</span>
+Namespace<span class="o">(</span><span class="nv">config</span><span class="o">=</span><span class="s1">&#39;config.json&#39;</span>,<span class="w"> </span><span class="nv">n</span><span class="o">=</span><span class="m">300</span>,<span class="w"> </span><span class="nv">o</span><span class="o">=</span><span class="s1">&#39;somefolder&#39;</span><span class="o">)</span>
 
-&gt;&gt;&gt; python myscript.py --config config.json -o somefolder 
-Namespace<span class="o">(</span><span class="nv">config</span><span class="o">=</span><span class="s1">&#39;config.json&#39;</span>, <span class="nv">n</span><span class="o">=</span><span class="m">100</span>, <span class="nv">o</span><span class="o">=</span><span class="s1">&#39;somefolder&#39;</span><span class="o">)</span>
+&gt;&gt;&gt;<span class="w"> </span>python<span class="w"> </span>myscript.py<span class="w"> </span>--config<span class="w"> </span>config.json<span class="w"> </span>-o<span class="w"> </span>somefolder<span class="w"> </span>
+Namespace<span class="o">(</span><span class="nv">config</span><span class="o">=</span><span class="s1">&#39;config.json&#39;</span>,<span class="w"> </span><span class="nv">n</span><span class="o">=</span><span class="m">100</span>,<span class="w"> </span><span class="nv">o</span><span class="o">=</span><span class="s1">&#39;somefolder&#39;</span><span class="o">)</span>
 
-&gt;&gt;&gt; python myscript.py
-usage: myscript.py <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>--config CONFIG<span class="o">]</span> -o O <span class="o">[</span>-n N<span class="o">]</span>
-myscript.py: error: the following arguments are required: -o 
+&gt;&gt;&gt;<span class="w"> </span>python<span class="w"> </span>myscript.py
+usage:<span class="w"> </span>myscript.py<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--config<span class="w"> </span>CONFIG<span class="o">]</span><span class="w"> </span>-o<span class="w"> </span>O<span class="w"> </span><span class="o">[</span>-n<span class="w"> </span>N<span class="o">]</span>
+myscript.py:<span class="w"> </span>error:<span class="w"> </span>the<span class="w"> </span>following<span class="w"> </span>arguments<span class="w"> </span>are<span class="w"> </span>required:<span class="w"> </span>-o<span class="w"> </span>
 
 &gt;&gt;&gt;
 </pre></div>

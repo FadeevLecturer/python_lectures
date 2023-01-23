@@ -209,7 +209,13 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../docs/interpretability.html">
-   Компилируемость vs Интерпретируемость
+   Компилируемость
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     vs
+    </span>
+   </code>
+   Интерпретируемость
   </a>
  </li>
  <li class="toctree-l1">
@@ -1152,19 +1158,19 @@ title="Print to PDF"
 <section id="id1">
 <h2>Установка <code class="docutils literal notranslate"><span class="pre">PySide</span></code><a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
 <p>Установить <code class="docutils literal notranslate"><span class="pre">PySide6</span></code> можно используя <code class="docutils literal notranslate"><span class="pre">pip</span></code></p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip install PySide6
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>PySide6
 </pre></div>
 </div>
 </section>
 <section id="id2">
 <h2>Репозиторий<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
 <p>Здесь и везде далее по теме <code class="docutils literal notranslate"><span class="pre">PySide</span></code> будет приводиться исходный код, эффект запуска которого не получится в полной мере продемонстрировать в рамках статического примера. Чтобы лучше почувствовать возможности <code class="docutils literal notranslate"><span class="pre">Qt</span></code>, лучше самостоятельно запускать приводимые примеры на своей машине. Все необходимое для этого можно найти в репозитории по <a class="reference external" href="https://github.com/FadeevLecturer/PySide6_intro">ссылке</a>, клонировать который можно командой (потребуется установленный <a class="reference external" href="https://git-scm.com/">git</a>)</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git clone git@github.com:FadeevLecturer/PySide6_intro.git
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:FadeevLecturer/PySide6_intro.git
 </pre></div>
 </div>
 <p>Все зависимости, необходимые для запуска всех примеров, перечисленны в файле <a class="reference external" href="https://github.com/NeuroFuzzyLab/possibility_aggregation/blob/main/requirements.txt">requirements.txt</a>.</p>
 <p>Установить все необходимые библиотеки в пустое виртуальное окружение можно командой</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python -m pip install -r requirements.txt
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
 </pre></div>
 </div>
 </section>
@@ -1370,8 +1376,8 @@ title="Print to PDF"
 <p>Макет сам распределяет пространство, которое будет занимать виджет исходя из геометрии окна, политики размера каждого из виджетов (<a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QSizePolicy.html">QSizePolicy</a>, который среди прочего определяем минимальный размер виджета) и коэффициента растяжения (<code class="docutils literal notranslate"><span class="pre">stretching</span></code>), который определяет насколько жадно этот виджет будет занимать пространство. По умолчанию под каждый виджет отводится одинаковое количество места, но если указать параметр <code class="docutils literal notranslate"><span class="pre">stretch</span></code> (его принимают все три вышеописанных метода), то виджета с большим значением будет занимать больше пространства.</p>
 <p>В качестве примера, создадим два виджета <code class="docutils literal notranslate"><span class="pre">QLabel</span></code>, положим в них картинку методом <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtWidgets/QLabel.html#PySide6.QtWidgets.PySide6.QtWidgets.QLabel.setPixmap">setPixmap</a>, который ожидает на вход объект <a class="reference external" href="https://doc.qt.io/qtforpython/PySide6/QtGui/QPixmap.html">QPixmap</a>, и добавим их в макет.</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="76cad463-4ef1-4e85-afec-337c3673613a" name="85307874-0c7d-4b04-8c70-bc6fb5e8162e" type="radio">
-</input><label class="sd-tab-label" data-sync-id="hbox" for="76cad463-4ef1-4e85-afec-337c3673613a">
+<input checked="checked" id="91b5bbd2-fa73-45cc-8e3c-13af87aaedaa" name="13d8cab3-bd91-4316-859e-eb97bf90c593" type="radio">
+</input><label class="sd-tab-label" data-sync-id="hbox" for="91b5bbd2-fa73-45cc-8e3c-13af87aaedaa">
 QHBoxLayout</label><div class="sd-tab-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">os</span>
@@ -1417,8 +1423,8 @@ QHBoxLayout</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="7a13dbe7-8d5e-4873-a763-ae7b40fab167" name="85307874-0c7d-4b04-8c70-bc6fb5e8162e" type="radio">
-</input><label class="sd-tab-label" data-sync-id="vbox" for="7a13dbe7-8d5e-4873-a763-ae7b40fab167">
+<input id="1bfd9dc7-3609-45ba-9436-bbd08028afaa" name="13d8cab3-bd91-4316-859e-eb97bf90c593" type="radio">
+</input><label class="sd-tab-label" data-sync-id="vbox" for="1bfd9dc7-3609-45ba-9436-bbd08028afaa">
 QVBoxLayout</label><div class="sd-tab-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">os</span>
@@ -1466,15 +1472,15 @@ QVBoxLayout</label><div class="sd-tab-content docutils">
 </div>
 </div>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="1195611d-1975-427a-bbe5-3a1278482094" name="b5dfe629-ed34-4ac8-9696-6b0ae7e0615f" type="radio">
-</input><label class="sd-tab-label" data-sync-id="hbox" for="1195611d-1975-427a-bbe5-3a1278482094">
+<input checked="checked" id="ef529059-fd7c-4f65-a71c-f415a2a9a60a" name="a1c191f4-b2e2-49cb-a00a-e88c396d88f2" type="radio">
+</input><label class="sd-tab-label" data-sync-id="hbox" for="ef529059-fd7c-4f65-a71c-f415a2a9a60a">
 QHBoxLayout</label><div class="sd-tab-content docutils">
 <figure class="align-default">
 <img alt="../../_images/HBoxLayout.png" src="../../_images/HBoxLayout.png" />
 </figure>
 </div>
-<input id="37f6c8ea-ce9e-4b37-80f3-9aced2da1c5e" name="b5dfe629-ed34-4ac8-9696-6b0ae7e0615f" type="radio">
-</input><label class="sd-tab-label" data-sync-id="vbox" for="37f6c8ea-ce9e-4b37-80f3-9aced2da1c5e">
+<input id="ab24ad08-1d2a-4ad4-9724-358497e053bd" name="a1c191f4-b2e2-49cb-a00a-e88c396d88f2" type="radio">
+</input><label class="sd-tab-label" data-sync-id="vbox" for="ab24ad08-1d2a-4ad4-9724-358497e053bd">
 QVBoxLayout</label><div class="sd-tab-content docutils">
 <figure class="align-default">
 <img alt="../../_images/VBoxLayout.png" src="../../_images/VBoxLayout.png" />

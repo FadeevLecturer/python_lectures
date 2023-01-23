@@ -209,7 +209,13 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../docs/interpretability.html">
-   Компилируемость vs Интерпретируемость
+   Компилируемость
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     vs
+    </span>
+   </code>
+   Интерпретируемость
   </a>
  </li>
  <li class="toctree-l1">
@@ -1057,13 +1063,13 @@ title="Print to PDF"
 </div>
 <div class="sd-card-body docutils">
 <p class="sd-card-text">Объявление класса в <code class="docutils literal notranslate"><span class="pre">C++</span></code> выглядит примерно следующим образом.</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span>
+<span class="p">{</span>
 <span class="w">	</span><span class="c1">// все </span>
 <span class="w">	</span><span class="c1">// детали</span>
 <span class="w">	</span><span class="c1">// класса</span>
 <span class="w">	</span><span class="c1">// т.е. тело класса</span>
-<span class="p">};</span><span class="w"></span>
+<span class="p">};</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -1110,7 +1116,7 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">EmptyClass</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Пустой класс без атрибутов и методов.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Пустой класс без атрибутов и методов.&quot;&quot;&quot;</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">EmptyClass</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">EmptyClass</span><span class="p">))</span>
@@ -1192,11 +1198,11 @@ title="Print to PDF"
 <section id="class-attributes">
 <span id="id4"></span><h2>Атрибуты класса и атрибуты объекта<a class="headerlink" href="#class-attributes" title="Permalink to this headline">#</a></h2>
 <p>Если при объявлении аттрибутов в <code class="docutils literal notranslate"><span class="pre">python</span></code> действовать по аналогии с <code class="docutils literal notranslate"><span class="pre">С++</span></code>, то сразу возникнут трудности. Рассмотрим объявление класса <code class="docutils literal notranslate"><span class="pre">C++</span></code> с одним атрибутом.</p>
-<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">A</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="k">public</span><span class="o">:</span><span class="w"></span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">A</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="p">};</span>
 </pre></div>
 </div>
 <p>Здесь объявляется атрибут <code class="docutils literal notranslate"><span class="pre">x</span></code> целочисленного типа, который инициализируется при создании объекта. Но в <code class="docutils literal notranslate"><span class="pre">python</span></code> нельзя объявить переменную и не инициализировать её: каждое имя должно ссылаться на какой-то объект. Попробуем построить аналогичное объявление, инициализировав атрибут числом <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
@@ -1256,11 +1262,11 @@ title="Print to PDF"
 <p class="sd-card-text"><strong>C++</strong></p>
 </div>
 <div class="sd-card-body docutils">
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">A</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="k">public</span><span class="o">:</span><span class="w"></span>
-<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">A</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">};</span>
 </pre></div>
 </div>
 <p class="sd-card-text">Класс <code class="docutils literal notranslate"><span class="pre">A</span></code> с целочисленным <strong>статическим</strong> атрибутом <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
@@ -1491,12 +1497,12 @@ my_instance_method() takes 0 positional arguments but 1 was given
 <p class="sd-card-text"><strong>C++</strong></p>
 </div>
 <div class="sd-card-body docutils">
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">A</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="k">public</span><span class="o">:</span><span class="w"></span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">A</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">A</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="n">A</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{};</span>
+<span class="p">};</span>
 </pre></div>
 </div>
 <p class="sd-card-text">В конструкторе <code class="docutils literal notranslate"><span class="pre">A::A(int)</span></code> инициализируется целочисленная переменная <code class="docutils literal notranslate"><span class="pre">x</span></code> значением, переданным в конструктор.</p>

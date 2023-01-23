@@ -209,7 +209,13 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../docs/interpretability.html">
-   Компилируемость vs Интерпретируемость
+   Компилируемость
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     vs
+    </span>
+   </code>
+   Интерпретируемость
   </a>
  </li>
  <li class="toctree-l1">
@@ -1107,7 +1113,7 @@ title="Print to PDF"
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="k">def</span> <span class="nf">koch_snowflake</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Return two lists x, y of point coordinates of the Koch snowflake.</span>
 
 <span class="sd">    Parameters</span>
@@ -1429,9 +1435,9 @@ title="Print to PDF"
 </div>
 <p>Т.к. <span class="math notranslate nohighlight">\(\LaTeX\)</span> сам по себе не дружит с кириллицей, то может потребоваться подключение пакета <code class="docutils literal notranslate"><span class="pre">babel</span></code> в преамбуле документа. Сделать это проще всего следующей командой.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;text.latex.preamble&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">\usepackage[utf8]</span><span class="si">{inputenc}</span><span class="s2"></span>
-<span class="s2">\usepackage[english,russian]</span><span class="si">{babel}</span><span class="s2"></span>
-<span class="s2">\usepackage</span><span class="si">{amsmath}</span><span class="s2"></span>
+<span class="s2">\usepackage[utf8]</span><span class="si">{inputenc}</span>
+<span class="s2">\usepackage[english,russian]</span><span class="si">{babel}</span>
+<span class="s2">\usepackage</span><span class="si">{amsmath}</span>
 <span class="s2">&quot;&quot;&quot;</span>
 </pre></div>
 </div>
@@ -1442,9 +1448,9 @@ title="Print to PDF"
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="n">usetex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;text.latex.preamble&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">\usepackage[utf8]</span><span class="si">{inputenc}</span><span class="s2"></span>
-<span class="s2">\usepackage[english,russian]</span><span class="si">{babel}</span><span class="s2"></span>
-<span class="s2">\usepackage</span><span class="si">{amsmath}</span><span class="s2"></span>
+<span class="s2">\usepackage[utf8]</span><span class="si">{inputenc}</span>
+<span class="s2">\usepackage[english,russian]</span><span class="si">{babel}</span>
+<span class="s2">\usepackage</span><span class="si">{amsmath}</span>
 <span class="s2">&quot;&quot;&quot;</span>
 
 
