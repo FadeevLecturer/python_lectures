@@ -1042,14 +1042,14 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>Когда интерпретатор исполняет исходный код, он сначала вычисляет выражение справа от оператора равно.</p>
+<p>Когда интерпретатор исполняет исходный код, он сначала вычисляет выражение справа от оператора “<code class="docutils literal notranslate"><span class="pre">=</span></code>”.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">1001</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;1002&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Так как это составное выражение, то чтобы его вычислить, сначала вычисляются подвыражения <code class="docutils literal notranslate"><span class="pre">1001</span></code> и <code class="docutils literal notranslate"><span class="pre">int(&quot;1002&quot;)</span></code>.</p>
+<p>Так как это составное выражение, то, чтобы его вычислить, необходимо сначала вычислить результаты составляющих его  подвыражений <code class="docutils literal notranslate"><span class="pre">1001</span></code> и <code class="docutils literal notranslate"><span class="pre">int(&quot;1002&quot;)</span></code>.</p>
 <ol class="simple">
-<li><p>Первое из них является <a class="reference external" href="https://docs.python.org/3/reference/lexical_analysis.html#literals">литералом</a> целого числа 1001. Его интерпретация приводит к созданию целочисленного объекта с значением 1001.</p></li>
-<li><p>Второе выражение тоже является составным.</p>
+<li><p>Первое из них (<code class="docutils literal notranslate"><span class="pre">1001</span></code>) является <a class="reference external" href="https://docs.python.org/3/reference/lexical_analysis.html#literals">литералом</a> целого числа 1001. Его интерпретация приводит к созданию целочисленного объекта со значением 1001.</p></li>
+<li><p>Второе выражение (<code class="docutils literal notranslate"><span class="pre">int(&quot;1002&quot;)</span></code>) тоже является составным.</p>
 <ol class="simple">
 <li><p>Сначала вычисляется выражение <code class="docutils literal notranslate"><span class="pre">&quot;1002&quot;</span></code>, указанное в качестве аргумента функции <code class="docutils literal notranslate"><span class="pre">int</span></code>. Это выражение является литералом строки, а значит его интерпретация приводит к созданию строкового объекта с значением <code class="docutils literal notranslate"><span class="pre">&quot;1002&quot;</span></code>.</p></li>
 <li><p>Далее этот объект передаётся на вход функции <code class="docutils literal notranslate"><span class="pre">int</span></code>, что приводит к созданию целочисленного объекта с значением <code class="docutils literal notranslate"><span class="pre">1002</span></code>.</p></li>
@@ -1243,11 +1243,11 @@ title="Print to PDF"
 <figure class="align-default">
 <img alt="../../_images/unreachable_cycle.png" src="../../_images/unreachable_cycle.png" />
 </figure>
-<p>Чтобы обнаруживать такие ситуации в <code class="docutils literal notranslate"><span class="pre">python</span></code> есть <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%A1%D0%B1%D0%BE%D1%80%D0%BA%D0%B0_%D0%BC%D1%83%D1%81%D0%BE%D1%80%D0%B0">сборщик мусора</a>, который представляет собой отдельный процесс, который переодически запускается и занимается поиском недостижимых циклических структур и удаляет их.</p>
-<p>Положительная сторона такого подхода заключается в том, что удаление объектов происходит полностью автоматически и у программиста нет необходимости удалять все объекты самостоятельно. Отрицательная — накладные расходы: помимо интересующей пользователя программы параллельно работает дополнительный процесс, который может вызвать небольшие замедления в её работе.</p>
+<p>Чтобы обнаруживать такие ситуации, в <code class="docutils literal notranslate"><span class="pre">python</span></code> предусмотрен специальный механизм — <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%A1%D0%B1%D0%BE%D1%80%D0%BA%D0%B0_%D0%BC%D1%83%D1%81%D0%BE%D1%80%D0%B0">сборщик мусора</a> — отдельный процесс, который переодически запускается и занимается поиском недостижимых циклических структур и удаляет их.</p>
+<p>Положительная сторона такого подхода заключается в том, что удаление объектов происходит полностью автоматически и у программиста нет необходимости удалять все объекты самостоятельно. Отрицательная — накладные расходы: помимо интересующей пользователя программы параллельно работает посторонний процесс, который может вызвать небольшие замедления в её работе.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Модуль <a class="reference external" href="https://docs.python.org/3/library/gc.html">gc</a> предоставляет интерфейс к взаимодействию с сборщиком мусора. В частности, можно отключить автоматическую сборку мусора методом <a class="reference external" href="https://docs.python.org/3/library/gc.html#gc.disable">disable</a>, например, если сценарий программы не подразумевает создание циклических структур, или если стабильная производительность программы важнее потенциальной утечки программы. Кроме отключения сборщика мусора, с помощью этого модуля можно в ручную его запускать методом <a class="reference external" href="https://docs.python.org/3/library/gc.html#gc.collect">collect</a>.</p>
+<p>Модуль <a class="reference external" href="https://docs.python.org/3/library/gc.html">gc</a> предоставляет интерфейс к взаимодействию с сборщиком мусора. В частности, можно отключить автоматическую сборку мусора методом <a class="reference external" href="https://docs.python.org/3/library/gc.html#gc.disable">disable</a>, например, если сценарий программы не подразумевает создание циклических структур, или если стабильная производительность программы важнее потенциальной утечки памяти. Кроме отключения сборщика мусора, с помощью этого модуля можно в ручную его запускать методом <a class="reference external" href="https://docs.python.org/3/library/gc.html#gc.collect">collect</a>.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
