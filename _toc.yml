@@ -19,6 +19,7 @@ parts:
       - file: notebooks/python/type_annotations
       - file: notebooks/python/mutability
       - file: notebooks/python/garbage_collector
+      - file: notebooks/python/collections
       - file: notebooks/python/sequences
       - file: notebooks/homework/2
   - caption: "Лекция №3"
