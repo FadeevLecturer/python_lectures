@@ -1,0 +1,1296 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>О коллекциях в python &#8212; Практикум по компьютерным технологиям</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/my_css_rules.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Последовательности: списки, кортежи и строки" href="sequences.html" />
+    <link rel="prev" title="Создание и удаление объектов. Сборщик мусора" href="garbage_collector.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-EM33EZ6FLL"></script>
+<script>
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){ dataLayer.push(arguments); }
+                    gtag('js', new Date());
+                    gtag('config', 'G-EM33EZ6FLL');
+                </script>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Практикум по компьютерным технологиям</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../docs/index.html">
+                    Практикум по компьютерным технологиям на языке программирования python3
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №1
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="about_python.html">
+   О
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     python
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/getting_started.html">
+   Установка
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     python
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/python_as_calculator.html">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Python
+    </span>
+   </code>
+   в качестве калькулятора
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/scripts.html">
+   Скрипты
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     python
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="jupyter.html">
+   Блокноты.
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Jupyter
+    </span>
+    <span class="pre">
+     Notebooks
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numbers_and_lists.html">
+   Основные типы объектов: числа и списки
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="if_for_range.html">
+   Операторы потока управления
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../homework/1.html">
+   Домашнее задание №1
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №2
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/interpretability.html">
+   Компилируемость
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     vs
+    </span>
+   </code>
+   Интерпретируемость
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dynamic_typing.html">
+   Динамическая типизация
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="type_annotations.html">
+   Аннотация типов
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mutability.html">
+   Изменяемые и неизменяемый типы объектов
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="garbage_collector.html">
+   Создание и удаление объектов. Сборщик мусора
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   О коллекциях в
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     python
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sequences.html">
+   Последовательности: списки, кортежи и строки
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../homework/2.html">
+   Домашнее задание №2
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №3
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/libs_pypi_conda.html">
+   Сторонние библиотеки и пакетные менеджеры
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/numpy.html">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     NumPy
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/vectorization.html">
+   Векторизация
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/slices.html">
+   Срезы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/vector_product.html">
+   Умножение векторов
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/logic.html">
+   Логические операции
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/vectorization_example.html">
+   Векторизация на примере вычисления статистик
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/random.html">
+   Случайные числа
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/homework.html">
+   Домашнее задание №3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №4
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="dictionaries.html">
+   Словари.
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     dict
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="functions.html">
+   Функции
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="filesystem.html">
+   Взаимодействие с файловой системой
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="files.html">
+   Работа с файлами. Сериализация:
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     json
+    </span>
+   </code>
+   и
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pickle
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/libraries.html">
+   Построение графиков и визуализация данных
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/matplotlib.html">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Matplotlib
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/details.html">
+   Настройка деталей графиков
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/matplotlib_animation.html">
+   Анимация  в matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/homework.html">
+   Домашнее задание №4
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №5
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/tables.html">
+   Таблицы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/pandas.html">
+   Библиотека
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/series.html">
+   Столбцы в
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/dataframe.html">
+   Таблицы
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/operations.html">
+   Оперирование таблицами
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/datetime.html">
+   Дата и время
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/covid19.html">
+   Анализ данных о
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     COVID19
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/homework.html">
+   Домашнее задание №5
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №6
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="list_comprehensions.html">
+   Основы списковых включений
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="iterators.html">
+   Итераторы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="generators.html">
+   Генераторы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="decorators.html">
+   Декораторы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../homework/6.html">
+   Домашнее задание №6
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №7
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/scipy.html">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     SciPy
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/linalg.html">
+   Линейная алгебра
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/integration.html">
+   Дифференцирование и интегрирование функций
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/optimization.html">
+   Поиск минимума
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/nonlinear_equations.html">
+   Решение нелинейных уравнений
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/interpolation_approx.html">
+   Интерполяция и аппроксимация
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/ODE.html">
+   Решение ОДУ
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scipy/signal.html">
+   Обработка сигналов
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №8
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="custom_classes.html">
+   Пользовательские классы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="inheritance.html">
+   Наследование
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="polymorphism.html">
+   Полиморфизм в python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="operators_overloading.html">
+   Перегрузка специальных методов и операторов
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exercises2.html">
+   Практические задания
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №9
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="exceptions.html">
+   Исключения
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="custom_exceptions.html">
+   Пользовательские исключения
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="LBYL_vs_EAFP.html">
+   Стратегии контроля ошибок
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Лекция №10
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/gui.html">
+   Графический пользовательский интерфейс
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/basics.html">
+   PySide. Основы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/event.html">
+   События
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/slot_signal.html">
+   Слоты и сигналы
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/widgets.html">
+   Виджеты и макеты
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/buttons.html">
+   Кнопки
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/output.html">
+   Вывод данных
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/input.html">
+   Ввод данных
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/dialogs.html">
+   Диалоговые окна
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../qt/exercises.html">
+   Практические задания
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  TBD
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="about_12_and_so_on.html">
+   О последних лекциях
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../computer_vision/basics.html">
+   Работа с изображениями
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../computer_vision/filters.html">
+   Свёрточные операции
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../computer_vision/detection.html">
+   Задача обнаружения
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine_learning/regression.html">
+   Регрессия
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine_learning/classification.html">
+   Классификация
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../machine_learning/neural_networks.html">
+   Нейронный сети
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_scripts.html">
+   Создание скриптов. Работа с IDE
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scripts_vs_modules.html">
+   Скрипты и модули
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="argparse.html">
+   Аргументы командной строки
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/FadeevLecturer/python_lectures/main?urlpath=tree/notebooks/python/collections.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/FadeevLecturer/python_lectures/blob/main/notebooks/python/collections.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/FadeevLecturer/python_lectures"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/FadeevLecturer/python_lectures/issues/new?title=Issue%20on%20page%20%2Fnotebooks/python/collections.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/FadeevLecturer/python_lectures/edit/main/notebooks/python/collections.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/notebooks/python/collections.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Разнообразие коллекций
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Базовые понятия
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Пример: контейнер, но не итерируемый и без длины
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Пример: итерируемый, но не контейнер и не имеет длины
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   Коллекции
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   Дальнейшее ветвление в иерархии
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   Операции над коллекциями
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     Проверка на принадлежность
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     Операции порядка
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>О коллекциях в python</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Разнообразие коллекций
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Базовые понятия
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Пример: контейнер, но не итерируемый и без длины
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Пример: итерируемый, но не контейнер и не имеет длины
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   Коллекции
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   Дальнейшее ветвление в иерархии
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   Операции над коллекциями
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     Проверка на принадлежность
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     Операции порядка
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="python">
+<h1>О коллекциях в <code class="docutils literal notranslate"><span class="pre">python</span></code><a class="headerlink" href="#python" title="Permalink to this headline">#</a></h1>
+<section id="id1">
+<h2>Разнообразие коллекций<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<p>В <code class="docutils literal notranslate"><span class="pre">python</span></code> в любой момент времени имеется доступ к нескольким видам коллекций, среди которых:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#lists">list</a> — списки;</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuples">tuple</a> — кортежи;</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#ranges">range</a> — диапазоны;</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a> — строки;</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytearray">bytearray</a> и <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes">bytes</a> — изменяемый и неизменяемый  массивы байтов;</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set">set</a> и <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset">frozenset</a> — изменяемые и неизменяемые множества;</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a> — словари (ассоциативные массивы, хеш таблицы).</p></li>
+</ul>
+<p>Ещё больше коллекций доступно, если брать в расчет модули стандартной библиотеки:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/array.html">array.array</a> — массивы численных значений;</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.deque">collections.deque</a> — двухсторонняя очередь;</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.OrderedDict">collections.OrderedDict</a> — упорядоченный словарь;</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.defaultdict">collections.defaultdict</a> — словарь, со значениями по-умолчанию;</p></li>
+<li><p>и т.д.</p></li>
+</ul>
+<p>А ещё ведь существуют разнообразные коллекции из сторонних библиотек. Может показаться, что познакомиться со всеми коллекциями в <code class="docutils literal notranslate"><span class="pre">python</span></code> — непосильная задача. Однако, можно значительно упростить себе задачу, если выявить между некоторыми коллекциями сходства. Благо сам <code class="docutils literal notranslate"><span class="pre">python</span></code> выделяет среди коллекций некоторую иерархию, которая располагает все свои встроенные коллекции и многие сторонние по полочкам.</p>
+</section>
+<section id="id2">
+<h2>Базовые понятия<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<p>Для начала введём три самых базовых понятия с точки зрения <code class="docutils literal notranslate"><span class="pre">python</span></code>.</p>
+<ol class="simple">
+<li><p>Объект считается <strong>контейнером</strong> (<strong><code class="docutils literal notranslate"><span class="pre">Container</span></code></strong>), если у него можно спросить, содержит ли он какой-то произвольный элемент <code class="docutils literal notranslate"><span class="pre">x</span></code> (<strong>does it <code class="docutils literal notranslate"><span class="pre">contain</span></code> x?</strong> ). Более формально, если <code class="docutils literal notranslate"><span class="pre">A</span></code> контейнер, то для любого <code class="docutils literal notranslate"><span class="pre">x</span></code> выражение <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">in</span> <span class="pre">A</span></code> должно обрабатываться без ошибок.</p></li>
+<li><p>Объект считается <strong>итерируемым</strong> (<strong><code class="docutils literal notranslate"><span class="pre">Iterable</span></code></strong>), если по нему можно пробежаться в цикле (<strong><code class="docutils literal notranslate"><span class="pre">iterate</span></code> over</strong>). Т.е. <code class="docutils literal notranslate"><span class="pre">A</span></code> — итерируемый объект, если можно написать <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">x</span> <span class="pre">in</span> <span class="pre">A:</span> <span class="pre">...</span></code>.</p></li>
+<li><p>Объект считается <strong>объектом ограниченной длины</strong> (<strong><code class="docutils literal notranslate"><span class="pre">Sized</span></code></strong>), если у него можно спросить количество элементов (длина, размер, <strong><code class="docutils literal notranslate"><span class="pre">size</span></code></strong>) методом <a class="reference external" href="https://docs.python.org/3/library/functions.html#len">len</a>. Т.е. <code class="docutils literal notranslate"><span class="pre">A</span></code> — объект ограниченной длинны, если <code class="docutils literal notranslate"><span class="pre">len(A)</span></code> вычисляется без ошибок и возвращает целое неотрицательное число.</p></li>
+</ol>
+<p>Три приведенных выше определения задают три класса объектов, которые хоть и пересекаются между собой, но не совпадают полностью.</p>
+<section id="id3">
+<h3>Пример: контейнер, но не итерируемый и без длины<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<p>Представим себе объект, который будет представлять из себя множество точек внутри интервала <span class="math notranslate nohighlight">\((a, b)\)</span>. Ниже приводится реализация класса <code class="docutils literal notranslate"><span class="pre">Interval</span></code>, который позволяет проверять наличие произвольного действительного числа внутри соответствующего интервала ключевым словом <code class="docutils literal notranslate"><span class="pre">in</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Не обращайте внимания на детали реализации класса <code class="docutils literal notranslate"><span class="pre">Interval</span></code>: о создании пользовательских классов речь пойдет значительно позже. Пока достаточно обратить внимание на то, как в коде происходит обращение с экземпляром данного класса.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">Interval</span><span class="p">:</span>
+    <span class="n">a</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">b</span><span class="p">:</span> <span class="nb">float</span>
+
+    <span class="k">def</span> <span class="fm">__contains__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">element</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span>
+
+<span class="n">interval</span> <span class="o">=</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">):</span>
+    <span class="n">contains</span> <span class="o">=</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">interval</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">=}</span><span class="s2">: </span><span class="si">{</span><span class="n">contains</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x=-0.5: contains=False
+x=0.5: contains=True
+x=1.5: contains=False
+</pre></div>
+</div>
+</div>
+</div>
+<p>Теперь зададимся вопросам, можно ли в каком-то разумном порядке пробежаться по числам из интервала <span class="math notranslate nohighlight">\((a, b)\)</span>? Ответ на данный вопрос — нет. Мало того, что внутри отрезка <span class="math notranslate nohighlight">\((a, b)\)</span> находится бесконечное множество чисел, так это множество ещё и не является <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%A1%D1%87%D1%91%D1%82%D0%BD%D0%BE%D0%B5_%D0%BC%D0%BD%D0%BE%D0%B6%D0%B5%D1%81%D1%82%D0%B2%D0%BE">счетным</a> (более конкретно, оно является <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%9A%D0%BE%D0%BD%D1%82%D0%B8%D0%BD%D1%83%D1%83%D0%BC_(%D1%82%D0%B5%D0%BE%D1%80%D0%B8%D1%8F_%D0%BC%D0%BD%D0%BE%D0%B6%D0%B5%D1%81%D1%82%D0%B2)">континуумом</a>), что как раз и значит, что даже теоретически невозможно поставить в соответствие каждому числу из интервала <span class="math notranslate nohighlight">\((a, b)\)</span> уникальное натуральное число (его порядковый номер).</p>
+<p>Итого, такой объект имеет все полномочия называться контейнером, но он не удовлетворяет определениям итерируемого объекта и объекта ограниченной длины.</p>
+</section>
+<section id="id4">
+<h3>Пример: итерируемый, но не контейнер и не имеет длины<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<p>Забегая вперед, можно привести пример объекта, по которому можно пробежаться в цикле, но который не является контейнером и не имеет определенного размера. В <code class="docutils literal notranslate"><span class="pre">python</span></code> есть специальный тип <strong>генераторов</strong>, для создания которых даже предусмотрен свой специальный синтаксис (см. <a class="reference internal" href="generators.html"><span class="doc std std-doc">Генераторы</span></a>).</p>
+<p>Генераторы очень похожи на итераторы, но в отличии от них по-требованию выдают не существующие элементы какого-то итерируемого объекта, а вычисляют новые значения по какому-то правилу. В зависимости от того, какое правило использовалось при создании генератора, последовательность элементов, генерируемая им, может исчерпаться за конечное число шагов, а может длится бесконечно. При этом в общем случае невозможно автоматически заранее вычислить длину этой последовательности.</p>
+<p>Поэтому генераторы не поддерживают вызов функции <code class="docutils literal notranslate"><span class="pre">len</span></code>, а значит не являются объектами ограниченной длины. Проверить наличие заданного элемента в последовательности, генерируемой заданным генератором, тоже невозможно заблаговременно. Поэтому и контейнером генератор не является.</p>
+</section>
+</section>
+<section id="id5">
+<h2>Коллекции<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
+<p><strong><code class="docutils literal notranslate"><span class="pre">Коллекция</span></code></strong> — объект, который одновременно является <strong>контейнером</strong>, <strong>итерируемым объектом</strong> и <strong>объектом ограниченный длинны</strong>.</p>
+<figure class="align-default">
+<img alt="../../_images/collections_venn.svg" src="../../_images/collections_venn.svg" /></figure>
+<p>С бытовой точки зрения, коллекция — нечто, хранящее в себе совокупность объектов.</p>
+<ul class="simple">
+<li><p>Эта совокупность не может быть бесконечной, т.к. она физически хранится внутри коллекции, а значит должна быть ограниченного размера, т.е. допускает вызов функции <code class="docutils literal notranslate"><span class="pre">len</span></code>.</p></li>
+<li><p>Т.к. эта совокупность ограничена, то мы всегда можем пробежаться по ней (например, в случайном порядке) в цикле, а значит она является итерируемым объектом.</p></li>
+<li><p>Т.к. мы всегда можем пробежаться по её элементам, то мы всегда можем проверить наличия произвольного элемента в коллекции (например, просто сравнив каждый элемент коллекции на равенство в цикле), т.е. коллекция является контейнером.</p></li>
+</ul>
+<p>Разработчики языка <code class="docutils literal notranslate"><span class="pre">python</span></code> смотрят на эту иерархию понятий, как на иерархию классов, где абстрактный класс <code class="docutils literal notranslate"><span class="pre">collection</span></code> наследуется от всех трех выше обозначенных абстрактных классов.</p>
+<figure class="align-default">
+<img alt="../../_images/collections_hierarchy.svg" src="../../_images/collections_hierarchy.svg" /></figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Более конкретно, каждый абстрактный класс в иерархии задаёт интерфейс: только объекты, удовлетворяющие заданному интерфейсу, можно считать экземплярами этого класса. Все производные классы тоже обязанны удовлетворять этому интерфейсу, а значит экземпляры класса <code class="docutils literal notranslate"><span class="pre">Collection</span></code> должны одновременно удовлетворять интерфейсам классов <code class="docutils literal notranslate"><span class="pre">Container</span></code>, <code class="docutils literal notranslate"><span class="pre">Iterable</span></code> и <code class="docutils literal notranslate"><span class="pre">Sized</span></code>.</p>
+</div>
+</section>
+<section id="id6">
+<h2>Дальнейшее ветвление в иерархии<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h2>
+<p>Выше было перечисленно сравнительно больше количество объектов, являющихся коллекциями. Дальнейшая их классификация обычно производится по способу получения доступа к элементам. По такому принципу можно выделить два наиболее широких класса — последовательности (<code class="docutils literal notranslate"><span class="pre">Sequence</span></code>) и отображения (<code class="docutils literal notranslate"><span class="pre">Mapping</span></code>), хотя ещё существуют множества (<code class="docutils literal notranslate"><span class="pre">Set</span></code>) и другие.</p>
+<figure class="align-default">
+<img alt="../../_images/sequence_vs_mapping.svg" src="../../_images/sequence_vs_mapping.svg" /></figure>
+<p>Про последовательности речь пойдет на следующей странице, а с единственным представителем класса <code class="docutils literal notranslate"><span class="pre">Mapping</span></code> мы познакомимся несколько позже (см. <a class="reference internal" href="dictionaries.html"><span class="doc std std-doc">Словари. dict</span></a>).</p>
+</section>
+<section id="id7">
+<h2>Операции над коллекциями<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h2>
+<p>Такое выделение иерархии типов в <code class="docutils literal notranslate"><span class="pre">python</span></code> не случайно. Надо объектами каждого класса можно осуществлять определенный набор операций. Это позволяет применять эти операции в том числе и экземпляров всех производных классов. Ниже приводится два примера таких операций, однако, это далеко не исчерпывающий список: в документации <code class="docutils literal notranslate"><span class="pre">python</span></code> слово <code class="docutils literal notranslate"><span class="pre">iterable</span></code> встречается повсеместно, т.к. возможности пробежаться по элементам в цикле достаточно для очень широкого круга операций.</p>
+<section id="id8">
+<h3>Проверка на принадлежность<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h3>
+<p>У любого контейнера можно проверять наличие элемента, т.е. писать выражение следующего вида.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="ow">in</span> <span class="n">container</span>
+</pre></div>
+</div>
+<p>Т.к. все коллекции по совместительству являются контейнерами, то гарантируется корректность и следующего выражения.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="ow">in</span> <span class="n">collection</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">)</span>
+<span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">]</span>
+<span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;abc&quot;</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;a&quot;</span>
+<span class="k">for</span> <span class="n">collection</span> <span class="ow">in</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="ow">in</span> <span class="n">collection</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+True
+True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id9">
+<h3>Операции порядка<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h3>
+<p>Если все элементы итерируемого объекта однородны и их можно сравнить на предмет “больше/меньше” (написать, <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">y</span></code>), то их можно ранжировать: искать минимальное/максимальное значение и сортировать. Для этого используются встроенные функции <a class="reference external" href="https://docs.python.org/3/library/functions.html#min">min</a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#max">max</a> и <a class="reference external" href="https://docs.python.org/3/library/functions.html#sorted">sorted</a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">iterable</span><span class="p">)</span>
+<span class="n">M</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">iterable</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">iterable</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Т.к. коллекции являются по совместительству и итерируемыми объектами, то среди них тоже можно искать минимум, максимум, и их тоже можно сортировать (всё это при условии однородности хранимых элементов).</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks\python"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="garbage_collector.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Создание и удаление объектов. Сборщик мусора</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="sequences.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Последовательности: списки, кортежи и строки</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Fadeev Egor<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

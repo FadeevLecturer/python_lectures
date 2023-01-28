@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="61.294662mm"
+   height="58.587631mm"
+   viewBox="0 0 61.294662 58.587632"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
+   sodipodi:docname="collections_venn.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.9855336"
+     inkscape:cx="251.06601"
+     inkscape:cy="97.706731"
+     inkscape:window-width="1920"
+     inkscape:window-height="986"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Слой 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-39.1613,-64.105788)">
+    <circle
+       style="fill:#ff0000;fill-opacity:0.198157;fill-rule:evenodd;stroke:#000000;stroke-width:0.926042;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:3.9;stroke-opacity:1"
+       id="path184"
+       cx="64.499954"
+       cy="89.790703"
+       r="24.875633" />
+    <circle
+       style="fill:#00ff00;fill-opacity:0.200461;fill-rule:evenodd;stroke:#000000;stroke-width:0.926042;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:3.9;stroke-opacity:1"
+       id="path184-0"
+       cx="75.11731"
+       cy="89.444443"
+       r="24.875633" />
+    <circle
+       style="fill:#0000ff;fill-opacity:0.205069;fill-rule:evenodd;stroke:#000000;stroke-width:0.926042;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:3.9;stroke-opacity:1"
+       id="path184-0-7"
+       cx="70.286293"
+       cy="97.354767"
+       r="24.875633" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.9389px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="-41.891689"
+       y="87.353256"
+       id="text1465"
+       transform="rotate(-52.134305)"><tspan
+         sodipodi:role="line"
+         id="tspan1463"
+         style="stroke-width:0.264583"
+         x="-41.891689"
+         y="87.353256">Container</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.9389px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="109.77267"
+       y="-3.1954517"
+       id="text1465-9"
+       transform="rotate(42.297196)"><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="109.77267"
+         y="-3.1954517"
+         id="tspan1544">Iterable</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.9389px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="63.638271"
+       y="119.35925"
+       id="text1465-9-7"><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="63.638271"
+         y="119.35925"
+         id="tspan1544-3">Sized</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.9389px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="59.842896"
+       y="91.693535"
+       id="text1604"><tspan
+         sodipodi:role="line"
+         id="tspan1602"
+         style="stroke-width:0.264583"
+         x="59.842896"
+         y="91.693535">Collection</tspan></text>
+  </g>
+</svg>
