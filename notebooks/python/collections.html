@@ -961,13 +961,43 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#container">
+     Контейнер.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Container
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#iterable">
+     Итерируемый объект.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Iterable
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sized">
+     Объект ограниченной длины.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Sized
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id3">
      Пример: контейнер, но не итерируемый и без длины
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id4">
-     Пример: итерируемый, но не контейнер и не имеет длины
+     Пример: итерируемый, но не контейнер и безграничный
     </a>
    </li>
   </ul>
@@ -981,23 +1011,6 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#id6">
    Дальнейшее ветвление в иерархии
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id7">
-   Операции над коллекциями
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id8">
-     Проверка на принадлежность
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id9">
-     Операции порядка
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -1029,13 +1042,43 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#container">
+     Контейнер.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Container
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#iterable">
+     Итерируемый объект.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Iterable
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sized">
+     Объект ограниченной длины.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Sized
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id3">
      Пример: контейнер, но не итерируемый и без длины
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id4">
-     Пример: итерируемый, но не контейнер и не имеет длины
+     Пример: итерируемый, но не контейнер и безграничный
     </a>
    </li>
   </ul>
@@ -1049,23 +1092,6 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#id6">
    Дальнейшее ветвление в иерархии
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id7">
-   Операции над коллекциями
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id8">
-     Проверка на принадлежность
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id9">
-     Операции порядка
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -1103,34 +1129,116 @@ title="Print to PDF"
 </section>
 <section id="id2">
 <h2>Базовые понятия<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
-<p>Для начала введём три самых базовых понятия с точки зрения <code class="docutils literal notranslate"><span class="pre">python</span></code>.</p>
-<ol class="simple">
-<li><p>Объект считается <strong>контейнером</strong> (<strong><code class="docutils literal notranslate"><span class="pre">Container</span></code></strong>), если у него можно спросить, содержит ли он какой-то произвольный элемент <code class="docutils literal notranslate"><span class="pre">x</span></code> (<strong>does it <code class="docutils literal notranslate"><span class="pre">contain</span></code> x?</strong> ). Более формально, если <code class="docutils literal notranslate"><span class="pre">A</span></code> контейнер, то для любого <code class="docutils literal notranslate"><span class="pre">x</span></code> выражение <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">in</span> <span class="pre">A</span></code> должно обрабатываться без ошибок.</p></li>
-<li><p>Объект считается <strong>итерируемым</strong> (<strong><code class="docutils literal notranslate"><span class="pre">Iterable</span></code></strong>), если по нему можно пробежаться в цикле (<strong><code class="docutils literal notranslate"><span class="pre">iterate</span></code> over</strong>). Т.е. <code class="docutils literal notranslate"><span class="pre">A</span></code> — итерируемый объект, если можно написать <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">x</span> <span class="pre">in</span> <span class="pre">A:</span> <span class="pre">...</span></code>.</p></li>
-<li><p>Объект считается <strong>объектом ограниченной длины</strong> (<strong><code class="docutils literal notranslate"><span class="pre">Sized</span></code></strong>), если у него можно спросить количество элементов (длина, размер, <strong><code class="docutils literal notranslate"><span class="pre">size</span></code></strong>) методом <a class="reference external" href="https://docs.python.org/3/library/functions.html#len">len</a>. Т.е. <code class="docutils literal notranslate"><span class="pre">A</span></code> — объект ограниченной длинны, если <code class="docutils literal notranslate"><span class="pre">len(A)</span></code> вычисляется без ошибок и возвращает целое неотрицательное число.</p></li>
-</ol>
-<p>Три приведенных выше определения задают три класса объектов, которые хоть и пересекаются между собой, но не совпадают полностью.</p>
-<section id="id3">
-<h3>Пример: контейнер, но не итерируемый и без длины<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
-<p>Представим себе объект, который будет представлять из себя множество точек внутри интервала <span class="math notranslate nohighlight">\((a, b)\)</span>. Ниже приводится реализация класса <code class="docutils literal notranslate"><span class="pre">Interval</span></code>, который позволяет проверять наличие произвольного действительного числа внутри соответствующего интервала ключевым словом <code class="docutils literal notranslate"><span class="pre">in</span></code>.</p>
+<p>Для начала введём три самых базовых понятия с точки зрения <code class="docutils literal notranslate"><span class="pre">python</span></code>, которые позволят четко сформулировать, что понимается под коллекцией в <code class="docutils literal notranslate"><span class="pre">python</span></code>.</p>
+<section id="container">
+<h3>Контейнер. <code class="docutils literal notranslate"><span class="pre">Container</span></code><a class="headerlink" href="#container" title="Permalink to this headline">#</a></h3>
+<p>Объект считается <strong>контейнером</strong> (<strong><code class="docutils literal notranslate"><span class="pre">Container</span></code></strong>), если у него можно спросить, содержит ли он какой-то произвольный элемент <code class="docutils literal notranslate"><span class="pre">x</span></code> (<strong>does it <code class="docutils literal notranslate"><span class="pre">contain</span></code> x?</strong>). Иными словами, если <code class="docutils literal notranslate"><span class="pre">A</span></code> контейнер, то для любого <code class="docutils literal notranslate"><span class="pre">x</span></code> следующее выражение должно вычисляться без ошибок и возвращать булевое значение.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="ow">in</span> <span class="n">A</span> 
+</pre></div>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Не обращайте внимания на детали реализации класса <code class="docutils literal notranslate"><span class="pre">Interval</span></code>: о создании пользовательских классов речь пойдет значительно позже. Пока достаточно обратить внимание на то, как в коде происходит обращение с экземпляром данного класса.</p>
+<p>СТрого говоря, тип считается контейнером, если у него перегружен метод <code class="docutils literal notranslate"><span class="pre">__contains__</span></code>, что и позволяет его использовать справа от ключевого слова <code class="docutils literal notranslate"><span class="pre">in</span></code>. Однако, если объект не является контейнером, но является итерируемым объектом, то этот объект все равно можно использовать справа от ключевого слова <code class="docutils literal notranslate"><span class="pre">in</span></code>. Такой объект, тем не менее, формально не считается контейнером.</p>
 </div>
+<p>Например, списки являются контейнерами.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">0</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Тест на принадлежность списку работает очень медленно. В большинстве ситуаций, если требуется часто проверять наличие элемента в коллекции, быстрее всего отработают множества (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set">set</a>), которые используют хеш-таблицу для быстрого теста на принадлежность.</p>
+</div>
+</section>
+<section id="iterable">
+<h3>Итерируемый объект. <code class="docutils literal notranslate"><span class="pre">Iterable</span></code><a class="headerlink" href="#iterable" title="Permalink to this headline">#</a></h3>
+<p>Объект считается <strong>итерируемым</strong> (<strong><code class="docutils literal notranslate"><span class="pre">Iterable</span></code></strong>), если по нему можно пробежаться в цикле (<strong><code class="docutils literal notranslate"><span class="pre">iterate</span></code> over</strong>). Т.е. <code class="docutils literal notranslate"><span class="pre">A</span></code> — итерируемый объект, если можно написать следующее выражение.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">A</span><span class="p">:</span> 
+    <span class="o">...</span>
+</pre></div>
+</div>
+<p>Из изученных на первом занятии типов, списки и диапазоны являются итерируемыми объектами, а числа — нет.</p>
+<p>Многие <code class="docutils literal notranslate"><span class="pre">python</span></code> функции ожидают в качестве аргумента итерируемый объект, т.к. возможности пробежаться по элементам итерируемого объекта достаточно для выполнения большинства операций. Например, из итерируемого объекта можно создать список функцией <a class="reference external" href="https://docs.python.org/3/library/functions.html#func-list">list</a>, к нему можно поэлементно применить функцию функцией <a class="reference external" href="https://docs.python.org/3/library/functions.html#map">map</a>, отфильтровать значения функцией <a class="reference external" href="https://docs.python.org/3/library/functions.html#filter">filter</a>, а при выполнении требования на однородность элементов можно искать минимальное и максимальное значение функциями <a class="reference external" href="https://docs.python.org/3/library/functions.html#min">min</a> и <a class="reference external" href="https://docs.python.org/3/library/functions.html#max">max</a>, или получать упорядоченный список элементов функцией <a class="reference external" href="https://docs.python.org/3/library/functions.html#sorted">sorted</a>.</p>
+<p>Кроме этого, из итерируемости объекта следует, что его допустимо использовать справа от ключевого слова <code class="docutils literal notranslate"><span class="pre">in</span></code>: если <code class="docutils literal notranslate"><span class="pre">python</span></code> видит, что объект целенаправленно не реализует интерфейс контейнера, то при тесте на принадлежность <code class="docutils literal notranslate"><span class="pre">python</span></code> пытается воспользоваться итерируемостью объекта. Действительно, можно в цикле сравнить каждый элемент итерируемого объекта с запрашиваем значением, и если хоть один совпал, вернуть истину. Ниже приводится функция <code class="docutils literal notranslate"><span class="pre">contains</span></code>, иллюстрирующая данную идею.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">contains</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">iterable</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="n">element</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span>
+</pre></div>
+</div>
+<p>В настоящем коде достаточно написать <code class="docutils literal notranslate"><span class="pre">element</span> <span class="pre">in</span> <span class="pre">iterable</span></code>, а <code class="docutils literal notranslate"><span class="pre">python</span></code> сам сгенерирует схожий код.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Такой поиск является очень медленным: чтобы убедиться в отсутствии значения в итерируемом объекте, придется сравнить это значение с каждым элементов.</p>
+</div>
+</section>
+<section id="sized">
+<h3>Объект ограниченной длины. <code class="docutils literal notranslate"><span class="pre">Sized</span></code><a class="headerlink" href="#sized" title="Permalink to this headline">#</a></h3>
+<p>Объект считается <strong>объектом ограниченной длины</strong> (<strong><code class="docutils literal notranslate"><span class="pre">Sized</span></code></strong>), если у него можно спросить количество элементов (длина, размер, <strong><code class="docutils literal notranslate"><span class="pre">size</span></code></strong>) функцией <a class="reference external" href="https://docs.python.org/3/library/functions.html#len">len</a>. Т.е. <code class="docutils literal notranslate"><span class="pre">A</span></code> — объект ограниченной длинны, если <code class="docutils literal notranslate"><span class="pre">len(A)</span></code> вычисляется без ошибок и возвращает целое неотрицательное число.</p>
+<p>Все коллекции в <code class="docutils literal notranslate"><span class="pre">python</span></code> удовлетворяют этому свойству, поэтому функцию <code class="docutils literal notranslate"><span class="pre">len</span></code> можно использовать с любой из них.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+3
+3
+3
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id3">
+<h3>Пример: контейнер, но не итерируемый и без длины<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<p>В качестве примера рассмотрим класс <code class="docutils literal notranslate"><span class="pre">Interval</span></code>, экземпляры которого должны репрезентировать в программе математические интервалы, т.е. множества вида <span class="math notranslate nohighlight">\((a, b)=\{x\in\mathbb{R}\mid a&lt;x&lt;b\}\)</span>. Кроме наличия двух действительнозначных атрибутов <code class="docutils literal notranslate"><span class="pre">a</span></code> и <code class="docutils literal notranslate"><span class="pre">b</span></code>, отвечающих за границы интервала, логично для этого типа <code class="docutils literal notranslate"><span class="pre">Interval</span></code> перегрузить действие оператора <code class="docutils literal notranslate"><span class="pre">in</span></code> таким образом, чтобы оно проверяло вхождение числа слева от него в интервал справа от него.</p>
+<p>Ниже приводится возможное определение класса <code class="docutils literal notranslate"><span class="pre">Interval</span></code>, удовлетворяющее обозначенным требованиям. Пока можете не обращать внимание на эту ячейку, объявление пользовательских классов будет обсуждаться значительно позже.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Container</span>
+<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+
 
 <span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">Interval</span><span class="p">:</span>
+<span class="k">class</span> <span class="nc">Interval</span><span class="p">(</span><span class="n">Container</span><span class="p">):</span>
     <span class="n">a</span><span class="p">:</span> <span class="nb">float</span>
     <span class="n">b</span><span class="p">:</span> <span class="nb">float</span>
 
-    <span class="k">def</span> <span class="fm">__contains__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">element</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span>
+    <span class="k">def</span> <span class="fm">__contains__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span>
 
 <span class="n">interval</span> <span class="o">=</span> <span class="n">Interval</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">):</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">interval</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Interval(a=0, b=1)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Помимо самого объявления нового типа <code class="docutils literal notranslate"><span class="pre">Interval</span></code>, в ячейке выше также создан один экземпляр <code class="docutils literal notranslate"><span class="pre">interval</span></code> с параметрами <code class="docutils literal notranslate"><span class="pre">a=0</span></code> и <code class="docutils literal notranslate"><span class="pre">b=1</span></code>, который соответствует интервалу <span class="math notranslate nohighlight">\((0, 1)\)</span>. Этот объект теперь можно использовать для определения принадлежности любого числа <code class="docutils literal notranslate"><span class="pre">x</span></code> интервалу <span class="math notranslate nohighlight">\((0, 1)\)</span> синтаксисом <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">in</span> <span class="pre">interval</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
     <span class="n">contains</span> <span class="o">=</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">interval</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">=}</span><span class="s2">: </span><span class="si">{</span><span class="n">contains</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
@@ -1144,14 +1252,114 @@ x=1.5: contains=False
 </div>
 </div>
 </div>
-<p>Теперь зададимся вопросам, можно ли в каком-то разумном порядке пробежаться по числам из интервала <span class="math notranslate nohighlight">\((a, b)\)</span>? Ответ на данный вопрос — нет. Мало того, что внутри отрезка <span class="math notranslate nohighlight">\((a, b)\)</span> находится бесконечное множество чисел, так это множество ещё и не является <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%A1%D1%87%D1%91%D1%82%D0%BD%D0%BE%D0%B5_%D0%BC%D0%BD%D0%BE%D0%B6%D0%B5%D1%81%D1%82%D0%B2%D0%BE">счетным</a> (более конкретно, оно является <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%9A%D0%BE%D0%BD%D1%82%D0%B8%D0%BD%D1%83%D1%83%D0%BC_(%D1%82%D0%B5%D0%BE%D1%80%D0%B8%D1%8F_%D0%BC%D0%BD%D0%BE%D0%B6%D0%B5%D1%81%D1%82%D0%B2)">континуумом</a>), что как раз и значит, что даже теоретически невозможно поставить в соответствие каждому числу из интервала <span class="math notranslate nohighlight">\((a, b)\)</span> уникальное натуральное число (его порядковый номер).</p>
+<p>С формальной точки зрения такой объект является контейнером. Теперь зададимся вопросами:</p>
+<ol class="simple">
+<li><p>можно ли поставить в соответствие интервалу <span class="math notranslate nohighlight">\((a, b)\)</span> какое-то разумное значение длины?</p></li>
+<li><p>можно ли в каком-то разумном порядке пробежаться по числам из интервала <span class="math notranslate nohighlight">\((a, b)\)</span>?</p></li>
+</ol>
+<p>Ответ на первый вопрос — нет. Функция <code class="docutils literal notranslate"><span class="pre">len</span></code> должна возвращать неотрицательное целое число, т.к. её смысл — количество элементов. Известно, что в отрезке <span class="math notranslate nohighlight">\((a, b)\)</span> находится бесконечное количество точек, поэтому <code class="docutils literal notranslate"><span class="pre">len</span></code> не может возвращать количество точек внутри отрезка (значение <code class="docutils literal notranslate"><span class="pre">+inf</span></code> может принимать только <code class="docutils literal notranslate"><span class="pre">float</span></code> в <code class="docutils literal notranslate"><span class="pre">python</span></code>). Математическая длина отрезка <span class="math notranslate nohighlight">\(b-a\)</span> тоже не подходит, т.к. в общем случае эта величина является не целым числом (да и противоречило бы изначальному смыслу, вкладываемому в функцию <code class="docutils literal notranslate"><span class="pre">len</span></code>). В связи с эти разумно заключить, что <code class="docutils literal notranslate"><span class="pre">Interval</span></code> не является объектом ограниченной длины.</p>
+<p>Ответ на второй вопрос — нет. Мало того, что внутри отрезка <span class="math notranslate nohighlight">\((a, b)\)</span> находится бесконечное множество чисел, так это множество ещё и не является <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%A1%D1%87%D1%91%D1%82%D0%BD%D0%BE%D0%B5_%D0%BC%D0%BD%D0%BE%D0%B6%D0%B5%D1%81%D1%82%D0%B2%D0%BE">счетным</a> (более конкретно, оно является <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%9A%D0%BE%D0%BD%D1%82%D0%B8%D0%BD%D1%83%D1%83%D0%BC_(%D1%82%D0%B5%D0%BE%D1%80%D0%B8%D1%8F_%D0%BC%D0%BD%D0%BE%D0%B6%D0%B5%D1%81%D1%82%D0%B2)">континуумом</a>), что как раз и значит, что даже теоретически невозможно поставить в соответствие каждому числу из интервала <span class="math notranslate nohighlight">\((a, b)\)</span> уникальное натуральное число (его порядковый номер). В связи с эти разумно заключить, что <code class="docutils literal notranslate"><span class="pre">Interval</span></code> не является итерируемым объектом.</p>
 <p>Итого, такой объект имеет все полномочия называться контейнером, но он не удовлетворяет определениям итерируемого объекта и объекта ограниченной длины.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Container</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">Sized</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">interval</span><span class="p">,</span> <span class="n">Container</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">interval</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">interval</span><span class="p">,</span> <span class="n">Sized</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+False
+False
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="id4">
-<h3>Пример: итерируемый, но не контейнер и не имеет длины<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<h3>Пример: итерируемый, но не контейнер и безграничный<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
 <p>Забегая вперед, можно привести пример объекта, по которому можно пробежаться в цикле, но который не является контейнером и не имеет определенного размера. В <code class="docutils literal notranslate"><span class="pre">python</span></code> есть специальный тип <strong>генераторов</strong>, для создания которых даже предусмотрен свой специальный синтаксис (см. <a class="reference internal" href="generators.html"><span class="doc std std-doc">Генераторы</span></a>).</p>
-<p>Генераторы очень похожи на итераторы, но в отличии от них по-требованию выдают не существующие элементы какого-то итерируемого объекта, а вычисляют новые значения по какому-то правилу. В зависимости от того, какое правило использовалось при создании генератора, последовательность элементов, генерируемая им, может исчерпаться за конечное число шагов, а может длится бесконечно. При этом в общем случае невозможно автоматически заранее вычислить длину этой последовательности.</p>
-<p>Поэтому генераторы не поддерживают вызов функции <code class="docutils literal notranslate"><span class="pre">len</span></code>, а значит не являются объектами ограниченной длины. Проверить наличие заданного элемента в последовательности, генерируемой заданным генератором, тоже невозможно заблаговременно. Поэтому и контейнером генератор не является.</p>
+<p>Генераторы очень похожи на итераторы, но в отличии от них по-требованию выдают не существующие элементы какого-то итерируемого объекта, а вычисляют новые значения по заданному правилу. Одна из основных идей, скрывающихся за генераторами, заключается в экономии памяти: вместо одновременного хранения всех элементов последовательности в памяти, достаточно хранить только рецепт для вычисления каждого следующего.</p>
+<p>В зависимости от того, какое правило использовалось при создании генератора, последовательность элементов, генерируемая им, может исчерпаться за конечное число шагов, а может длиться бесконечно.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Примером бесконечного генератора является <a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.count">itertools.count</a>, который генерирует бесконечную арифметическую последовательность.</p>
+</div>
+<p>Внизу объявляется генератор <code class="docutils literal notranslate"><span class="pre">generator</span></code> (обратите на наличие ключевого слова <code class="docutils literal notranslate"><span class="pre">yield</span></code>), и демонстрируется, что по нему можно пробежаться в цикле.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generator</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">yield from</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">generator</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 1 2 3 4 5 6 7 8 9 
+</pre></div>
+</div>
+</div>
+</div>
+<p>При этом в общем случае невозможно автоматически заранее вычислить длину этой последовательности, хотя бы потому, что она может оказаться бесконечной. Поэтому генераторы не поддерживают вызов функции <code class="docutils literal notranslate"><span class="pre">len</span></code>, а значит не являются объектами ограниченной длины. Внизу демонстрируется этот факт.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">generator</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">len</span><span class="p">(</span><span class="n">generator</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="ne">TypeError</span>: object of type &#39;generator&#39; has no len()
+</pre></div>
+</div>
+</div>
+</div>
+<p>Проверить наличие элемента в генераторе, можно только воспользовавшись тем, что он итерирумый объект, т.к. в общем случае невозможно заранее предугадать будет ли такой элемент в генерируемой последовательности, особенно, если она бесконечная.</p>
+<p>Однако, такое поведение является побочным проявлением итерируемости генераторов, и используя генераторы в качестве контейнеров, можно наткнуться на неожиданные эффекты. Посмотрите на следующий пример, две последовательные проверки вхождений <code class="docutils literal notranslate"><span class="pre">0</span></code> в один и тот же объект <code class="docutils literal notranslate"><span class="pre">g</span></code> дают разный ответ.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">generator</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">0</span> <span class="ow">in</span> <span class="n">g</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">0</span> <span class="ow">in</span> <span class="n">g</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+False
+</pre></div>
+</div>
+</div>
+</div>
+<p>Кроме того, использование бесконечно генератора справа от ключевого слова <code class="docutils literal notranslate"><span class="pre">in</span></code> запустит бесконечный цикл. Ну и наконец, наиболее формальный ответ: у генераторов не перегружен метод <code class="docutils literal notranslate"><span class="pre">__contains__</span></code>, что отнимает у них право называться контейнером.</p>
+<p>Итого, генераторы являются итерируемыми объектами, но не контейнерами и не объектами ограниченной длины.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Container</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">Sized</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">Container</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">Sized</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+True
+False
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="id5">
@@ -1162,46 +1370,19 @@ x=1.5: contains=False
 <p>С бытовой точки зрения, коллекция — нечто, хранящее в себе совокупность объектов.</p>
 <ul class="simple">
 <li><p>Эта совокупность не может быть бесконечной, т.к. она физически хранится внутри коллекции, а значит должна быть ограниченного размера, т.е. допускает вызов функции <code class="docutils literal notranslate"><span class="pre">len</span></code>.</p></li>
-<li><p>Т.к. эта совокупность ограничена, то мы всегда можем пробежаться по ней (например, в случайном порядке) в цикле, а значит она является итерируемым объектом.</p></li>
-<li><p>Т.к. мы всегда можем пробежаться по её элементам, то мы всегда можем проверить наличия произвольного элемента в коллекции (например, просто сравнив каждый элемент коллекции на равенство в цикле), т.е. коллекция является контейнером.</p></li>
+<li><p>Т.к. эта совокупность ограничена, то мы всегда можем пробежаться по её элементам (например, в случайном порядке, хотя нередко этот порядок возникает естественным образом), а значит она должна являться итерируемым объектом.</p></li>
+<li><p>Т.к. мы всегда можем пробежаться по её элементам, то мы всегда можем проверить наличия произвольного элемента в коллекции (например, просто сравнив каждый элемент коллекции на равенство в цикле), т.е. коллекция должна являться контейнером.</p></li>
 </ul>
 <p>Разработчики языка <code class="docutils literal notranslate"><span class="pre">python</span></code> смотрят на эту иерархию понятий, как на иерархию классов, где абстрактный класс <code class="docutils literal notranslate"><span class="pre">collection</span></code> наследуется от всех трех выше обозначенных абстрактных классов.</p>
 <figure class="align-default">
 <img alt="../../_images/collections_hierarchy.svg" src="../../_images/collections_hierarchy.svg" /></figure>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Более конкретно, каждый абстрактный класс в иерархии задаёт интерфейс: только объекты, удовлетворяющие заданному интерфейсу, можно считать экземплярами этого класса. Все производные классы тоже обязанны удовлетворять этому интерфейсу, а значит экземпляры класса <code class="docutils literal notranslate"><span class="pre">Collection</span></code> должны одновременно удовлетворять интерфейсам классов <code class="docutils literal notranslate"><span class="pre">Container</span></code>, <code class="docutils literal notranslate"><span class="pre">Iterable</span></code> и <code class="docutils literal notranslate"><span class="pre">Sized</span></code>.</p>
-</div>
-</section>
-<section id="id6">
-<h2>Дальнейшее ветвление в иерархии<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h2>
-<p>Выше было перечисленно сравнительно больше количество объектов, являющихся коллекциями. Дальнейшая их классификация обычно производится по способу получения доступа к элементам. По такому принципу можно выделить два наиболее широких класса — последовательности (<code class="docutils literal notranslate"><span class="pre">Sequence</span></code>) и отображения (<code class="docutils literal notranslate"><span class="pre">Mapping</span></code>), хотя ещё существуют множества (<code class="docutils literal notranslate"><span class="pre">Set</span></code>) и другие.</p>
-<figure class="align-default">
-<img alt="../../_images/sequence_vs_mapping.svg" src="../../_images/sequence_vs_mapping.svg" /></figure>
-<p>Про последовательности речь пойдет на следующей странице, а с единственным представителем класса <code class="docutils literal notranslate"><span class="pre">Mapping</span></code> мы познакомимся несколько позже (см. <a class="reference internal" href="dictionaries.html"><span class="doc std std-doc">Словари. dict</span></a>).</p>
-</section>
-<section id="id7">
-<h2>Операции над коллекциями<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h2>
-<p>Такое выделение иерархии типов в <code class="docutils literal notranslate"><span class="pre">python</span></code> не случайно. Надо объектами каждого класса можно осуществлять определенный набор операций. Это позволяет применять эти операции в том числе и экземпляров всех производных классов. Ниже приводится два примера таких операций, однако, это далеко не исчерпывающий список: в документации <code class="docutils literal notranslate"><span class="pre">python</span></code> слово <code class="docutils literal notranslate"><span class="pre">iterable</span></code> встречается повсеместно, т.к. возможности пробежаться по элементам в цикле достаточно для очень широкого круга операций.</p>
-<section id="id8">
-<h3>Проверка на принадлежность<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h3>
-<p>У любого контейнера можно проверять наличие элемента, т.е. писать выражение следующего вида.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="ow">in</span> <span class="n">container</span>
-</pre></div>
-</div>
-<p>Т.к. все коллекции по совместительству являются контейнерами, то гарантируется корректность и следующего выражения.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="ow">in</span> <span class="n">collection</span>
-</pre></div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">)</span>
-<span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">]</span>
-<span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;abc&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Collection</span><span class="p">,</span> <span class="n">Container</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">Sized</span>
 
-<span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;a&quot;</span>
-<span class="k">for</span> <span class="n">collection</span> <span class="ow">in</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="ow">in</span> <span class="n">collection</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">issubclass</span><span class="p">(</span><span class="n">Collection</span><span class="p">,</span> <span class="n">Container</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">issubclass</span><span class="p">(</span><span class="n">Collection</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">issubclass</span><span class="p">(</span><span class="n">Collection</span><span class="p">,</span> <span class="n">Sized</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1213,17 +1394,33 @@ True
 </div>
 </div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Более конкретно, каждый абстрактный класс в иерархии задаёт интерфейс: только объекты, удовлетворяющие заданному интерфейсу, можно считать экземплярами этого класса. Все производные классы тоже обязанны удовлетворять этому интерфейсу, а значит экземпляры класса <code class="docutils literal notranslate"><span class="pre">Collection</span></code> должны одновременно удовлетворять интерфейсам классов <code class="docutils literal notranslate"><span class="pre">Container</span></code>, <code class="docutils literal notranslate"><span class="pre">Iterable</span></code> и <code class="docutils literal notranslate"><span class="pre">Sized</span></code>.</p>
+</div>
 </section>
-<section id="id9">
-<h3>Операции порядка<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h3>
-<p>Если все элементы итерируемого объекта однородны и их можно сравнить на предмет “больше/меньше” (написать, <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">y</span></code>), то их можно ранжировать: искать минимальное/максимальное значение и сортировать. Для этого используются встроенные функции <a class="reference external" href="https://docs.python.org/3/library/functions.html#min">min</a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#max">max</a> и <a class="reference external" href="https://docs.python.org/3/library/functions.html#sorted">sorted</a>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">iterable</span><span class="p">)</span>
-<span class="n">M</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">iterable</span><span class="p">)</span>
-<span class="n">s</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">iterable</span><span class="p">)</span>
+<section id="id6">
+<h2>Дальнейшее ветвление в иерархии<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h2>
+<p>Выше было перечисленно сравнительно больше количество объектов, являющихся коллекциями. Дальнейшая их классификация обычно производится по способу получения доступа к элементам. По такому принципу можно выделить два наиболее широких класса — последовательности (<code class="docutils literal notranslate"><span class="pre">Sequence</span></code>) и отображения (<code class="docutils literal notranslate"><span class="pre">Mapping</span></code>), хотя ещё существуют множества (<code class="docutils literal notranslate"><span class="pre">Set</span></code>) и другие.</p>
+<figure class="align-default">
+<img alt="../../_images/sequence_vs_mapping.svg" src="../../_images/sequence_vs_mapping.svg" /></figure>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Collection</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Mapping</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">issubclass</span><span class="p">(</span><span class="n">Sequence</span><span class="p">,</span> <span class="n">Collection</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">issubclass</span><span class="p">(</span><span class="n">Mapping</span><span class="p">,</span> <span class="n">Collection</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>Т.к. коллекции являются по совместительству и итерируемыми объектами, то среди них тоже можно искать минимум, максимум, и их тоже можно сортировать (всё это при условии однородности хранимых элементов).</p>
-</section>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Про последовательности речь пойдет на следующей странице, а среди класса <code class="docutils literal notranslate"><span class="pre">Mapping</span></code> мы познакомимся только с одним представителем, но несколько позже (см. <a class="reference internal" href="dictionaries.html"><span class="doc std std-doc">Словари. dict</span></a>).</p>
 </section>
 </section>
 

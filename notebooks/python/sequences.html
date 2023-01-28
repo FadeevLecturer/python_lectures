@@ -1223,6 +1223,26 @@ title="Print to PDF"
 </ul>
 <figure class="align-default">
 <img alt="../../_images/sequencies.svg" src="../../_images/sequencies.svg" /></figure>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Sequence</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">issubclass</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">issubclass</span><span class="p">(</span><span class="nb">tuple</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">issubclass</span><span class="p">(</span><span class="nb">range</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">issubclass</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+True
+True
+True
+</pre></div>
+</div>
+</div>
+</div>
 <p>Коллекция является последовательностью, если элементы этой коллекции упорядоченны. Следствием этого свойства является возможность индексации последовательности по порядковому номеру элемента (по смещению, по целочисленному индексу), т.е. у любой последовательности можно спросить её <span class="math notranslate nohighlight">\(i\)</span>-й элемент.</p>
 <p>Более формально это значит, что если <code class="docutils literal notranslate"><span class="pre">s</span></code> — объект-последовательность, <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code> и <code class="docutils literal notranslate"><span class="pre">k</span></code> — индексы (целые числа), то доступные следующие операции.</p>
 <table class="colwidths-auto table">
