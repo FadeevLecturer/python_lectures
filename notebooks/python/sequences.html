@@ -1310,7 +1310,7 @@ True
 </table>
 <section id="id4">
 <h3>Принадлежность контейнеру<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
-<p>Т.к. все последовательности являются контейнерами (обратное не верно), то у любой последовательности <code class="docutils literal notranslate"><span class="pre">sequence</span></code> можно выяснять, содержит ли она объект <code class="docutils literal notranslate"><span class="pre">x</span></code> следующим синтаксисом.</p>
+<p>Т.к. все последовательности являются контейнерами (обратное неверно), то у любой последовательности <code class="docutils literal notranslate"><span class="pre">sequence</span></code> можно выяснять, содержит ли она объект <code class="docutils literal notranslate"><span class="pre">x</span></code> следующим синтаксисом.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="ow">in</span> <span class="n">sequence</span>
 </pre></div>
 </div>
@@ -1346,7 +1346,7 @@ False
 </div>
 </div>
 </div>
-<p>Вместо того, чтобы отрицать результат проверки на принадлежность, можно проверять на непринадлежность сразу.</p>
+<p>Вместо того чтобы отрицать результат проверки на принадлежность, можно проверять на непринадлежность сразу.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;z&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">s</span><span class="p">)</span>
@@ -1486,7 +1486,7 @@ True
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>На самом деле <code class="docutils literal notranslate"><span class="pre">python</span></code> упорядочивает символы согласно их <a class="reference external" href="https://en.wikipedia.org/wiki/Code_point">unicode кодам</a>. В таблицу символов <code class="docutils literal notranslate"><span class="pre">unicode</span></code> входят в том числе и <a class="reference external" href="https://home.unicode.org/emoji/about-emoji/">emoji</a>, что позволяет средствами <code class="docutils literal notranslate"><span class="pre">python</span></code> ответить на извечный вопрос: “Что появилось раньше, яйцо или курица?”.</p>
+<p>На самом деле <code class="docutils literal notranslate"><span class="pre">python</span></code> упорядочивает символы согласно их <a class="reference external" href="https://en.wikipedia.org/wiki/Code_point">unicode кодам</a>. В таблицу символов <code class="docutils literal notranslate"><span class="pre">unicode</span></code> входят, в том числе и <a class="reference external" href="https://home.unicode.org/emoji/about-emoji/">emoji</a>, что позволяет средствами <code class="docutils literal notranslate"><span class="pre">python</span></code> ответить на извечный вопрос: “Что появилось раньше, яйцо или курица?”.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1510,7 +1510,7 @@ True
 <section id="list">
 <h2>Списки. <code class="docutils literal notranslate"><span class="pre">list</span></code><a class="headerlink" href="#list" title="Permalink to this headline">#</a></h2>
 <p>Под капотом списки реализованы в виде <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%94%D0%B8%D0%BD%D0%B0%D0%BC%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9_%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2">динамического массива</a> (т.е. похожего на <a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector">std::vector</a> массива, размер которого может изменяться) указателей на его элементы. Ссылки могут вести на объекты произвольных типов, как и в случае обычных имён в программе.</p>
-<p>Ниже создаётся список и схематично приводится его устройство устройство.</p>
+<p>Ниже создаётся список и схематично приводится его устройство.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">42</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">,</span> <span class="s2">&quot;abc&quot;</span><span class="p">]</span>
@@ -1937,7 +1937,7 @@ x_{1, 2} = \dfrac{-b \pm \sqrt{b^2 - 4c}}{2}.
 </div>
 </div>
 </div>
-<p>Заметим, что список <code class="docutils literal notranslate"><span class="pre">planets</span></code> хранит однородные объекты — кортежи из трех элементов, описывающие планеты, а каждый из кортежей состоит из разнородных объектов, т.к. они представляют из себя разные свойства планеты: имя (строка), количество планет (целое число) и масса (действительное число).</p>
+<p>Заметим, что список <code class="docutils literal notranslate"><span class="pre">planets</span></code> хранит однородные объекты — кортежи из трех элементов, описывающие планеты, а каждый из кортежей состоит из разнородных объектов, т.к. они представляют собой разные свойства планеты: имя (строка), количество планет (целое число) и масса (действительное число).</p>
 <p>Элементы списка <code class="docutils literal notranslate"><span class="pre">planets</span></code> удобно обрабатывать одним и тем же кодом, так как все они имеют одинаковую структуру. Каждую запись о планете легко распаковать по переменным согласно полям этой записи.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2056,7 +2056,7 @@ and will keep getting better&quot; - Guido van Rossum.
 <section id="id12">
 <h3>Строковые методы<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h3>
 <p>У строковых объектов есть огромное количество методов, которые обычно возвращают отредактированную тем или иным образом строку (всегда новую, т.к. строки неизменяемы). С полным списком методов можно ознакомиться <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#string-methods">по ссылке</a>, а здесь будут упомянуты самые необходимые.</p>
-<p>Метод <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.strip">strip</a> удаляет переданные ему в качестве параметра символы по обоим краям строки. По умолчанию удаляет пробелы. Существуют аналогичные методы <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.lstrip">lstrip</a> и <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.rstrip">rstrip</a>, которые делают тоже самое, но только с левого конца и с правого конца соответственно.</p>
+<p>Метод <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.strip">strip</a> удаляет переданные ему в качестве параметра символы по обоим краям строки. По умолчанию удаляет пробелы. Существуют аналогичные методы <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.lstrip">lstrip</a> и <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.rstrip">rstrip</a>, которые делают то же самое, но только с левого конца и с правого конца соответственно.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;   spacious   &quot;</span>
@@ -2213,7 +2213,7 @@ The last man on Earth sat alone in a room. There was a knock at the door...
 </div>
 <p>Какой из них выбрать — по большей части дело вкуса.</p>
 <p>Форматирование в стиле <code class="docutils literal notranslate"><span class="pre">C</span></code> было введено в <code class="docutils literal notranslate"><span class="pre">python</span></code> вместе с самой первой версией языка и гарантированно будет работать на более старых версиях <code class="docutils literal notranslate"><span class="pre">python</span></code>. Из-за схожести с форматированием в языке <code class="docutils literal notranslate"><span class="pre">C</span></code>, а также из-за того, что раньше этот способ был единственным, некоторым программистам легче воспринимать код, форматирующий строки в таком стиле в силу привычки.</p>
-<p>Метод <code class="docutils literal notranslate"><span class="pre">format</span></code> более наглядный и допускает более гибкое форматирование, чем форматирование в стиле <code class="docutils literal notranslate"><span class="pre">C</span></code>. Они оба позволяют переиспользовать одну и ту жу шаблонную строку для многократного форматирования, но методом <code class="docutils literal notranslate"><span class="pre">format</span></code> это делать естественнее. Это может быть очень эффективно, если в вашей программе необходимо регулярно подставлять какие-то значения в определенные позиции одного и того же шаблона. Никакими другими перечисленными здесь методами такого эффекта не достичь, но в ряде ситуация оправданным будет использовать  для таких целей класс <a class="reference external" href="https://docs.python.org/3/library/string.html#template-strings">Template</a> из модуля <a class="reference external" href="https://docs.python.org/3/library/string.html#module-string">string</a>.</p>
+<p>Метод <code class="docutils literal notranslate"><span class="pre">format</span></code> более наглядный и допускает более гибкое форматирование, чем форматирование в стиле <code class="docutils literal notranslate"><span class="pre">C</span></code>. Они оба позволяют переиспользовать одну и ту же шаблонную строку для многократного форматирования, но методом <code class="docutils literal notranslate"><span class="pre">format</span></code> это делать естественнее. Это может быть очень эффективно, если в вашей программе необходимо регулярно подставлять какие-то значения в определенные позиции одного и того же шаблона. Никакими другими перечисленными здесь методами такого эффекта не достичь, но в ряде ситуация оправданным будет использовать  для таких целей класс <a class="reference external" href="https://docs.python.org/3/library/string.html#template-strings">Template</a> из модуля <a class="reference external" href="https://docs.python.org/3/library/string.html#module-string">string</a>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">f-строки</span></code> введены сравнительно недавно и наверное представляют собой самый наглядный способ форматирования строк на сегодня, хотя и не все с этим согласны. Переиспользовать многократно одну и ту же <code class="docutils literal notranslate"><span class="pre">f-строку</span></code> не выйдет: она вычисляется на лету каждый раз. Ниже будут коротко описаны самые основы этого способа.</p>
 <section id="f">
 <h4><code class="docutils literal notranslate"><span class="pre">f-строки</span></code>.<a class="headerlink" href="#f" title="Permalink to this headline">#</a></h4>
