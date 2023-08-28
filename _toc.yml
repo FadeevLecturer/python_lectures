@@ -74,7 +74,10 @@ parts:
       # - file: notebooks/scipy/homework
   - caption: "Лекция №8"
     chapters:
+      - file: notebooks/python/OOP
       - file: notebooks/python/custom_classes
+      - file: notebooks/python/encapsulation
+      - file: notebooks/python/hiding
       - file: notebooks/python/inheritance
       - file: notebooks/python/polymorphism
       - file: notebooks/python/operators_overloading
